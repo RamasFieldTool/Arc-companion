@@ -1,20 +1,137 @@
-// V2.9.9 — tactical Spaceport Raider spawn map. Community positions remain approximate.
-const spawnText={de:{intro:'Mögliche Startpositionen von Raidern auf Spaceport. Die Marker zeigen keine aktuellen Gegnerpositionen.',badge:'COMMUNITY // CA.',approxTitle:'21 mögliche Raider-Spawns',approxBody:'Community-Daten · ungefähre Positionen · nicht offiziell von Embark bestätigt',counts:'Vergleich anderer Community-Quellen',marker:'Möglicher Raider-Spawn',legend:'Möglicher Raider-Spawn',hint:'Ziehen zum Verschieben · +/- oder zwei Finger zum Zoomen · Marker antippen für Details',selected:'Möglicher Spawn',selectedBody:'Ungefähre Community-Position. Kein Hinweis darauf, dass hier in deinem aktuellen Raid ein Spieler gespawnt ist.',sourceImage:'Kartenbasis: Arc Raiders AI',sourceWiki:'ARC Raiders Wiki',sourceWand:'Wand',sourceGrid:'Raider Grid'},en:{intro:'Possible Raider starting positions on Spaceport. Markers do not show current enemy positions.',badge:'COMMUNITY // APPROX.',approxTitle:'21 possible Raider spawns',approxBody:'Community data · approximate positions · not officially confirmed by Embark',counts:'Comparison with other community sources',marker:'Possible Raider spawn',legend:'Possible Raider spawn',hint:'Drag to pan · +/- or pinch to zoom · tap a marker for details',selected:'Possible spawn',selectedBody:'Approximate community position. It does not mean a player spawned here in your current raid.',sourceImage:'Map base: Arc Raiders AI',sourceWiki:'ARC Raiders Wiki',sourceWand:'Wand',sourceGrid:'Raider Grid'}};
-let spawnData=null,spawnScale=1,spawnX=0,spawnY=0,dragStart=null;
+// V2.10.0 — generic multi-map Raider spawn module. Community positions remain approximate.
+const spawnText={
+  de:{
+    intro:(map)=>`Mögliche Startpositionen von Raidern auf ${map}. Die Marker zeigen keine aktuellen Gegnerpositionen.`,
+    badge:'COMMUNITY // CA.',
+    approxTitle:(count)=>`${count} mögliche Raider-Spawns`,
+    approxBody:'Community-Daten · ungefähre Positionen · nicht offiziell von Embark bestätigt',
+    counts:'Vergleich anderer Community-Quellen',
+    marker:'Möglicher Raider-Spawn',
+    legend:'Möglicher Raider-Spawn',
+    hint:'Ziehen zum Verschieben · +/- oder zwei Finger zum Zoomen · Marker antippen für Details',
+    selected:'Möglicher Spawn',
+    selectedBody:'Ungefähre Community-Position. Kein Hinweis darauf, dass hier in deinem aktuellen Raid ein Spieler gespawnt ist.',
+    sourceImage:'Kartenbasis',
+    mapSelect:'Karte auswählen'
+  },
+  en:{
+    intro:(map)=>`Possible Raider starting positions on ${map}. Markers do not show current enemy positions.`,
+    badge:'COMMUNITY // APPROX.',
+    approxTitle:(count)=>`${count} possible Raider spawns`,
+    approxBody:'Community data · approximate positions · not officially confirmed by Embark',
+    counts:'Comparison with other community sources',
+    marker:'Possible Raider spawn',
+    legend:'Possible Raider spawn',
+    hint:'Drag to pan · +/- or pinch to zoom · tap a marker for details',
+    selected:'Possible spawn',
+    selectedBody:'Approximate community position. It does not mean a player spawned here in your current raid.',
+    sourceImage:'Map base',
+    mapSelect:'Select map'
+  }
+};
+
+let mapCatalog=null;
+let activeMapMeta=null;
+let spawnData=null;
+let spawnScale=1,spawnX=0,spawnY=0,dragStart=null;
 const activePointers=new Map();
 let pinchStartDistance=null,pinchStartScale=1;
+
 function spawnLang(){try{return lang==='en'?'en':'de'}catch{return'de'}}
+function mapLabel(meta=activeMapMeta){if(!meta)return'';const l=spawnLang();return meta.label?.[l]||meta.label?.en||meta.id||''}
 function applySpawnTransform(){const c=document.getElementById('spawnCanvas');if(c)c.style.transform=`translate(${spawnX}px,${spawnY}px) scale(${spawnScale})`}
 function clampSpawnPan(){const v=document.getElementById('spawnViewport');if(!v)return;const lim=v.clientWidth*(spawnScale-1)/2;spawnX=Math.max(-lim,Math.min(lim,spawnX));spawnY=Math.max(-lim,Math.min(lim,spawnY))}
 function setSpawnZoom(next){spawnScale=Math.max(1,Math.min(3,next));if(spawnScale===1){spawnX=0;spawnY=0}else{clampSpawnPan()}applySpawnTransform()}
-function selectSpawn(i){document.querySelectorAll('.spawn-marker').forEach((m,n)=>m.classList.toggle('active',n===i));const box=document.getElementById('spawnSelected'),t=spawnText[spawnLang()];if(box){box.hidden=false;box.innerHTML=`<b>${t.selected} ${String(i+1).padStart(2,'0')}</b><br>${t.selectedBody}`;box.scrollIntoView({block:'nearest',behavior:'smooth'})}}
-function renderSpawnMarkers(){const layer=document.getElementById('spawnMarkers');if(!layer)return;const t=spawnText[spawnLang()],points=spawnData?.points||[];layer.innerHTML=points.map((p,i)=>`<button class="spawn-marker" data-spawn="${i}" type="button" style="left:${p.x}%;top:${p.y}%" aria-label="${t.marker} ${i+1}" title="${t.marker} ${i+1}"><span>${i+1}</span></button>`).join('');layer.querySelectorAll('.spawn-marker').forEach((m,i)=>m.addEventListener('click',e=>{e.stopPropagation();selectSpawn(i)}))}
-function renderSpawnPanel(){const t=spawnText[spawnLang()];const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};set('spawnIntro',t.intro);set('spawnBadge',t.badge);set('spawnPendingTitle',t.approxTitle);set('spawnPendingBody',spawnData?.notes?.[spawnLang()]||t.approxBody);set('spawnLegendText',t.legend);set('spawnGestureHint',t.hint);set('spawnWiki',t.sourceWiki);set('spawnWand',t.sourceWand);set('spawnGrid',t.sourceGrid);set('spawnImageCredit',t.sourceImage);const img=document.getElementById('spawnMapImage');if(img&&spawnData?.mapImage)img.src=spawnData.mapImage;const counts=document.getElementById('spawnCounts');if(counts&&spawnData?.reportedCounts?.length)counts.innerHTML=`<b>${t.counts}:</b> `+spawnData.reportedCounts.map(x=>`${x.source} ${x.count}`).join(' · ');renderSpawnMarkers()}
+function resetSpawnView(){spawnScale=1;spawnX=0;spawnY=0;dragStart=null;activePointers.clear();pinchStartDistance=null;pinchStartScale=1;applySpawnTransform();const box=document.getElementById('spawnSelected');if(box)box.hidden=true;document.querySelectorAll('.spawn-marker.active').forEach(m=>m.classList.remove('active'))}
+
+function selectSpawn(i){
+  const points=spawnData?.points||[];
+  const p=points[i];
+  document.querySelectorAll('.spawn-marker').forEach((m,n)=>m.classList.toggle('active',n===i));
+  const box=document.getElementById('spawnSelected'),t=spawnText[spawnLang()];
+  if(box&&p){box.hidden=false;box.innerHTML=`<b>${t.selected} ${p.id||String(i+1).padStart(2,'0')}</b><br>${t.selectedBody}`;box.scrollIntoView({block:'nearest',behavior:'smooth'})}
+}
+
+function renderSpawnMarkers(){
+  const layer=document.getElementById('spawnMarkers');if(!layer)return;
+  const t=spawnText[spawnLang()],points=spawnData?.points||[];
+  layer.innerHTML=points.map((p,i)=>`<button class="spawn-marker" data-spawn="${i}" type="button" style="left:${p.x}%;top:${p.y}%" aria-label="${t.marker} ${p.id||i+1}" title="${t.marker} ${p.id||i+1}"><span>${i+1}</span></button>`).join('');
+  layer.querySelectorAll('.spawn-marker').forEach((m,i)=>m.addEventListener('click',e=>{e.stopPropagation();selectSpawn(i)}));
+}
+
+function renderMapSelector(){
+  const select=document.getElementById('spawnMapSelect');if(!select||!mapCatalog)return;
+  const l=spawnLang(),current=activeMapMeta?.id||mapCatalog.defaultMap;
+  select.innerHTML=mapCatalog.maps.map(m=>`<option value="${m.id}">${m.label?.[l]||m.label?.en||m.id}</option>`).join('');
+  select.value=current;
+  const label=document.getElementById('spawnMapSelectLabel');if(label)label.textContent=spawnText[l].mapSelect;
+}
+
+function renderSourceLinks(){
+  const row=document.getElementById('spawnSources');if(!row)return;
+  const sources=activeMapMeta?.sources||[];
+  row.innerHTML=sources.map(s=>`<a href="${s.url}" target="_blank" rel="noopener">${s.label}</a>`).join('');
+}
+
+function renderSpawnPanel(){
+  const l=spawnLang(),t=spawnText[l],name=mapLabel(),points=spawnData?.points||[];
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+  set('spawnMapTitle',name.toUpperCase());
+  set('spawnIntro',t.intro(name));
+  set('spawnBadge',t.badge);
+  set('spawnPendingTitle',t.approxTitle(points.length));
+  set('spawnPendingBody',spawnData?.notes?.[l]||t.approxBody);
+  set('spawnLegendText',t.legend);
+  set('spawnGestureHint',t.hint);
+  set('spawnImageCredit',`${t.sourceImage}: ${spawnData?.mapImageSource||'Community map'}`);
+  const img=document.getElementById('spawnMapImage');
+  if(img){img.alt=`${name} Community-Karte`;if(spawnData?.mapImage)img.src=spawnData.mapImage}
+  const viewport=document.getElementById('spawnViewport');if(viewport)viewport.setAttribute('aria-label',`${name} Raider Spawn Map`);
+  const counts=document.getElementById('spawnCounts');
+  if(counts){counts.innerHTML=spawnData?.reportedCounts?.length?`<b>${t.counts}:</b> `+spawnData.reportedCounts.map(x=>`${x.source} ${x.count}`).join(' · '):''}
+  renderMapSelector();renderSourceLinks();renderSpawnMarkers();
+}
+
+async function loadSpawnMap(mapId){
+  if(!mapCatalog)return;
+  const meta=mapCatalog.maps.find(m=>m.id===mapId)||mapCatalog.maps.find(m=>m.id===mapCatalog.defaultMap)||mapCatalog.maps[0];
+  if(!meta)return;
+  activeMapMeta=meta;
+  resetSpawnView();
+  try{
+    const r=await fetch(`${meta.data}?v=2100`,{cache:'no-store'});if(!r.ok)throw new Error(`spawn data ${r.status}`);
+    spawnData=await r.json();
+    try{localStorage.setItem('arcSpawnMap',meta.id)}catch{}
+    renderSpawnPanel();
+  }catch(err){
+    console.warn('Raider spawn data unavailable',err);spawnData=null;renderSpawnPanel();
+  }
+}
+
 function pointerDistance(){const pts=[...activePointers.values()];if(pts.length<2)return null;const dx=pts[0].x-pts[1].x,dy=pts[0].y-pts[1].y;return Math.hypot(dx,dy)}
-function initSpawnControls(){document.getElementById('spawnZoomIn')?.addEventListener('click',()=>setSpawnZoom(spawnScale+.35));document.getElementById('spawnZoomOut')?.addEventListener('click',()=>setSpawnZoom(spawnScale-.35));document.getElementById('spawnReset')?.addEventListener('click',()=>{spawnScale=1;spawnX=spawnY=0;applySpawnTransform()});const v=document.getElementById('spawnViewport');if(!v)return;
+function initSpawnControls(){
+  document.getElementById('spawnZoomIn')?.addEventListener('click',()=>setSpawnZoom(spawnScale+.35));
+  document.getElementById('spawnZoomOut')?.addEventListener('click',()=>setSpawnZoom(spawnScale-.35));
+  document.getElementById('spawnReset')?.addEventListener('click',resetSpawnView);
+  document.getElementById('spawnMapSelect')?.addEventListener('change',e=>loadSpawnMap(e.target.value));
+  const v=document.getElementById('spawnViewport');if(!v)return;
   v.addEventListener('pointerdown',e=>{activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});v.setPointerCapture?.(e.pointerId);if(activePointers.size===2){pinchStartDistance=pointerDistance();pinchStartScale=spawnScale;dragStart=null;return}if(e.target.closest('.spawn-marker'))return;dragStart={x:e.clientX-spawnX,y:e.clientY-spawnY};v.classList.add('dragging')});
   v.addEventListener('pointermove',e=>{if(!activePointers.has(e.pointerId))return;activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(activePointers.size>=2&&pinchStartDistance){const d=pointerDistance();if(d)setSpawnZoom(pinchStartScale*(d/pinchStartDistance));return}if(!dragStart||spawnScale<=1)return;spawnX=e.clientX-dragStart.x;spawnY=e.clientY-dragStart.y;clampSpawnPan();applySpawnTransform()});
   const end=e=>{activePointers.delete(e.pointerId);if(activePointers.size<2){pinchStartDistance=null;pinchStartScale=spawnScale}dragStart=null;v.classList.remove('dragging')};v.addEventListener('pointerup',end);v.addEventListener('pointercancel',end);
   v.addEventListener('wheel',e=>{e.preventDefault();setSpawnZoom(spawnScale+(e.deltaY<0?0.2:-0.2))},{passive:false});
 }
-fetch('raider-spawns.json?v=2991',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`spawn data ${r.status}`);return r.json()}).then(data=>{spawnData=data;renderSpawnPanel()}).catch(err=>{console.warn('Raider spawn data unavailable',err);renderSpawnPanel()});document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));initSpawnControls();renderSpawnPanel();
+
+async function initSpawnMaps(){
+  try{
+    const r=await fetch('maps.json?v=2100',{cache:'no-store'});if(!r.ok)throw new Error(`map catalog ${r.status}`);
+    mapCatalog=await r.json();
+    let preferred=mapCatalog.defaultMap;
+    try{const stored=localStorage.getItem('arcSpawnMap');if(stored&&mapCatalog.maps.some(m=>m.id===stored))preferred=stored}catch{}
+    await loadSpawnMap(preferred);
+  }catch(err){console.warn('Map catalog unavailable',err);mapCatalog={defaultMap:'spaceport',maps:[{id:'spaceport',label:{de:'Spaceport',en:'Spaceport'},data:'raider-spawns.json',sources:[]}]};await loadSpawnMap('spaceport')}
+}
+
+document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));
+document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));
+initSpawnControls();
+initSpawnMaps();
