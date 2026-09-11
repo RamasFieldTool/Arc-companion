@@ -1,13 +1,26 @@
 .flow-guide{
-  margin:2px 0 18px;padding:10px 11px;
+  margin:2px 0 18px;padding:0 11px 10px;
   border:1px solid #5f5b46;border-left:5px solid var(--amber);
   background:linear-gradient(135deg,#1a1c16,#24271e);
   box-shadow:3px 3px 0 var(--shadow)
 }
 .flow-guide-title{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  list-style:none;cursor:pointer;padding:10px 0 8px;
   font:700 12px ui-monospace,"Courier New",monospace;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:8px
+  letter-spacing:.08em;text-transform:uppercase;color:var(--amber)
 }
+.flow-guide-title::-webkit-details-marker{display:none}
+.flow-guide-title::marker{display:none;content:""}
+.flow-guide-chevron{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:28px;height:28px;flex:0 0 28px;
+  border:1px solid #5f5b46;background:#11130f;color:var(--cream);
+  font-size:20px;line-height:1;transition:transform .18s ease
+}
+.flow-guide[open] .flow-guide-chevron{transform:rotate(180deg)}
+.flow-guide:not([open]){padding-bottom:0}
+.flow-guide:not([open]) .flow-guide-title{padding-bottom:10px}
 .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .flow-step{
   min-height:58px;padding:7px 8px;background:#11130f;border:1px solid #4f4c3b;
