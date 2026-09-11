@@ -10,10 +10,12 @@
 }
 .flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
 .flow-step{
-  min-height:54px;padding:7px 8px;background:#11130f;border:1px solid #4f4c3b;
+  min-height:58px;padding:7px 8px;background:#11130f;border:1px solid #4f4c3b;
   color:var(--cream-soft);font-size:12px;line-height:1.2
 }
 .flow-step b{display:block;color:var(--cream);font-size:15px;margin-bottom:2px}
+.flow-step span{display:block;color:var(--cream);font-weight:700;font-size:13px;margin-bottom:2px}
+.flow-step small{display:block;color:#a9a188;font-size:11px;line-height:1.2}
 .section-help{
   margin:0 0 11px;padding:8px 9px;background:#141611;
   border-left:3px solid var(--amber);color:var(--cream-soft);font-size:13px;line-height:1.35
