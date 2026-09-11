@@ -1,4 +1,4 @@
-// V2.11.5 – clearer quest tracker hierarchy without changing quest data/state semantics.
+// V2.12.3 – clearer quest tracker hierarchy without changing quest data/state semantics.
 
 const QUEST_UX={
   de:{details:'DETAILS',hideDetails:'DETAILS SCHLIESSEN',requiredShort:'BENÖTIGT',noMaterial:'Kein Materialbedarf',affectsNeed:'Fließt in Gesamtbedarf ein'},
@@ -44,10 +44,14 @@ function questCardV2115(x){
 
 questCard=questCardV2115;
 
-const baseDrawQuestHeaderV2115=drawQuestHeader;
+// Own the compact quest summary directly instead of wrapping the legacy header renderer.
 drawQuestHeader=function(){
-  baseDrawQuestHeaderV2115();
-  if(!questSummary||!quests.length) return;
+  if(!questSummary) return;
+  questToggleLabel.textContent=questDrawer.open?tr('hide'):tr('show');
+  if(!quests.length){
+    questSummary.textContent=questLoadError?tr('questLoadError'):tr('questSummary');
+    return;
+  }
   const openN=quests.filter(x=>getQuestState(x.id)==='open').length;
   const activeN=quests.filter(x=>getQuestState(x.id)==='active').length;
   const doneN=quests.filter(x=>getQuestState(x.id)==='done').length;
