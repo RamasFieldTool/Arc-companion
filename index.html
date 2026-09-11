@@ -3,22 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ARC Companion V2.2</title>
-  <link rel="stylesheet" href="style.css">
+  <title>ARC Companion V2.3</title>
+  <link rel="stylesheet" href="style.css?v=23">
 </head>
 <body>
 <main>
   <small>RAMA // FIELD TOOL</small>
-  <h1>ARC Companion <b>V2.2</b></h1>
-  <p>Item-Suche + aktive Ausbauziele</p>
+  <h1>ARC Companion <b>V2.3</b></h1>
+  <p>Mehrere Ausbauziele gleichzeitig verwalten</p>
 
   <section class="panel">
-    <h2>Aktives Ziel</h2>
-    <label for="goal">Station</label>
-    <select id="goal"></select>
-    <label for="level">Ziel-Stufe</label>
-    <select id="level"></select>
-    <div id="goalReq" class="goalreq"></div>
+    <h2>Aktive Ziele</h2>
+    <p class="muted">Aktiviere alle Stationen/Stufen, auf die du gerade hinarbeitest.</p>
+    <div id="goals"></div>
+  </section>
+
+  <section class="panel">
+    <h2>Gesamtbedarf</h2>
+    <div id="summary"></div>
   </section>
 
   <label for="q">Item suchen</label>
@@ -28,6 +30,6 @@
 
   <footer>Daten-Prototyp · Quelle: RaidTheory/arcraiders-data · ARC Raiders © Embark Studios</footer>
 </main>
-<script src="app.js"></script>
+<script src="app.js?v=23"></script>
 </body>
 </html>
