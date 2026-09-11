@@ -1,18 +1,26 @@
-/* V2.12.4 visual hierarchy + two bright theme variants */
+/* V2.12.4 visual hierarchy + two clearly distinct bright themes */
 :root{
-  /* DARK now intentionally uses the former LIGHT palette. */
-  --night:#f1ecdf;--shell:#fffaf0;--shell-deep:#f0eadc;--olive:#d7d1c2;--olive-light:#9b9586;
-  --cream:#22231f;--cream-soft:#56584f;--line:#a39d8e;--shadow:#d6cfc0;
-  --ui-page:#f4f0e7;--ui-page-glow:#fffdf7;--ui-panel:#fffaf0;--ui-panel-2:#f4eee2;
-  --ui-raised:#fbf6ec;--ui-input:#ffffff;--ui-text:#22231f;--ui-muted:#5b5d55;--ui-line:#a39d8e;--ui-shadow:#d6cfc0;--ui-soft:#f7f2e8;
+  --ui-page:#d8d0b8;--ui-page-glow:#f4ecd6;--ui-panel:#eee6cf;--ui-panel-2:#ddd5bd;
+  --ui-raised:#d2cab2;--ui-input:#f8f1df;--ui-text:#24251f;--ui-muted:#59594e;
+  --ui-line:#817d69;--ui-shadow:#a29a82;--ui-soft:#e4dcc5;
 }
+
+/* DARK now intentionally uses the former warm LIGHT palette. */
+html[data-theme="dark"]{
+  --night:#d8d0b8;--shell:#eee6cf;--shell-deep:#d8d0b8;--olive:#b8b39c;--olive-light:#8f8a72;
+  --cream:#24251f;--cream-soft:#4f5045;--line:#817d69;--shadow:#a29a82;
+  --ui-page:#d8d0b8;--ui-page-glow:#f4ecd6;--ui-panel:#eee6cf;--ui-panel-2:#ddd5bd;
+  --ui-raised:#d2cab2;--ui-input:#f8f1df;--ui-text:#24251f;--ui-muted:#59594e;--ui-line:#817d69;--ui-shadow:#a29a82;--ui-soft:#e4dcc5;
+}
+
+/* LIGHT is deliberately much brighter and close to white. */
 html[data-theme="light"]{
-  /* LIGHT is deliberately very bright and close to clean white. */
-  --night:#fbfbf8;--shell:#ffffff;--shell-deep:#f7f7f2;--olive:#e7e7df;--olive-light:#a3a39a;
-  --cream:#1f201d;--cream-soft:#505149;--line:#c9c9c1;--shadow:#ecece7;
-  --ui-page:#fdfdfb;--ui-page-glow:#ffffff;--ui-panel:#ffffff;--ui-panel-2:#fafaf6;
-  --ui-raised:#ffffff;--ui-input:#ffffff;--ui-text:#1f201d;--ui-muted:#55564f;--ui-line:#c9c9c1;--ui-shadow:#ecece7;--ui-soft:#fbfbf8;
+  --night:#f8f6f1;--shell:#fffefa;--shell-deep:#f8f5ef;--olive:#ece8df;--olive-light:#aaa59a;
+  --cream:#1f211d;--cream-soft:#555850;--line:#c7c1b6;--shadow:#e2ddd4;
+  --ui-page:#fbfaf7;--ui-page-glow:#ffffff;--ui-panel:#fffefa;--ui-panel-2:#faf7f2;
+  --ui-raised:#ffffff;--ui-input:#ffffff;--ui-text:#1f211d;--ui-muted:#5c5f57;--ui-line:#c7c1b6;--ui-shadow:#e2ddd4;--ui-soft:#fcfaf6;
 }
+
 body{color:var(--ui-text);background:linear-gradient(90deg,rgba(230,173,67,.025) 1px,transparent 1px),linear-gradient(rgba(230,173,67,.018) 1px,transparent 1px),radial-gradient(circle at 50% -5%,var(--ui-page-glow) 0,var(--ui-page) 72%)}
 .panel,.search-panel{background:linear-gradient(135deg,var(--ui-panel),var(--ui-panel-2));border-color:var(--ui-line);box-shadow:3px 3px 0 var(--ui-shadow)}
 .goal-drawer{border-left-color:var(--orange)}
@@ -42,34 +50,34 @@ body{color:var(--ui-text);background:linear-gradient(90deg,rgba(230,173,67,.025)
   .panel,.search-panel{margin-top:19px;margin-bottom:19px}
 }
 
-/* Former LIGHT look is now the DARK preset. */
-html[data-theme="dark"] body:before{opacity:.025}
-html[data-theme="dark"] .masthead{background:linear-gradient(115deg,#fff9ee 0 62%,#eee7da 62%);border-color:#aaa394}
-html[data-theme="dark"] .lang-switch,html[data-theme="dark"] .lang{color:#55574f}
-html[data-theme="dark"] .lang.active{background:#2d2e27;color:#fffaf0}
-html[data-theme="dark"] .flow-guide{background:linear-gradient(135deg,#fffaf0,#f2ecdf);border-color:#aaa394;box-shadow:3px 3px 0 #d8d1c4}
-html[data-theme="dark"] .flow-guide-chevron,html[data-theme="dark"] .flow-step{background:#fffdf8;color:#22231f;border-color:#aaa394}
-html[data-theme="dark"] .flow-step b,html[data-theme="dark"] .flow-step span{color:#22231f}
-html[data-theme="dark"] .flow-step small{color:#5b5d55}
-html[data-theme="dark"] .goal-drawer[open] summary,html[data-theme="dark"] .quest-drawer[open] summary{background:#f6f0e5}
-html[data-theme="dark"] .card{background:linear-gradient(145deg,#fffaf0,#f4eee2 70%);box-shadow:2px 2px 0 #d6cfc0}
-html[data-theme="dark"] .fact{background:#faf5ec;border-color:#aaa394}
-html[data-theme="dark"] .fact span{color:#606159}
-html[data-theme="dark"] .fact b{color:#22231f}
-html[data-theme="dark"] .rarity{background:#fffaf0}
+/* Explicit warm DARK overrides for legacy hard-coded components. */
+html[data-theme="dark"] body:before{opacity:.06}
+html[data-theme="dark"] .masthead{background:linear-gradient(115deg,#d2cab2 0 62%,#c2baa3 62%);border-color:#817d69}
+html[data-theme="dark"] .lang-switch,html[data-theme="dark"] .lang{color:#55564c}
+html[data-theme="dark"] .lang.active{background:#2d2e27;color:#f5ecd5}
+html[data-theme="dark"] .flow-guide{background:linear-gradient(135deg,#eee6cf,#d8d0b8);border-color:#817d69;box-shadow:3px 3px 0 #a29a82}
+html[data-theme="dark"] .flow-guide-chevron,html[data-theme="dark"] .flow-step{background:#f4ecd8;color:#24251f;border-color:#817d69}
+html[data-theme="dark"] .flow-step b,html[data-theme="dark"] .flow-step span{color:#24251f}
+html[data-theme="dark"] .flow-step small{color:#59594e}
+html[data-theme="dark"] .goal-drawer[open] summary,html[data-theme="dark"] .quest-drawer[open] summary{background:#d2cab2}
+html[data-theme="dark"] .card{background:linear-gradient(145deg,#eee6cf,#d6ceb7 70%);box-shadow:2px 2px 0 #aaa18a}
+html[data-theme="dark"] .fact{background:#e4dcc5;border-color:#817d69}
+html[data-theme="dark"] .fact span{color:#5d5d52}
+html[data-theme="dark"] .fact b{color:#24251f}
+html[data-theme="dark"] .rarity{background:#eee6cf}
 
-/* LIGHT is much brighter: nearly white surfaces with only subtle separation. */
+/* Explicit ultra-light overrides. */
 html[data-theme="light"] body:before{opacity:.01}
-html[data-theme="light"] .masthead{background:linear-gradient(115deg,#ffffff 0 62%,#f7f7f2 62%);border-color:#c9c9c1}
-html[data-theme="light"] .lang-switch,html[data-theme="light"] .lang{color:#4d4e48}
-html[data-theme="light"] .lang.active{background:#292a25;color:#ffffff}
-html[data-theme="light"] .flow-guide{background:linear-gradient(135deg,#ffffff,#fafaf6);border-color:#c9c9c1;box-shadow:2px 2px 0 #ecece7}
-html[data-theme="light"] .flow-guide-chevron,html[data-theme="light"] .flow-step{background:#ffffff;color:#1f201d;border-color:#c9c9c1}
-html[data-theme="light"] .flow-step b,html[data-theme="light"] .flow-step span{color:#1f201d}
-html[data-theme="light"] .flow-step small{color:#55564f}
-html[data-theme="light"] .goal-drawer[open] summary,html[data-theme="light"] .quest-drawer[open] summary{background:#fbfbf8}
-html[data-theme="light"] .card{background:#ffffff;box-shadow:2px 2px 0 #ecece7}
-html[data-theme="light"] .fact{background:#fcfcfa;border-color:#c9c9c1}
-html[data-theme="light"] .fact span{color:#5b5c55}
-html[data-theme="light"] .fact b{color:#1f201d}
+html[data-theme="light"] .masthead{background:linear-gradient(115deg,#ffffff 0 62%,#f3f0ea 62%);border-color:#c7c1b6}
+html[data-theme="light"] .lang-switch,html[data-theme="light"] .lang{color:#565a52}
+html[data-theme="light"] .lang.active{background:#262824;color:#ffffff}
+html[data-theme="light"] .flow-guide{background:linear-gradient(135deg,#ffffff,#faf7f2);border-color:#c7c1b6;box-shadow:3px 3px 0 #e2ddd4}
+html[data-theme="light"] .flow-guide-chevron,html[data-theme="light"] .flow-step{background:#ffffff;color:#1f211d;border-color:#c7c1b6}
+html[data-theme="light"] .flow-step b,html[data-theme="light"] .flow-step span{color:#1f211d}
+html[data-theme="light"] .flow-step small{color:#5c5f57}
+html[data-theme="light"] .goal-drawer[open] summary,html[data-theme="light"] .quest-drawer[open] summary{background:#faf7f2}
+html[data-theme="light"] .card{background:linear-gradient(145deg,#ffffff,#faf7f2 70%);box-shadow:2px 2px 0 #e2ddd4}
+html[data-theme="light"] .fact{background:#ffffff;border-color:#c7c1b6}
+html[data-theme="light"] .fact span{color:#60635b}
+html[data-theme="light"] .fact b{color:#1f211d}
 html[data-theme="light"] .rarity{background:#ffffff}
