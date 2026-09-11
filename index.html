@@ -3,41 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#151611">
-  <title>ARC Companion V2.6</title>
-  <link rel="stylesheet" href="style.css?v=26">
+  <meta name="theme-color" content="#161711">
+  <title>ARC Companion V2.7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=27">
 </head>
 <body>
 <main>
   <header class="masthead">
-    <div class="eyebrow">RAMA // FIELD TOOL</div>
-    <h1>ARC <span>COMPANION</span></h1>
-    <div class="version">SYS // V2.6</div>
+    <div>
+      <div class="eyebrow">RAMA // FIELD TOOL</div>
+      <h1>ARC <span>COMPANION</span></h1>
+    </div>
+    <div class="headtools">
+      <div class="lang-switch" aria-label="Language">
+        <button id="deBtn" class="lang active" type="button">DE</button>
+        <span>/</span>
+        <button id="enBtn" class="lang" type="button">EN</button>
+      </div>
+      <div class="version">SYS // V2.7</div>
+    </div>
   </header>
 
   <details class="goal-drawer panel">
     <summary>
-      <span><b>AKTIVE ZIELE</b><small>Stationen & Stufen verwalten</small></span>
-      <strong>ÄNDERN</strong>
+      <span><b data-t="activeGoals">AKTIVE ZIELE</b><small data-t="manageGoals">Stationen & Stufen verwalten</small></span>
+      <strong data-t="change">ÄNDERN</strong>
     </summary>
     <div class="drawer-body">
-      <p class="muted">Aktiviere alle Stationen/Stufen, auf die du gerade hinarbeitest.</p>
+      <p class="muted" data-t="goalHint">Aktiviere alle Stationen/Stufen, auf die du gerade hinarbeitest.</p>
       <div id="goals"></div>
     </div>
   </details>
 
   <section class="panel supply-panel">
     <div class="section-kicker">SUPPLY // 01</div>
-    <h2>Gesamtbedarf</h2>
+    <h2 data-t="totalNeed">Gesamtbedarf</h2>
     <div id="summary"></div>
   </section>
 
   <section class="search-panel">
     <div class="section-kicker">SCAN // 02</div>
-    <label for="q">ITEM SUCHEN</label>
+    <label for="q" data-t="searchItem">ITEM SUCHEN</label>
     <div class="search-shell">
       <span>&gt;</span>
-      <input id="q" placeholder="Metall, Fabric, ARC..." autocomplete="off">
+      <input id="q" autocomplete="off">
     </div>
     <div id="status"></div>
     <section id="out"></section>
@@ -45,9 +57,9 @@
 
   <footer>
     <span>RAMA FIELD SYSTEM</span>
-    <span>DATA // RaidTheory</span>
+    <span>DATA // RaidTheory · API // Mahcks</span>
   </footer>
 </main>
-<script src="app.js?v=26"></script>
+<script src="app.js?v=27"></script>
 </body>
 </html>
