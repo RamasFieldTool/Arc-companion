@@ -26,7 +26,7 @@
         <span>/</span>
         <button id="enBtn" class="lang" type="button">EN</button>
       </div>
-      <div class="version">SYS // V2.9.8 DRAFT</div>
+      <div class="version">SYS // V2.9.8</div>
     </div>
   </header>
 
@@ -101,19 +101,20 @@
     <div class="section-kicker">MAP // 03</div>
     <div class="spawn-head">
       <h2>RAIDER SPAWNS // SPACEPORT</h2>
-      <span class="spawn-beta">VERIFYING</span>
+      <span id="spawnBadge" class="spawn-beta">COMMUNITY // CA.</span>
     </div>
     <p id="spawnIntro" class="spawn-note">Mögliche Startpositionen von Raidern auf Spaceport. Die Marker zeigen keine aktuellen Gegnerpositionen.</p>
     <div class="spawn-map-shell" aria-label="Spaceport Raider Spawn Map">
-      <div class="spawn-grid" aria-hidden="true"></div>
-      <div class="spawn-placeholder">
-        <div>
-          <strong id="spawnPendingTitle">Spawn-Daten werden noch geprüft</strong>
-          <span id="spawnPendingBody">Die technische Karte ist vorbereitet, aber noch ohne Marker.</span>
-        </div>
+      <img id="spawnMapImage" alt="Spaceport Community-Karte mit möglichen Raider-Spawnpositionen">
+      <div id="spawnMarkers" class="spawn-marker-layer"></div>
+      <div class="spawn-overlay-note">
+        <strong id="spawnPendingTitle">21 mögliche Raider-Spawns</strong>
+        <span id="spawnPendingBody">Die Punkte wurden manuell aus einer Community-Karte übertragen und sind ungefähr.</span>
       </div>
     </div>
+    <div class="spawn-legend"><span class="spawn-legend-dot" aria-hidden="true"></span><span>Möglicher Raider-Spawn / approximate community position</span></div>
     <div id="spawnCounts" class="spawn-counts"></div>
+    <div id="spawnImageCredit" class="spawn-image-credit">Kartenbasis: Arc Raiders AI</div>
     <div class="spawn-source-row">
       <a id="spawnWiki" href="https://arcraiders.wiki/wiki/File:Acerra_Spaceport_Map.jpg" target="_blank" rel="noopener">ARC Raiders Wiki</a>
       <a id="spawnWand" href="https://wand.com/maps/arc-raiders/the-spaceport" target="_blank" rel="noopener">Wand</a>
