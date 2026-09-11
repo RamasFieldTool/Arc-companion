@@ -315,12 +315,24 @@ function drawQuests(){
 }
 
 async function loadQuests(){
-  const r=await fetch('https://arcdata.mahcks.com/v1/quests?full=true',{cache:'no-store'});
-  if(!r.ok) throw new Error(`Quest API ${r.status}`);
-  const data=await r.json();
-  const list=Array.isArray(data)?data:(data.quests||data.items||data.data||[]);
-  if(!Array.isArray(list)) throw new Error('Invalid quest response');
-  return list;
+  let all=[],offset=0,total=null;
+  const limit=45;
+  while(true){
+    const url=`https://arcdata.mahcks.com/v1/quests?full=true&offset=${offset}&limit=${limit}`;
+    const r=await fetch(url,{cache:'no-store'});
+    if(!r.ok) throw new Error(`Quest API ${r.status}`);
+    const data=await r.json();
+    const page=Array.isArray(data)?data:(data.items||data.quests||data.data||[]);
+    if(!Array.isArray(page)) throw new Error('Invalid quest response');
+    all.push(...page);
+    if(Number.isFinite(Number(data.total))) total=Number(data.total);
+    if(!data.next || page.length===0) break;
+    offset+=limit;
+    if(offset>2000) throw new Error('Quest pagination guard');
+  }
+  const unique=[...new Map(all.filter(x=>x&&x.id).map(x=>[x.id,x])).values()];
+  if(total!==null && unique.length!==total) throw new Error(`Quest count mismatch ${unique.length}/${total}`);
+  return unique;
 }
 
 
@@ -371,15 +383,15 @@ async function loadFullCatalog(){
 
 async function boot(){
   try{
-    goals=await fetch('goals.json?v=29',{cache:'no-store'}).then(r=>r.json());
+    goals=await fetch('goals.json?v=291',{cache:'no-store'}).then(r=>r.json());
     status.textContent=lang==='de'?'Katalog wird geladen …':'Loading catalog …';
     items=await loadFullCatalog();
     usingFallback=false;
   }catch(err){
     console.error(err);
     try{
-      items=await fetch('items.json?v=29',{cache:'no-store'}).then(r=>r.json());
-      if(!goals.length) goals=await fetch('goals.json?v=29',{cache:'no-store'}).then(r=>r.json());
+      items=await fetch('items.json?v=291',{cache:'no-store'}).then(r=>r.json());
+      if(!goals.length) goals=await fetch('goals.json?v=291',{cache:'no-store'}).then(r=>r.json());
       usingFallback=true;
     }catch{
       status.textContent=tr('loadError');
