@@ -46,5 +46,53 @@
     "stack": 15,
     "recycle": "3× Stoff",
     "use": "Stabiler Kolben I, Vertikaler Griff I/II, Abgewinkelter Griff I/II"
+  },
+  {
+    "id": "plastic_parts",
+    "de": "Plastikteile",
+    "en": "Plastic Parts",
+    "type": "Basic Material",
+    "rarity": "Common",
+    "value": 60,
+    "weight": 0.1,
+    "stack": 50,
+    "recycle": "—",
+    "use": "Hairpin, Leichter Schild, Beute-Marke 1, Leichte Aufschlaggranate, Erweitertes Schrotflintenmagazin I"
+  },
+  {
+    "id": "fabric",
+    "de": "Stoff",
+    "en": "Fabric",
+    "type": "Basic Material",
+    "rarity": "Common",
+    "value": 50,
+    "weight": 0.1,
+    "stack": 50,
+    "recycle": "—",
+    "use": "Verband, Strapazierfähiges Stoffstück, medizinische Objekte und Schilde"
+  },
+  {
+    "id": "arc_alloy",
+    "de": "ARC-Legierung",
+    "en": "ARC Alloy",
+    "type": "Topside Material",
+    "rarity": "Uncommon",
+    "value": 200,
+    "weight": 0.25,
+    "stack": 15,
+    "recycle": "2× Metallteile",
+    "use": "Leichter Schild, Suchgranate, ARC-Bewegungskern, ARC-Schaltkreise"
+  },
+  {
+    "id": "arc_powercell",
+    "de": "ARC-Energiezelle",
+    "en": "ARC Powercell",
+    "type": "Topside Material",
+    "rarity": "Common",
+    "value": 270,
+    "weight": 0.5,
+    "stack": 5,
+    "recycle": "—",
+    "use": "Schildauflader; kann zur Reparatur von Schilden verwendet werden"
   }
 ]

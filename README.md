@@ -1,9 +1,17 @@
-# ARC Companion V2.1
+# ARC Companion V2.2
 
-Daten-Prototyp mit verifizierten Beispieldatensätzen aus `RaidTheory/arcraiders-data`.
+Statischer Mobile-Prototyp.
 
-Quelle: https://github.com/RaidTheory/arcraiders-data
+Neu in V2.2:
+- aktive Station + Ziel-Stufe auswählen
+- eigene Mengen pro benötigtem Item eintragen
+- lokale Speicherung im Browser
+- Item-Suche Deutsch/Englisch
+- Entscheidung pro Item: BEHALTEN / ZIEL ERFÜLLT / FREI
+- Cache-Buster für items.json und goals.json
 
-Enthält aktuell: Kabel/Wires, Gummiteile/Rubber Parts, Metallteile/Metal Parts, Isolierband/Duct Tape.
+Datenquelle:
+https://github.com/RaidTheory/arcraiders-data
 
-Die Entscheidungslogik „Behalten / Verkaufen / Recyceln“ wird erst ergänzt, wenn Quest-/Upgrade-Beziehungen sauber verknüpft sind.
+Hinweis:
+Die App ist ein Community-Prototyp und nicht mit Embark Studios verbunden.
