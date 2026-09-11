@@ -1,0 +1,32 @@
+/* V2.11.3 – total requirements clarity */
+.summary-overview{display:flex;align-items:baseline;gap:6px;padding:9px 10px;margin-bottom:9px;border:1px solid var(--ui-line);background:var(--ui-soft);color:var(--ui-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.summary-overview strong{font-size:18px;color:var(--ui-text)}
+.summary-overview i{width:1px;height:18px;background:var(--ui-line);margin:0 5px}
+.summary-item{grid-template-columns:minmax(0,1fr) auto;align-items:start;padding:10px 10px 9px}
+.summary-item.is-complete{opacity:.78;border-left-color:var(--green)}
+.summary-main{min-width:0}
+.summary-name-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.summary-state{flex:none;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--amber);padding-top:2px}
+.summary-item.is-complete .summary-state{color:var(--green)}
+.summary-numbers{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:3px;color:var(--ui-muted);font-size:12px}
+.summary-numbers b{color:var(--ui-text)}
+.summary-owned{display:grid;gap:3px;justify-items:end}
+.summary-owned>span{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ui-muted)}
+.summary-owned .qty{width:62px;min-height:36px;font-size:16px}
+.summary-usage{margin-top:6px;border-top:1px dashed var(--ui-line);padding-top:5px}
+.summary-usage summary{cursor:pointer;list-style:none;color:var(--ui-muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.035em}
+.summary-usage summary::-webkit-details-marker{display:none}
+.summary-usage summary:before{content:'+';display:inline-block;width:14px;color:var(--amber)}
+.summary-usage[open] summary:before{content:'−'}
+.summary-usage div{display:grid;gap:3px;margin-top:5px;color:var(--ui-muted);font-size:11px;line-height:1.25}
+.summary-extra-head{margin:12px 0 6px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--amber)}
+.summary-cost{grid-template-columns:1fr;border-left-color:var(--amber)}
+.summary-cost .summary-state{font-size:15px;color:var(--amber)}
+html[data-theme="light"] .summary-overview{background:#e8dfc9}
+@media(max-width:420px){
+  .summary-item{grid-template-columns:minmax(0,1fr) 58px;gap:8px}
+  .sumname{font-size:16px}
+  .summary-state{font-size:10px}
+  .summary-owned .qty{width:58px}
+  .summary-overview{gap:5px;padding:8px}
+}
