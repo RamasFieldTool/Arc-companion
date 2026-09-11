@@ -1,22 +1,42 @@
 {
-  "version": "2.9.8-draft",
+  "version": "2.9.8",
   "map": "spaceport",
-  "label": {
-    "de": "Spaceport",
-    "en": "Spaceport"
-  },
-  "verificationStatus": "pending",
+  "label": {"de": "Spaceport", "en": "Spaceport"},
+  "verificationStatus": "community-approximate",
   "lastReviewed": "2026-09-11",
+  "mapImage": "https://www.arcraidersai.com/maps/spaceport.jpg",
+  "mapImageSource": "Arc Raiders AI community map",
   "notes": {
-    "de": "Spawn-Koordinaten sind noch nicht freigegeben. Mehrere aktuelle Community-Datensätze widersprechen sich bei der Anzahl der möglichen Player-Spawns.",
-    "en": "Spawn coordinates are not approved yet. Multiple current community datasets disagree on the number of possible player spawns."
+    "de": "21 mögliche Raider-Startpositionen, manuell aus einer aktuellen Community-Karte übertragen. Die Marker sind bewusst als ungefähre Positionen zu verstehen und nicht offiziell von Embark bestätigt.",
+    "en": "21 possible Raider starting positions manually transferred from a current community map. Markers are intentionally approximate and are not officially confirmed by Embark."
   },
   "reportedCounts": [
     {"source": "Raider Grid", "count": 21},
     {"source": "Wand", "count": 21},
     {"source": "arcraidersmap.cc", "count": 20},
-    {"source": "ArcDB", "count": 12},
-    {"source": "ARC Raiders Hub", "count": 3}
+    {"source": "ArcDB", "count": 12}
   ],
-  "points": []
+  "points": [
+    {"id":"SP-01","x":12.4,"y":8.2,"confidence":"approx"},
+    {"id":"SP-02","x":21.0,"y":12.6,"confidence":"approx"},
+    {"id":"SP-03","x":34.7,"y":10.7,"confidence":"approx"},
+    {"id":"SP-04","x":49.7,"y":10.5,"confidence":"approx"},
+    {"id":"SP-05","x":58.1,"y":14.4,"confidence":"approx"},
+    {"id":"SP-06","x":71.8,"y":18.9,"confidence":"approx"},
+    {"id":"SP-07","x":83.6,"y":27.0,"confidence":"approx"},
+    {"id":"SP-08","x":88.1,"y":39.0,"confidence":"approx"},
+    {"id":"SP-09","x":88.0,"y":50.8,"confidence":"approx"},
+    {"id":"SP-10","x":83.2,"y":61.8,"confidence":"approx"},
+    {"id":"SP-11","x":79.0,"y":71.0,"confidence":"approx"},
+    {"id":"SP-12","x":70.2,"y":79.8,"confidence":"approx"},
+    {"id":"SP-13","x":55.0,"y":85.0,"confidence":"approx"},
+    {"id":"SP-14","x":39.2,"y":78.0,"confidence":"approx"},
+    {"id":"SP-15","x":27.3,"y":74.1,"confidence":"approx"},
+    {"id":"SP-16","x":21.8,"y":64.0,"confidence":"approx"},
+    {"id":"SP-17","x":17.9,"y":56.2,"confidence":"approx"},
+    {"id":"SP-18","x":13.7,"y":47.0,"confidence":"approx"},
+    {"id":"SP-19","x":10.8,"y":37.7,"confidence":"approx"},
+    {"id":"SP-20","x":12.7,"y":29.1,"confidence":"approx"},
+    {"id":"SP-21","x":15.8,"y":21.3,"confidence":"approx"}
+  ]
 }
