@@ -1,0 +1,37 @@
+/* V2.11.6 – clearer Raider map hierarchy, no spawn-data changes */
+.spawn-panel{padding:14px}
+.spawn-map-picker{margin-bottom:10px;padding:7px 9px}
+.spawn-head{align-items:center;margin-bottom:8px}
+.spawn-head h2{font-size:26px;line-height:1}
+.spawn-subtitle{margin-top:4px}
+.spawn-beta{white-space:nowrap}
+.spawn-note{margin-bottom:9px;padding:8px 9px}
+.spawn-toolbar{margin-bottom:7px;padding:6px 8px;background:var(--ui-soft);border:1px solid var(--ui-line)}
+.spawn-legend{min-width:0}
+.spawn-zoom-controls{flex:none}
+.spawn-map-shell{box-shadow:2px 2px 0 var(--shadow)}
+.spawn-map-info{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-top:8px;padding:8px 9px}
+.spawn-map-info strong{font-size:14px}
+.spawn-map-info span{max-width:62%;text-align:right;line-height:1.25}
+.spawn-gesture-hint{margin:7px 0 0;font-size:10px}
+.spawn-selected{margin-top:8px}
+.spawn-data-details{margin-top:9px;border:1px solid var(--ui-line);background:var(--ui-soft)}
+.spawn-data-details>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;padding:8px 9px;color:var(--ui-muted);font:700 11px Rajdhani,sans-serif;letter-spacing:.06em;text-transform:uppercase}
+.spawn-data-details>summary::-webkit-details-marker{display:none}
+.spawn-data-details>summary:after{content:'+';font-size:15px;color:var(--amber)}
+.spawn-data-details[open]>summary:after{content:'−'}
+.spawn-data-details-body{padding:0 9px 9px;border-top:1px solid var(--ui-line)}
+.spawn-data-details .spawn-counts{margin-top:8px}
+.spawn-data-details .spawn-source-row{margin-top:8px}
+.spawn-data-details .spawn-image-credit{margin-top:7px}
+@media(max-width:520px){
+  .spawn-panel{padding:11px}
+  .spawn-head{align-items:flex-start}
+  .spawn-head h2{font-size:23px}
+  .spawn-beta{padding:4px 6px}
+  .spawn-toolbar{align-items:center}
+  .spawn-legend{max-width:none;font-size:10px;line-height:1.15}
+  .spawn-map-info{display:block}
+  .spawn-map-info span{max-width:none;text-align:left;margin-top:4px}
+  .spawn-zoom-controls button{height:36px;min-width:36px}
+}
