@@ -1,7 +1,7 @@
 {
   "version":"2.10.4","map":"stella-montis-lower","label":{"de":"Stella Montis – Lower","en":"Stella Montis – Lower"},
   "verificationStatus":"community-approximate-from-current-wand-screenshot","lastReviewed":"2026-09-11","reportedPool":6,
-  "mapImage":"https://arcraiders.wiki/wiki/Special:Redirect/file/Stella_Montis_Lower_Map_Blank.png","mapImageSource":"ARC Raiders Wiki – Stella Montis Lower blank map",
+  "mapImage":"https://arcraiders.wiki/wiki/Special:Redirect/file/Stella_Montis_Lower_Level_Map.jpg","mapImageSource":"ARC Raiders Wiki – Stella Montis Lower Level Map",
   "notes":{"de":"6 sichtbare mögliche Raider-Startpositionen, manuell aus dem aktuellen Wand-Screenshot übertragen. Ungefähre Community-Positionen; nicht offiziell von Embark bestätigt.","en":"6 visible possible Raider starting positions manually transferred from the current Wand screenshot. Approximate community positions; not officially confirmed by Embark."},
   "reportedCounts":[{"source":"Wand screenshot","count":6}],
   "points":[
