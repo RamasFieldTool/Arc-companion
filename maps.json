@@ -1,0 +1,16 @@
+{
+  "version": "2.10.0",
+  "defaultMap": "spaceport",
+  "maps": [
+    {
+      "id": "spaceport",
+      "label": {"de": "Spaceport", "en": "Spaceport"},
+      "data": "raider-spawns.json",
+      "sources": [
+        {"label": "ARC Raiders Wiki", "url": "https://arcraiders.wiki/wiki/File:Acerra_Spaceport_Map.jpg"},
+        {"label": "Wand", "url": "https://wand.com/maps/arc-raiders/the-spaceport"},
+        {"label": "Raider Grid", "url": "https://arcraidersmap.online/arc-raiders-map/the-spaceport/"}
+      ]
+    }
+  ]
+}
