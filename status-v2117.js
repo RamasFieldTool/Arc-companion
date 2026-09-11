@@ -1,5 +1,5 @@
-// User-facing data status. Catalog/quest loading semantics stay elsewhere.
-const APP_VERSION='2.12.1';
+// V2.12.2 – user-facing data status. Catalog/quest loading semantics stay elsewhere.
+const APP_VERSION='2.12.2';
 const STATUS_COPY={
   de:{live:'DATEN // LIVE',fallback:'DATEN // BASISDATENSATZ',liveTitle:'Live-Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter.'},
   en:{live:'DATA // LIVE',fallback:'DATA // BASE DATASET',liveTitle:'Live catalog active',fallbackTitle:'Local base dataset active',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset.'}
@@ -20,16 +20,14 @@ function renderDataStatus(){
   }
   document.querySelectorAll('[data-app-version]').forEach(node=>node.textContent=`V${APP_VERSION}`);
 }
+
+// Language changes and the final boot render already pass through applyLanguage().
+// Keep data-status refresh attached there, but do not wrap drawItems(): item search
+// now has one renderer and one input listener only.
 const baseApplyLanguageV2117=applyLanguage;
-applyLanguage=function(){baseApplyLanguageV2117();renderDataStatus()};
-const baseDrawItemsV2117=drawItems;
-drawItems=function(){
-  baseDrawItemsV2117();
-  // Avoid duplicating the fallback warning in the search status; the dedicated notice handles it.
-  if(usingFallback&&status){
-    const query=q.value.trim();
-    if(!query) status.textContent=`${items.length} ${tr('records')} · ${tr('searchPrompt')}`;
-  }
+applyLanguage=function(){
+  baseApplyLanguageV2117();
   renderDataStatus();
 };
+
 renderDataStatus();
