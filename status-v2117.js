@@ -1,8 +1,8 @@
-// V2.12.4 – user-facing data status. Catalog/quest loading semantics stay elsewhere.
-const APP_VERSION='2.12.4';
+// V2.12.5 – user-facing data status. Catalog/quest loading semantics stay elsewhere.
+const APP_VERSION='2.12.5';
 const STATUS_COPY={
-  de:{live:'DATEN // LIVE',fallback:'DATEN // BASISDATENSATZ',liveTitle:'Live-Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter.'},
-  en:{live:'DATA // LIVE',fallback:'DATA // BASE DATASET',liveTitle:'Live catalog active',fallbackTitle:'Local base dataset active',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset.'}
+  de:{live:'DATEN // LIVE',fallback:'DATEN // BASISDATENSATZ',liveTitle:'Live-Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.'},
+  en:{live:'DATA // LIVE',fallback:'DATA // BASE DATASET',liveTitle:'Live catalog active',fallbackTitle:'Local base dataset active',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.'}
 };
 function statusCopy(){return STATUS_COPY[lang==='en'?'en':'de']}
 function renderDataStatus(){
@@ -22,8 +22,7 @@ function renderDataStatus(){
 }
 
 // Language changes and the final boot render already pass through applyLanguage().
-// This is the one remaining lightweight compatibility hook; it only refreshes
-// presentation state and does not alter search, catalog or requirement logic.
+// This lightweight compatibility hook only refreshes presentation state.
 const baseApplyLanguageV2117=applyLanguage;
 applyLanguage=function(){
   baseApplyLanguageV2117();
