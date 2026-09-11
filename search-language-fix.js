@@ -12,10 +12,6 @@ function searchNorm(value){
     .trim();
 }
 
-function searchCompact(value){
-  return searchNorm(value).replace(/\s+/g,'');
-}
-
 function searchTerms(query){
   return searchNorm(query).split(/\s+/).filter(Boolean);
 }
@@ -25,14 +21,13 @@ function corpusMatches(corpus,terms){
 }
 
 function directItemSearchCorpus(i){
+  // A direct hit means the searched text identifies the item itself.
+  // Description/recycling text is deliberately excluded; otherwise e.g. "hoch"
+  // matched unrelated items merely because their description contained "Hochleistung".
   const values=[
     i?.id,
     i?.name?.de,i?.name?.en,
-    i?.de,i?.en,
-    i?.description?.de,i?.description?.en,
-    i?.use,i?.useEn,i?.use_en,
-    i?.recycle,i?.recycleEn,i?.recycle_en,
-    i?.type,i?.rarity
+    i?.de,i?.en
   ];
   const normal=searchNorm(values.filter(Boolean).join(' '));
   return {normal,compact:normal.replace(/\s+/g,'')};
