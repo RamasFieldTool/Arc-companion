@@ -91,7 +91,8 @@ function renderSpawnPanel(){
   set('spawnImageCredit',`${t.sourceImage}: ${spawnData?.mapImageSource||'Community map'}`);
   const img=document.getElementById('spawnMapImage');
   if(img){img.alt=`${name} Community-Karte`;if(spawnData?.mapImage)img.src=spawnData.mapImage}
-  const viewport=document.getElementById('spawnViewport');if(viewport)viewport.setAttribute('aria-label',`${name} Raider Spawn Map`);
+  const viewport=document.getElementById('spawnViewport');
+  if(viewport){viewport.setAttribute('aria-label',`${name} Raider Spawn Map`);viewport.dataset.map=activeMapMeta?.id||''}
   const counts=document.getElementById('spawnCounts');
   if(counts){counts.innerHTML=spawnData?.reportedCounts?.length?`<b>${t.counts}:</b> `+spawnData.reportedCounts.map(x=>`${x.source} ${x.count}`).join(' · '):''}
   renderMapSelector();renderSourceLinks();renderSpawnMarkers();

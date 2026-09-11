@@ -1,0 +1,41 @@
+{
+  "version": "2.10.3",
+  "map": "the-blue-gate",
+  "label": {"de": "The Blue Gate", "en": "The Blue Gate"},
+  "verificationStatus": "community-approximate-manual-transfer",
+  "lastReviewed": "2026-09-11",
+  "reportedPool": 20,
+  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Blue_Gate_Map_Blank.png",
+  "mapImageSource": "ARC Raiders Wiki – Blue Gate Map Blank",
+  "notes": {
+    "de": "20 mögliche Raider-Startpositionen wurden manuell aus einem aktuellen Wand-Screenshot mit aktivem Player-Spawn-Filter übertragen. Die Positionen sind ungefähre Community-Daten und nicht offiziell von Embark bestätigt.",
+    "en": "20 possible Raider starting positions were manually transferred from a current Wand screenshot with the Player Spawn filter enabled. Positions are approximate community data and are not officially confirmed by Embark."
+  },
+  "reportedCounts": [
+    {"source": "Wand", "count": 20},
+    {"source": "Raider Grid", "count": 14},
+    {"source": "ARC Raiders Hub", "count": 9}
+  ],
+  "points": [
+    {"id":"BG-01","x":19.6,"y":13.0,"confidence":"approx"},
+    {"id":"BG-02","x":30.1,"y":12.4,"confidence":"approx"},
+    {"id":"BG-03","x":14.8,"y":20.8,"confidence":"approx"},
+    {"id":"BG-04","x":32.8,"y":22.6,"confidence":"approx"},
+    {"id":"BG-05","x":42.1,"y":22.8,"confidence":"approx"},
+    {"id":"BG-06","x":47.8,"y":16.9,"confidence":"approx"},
+    {"id":"BG-07","x":61.4,"y":16.0,"confidence":"approx"},
+    {"id":"BG-08","x":72.1,"y":14.9,"confidence":"approx"},
+    {"id":"BG-09","x":6.4,"y":36.4,"confidence":"approx"},
+    {"id":"BG-10","x":86.2,"y":34.2,"confidence":"approx"},
+    {"id":"BG-11","x":22.3,"y":41.4,"confidence":"approx"},
+    {"id":"BG-12","x":24.0,"y":48.3,"confidence":"approx"},
+    {"id":"BG-13","x":8.7,"y":52.2,"confidence":"approx"},
+    {"id":"BG-14","x":55.9,"y":60.3,"confidence":"approx"},
+    {"id":"BG-15","x":15.4,"y":63.5,"confidence":"approx"},
+    {"id":"BG-16","x":23.0,"y":67.6,"confidence":"approx"},
+    {"id":"BG-17","x":34.2,"y":70.8,"confidence":"approx"},
+    {"id":"BG-18","x":66.1,"y":71.1,"confidence":"approx"},
+    {"id":"BG-19","x":81.6,"y":66.8,"confidence":"approx"},
+    {"id":"BG-20","x":45.8,"y":90.5,"confidence":"approx"}
+  ]
+}
