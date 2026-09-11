@@ -1,0 +1,59 @@
+/* V2.11.0 visual hierarchy + user-selectable dark/light theme */
+:root{
+  --ui-page:#10110e;--ui-page-glow:#343326;--ui-panel:#20231c;--ui-panel-2:#181a15;
+  --ui-raised:#303428;--ui-input:#0f100d;--ui-text:#f1e6c7;--ui-muted:#bdb59b;
+  --ui-line:#66634d;--ui-shadow:#090a07;--ui-soft:#171913;
+}
+html[data-theme="light"]{
+  --night:#d8d0b8;--shell:#eee6cf;--shell-deep:#d8d0b8;--olive:#b8b39c;--olive-light:#8f8a72;
+  --cream:#24251f;--cream-soft:#4f5045;--line:#817d69;--shadow:#a29a82;
+  --ui-page:#d8d0b8;--ui-page-glow:#f4ecd6;--ui-panel:#eee6cf;--ui-panel-2:#ddd5bd;
+  --ui-raised:#d2cab2;--ui-input:#f8f1df;--ui-text:#24251f;--ui-muted:#59594e;--ui-line:#817d69;--ui-shadow:#a29a82;--ui-soft:#e4dcc5;
+}
+body{color:var(--ui-text);background:linear-gradient(90deg,rgba(230,173,67,.025) 1px,transparent 1px),linear-gradient(rgba(230,173,67,.018) 1px,transparent 1px),radial-gradient(circle at 50% -5%,var(--ui-page-glow) 0,var(--ui-page) 72%)}
+.panel,.search-panel{background:linear-gradient(135deg,var(--ui-panel),var(--ui-panel-2));border-color:var(--ui-line);box-shadow:3px 3px 0 var(--ui-shadow)}
+/* Give the main tools distinct hierarchy without turning them into unrelated designs. */
+.goal-drawer{border-left-color:var(--orange)}
+.supply-panel{border-top:5px solid var(--amber)}
+.search-panel{border-top:5px solid var(--orange)}
+.quest-drawer{border-left-color:var(--amber)}
+.spawn-panel{border-top:5px solid var(--green)}
+.drawer-body,.section-help,.empty.actionable,.need,.quest-section,.quest-mini{background:var(--ui-soft)}
+.sumrow,.goalbox,.quest-card{background:var(--ui-raised);box-shadow:none}
+.sumname,.card h3,.quest-card h3{color:var(--ui-text)}
+.summeta,.muted,.search-hint,.item-type,.desc,.recycle,.quest-mini span{color:var(--ui-muted)}
+.search-shell{background:var(--ui-input);border-color:var(--ui-line);box-shadow:none}
+#q,#questQ{color:var(--ui-text)}
+/* Shared control language */
+.lang-switch,.theme-switch,.spawn-zoom-controls{border:1px solid var(--ui-line);background:var(--ui-soft)}
+.theme-switch{display:flex;align-items:center;gap:3px;padding:4px 5px}
+.theme-btn{min-width:34px;min-height:28px;border:0;background:transparent;color:var(--ui-muted);font:700 12px "Rajdhani",sans-serif;letter-spacing:.04em;cursor:pointer}
+.theme-btn.active{background:var(--amber);color:#211c13}
+.lang{min-height:28px}
+.quest-filter,.quest-state button,.spawn-zoom-controls button{border-color:var(--ui-line);background:var(--ui-soft);color:var(--ui-text)}
+/* Reduce visual noise: strong geometry belongs to primary item cards/header only. */
+.goalbox,.sumrow,.quest-card,.quest-mini{box-shadow:none}
+.section-help{border-left-width:2px}
+/* Make primary information scan faster. */
+.sumname{font-size:19px;line-height:1.08}.qty{font-size:20px}
+.panel,.search-panel{margin-top:21px;margin-bottom:21px}
+@media(max-width:420px){
+  .masthead{align-items:flex-start}.headtools{gap:5px}.version{font-size:8px}
+  .theme-switch{padding:3px 4px}.theme-btn{min-width:31px;min-height:26px}
+  .panel,.search-panel{margin-top:19px;margin-bottom:19px}
+}
+html[data-theme="light"] body:before{opacity:.06}
+html[data-theme="light"] .masthead{background:linear-gradient(115deg,#d2cab2 0 62%,#c2baa3 62%);border-color:#817d69}
+html[data-theme="light"] .lang-switch{color:#55564c}
+html[data-theme="light"] .lang{color:#55564c}
+html[data-theme="light"] .lang.active{background:#2d2e27;color:#f5ecd5}
+html[data-theme="light"] .flow-guide{background:linear-gradient(135deg,#eee6cf,#d8d0b8);border-color:#817d69;box-shadow:3px 3px 0 #a29a82}
+html[data-theme="light"] .flow-guide-chevron,html[data-theme="light"] .flow-step{background:#f4ecd8;color:#24251f;border-color:#817d69}
+html[data-theme="light"] .flow-step b,html[data-theme="light"] .flow-step span{color:#24251f}
+html[data-theme="light"] .flow-step small{color:#59594e}
+html[data-theme="light"] .goal-drawer[open] summary,html[data-theme="light"] .quest-drawer[open] summary{background:#d2cab2}
+html[data-theme="light"] .card{background:linear-gradient(145deg,#eee6cf,#d6ceb7 70%);box-shadow:2px 2px 0 #aaa18a}
+html[data-theme="light"] .fact{background:#e4dcc5;border-color:#817d69}
+html[data-theme="light"] .fact span{color:#5d5d52}
+html[data-theme="light"] .fact b{color:#24251f}
+html[data-theme="light"] .rarity{background:#eee6cf}
