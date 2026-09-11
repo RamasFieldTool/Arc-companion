@@ -1,16 +1,21 @@
-# ARC Companion V2.3
+# ARC Companion V2.4
 
-Neu:
-- mehrere aktive Ausbauziele gleichzeitig
-- gleiche Items werden über alle aktivierten Ziele aufsummiert
-- vorhandene Mengen werden nur einmal abgezogen
-- Anzeige der Gründe/Stationen je Item
-- lokale Speicherung der aktiven Ziele und Bestände
-- Cache-Busting / no-store für JSON-Daten
+Daten-Ausbau auf Basis von RaidTheory/arcraiders-data.
 
-Beispiel:
-Wenn Metallteile für Waffenstation Stufe 1 (20) und Veredler Stufe 1 (60) aktiv sind,
-beträgt der Gesamtbedarf 80. Bei 37 vorhandenen Metallteilen fehlen noch 43.
+Neu verifiziert und ergänzt:
+- Waffenstation Stufe 2 vollständig: Verrostete Werkzeuge, Mechanische Komponenten, Wespentreiber
+- Waffenstation Stufe 3 vollständig: Verrostetes Zahnrad, Fortschrittliche mechanische Komponenten, Wächter-Feuerkern
+- Ausrüstungsbank Stufe 2 vollständig: Stromkabel, Elektrische Komponenten, Hornissentreiber
+- Ausrüstungsbank Stufe 3 vollständig: Industrie-Akku, Fortschrittliche elektrische Komponenten, Bastionzelle
 
-Datenquelle:
+Die bestehende V2.3-Logik bleibt erhalten:
+- mehrere aktive Ziele
+- Gesamtbedarf über mehrere Stationen
+- gespeicherter eigener Bestand
+- deutsche + englische Teilwortsuche
+
+Quelle:
 https://github.com/RaidTheory/arcraiders-data
+
+Hinweis:
+Die übrigen Stationen werden in den nächsten Datenpaketen ergänzt. Keine unbestätigten Namen werden erfunden.
