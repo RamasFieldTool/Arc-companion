@@ -233,7 +233,6 @@ function drawItems(){
   out.innerHTML=r.length?r.map(card).join(''):`<div class="empty">${tr('noHit')}</div>`;
 }
 
-
 function questItemsText(arr){
   if(!Array.isArray(arr)||!arr.length) return '';
   return arr.map(r=>{
@@ -340,23 +339,31 @@ async function loadQuests(){
   const questFiles=files.filter(f=>f?.type==='file'&&f?.name?.endsWith('.json')&&f?.download_url);
   if(!questFiles.length) throw new Error('No quest files found');
 
-  // Raw GitHub files are fetched in small batches so mobile browsers are not
-  // hit with ~100 simultaneous requests.
+  // Fetch in small batches. Individual file failures are isolated so one
+  // transient GitHub/raw-file error cannot wipe the complete quest tracker.
   const loaded=[];
+  const failed=[];
   const batchSize=10;
   for(let i=0;i<questFiles.length;i+=batchSize){
     const batch=questFiles.slice(i,i+batchSize);
-    const results=await Promise.all(batch.map(async f=>{
+    const results=await Promise.allSettled(batch.map(async f=>{
       const r=await fetch(f.download_url,{cache:'no-store'});
       if(!r.ok) throw new Error(`Quest file ${f.name}: ${r.status}`);
-      return r.json();
+      const data=await r.json();
+      if(!data?.id) throw new Error(`Quest file ${f.name}: missing id`);
+      return data;
     }));
-    loaded.push(...results);
+
+    results.forEach((result,index)=>{
+      if(result.status==='fulfilled') loaded.push(result.value);
+      else failed.push({file:batch[index]?.name||'unknown',reason:result.reason});
+    });
   }
 
-  const unique=[...new Map(loaded.filter(x=>x&&x.id).map(x=>[x.id,x])).values()];
-  if(unique.length!==questFiles.length){
-    throw new Error(`Quest snapshot incomplete ${unique.length}/${questFiles.length}`);
+  const unique=[...new Map(loaded.map(x=>[x.id,x])).values()];
+  if(!unique.length) throw new Error('No quest files could be loaded');
+  if(failed.length || unique.length!==questFiles.length){
+    console.warn(`Quest snapshot partial: ${unique.length}/${questFiles.length} loaded`,failed);
   }
   return unique;
 }
