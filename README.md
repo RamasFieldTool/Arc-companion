@@ -1,21 +1,29 @@
-# ARC Companion V2.4
+# ARC Companion V2.5
 
-Daten-Ausbau auf Basis von RaidTheory/arcraiders-data.
+Daten-Vervollständigung der Ausbauziele auf Basis von RaidTheory/arcraiders-data.
 
-Neu verifiziert und ergänzt:
-- Waffenstation Stufe 2 vollständig: Verrostete Werkzeuge, Mechanische Komponenten, Wespentreiber
-- Waffenstation Stufe 3 vollständig: Verrostetes Zahnrad, Fortschrittliche mechanische Komponenten, Wächter-Feuerkern
-- Ausrüstungsbank Stufe 2 vollständig: Stromkabel, Elektrische Komponenten, Hornissentreiber
-- Ausrüstungsbank Stufe 3 vollständig: Industrie-Akku, Fortschrittliche elektrische Komponenten, Bastionzelle
+Neu vollständig mit deutschen und englischen Itemnamen:
+- Gebrauchsgegenstand-Station Stufe 1–3
+- Sprengstoffstation Stufe 1–3
+- Medizinisches Labor Stufe 1–3
+- Veredler Stufe 1–3
+- Scrappy Stufe 1–5
 
-Die bestehende V2.3-Logik bleibt erhalten:
-- mehrere aktive Ziele
-- Gesamtbedarf über mehrere Stationen
-- gespeicherter eigener Bestand
-- deutsche + englische Teilwortsuche
+Bereits aus V2.4 vollständig:
+- Waffenstation Stufe 1–3
+- Ausrüstungsbank Stufe 1–3
+
+Damit sind alle in goals.json verwendeten Item-Anforderungen jetzt als richtige Items in items.json hinterlegt.
+Lager verwendet Münzen statt Item-Anforderungen und wird deshalb weiterhin separat behandelt.
+
+Die V2.3/V2.4-Logik bleibt erhalten:
+- mehrere aktive Ziele gleichzeitig
+- Gesamtbedarf über alle aktivierten Ziele
+- eigener Bestand im Browser gespeichert
+- Suche auf Deutsch und Englisch
 
 Quelle:
 https://github.com/RaidTheory/arcraiders-data
 
-Hinweis:
-Die übrigen Stationen werden in den nächsten Datenpaketen ergänzt. Keine unbestätigten Namen werden erfunden.
+Nächster Entwicklungsschritt:
+UI-/Designrunde, besonders eine deutlich kompaktere Auswahl der Stationen.

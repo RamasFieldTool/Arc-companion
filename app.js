@@ -109,8 +109,8 @@ function drawAll(){drawGoals();drawSummary();drawItems()}
 q.addEventListener('input',drawItems);
 
 Promise.all([
-  fetch('items.json?v=24',{cache:'no-store'}).then(r=>r.json()),
-  fetch('goals.json?v=24',{cache:'no-store'}).then(r=>r.json())
+  fetch('items.json?v=25',{cache:'no-store'}).then(r=>r.json()),
+  fetch('goals.json?v=25',{cache:'no-store'}).then(r=>r.json())
 ]).then(([i,g])=>{
   items=i;goals=g;drawAll();
 }).catch(()=>status.textContent='Daten konnten nicht geladen werden.');
