@@ -1,5 +1,5 @@
-// V2.11.7 – user-facing data status. No catalog/quest loading semantics changed.
-const APP_VERSION='2.11.7';
+// User-facing data status. Catalog/quest loading semantics stay elsewhere.
+const APP_VERSION='2.12.1';
 const STATUS_COPY={
   de:{live:'DATEN // LIVE',fallback:'DATEN // BASISDATENSATZ',liveTitle:'Live-Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter.'},
   en:{live:'DATA // LIVE',fallback:'DATA // BASE DATASET',liveTitle:'Live catalog active',fallbackTitle:'Local base dataset active',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset.'}
