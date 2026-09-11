@@ -1,0 +1,22 @@
+/* V2.11.2 – active goals clarity */
+#goalSummary.has-active-goals{color:var(--amber);font-weight:700}
+.goalbox{padding:11px}
+.levelrow{gap:8px}
+.levelbtn{
+  position:relative;display:grid;grid-template-columns:auto 1fr;align-items:center;gap:2px 7px;
+  min-width:108px;padding:8px 9px;border:1px solid var(--ui-line);background:var(--ui-soft);
+  color:var(--ui-muted);cursor:pointer;transition:border-color .12s ease,background .12s ease,transform .12s ease
+}
+.levelbtn input{grid-row:1 / span 2;margin:0}
+.level-label{font-weight:700;font-size:15px;line-height:1.05;color:var(--ui-text)}
+.levelbtn.is-active{border-color:var(--orange);background:linear-gradient(90deg,rgba(241,91,42,.18),var(--ui-soft));box-shadow:inset 4px 0 0 var(--orange)}
+.levelbtn.is-active .level-label{color:var(--cream)}
+.goal-extra{grid-column:2;display:block;font-size:11px;line-height:1.15;color:var(--ui-muted)}
+.goal-extra span{color:var(--amber);font-weight:700}
+html[data-theme="light"] .levelbtn.is-active{background:linear-gradient(90deg,rgba(241,91,42,.14),#e7dec7)}
+html[data-theme="light"] .levelbtn.is-active .level-label{color:#24251f}
+@media(max-width:420px){
+  .levelrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .levelbtn{min-width:0;width:100%;padding:9px 8px}
+  .goal-extra{font-size:10px}
+}
