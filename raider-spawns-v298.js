@@ -8,7 +8,7 @@ const spawnText={
     counts:'Vergleich anderer Community-Quellen',
     marker:'Möglicher Raider-Spawn',
     legend:'Möglicher Raider-Spawn',
-    hint:'Ziehen zum Verschieben · +/- oder zwei Finger zum Zoomen · Marker antippen für Details',
+    hint:'Bei 1× normal scrollen · mit +/- zoomen · vergrößerte Karte ziehen · Marker antippen',
     selected:'Möglicher Spawn',
     selectedBody:'Ungefähre Community-Position. Kein Hinweis darauf, dass hier in deinem aktuellen Raid ein Spieler gespawnt ist.',
     sourceImage:'Kartenbasis',
@@ -22,7 +22,7 @@ const spawnText={
     counts:'Comparison with other community sources',
     marker:'Possible Raider spawn',
     legend:'Possible Raider spawn',
-    hint:'Drag to pan · +/- or pinch to zoom · tap a marker for details',
+    hint:'At 1× scroll normally · use +/- to zoom · drag the zoomed map · tap markers',
     selected:'Possible spawn',
     selectedBody:'Approximate community position. It does not mean a player spawned here in your current raid.',
     sourceImage:'Map base',
@@ -39,7 +39,7 @@ let pinchStartDistance=null,pinchStartScale=1;
 
 function spawnLang(){try{return lang==='en'?'en':'de'}catch{return'de'}}
 function mapLabel(meta=activeMapMeta){if(!meta)return'';const l=spawnLang();return meta.label?.[l]||meta.label?.en||meta.id||''}
-function applySpawnTransform(){const c=document.getElementById('spawnCanvas');if(c)c.style.transform=`translate(${spawnX}px,${spawnY}px) scale(${spawnScale})`}
+function applySpawnTransform(){const c=document.getElementById('spawnCanvas');if(c)c.style.transform=`translate(${spawnX}px,${spawnY}px) scale(${spawnScale})`;const v=document.getElementById('spawnViewport');if(v)v.classList.toggle('map-interactive',spawnScale>1.001)}
 function clampSpawnPan(){const v=document.getElementById('spawnViewport');if(!v)return;const lim=v.clientWidth*(spawnScale-1)/2;spawnX=Math.max(-lim,Math.min(lim,spawnX));spawnY=Math.max(-lim,Math.min(lim,spawnY))}
 function setSpawnZoom(next){spawnScale=Math.max(1,Math.min(3,next));if(spawnScale===1){spawnX=0;spawnY=0}else{clampSpawnPan()}applySpawnTransform()}
 function resetSpawnView(){spawnScale=1;spawnX=0;spawnY=0;dragStart=null;activePointers.clear();pinchStartDistance=null;pinchStartScale=1;applySpawnTransform();const box=document.getElementById('spawnSelected');if(box)box.hidden=true;document.querySelectorAll('.spawn-marker.active').forEach(m=>m.classList.remove('active'))}
@@ -99,7 +99,7 @@ async function loadSpawnMap(mapId){
   activeMapMeta=meta;
   resetSpawnView();
   try{
-    const r=await fetch(`${meta.data}?v=2100`,{cache:'no-store'});if(!r.ok)throw new Error(`spawn data ${r.status}`);
+    const r=await fetch(`${meta.data}?v=21001`,{cache:'no-store'});if(!r.ok)throw new Error(`spawn data ${r.status}`);
     spawnData=await r.json();
     try{localStorage.setItem('arcSpawnMap',meta.id)}catch{}
     renderSpawnPanel();
@@ -115,15 +115,21 @@ function initSpawnControls(){
   document.getElementById('spawnReset')?.addEventListener('click',resetSpawnView);
   document.getElementById('spawnMapSelect')?.addEventListener('change',e=>loadSpawnMap(e.target.value));
   const v=document.getElementById('spawnViewport');if(!v)return;
-  v.addEventListener('pointerdown',e=>{activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});v.setPointerCapture?.(e.pointerId);if(activePointers.size===2){pinchStartDistance=pointerDistance();pinchStartScale=spawnScale;dragStart=null;return}if(e.target.closest('.spawn-marker'))return;dragStart={x:e.clientX-spawnX,y:e.clientY-spawnY};v.classList.add('dragging')});
-  v.addEventListener('pointermove',e=>{if(!activePointers.has(e.pointerId))return;activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(activePointers.size>=2&&pinchStartDistance){const d=pointerDistance();if(d)setSpawnZoom(pinchStartScale*(d/pinchStartDistance));return}if(!dragStart||spawnScale<=1)return;spawnX=e.clientX-dragStart.x;spawnY=e.clientY-dragStart.y;clampSpawnPan();applySpawnTransform()});
-  const end=e=>{activePointers.delete(e.pointerId);if(activePointers.size<2){pinchStartDistance=null;pinchStartScale=spawnScale}dragStart=null;v.classList.remove('dragging')};v.addEventListener('pointerup',end);v.addEventListener('pointercancel',end);
+  v.addEventListener('pointerdown',e=>{
+    if(spawnScale<=1.001){return}
+    activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+    v.setPointerCapture?.(e.pointerId);
+    if(e.target.closest('.spawn-marker'))return;
+    dragStart={x:e.clientX-spawnX,y:e.clientY-spawnY};v.classList.add('dragging')
+  });
+  v.addEventListener('pointermove',e=>{if(!activePointers.has(e.pointerId))return;activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(!dragStart||spawnScale<=1)return;spawnX=e.clientX-dragStart.x;spawnY=e.clientY-dragStart.y;clampSpawnPan();applySpawnTransform()});
+  const end=e=>{activePointers.delete(e.pointerId);dragStart=null;v.classList.remove('dragging')};v.addEventListener('pointerup',end);v.addEventListener('pointercancel',end);
   v.addEventListener('wheel',e=>{e.preventDefault();setSpawnZoom(spawnScale+(e.deltaY<0?0.2:-0.2))},{passive:false});
 }
 
 async function initSpawnMaps(){
   try{
-    const r=await fetch('maps.json?v=2100',{cache:'no-store'});if(!r.ok)throw new Error(`map catalog ${r.status}`);
+    const r=await fetch('maps.json?v=21001',{cache:'no-store'});if(!r.ok)throw new Error(`map catalog ${r.status}`);
     mapCatalog=await r.json();
     let preferred=mapCatalog.defaultMap;
     try{const stored=localStorage.getItem('arcSpawnMap');if(stored&&mapCatalog.maps.some(m=>m.id===stored))preferred=stored}catch{}
