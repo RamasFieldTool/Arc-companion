@@ -1,0 +1,40 @@
+{
+  "version": "2.10.1",
+  "map": "buried-city",
+  "label": {"de": "Buried City", "en": "Buried City"},
+  "verificationStatus": "community-screenshot-approximate",
+  "lastReviewed": "2026-09-11",
+  "reportedPool": 19,
+  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Buried_City_Map_Blank.png",
+  "mapImageSource": "ARC Raiders Wiki – Buried City Map Blank",
+  "notes": {
+    "de": "19 mögliche Raider-Startpositionen, manuell aus einem aktuellen Wand-Screenshot mit aktivem Player-Spawn-Filter übertragen. Positionen sind ungefähr und nicht offiziell von Embark bestätigt.",
+    "en": "19 possible Raider starting positions manually transferred from a current Wand screenshot with the Player Spawn filter active. Positions are approximate and not officially confirmed by Embark."
+  },
+  "reportedCounts": [
+    {"source": "Wand", "count": 19},
+    {"source": "arcraidersmap.cc", "count": 15},
+    {"source": "ARC Raiders Hub", "count": 9}
+  ],
+  "points": [
+    {"id":"BC-01","x":46.8,"y":11.8,"confidence":"approx"},
+    {"id":"BC-02","x":33.1,"y":17.5,"confidence":"approx"},
+    {"id":"BC-03","x":65.4,"y":18.7,"confidence":"approx"},
+    {"id":"BC-04","x":76.4,"y":25.3,"confidence":"approx"},
+    {"id":"BC-05","x":40.5,"y":30.3,"confidence":"approx"},
+    {"id":"BC-06","x":62.1,"y":30.6,"confidence":"approx"},
+    {"id":"BC-07","x":8.9,"y":43.0,"confidence":"approx"},
+    {"id":"BC-08","x":34.0,"y":44.3,"confidence":"approx"},
+    {"id":"BC-09","x":57.8,"y":48.1,"confidence":"approx"},
+    {"id":"BC-10","x":93.8,"y":57.4,"confidence":"approx"},
+    {"id":"BC-11","x":4.7,"y":61.2,"confidence":"approx"},
+    {"id":"BC-12","x":34.4,"y":59.6,"confidence":"approx"},
+    {"id":"BC-13","x":45.6,"y":59.6,"confidence":"approx"},
+    {"id":"BC-14","x":66.6,"y":64.7,"confidence":"approx"},
+    {"id":"BC-15","x":19.7,"y":69.0,"confidence":"approx"},
+    {"id":"BC-16","x":68.1,"y":71.3,"confidence":"approx"},
+    {"id":"BC-17","x":39.4,"y":75.4,"confidence":"approx"},
+    {"id":"BC-18","x":81.0,"y":75.3,"confidence":"approx"},
+    {"id":"BC-19","x":59.1,"y":84.5,"confidence":"approx"}
+  ]
+}

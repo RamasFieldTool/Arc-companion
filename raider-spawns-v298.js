@@ -1,4 +1,4 @@
-// V2.10.0 — generic multi-map Raider spawn module. Community positions remain approximate.
+// V2.10.1 — generic multi-map Raider spawn module. Community positions remain approximate.
 const spawnText={
   de:{
     intro:(map)=>`Mögliche Startpositionen von Raidern auf ${map}. Die Marker zeigen keine aktuellen Gegnerpositionen.`,
@@ -8,7 +8,9 @@ const spawnText={
     counts:'Vergleich anderer Community-Quellen',
     marker:'Möglicher Raider-Spawn',
     legend:'Möglicher Raider-Spawn',
+    pendingLegend:'Spawn-Koordinaten noch nicht verifiziert',
     hint:'Bei 1× normal scrollen · mit +/- zoomen · vergrößerte Karte ziehen · Marker antippen',
+    pendingHint:'Karte ist auswählbar · Spawn-Anzahl recherchiert · Marker folgen erst nach Koordinatenprüfung',
     selected:'Möglicher Spawn',
     selectedBody:'Ungefähre Community-Position. Kein Hinweis darauf, dass hier in deinem aktuellen Raid ein Spieler gespawnt ist.',
     sourceImage:'Kartenbasis',
@@ -22,7 +24,9 @@ const spawnText={
     counts:'Comparison with other community sources',
     marker:'Possible Raider spawn',
     legend:'Possible Raider spawn',
+    pendingLegend:'Spawn coordinates not yet verified',
     hint:'At 1× scroll normally · use +/- to zoom · drag the zoomed map · tap markers',
+    pendingHint:'Map is selectable · spawn count researched · markers wait for coordinate verification',
     selected:'Possible spawn',
     selectedBody:'Approximate community position. It does not mean a player spawned here in your current raid.',
     sourceImage:'Map base',
@@ -35,14 +39,13 @@ let activeMapMeta=null;
 let spawnData=null;
 let spawnScale=1,spawnX=0,spawnY=0,dragStart=null;
 const activePointers=new Map();
-let pinchStartDistance=null,pinchStartScale=1;
 
 function spawnLang(){try{return lang==='en'?'en':'de'}catch{return'de'}}
 function mapLabel(meta=activeMapMeta){if(!meta)return'';const l=spawnLang();return meta.label?.[l]||meta.label?.en||meta.id||''}
 function applySpawnTransform(){const c=document.getElementById('spawnCanvas');if(c)c.style.transform=`translate(${spawnX}px,${spawnY}px) scale(${spawnScale})`;const v=document.getElementById('spawnViewport');if(v)v.classList.toggle('map-interactive',spawnScale>1.001)}
 function clampSpawnPan(){const v=document.getElementById('spawnViewport');if(!v)return;const lim=v.clientWidth*(spawnScale-1)/2;spawnX=Math.max(-lim,Math.min(lim,spawnX));spawnY=Math.max(-lim,Math.min(lim,spawnY))}
 function setSpawnZoom(next){spawnScale=Math.max(1,Math.min(3,next));if(spawnScale===1){spawnX=0;spawnY=0}else{clampSpawnPan()}applySpawnTransform()}
-function resetSpawnView(){spawnScale=1;spawnX=0;spawnY=0;dragStart=null;activePointers.clear();pinchStartDistance=null;pinchStartScale=1;applySpawnTransform();const box=document.getElementById('spawnSelected');if(box)box.hidden=true;document.querySelectorAll('.spawn-marker.active').forEach(m=>m.classList.remove('active'))}
+function resetSpawnView(){spawnScale=1;spawnX=0;spawnY=0;dragStart=null;activePointers.clear();applySpawnTransform();const box=document.getElementById('spawnSelected');if(box)box.hidden=true;document.querySelectorAll('.spawn-marker.active').forEach(m=>m.classList.remove('active'))}
 
 function selectSpawn(i){
   const points=spawnData?.points||[];
@@ -75,14 +78,16 @@ function renderSourceLinks(){
 
 function renderSpawnPanel(){
   const l=spawnLang(),t=spawnText[l],name=mapLabel(),points=spawnData?.points||[];
+  const reportedCount=Number(spawnData?.reportedPool||points.length||0);
+  const coordinatesPending=reportedCount>0&&points.length===0;
   const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
   set('spawnMapTitle',name.toUpperCase());
   set('spawnIntro',t.intro(name));
   set('spawnBadge',t.badge);
-  set('spawnPendingTitle',t.approxTitle(points.length));
+  set('spawnPendingTitle',t.approxTitle(reportedCount));
   set('spawnPendingBody',spawnData?.notes?.[l]||t.approxBody);
-  set('spawnLegendText',t.legend);
-  set('spawnGestureHint',t.hint);
+  set('spawnLegendText',coordinatesPending?t.pendingLegend:t.legend);
+  set('spawnGestureHint',coordinatesPending?t.pendingHint:t.hint);
   set('spawnImageCredit',`${t.sourceImage}: ${spawnData?.mapImageSource||'Community map'}`);
   const img=document.getElementById('spawnMapImage');
   if(img){img.alt=`${name} Community-Karte`;if(spawnData?.mapImage)img.src=spawnData.mapImage}
@@ -99,7 +104,7 @@ async function loadSpawnMap(mapId){
   activeMapMeta=meta;
   resetSpawnView();
   try{
-    const r=await fetch(`${meta.data}?v=21001`,{cache:'no-store'});if(!r.ok)throw new Error(`spawn data ${r.status}`);
+    const r=await fetch(`${meta.data}?v=21010`,{cache:'no-store'});if(!r.ok)throw new Error(`spawn data ${r.status}`);
     spawnData=await r.json();
     try{localStorage.setItem('arcSpawnMap',meta.id)}catch{}
     renderSpawnPanel();
@@ -108,7 +113,6 @@ async function loadSpawnMap(mapId){
   }
 }
 
-function pointerDistance(){const pts=[...activePointers.values()];if(pts.length<2)return null;const dx=pts[0].x-pts[1].x,dy=pts[0].y-pts[1].y;return Math.hypot(dx,dy)}
 function initSpawnControls(){
   document.getElementById('spawnZoomIn')?.addEventListener('click',()=>setSpawnZoom(spawnScale+.35));
   document.getElementById('spawnZoomOut')?.addEventListener('click',()=>setSpawnZoom(spawnScale-.35));
@@ -129,7 +133,7 @@ function initSpawnControls(){
 
 async function initSpawnMaps(){
   try{
-    const r=await fetch('maps.json?v=21001',{cache:'no-store'});if(!r.ok)throw new Error(`map catalog ${r.status}`);
+    const r=await fetch('maps.json?v=21010',{cache:'no-store'});if(!r.ok)throw new Error(`map catalog ${r.status}`);
     mapCatalog=await r.json();
     let preferred=mapCatalog.defaultMap;
     try{const stored=localStorage.getItem('arcSpawnMap');if(stored&&mapCatalog.maps.some(m=>m.id===stored))preferred=stored}catch{}
