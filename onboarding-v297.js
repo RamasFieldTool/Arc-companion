@@ -1,4 +1,4 @@
-// V2.9.7 – lightweight onboarding and clearer empty states
+// V2.12.0 – onboarding/help text without patching core render functions.
 
 T.de.flowTitle='SO FUNKTIONIERT ES';
 T.en.flowTitle='HOW IT WORKS';
@@ -36,21 +36,10 @@ function refreshOnboardingText(){
   });
 }
 
-const originalApplyLanguage=applyLanguage;
-applyLanguage=function(){
-  originalApplyLanguage();
-  refreshOnboardingText();
-};
+// app.js owns language switching. These listeners only refresh help copy afterwards,
+// avoiding another applyLanguage()/drawSummary() override layer.
+deBtn.addEventListener('click',refreshOnboardingText);
+enBtn.addEventListener('click',refreshOnboardingText);
 
-const originalDrawSummary=drawSummary;
-drawSummary=function(){
-  const req=requirementMap();
-  if(!Object.keys(req).length){
-    summaryEl.innerHTML=`<div class="empty actionable"><b>${T[lang].noGoalTitle}</b>${T[lang].noGoalAction}</div>`;
-    return;
-  }
-  originalDrawSummary();
-};
-
+// Also handles a previously saved English preference before boot() finishes.
 refreshOnboardingText();
-drawSummary();
