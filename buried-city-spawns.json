@@ -1,0 +1,20 @@
+{
+  "version": "2.10.1",
+  "map": "buried-city",
+  "label": {"de": "Buried City", "en": "Buried City"},
+  "verificationStatus": "community-counts-conflict-coordinates-pending",
+  "lastReviewed": "2026-09-11",
+  "reportedPool": 19,
+  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Buried_City_Map_Blank.png",
+  "mapImageSource": "ARC Raiders Wiki – Buried City Map Blank",
+  "notes": {
+    "de": "Wand führt aktuell 19 Player-Spawns auf Buried City. arcraidersmap.cc führt 15, ARC Raiders Hub 9. Die genaue aktuelle Koordinatenliste konnte ich nicht zuverlässig maschinenlesbar verifizieren. Deshalb werden bewusst noch keine Spawn-Marker erfunden oder als verifiziert dargestellt.",
+    "en": "Wand currently lists 19 player spawns on Buried City. arcraidersmap.cc lists 15 and ARC Raiders Hub lists 9. I could not reliably verify a current machine-readable coordinate list, so no spawn markers are invented or presented as verified yet."
+  },
+  "reportedCounts": [
+    {"source": "Wand", "count": 19},
+    {"source": "arcraidersmap.cc", "count": 15},
+    {"source": "ARC Raiders Hub", "count": 9}
+  ],
+  "points": []
+}
