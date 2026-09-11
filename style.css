@@ -198,3 +198,57 @@ footer{
   .facts{grid-template-columns:repeat(3,1fr)}
   .fact{padding:6px}
 }
+
+
+/* V2.9 QUEST TRACKER */
+.quest-drawer{padding:0;border-left:5px solid var(--amber)}
+.quest-drawer summary{
+  list-style:none;cursor:pointer;padding:12px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px
+}
+.quest-drawer summary::-webkit-details-marker{display:none}
+.quest-drawer summary span{display:flex;flex-direction:column;gap:1px}
+.quest-drawer summary b{font-size:17px;letter-spacing:.045em}
+.quest-drawer summary small{font-size:13px;color:var(--cream-soft)}
+.quest-drawer summary strong{
+  color:#201b12;background:var(--cream);padding:6px 10px;
+  border-bottom:3px solid var(--orange);font-size:13px;letter-spacing:.04em;
+  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)
+}
+.quest-drawer[open] summary{background:#292c21;border-bottom:1px solid var(--line)}
+.quest-toolbar{display:grid;gap:9px;margin-bottom:11px}
+.quest-search-shell{margin:0}
+.quest-filters{display:flex;flex-wrap:wrap;gap:6px}
+.quest-filter{
+  border:1px solid #69664c;background:#181a15;color:var(--cream-soft);
+  padding:6px 9px;font:700 13px "Rajdhani",sans-serif;letter-spacing:.035em
+}
+.quest-filter.active{background:var(--amber);color:#211c13;border-color:var(--amber)}
+.quest-status{font-size:13px;color:var(--amber)}
+#questsList{display:grid;gap:10px}
+.quest-card{
+  background:linear-gradient(145deg,#34372a,#20231b);
+  border:1px solid #66624a;border-left:5px solid #817b64;
+  padding:11px;box-shadow:3px 3px 0 #0c0d0a
+}
+.quest-card.quest-active{border-left-color:var(--orange)}
+.quest-card.quest-done{border-left-color:var(--green);opacity:.82}
+.quest-card-head{display:grid;gap:8px}
+.quest-card h3{margin:0;font-size:21px;line-height:1.05;color:#fff3d4}
+.quest-trader{font-size:12px;color:var(--amber);margin-top:4px}
+.quest-state{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.quest-state button{
+  border:1px solid #605d48;background:#141611;color:#bdb59b;
+  padding:6px 4px;font:700 12px "Rajdhani",sans-serif
+}
+.quest-state button.selected{background:var(--cream);color:#211f18;border-color:var(--cream)}
+.quest-active .quest-state button[data-state="active"].selected{background:var(--orange);color:white;border-color:var(--orange)}
+.quest-done .quest-state button[data-state="done"].selected{background:var(--green);color:#171913;border-color:var(--green)}
+.quest-section{margin-top:10px;padding:9px 10px;background:#171913;border-left:2px solid #777258}
+.quest-section b,.quest-mini b{display:block;color:var(--amber);font-size:12px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.quest-section ul{margin:5px 0 0;padding-left:18px;color:#ddd4b9;font-size:14px}
+.quest-section li+li{margin-top:4px}
+.quest-grid{display:grid;gap:6px;margin-top:8px}
+.quest-mini{padding:8px 9px;background:#191b16;border:1px solid #4f4d3d}
+.quest-mini span{font-size:14px;color:#d8cfb3}
+.quest-mini.has-required{border-left:4px solid var(--orange)}

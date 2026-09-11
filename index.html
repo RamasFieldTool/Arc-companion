@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#161711">
-  <title>ARC Companion V2.8</title>
+  <title>ARC Companion V2.9</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=28">
+  <link rel="stylesheet" href="style.css?v=29">
 </head>
 <body>
 <main>
@@ -23,7 +23,7 @@
         <span>/</span>
         <button id="enBtn" class="lang" type="button">EN</button>
       </div>
-      <div class="version">SYS // V2.8</div>
+      <div class="version">SYS // V2.9</div>
     </div>
   </header>
 
@@ -35,6 +35,32 @@
     <div class="drawer-body">
       <p class="muted" data-t="goalHint">Aktiviere alle Stationen/Stufen, auf die du gerade hinarbeitest.</p>
       <div id="goals"></div>
+    </div>
+  </details>
+
+  <details id="questDrawer" class="quest-drawer panel">
+    <summary>
+      <span>
+        <b data-t="quests">QUESTS</b>
+        <small id="questSummary">Quest-Tracker öffnen</small>
+      </span>
+      <strong id="questToggleLabel">ANZEIGEN</strong>
+    </summary>
+    <div class="drawer-body">
+      <div class="quest-toolbar">
+        <div class="search-shell quest-search-shell">
+          <span>&gt;</span>
+          <input id="questQ" autocomplete="off" placeholder="Quest suchen …">
+        </div>
+        <div class="quest-filters">
+          <button type="button" class="quest-filter active" data-filter="all">ALLE</button>
+          <button type="button" class="quest-filter" data-filter="open">OFFEN</button>
+          <button type="button" class="quest-filter" data-filter="active">AKTIV</button>
+          <button type="button" class="quest-filter" data-filter="done">ERLEDIGT</button>
+        </div>
+        <div id="questStatus" class="quest-status">Quests werden geladen …</div>
+      </div>
+      <div id="questsList"></div>
     </div>
   </details>
 
@@ -60,6 +86,6 @@
     <span>DATA // RaidTheory · API // Mahcks</span>
   </footer>
 </main>
-<script src="app.js?v=28"></script>
+<script src="app.js?v=29"></script>
 </body>
 </html>

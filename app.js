@@ -5,38 +5,58 @@ const goalsEl=document.querySelector('#goals');
 const summaryEl=document.querySelector('#summary');
 const deBtn=document.querySelector('#deBtn');
 const enBtn=document.querySelector('#enBtn');
+const questDrawer=document.querySelector('#questDrawer');
+const questQ=document.querySelector('#questQ');
+const questsList=document.querySelector('#questsList');
+const questStatus=document.querySelector('#questStatus');
+const questSummary=document.querySelector('#questSummary');
+const questToggleLabel=document.querySelector('#questToggleLabel');
 
-let items=[],goals=[],usingFallback=false;
+let items=[],goals=[],quests=[],usingFallback=false,questLoadError=false;
+let questFilter='all';
 let lang=localStorage.getItem('arcLang')||'de';
 
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const owned=JSON.parse(localStorage.getItem('arcOwned')||'{}');
 const active=JSON.parse(localStorage.getItem('arcActiveGoals')||'{}');
+const questStates=JSON.parse(localStorage.getItem('arcQuestStatus')||'{}');
 
 const T={
   de:{
     activeGoals:'AKTIVE ZIELE',manageGoals:'Stationen & Stufen verwalten',change:'ÄNDERN',
     goalHint:'Aktiviere alle Stationen/Stufen, auf die du gerade hinarbeitest.',
     totalNeed:'Gesamtbedarf',searchItem:'ITEM SUCHEN',placeholder:'z. B. Kabel, Metall, ARC ...',
-    level:'Stufe',noneGoal:'Noch kein Ausbauziel aktiviert.',
+    level:'Stufe',noneGoal:'Noch kein Ausbauziel oder aktive Quest mit Itembedarf.',
     total:'Gesamt',owned:'vorhanden',missing:'fehlen',value:'Wert',weight:'Gewicht',stack:'Stapel',
     use:'Beschreibung',recycle:'Recycling',noRecycle:'Keine Recyclingdaten',
     searchPrompt:'Suchbegriff eingeben',records:'Items geladen',matches:'Treffer',
     noHit:'Kein Treffer.',free:'FREI – für deine aktiven Ziele aktuell nicht benötigt',
     fulfilled:'ZIEL ERFÜLLT – du hast genug',keepA:'BEHALTEN – dir fehlen insgesamt noch',
-    keepB:'von',loadError:'Vollständiger Katalog nicht erreichbar – lokaler Basisdatensatz aktiv.'
+    keepB:'von',loadError:'Vollständiger Katalog nicht erreichbar – lokaler Basisdatensatz aktiv.',
+    quests:'QUESTS',questSummary:'Quest-Tracker öffnen',show:'ANZEIGEN',hide:'SCHLIESSEN',
+    questPlaceholder:'Quest suchen …',all:'ALLE',open:'OFFEN',active:'AKTIV',done:'ERLEDIGT',
+    questLoading:'Quests werden geladen …',questLoadError:'Questdaten konnten nicht geladen werden.',
+    questsLoaded:'Quests geladen',shown:'angezeigt',objectives:'Ziele',required:'Benötigte Items',
+    rewards:'Belohnungen',granted:'Bereitgestellt',trader:'Auftraggeber',noRequired:'Kein Itembedarf',
+    noRewards:'Keine Itembelohnungen',questReason:'Quest',activeCount:'aktiv'
   },
   en:{
     activeGoals:'ACTIVE GOALS',manageGoals:'Manage stations & levels',change:'CHANGE',
     goalHint:'Activate every station/level you are currently working toward.',
     totalNeed:'Total requirements',searchItem:'SEARCH ITEM',placeholder:'e.g. Wires, Metal, ARC ...',
-    level:'Level',noneGoal:'No upgrade goal selected yet.',
+    level:'Level',noneGoal:'No upgrade goal or active quest with item requirements.',
     total:'Total',owned:'owned',missing:'missing',value:'Value',weight:'Weight',stack:'Stack',
     use:'Description',recycle:'Recycling',noRecycle:'No recycling data',
     searchPrompt:'Enter a search term',records:'items loaded',matches:'matches',
     noHit:'No results.',free:'FREE – not currently needed for your active goals',
     fulfilled:'GOAL MET – you have enough',keepA:'KEEP – you still need',
-    keepB:'of',loadError:'Full catalog unavailable – local base dataset active.'
+    keepB:'of',loadError:'Full catalog unavailable – local base dataset active.',
+    quests:'QUESTS',questSummary:'Open quest tracker',show:'SHOW',hide:'CLOSE',
+    questPlaceholder:'Search quests …',all:'ALL',open:'OPEN',active:'ACTIVE',done:'DONE',
+    questLoading:'Loading quests …',questLoadError:'Quest data could not be loaded.',
+    questsLoaded:'quests loaded',shown:'shown',objectives:'Objectives',required:'Required items',
+    rewards:'Rewards',granted:'Granted',trader:'Quest giver',noRequired:'No item requirements',
+    noRewards:'No item rewards',questReason:'Quest',activeCount:'active'
   }
 };
 
@@ -58,6 +78,8 @@ function itemWeight(i){return i?.weightKg ?? i?.weight ?? null}
 function itemStack(i){return i?.stackSize ?? i?.stack ?? null}
 function itemById(id){return items.find(x=>x.id===id)}
 function key(goalId,level){return `${goalId}:${level}`}
+function questName(x){return text(x?.name)||x?.id?.replaceAll('_',' ')||''}
+function getQuestState(id){return questStates[id]||'open'}
 
 function goalName(g){return (lang==='de'?g.de:g.en)||g.de||g.en||g.id}
 function rarityName(r){return lang==='de'?(rarityDE[r]||r):r}
@@ -73,14 +95,22 @@ function formatNum(n){
 
 function requirementMap(){
   const map={};
+  const add=(itemId,quantity,reason)=>{
+    if(!itemId||!quantity) return;
+    if(!map[itemId]) map[itemId]={total:0,reasons:[]};
+    map[itemId].total+=Number(quantity)||0;
+    map[itemId].reasons.push(reason);
+  };
+
   goals.forEach(g=>g.levels.forEach(l=>{
     if(!active[key(g.id,l.level)]) return;
-    l.requirements.forEach(r=>{
-      if(!map[r.itemId]) map[r.itemId]={total:0,reasons:[]};
-      map[r.itemId].total+=r.quantity;
-      map[r.itemId].reasons.push(`${goalName(g)} ${tr('level')} ${l.level}: ${r.quantity}`);
-    });
+    l.requirements.forEach(r=>add(r.itemId,r.quantity,`${goalName(g)} ${tr('level')} ${l.level}: ${r.quantity}`));
   }));
+
+  quests.forEach(x=>{
+    if(getQuestState(x.id)!=='active') return;
+    (x.requiredItemIds||[]).forEach(r=>add(r.itemId,r.quantity,`${tr('questReason')} – ${questName(x)}: ${r.quantity}`));
+  });
   return map;
 }
 
@@ -203,19 +233,121 @@ function drawItems(){
   out.innerHTML=r.length?r.map(card).join(''):`<div class="empty">${tr('noHit')}</div>`;
 }
 
+
+function questItemsText(arr){
+  if(!Array.isArray(arr)||!arr.length) return '';
+  return arr.map(r=>{
+    const i=itemById(r.itemId);
+    return `${r.quantity}× ${i?itemName(i):r.itemId.replaceAll('_',' ')}`;
+  }).join(' · ');
+}
+
+function setQuestState(id,state){
+  questStates[id]=state;
+  localStorage.setItem('arcQuestStatus',JSON.stringify(questStates));
+  drawQuestHeader();
+  drawQuests();
+  drawSummary();
+  drawItems();
+}
+
+function drawQuestHeader(){
+  if(!questSummary) return;
+  const n=quests.filter(x=>getQuestState(x.id)==='active').length;
+  questSummary.textContent=quests.length
+    ? `${quests.length} ${tr('questsLoaded')} · ${n} ${tr('activeCount')}`
+    : (questLoadError?tr('questLoadError'):tr('questSummary'));
+  questToggleLabel.textContent=questDrawer.open?tr('hide'):tr('show');
+}
+
+function questCard(x){
+  const st=getQuestState(x.id);
+  const objectives=(x.objectives||[]).map(o=>text(o)).filter(Boolean);
+  const required=questItemsText(x.requiredItemIds);
+  const rewards=questItemsText(x.rewardItemIds);
+  const granted=questItemsText(x.grantedItemIds);
+  return `<article class="quest-card quest-${st}">
+    <div class="quest-card-head">
+      <div>
+        <h3>${questName(x)}</h3>
+        ${x.trader?`<div class="quest-trader">${tr('trader')}: ${x.trader}</div>`:''}
+      </div>
+      <div class="quest-state">
+        <button type="button" data-qid="${x.id}" data-state="open" class="${st==='open'?'selected':''}">${tr('open')}</button>
+        <button type="button" data-qid="${x.id}" data-state="active" class="${st==='active'?'selected':''}">${tr('active')}</button>
+        <button type="button" data-qid="${x.id}" data-state="done" class="${st==='done'?'selected':''}">${tr('done')}</button>
+      </div>
+    </div>
+    ${objectives.length?`<div class="quest-section"><b>${tr('objectives')}</b><ul>${objectives.map(o=>`<li>${o}</li>`).join('')}</ul></div>`:''}
+    <div class="quest-grid">
+      <div class="quest-mini ${required?'has-required':''}"><b>${tr('required')}</b><span>${required||tr('noRequired')}</span></div>
+      ${granted?`<div class="quest-mini"><b>${tr('granted')}</b><span>${granted}</span></div>`:''}
+      <div class="quest-mini"><b>${tr('rewards')}</b><span>${rewards||tr('noRewards')}</span></div>
+    </div>
+  </article>`;
+}
+
+function drawQuests(){
+  if(!questDrawer.open) return;
+  if(questLoadError){
+    questStatus.textContent=tr('questLoadError');
+    questStatus.classList.add('load-error');
+    questsList.innerHTML='';
+    return;
+  }
+  const needle=norm(questQ.value.trim());
+  const filtered=quests.filter(x=>{
+    const st=getQuestState(x.id);
+    if(questFilter!=='all'&&st!==questFilter) return false;
+    if(!needle) return true;
+    const hay=[
+      questName(x),x?.name?.de,x?.name?.en,x.trader,
+      ...(x.objectives||[]).flatMap(o=>[o?.de,o?.en])
+    ].map(norm).join(' ');
+    return hay.includes(needle);
+  });
+  questStatus.classList.remove('load-error');
+  questStatus.textContent=`${filtered.length} ${tr('shown')} · ${quests.length} ${tr('questsLoaded')}`;
+  questsList.innerHTML=filtered.length?filtered.map(questCard).join(''):`<div class="empty">${tr('noHit')}</div>`;
+  questsList.querySelectorAll('.quest-state button').forEach(btn=>{
+    btn.addEventListener('click',()=>setQuestState(btn.dataset.qid,btn.dataset.state));
+  });
+}
+
+async function loadQuests(){
+  const r=await fetch('https://arcdata.mahcks.com/v1/quests?full=true',{cache:'no-store'});
+  if(!r.ok) throw new Error(`Quest API ${r.status}`);
+  const data=await r.json();
+  const list=Array.isArray(data)?data:(data.quests||data.items||data.data||[]);
+  if(!Array.isArray(list)) throw new Error('Invalid quest response');
+  return list;
+}
+
+
 function applyLanguage(){
   document.documentElement.lang=lang;
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=tr(el.dataset.t));
   q.placeholder=tr('placeholder');
+  questQ.placeholder=tr('questPlaceholder');
+  document.querySelectorAll('.quest-filter').forEach(btn=>btn.textContent=tr(btn.dataset.filter));
   deBtn.classList.toggle('active',lang==='de');
   enBtn.classList.toggle('active',lang==='en');
   localStorage.setItem('arcLang',lang);
-  drawGoals();drawSummary();drawItems();
+  drawGoals();drawQuestHeader();drawQuests();drawSummary();drawItems();
 }
 
 deBtn.addEventListener('click',()=>{lang='de';applyLanguage()});
 enBtn.addEventListener('click',()=>{lang='en';applyLanguage()});
 q.addEventListener('input',drawItems);
+questQ.addEventListener('input',drawQuests);
+questDrawer.addEventListener('toggle',()=>{drawQuestHeader();drawQuests()});
+document.querySelectorAll('.quest-filter').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    questFilter=btn.dataset.filter;
+    document.querySelectorAll('.quest-filter').forEach(x=>x.classList.toggle('active',x===btn));
+    drawQuests();
+  });
+});
 
 async function loadFullCatalog(){
   let all=[],offset=0,total=null;
@@ -239,15 +371,15 @@ async function loadFullCatalog(){
 
 async function boot(){
   try{
-    goals=await fetch('goals.json?v=28',{cache:'no-store'}).then(r=>r.json());
+    goals=await fetch('goals.json?v=29',{cache:'no-store'}).then(r=>r.json());
     status.textContent=lang==='de'?'Katalog wird geladen …':'Loading catalog …';
     items=await loadFullCatalog();
     usingFallback=false;
   }catch(err){
     console.error(err);
     try{
-      items=await fetch('items.json?v=28',{cache:'no-store'}).then(r=>r.json());
-      if(!goals.length) goals=await fetch('goals.json?v=28',{cache:'no-store'}).then(r=>r.json());
+      items=await fetch('items.json?v=29',{cache:'no-store'}).then(r=>r.json());
+      if(!goals.length) goals=await fetch('goals.json?v=29',{cache:'no-store'}).then(r=>r.json());
       usingFallback=true;
     }catch{
       status.textContent=tr('loadError');
@@ -255,6 +387,17 @@ async function boot(){
       return;
     }
   }
+
+  try{
+    questStatus.textContent=tr('questLoading');
+    quests=await loadQuests();
+    questLoadError=false;
+  }catch(err){
+    console.error(err);
+    quests=[];
+    questLoadError=true;
+  }
+
   applyLanguage();
   if(usingFallback){
     status.textContent=tr('loadError');

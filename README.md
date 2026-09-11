@@ -1,4 +1,4 @@
-# ARC Companion V2.8
+# ARC Companion V2.9
 
 V2.7 verbindet die bestehende Ziel-/Bedarfslogik mit dem vollständigen RaidTheory-Katalog über die Mahcks API.
 
@@ -30,3 +30,13 @@ ARC Raiders © Embark Studios. Unofficial community project.
 - Header, Zielauswahl, Bedarfszeilen, Suche und Itemkarten neu gestaltet.
 - Status BEHALTEN / ERFÜLLT / FREI visuell klarer getrennt.
 - Rajdhani bleibt Hauptschrift, Monospace nur für kleine Systemkennzeichnungen.
+
+
+## V2.9 – Quest-Tracker
+- Alle Quests werden über die Mahcks API aus dem RaidTheory-Datensatz geladen.
+- Questliste ist standardmäßig eingeklappt und erscheint erst über „ANZEIGEN“.
+- Suche und Filter: Alle / Offen / Aktiv / Erledigt.
+- Queststatus wird lokal auf dem Gerät gespeichert.
+- Questziele, Auftraggeber, benötigte Items, bereitgestellte Items und Item-Belohnungen werden angezeigt, wenn vorhanden.
+- Nur aktive Quests mit strukturierten `requiredItemIds` fließen in den Gesamtbedarf ein.
+- Expeditionen wurden bewusst nicht eingebaut.
