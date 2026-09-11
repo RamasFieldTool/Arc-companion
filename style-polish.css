@@ -1,0 +1,226 @@
+/* V2.9.5 visual polish: spacing, hierarchy and mobile readability only */
+
+main{
+  padding-top:18px;
+  padding-bottom:56px;
+}
+
+.panel,.search-panel{
+  margin:18px 0;
+}
+
+.goal-drawer,.quest-drawer{
+  margin-bottom:20px;
+}
+
+.goal-drawer summary,.quest-drawer summary{
+  min-height:66px;
+  padding:14px 14px;
+}
+
+.goal-drawer summary b,.quest-drawer summary b{
+  font-size:18px;
+}
+
+.goal-drawer summary small,.quest-drawer summary small{
+  margin-top:3px;
+  line-height:1.25;
+}
+
+.drawer-body{
+  padding:13px 14px 17px;
+}
+
+.supply-panel{
+  margin-top:22px;
+  padding:17px 15px 18px;
+}
+
+.search-panel{
+  margin-top:22px;
+  padding:17px 15px 19px;
+}
+
+.section-kicker{
+  margin-bottom:8px;
+}
+
+h2{
+  margin-bottom:15px;
+}
+
+#summary{
+  gap:10px;
+}
+
+.sumrow{
+  padding:12px;
+  gap:12px;
+}
+
+.search-panel label{
+  margin-bottom:10px;
+}
+
+.search-shell{
+  min-height:50px;
+}
+
+#status{
+  margin-top:10px;
+  line-height:1.35;
+}
+
+#out{
+  margin-top:14px;
+  gap:13px;
+}
+
+.card{
+  padding:15px;
+}
+
+.card h3{
+  line-height:1.08;
+}
+
+.item-type{
+  margin-top:6px;
+}
+
+.quest-toolbar{
+  gap:11px;
+  margin-bottom:14px;
+}
+
+.quest-filters{
+  gap:8px;
+}
+
+.quest-filter{
+  min-height:36px;
+  padding:7px 11px;
+}
+
+#questsList{
+  gap:13px;
+}
+
+.quest-card{
+  padding:13px;
+}
+
+.quest-card-head{
+  gap:10px;
+}
+
+.quest-card h3{
+  font-size:22px;
+  line-height:1.12;
+}
+
+.quest-state{
+  gap:7px;
+}
+
+.quest-state button{
+  min-height:38px;
+  padding:7px 5px;
+  font-size:13px;
+}
+
+.quest-section{
+  margin-top:12px;
+  padding:10px 11px;
+}
+
+.quest-grid{
+  gap:8px;
+  margin-top:10px;
+}
+
+.quest-mini{
+  padding:9px 10px;
+}
+
+@media(max-width:420px){
+  main{
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:12px;
+  }
+
+  .masthead{
+    margin-bottom:18px;
+  }
+
+  .panel,.search-panel{
+    margin-top:17px;
+    margin-bottom:17px;
+  }
+
+  .goal-drawer summary,.quest-drawer summary{
+    padding:13px 11px;
+    gap:9px;
+  }
+
+  .goal-drawer summary strong,.quest-drawer summary strong{
+    padding:7px 8px;
+    font-size:12px;
+  }
+
+  .drawer-body{
+    padding:12px 11px 15px;
+  }
+
+  .supply-panel,.search-panel{
+    padding-left:12px;
+    padding-right:12px;
+  }
+
+  .sumrow{
+    grid-template-columns:minmax(0,1fr) 64px;
+  }
+
+  .qty{
+    width:64px;
+  }
+
+  .card-head{
+    gap:8px;
+  }
+
+  .card h3{
+    font-size:22px;
+  }
+
+  .rarity{
+    padding:4px 6px;
+    font-size:11px;
+  }
+
+  .facts{
+    gap:5px;
+  }
+
+  .fact{
+    min-width:0;
+  }
+
+  .fact b{
+    font-size:16px;
+  }
+
+  .quest-filters{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .quest-filter{
+    width:100%;
+  }
+
+  .quest-state{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
