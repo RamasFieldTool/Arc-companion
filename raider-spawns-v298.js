@@ -1,82 +1,20 @@
-// V2.9.8 — Spaceport Raider spawn map using approximate community positions.
-
-const spawnText={
-  de:{
-    intro:'Mögliche Startpositionen von Raidern auf Spaceport. Die Marker zeigen keine aktuellen Gegnerpositionen.',
-    badge:'COMMUNITY // CA.',
-    approxTitle:'21 mögliche Raider-Spawns',
-    approxBody:'Die Punkte wurden manuell aus einer aktuellen Community-Karte übertragen. Sie sind ungefähr und nicht offiziell von Embark bestätigt.',
-    counts:'Vergleich anderer Community-Quellen',
-    marker:'Möglicher Raider-Spawn',
-    sourceImage:'Kartenbasis: Arc Raiders AI',
-    sourceWiki:'ARC Raiders Wiki',
-    sourceWand:'Wand',
-    sourceGrid:'Raider Grid'
-  },
-  en:{
-    intro:'Possible Raider starting positions on Spaceport. Markers do not show current enemy positions.',
-    badge:'COMMUNITY // APPROX.',
-    approxTitle:'21 possible Raider spawns',
-    approxBody:'The points were manually transferred from a current community map. They are approximate and are not officially confirmed by Embark.',
-    counts:'Comparison with other community sources',
-    marker:'Possible Raider spawn',
-    sourceImage:'Map base: Arc Raiders AI',
-    sourceWiki:'ARC Raiders Wiki',
-    sourceWand:'Wand',
-    sourceGrid:'Raider Grid'
-  }
-};
-
-let spawnData=null;
-
-function spawnLang(){
-  try{return lang==='en'?'en':'de'}catch{return 'de'}
+// V2.9.9 — tactical Spaceport Raider spawn map. Community positions remain approximate.
+const spawnText={de:{intro:'Mögliche Startpositionen von Raidern auf Spaceport. Die Marker zeigen keine aktuellen Gegnerpositionen.',badge:'COMMUNITY // CA.',approxTitle:'21 mögliche Raider-Spawns',approxBody:'Community-Daten · ungefähre Positionen · nicht offiziell von Embark bestätigt',counts:'Vergleich anderer Community-Quellen',marker:'Möglicher Raider-Spawn',legend:'Möglicher Raider-Spawn',hint:'Ziehen zum Verschieben · +/- oder zwei Finger zum Zoomen · Marker antippen für Details',selected:'Möglicher Spawn',selectedBody:'Ungefähre Community-Position. Kein Hinweis darauf, dass hier in deinem aktuellen Raid ein Spieler gespawnt ist.',sourceImage:'Kartenbasis: Arc Raiders AI',sourceWiki:'ARC Raiders Wiki',sourceWand:'Wand',sourceGrid:'Raider Grid'},en:{intro:'Possible Raider starting positions on Spaceport. Markers do not show current enemy positions.',badge:'COMMUNITY // APPROX.',approxTitle:'21 possible Raider spawns',approxBody:'Community data · approximate positions · not officially confirmed by Embark',counts:'Comparison with other community sources',marker:'Possible Raider spawn',legend:'Possible Raider spawn',hint:'Drag to pan · +/- or pinch to zoom · tap a marker for details',selected:'Possible spawn',selectedBody:'Approximate community position. It does not mean a player spawned here in your current raid.',sourceImage:'Map base: Arc Raiders AI',sourceWiki:'ARC Raiders Wiki',sourceWand:'Wand',sourceGrid:'Raider Grid'}};
+let spawnData=null,spawnScale=1,spawnX=0,spawnY=0,dragStart=null;
+const activePointers=new Map();
+let pinchStartDistance=null,pinchStartScale=1;
+function spawnLang(){try{return lang==='en'?'en':'de'}catch{return'de'}}
+function applySpawnTransform(){const c=document.getElementById('spawnCanvas');if(c)c.style.transform=`translate(${spawnX}px,${spawnY}px) scale(${spawnScale})`}
+function clampSpawnPan(){const v=document.getElementById('spawnViewport');if(!v)return;const lim=v.clientWidth*(spawnScale-1)/2;spawnX=Math.max(-lim,Math.min(lim,spawnX));spawnY=Math.max(-lim,Math.min(lim,spawnY))}
+function setSpawnZoom(next){spawnScale=Math.max(1,Math.min(3,next));if(spawnScale===1){spawnX=0;spawnY=0}else{clampSpawnPan()}applySpawnTransform()}
+function selectSpawn(i){document.querySelectorAll('.spawn-marker').forEach((m,n)=>m.classList.toggle('active',n===i));const box=document.getElementById('spawnSelected'),t=spawnText[spawnLang()];if(box){box.hidden=false;box.innerHTML=`<b>${t.selected} ${String(i+1).padStart(2,'0')}</b><br>${t.selectedBody}`;box.scrollIntoView({block:'nearest',behavior:'smooth'})}}
+function renderSpawnMarkers(){const layer=document.getElementById('spawnMarkers');if(!layer)return;const t=spawnText[spawnLang()],points=spawnData?.points||[];layer.innerHTML=points.map((p,i)=>`<button class="spawn-marker" data-spawn="${i}" type="button" style="left:${p.x}%;top:${p.y}%" aria-label="${t.marker} ${i+1}" title="${t.marker} ${i+1}"><span>${i+1}</span></button>`).join('');layer.querySelectorAll('.spawn-marker').forEach((m,i)=>m.addEventListener('click',e=>{e.stopPropagation();selectSpawn(i)}))}
+function renderSpawnPanel(){const t=spawnText[spawnLang()];const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};set('spawnIntro',t.intro);set('spawnBadge',t.badge);set('spawnPendingTitle',t.approxTitle);set('spawnPendingBody',spawnData?.notes?.[spawnLang()]||t.approxBody);set('spawnLegendText',t.legend);set('spawnGestureHint',t.hint);set('spawnWiki',t.sourceWiki);set('spawnWand',t.sourceWand);set('spawnGrid',t.sourceGrid);set('spawnImageCredit',t.sourceImage);const img=document.getElementById('spawnMapImage');if(img&&spawnData?.mapImage)img.src=spawnData.mapImage;const counts=document.getElementById('spawnCounts');if(counts&&spawnData?.reportedCounts?.length)counts.innerHTML=`<b>${t.counts}:</b> `+spawnData.reportedCounts.map(x=>`${x.source} ${x.count}`).join(' · ');renderSpawnMarkers()}
+function pointerDistance(){const pts=[...activePointers.values()];if(pts.length<2)return null;const dx=pts[0].x-pts[1].x,dy=pts[0].y-pts[1].y;return Math.hypot(dx,dy)}
+function initSpawnControls(){document.getElementById('spawnZoomIn')?.addEventListener('click',()=>setSpawnZoom(spawnScale+.35));document.getElementById('spawnZoomOut')?.addEventListener('click',()=>setSpawnZoom(spawnScale-.35));document.getElementById('spawnReset')?.addEventListener('click',()=>{spawnScale=1;spawnX=spawnY=0;applySpawnTransform()});const v=document.getElementById('spawnViewport');if(!v)return;
+  v.addEventListener('pointerdown',e=>{activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});v.setPointerCapture?.(e.pointerId);if(activePointers.size===2){pinchStartDistance=pointerDistance();pinchStartScale=spawnScale;dragStart=null;return}if(e.target.closest('.spawn-marker'))return;dragStart={x:e.clientX-spawnX,y:e.clientY-spawnY};v.classList.add('dragging')});
+  v.addEventListener('pointermove',e=>{if(!activePointers.has(e.pointerId))return;activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(activePointers.size>=2&&pinchStartDistance){const d=pointerDistance();if(d)setSpawnZoom(pinchStartScale*(d/pinchStartDistance));return}if(!dragStart||spawnScale<=1)return;spawnX=e.clientX-dragStart.x;spawnY=e.clientY-dragStart.y;clampSpawnPan();applySpawnTransform()});
+  const end=e=>{activePointers.delete(e.pointerId);if(activePointers.size<2){pinchStartDistance=null;pinchStartScale=spawnScale}dragStart=null;v.classList.remove('dragging')};v.addEventListener('pointerup',end);v.addEventListener('pointercancel',end);
+  v.addEventListener('wheel',e=>{e.preventDefault();setSpawnZoom(spawnScale+(e.deltaY<0?0.2:-0.2))},{passive:false});
 }
-
-function renderSpawnMarkers(){
-  const layer=document.getElementById('spawnMarkers');
-  if(!layer) return;
-  const l=spawnLang();
-  const t=spawnText[l];
-  const points=spawnData?.points||[];
-  layer.innerHTML=points.map((p,i)=>`<button class="spawn-marker" type="button" style="left:${p.x}%;top:${p.y}%" aria-label="${t.marker} ${i+1}" title="${t.marker} ${i+1}"><span>${i+1}</span></button>`).join('');
-}
-
-function renderSpawnPanel(){
-  const box=document.getElementById('spawnPanel');
-  if(!box) return;
-  const l=spawnLang();
-  const t=spawnText[l];
-  const intro=document.getElementById('spawnIntro');
-  const badge=document.getElementById('spawnBadge');
-  const title=document.getElementById('spawnPendingTitle');
-  const body=document.getElementById('spawnPendingBody');
-  const counts=document.getElementById('spawnCounts');
-  const wiki=document.getElementById('spawnWiki');
-  const wand=document.getElementById('spawnWand');
-  const grid=document.getElementById('spawnGrid');
-  const imageCredit=document.getElementById('spawnImageCredit');
-  const mapImage=document.getElementById('spawnMapImage');
-  if(intro) intro.textContent=t.intro;
-  if(badge) badge.textContent=t.badge;
-  if(title) title.textContent=t.approxTitle;
-  if(body) body.textContent=spawnData?.notes?.[l] || t.approxBody;
-  if(wiki) wiki.textContent=t.sourceWiki;
-  if(wand) wand.textContent=t.sourceWand;
-  if(grid) grid.textContent=t.sourceGrid;
-  if(imageCredit) imageCredit.textContent=t.sourceImage;
-  if(mapImage && spawnData?.mapImage) mapImage.src=spawnData.mapImage;
-  if(counts && spawnData?.reportedCounts?.length){
-    counts.innerHTML=`<b>${t.counts}:</b> `+spawnData.reportedCounts.map(x=>`${x.source} ${x.count}`).join(' · ');
-  }
-  renderSpawnMarkers();
-}
-
-fetch('raider-spawns.json?v=298',{cache:'no-store'})
-  .then(r=>{if(!r.ok) throw new Error(`spawn data ${r.status}`);return r.json()})
-  .then(data=>{spawnData=data;renderSpawnPanel()})
-  .catch(err=>{console.warn('Raider spawn data unavailable',err);renderSpawnPanel()});
-
-document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));
-document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));
-renderSpawnPanel();
+fetch('raider-spawns.json?v=2991',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(`spawn data ${r.status}`);return r.json()}).then(data=>{spawnData=data;renderSpawnPanel()}).catch(err=>{console.warn('Raider spawn data unavailable',err);renderSpawnPanel()});document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(renderSpawnPanel,0));initSpawnControls();renderSpawnPanel();
