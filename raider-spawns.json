@@ -1,0 +1,22 @@
+{
+  "version": "2.9.8-draft",
+  "map": "spaceport",
+  "label": {
+    "de": "Spaceport",
+    "en": "Spaceport"
+  },
+  "verificationStatus": "pending",
+  "lastReviewed": "2026-09-11",
+  "notes": {
+    "de": "Spawn-Koordinaten sind noch nicht freigegeben. Mehrere aktuelle Community-Datensätze widersprechen sich bei der Anzahl der möglichen Player-Spawns.",
+    "en": "Spawn coordinates are not approved yet. Multiple current community datasets disagree on the number of possible player spawns."
+  },
+  "reportedCounts": [
+    {"source": "Raider Grid", "count": 21},
+    {"source": "Wand", "count": 21},
+    {"source": "arcraidersmap.cc", "count": 20},
+    {"source": "ArcDB", "count": 12},
+    {"source": "ARC Raiders Hub", "count": 3}
+  ],
+  "points": []
+}
