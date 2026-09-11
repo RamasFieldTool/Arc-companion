@@ -239,15 +239,15 @@ async function loadFullCatalog(){
 
 async function boot(){
   try{
-    goals=await fetch('goals.json?v=27',{cache:'no-store'}).then(r=>r.json());
+    goals=await fetch('goals.json?v=28',{cache:'no-store'}).then(r=>r.json());
     status.textContent=lang==='de'?'Katalog wird geladen …':'Loading catalog …';
     items=await loadFullCatalog();
     usingFallback=false;
   }catch(err){
     console.error(err);
     try{
-      items=await fetch('items.json?v=27',{cache:'no-store'}).then(r=>r.json());
-      if(!goals.length) goals=await fetch('goals.json?v=27',{cache:'no-store'}).then(r=>r.json());
+      items=await fetch('items.json?v=28',{cache:'no-store'}).then(r=>r.json());
+      if(!goals.length) goals=await fetch('goals.json?v=28',{cache:'no-store'}).then(r=>r.json());
       usingFallback=true;
     }catch{
       status.textContent=tr('loadError');

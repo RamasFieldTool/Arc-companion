@@ -1,4 +1,4 @@
-# ARC Companion V2.7
+# ARC Companion V2.8
 
 V2.7 verbindet die bestehende Ziel-/Bedarfslogik mit dem vollständigen RaidTheory-Katalog über die Mahcks API.
 
@@ -21,3 +21,12 @@ Wichtig: 591 bezeichnet Katalogeinträge im Datenbestand. Das ist nicht automati
 Datenquelle: RaidTheory/arcraiders-data (MIT)
 API: Mahcks/arcraiders-data-api
 ARC Raiders © Embark Studios. Unofficial community project.
+
+
+## V2.8 – reine Designrunde
+- Keine Änderung an Kernlogik, Suche, Zielberechnung oder Datenquellen.
+- Deutlich stärkere ARC-inspirierte 80er-Farbwelt: dunkles Olive, warmes Orange, Bernstein und Creme.
+- Weniger Grau-auf-Grau, klarere visuelle Ebenen.
+- Header, Zielauswahl, Bedarfszeilen, Suche und Itemkarten neu gestaltet.
+- Status BEHALTEN / ERFÜLLT / FREI visuell klarer getrennt.
+- Rajdhani bleibt Hauptschrift, Monospace nur für kleine Systemkennzeichnungen.
