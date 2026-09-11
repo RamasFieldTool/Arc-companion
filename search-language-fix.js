@@ -1,5 +1,6 @@
-// V2.11.4 – tolerant item search + separated recycling-source results
-// Loaded after app.js so the stable core logic remains untouched.
+// V2.12.0 – tolerant item search + separated recycling-source results
+// Keep a reference to the original app.js listener so it can be replaced cleanly.
+const legacyDrawItemsListener=drawItems;
 
 function searchNorm(value){
   return String(value ?? '')
@@ -132,8 +133,8 @@ drawItems=function(){
   const query=q.value.trim();
   if(!query){
     out.innerHTML='';
-    status.textContent=`${items.length} ${tr('records')} · ${tr('searchPrompt')}${usingFallback?' · ⚠':''}`;
-    if(usingFallback) status.classList.add('load-error'); else status.classList.remove('load-error');
+    status.textContent=`${items.length} ${tr('records')} · ${tr('searchPrompt')}`;
+    status.classList.remove('load-error');
     return;
   }
 
@@ -156,9 +157,9 @@ drawItems=function(){
   `;
 };
 
-// app.js registered its original callback before this file loads. This listener
-// runs afterwards and guarantees the V2.11.4 result is the final render.
-q.addEventListener('input',()=>drawItems());
+// Replace the listener captured by app.js instead of rendering every keystroke twice.
+q.removeEventListener('input',legacyDrawItemsListener);
+q.addEventListener('input',drawItems);
 
 try{
   const missingEn=Object.keys(T.de).filter(k=>!(k in T.en));
