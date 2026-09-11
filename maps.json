@@ -1,5 +1,5 @@
 {
-  "version": "2.10.4",
+  "version": "2.10.5",
   "defaultMap": "spaceport",
   "maps": [
     {"id":"spaceport","label":{"de":"Spaceport","en":"Spaceport"},"data":"raider-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/File:Acerra_Spaceport_Map.jpg"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/the-spaceport"},{"label":"Raider Grid","url":"https://arcraidersmap.online/arc-raiders-map/the-spaceport/"}]},
@@ -7,6 +7,7 @@
     {"id":"dam-battlegrounds","label":{"de":"Dam Battlegrounds","en":"Dam Battlegrounds"},"data":"dam-battlegrounds-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/Dam_Battlegrounds"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/dam-batlegrounds"},{"label":"ARC Raiders Hub","url":"https://www.arc-raiders.org/en/maps/dam-battlegrounds"}]},
     {"id":"the-blue-gate","label":{"de":"The Blue Gate","en":"The Blue Gate"},"data":"blue-gate-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/The_Blue_Gate"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/the-blue-gate"},{"label":"Raider Grid","url":"https://arcraidersmap.online/arc-raiders-map/blue-gate/"},{"label":"ARC Raiders Hub","url":"https://www.arc-raiders.org/en/maps/the-blue-gate"}]},
     {"id":"stella-montis-upper","label":{"de":"Stella Montis – Upper","en":"Stella Montis – Upper"},"data":"stella-montis-upper-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/Stella_Montis"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/stella-montis-upper"}]},
-    {"id":"stella-montis-lower","label":{"de":"Stella Montis – Lower","en":"Stella Montis – Lower"},"data":"stella-montis-lower-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/Stella_Montis"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/stella-montis-lower"}]}
+    {"id":"stella-montis-lower","label":{"de":"Stella Montis – Lower","en":"Stella Montis – Lower"},"data":"stella-montis-lower-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/Stella_Montis"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/stella-montis-lower"}]},
+    {"id":"riven-tides","label":{"de":"Riven Tides","en":"Riven Tides"},"data":"riven-tides-spawns.json","sources":[{"label":"ARC Raiders Wiki","url":"https://arcraiders.wiki/wiki/Riven_Tides"},{"label":"Wand","url":"https://wand.com/maps/arc-raiders/riven-tides"}]}
   ]
 }
