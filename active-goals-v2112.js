@@ -1,4 +1,4 @@
-// V2.11.2 – clearer active-goal management without changing requirement logic
+// V2.11.2 – clearer active-goal management + non-item upgrade costs
 (()=>{
   T.de.goalNoneActive='Keine aktiven Ziele';
   T.en.goalNoneActive='No active goals';
@@ -42,6 +42,25 @@
     return `<small class="goal-extra"><span>${T[lang].additionalCost}:</span> ${values.join(' · ')}</small>`;
   }
 
+  function activeNonItemCosts(){
+    const costs={};
+    goals.forEach(g=>(g.levels||[]).forEach(l=>{
+      if(!active[key(g.id,l.level)] || !Array.isArray(l.other)) return;
+      l.other.forEach(raw=>{
+        const match=String(raw||'').trim().match(/^([\d.,\s]+)\s+(.+)$/);
+        if(!match) return;
+        const amount=Number(match[1].replace(/[.,\s]/g,''));
+        const unit=match[2].trim();
+        if(!Number.isFinite(amount) || !unit) return;
+        const costKey=unit.toLowerCase();
+        if(!costs[costKey]) costs[costKey]={unit,total:0,reasons:[]};
+        costs[costKey].total+=amount;
+        costs[costKey].reasons.push(`${goalName(g)} ${tr('level')} ${l.level}: ${formatNum(amount)} ${unit}`);
+      });
+    }));
+    return Object.values(costs);
+  }
+
   drawGoals=function(){
     goalsEl.innerHTML=goals.map(g=>`
       <div class="goalbox">
@@ -63,6 +82,28 @@
       el.addEventListener('change',e=>toggleGoal(e.target.dataset.key,e.target.checked));
     });
     refreshGoalSummary();
+  };
+
+  const previousDrawSummary=drawSummary;
+  drawSummary=function(){
+    const extras=activeNonItemCosts();
+    const itemRequirements=requirementMap();
+    previousDrawSummary();
+
+    if(!extras.length) return;
+    // A coin-only target is still a valid active goal, so remove the generic
+    // "no goal selected" message if there are no item requirements.
+    if(!Object.keys(itemRequirements).length) summaryEl.innerHTML='';
+
+    summaryEl.insertAdjacentHTML('beforeend',extras.map(cost=>`
+      <div class="sumrow goal-cost-row">
+        <div>
+          <div class="sumname">${cost.unit}</div>
+          <div class="summeta">${tr('total')} ${formatNum(cost.total)}</div>
+          <div class="summeta">${cost.reasons.join(' · ')}</div>
+        </div>
+        <strong class="goal-cost-total">${formatNum(cost.total)}</strong>
+      </div>`).join(''));
   };
 
   toggleGoal=function(k,checked){
