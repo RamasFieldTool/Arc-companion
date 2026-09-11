@@ -1,10 +1,9 @@
-# ARC Companion V2
+# ARC Companion V2.1
 
-Erster kostenloser, mobiler Prototyp.
+Daten-Prototyp mit verifizierten Beispieldatensätzen aus `RaidTheory/arcraiders-data`.
 
-- Teilwortsuche funktioniert.
-- `Hochleistungsstahl` findet auch `Fortschrittlich Hochleistungsstahl`.
-- Anzeige: BEHALTEN / VERKAUFEN / RECYCELN + Begründung.
-- Noch keine echten Spieldaten, kein Login und keine Datenbank.
+Quelle: https://github.com/RaidTheory/arcraiders-data
 
-Zum Testen `index.html` im Browser öffnen.
+Enthält aktuell: Kabel/Wires, Gummiteile/Rubber Parts, Metallteile/Metal Parts, Isolierband/Duct Tape.
+
+Die Entscheidungslogik „Behalten / Verkaufen / Recyceln“ wird erst ergänzt, wenn Quest-/Upgrade-Beziehungen sauber verknüpft sind.

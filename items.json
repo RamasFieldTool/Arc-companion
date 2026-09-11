@@ -1,0 +1,50 @@
+[
+  {
+    "id": "wires",
+    "de": "Kabel",
+    "en": "Wires",
+    "type": "Topside Material",
+    "rarity": "Uncommon",
+    "value": 200,
+    "weight": 0.25,
+    "stack": 15,
+    "recycle": "2× Gummiteile",
+    "use": "Laserfalle: Feuer/Rauch/Köder/Gas, Mündungsbremse I"
+  },
+  {
+    "id": "rubber_parts",
+    "de": "Gummiteile",
+    "en": "Rubber Parts",
+    "type": "Basic Material",
+    "rarity": "Common",
+    "value": 50,
+    "weight": 0.1,
+    "stack": 50,
+    "recycle": "—",
+    "use": "Ferro, Kettle, Beute-Marke 1, Schildauflader, Stitcher"
+  },
+  {
+    "id": "metal_parts",
+    "de": "Metallteile",
+    "en": "Metal Parts",
+    "type": "Basic Material",
+    "rarity": "Common",
+    "value": 75,
+    "weight": 0.1,
+    "stack": 50,
+    "recycle": "—",
+    "use": "Werfermunition, Hairpin, Schwere Munition, Ferro, Kettle"
+  },
+  {
+    "id": "duct_tape",
+    "de": "Isolierband",
+    "en": "Duct Tape",
+    "type": "Topside Material",
+    "rarity": "Uncommon",
+    "value": 300,
+    "weight": 0.25,
+    "stack": 15,
+    "recycle": "3× Stoff",
+    "use": "Stabiler Kolben I, Vertikaler Griff I/II, Abgewinkelter Griff I/II"
+  }
+]
