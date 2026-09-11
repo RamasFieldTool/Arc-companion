@@ -1,0 +1,20 @@
+{
+  "version": "2.10.3",
+  "map": "the-blue-gate",
+  "label": {"de": "The Blue Gate", "en": "The Blue Gate"},
+  "verificationStatus": "community-counts-conflict-coordinates-pending",
+  "lastReviewed": "2026-09-11",
+  "reportedPool": 20,
+  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Blue_Gate_Map_Blank.png",
+  "mapImageSource": "ARC Raiders Wiki – Blue Gate Map Blank",
+  "notes": {
+    "de": "Wand führt aktuell 20 Player-Spawns auf The Blue Gate. Raider Grid führt 14, ARC Raiders Hub 9. Die genaue aktuelle Koordinatenliste ist noch nicht visuell übertragen. Deshalb werden bewusst noch keine Spawn-Marker erfunden oder als verifiziert dargestellt.",
+    "en": "Wand currently lists 20 player spawns on The Blue Gate. Raider Grid lists 14 and ARC Raiders Hub lists 9. The current coordinate set has not yet been visually transferred, so no spawn markers are invented or presented as verified yet."
+  },
+  "reportedCounts": [
+    {"source": "Wand", "count": 20},
+    {"source": "Raider Grid", "count": 14},
+    {"source": "ARC Raiders Hub", "count": 9}
+  ],
+  "points": []
+}
