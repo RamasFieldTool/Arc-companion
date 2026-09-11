@@ -1,0 +1,19 @@
+{
+  "version": "2.10.2",
+  "map": "dam-battlegrounds",
+  "label": {"de": "Dam Battlegrounds", "en": "Dam Battlegrounds"},
+  "verificationStatus": "community-counts-conflict-coordinates-pending",
+  "lastReviewed": "2026-09-11",
+  "reportedPool": 22,
+  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Dam_Battlegrounds_V2_Map_Blank.png",
+  "mapImageSource": "ARC Raiders Wiki – Dam Battlegrounds V2 Map Blank",
+  "notes": {
+    "de": "Wand führt aktuell 22 Player-Spawns auf Dam Battlegrounds. ARC Raiders Hub führt 19. Die genaue aktuelle Koordinatenliste konnte noch nicht zuverlässig verifiziert werden. Deshalb werden bewusst noch keine Spawn-Marker erfunden oder als verifiziert dargestellt.",
+    "en": "Wand currently lists 22 player spawns on Dam Battlegrounds. ARC Raiders Hub lists 19. A current coordinate list has not yet been reliably verified, so no spawn markers are invented or presented as verified yet."
+  },
+  "reportedCounts": [
+    {"source": "Wand", "count": 22},
+    {"source": "ARC Raiders Hub", "count": 19}
+  ],
+  "points": []
+}
