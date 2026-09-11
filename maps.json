@@ -1,5 +1,5 @@
 {
-  "version": "2.10.1",
+  "version": "2.10.2",
   "defaultMap": "spaceport",
   "maps": [
     {
@@ -20,6 +20,16 @@
         {"label": "ARC Raiders Wiki", "url": "https://arcraiders.wiki/wiki/Buried_City"},
         {"label": "Wand", "url": "https://wand.com/maps/arc-raiders/buried-city"},
         {"label": "arcraidersmap.cc", "url": "https://arcraidersmap.cc/buried-city/"}
+      ]
+    },
+    {
+      "id": "dam-battlegrounds",
+      "label": {"de": "Dam Battlegrounds", "en": "Dam Battlegrounds"},
+      "data": "dam-battlegrounds-spawns.json",
+      "sources": [
+        {"label": "ARC Raiders Wiki", "url": "https://arcraiders.wiki/wiki/Dam_Battlegrounds"},
+        {"label": "Wand", "url": "https://wand.com/maps/arc-raiders/dam-batlegrounds"},
+        {"label": "ARC Raiders Hub", "url": "https://www.arc-raiders.org/en/maps/dam-battlegrounds"}
       ]
     }
   ]
