@@ -1,0 +1,23 @@
+{
+  "version":"2.10.5","map":"riven-tides","label":{"de":"Riven Tides","en":"Riven Tides"},
+  "verificationStatus":"community-approximate-from-current-wand-screenshot","lastReviewed":"2026-09-11","reportedPool":14,
+  "mapImage":"https://arcraiders.wiki/wiki/Special:Redirect/file/Riven_Tides_Map_Blank.png","mapImageSource":"ARC Raiders Wiki – Riven Tides blank map",
+  "notes":{"de":"14 sichtbare mögliche Raider-Startpositionen, manuell aus Daniels aktuellem Wand-Screenshot übertragen. Ungefähre Community-Positionen; nicht offiziell von Embark bestätigt.","en":"14 visible possible Raider starting positions manually transferred from Daniel's current Wand screenshot. Approximate community positions; not officially confirmed by Embark."},
+  "reportedCounts":[{"source":"Wand screenshot","count":14}],
+  "points":[
+    {"id":"RT-01","x":65.6,"y":27.3,"confidence":"approx"},
+    {"id":"RT-02","x":92.1,"y":33.9,"confidence":"approx"},
+    {"id":"RT-03","x":29.6,"y":44.8,"confidence":"approx"},
+    {"id":"RT-04","x":14.7,"y":48.1,"confidence":"approx"},
+    {"id":"RT-05","x":87.7,"y":50.0,"confidence":"approx"},
+    {"id":"RT-06","x":46.6,"y":60.2,"confidence":"approx"},
+    {"id":"RT-07","x":8.1,"y":64.1,"confidence":"approx"},
+    {"id":"RT-08","x":13.3,"y":70.7,"confidence":"approx"},
+    {"id":"RT-09","x":77.1,"y":73.4,"confidence":"approx"},
+    {"id":"RT-10","x":22.1,"y":74.9,"confidence":"approx"},
+    {"id":"RT-11","x":69.9,"y":76.7,"confidence":"approx"},
+    {"id":"RT-12","x":30.5,"y":78.9,"confidence":"approx"},
+    {"id":"RT-13","x":36.0,"y":81.4,"confidence":"approx"},
+    {"id":"RT-14","x":46.0,"y":81.9,"confidence":"approx"}
+  ]
+}
