@@ -1,0 +1,10 @@
+{
+  "version":"2.10.4","map":"stella-montis-upper","label":{"de":"Stella Montis – Upper","en":"Stella Montis – Upper"},
+  "verificationStatus":"community-approximate-from-current-wand-screenshot","lastReviewed":"2026-09-11","reportedPool":15,
+  "mapImage":"https://arcraiders.wiki/wiki/Special:Redirect/file/Stella_Montis_Upper_Map_Blank.png","mapImageSource":"ARC Raiders Wiki – Stella Montis Upper blank map",
+  "notes":{"de":"15 mögliche Raider-Startpositionen, manuell aus dem aktuellen Wand-Screenshot übertragen. Ungefähre Community-Positionen; nicht offiziell von Embark bestätigt.","en":"15 possible Raider starting positions manually transferred from the current Wand screenshot. Approximate community positions; not officially confirmed by Embark."},
+  "reportedCounts":[{"source":"Wand","count":15}],
+  "points":[
+    {"id":"SMU-01","x":23.1,"y":15.0,"confidence":"approx"},{"id":"SMU-02","x":37.7,"y":12.8,"confidence":"approx"},{"id":"SMU-03","x":57.3,"y":9.9,"confidence":"approx"},{"id":"SMU-04","x":70.8,"y":17.7,"confidence":"approx"},{"id":"SMU-05","x":7.5,"y":27.1,"confidence":"approx"},{"id":"SMU-06","x":8.0,"y":30.0,"confidence":"approx"},{"id":"SMU-07","x":15.1,"y":33.4,"confidence":"approx"},{"id":"SMU-08","x":66.1,"y":31.4,"confidence":"approx"},{"id":"SMU-09","x":89.0,"y":33.2,"confidence":"approx"},{"id":"SMU-10","x":10.7,"y":46.2,"confidence":"approx"},{"id":"SMU-11","x":65.3,"y":46.4,"confidence":"approx"},{"id":"SMU-12","x":18.0,"y":56.9,"confidence":"approx"},{"id":"SMU-13","x":47.6,"y":54.1,"confidence":"approx"},{"id":"SMU-14","x":66.4,"y":56.8,"confidence":"approx"},{"id":"SMU-15","x":75.2,"y":56.7,"confidence":"approx"}
+  ]
+}
