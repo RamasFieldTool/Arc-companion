@@ -95,6 +95,10 @@ drawItems=function(){
   out.innerHTML=results.length?results.map(card).join(''):`<div class="empty">${tr('noHit')}</div>`;
 };
 
+// app.js registered its original callback before this file loads. This listener
+// runs afterwards and guarantees the tolerant V2.9.6 result is the final render.
+q.addEventListener('input',()=>drawItems());
+
 // Sanity check: the UI translation dictionaries must contain the same keys.
 try{
   const missingEn=Object.keys(T.de).filter(k=>!(k in T.en));
