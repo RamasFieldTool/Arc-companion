@@ -1,14 +1,14 @@
-/* V2.11.0 visual hierarchy + user-selectable dark/light theme */
+/* V2.12.4 visual hierarchy + user-selectable dark/light theme */
 :root{
   --ui-page:#10110e;--ui-page-glow:#343326;--ui-panel:#20231c;--ui-panel-2:#181a15;
   --ui-raised:#303428;--ui-input:#0f100d;--ui-text:#f1e6c7;--ui-muted:#bdb59b;
   --ui-line:#66634d;--ui-shadow:#090a07;--ui-soft:#171913;
 }
 html[data-theme="light"]{
-  --night:#d8d0b8;--shell:#eee6cf;--shell-deep:#d8d0b8;--olive:#b8b39c;--olive-light:#8f8a72;
-  --cream:#24251f;--cream-soft:#4f5045;--line:#817d69;--shadow:#a29a82;
-  --ui-page:#d8d0b8;--ui-page-glow:#f4ecd6;--ui-panel:#eee6cf;--ui-panel-2:#ddd5bd;
-  --ui-raised:#d2cab2;--ui-input:#f8f1df;--ui-text:#24251f;--ui-muted:#59594e;--ui-line:#817d69;--ui-shadow:#a29a82;--ui-soft:#e4dcc5;
+  --night:#f1ecdf;--shell:#fffaf0;--shell-deep:#f0eadc;--olive:#d7d1c2;--olive-light:#9b9586;
+  --cream:#22231f;--cream-soft:#56584f;--line:#a39d8e;--shadow:#d6cfc0;
+  --ui-page:#f4f0e7;--ui-page-glow:#fffdf7;--ui-panel:#fffaf0;--ui-panel-2:#f4eee2;
+  --ui-raised:#fbf6ec;--ui-input:#ffffff;--ui-text:#22231f;--ui-muted:#5b5d55;--ui-line:#a39d8e;--ui-shadow:#d6cfc0;--ui-soft:#f7f2e8;
 }
 body{color:var(--ui-text);background:linear-gradient(90deg,rgba(230,173,67,.025) 1px,transparent 1px),linear-gradient(rgba(230,173,67,.018) 1px,transparent 1px),radial-gradient(circle at 50% -5%,var(--ui-page-glow) 0,var(--ui-page) 72%)}
 .panel,.search-panel{background:linear-gradient(135deg,var(--ui-panel),var(--ui-panel-2));border-color:var(--ui-line);box-shadow:3px 3px 0 var(--ui-shadow)}
@@ -42,18 +42,18 @@ body{color:var(--ui-text);background:linear-gradient(90deg,rgba(230,173,67,.025)
   .theme-switch{padding:3px 4px}.theme-btn{min-width:31px;min-height:26px}
   .panel,.search-panel{margin-top:19px;margin-bottom:19px}
 }
-html[data-theme="light"] body:before{opacity:.06}
-html[data-theme="light"] .masthead{background:linear-gradient(115deg,#d2cab2 0 62%,#c2baa3 62%);border-color:#817d69}
-html[data-theme="light"] .lang-switch{color:#55564c}
-html[data-theme="light"] .lang{color:#55564c}
-html[data-theme="light"] .lang.active{background:#2d2e27;color:#f5ecd5}
-html[data-theme="light"] .flow-guide{background:linear-gradient(135deg,#eee6cf,#d8d0b8);border-color:#817d69;box-shadow:3px 3px 0 #a29a82}
-html[data-theme="light"] .flow-guide-chevron,html[data-theme="light"] .flow-step{background:#f4ecd8;color:#24251f;border-color:#817d69}
-html[data-theme="light"] .flow-step b,html[data-theme="light"] .flow-step span{color:#24251f}
-html[data-theme="light"] .flow-step small{color:#59594e}
-html[data-theme="light"] .goal-drawer[open] summary,html[data-theme="light"] .quest-drawer[open] summary{background:#d2cab2}
-html[data-theme="light"] .card{background:linear-gradient(145deg,#eee6cf,#d6ceb7 70%);box-shadow:2px 2px 0 #aaa18a}
-html[data-theme="light"] .fact{background:#e4dcc5;border-color:#817d69}
-html[data-theme="light"] .fact span{color:#5d5d52}
-html[data-theme="light"] .fact b{color:#24251f}
-html[data-theme="light"] .rarity{background:#eee6cf}
+html[data-theme="light"] body:before{opacity:.025}
+html[data-theme="light"] .masthead{background:linear-gradient(115deg,#fff9ee 0 62%,#eee7da 62%);border-color:#aaa394}
+html[data-theme="light"] .lang-switch{color:#55574f}
+html[data-theme="light"] .lang{color:#55574f}
+html[data-theme="light"] .lang.active{background:#2d2e27;color:#fffaf0}
+html[data-theme="light"] .flow-guide{background:linear-gradient(135deg,#fffaf0,#f2ecdf);border-color:#aaa394;box-shadow:3px 3px 0 #d8d1c4}
+html[data-theme="light"] .flow-guide-chevron,html[data-theme="light"] .flow-step{background:#fffdf8;color:#22231f;border-color:#aaa394}
+html[data-theme="light"] .flow-step b,html[data-theme="light"] .flow-step span{color:#22231f}
+html[data-theme="light"] .flow-step small{color:#5b5d55}
+html[data-theme="light"] .goal-drawer[open] summary,html[data-theme="light"] .quest-drawer[open] summary{background:#f6f0e5}
+html[data-theme="light"] .card{background:linear-gradient(145deg,#fffaf0,#f4eee2 70%);box-shadow:2px 2px 0 #d6cfc0}
+html[data-theme="light"] .fact{background:#faf5ec;border-color:#aaa394}
+html[data-theme="light"] .fact span{color:#606159}
+html[data-theme="light"] .fact b{color:#22231f}
+html[data-theme="light"] .rarity{background:#fffaf0}
