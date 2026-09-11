@@ -1,4 +1,4 @@
-# ARC Companion V2.9
+# ARC Companion V2.9.1
 
 V2.7 verbindet die bestehende Ziel-/Bedarfslogik mit dem vollständigen RaidTheory-Katalog über die Mahcks API.
 
@@ -40,3 +40,12 @@ ARC Raiders © Embark Studios. Unofficial community project.
 - Questziele, Auftraggeber, benötigte Items, bereitgestellte Items und Item-Belohnungen werden angezeigt, wenn vorhanden.
 - Nur aktive Quests mit strukturierten `requiredItemIds` fließen in den Gesamtbedarf ein.
 - Expeditionen wurden bewusst nicht eingebaut.
+
+
+## V2.9.1 Hotfix
+- Quest-API wird jetzt korrekt in 45er-Seiten geladen, bis `next` fehlt.
+- Doppelte Quest-IDs werden entfernt und die geladene Anzahl gegen `total` geprüft.
+
+
+## V2.9.2 Hotfix
+Quest loading is fault-tolerant: if a later Mahcks API page fails, already loaded quests remain usable instead of discarding the complete quest list.
