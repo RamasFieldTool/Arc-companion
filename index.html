@@ -4,12 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#161711">
-  <title>ARC Companion V2.9.6</title>
+  <title>ARC Companion V2.9.7</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=294">
   <link rel="stylesheet" href="style-polish.css?v=295">
+  <link rel="stylesheet" href="onboarding-v297.css?v=297">
 </head>
 <body>
 <main>
@@ -24,9 +25,19 @@
         <span>/</span>
         <button id="enBtn" class="lang" type="button">EN</button>
       </div>
-      <div class="version">SYS // V2.9.6</div>
+      <div class="version">SYS // V2.9.7</div>
     </div>
   </header>
+
+  <section class="flow-guide" aria-label="Ablauf">
+    <div class="flow-guide-title" data-onboard-t="flowTitle">SO FUNKTIONIERT ES</div>
+    <div class="flow-steps">
+      <div class="flow-step"><b>01</b><span data-onboard-t="step1">Ziele wählen</span><small data-onboard-t="step1Help">Werkbank-Stufen aktivieren</small></div>
+      <div class="flow-step"><b>02</b><span data-onboard-t="step2">Bedarf prüfen</span><small data-onboard-t="step2Help">Fehlende Materialien sehen</small></div>
+      <div class="flow-step"><b>03</b><span data-onboard-t="step3">Item suchen</span><small data-onboard-t="step3Help">Teilbegriffe reichen</small></div>
+      <div class="flow-step"><b>04</b><span data-onboard-t="step4">Quests verwalten</span><small data-onboard-t="step4Help">Optional zusätzlich aktivieren</small></div>
+    </div>
+  </section>
 
   <details class="goal-drawer panel">
     <summary>
@@ -39,6 +50,25 @@
     </div>
   </details>
 
+  <section class="panel supply-panel">
+    <div class="section-kicker">SUPPLY // 01</div>
+    <h2 data-t="totalNeed">Gesamtbedarf</h2>
+    <p class="section-help" data-onboard-t="supplyHelp">Hier siehst du automatisch, was deine aktiven Ziele und Quests zusammen benötigen.</p>
+    <div id="summary"></div>
+  </section>
+
+  <section class="search-panel">
+    <div class="section-kicker">SCAN // 02</div>
+    <label for="q" data-t="searchItem">ITEM SUCHEN</label>
+    <div class="search-shell">
+      <span>&gt;</span>
+      <input id="q" autocomplete="off">
+    </div>
+    <div class="search-hint" data-onboard-t="searchHelp">Du musst den Namen nicht vollständig kennen. Beispiel: „hoch“ findet Items mit „Hoch…“.</div>
+    <div id="status"></div>
+    <section id="out"></section>
+  </section>
+
   <details id="questDrawer" class="quest-drawer panel">
     <summary>
       <span>
@@ -48,6 +78,7 @@
       <strong id="questToggleLabel">ANZEIGEN</strong>
     </summary>
     <div class="drawer-body">
+      <p class="section-help" data-onboard-t="questIntro">Quests sind optional. Markiere nur die Quests als aktiv, deren benötigte Items in deinen Gesamtbedarf einfließen sollen.</p>
       <div class="quest-toolbar">
         <div class="search-shell quest-search-shell">
           <span>&gt;</span>
@@ -65,23 +96,6 @@
     </div>
   </details>
 
-  <section class="panel supply-panel">
-    <div class="section-kicker">SUPPLY // 01</div>
-    <h2 data-t="totalNeed">Gesamtbedarf</h2>
-    <div id="summary"></div>
-  </section>
-
-  <section class="search-panel">
-    <div class="section-kicker">SCAN // 02</div>
-    <label for="q" data-t="searchItem">ITEM SUCHEN</label>
-    <div class="search-shell">
-      <span>&gt;</span>
-      <input id="q" autocomplete="off">
-    </div>
-    <div id="status"></div>
-    <section id="out"></section>
-  </section>
-
   <footer>
     <span>RAMA FIELD SYSTEM</span>
     <span>DATA // RaidTheory · API // Mahcks</span>
@@ -89,5 +103,6 @@
 </main>
 <script src="app.js?v=294"></script>
 <script src="search-language-fix.js?v=296"></script>
+<script src="onboarding-v297.js?v=297"></script>
 </body>
 </html>
