@@ -1,5 +1,5 @@
-// V2.12.2 – user-facing data status. Catalog/quest loading semantics stay elsewhere.
-const APP_VERSION='2.12.2';
+// V2.12.3 – user-facing data status. Catalog/quest loading semantics stay elsewhere.
+const APP_VERSION='2.12.3';
 const STATUS_COPY={
   de:{live:'DATEN // LIVE',fallback:'DATEN // BASISDATENSATZ',liveTitle:'Live-Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter.'},
   en:{live:'DATA // LIVE',fallback:'DATA // BASE DATASET',liveTitle:'Live catalog active',fallbackTitle:'Local base dataset active',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset.'}
@@ -22,8 +22,8 @@ function renderDataStatus(){
 }
 
 // Language changes and the final boot render already pass through applyLanguage().
-// Keep data-status refresh attached there, but do not wrap drawItems(): item search
-// now has one renderer and one input listener only.
+// This is the one remaining lightweight compatibility hook; it only refreshes
+// presentation state and does not alter search, catalog or requirement logic.
 const baseApplyLanguageV2117=applyLanguage;
 applyLanguage=function(){
   baseApplyLanguageV2117();
