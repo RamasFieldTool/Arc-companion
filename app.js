@@ -315,31 +315,37 @@ function drawQuests(){
 }
 
 async function loadQuests(){
-  let all=[],offset=0,total=null;
-  const limit=45;
-  while(true){
-    const url=`https://arcdata.mahcks.com/v1/quests?full=true&offset=${offset}&limit=${limit}`;
-    try{
-      const r=await fetch(url,{cache:'no-store'});
-      if(!r.ok) throw new Error(`Quest API ${r.status}`);
-      const data=await r.json();
-      const page=Array.isArray(data)?data:(data.items||data.quests||data.data||[]);
-      if(!Array.isArray(page)) throw new Error('Invalid quest response');
-      all.push(...page);
-      if(Number.isFinite(Number(data.total))) total=Number(data.total);
-      if(!data.next || page.length===0) break;
-      offset+=limit;
-      if(offset>2000) break;
-    }catch(err){
-      console.warn(`Quest page failed at offset ${offset}:`,err);
-      if(all.length) break;
-      throw err;
-    }
+  // Primary source: RaidTheory directly on GitHub. This avoids the Mahcks
+  // pagination failure that prevented the quest tracker from starting.
+  const dirUrl='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main';
+  const dirResponse=await fetch(dirUrl,{cache:'no-store'});
+  if(!dirResponse.ok) throw new Error(`RaidTheory quest index ${dirResponse.status}`);
+  const files=await dirResponse.json();
+  if(!Array.isArray(files)||!files.length) throw new Error('Invalid RaidTheory quest index');
+
+  const questFiles=files.filter(f=>f?.type==='file'&&f?.name?.endsWith('.json')&&f?.download_url);
+  if(!questFiles.length) throw new Error('No quest files found');
+
+  // Raw GitHub files are fetched in small batches so mobile browsers are not
+  // hit with ~100 simultaneous requests.
+  const loaded=[];
+  const batchSize=10;
+  for(let i=0;i<questFiles.length;i+=batchSize){
+    const batch=questFiles.slice(i,i+batchSize);
+    const results=await Promise.all(batch.map(async f=>{
+      const r=await fetch(f.download_url,{cache:'no-store'});
+      if(!r.ok) throw new Error(`Quest file ${f.name}: ${r.status}`);
+      return r.json();
+    }));
+    loaded.push(...results);
   }
-  const unique=[...new Map(all.filter(x=>x&&x.id).map(x=>[x.id,x])).values()];
+
+  const unique=[...new Map(loaded.filter(x=>x&&x.id).map(x=>[x.id,x])).values()];
+  if(unique.length!==questFiles.length){
+    throw new Error(`Quest snapshot incomplete ${unique.length}/${questFiles.length}`);
+  }
   return unique;
 }
-
 
 function applyLanguage(){
   document.documentElement.lang=lang;
@@ -388,15 +394,15 @@ async function loadFullCatalog(){
 
 async function boot(){
   try{
-    goals=await fetch('goals.json?v=292',{cache:'no-store'}).then(r=>r.json());
+    goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
     status.textContent=lang==='de'?'Katalog wird geladen …':'Loading catalog …';
     items=await loadFullCatalog();
     usingFallback=false;
   }catch(err){
     console.error(err);
     try{
-      items=await fetch('items.json?v=292',{cache:'no-store'}).then(r=>r.json());
-      if(!goals.length) goals=await fetch('goals.json?v=292',{cache:'no-store'}).then(r=>r.json());
+      items=await fetch('items.json?v=293',{cache:'no-store'}).then(r=>r.json());
+      if(!goals.length) goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
       usingFallback=true;
     }catch{
       status.textContent=tr('loadError');
