@@ -1,0 +1,27 @@
+/* V2.11.5 – compact, mobile-first quest hierarchy */
+.quest-card{padding:12px}
+.quest-title-block{min-width:0}
+.quest-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.quest-title-row h3{min-width:0}
+.quest-status-chip{flex:none;padding:3px 7px;border:1px solid var(--ui-line);font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ui-muted);text-transform:uppercase}
+.quest-active .quest-status-chip{border-color:var(--orange);color:var(--orange)}
+.quest-done .quest-status-chip{border-color:var(--green);color:var(--green)}
+.quest-material-line{display:grid;gap:2px;margin-top:9px;padding:8px 9px;background:var(--ui-soft);border-left:3px solid var(--ui-line)}
+.quest-material-line.has-required{border-left-color:var(--amber)}
+.quest-active .quest-material-line.has-required{border-left-color:var(--orange)}
+.quest-material-line b{font-size:10px;letter-spacing:.07em;color:var(--ui-muted)}
+.quest-material-line span{font-size:14px;line-height:1.25;color:var(--ui-text)}
+.quest-material-line small{font-size:11px;color:var(--orange);font-weight:600}
+.quest-state{margin-top:9px}
+.quest-state button{min-height:34px}
+.quest-details{margin-top:9px;border-top:1px solid var(--ui-line)}
+.quest-details>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 2px 0;cursor:pointer;color:var(--amber);font-size:12px;font-weight:700;letter-spacing:.05em}
+.quest-details>summary::-webkit-details-marker{display:none}
+.quest-details>summary:before{content:'+';display:inline-block;margin-right:6px}
+.quest-details[open]>summary:before{content:'−'}
+.quest-details>summary span{margin-right:auto}
+.quest-details>summary small{color:var(--ui-muted);font-size:11px;font-weight:500;letter-spacing:0;text-align:right}
+.quest-details-body{padding-top:2px}
+.quest-details .quest-section{margin-top:8px}
+.quest-details .quest-grid{margin-top:7px}
+@media(min-width:720px){.quest-card-head{grid-template-columns:minmax(0,1fr) 280px;align-items:start}.quest-state{margin-top:0}}
