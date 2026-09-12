@@ -7,7 +7,7 @@
     root.dataset.theme=next;
     buttons().forEach(b=>{const active=b.dataset.themeValue===next;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta) meta.content=next==='light'?'#d8d0b8':'#161711';
+    if(meta) meta.content=next==='light'?'#fbfaf7':'#d8d0b8';
     if(persist){try{localStorage.setItem(KEY,next)}catch(_){}}
   }
   let saved='dark';
