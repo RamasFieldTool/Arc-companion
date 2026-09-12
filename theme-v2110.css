@@ -1,5 +1,6 @@
-/* V2.12.4 visual hierarchy + two clearly distinct bright themes */
+/* V2.12.6 browser compatibility + visual hierarchy + two clearly distinct bright themes */
 :root{
+  color-scheme: light only;
   --ui-page:#d8d0b8;--ui-page-glow:#f4ecd6;--ui-panel:#eee6cf;--ui-panel-2:#ddd5bd;
   --ui-raised:#d2cab2;--ui-input:#f8f1df;--ui-text:#24251f;--ui-muted:#59594e;
   --ui-line:#817d69;--ui-shadow:#a29a82;--ui-soft:#e4dcc5;
