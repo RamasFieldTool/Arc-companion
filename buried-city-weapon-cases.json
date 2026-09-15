@@ -1,0 +1,39 @@
+{
+  "version": "2.13.0-beta",
+  "map": "buried-city",
+  "type": "weapon-cases",
+  "defaultVisible": false,
+  "lastReviewed": "2026-09-15",
+  "status": "locations-verified-coordinates-pending",
+  "disclaimer": {
+    "de": "Mögliche Weapon-Case-Spawns. Ein Weapon Case erscheint nicht garantiert in jedem Raid. Marker werden erst nach Positionsprüfung freigeschaltet.",
+    "en": "Possible Weapon Case spawns. A Weapon Case is not guaranteed to appear in every raid. Markers are enabled only after position verification."
+  },
+  "sources": [
+    {"label":"TooFumed – 41 Weapon Case Locations","url":"https://www.youtube.com/watch?v=e42e0YZmXsg"},
+    {"label":"LukeCanWin – 36 Weapon Case Locations","url":"https://www.youtube.com/watch?v=lyyx8yjUTFY"},
+    {"label":"Community validation – Buried City route","url":"https://www.reddit.com/r/ArcRaiders/comments/1tr6ye9/buried_city_weapon_case_route_detailed_map/"}
+  ],
+  "locations": [
+    {"id":"WC-01","area":"Piazza Arbusto","count":2,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-02","area":"Red Tower","count":2,"access":"mixed","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-03","area":"Plaza Rosa Water Fountain","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-04","area":"East Santa Maria","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-05","area":"Santa Maria Houses","count":3,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-06","area":"West Santa Maria","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-07","area":"Highway Truck Trailer","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-08","area":"Below Abandoned Highway Camp","count":3,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-09","area":"Grandioso Apartments","count":2,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-10","area":"Piazza Roma Apartments","count":2,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-11","area":"East Piazza Roma","count":3,"access":"open","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-12","area":"Marano Station","count":4,"access":"mixed","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-13","area":"Library Roof","count":2,"access":"roof","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-14","area":"Hospital Roof","count":1,"access":"zipline","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-15","area":"Galleria Tower","count":1,"access":"zipline","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-16","area":"Parking Garage","count":2,"access":"breach","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-17","area":"Research Roof","count":1,"access":"roof","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-18","area":"Space Travel / JKV","count":2,"access":"jkv-keycard","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-19","area":"Town Hall","count":3,"access":"town-hall-key","verifiedLocation":true,"coordinates":null},
+    {"id":"WC-20","area":"Residential Master Key areas","count":4,"access":"residential-master-key","verifiedLocation":true,"coordinates":null}
+  ]
+}
