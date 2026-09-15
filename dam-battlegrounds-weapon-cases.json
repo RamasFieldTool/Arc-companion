@@ -1,0 +1,26 @@
+{
+  "version":"2.13.1-beta",
+  "map":"dam-battlegrounds",
+  "label":{"de":"Dam Battlegrounds","en":"Dam Battlegrounds"},
+  "type":"weapon-cases",
+  "defaultVisible":false,
+  "lastReviewed":"2026-09-15",
+  "status":"community-candidates-awaiting-coordinate-transfer",
+  "reportedPool":34,
+  "disclaimer":{"de":"Mögliche Weapon-Case-Spawns aus Community-Recherche. 34 ist eine gemeldete Kandidatenzahl, keine offizielle Gesamtzahl. Marker werden erst ergänzt, wenn ihre Position auf unserer Karte verantwortbar bestimmt werden kann. Ein Weapon Case erscheint nicht garantiert in jedem Raid.","en":"Possible Weapon Case spawns from community research. 34 is a reported candidate count, not an official total. Markers are only added once their position can be responsibly placed on our map. A Weapon Case is not guaranteed to appear in every raid."},
+  "sources":[
+    {"label":"TooFumed – Dam Battlegrounds 34 Weapon Case locations","type":"community-video"},
+    {"label":"Playhub – ARC Raiders Weapon Case locations","type":"community-guide"}
+  ],
+  "points":[
+    {"id":"DAM-WC-01","x":null,"y":null,"poi":{"de":"Power Generation","en":"Power Generation"},"confidence":"candidate","sourceRefs":["TooFumed","Playhub"]},
+    {"id":"DAM-WC-02","x":null,"y":null,"poi":{"de":"Broken Bridge","en":"Broken Bridge"},"confidence":"candidate","sourceRefs":["TooFumed","Playhub"]},
+    {"id":"DAM-WC-03","x":null,"y":null,"poi":{"de":"Pipeline Tower","en":"Pipeline Tower"},"confidence":"candidate","sourceRefs":["TooFumed","Playhub"],"note":{"de":"Mehrere mögliche Positionen in diesem Bereich; Einzelposition noch zu übertragen.","en":"Multiple possible positions in this area; individual position still to be transferred."}},
+    {"id":"DAM-WC-04","x":null,"y":null,"poi":{"de":"Floodgates","en":"Floodgates"},"confidence":"candidate","sourceRefs":["TooFumed"]},
+    {"id":"DAM-WC-05","x":null,"y":null,"poi":{"de":"Research & Administration","en":"Research & Administration"},"confidence":"candidate","sourceRefs":["TooFumed","Playhub"]},
+    {"id":"DAM-WC-06","x":null,"y":null,"poi":{"de":"Water Towers","en":"Water Towers"},"confidence":"candidate","sourceRefs":["TooFumed","Playhub"]},
+    {"id":"DAM-WC-07","x":null,"y":null,"poi":{"de":"Hydroponic Dome","en":"Hydroponic Dome"},"confidence":"candidate","sourceRefs":["TooFumed","Playhub"]},
+    {"id":"DAM-WC-08","x":null,"y":null,"poi":{"de":"Control Tower","en":"Control Tower"},"access":{"type":"key","de":"Schlüsselraum – genaue Zugangsinformation wird vor Veröffentlichung nochmals geprüft.","en":"Key room – exact access information will be rechecked before publication."},"confidence":"candidate","sourceRefs":["TooFumed"]},
+    {"id":"DAM-WC-09","x":null,"y":null,"poi":{"de":"Water Treatment","en":"Water Treatment"},"confidence":"candidate","sourceRefs":["Playhub"]}
+  ]
+}
