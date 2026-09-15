@@ -1,0 +1,1 @@
+Buried City Weapon Case pilot, 2026-09-15. Source: user-provided Wand screenshot with Weapon Crate filter. Wand reports 35 total; 24 visually separable marker positions were transferred approximately. Overlapping markers are intentionally not invented. Layer remains opt-in and off by default. Coordinates can be refined/replaced later without changing the layer UX.

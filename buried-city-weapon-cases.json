@@ -1,39 +1,15 @@
 {
-  "version": "2.13.0-beta",
-  "map": "buried-city",
-  "type": "weapon-cases",
-  "defaultVisible": false,
-  "lastReviewed": "2026-09-15",
-  "status": "locations-verified-coordinates-pending",
-  "disclaimer": {
-    "de": "Mögliche Weapon-Case-Spawns. Ein Weapon Case erscheint nicht garantiert in jedem Raid. Marker werden erst nach Positionsprüfung freigeschaltet.",
-    "en": "Possible Weapon Case spawns. A Weapon Case is not guaranteed to appear in every raid. Markers are enabled only after position verification."
-  },
-  "sources": [
-    {"label":"TooFumed – 41 Weapon Case Locations","url":"https://www.youtube.com/watch?v=e42e0YZmXsg"},
-    {"label":"LukeCanWin – 36 Weapon Case Locations","url":"https://www.youtube.com/watch?v=lyyx8yjUTFY"},
-    {"label":"Community validation – Buried City route","url":"https://www.reddit.com/r/ArcRaiders/comments/1tr6ye9/buried_city_weapon_case_route_detailed_map/"}
-  ],
-  "locations": [
-    {"id":"WC-01","area":"Piazza Arbusto","count":2,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-02","area":"Red Tower","count":2,"access":"mixed","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-03","area":"Plaza Rosa Water Fountain","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-04","area":"East Santa Maria","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-05","area":"Santa Maria Houses","count":3,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-06","area":"West Santa Maria","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-07","area":"Highway Truck Trailer","count":1,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-08","area":"Below Abandoned Highway Camp","count":3,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-09","area":"Grandioso Apartments","count":2,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-10","area":"Piazza Roma Apartments","count":2,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-11","area":"East Piazza Roma","count":3,"access":"open","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-12","area":"Marano Station","count":4,"access":"mixed","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-13","area":"Library Roof","count":2,"access":"roof","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-14","area":"Hospital Roof","count":1,"access":"zipline","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-15","area":"Galleria Tower","count":1,"access":"zipline","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-16","area":"Parking Garage","count":2,"access":"breach","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-17","area":"Research Roof","count":1,"access":"roof","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-18","area":"Space Travel / JKV","count":2,"access":"jkv-keycard","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-19","area":"Town Hall","count":3,"access":"town-hall-key","verifiedLocation":true,"coordinates":null},
-    {"id":"WC-20","area":"Residential Master Key areas","count":4,"access":"residential-master-key","verifiedLocation":true,"coordinates":null}
+  "version":"2.13.0-beta2",
+  "map":"buried-city",
+  "type":"weapon-cases",
+  "defaultVisible":false,
+  "lastReviewed":"2026-09-15",
+  "status":"community-screenshot-approximate",
+  "reportedPool":35,
+  "mappedVisiblePoints":24,
+  "disclaimer":{"de":"Mögliche Weapon-Case-Spawns. Positionen wurden ungefähr aus einem Wand-Screenshot übertragen. Überlappende Wand-Marker können in diesem ersten Datensatz zusammenfallen. Ein Weapon Case erscheint nicht garantiert in jedem Raid.","en":"Possible Weapon Case spawns. Positions were transferred approximately from a Wand screenshot. Overlapping Wand markers may collapse in this first dataset. A Weapon Case is not guaranteed to appear in every raid."},
+  "sources":[{"label":"Wand – Buried City Weapon Crates","type":"community-map"}],
+  "points":[
+    {"id":"WC-01","x":39.4,"y":17.9,"confidence":"approx"},{"id":"WC-02","x":53.6,"y":18.2,"confidence":"approx"},{"id":"WC-03","x":31.5,"y":22.4,"confidence":"approx"},{"id":"WC-04","x":43.7,"y":23.2,"confidence":"approx"},{"id":"WC-05","x":64.7,"y":25.2,"confidence":"approx"},{"id":"WC-06","x":58.8,"y":31.9,"confidence":"approx"},{"id":"WC-07","x":37.1,"y":32.1,"confidence":"approx"},{"id":"WC-08","x":50.4,"y":38.5,"confidence":"approx"},{"id":"WC-09","x":35.0,"y":50.5,"confidence":"approx"},{"id":"WC-10","x":45.8,"y":51.0,"confidence":"approx"},{"id":"WC-11","x":56.0,"y":53.5,"confidence":"approx"},{"id":"WC-12","x":30.6,"y":63.4,"confidence":"approx"},{"id":"WC-13","x":44.4,"y":63.4,"confidence":"approx"},{"id":"WC-14","x":56.8,"y":65.6,"confidence":"approx"},{"id":"WC-15","x":71.5,"y":66.8,"confidence":"approx"},{"id":"WC-16","x":51.3,"y":66.9,"confidence":"approx"},{"id":"WC-17","x":29.1,"y":67.1,"confidence":"approx"},{"id":"WC-18","x":78.3,"y":68.9,"confidence":"approx"},{"id":"WC-19","x":40.9,"y":70.0,"confidence":"approx"},{"id":"WC-20","x":51.5,"y":70.0,"confidence":"approx"},{"id":"WC-21","x":79.4,"y":71.9,"confidence":"approx"},{"id":"WC-22","x":63.2,"y":72.7,"confidence":"approx"},{"id":"WC-23","x":56.7,"y":73.4,"confidence":"approx"},{"id":"WC-24","x":38.9,"y":75.6,"confidence":"approx"}
   ]
 }
