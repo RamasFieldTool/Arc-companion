@@ -17,8 +17,13 @@
 }
 .quick-nav a:active{background:var(--amber);color:#211c13}
 #goalsSection,#supplySection,#itemsSection,#questDrawer,#blueprintDrawer,#spawnPanel{scroll-margin-top:12px}
-html[data-theme="light"] .quick-nav{background:#e4dcc5;border-color:#817d69;box-shadow:2px 2px 0 #a29a82}
-html[data-theme="light"] .quick-nav a:hover,html[data-theme="light"] .quick-nav a:focus-visible{background:#f4ecd8;color:#24251f}
+html[data-theme="dark"] .quick-nav{background:#0e151a;border-color:#34434e;box-shadow:2px 2px 0 #000}
+html[data-theme="dark"] .quick-nav a{color:#a8b6c0}
+html[data-theme="dark"] .quick-nav a:hover,html[data-theme="dark"] .quick-nav a:focus-visible{background:#18222a;color:#f2f6f8}
+html[data-theme="light"] .quick-nav{background:#dfe8ee;border-color:#aebdc7;box-shadow:2px 2px 0 #c5d0d7}
+html[data-theme="light"] .quick-nav a{color:#40515d}
+html[data-theme="light"] .quick-nav a:hover,html[data-theme="light"] .quick-nav a:focus-visible{background:#fff;color:#13202a;border-color:#b66f00}
+html[data-theme="light"] .quick-nav a:active{background:#b66f00;color:#fff}
 @media(max-width:620px){
   .quick-nav{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;padding:4px;margin-bottom:18px}
   .quick-nav a{min-height:36px;padding:6px 3px;font-size:11px;letter-spacing:.025em}
