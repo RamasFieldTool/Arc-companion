@@ -1,0 +1,73 @@
+/* V2.13.1 — contrast safety for tactical map + drawer action badges in both themes */
+
+/* Drawer action badges: --cream is a text token in LIGHT, so never use it blindly as a badge background. */
+html[data-theme="dark"] .goal-drawer summary strong,
+html[data-theme="dark"] .quest-drawer summary strong{
+  background:#f2f6f8;
+  color:#13202a;
+  border-bottom-color:#ff7a1a;
+}
+html[data-theme="light"] .goal-drawer summary strong,
+html[data-theme="light"] .quest-drawer summary strong{
+  background:#13202a;
+  color:#ffffff;
+  border-bottom-color:#d85f00;
+}
+
+/* Tactical map — DARK */
+html[data-theme="dark"] .spawn-panel{background:#10171d;color:#f2f6f8}
+html[data-theme="dark"] .spawn-map-picker,
+html[data-theme="dark"] .map-layer-controls,
+html[data-theme="dark"] .spawn-toolbar,
+html[data-theme="dark"] .spawn-data-details{background:#0b1116;border-color:#34434e}
+html[data-theme="dark"] .spawn-map-picker label,
+html[data-theme="dark"] .map-layer-controls>span{color:#a8b6c0}
+html[data-theme="dark"] .spawn-map-picker select{background:#05090c;color:#f2f6f8;border-color:#34434e}
+html[data-theme="dark"] .spawn-head h2{color:#f2f6f8}
+html[data-theme="dark"] .spawn-subtitle{color:#f4b942}
+html[data-theme="dark"] .spawn-beta{background:#121a20;color:#f4b942;border-color:#52616b}
+html[data-theme="dark"] .spawn-note,
+html[data-theme="dark"] .spawn-map-info,
+html[data-theme="dark"] .spawn-selected{background:#0b1116;color:#f2f6f8;border-color:#ff7a1a}
+html[data-theme="dark"] .map-layer-toggle{background:#121a20;color:#f2f6f8;border-color:#52616b}
+html[data-theme="dark"] .map-layer-toggle .layer-indicator{border-color:#a8b6c0}
+html[data-theme="dark"] .map-layer-toggle[aria-pressed="true"]{background:#2b2617;color:#ffffff;border-color:#f4b942}
+html[data-theme="dark"] .spawn-legend,
+html[data-theme="dark"] .spawn-gesture-hint,
+html[data-theme="dark"] .spawn-map-info span,
+html[data-theme="dark"] .spawn-counts,
+html[data-theme="dark"] .spawn-image-credit{color:#a8b6c0}
+html[data-theme="dark"] .spawn-map-info strong{color:#f2f6f8}
+html[data-theme="dark"] .spawn-zoom-controls button{background:#121a20;color:#f2f6f8;border-color:#34434e}
+html[data-theme="dark"] .spawn-source-row a{background:#121a20;color:#ffcf78;border-color:#34434e}
+html[data-theme="dark"] .spawn-data-details>summary{color:#a8b6c0}
+
+/* Tactical map — LIGHT */
+html[data-theme="light"] .spawn-panel{background:#ffffff;color:#13202a}
+html[data-theme="light"] .spawn-map-picker,
+html[data-theme="light"] .map-layer-controls,
+html[data-theme="light"] .spawn-toolbar,
+html[data-theme="light"] .spawn-data-details{background:#e9eff3;border-color:#c4cfd6}
+html[data-theme="light"] .spawn-map-picker label,
+html[data-theme="light"] .map-layer-controls>span{color:#5e6d78}
+html[data-theme="light"] .spawn-map-picker select{background:#ffffff;color:#13202a;border-color:#9fb0bb}
+html[data-theme="light"] .spawn-head h2{color:#13202a}
+html[data-theme="light"] .spawn-subtitle{color:#9b4700}
+html[data-theme="light"] .spawn-beta{background:#fff5e8;color:#8c4300;border-color:#c99a63}
+html[data-theme="light"] .spawn-note,
+html[data-theme="light"] .spawn-map-info,
+html[data-theme="light"] .spawn-selected{background:#f7fafc;color:#13202a;border-color:#d85f00}
+html[data-theme="light"] .map-layer-toggle{background:#ffffff;color:#13202a;border-color:#9fb0bb}
+html[data-theme="light"] .map-layer-toggle .layer-indicator{border-color:#6f7f89}
+html[data-theme="light"] .map-layer-toggle[aria-pressed="true"]{background:#fff2df;color:#13202a;border-color:#b66f00}
+html[data-theme="light"] .map-layer-toggle[aria-pressed="true"] .layer-indicator{background:#b66f00;box-shadow:none}
+html[data-theme="light"] .spawn-legend,
+html[data-theme="light"] .spawn-gesture-hint,
+html[data-theme="light"] .spawn-map-info span,
+html[data-theme="light"] .spawn-counts,
+html[data-theme="light"] .spawn-image-credit{color:#5e6d78}
+html[data-theme="light"] .spawn-map-info strong{color:#13202a}
+html[data-theme="light"] .spawn-zoom-controls{background:#e9eff3;border-color:#c4cfd6}
+html[data-theme="light"] .spawn-zoom-controls button{background:#ffffff;color:#13202a;border-color:#9fb0bb}
+html[data-theme="light"] .spawn-source-row a{background:#ffffff;color:#9b4700;border-color:#c4cfd6}
+html[data-theme="light"] .spawn-data-details>summary{color:#5e6d78}
