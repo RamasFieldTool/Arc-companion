@@ -1,4 +1,4 @@
-// V2.12.5 – expanded bilingual in-app help. Keep help copy separate from core render logic.
+// V2.13.0 – expanded bilingual in-app help. Keep help copy separate from core render logic.
 
 const HELP_COPY={
   de:{
@@ -12,12 +12,14 @@ const HELP_COPY={
     searchBody:'Teilbegriffe reichen: Du musst den vollständigen Itemnamen nicht kennen. Die Treffer werden getrennt angezeigt. „Direkte Treffer“ passen mit ihrem eigenen Namen zur Suche. „Durch Recycling erhältlich“ zeigt andere Items, die beim Zerlegen das gesuchte Material liefern; „Ergibt“ nennt den passenden Recycling-Ertrag.',
     questsTitle:'4 // QUESTS',
     questsBody:'Jede Quest kann Offen, Aktiv oder Erledigt sein. Wichtig: Nur AKTIVE Quests mit hinterlegten benötigten Items fließen in den Gesamtbedarf ein. Offene und erledigte Quests bleiben im Tracker sichtbar, verändern den Bedarf aber nicht. Der Queststatus wird lokal gespeichert.',
-    mapsTitle:'5 // RAIDER-KARTEN',
-    mapsBody:'Die Marker zeigen mögliche Raider-Startpositionen aus Community-Daten. Die Positionen sind ungefähr, nicht offiziell oder exakt von Embark bestätigt und keine Garantie für einen Spawn. Sie zeigen niemals Live-Gegnerpositionen. Unter „Daten & Quellen“ findest du die für die jeweilige Karte hinterlegten Community-Quellen.',
-    displayTitle:'6 // SPRACHE & DARSTELLUNG',
-    displayBody:'Mit DE / EN wechselst du die Sprache. DARK ist die wärmere, kräftigere ARC-inspirierte Darstellung; LIGHT ist bewusst deutlich heller. Die gewählte Darstellung wird lokal gespeichert.',
-    dataTitle:'7 // DATENSTATUS & QUELLEN',
-    dataBody:'„DATEN // LIVE“ bedeutet, dass der vollständige Item-Katalog aus der Live-Datenquelle geladen wurde. „DATEN // BASISDATENSATZ“ bedeutet, dass die App mit dem lokalen items.json-Fallback arbeitet. Dieser kann weniger vollständig oder aktuell sein. Der Status ist kein Live-Zugriff auf dein laufendes Spiel. Items stammen primär aus Mahcks’ Daten-API, Basisdaten und Quests aus RaidTheory; Karten nutzen separat ausgewiesene Community-Quellen. Bei unsicheren Kartendaten werden Positionen ausdrücklich nur als ungefähr bezeichnet.'
+    blueprintsTitle:'5 // BAUPLAN-TRACKER',
+    blueprintsBody:'Im Bauplan-Tracker kannst du alle verfügbaren Baupläne durchsuchen und markieren, welche du bereits gelernt hast. Mit ALLE, GELERNT und FEHLT filterst du deinen Fortschritt. Die Markierungen werden lokal auf diesem Gerät gespeichert. „Info / Fundort“ zeigt hinterlegte Hinweise zu Karte, Bedingung, Container, Quest oder Trials. BESTÄTIGT bedeutet, dass die konkrete Angabe unabhängig belegt ist; COMMUNITY-DATEN sind nützliche, aber nicht garantierte Hinweise; NICHT BESTÄTIGT bleibt bewusst offen.',
+    mapsTitle:'6 // KARTEN & EBENEN',
+    mapsBody:'Auf den Karten kannst du einzelne Ebenen wie mögliche Raider-Startpositionen und Weapon Cases ein- oder ausblenden. Community-Marker sind ungefähr und keine Garantie für einen Spawn. Sie zeigen niemals Live-Gegnerpositionen. Unter „Daten & Quellen“ findest du die für die jeweilige Karte hinterlegten Quellen und Zähler.',
+    displayTitle:'7 // SPRACHE & DARSTELLUNG',
+    displayBody:'Mit DE / EN wechselst du die Sprache. DARK und LIGHT sind bewusst deutlich unterschiedlich gestaltet. Die gewählte Darstellung wird lokal gespeichert.',
+    dataTitle:'8 // DATENSTATUS & QUELLEN',
+    dataBody:'„DATEN // LIVE“ bedeutet, dass der vollständige Item-Katalog geladen wurde. Die App versucht zuerst Mahcks’ Daten-API und kann bei Problemen auf die RaidTheory-Daten auf GitHub ausweichen. „DATEN // BASISDATENSATZ“ bedeutet, dass nur der lokale items.json-Fallback aktiv ist; dieser kann weniger vollständig oder aktuell sein. Der Status ist kein Live-Zugriff auf dein laufendes Spiel. Quests und Basisdaten stammen aus RaidTheory; Karten und Bauplan-Fundorte kennzeichnen Community- oder unbestätigte Angaben ausdrücklich.'
   },
   en:{
     flowTitle:'HOW TO // HELP',
@@ -30,12 +32,14 @@ const HELP_COPY={
     searchBody:'Partial words are enough; you do not need the complete item name. Results are separated deliberately. “Direct matches” are items whose own names match the query. “Available through recycling” shows other items that yield the searched material when recycled; “Yields” identifies the matching output.',
     questsTitle:'4 // QUESTS',
     questsBody:'Every quest can be Open, Active or Done. Important: Only ACTIVE quests with structured required items are included in Total Needs. Open and completed quests remain visible in the tracker but do not change requirements. Quest state is stored locally.',
-    mapsTitle:'5 // RAIDER MAPS',
-    mapsBody:'Markers show possible Raider starting positions based on community data. Positions are approximate, not official or exact Embark spawn coordinates, and never guarantee a spawn. They never show live enemy positions. “Data & Sources” lists the community sources stored for each map.',
-    displayTitle:'6 // LANGUAGE & DISPLAY',
-    displayBody:'Use DE / EN to switch language. DARK is the warmer, stronger ARC-inspired presentation; LIGHT is intentionally much brighter. Your selected display mode is stored locally.',
-    dataTitle:'7 // DATA STATUS & SOURCES',
-    dataBody:'“DATA // LIVE” means the complete item catalog was loaded from the live data source. “DATA // BASE DATASET” means the app is using its local items.json fallback, which may be less complete or current. This status is not live access to your running game. Items primarily use Mahcks’ data API, base data and quests use RaidTheory, and maps use separately listed community sources. Uncertain map positions are explicitly described as approximate.'
+    blueprintsTitle:'5 // BLUEPRINT TRACKER',
+    blueprintsBody:'The Blueprint Tracker lets you search the available blueprints and mark which ones you have already learned. Use ALL, LEARNED and MISSING to filter your progress. Your selections are stored locally on this device. “Info / Location” shows stored hints for map, condition, container, quest or Trials. CONFIRMED means the specific field is independently supported; COMMUNITY DATA is useful but not guaranteed; NOT CONFIRMED deliberately remains open.',
+    mapsTitle:'6 // MAPS & LAYERS',
+    mapsBody:'Map layers such as possible Raider starting positions and Weapon Cases can be switched on or off independently. Community markers are approximate and never guarantee a spawn. They never show live enemy positions. “Data & Sources” lists the stored sources and counters for each map.',
+    displayTitle:'7 // LANGUAGE & DISPLAY',
+    displayBody:'Use DE / EN to switch language. DARK and LIGHT are deliberately designed to look clearly different. Your selected display mode is stored locally.',
+    dataTitle:'8 // DATA STATUS & SOURCES',
+    dataBody:'“DATA // LIVE” means the complete item catalog has been loaded. The app first tries Mahcks’ data API and can fall back to RaidTheory data on GitHub if that source has problems. “DATA // BASE DATASET” means only the local items.json fallback is active; it may be less complete or current. This status is not live access to your running game. Quests and base data use RaidTheory; maps and blueprint acquisition fields explicitly label community or unconfirmed information.'
   }
 };
 
@@ -49,7 +53,7 @@ function renderHelp(){
   if(!root) return;
   root.innerHTML=`
     <p class="section-help">${helpText('helpIntro')}</p>
-    ${['goals','supply','search','quests','maps','display','data'].map(section=>`
+    ${['goals','supply','search','quests','blueprints','maps','display','data'].map(section=>`
       <section class="help-topic">
         <b>${helpText(section+'Title')}</b>
         <p>${helpText(section+'Body')}</p>
