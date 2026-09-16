@@ -1,8 +1,10 @@
-name: ARC Companion PR Preview
+name: ARC Companion Pages + PR Preview
 
 on:
+  push:
+    branches: [main]
   pull_request_target:
-    types: [opened, synchronize, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review, closed]
 
 permissions:
   contents: read
@@ -10,30 +12,47 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages-preview
+  group: pages-deploy
   cancel-in-progress: true
 
 jobs:
   deploy:
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
+    if: ${{ github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout PR preview
+      - name: Checkout production main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: site
+
+      - name: Checkout PR head
+        if: ${{ github.event_name == 'pull_request_target' && github.event.action != 'closed' }}
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          path: preview
+
+      - name: Add isolated PR preview
+        if: ${{ github.event_name == 'pull_request_target' && github.event.action != 'closed' }}
+        shell: bash
+        run: |
+          PREVIEW_DIR="site/pr-preview/pr-${{ github.event.number }}"
+          mkdir -p "$PREVIEW_DIR"
+          rsync -a --delete --exclude='.git' --exclude='.github' preview/ "$PREVIEW_DIR"/
+          printf '<meta name="robots" content="noindex,nofollow">\n' > "$PREVIEW_DIR/preview-meta.html"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload static site
+      - name: Upload production + preview
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: site
 
-      - name: Deploy preview
+      - name: Deploy Pages
         id: deployment
         uses: actions/deploy-pages@v4
