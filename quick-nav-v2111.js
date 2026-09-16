@@ -1,3 +1,4 @@
+// V2.13.0 — keep Blueprint navigation label in sync with DE/EN
 (()=>{
   const labels={
     de:{goals:'ZIELE',supply:'BEDARF',items:'ITEMS',quests:'QUESTS',blueprints:'BAUPLÄNE',maps:'KARTEN'},
