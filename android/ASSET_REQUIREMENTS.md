@@ -80,9 +80,13 @@ Phone screenshots:
 
 These values must be rechecked in Play Console immediately before submission.
 
-## Remaining Google Play assets
+## Google Play asset status
 
-- [ ] Feature graphic: 1024 × 500 px
+- [x] Feature graphic: `android/assets/store/ramas-field-tool-feature-graphic-1024x500.jpg`
+  - 1024 × 500 px JPEG without alpha
+  - SHA-256: `6ea23031580e0a3a7533088ea6768fcc573349b4a81eee1776c99a2c9d9e093a`
+  - German alt text: Ramas Field Tool auf dunklem Kartenhintergrund mit gelben, orangefarbenen und roten Streifen.
+  - English alt text: Ramas Field Tool on a dark map-style background with yellow, orange and red stripes.
 - [ ] Phone screenshots captured from the final Android build
 - [ ] Optional tablet screenshots only after tablet layout verification
 - [ ] German and English alt text for each submitted image
