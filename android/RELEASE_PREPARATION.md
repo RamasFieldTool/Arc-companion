@@ -18,7 +18,7 @@ A Trusted Web Activity is not the first choice at this stage because it depends 
 
 ## Proposed identity (confirm before first Play Console upload)
 
-- Store name: ARC Companion
+- Store name: Ramas Field Tool (confirmed by owner)
 - Short description: Unofficial field tool for ARC Raiders
 - Application ID: pending owner confirmation
 - Initial Android version name: align with the reviewed web release
