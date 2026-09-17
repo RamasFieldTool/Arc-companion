@@ -6,12 +6,27 @@
   "sourceBranch": "android-release-prep",
   "liveTesterBranch": "main",
   "distributionTrack": "internal",
-  "languages": ["de", "en"],
-  "permissionsExpected": ["android.permission.INTERNET"],
+  "languages": [
+    "de",
+    "en"
+  ],
+  "permissionsExpected": [
+    "android.permission.INTERNET"
+  ],
   "ads": false,
   "inAppPurchases": false,
   "supportEmail": null,
   "privacyPolicyUrl": null,
   "releaseCountries": [],
-  "status": "preparation"
+  "status": "preparation",
+  "targetSdkVersion": 36,
+  "minSdkVersion": null,
+  "icon": {
+    "status": "selected-partially-prepared",
+    "approvedOn": "2026-09-17",
+    "master": "android/assets/icon/ramas-field-tool-icon-master-1024.png",
+    "playStore512": "android/assets/icon/ramas-field-tool-play-icon-512.png",
+    "adaptiveLayersReady": false,
+    "monochromeReady": false
+  }
 }
