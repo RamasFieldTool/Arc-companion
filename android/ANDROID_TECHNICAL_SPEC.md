@@ -6,6 +6,8 @@
 - Application ID: `com.ramasfieldtool.app`
 - Initial version code: `1`
 - Initial version name: set from the frozen, reviewed web release
+- Target SDK for submission: Android 16 / API 36 (current requirement for new phone/tablet apps after 31 August 2026)
+- Minimum SDK: decide only after the Capacitor version and physical-device support range are selected
 - Orientation: portrait preferred; landscape supported and tested
 - Languages: German and English
 - Distribution artifact: signed Android App Bundle (AAB)
@@ -33,6 +35,13 @@ Reasons:
 - avoids making the installed Android release depend on every immediate change to the live tester site.
 
 The actual generated Android project should be created only after the web release to package has been selected.
+
+## Selected icon assets
+
+- Working master: `android/assets/icon/ramas-field-tool-icon-master-1024.png`
+- Google Play icon: `android/assets/icon/ramas-field-tool-play-icon-512.png`
+- Adaptive foreground/background and monochrome launcher resources remain pending.
+- Launcher mask tests must pass before generating the final Android project.
 
 ## Required behavior
 
