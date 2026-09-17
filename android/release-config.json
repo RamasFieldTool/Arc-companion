@@ -1,0 +1,17 @@
+{
+  "appName": "Ramas Field Tool",
+  "applicationId": "com.ramasfieldtool.app",
+  "versionCode": 1,
+  "versionName": null,
+  "sourceBranch": "android-release-prep",
+  "liveTesterBranch": "main",
+  "distributionTrack": "internal",
+  "languages": ["de", "en"],
+  "permissionsExpected": ["android.permission.INTERNET"],
+  "ads": false,
+  "inAppPurchases": false,
+  "supportEmail": null,
+  "privacyPolicyUrl": null,
+  "releaseCountries": [],
+  "status": "preparation"
+}
