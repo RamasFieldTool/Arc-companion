@@ -32,7 +32,7 @@ Do not:
 
 - [x] 1024 × 1024 working master
   - `android/assets/icon/ramas-field-tool-icon-master-1024.png`
-  - SHA-256: `6cb16b7836cb14a10817f786f30d7e33892335870b495c4a097c72ba61e7708a`
+  - SHA-256: `172a3fdb2905df5c58552cc357aaa96b86fd3d616c7cc08286e02a1d034537c8`
 - [x] 512 × 512 Google Play icon
   - `android/assets/icon/ramas-field-tool-play-icon-512.png`
   - 32-bit PNG with alpha
