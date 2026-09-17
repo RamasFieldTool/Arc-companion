@@ -22,11 +22,20 @@
   "targetSdkVersion": 36,
   "minSdkVersion": null,
   "icon": {
-    "status": "selected-partially-prepared",
+    "status": "source-assets-prepared",
     "approvedOn": "2026-09-17",
     "master": "android/assets/icon/ramas-field-tool-icon-master-1024.png",
     "playStore512": "android/assets/icon/ramas-field-tool-play-icon-512.png",
-    "adaptiveLayersReady": false,
-    "monochromeReady": false
+    "adaptiveLayersReady": true,
+    "monochromeReady": true,
+    "adaptiveForeground": "android/assets/icon/ramas-field-tool-adaptive-foreground-1080.png",
+    "adaptiveBackgroundColor": "#071011",
+    "monochrome": "android/assets/icon/ramas-field-tool-monochrome-foreground-1080.png",
+    "androidResourcesGenerated": false,
+    "deviceMaskTested": false
+  },
+  "storeAssets": {
+    "featureGraphic": "android/assets/store/ramas-field-tool-feature-graphic-1024x500.jpg",
+    "phoneScreenshotsReady": false
   }
 }
