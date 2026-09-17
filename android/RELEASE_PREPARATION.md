@@ -16,17 +16,17 @@ Use Capacitor to package a reviewed snapshot of the existing static web app as a
 
 A Trusted Web Activity is not the first choice at this stage because it depends directly on the live website and its domain verification. The Capacitor snapshot is easier to test independently before publication.
 
-## Proposed identity (confirm before first Play Console upload)
+## Confirmed identity
 
-- Store name: Ramas Field Tool (confirmed by owner)
+- Store name: Ramas Field Tool
 - Short description: Unofficial field tool for ARC Raiders
-- Application ID: pending owner confirmation
+- Application ID: `com.ramasfieldtool.app`
 - Initial Android version name: align with the reviewed web release
 - Initial version code: 1
 - Category: Tools or Books & Reference
 - Languages: German and English
 
-The application ID becomes effectively permanent after the first Play Console release. Do not create the final Play listing or signed bundle until it is confirmed.
+The application ID is confirmed by the owner and must be used consistently for the Android project, signing configuration and Play Console entry.
 
 ## Required release assets
 
@@ -82,7 +82,6 @@ Before upload, verify:
 
 Do not build the final signed AAB until these are confirmed:
 
-- final application ID
 - final app icon
 - privacy-policy URL
 - support email
