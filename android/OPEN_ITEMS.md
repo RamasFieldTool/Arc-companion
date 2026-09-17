@@ -11,9 +11,15 @@ This file is the authoritative checklist for inputs that are still missing. Do n
   - Insert into the German and English privacy policy.
   - Insert into the Google Play store listing and app support details.
   - Confirm that the inbox is monitored.
-- [ ] Original approved Ramas Field Tool / ARC Companion logo file
-  - Do not redraw or substitute it without explicit approval.
-  - Required for adaptive Android icons and the 512 × 512 Play icon.
+- [x] Original approved Ramas Field Tool / ARC Companion logo supplied
+  - 1536 × 1536 px source received on 17 September 2026.
+  - The motif is authoritative and must not be redrawn or replaced.
+  - The supplied file uses a .png filename but contains JPEG image data; create a standards-compliant PNG derivative before store use.
+  - Source identity is recorded in `LOGO_SOURCE.md`.
+- [ ] Standards-compliant icon derivatives created from the approved logo
+  - Adaptive foreground/background version
+  - Monochrome launcher version
+  - 512 × 512 Google Play icon
 - [ ] Public URL for the privacy policy
 - [ ] Final support/contact name and postal details required for the chosen Play developer account
 - [ ] Final rights review for every map, logo, screenshot and third-party visual
