@@ -45,7 +45,7 @@ This simplified icon is intended for Android launcher and Google Play use becaus
 ### Prepared derivative record
 
 - Working master: `android/assets/icon/ramas-field-tool-icon-master-1024.png`
-- Working-master SHA-256: `6cb16b7836cb14a10817f786f30d7e33892335870b495c4a097c72ba61e7708a`
+- Working-master SHA-256: `172a3fdb2905df5c58552cc357aaa96b86fd3d616c7cc08286e02a1d034537c8`
 - Google Play icon: `android/assets/icon/ramas-field-tool-play-icon-512.png`
 - Play-icon SHA-256: `db97676befb5a383870eef851a45053df8da237d4ceb1460afbf60a53ca648de`
 
