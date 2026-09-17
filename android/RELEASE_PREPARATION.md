@@ -49,7 +49,7 @@ Before upload, verify:
 - External data sources and network requests used by the app.
 - No unnecessary Android permissions.
 - Content rating questionnaire.
-- Target API level required by Google Play at upload time.
+- Target Android 16 / API 36 for new phone/tablet submissions after 31 August 2026; recheck immediately before upload.
 - App behavior with no network connection and with failed external APIs.
 - Local storage behavior for inventory, goals, quests, theme and language.
 - Privacy policy reflects the actual released build.
@@ -82,7 +82,7 @@ Before upload, verify:
 
 Do not build the final signed AAB until these are confirmed:
 
-- final app icon
+- adaptive and monochrome launcher-icon layers tested from the selected icon
 - privacy-policy URL
 - support email
 - ownership/permission status of visual assets
