@@ -24,11 +24,16 @@ This file is the authoritative checklist for inputs that are still missing. Do n
   - File size: 367,061 bytes (below the current 1,024 KB limit).
   - SHA-256: `db97676befb5a383870eef851a45053df8da237d4ceb1460afbf60a53ca648de`.
   - Repository target: `android/assets/icon/ramas-field-tool-play-icon-512.png`.
-- [ ] Android adaptive launcher layers completed and mask-tested
-  - Foreground layer
-  - Background color/layer
-  - Verify circle, squircle, rounded-square and other launcher masks
-- [ ] Android monochrome launcher icon completed and tested
+- [x] Android adaptive foreground, background specification and monochrome source prepared
+  - Foreground and monochrome symbols fit the documented 66 × 66 dp safe zone.
+  - Background color: `#071011`.
+- [ ] Android launcher resources generated and mask-tested
+  - Generate final drawable/mipmap resources after the Android project exists.
+  - Verify circle, squircle, rounded-square and Samsung launcher masks.
+  - Verify monochrome themed icon on a physical device.
+- [x] Google Play feature graphic prepared
+  - 1024 × 500 px JPEG without alpha.
+  - Repository path: `android/assets/store/ramas-field-tool-feature-graphic-1024x500.jpg`.
 - [ ] Public URL for the privacy policy
 - [ ] Final support/contact name and postal details required for the chosen Play developer account
 - [ ] Final rights review for every map, logo, screenshot and third-party visual
