@@ -38,7 +38,18 @@ This file is the authoritative checklist for inputs that are still missing. Do n
 - [ ] Final support/contact name and postal details required for the chosen Play developer account
 - [ ] Final rights review for every map, logo, screenshot and third-party visual
 - [ ] Final stable web version selected for the first Android snapshot
-- [ ] Distribution countries
+- [x] Initial distribution countries selected
+  - Switzerland (CH)
+  - Germany (DE)
+  - Austria (AT)
+  - Liechtenstein (LI)
+  - United States (US)
+  - Canada (CA)
+  - United Kingdom (GB)
+  - Ireland (IE)
+  - Australia (AU)
+  - New Zealand (NZ)
+  - Additional countries can be added after the first public release.
 - [ ] Content-rating questionnaire completed in Play Console
 - [ ] Play developer account verification completed
 - [ ] Signing key and secure backup procedure
