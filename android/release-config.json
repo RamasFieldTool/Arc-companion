@@ -17,7 +17,18 @@
   "inAppPurchases": false,
   "supportEmail": null,
   "privacyPolicyUrl": null,
-  "releaseCountries": [],
+  "releaseCountries": [
+    "CH",
+    "DE",
+    "AT",
+    "LI",
+    "US",
+    "CA",
+    "GB",
+    "IE",
+    "AU",
+    "NZ"
+  ],
   "status": "preparation",
   "targetSdkVersion": 36,
   "minSdkVersion": null,
@@ -37,5 +48,6 @@
   "storeAssets": {
     "featureGraphic": "android/assets/store/ramas-field-tool-feature-graphic-1024x500.jpg",
     "phoneScreenshotsReady": false
-  }
+  },
+  "releaseCountryStrategy": "phase-1-german-english"
 }
