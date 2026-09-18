@@ -1,6 +1,6 @@
 // V2.13.3 test — one compact floating close control for the open long list.
 (()=>{
-  const drawers=['goalsSection','questDrawer','blueprintDrawer']
+  const drawers=['goalsSection','nextRaidDrawer','questDrawer','blueprintDrawer']
     .map(id=>document.getElementById(id))
     .filter(Boolean);
   const de=document.getElementById('deBtn');

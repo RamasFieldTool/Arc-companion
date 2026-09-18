@@ -1,5 +1,5 @@
 /* V2.13.3 test — reachable list closing without taking space from list content. */
-:is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
+:is(#goalsSection,#nextRaidDrawer,#questDrawer,#blueprintDrawer)[open] > summary{
   position:sticky;
   top:env(safe-area-inset-top,0);
   z-index:35;
@@ -39,6 +39,6 @@
 }
 .floating-list-close:active{transform:translateY(1px)}
 @media(max-width:640px){
-  :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{min-height:52px}
+  :is(#goalsSection,#nextRaidDrawer,#questDrawer,#blueprintDrawer)[open] > summary{min-height:52px}
   .floating-list-close{min-height:54px;padding:12px 17px}
 }
