@@ -66,7 +66,7 @@
       : '';
 
     const materialRows=rows.map(x=>`
-      <article class="sumrow summary-item ${x.missing===0?'is-complete':'is-missing'}">
+      <article class="sumrow summary-item ${x.missing===0?'is-complete':'is-missing'}" data-item-id="${x.id}" data-missing="${x.missing}">
         <div class="summary-main">
           <div class="summary-name-row"><div class="sumname">${x.name}</div><div class="summary-state">${x.missing===0?T[lang].summaryDone:`${formatNum(x.missing)} ${T[lang].summaryMissing}`}</div></div>
           <div class="summary-numbers"><span>${tr('total')} <b>${formatNum(x.r.total)}</b></span><span>${tr('owned')} <b>${formatNum(x.have)}</b></span></div>

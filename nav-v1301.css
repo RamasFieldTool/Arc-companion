@@ -45,7 +45,7 @@
   border-color:var(--amber);background:var(--ui-soft);color:var(--orange)
 }
 .nav-more-menu small{color:var(--ui-muted);font:700 10px monospace}
-#goalsSection,#supplySection,#itemsSection,#questDrawer,#blueprintDrawer,#spawnPanel,#tipsDrawer{scroll-margin-top:78px}
+#goalsSection,#nextRaidDrawer,#supplySection,#itemsSection,#questDrawer,#blueprintDrawer,#spawnPanel,#tipsDrawer{scroll-margin-top:78px}
 html[data-theme="dark"] .quick-nav{background:rgba(14,21,26,.95);border-color:#34434e;box-shadow:3px 3px 0 #000}
 html[data-theme="dark"] .nav-more-menu{background:#121a20;border-color:#42525e;box-shadow:4px 4px 0 #000}
 html[data-theme="light"] .quick-nav{background:rgba(239,244,247,.96);border-color:#aebdc7;box-shadow:3px 3px 0 #c5d0d7}

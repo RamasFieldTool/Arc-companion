@@ -194,7 +194,7 @@ function card(i){
   const type=typeName(i.type);
   const rarity=rarityName(i.rarity||'');
   const desc=itemDesc(i);
-  return `<article class="card">
+  return `<article class="card" data-item-id="${i.id}">
     <div class="card-head">
       <div>
         <h3>${itemName(i)}</h3>
