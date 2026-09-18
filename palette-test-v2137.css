@@ -1,0 +1,224 @@
+/* V2.13.7 TEST — user-selectable surface and accent palettes. */
+.palette-lab{
+  padding:14px;
+  border-left:5px solid var(--orange);
+}
+.palette-lab-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:12px;
+}
+.palette-lab-kicker{
+  color:var(--amber);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.09em;
+}
+.palette-lab h2{
+  margin:2px 0 0;
+  font-size:20px;
+}
+.palette-lab-status{
+  flex:none;
+  padding:4px 7px;
+  border:1px solid var(--ui-line);
+  color:var(--ui-muted);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.05em;
+}
+.palette-groups{
+  display:grid;
+  gap:12px;
+}
+.palette-group{
+  display:grid;
+  gap:7px;
+}
+.palette-group-label{
+  color:var(--ui-muted);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+.palette-options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+.palette-choice{
+  min-height:42px;
+  padding:8px 11px;
+  border:1px solid var(--ui-line);
+  background:var(--ui-soft);
+  color:var(--ui-text);
+  font:700 12px/1 "Rajdhani",sans-serif;
+  letter-spacing:.05em;
+  cursor:pointer;
+}
+.palette-choice[aria-pressed="true"]{
+  border-color:var(--orange);
+  background:var(--orange);
+  color:#101417;
+  box-shadow:inset 0 -3px 0 var(--amber);
+}
+.palette-choice:focus-visible{
+  outline:2px solid var(--amber);
+  outline-offset:2px;
+}
+.palette-swatch{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  margin-right:6px;
+  border:1px solid currentColor;
+  vertical-align:-1px;
+}
+.palette-swatch.orange{background:#ff7a1a}
+.palette-swatch.amber{background:#f4b942}
+.palette-swatch.green{background:#55c48d}
+.palette-swatch.cyan{background:#35c2e5}
+
+/* The test page uses this panel as its single appearance control. */
+body.palette-test-page .headtools>.theme-switch{display:none}
+
+/* BLACK surface: preserve the dark layout, only deepen neutral surfaces. */
+html[data-surface="black"]{
+  --night:#000;
+  --shell:#080a0c;
+  --shell-deep:#000;
+  --olive:#11161a;
+  --olive-light:#2a343b;
+  --shadow:#000;
+  --ui-page:#000;
+  --ui-page-glow:#000;
+  --ui-panel:#080a0c;
+  --ui-panel-2:#030506;
+  --ui-raised:#11161a;
+  --ui-input:#000;
+  --ui-line:#2a343b;
+  --ui-shadow:#000;
+  --ui-soft:#0b0f12;
+}
+html[data-surface="black"] body,
+html[data-surface="black"] main{background:#000}
+html[data-surface="black"] .masthead,
+html[data-surface="black"] .panel,
+html[data-surface="black"] .search-panel{background:#080a0c}
+html[data-surface="black"] .drawer-body,
+html[data-surface="black"] .section-help,
+html[data-surface="black"] .need,
+html[data-surface="black"] .quest-section,
+html[data-surface="black"] .quest-mini{background:#0b0f12}
+html[data-surface="black"] .sumrow,
+html[data-surface="black"] .goalbox,
+html[data-surface="black"] .quest-card,
+html[data-surface="black"] .blueprint-entry{background:#11161a}
+
+/* DARK and LIGHT keep the exact existing neutral colors. */
+html[data-surface="dark"]{color-scheme:dark}
+html[data-surface="light"]{color-scheme:only light}
+
+/* NEAR WHITE surface: genuinely white areas, separated by lines instead of grey fills. */
+/* only light prevents Android browser auto-darkening from repainting this palette. */
+html[data-surface="white"]{
+  color-scheme:only light;
+  --night:#fefefe;
+  --shell:#fff;
+  --shell-deep:#fff;
+  --olive:#fff;
+  --olive-light:#d8d3c9;
+  --shadow:#ece8df;
+  --ui-page:#fefefe;
+  --ui-page-glow:#fff;
+  --ui-panel:#fff;
+  --ui-panel-2:#fff;
+  --ui-raised:#fff;
+  --ui-input:#fff;
+  --ui-text:#13202a;
+  --ui-muted:#5e6d78;
+  --ui-line:#d8d3c9;
+  --ui-shadow:#ece8df;
+  --ui-soft:#fff;
+}
+html[data-surface="white"] body,
+html[data-surface="white"] main{background:#fefefe}
+html[data-surface="white"] .masthead,
+html[data-surface="white"] .panel,
+html[data-surface="white"] .search-panel,
+html[data-surface="white"] .flow-guide,
+html[data-surface="white"] .flow-step,
+html[data-surface="white"] .flow-guide-chevron,
+html[data-surface="white"] .card,
+html[data-surface="white"] .fact,
+html[data-surface="white"] .rarity{
+  background:#fff;
+  border-color:#d8d3c9;
+  box-shadow:3px 3px 0 #ece8df;
+}
+html[data-surface="white"] .drawer-body,
+html[data-surface="white"] .section-help,
+html[data-surface="white"] .empty.actionable,
+html[data-surface="white"] .need,
+html[data-surface="white"] .quest-section,
+html[data-surface="white"] .quest-mini,
+html[data-surface="white"] .goal-drawer[open] summary,
+html[data-surface="white"] .quest-drawer[open] summary,
+html[data-surface="white"] .sumrow,
+html[data-surface="white"] .goalbox,
+html[data-surface="white"] .quest-card,
+html[data-surface="white"] .blueprint-entry{background:#fff;border-color:#d8d3c9}
+html[data-surface="white"] .spawn-panel,
+html[data-surface="white"] .spawn-map-picker,
+html[data-surface="white"] .map-layer-controls,
+html[data-surface="white"] .spawn-toolbar,
+html[data-surface="white"] .spawn-data-details,
+html[data-surface="white"] .spawn-note,
+html[data-surface="white"] .spawn-map-info,
+html[data-surface="white"] .spawn-selected,
+html[data-surface="white"] .spawn-zoom-controls,
+html[data-surface="white"] input,
+html[data-surface="white"] select,
+html[data-surface="white"] option,
+html[data-surface="white"] .map-layer-toggle,
+html[data-surface="white"] .spawn-zoom-controls button,
+html[data-surface="white"] .spawn-source-row a{background:#fff;border-color:#d8d3c9}
+
+/* Accent palettes for dark and black surfaces. */
+html[data-theme="dark"][data-accent="orange"]{--orange:#ff7a1a;--amber:#f4b942;--accent:#ff7a1a}
+html[data-theme="dark"][data-accent="amber"]{--orange:#f4b942;--amber:#ffd36a;--accent:#f4b942}
+html[data-theme="dark"][data-accent="green"]{--orange:#55c48d;--amber:#91e3b8;--accent:#55c48d}
+html[data-theme="dark"][data-accent="cyan"]{--orange:#35c2e5;--amber:#8de8f7;--accent:#35c2e5}
+
+/* Darker accents maintain contrast on the light surface. */
+html[data-theme="light"][data-accent="orange"]{--orange:#d85f00;--amber:#b66f00;--accent:#d85f00}
+html[data-theme="light"][data-accent="amber"]{--orange:#9a6400;--amber:#7a4e00;--accent:#9a6400}
+html[data-theme="light"][data-accent="green"]{--orange:#18794e;--amber:#12613e;--accent:#18794e}
+html[data-theme="light"][data-accent="cyan"]{--orange:#006f8a;--amber:#00586e;--accent:#006f8a}
+
+/* Replace remaining hard-coded accents in components loaded before this test layer. */
+html[data-accent] .blueprint-filter.active{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:#fff;
+}
+html[data-theme="dark"][data-accent] .blueprint-info summary{color:var(--amber)}
+html[data-theme="dark"][data-accent] a{color:var(--amber)}
+html[data-theme="light"][data-accent] a{color:var(--orange)}
+html[data-theme="dark"][data-accent] .goal-drawer summary strong,
+html[data-theme="dark"][data-accent] .quest-drawer summary strong{
+  background:var(--amber);
+  color:#17120a;
+}
+html[data-theme="light"][data-accent] .goal-drawer summary strong,
+html[data-theme="light"][data-accent] .quest-drawer summary strong{
+  background:var(--orange);
+  color:#fff;
+}
+
+@media(max-width:640px){
+  .palette-lab-head{align-items:flex-start}
+  .palette-choice{min-height:44px}
+}
