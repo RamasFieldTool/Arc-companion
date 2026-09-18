@@ -1,0 +1,74 @@
+/* V13.0.0 — calmer four-item navigation with a compact overflow menu. */
+.quick-nav{
+  position:sticky;top:6px;z-index:80;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;
+  margin:0 0 20px;padding:5px;
+  border:1px solid var(--ui-line);background:color-mix(in srgb,var(--ui-panel) 94%,transparent);
+  box-shadow:3px 3px 0 var(--ui-shadow);
+  backdrop-filter:blur(8px)
+}
+.quick-nav .nav-main-link,.nav-more>summary{
+  position:relative;min-width:0;min-height:48px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  padding:7px 5px 6px;box-sizing:border-box;
+  border:1px solid transparent;border-bottom:3px solid transparent;
+  color:var(--ui-muted);background:transparent;text-decoration:none;
+  font:700 12px "Rajdhani",sans-serif;letter-spacing:.045em;text-transform:uppercase;
+  list-style:none;cursor:pointer;transition:background .15s ease,color .15s ease,border-color .15s ease
+}
+.nav-more>summary::-webkit-details-marker{display:none}
+.nav-more>summary::marker{content:""}
+.nav-glyph{color:var(--amber);font:700 18px/1 monospace}
+.quick-nav .nav-main-link:hover,.quick-nav .nav-main-link:focus-visible,.nav-more>summary:hover,.nav-more>summary:focus-visible{
+  color:var(--ui-text);border-color:var(--ui-line);border-bottom-color:var(--amber);background:var(--ui-soft)
+}
+.quick-nav .nav-main-link.active,.nav-more.active>summary{
+  color:var(--ui-text);border-color:var(--ui-line);border-bottom-color:var(--orange);background:var(--ui-soft)
+}
+.quick-nav .nav-main-link.active .nav-glyph,.nav-more.active .nav-glyph{color:var(--orange)}
+.nav-more{position:relative;min-width:0}
+.nav-more>summary{width:100%}
+.nav-more-chevron{font-size:14px;transition:transform .15s ease}
+.nav-more[open] .nav-more-chevron{transform:rotate(180deg)}
+.nav-more-menu{
+  position:absolute;top:calc(100% + 7px);right:-1px;width:min(230px,82vw);
+  padding:5px;border:1px solid var(--ui-line);background:var(--ui-panel);
+  box-shadow:4px 4px 0 var(--ui-shadow)
+}
+.nav-more-menu a{
+  min-height:46px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:9px 11px;border:1px solid transparent;border-bottom-color:var(--ui-line);
+  color:var(--ui-text);text-decoration:none;font-weight:700;letter-spacing:.055em
+}
+.nav-more-menu a:last-child{border-bottom-color:transparent}
+.nav-more-menu a:hover,.nav-more-menu a:focus-visible,.nav-more-menu a.active{
+  border-color:var(--amber);background:var(--ui-soft);color:var(--orange)
+}
+.nav-more-menu small{color:var(--ui-muted);font:700 10px monospace}
+#goalsSection,#supplySection,#itemsSection,#questDrawer,#blueprintDrawer,#spawnPanel{scroll-margin-top:78px}
+html[data-theme="dark"] .quick-nav{background:rgba(14,21,26,.95);border-color:#34434e;box-shadow:3px 3px 0 #000}
+html[data-theme="dark"] .nav-more-menu{background:#121a20;border-color:#42525e;box-shadow:4px 4px 0 #000}
+html[data-theme="light"] .quick-nav{background:rgba(239,244,247,.96);border-color:#aebdc7;box-shadow:3px 3px 0 #c5d0d7}
+html[data-theme="light"] .nav-more-menu{background:#fff;border-color:#aebdc7;box-shadow:4px 4px 0 #c5d0d7}
+@media(max-width:390px){
+  .quick-nav .nav-main-link,.nav-more>summary{gap:4px;min-height:46px;padding-inline:3px;font-size:11px;letter-spacing:.02em}
+  .nav-glyph{font-size:16px}.nav-more-chevron{display:none}
+}
+
+/* Official ARC Companion brand lockup. */
+.masthead-with-logo{align-items:center}
+.masthead-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.official-app-logo{
+  width:82px;height:82px;flex:0 0 82px;display:block;object-fit:cover;border-radius:50%;
+  filter:drop-shadow(3px 3px 0 rgba(0,0,0,.48))
+}
+.masthead-with-logo .brand-title{min-width:0}
+.masthead-with-logo h1{font-size:30px}
+.masthead-with-logo h1 span{display:block}
+@media(max-width:420px){
+  .masthead-with-logo{gap:7px;padding-inline:8px}
+  .masthead-brand{gap:7px}
+  .official-app-logo{width:70px;height:70px;flex-basis:70px}
+  .masthead-with-logo h1{font-size:25px}
+  .masthead-with-logo .eyebrow{font-size:8px}
+}
