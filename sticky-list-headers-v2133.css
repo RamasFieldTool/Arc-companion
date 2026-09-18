@@ -1,0 +1,18 @@
+/* V2.13.3 — keep existing drawer headers reachable without taking space from list content. */
+:is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
+  position:sticky;
+  top:env(safe-area-inset-top,0);
+  z-index:35;
+  scroll-margin-top:64px;
+  box-shadow:0 3px 0 rgba(0,0,0,.28);
+}
+@media(max-width:640px){
+  :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
+    min-height:52px;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
+    scroll-behavior:auto;
+  }
+}
