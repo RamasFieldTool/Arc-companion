@@ -1,0 +1,58 @@
+/* V2.13.4 — community acknowledgement. */
+.community-credit{
+  position:relative;
+  padding:16px 15px;
+  border-left:5px solid var(--orange);
+  overflow:hidden;
+}
+.community-credit::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:0;
+  width:52px;
+  height:4px;
+  background:var(--amber);
+}
+.community-credit-kicker{
+  margin-bottom:7px;
+  color:var(--amber);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.09em;
+}
+.community-credit h2{
+  margin:0 0 7px;
+  font-size:20px;
+  line-height:1.1;
+}
+.community-credit p{
+  margin:0;
+  max-width:72ch;
+  color:var(--ui-muted);
+  font-size:14px;
+  line-height:1.45;
+}
+.community-credit-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  margin-top:13px;
+  padding:9px 13px;
+  border:1px solid var(--orange);
+  border-bottom:4px solid var(--orange);
+  background:var(--ui-soft);
+  color:var(--ui-text);
+  font-weight:700;
+  letter-spacing:.05em;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+.community-credit-link:hover,
+.community-credit-link:focus-visible{
+  background:var(--orange);
+  color:#17120a;
+  outline:2px solid var(--amber);
+  outline-offset:2px;
+}
