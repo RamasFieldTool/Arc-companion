@@ -1,4 +1,4 @@
-/* V2.13.3 — keep existing drawer headers reachable without taking space from list content. */
+/* V2.13.3 test — reachable list closing without taking space from list content. */
 :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
   position:sticky;
   top:env(safe-area-inset-top,0);
@@ -6,13 +6,39 @@
   scroll-margin-top:64px;
   box-shadow:0 3px 0 rgba(0,0,0,.28);
 }
-@media(max-width:640px){
-  :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
-    min-height:52px;
-  }
+.floating-list-close{
+  position:fixed;
+  right:max(14px,env(safe-area-inset-right,0px));
+  bottom:calc(18px + env(safe-area-inset-bottom,0px));
+  z-index:1000;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:52px;
+  padding:11px 16px;
+  border:2px solid var(--orange);
+  border-radius:4px;
+  background:var(--ui-panel);
+  color:var(--ui-text);
+  box-shadow:0 5px 18px var(--ui-shadow);
+  font:700 14px/1 "Rajdhani",sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  touch-action:manipulation;
 }
-@media(prefers-reduced-motion:reduce){
-  :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{
-    scroll-behavior:auto;
-  }
+.floating-list-close[hidden]{display:none}
+.floating-list-close .floating-list-close-x{
+  color:var(--orange);
+  font-size:23px;
+  line-height:.7;
+}
+.floating-list-close:focus-visible{
+  outline:3px solid var(--amber);
+  outline-offset:3px;
+}
+.floating-list-close:active{transform:translateY(1px)}
+@media(max-width:640px){
+  :is(#goalsSection,#questDrawer,#blueprintDrawer)[open] > summary{min-height:52px}
+  .floating-list-close{min-height:54px;padding:12px 17px}
 }
