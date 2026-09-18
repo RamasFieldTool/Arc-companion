@@ -4,7 +4,7 @@
     de:{goals:'ZIELE',supply:'BEDARF',items:'SUCHE',more:'MEHR',quests:'QUESTS',blueprints:'BAUPLÄNE',maps:'KARTEN'},
     en:{goals:'GOALS',supply:'NEEDS',items:'SEARCH',more:'MORE',quests:'QUESTS',blueprints:'BLUEPRINTS',maps:'MAPS'}
   };
-  const nav=document.querySelector('.nav-test-v1301');
+  const nav=document.querySelector('.nav-v1301');
   if(!nav)return;
   const more=nav.querySelector('.nav-more');
   const tracked=[
