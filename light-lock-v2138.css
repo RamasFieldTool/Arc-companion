@@ -1,0 +1,6 @@
+/* V2.13.8 TEST — page-level opt-out from Android browser auto-darkening.
+   The app supplies its own BLACK/DARK/LIGHT/FAST WEISS palettes. */
+:root{
+  color-scheme:only light !important;
+  supported-color-schemes:light;
+}
