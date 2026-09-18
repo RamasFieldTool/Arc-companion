@@ -1,0 +1,71 @@
+/* V2.14.0 TEST — progressive disclosure and compact controls. */
+
+/* Active goals: show exact station names first; reveal levels per station. */
+.goal-station{padding:0;overflow:hidden}
+.goal-station>summary{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  min-height:48px;padding:10px 11px;list-style:none;cursor:pointer;
+}
+.goal-station>summary::-webkit-details-marker{display:none}
+.goal-station>summary::marker{content:""}
+.goal-station-name{font-size:16px;font-weight:700;color:var(--ui-text)}
+.goal-station-meta{margin-left:auto;color:var(--ui-muted);font-size:11px;font-weight:700;letter-spacing:.04em}
+.goal-station-chevron{
+  display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;
+  border:1px solid var(--ui-line);color:var(--orange);font-size:17px;transition:transform .16s ease
+}
+.goal-station[open] .goal-station-chevron{transform:rotate(180deg)}
+.goal-station[open]>summary{background:var(--ui-soft);border-bottom:1px solid var(--ui-line)}
+.goal-station .levelrow{padding:10px}
+
+/* Quests and blueprints: one narrow segmented filter bar. */
+.quest-filters,.blueprint-filters{
+  display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);
+  gap:0!important;overflow-x:auto;border:1px solid var(--ui-line);background:var(--ui-panel-2)
+}
+.quest-filter,.blueprint-filter{
+  width:100%;min-width:max-content;min-height:36px!important;padding:6px 8px!important;
+  border:0!important;border-right:1px solid var(--ui-line)!important;
+  background:transparent!important;font-size:11px!important;white-space:nowrap
+}
+.quest-filter:last-child,.blueprint-filter:last-child{border-right:0!important}
+.quest-filter.active,.blueprint-filter.active{
+  background:var(--orange)!important;color:#fff!important;box-shadow:inset 0 -3px 0 var(--amber)
+}
+
+/* Long explanations are available on demand. */
+.inline-info{margin:8px 0}
+.inline-info>summary{
+  display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:5px 9px;
+  list-style:none;cursor:pointer;border:1px solid var(--ui-line);
+  background:var(--ui-soft);color:var(--amber);font-size:11px;font-weight:700;letter-spacing:.08em
+}
+.inline-info>summary::-webkit-details-marker{display:none}
+.inline-info>summary::marker{content:""}
+.inline-info>summary::before{content:"+";font-size:15px;line-height:1}
+.inline-info[open]>summary::before{content:"−"}
+.inline-info .section-help,.inline-info .search-hint,.inline-info .muted,.inline-info .spawn-note{margin-top:7px;margin-bottom:0}
+
+/* Appearance controls stay out of the way until requested. */
+.palette-lab{padding:0;overflow:hidden}
+.palette-lab-summary{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 10px;
+  min-height:58px;padding:11px 13px;list-style:none;cursor:pointer
+}
+.palette-lab-summary::-webkit-details-marker{display:none}
+.palette-lab-summary::marker{content:""}
+.palette-lab-summary>span:first-child{display:grid;gap:2px}
+.palette-lab-summary b{font-size:17px;color:var(--ui-text)}
+.palette-lab-summary .palette-lab-status{grid-column:2;grid-row:1 / span 2}
+.palette-lab-action{
+  grid-column:1 / -1;color:var(--orange);font-size:10px;letter-spacing:.08em
+}
+.palette-lab[open] .palette-lab-action{display:none}
+.palette-lab-body{padding:0 13px 13px;border-top:1px solid var(--ui-line)}
+.palette-lab-body>.muted{margin-top:11px}
+
+@media(max-width:420px){
+  .goal-station-meta{font-size:10px}
+  .quest-filter,.blueprint-filter{padding:6px 5px!important;font-size:10px!important}
+  .palette-lab-summary{grid-template-columns:minmax(0,1fr) auto}
+}
