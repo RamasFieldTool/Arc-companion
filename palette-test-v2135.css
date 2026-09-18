@@ -121,6 +121,68 @@ html[data-surface="black"] .blueprint-entry{background:#11161a}
 html[data-surface="dark"]{color-scheme:dark}
 html[data-surface="light"]{color-scheme:light}
 
+/* NEAR WHITE surface: a warmer, almost-white page with subtle structure. */
+html[data-surface="white"]{
+  --night:#faf9f5;
+  --shell:#fff;
+  --shell-deep:#f4f3ee;
+  --olive:#f1f0eb;
+  --olive-light:#b8b9b4;
+  --shadow:#d9d9d4;
+  --ui-page:#faf9f5;
+  --ui-page-glow:#f5f4ef;
+  --ui-panel:#fff;
+  --ui-panel-2:#fcfbf8;
+  --ui-raised:#fff;
+  --ui-input:#fff;
+  --ui-text:#13202a;
+  --ui-muted:#5e6d78;
+  --ui-line:#cfd2d1;
+  --ui-shadow:#d9d9d4;
+  --ui-soft:#f1f0eb;
+}
+html[data-surface="white"] body,
+html[data-surface="white"] main{background:#faf9f5}
+html[data-surface="white"] .masthead,
+html[data-surface="white"] .panel,
+html[data-surface="white"] .search-panel,
+html[data-surface="white"] .flow-guide,
+html[data-surface="white"] .flow-step,
+html[data-surface="white"] .flow-guide-chevron,
+html[data-surface="white"] .card,
+html[data-surface="white"] .fact,
+html[data-surface="white"] .rarity{
+  background:#fff;
+  border-color:#cfd2d1;
+  box-shadow:3px 3px 0 #d9d9d4;
+}
+html[data-surface="white"] .drawer-body,
+html[data-surface="white"] .section-help,
+html[data-surface="white"] .empty.actionable,
+html[data-surface="white"] .need,
+html[data-surface="white"] .quest-section,
+html[data-surface="white"] .quest-mini,
+html[data-surface="white"] .goal-drawer[open] summary,
+html[data-surface="white"] .quest-drawer[open] summary{background:#f1f0eb}
+html[data-surface="white"] .sumrow,
+html[data-surface="white"] .goalbox,
+html[data-surface="white"] .quest-card,
+html[data-surface="white"] .blueprint-entry{background:#fff;border-color:#cfd2d1}
+html[data-surface="white"] .spawn-panel{background:#fff}
+html[data-surface="white"] .spawn-map-picker,
+html[data-surface="white"] .map-layer-controls,
+html[data-surface="white"] .spawn-toolbar,
+html[data-surface="white"] .spawn-data-details{background:#f1f0eb;border-color:#cfd2d1}
+html[data-surface="white"] .spawn-note,
+html[data-surface="white"] .spawn-map-info,
+html[data-surface="white"] .spawn-selected{background:#fcfbf8}
+html[data-surface="white"] input,
+html[data-surface="white"] select,
+html[data-surface="white"] option,
+html[data-surface="white"] .map-layer-toggle,
+html[data-surface="white"] .spawn-zoom-controls button,
+html[data-surface="white"] .spawn-source-row a{background:#fff}
+
 /* Accent palettes for dark and black surfaces. */
 html[data-theme="dark"][data-accent="orange"]{--orange:#ff7a1a;--amber:#f4b942;--accent:#ff7a1a}
 html[data-theme="dark"][data-accent="amber"]{--orange:#f4b942;--amber:#ffd36a;--accent:#f4b942}
