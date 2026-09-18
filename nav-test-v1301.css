@@ -54,3 +54,21 @@ html[data-theme="light"] .nav-more-menu{background:#fff;border-color:#aebdc7;box
   .quick-nav .nav-main-link,.nav-more>summary{gap:4px;min-height:46px;padding-inline:3px;font-size:11px;letter-spacing:.02em}
   .nav-glyph{font-size:16px}.nav-more-chevron{display:none}
 }
+
+/* Official ARC Companion brand lockup — test page only. */
+.masthead-with-logo{align-items:center}
+.masthead-brand{display:flex;align-items:center;gap:10px;min-width:0}
+.official-app-logo{
+  width:82px;height:82px;flex:0 0 82px;display:block;object-fit:cover;border-radius:50%;
+  filter:drop-shadow(3px 3px 0 rgba(0,0,0,.48))
+}
+.masthead-with-logo .brand-title{min-width:0}
+.masthead-with-logo h1{font-size:30px}
+.masthead-with-logo h1 span{display:block}
+@media(max-width:420px){
+  .masthead-with-logo{gap:7px;padding-inline:8px}
+  .masthead-brand{gap:7px}
+  .official-app-logo{width:70px;height:70px;flex-basis:70px}
+  .masthead-with-logo h1{font-size:25px}
+  .masthead-with-logo .eyebrow{font-size:8px}
+}
