@@ -3,7 +3,7 @@
   const root=document.documentElement;
   const surfaceKey='arcPaletteSurfaceTestV2135';
   const accentKey='arcPaletteAccentTestV2135';
-  const surfaces=['black','dark','light'];
+  const surfaces=['black','dark','light','white'];
   const accents=['orange','amber','green','cyan'];
   const enButton=document.getElementById('enBtn');
 
@@ -26,6 +26,7 @@
       black:'SCHWARZ',
       dark:'DUNKEL',
       light:'HELL',
+      white:'FAST WEISS',
       orange:'ORANGE',
       amber:'AMBER',
       green:'GRÜN',
@@ -40,6 +41,7 @@
       black:'BLACK',
       dark:'DARK',
       light:'LIGHT',
+      white:'NEAR WHITE',
       orange:'ORANGE',
       amber:'AMBER',
       green:'GREEN',
@@ -52,7 +54,7 @@
   function apply(persist=true){
     root.dataset.surface=surface;
     root.dataset.accent=accent;
-    root.dataset.theme=surface==='light'?'light':'dark';
+    root.dataset.theme=(surface==='light'||surface==='white')?'light':'dark';
 
     document.querySelectorAll('[data-palette-surface]').forEach(button=>{
       button.setAttribute('aria-pressed',String(button.dataset.paletteSurface===surface));
@@ -67,7 +69,7 @@
     });
 
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta)meta.content=surface==='light'?'#f1f5f8':surface==='black'?'#000000':'#080d11';
+    if(meta)meta.content=surface==='white'?'#faf9f5':surface==='light'?'#f1f5f8':surface==='black'?'#000000':'#080d11';
 
     if(persist){
       try{
