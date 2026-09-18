@@ -12,7 +12,8 @@
     ['quests','questDrawer'],['blueprints','blueprintDrawer'],['maps','spawnPanel']
   ];
   function syncLanguage(){
-    const current=document.documentElement.lang==='en'?'en':'de';
+    const savedLanguage=typeof lang!=='undefined'?lang:(document.getElementById('enBtn')?.classList.contains('active')?'en':document.documentElement.lang);
+    const current=savedLanguage==='en'?'en':'de';
     nav.setAttribute('aria-label',current==='en'?'Quick navigation':'Schnellnavigation');
     nav.querySelectorAll('[data-nav-label]').forEach(node=>{
       node.textContent=labels[current][node.dataset.navLabel]||node.textContent;
@@ -54,6 +55,8 @@
   window.addEventListener('scroll',()=>{
     if(!ticking){ticking=true;requestAnimationFrame(updateActive)}
   },{passive:true});
+  document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(syncLanguage,0));
+  document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(syncLanguage,0));
   syncLanguage();
   updateActive();
   new MutationObserver(syncLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
