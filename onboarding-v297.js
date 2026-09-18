@@ -16,9 +16,11 @@ const HELP_COPY={
     blueprintsBody:'Im Bauplan-Tracker kannst du alle verfügbaren Baupläne durchsuchen und markieren, welche du bereits gelernt hast. Mit ALLE, GELERNT und FEHLT filterst du deinen Fortschritt. Die Markierungen werden lokal auf diesem Gerät gespeichert. „Info / Fundort“ zeigt hinterlegte Hinweise zu Karte, Bedingung, Container, Quest oder Trials. BESTÄTIGT bedeutet, dass die konkrete Angabe unabhängig belegt ist; COMMUNITY-DATEN sind nützliche, aber nicht garantierte Hinweise; NICHT BESTÄTIGT bleibt bewusst offen.',
     mapsTitle:'6 // KARTEN & EBENEN',
     mapsBody:'Auf den Karten kannst du einzelne Ebenen wie mögliche Raider-Startpositionen und Weapon Cases ein- oder ausblenden. Community-Marker sind ungefähr und keine Garantie für einen Spawn. Sie zeigen niemals Live-Gegnerpositionen. Unter „Daten & Quellen“ findest du die für die jeweilige Karte hinterlegten Quellen und Zähler.',
-    displayTitle:'7 // SPRACHE & DARSTELLUNG',
+    tipsTitle:'7 // TIPPS & TRICKS',
+    tipsBody:'Direkt unter dieser Hilfe findest du praktische Hinweise für bessere Runs. Öffne eine der vier Kategorien; es wird immer nur eine Kategorie gleichzeitig angezeigt. Tippe eine offene Kategorie erneut an, um sie zu schließen. Mit „Tipps schließen“ klappst du den gesamten Bereich wieder ein.',
+    displayTitle:'8 // SPRACHE & DARSTELLUNG',
     displayBody:'Mit DE / EN wechselst du die Sprache. DARK und LIGHT sind bewusst deutlich unterschiedlich gestaltet. Die gewählte Darstellung wird lokal gespeichert.',
-    dataTitle:'8 // DATENSTATUS & QUELLEN',
+    dataTitle:'9 // DATENSTATUS & QUELLEN',
     dataBody:'„DATEN // LIVE“ bedeutet, dass der vollständige Item-Katalog geladen wurde. Die App versucht zuerst Mahcks’ Daten-API und kann bei Problemen auf die RaidTheory-Daten auf GitHub ausweichen. „DATEN // BASISDATENSATZ“ bedeutet, dass nur der lokale items.json-Fallback aktiv ist; dieser kann weniger vollständig oder aktuell sein. Der Status ist kein Live-Zugriff auf dein laufendes Spiel. Quests und Basisdaten stammen aus RaidTheory; Karten und Bauplan-Fundorte kennzeichnen Community- oder unbestätigte Angaben ausdrücklich.'
   },
   en:{
@@ -36,9 +38,11 @@ const HELP_COPY={
     blueprintsBody:'The Blueprint Tracker lets you search the available blueprints and mark which ones you have already learned. Use ALL, LEARNED and MISSING to filter your progress. Your selections are stored locally on this device. “Info / Location” shows stored hints for map, condition, container, quest or Trials. CONFIRMED means the specific field is independently supported; COMMUNITY DATA is useful but not guaranteed; NOT CONFIRMED deliberately remains open.',
     mapsTitle:'6 // MAPS & LAYERS',
     mapsBody:'Map layers such as possible Raider starting positions and Weapon Cases can be switched on or off independently. Community markers are approximate and never guarantee a spawn. They never show live enemy positions. “Data & Sources” lists the stored sources and counters for each map.',
-    displayTitle:'7 // LANGUAGE & DISPLAY',
+    tipsTitle:'7 // TIPS & TRICKS',
+    tipsBody:'Practical advice for better runs appears directly below this help section. Open one of the four categories; only one category is shown at a time. Tap an open category again to close it. Use “Close tips” to collapse the entire section.',
+    displayTitle:'8 // LANGUAGE & DISPLAY',
     displayBody:'Use DE / EN to switch language. DARK and LIGHT are deliberately designed to look clearly different. Your selected display mode is stored locally.',
-    dataTitle:'8 // DATA STATUS & SOURCES',
+    dataTitle:'9 // DATA STATUS & SOURCES',
     dataBody:'“DATA // LIVE” means the complete item catalog has been loaded. The app first tries Mahcks’ data API and can fall back to RaidTheory data on GitHub if that source has problems. “DATA // BASE DATASET” means only the local items.json fallback is active; it may be less complete or current. This status is not live access to your running game. Quests and base data use RaidTheory; maps and blueprint acquisition fields explicitly label community or unconfirmed information.'
   }
 };
@@ -53,7 +57,7 @@ function renderHelp(){
   if(!root) return;
   root.innerHTML=`
     <p class="section-help">${helpText('helpIntro')}</p>
-    ${['goals','supply','search','quests','blueprints','maps','display','data'].map(section=>`
+    ${['goals','supply','search','quests','blueprints','maps','tips','display','data'].map(section=>`
       <section class="help-topic">
         <b>${helpText(section+'Title')}</b>
         <p>${helpText(section+'Body')}</p>

@@ -1,0 +1,49 @@
+/* V13.0.0 — compact field notes: one open category, calm numbered lists. */
+.tips-drawer{padding:0;overflow:hidden;border-left:5px solid var(--orange)}
+.tips-main-summary{
+  min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:16px 18px;box-sizing:border-box;list-style:none;cursor:pointer
+}
+.tips-main-summary::-webkit-details-marker,.tips-category>summary::-webkit-details-marker{display:none}
+.tips-main-summary::marker,.tips-category>summary::marker{content:""}
+.tips-main-summary>span:first-child{display:grid;gap:3px;min-width:0}
+.tips-kicker{color:var(--amber);font:700 10px monospace;letter-spacing:.13em}
+.tips-main-summary b{color:var(--ui-text);font:700 22px/1 "Rajdhani",sans-serif;letter-spacing:.06em}
+.tips-main-summary small{color:var(--ui-muted);font-size:14px}
+.tips-main-chevron{color:var(--orange);font:700 24px/1 monospace;transition:transform .16s ease}
+.tips-drawer[open]>.tips-main-summary{background:var(--ui-soft);border-bottom:1px solid var(--ui-line)}
+.tips-drawer[open]>.tips-main-summary .tips-main-chevron{transform:rotate(180deg)}
+.tips-main-summary:hover,.tips-main-summary:focus-visible{background:var(--ui-soft)}
+.tips-body{padding:16px 18px 18px}
+.tips-body>.section-help{margin:0 0 14px}
+.tips-categories{display:grid;gap:8px}
+.tips-category{border:1px solid var(--ui-line);background:var(--ui-panel-2)}
+.tips-category>summary{
+  min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 12px;box-sizing:border-box;list-style:none;cursor:pointer
+}
+.tips-category>summary:hover,.tips-category>summary:focus-visible{background:var(--ui-soft)}
+.tips-category[open]>summary{background:var(--ui-raised);border-bottom:1px solid var(--ui-line)}
+.tips-category-name{display:grid;gap:2px;color:var(--ui-text);font:700 16px/1.1 "Rajdhani",sans-serif;letter-spacing:.045em}
+.tips-category-name small{color:var(--ui-muted);font:700 10px monospace;letter-spacing:.08em}
+.tips-category-chevron{color:var(--amber);font:700 20px/1 monospace;transition:transform .16s ease}
+.tips-category[open] .tips-category-chevron{transform:rotate(180deg)}
+.tips-list{margin:0;padding:0 13px;list-style:none}
+.tip-item{display:grid;grid-template-columns:46px minmax(0,1fr);gap:10px;padding:15px 0;border-bottom:1px solid var(--ui-line)}
+.tip-item:last-child{border-bottom:0}
+.tip-number{padding-top:2px;color:var(--orange);font:700 11px monospace;letter-spacing:.08em}
+.tip-copy h4{margin:0 0 5px;color:var(--ui-text);font:700 16px/1.15 "Rajdhani",sans-serif;letter-spacing:.035em}
+.tip-copy p{margin:0;color:var(--ui-muted);font-size:15px;line-height:1.48}
+.tips-close{
+  width:100%;min-height:48px;margin-top:14px;padding:10px 14px;border:1px solid var(--orange);
+  border-bottom:4px solid var(--orange);background:transparent;color:var(--ui-text);
+  font:700 14px "Rajdhani",sans-serif;letter-spacing:.07em;cursor:pointer
+}
+.tips-close:hover,.tips-close:focus-visible{background:var(--orange);color:#fff}
+html[data-theme="dark"] .tips-category{background:#0b1116}
+html[data-theme="light"] .tips-category{background:#f7fafc}
+@media(max-width:420px){
+  .tips-main-summary{padding:14px}.tips-body{padding:14px}
+  .tips-main-summary b{font-size:20px}.tip-item{grid-template-columns:38px 1fr;gap:7px}
+  .tip-copy p{font-size:14px}
+}
