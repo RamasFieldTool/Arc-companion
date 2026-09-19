@@ -1,0 +1,42 @@
+/* V13.0.4 test — local progress export and restore. */
+.backup-panel{padding:0;overflow:hidden;border-left:5px solid var(--orange)}
+.backup-summary{
+  min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 16px;box-sizing:border-box;list-style:none;cursor:pointer
+}
+.backup-summary::-webkit-details-marker{display:none}
+.backup-summary::marker{content:""}
+.backup-summary>span{display:grid;gap:3px;min-width:0}
+.backup-kicker{color:var(--amber);font:700 10px monospace;letter-spacing:.13em}
+.backup-summary b{color:var(--ui-text);font:700 21px/1 "Rajdhani",sans-serif;letter-spacing:.055em}
+.backup-summary small{color:var(--ui-muted);font-size:13px;line-height:1.25}
+.backup-summary>strong{
+  flex:0 0 auto;padding:8px 10px;border:0;border-bottom:3px solid var(--orange);
+  background:var(--amber);color:#17120a;font:700 12px "Rajdhani",sans-serif;letter-spacing:.055em;
+  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)
+}
+.backup-panel[open]>.backup-summary{background:var(--ui-soft);border-bottom:1px solid var(--ui-line)}
+.backup-summary:hover,.backup-summary:focus-visible{background:var(--ui-soft)}
+.backup-body{padding:14px 16px 17px}
+.backup-body>.section-help{margin:0 0 13px}
+.backup-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.backup-actions button,.backup-close{
+  min-height:48px;padding:9px 11px;border:1px solid var(--orange);border-bottom:4px solid var(--orange);
+  background:transparent;color:var(--ui-text);font:700 13px "Rajdhani",sans-serif;letter-spacing:.055em;cursor:pointer
+}
+.backup-actions button:hover,.backup-actions button:focus-visible,.backup-close:hover,.backup-close:focus-visible{
+  background:var(--orange);color:#fff
+}
+.backup-privacy{margin:12px 0 0;color:var(--ui-muted);font:700 10px monospace;letter-spacing:.065em;text-align:center}
+.backup-status{min-height:0;margin-top:0;padding:0;border:0;color:var(--ui-muted);font-size:14px;line-height:1.4}
+.backup-status:not(:empty){min-height:20px;margin-top:12px;padding:9px 10px;border:1px solid var(--ui-line);background:var(--ui-soft)}
+.backup-status.is-success{border-color:var(--green);color:var(--ui-text)}
+.backup-status.is-error{border-color:var(--orange);color:var(--ui-text)}
+.backup-close{width:100%;margin-top:9px;border-color:var(--ui-line);border-bottom-color:var(--orange)}
+html[data-theme="dark"] .backup-summary>strong{background:var(--amber);color:#17120a}
+html[data-theme="light"] .backup-summary>strong{background:var(--orange);color:#fff}
+@media(max-width:420px){
+  .backup-summary{padding:13px 11px;gap:9px}.backup-summary b{font-size:19px}
+  .backup-summary>strong{padding:7px 8px;font-size:11px}.backup-body{padding:12px 11px 14px}
+  .backup-actions{grid-template-columns:1fr}
+}

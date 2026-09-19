@@ -22,7 +22,9 @@ const HELP_COPY={
     tipsBody:'Direkt unter dieser Hilfe findest du praktische Hinweise für bessere Runs. Öffne eine der vier Kategorien; es wird immer nur eine Kategorie gleichzeitig angezeigt. Tippe eine offene Kategorie erneut an, um sie zu schließen. Mit „Tipps schließen“ klappst du den gesamten Bereich wieder ein.',
     displayTitle:'9 // SPRACHE & DARSTELLUNG',
     displayBody:'Mit DE / EN wechselst du die Sprache. DARK und LIGHT sind bewusst deutlich unterschiedlich gestaltet. Die gewählte Darstellung wird lokal gespeichert.',
-    dataTitle:'10 // DATENSTATUS & QUELLEN',
+    backupTitle:'10 // DATEN & BACKUP',
+    backupBody:'Unter „Farben einstellen“ kannst du deine lokal gespeicherten Einstellungen und Fortschritte als JSON-Datei sichern. „Backup importieren“ prüft die Datei vollständig und ersetzt die vorhandenen App-Daten erst nach deiner Bestätigung. Es wird nichts in eine Cloud oder an uns übertragen.',
+    dataTitle:'11 // DATENSTATUS & QUELLEN',
     dataBody:'„DATEN // LIVE“ bedeutet, dass der vollständige Item-Katalog geladen wurde. Die App versucht zuerst Mahcks’ Daten-API und kann bei Problemen auf die RaidTheory-Daten auf GitHub ausweichen. „DATEN // BASISDATENSATZ“ bedeutet, dass nur der lokale items.json-Fallback aktiv ist; dieser kann weniger vollständig oder aktuell sein. Der Status ist kein Live-Zugriff auf dein laufendes Spiel. Quests und Basisdaten stammen aus RaidTheory; Karten und Bauplan-Fundorte kennzeichnen Community- oder unbestätigte Angaben ausdrücklich.'
   },
   en:{
@@ -46,7 +48,9 @@ const HELP_COPY={
     tipsBody:'Practical advice for better runs appears directly below this help section. Open one of the four categories; only one category is shown at a time. Tap an open category again to close it. Use “Close tips” to collapse the entire section.',
     displayTitle:'9 // LANGUAGE & DISPLAY',
     displayBody:'Use DE / EN to switch language. DARK and LIGHT are deliberately designed to look clearly different. Your selected display mode is stored locally.',
-    dataTitle:'10 // DATA STATUS & SOURCES',
+    backupTitle:'10 // DATA & BACKUP',
+    backupBody:'Below “Customize Colors” you can save your locally stored settings and progress as a JSON file. “Import Backup” validates the complete file and replaces existing app data only after your confirmation. Nothing is uploaded to a cloud or sent to us.',
+    dataTitle:'11 // DATA STATUS & SOURCES',
     dataBody:'“DATA // LIVE” means the complete item catalog has been loaded. The app first tries Mahcks’ data API and can fall back to RaidTheory data on GitHub if that source has problems. “DATA // BASE DATASET” means only the local items.json fallback is active; it may be less complete or current. This status is not live access to your running game. Quests and base data use RaidTheory; maps and blueprint acquisition fields explicitly label community or unconfirmed information.'
   }
 };
@@ -61,7 +65,7 @@ function renderHelp(){
   if(!root) return;
   root.innerHTML=`
     <p class="section-help">${helpText('helpIntro')}</p>
-    ${['goals','supply','raid','search','quests','blueprints','maps','tips','display','data'].map(section=>`
+    ${['goals','supply','raid','search','quests','blueprints','maps','tips','display','backup','data'].map(section=>`
       <section class="help-topic">
         <b>${helpText(section+'Title')}</b>
         <p>${helpText(section+'Body')}</p>
