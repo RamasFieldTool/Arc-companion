@@ -1,0 +1,40 @@
+/* V13.0.6 test — Total Needs and Item Search match the compact drawers. */
+.supply-panel.core-drawer,.search-panel.core-drawer{padding:0;overflow:hidden;border-top-width:1px}
+.supply-panel.core-drawer{border-left:5px solid var(--amber)}
+.search-panel.core-drawer{border-left:5px solid var(--orange)}
+.supply-panel.core-drawer:after,.search-panel.core-drawer:after{display:none}
+.core-drawer-summary{
+  min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 16px;box-sizing:border-box;list-style:none;cursor:pointer
+}
+.core-drawer-summary::-webkit-details-marker{display:none}
+.core-drawer-summary::marker{content:""}
+.core-drawer-summary>span{display:grid;gap:3px;min-width:0}
+.core-drawer-kicker{color:var(--amber);font:700 10px monospace;letter-spacing:.13em}
+.search-panel .core-drawer-kicker{color:var(--orange)}
+.core-drawer-summary b{color:var(--ui-text);font:700 21px/1 "Rajdhani",sans-serif;letter-spacing:.055em}
+.core-drawer-summary small{color:var(--ui-muted);font-size:13px;line-height:1.25}
+.core-drawer-summary>strong{
+  flex:0 0 auto;padding:8px 10px;border:0;border-bottom:3px solid var(--orange);
+  background:var(--amber);color:#17120a;font:700 12px "Rajdhani",sans-serif;letter-spacing:.055em;
+  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)
+}
+.search-panel .core-drawer-summary>strong{background:var(--orange);color:#fff;border-bottom-color:var(--amber)}
+.core-drawer[open]>.core-drawer-summary{background:var(--ui-soft);border-bottom:1px solid var(--ui-line)}
+.core-drawer-summary:hover,.core-drawer-summary:focus-visible{background:var(--ui-soft)}
+.core-drawer-body{padding:14px 16px 17px;background:var(--ui-panel)}
+.core-drawer-body>.inline-info{margin-bottom:12px}
+.search-panel .core-drawer-body>label{margin:0 0 7px;color:var(--ui-text);font-size:17px;letter-spacing:.055em}
+.core-drawer-close{
+  width:100%;min-height:46px;margin-top:12px;padding:9px 10px;border:1px solid var(--green);border-bottom:4px solid var(--green);
+  background:transparent;color:var(--ui-text);font:700 12px "Rajdhani",sans-serif;letter-spacing:.055em;cursor:pointer
+}
+.core-drawer-close:hover,.core-drawer-close:focus-visible{background:var(--green);color:#07130d}
+html[data-theme="dark"] .core-drawer-summary>strong{background:var(--amber);color:#17120a}
+html[data-theme="dark"] .search-panel .core-drawer-summary>strong{background:var(--orange);color:#fff}
+html[data-theme="light"] .core-drawer-summary>strong{background:var(--orange);color:#fff}
+html[data-theme="light"] .core-drawer-body{background:#fff}
+@media(max-width:420px){
+  .core-drawer-summary{padding:13px 11px;gap:9px}.core-drawer-summary b{font-size:19px}
+  .core-drawer-summary>strong{padding:7px 8px;font-size:11px}.core-drawer-body{padding:12px 11px 14px}
+}
