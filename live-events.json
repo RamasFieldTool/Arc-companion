@@ -2,90 +2,6 @@
   "conditions": [
     {
       "type": "minor",
-      "conditionName": "Uncovered Caches",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T08:00:00.000Z",
-          "end": "2026-09-19T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T15:00:00.000Z",
-          "end": "2026-09-19T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T14:00:00.000Z",
-          "end": "2026-09-19T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T03:00:00.000Z",
-          "end": "2026-09-19T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-18T23:00:00.000Z",
-          "end": "2026-09-19T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T08:00:00.000Z",
-          "end": "2026-09-19T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T15:00:00.000Z",
-          "end": "2026-09-19T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T14:00:00.000Z",
-          "end": "2026-09-19T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T03:00:00.000Z",
-          "end": "2026-09-19T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-18T23:00:00.000Z",
-          "end": "2026-09-19T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T08:00:00.000Z",
-          "end": "2026-09-19T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T15:00:00.000Z",
-          "end": "2026-09-19T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T14:00:00.000Z",
-          "end": "2026-09-19T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T03:00:00.000Z",
-          "end": "2026-09-19T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-18T23:00:00.000Z",
-          "end": "2026-09-19T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "minor",
       "conditionName": "Bird City",
       "mapDisplayName": "Buried City",
       "regions": {
@@ -4257,5 +4173,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
     }
   ],
-  "syncedAt": "2026-09-19T15:06:40Z"
+  "syncedAt": "2026-09-19T16:06:33Z"
 }
