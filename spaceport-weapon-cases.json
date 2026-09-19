@@ -1,0 +1,258 @@
+{
+  "version": "13.0.7-test",
+  "map": "spaceport",
+  "label": {
+    "de": "SPACEPORT",
+    "en": "Spaceport"
+  },
+  "type": "weapon-cases",
+  "defaultVisible": false,
+  "lastReviewed": "2026-09-19",
+  "status": "community-map-current-approximate",
+  "reportedPool": 33,
+  "mappedVisiblePoints": 33,
+  "disclaimer": {
+    "de": "Mögliche Waffenlager-Spawns. Die Positionen stammen aus einer aktuellen Community-Karte und wurden auf unsere Kartenbasis übertragen. Durch unterschiedliche Kartenbilder sind sie als ungefähr zu verstehen. Ein Waffenlager erscheint nicht garantiert in jedem Raid.",
+    "en": "Possible Weapon Case spawns. Positions come from a current community map and were transferred to our map base. Because the base maps differ, positions are approximate. A Weapon Case is not guaranteed to appear in every raid."
+  },
+  "sources": [
+    {
+      "label": "Wand – Spaceport Weapon Crates",
+      "url": "https://wand.com/maps/arc-raiders/the-spaceport",
+      "type": "community-map"
+    }
+  ],
+  "points": [
+    {
+      "id": "SP-WC-01",
+      "x": 34.6,
+      "y": 25.6,
+      "confidence": "approx",
+      "sourceId": "xKz0maYQGj"
+    },
+    {
+      "id": "SP-WC-02",
+      "x": 34.8,
+      "y": 49.9,
+      "confidence": "approx",
+      "sourceId": "cvunInYDJB"
+    },
+    {
+      "id": "SP-WC-03",
+      "x": 32.9,
+      "y": 38.3,
+      "confidence": "approx",
+      "sourceId": "8t2ZM9chAH"
+    },
+    {
+      "id": "SP-WC-04",
+      "x": 38.6,
+      "y": 66.1,
+      "confidence": "approx",
+      "sourceId": "1icPOqyGM6"
+    },
+    {
+      "id": "SP-WC-05",
+      "x": 65.7,
+      "y": 39.3,
+      "confidence": "approx",
+      "sourceId": "rpv6LmS0b7"
+    },
+    {
+      "id": "SP-WC-06",
+      "x": 53.3,
+      "y": 38.3,
+      "confidence": "approx",
+      "sourceId": "N1sQ0FuKSa"
+    },
+    {
+      "id": "SP-WC-07",
+      "x": 42.4,
+      "y": 17.9,
+      "confidence": "approx",
+      "sourceId": "vSJwZ1gnhS"
+    },
+    {
+      "id": "SP-WC-08",
+      "x": 37.3,
+      "y": 24.2,
+      "confidence": "approx",
+      "sourceId": "qTe1aZkJVB"
+    },
+    {
+      "id": "SP-WC-09",
+      "x": 36.7,
+      "y": 24.8,
+      "confidence": "approx",
+      "sourceId": "ZQENyi1Z7I"
+    },
+    {
+      "id": "SP-WC-10",
+      "x": 35.9,
+      "y": 28.2,
+      "confidence": "approx",
+      "sourceId": "HFhAV5vRDr"
+    },
+    {
+      "id": "SP-WC-11",
+      "x": 31.4,
+      "y": 30.4,
+      "confidence": "approx",
+      "sourceId": "OSoxZB20Gh"
+    },
+    {
+      "id": "SP-WC-12",
+      "x": 52.5,
+      "y": 20.8,
+      "confidence": "approx",
+      "sourceId": "HGVieVZgTd"
+    },
+    {
+      "id": "SP-WC-13",
+      "x": 56.3,
+      "y": 18.6,
+      "confidence": "approx",
+      "sourceId": "rDbZVKhkW6"
+    },
+    {
+      "id": "SP-WC-14",
+      "x": 56.5,
+      "y": 18.5,
+      "confidence": "approx",
+      "sourceId": "eqCJYerPpU"
+    },
+    {
+      "id": "SP-WC-15",
+      "x": 38.6,
+      "y": 34.2,
+      "confidence": "approx",
+      "sourceId": "GF5agJweWI"
+    },
+    {
+      "id": "SP-WC-16",
+      "x": 46.7,
+      "y": 32.8,
+      "confidence": "approx",
+      "sourceId": "zOuBy9FFqk"
+    },
+    {
+      "id": "SP-WC-17",
+      "x": 47.7,
+      "y": 36.0,
+      "confidence": "approx",
+      "sourceId": "AgdagIExET"
+    },
+    {
+      "id": "SP-WC-18",
+      "x": 48.5,
+      "y": 35.3,
+      "confidence": "approx",
+      "sourceId": "ocusiB2Phy"
+    },
+    {
+      "id": "SP-WC-19",
+      "x": 48.5,
+      "y": 34.7,
+      "confidence": "approx",
+      "sourceId": "af7znTpL25"
+    },
+    {
+      "id": "SP-WC-20",
+      "x": 47.5,
+      "y": 43.7,
+      "confidence": "approx",
+      "sourceId": "61rdclw8FB"
+    },
+    {
+      "id": "SP-WC-21",
+      "x": 68.1,
+      "y": 32.7,
+      "confidence": "approx",
+      "sourceId": "Ebs77fRQxe"
+    },
+    {
+      "id": "SP-WC-22",
+      "x": 31.4,
+      "y": 45.5,
+      "confidence": "approx",
+      "sourceId": "o2eFbWTsIj"
+    },
+    {
+      "id": "SP-WC-23",
+      "x": 30.4,
+      "y": 44.7,
+      "confidence": "approx",
+      "sourceId": "mqs3tJs6Xp"
+    },
+    {
+      "id": "SP-WC-24",
+      "x": 30.4,
+      "y": 43.6,
+      "confidence": "approx",
+      "sourceId": "GW9wElh3V7"
+    },
+    {
+      "id": "SP-WC-25",
+      "x": 29.2,
+      "y": 42.8,
+      "confidence": "approx",
+      "sourceId": "Dec5sXnQnW"
+    },
+    {
+      "id": "SP-WC-26",
+      "x": 40.2,
+      "y": 38.5,
+      "confidence": "approx",
+      "sourceId": "I1zFB9u19h"
+    },
+    {
+      "id": "SP-WC-27",
+      "x": 38.4,
+      "y": 39.2,
+      "confidence": "approx",
+      "sourceId": "gFvm4hSd8E"
+    },
+    {
+      "id": "SP-WC-28",
+      "x": 39.5,
+      "y": 50.4,
+      "confidence": "approx",
+      "sourceId": "uNQLKKNWLz"
+    },
+    {
+      "id": "SP-WC-29",
+      "x": 48.5,
+      "y": 48.4,
+      "confidence": "approx",
+      "sourceId": "LyOP5LtuTy"
+    },
+    {
+      "id": "SP-WC-30",
+      "x": 51.4,
+      "y": 56.5,
+      "confidence": "approx",
+      "sourceId": "N6kMKTh9XB"
+    },
+    {
+      "id": "SP-WC-31",
+      "x": 61.8,
+      "y": 51.6,
+      "confidence": "approx",
+      "sourceId": "SyQN3JmrRh"
+    },
+    {
+      "id": "SP-WC-32",
+      "x": 55.2,
+      "y": 64.3,
+      "confidence": "approx",
+      "sourceId": "iJKvW9MQJF"
+    },
+    {
+      "id": "SP-WC-33",
+      "x": 60.2,
+      "y": 65.0,
+      "confidence": "approx",
+      "sourceId": "WCFm04vViX"
+    }
+  ]
+}

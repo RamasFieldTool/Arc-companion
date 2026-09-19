@@ -1,0 +1,97 @@
+{
+  "version": "13.0.7-test",
+  "map": "stella-montis-lower",
+  "label": {
+    "de": "STELLA MONTIS – LOWER",
+    "en": "Stella Montis – Lower"
+  },
+  "type": "weapon-cases",
+  "defaultVisible": false,
+  "lastReviewed": "2026-09-19",
+  "status": "community-map-current-approximate",
+  "reportedPool": 10,
+  "mappedVisiblePoints": 10,
+  "disclaimer": {
+    "de": "Mögliche Waffenlager-Spawns. Die Positionen stammen aus einer aktuellen Community-Karte und wurden auf unsere Kartenbasis übertragen. Durch unterschiedliche Kartenbilder sind sie als ungefähr zu verstehen. Ein Waffenlager erscheint nicht garantiert in jedem Raid.",
+    "en": "Possible Weapon Case spawns. Positions come from a current community map and were transferred to our map base. Because the base maps differ, positions are approximate. A Weapon Case is not guaranteed to appear in every raid."
+  },
+  "sources": [
+    {
+      "label": "Wand – Stella Montis – Lower Weapon Crates",
+      "url": "https://wand.com/maps/arc-raiders/stella-montis-lower",
+      "type": "community-map"
+    }
+  ],
+  "points": [
+    {
+      "id": "SML-WC-01",
+      "x": 94.3,
+      "y": 80.4,
+      "confidence": "approx",
+      "sourceId": "5MePMJD2it"
+    },
+    {
+      "id": "SML-WC-02",
+      "x": 94.8,
+      "y": 75.8,
+      "confidence": "approx",
+      "sourceId": "rsFm0hn0Vn"
+    },
+    {
+      "id": "SML-WC-03",
+      "x": 89.0,
+      "y": 75.9,
+      "confidence": "approx",
+      "sourceId": "mVykT8WFkH"
+    },
+    {
+      "id": "SML-WC-04",
+      "x": 90.1,
+      "y": 74.2,
+      "confidence": "approx",
+      "sourceId": "7l7Ur4VEgv"
+    },
+    {
+      "id": "SML-WC-05",
+      "x": 85.0,
+      "y": 74.3,
+      "confidence": "approx",
+      "sourceId": "soTXQdiN3z"
+    },
+    {
+      "id": "SML-WC-06",
+      "x": 47.0,
+      "y": 44.3,
+      "confidence": "approx",
+      "sourceId": "9XtjgRrdxB"
+    },
+    {
+      "id": "SML-WC-07",
+      "x": 42.4,
+      "y": 43.6,
+      "confidence": "approx",
+      "sourceId": "xh6ZYo8hUF"
+    },
+    {
+      "id": "SML-WC-08",
+      "x": 47.3,
+      "y": 31.6,
+      "confidence": "approx",
+      "sourceId": "67qg5vN7xv"
+    },
+    {
+      "id": "SML-WC-09",
+      "x": 76.2,
+      "y": 25.5,
+      "confidence": "approx",
+      "sourceId": "NsVASXqAFO"
+    },
+    {
+      "id": "SML-WC-10",
+      "x": 51.4,
+      "y": 54.7,
+      "confidence": "approx",
+      "sourceId": "TpqbKmUbDW"
+    }
+  ]
+}

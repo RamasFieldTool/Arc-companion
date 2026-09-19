@@ -7,9 +7,9 @@
   "lastReviewed":"2026-09-15",
   "status":"partial-community-coordinate-transfer",
   "reportedPool":34,
-  "mappedPoints":24,
+  "mappedPoints":27,
   "coordinatePolicy":"Only points with defensible placement from named POIs plus independent location descriptions are rendered. Coordinates are approximate map positions, not meter-exact container coordinates.",
-  "disclaimer":{"de":"34 dokumentierte Community-Kandidaten wurden recherchiert. 24 derzeit räumlich belastbare Punkte sind auf der Karte sichtbar; 10 bleiben absichtlich ausgeblendet, bis ihre Position sauber getrennt werden kann. 34 ist keine offizielle Gesamtzahl. Weapon Cases erscheinen nicht garantiert in jedem Raid.","en":"34 community candidates were researched. 24 currently defensible positions are visible on the map; 10 intentionally remain hidden until their individual positions can be separated responsibly. 34 is not an official total. Weapon Cases are not guaranteed to appear in every raid."},
+  "disclaimer":{"de":"34 dokumentierte Community-Kandidaten wurden recherchiert. 27 derzeit räumlich belastbare Punkte sind auf der Karte sichtbar; 7 bleiben absichtlich ausgeblendet, bis ihre Position sauber getrennt werden kann. 34 ist keine offizielle Gesamtzahl. Waffenkisten erscheinen nicht garantiert in jedem Raid.","en":"34 community candidates were researched. 27 currently defensible positions are visible on the map; 7 intentionally remain hidden until their individual positions can be separated responsibly. 34 is not an official total. Weapon Cases are not guaranteed to appear in every raid."},
   "sources":[
     {"id":"toofumed34","label":"TooFumed – ALL 34 Weapon Case Locations in Dam Battlegrounds","type":"community-video","published":"2025-12-11"},
     {"id":"lukecanwin33","label":"LukeCanWin – All 33 Weapon Case Locations on Dam Battlegrounds","type":"community-video","published":"2025-11-15"},

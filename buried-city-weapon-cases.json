@@ -1,15 +1,272 @@
 {
-  "version":"2.13.0-beta2",
-  "map":"buried-city",
-  "type":"weapon-cases",
-  "defaultVisible":false,
-  "lastReviewed":"2026-09-15",
-  "status":"community-screenshot-approximate",
-  "reportedPool":35,
-  "mappedVisiblePoints":24,
-  "disclaimer":{"de":"Mögliche Weapon-Case-Spawns. Positionen wurden ungefähr aus einem Wand-Screenshot übertragen. Überlappende Wand-Marker können in diesem ersten Datensatz zusammenfallen. Ein Weapon Case erscheint nicht garantiert in jedem Raid.","en":"Possible Weapon Case spawns. Positions were transferred approximately from a Wand screenshot. Overlapping Wand markers may collapse in this first dataset. A Weapon Case is not guaranteed to appear in every raid."},
-  "sources":[{"label":"Wand – Buried City Weapon Crates","type":"community-map"}],
-  "points":[
-    {"id":"WC-01","x":39.4,"y":17.9,"confidence":"approx"},{"id":"WC-02","x":53.6,"y":18.2,"confidence":"approx"},{"id":"WC-03","x":31.5,"y":22.4,"confidence":"approx"},{"id":"WC-04","x":43.7,"y":23.2,"confidence":"approx"},{"id":"WC-05","x":64.7,"y":25.2,"confidence":"approx"},{"id":"WC-06","x":58.8,"y":31.9,"confidence":"approx"},{"id":"WC-07","x":37.1,"y":32.1,"confidence":"approx"},{"id":"WC-08","x":50.4,"y":38.5,"confidence":"approx"},{"id":"WC-09","x":35.0,"y":50.5,"confidence":"approx"},{"id":"WC-10","x":45.8,"y":51.0,"confidence":"approx"},{"id":"WC-11","x":56.0,"y":53.5,"confidence":"approx"},{"id":"WC-12","x":30.6,"y":63.4,"confidence":"approx"},{"id":"WC-13","x":44.4,"y":63.4,"confidence":"approx"},{"id":"WC-14","x":56.8,"y":65.6,"confidence":"approx"},{"id":"WC-15","x":71.5,"y":66.8,"confidence":"approx"},{"id":"WC-16","x":51.3,"y":66.9,"confidence":"approx"},{"id":"WC-17","x":29.1,"y":67.1,"confidence":"approx"},{"id":"WC-18","x":78.3,"y":68.9,"confidence":"approx"},{"id":"WC-19","x":40.9,"y":70.0,"confidence":"approx"},{"id":"WC-20","x":51.5,"y":70.0,"confidence":"approx"},{"id":"WC-21","x":79.4,"y":71.9,"confidence":"approx"},{"id":"WC-22","x":63.2,"y":72.7,"confidence":"approx"},{"id":"WC-23","x":56.7,"y":73.4,"confidence":"approx"},{"id":"WC-24","x":38.9,"y":75.6,"confidence":"approx"}
+  "version": "13.0.7-test",
+  "map": "buried-city",
+  "label": {
+    "de": "BURIED CITY",
+    "en": "Buried City"
+  },
+  "type": "weapon-cases",
+  "defaultVisible": false,
+  "lastReviewed": "2026-09-19",
+  "status": "community-map-current-approximate",
+  "reportedPool": 35,
+  "mappedVisiblePoints": 35,
+  "disclaimer": {
+    "de": "Mögliche Waffenlager-Spawns. Die Positionen stammen aus einer aktuellen Community-Karte und wurden auf unsere Kartenbasis übertragen. Durch unterschiedliche Kartenbilder sind sie als ungefähr zu verstehen. Ein Waffenlager erscheint nicht garantiert in jedem Raid.",
+    "en": "Possible Weapon Case spawns. Positions come from a current community map and were transferred to our map base. Because the base maps differ, positions are approximate. A Weapon Case is not guaranteed to appear in every raid."
+  },
+  "sources": [
+    {
+      "label": "Wand – Buried City Weapon Crates",
+      "url": "https://wand.com/maps/arc-raiders/buried-city",
+      "type": "community-map"
+    }
+  ],
+  "points": [
+    {
+      "id": "BC-WC-01",
+      "x": 74.0,
+      "y": 63.3,
+      "confidence": "approx",
+      "sourceId": "TUx3kjOxSH"
+    },
+    {
+      "id": "BC-WC-02",
+      "x": 67.3,
+      "y": 61.4,
+      "confidence": "approx",
+      "sourceId": "byODyldz3b"
+    },
+    {
+      "id": "BC-WC-03",
+      "x": 59.4,
+      "y": 66.3,
+      "confidence": "approx",
+      "sourceId": "7P8f9VjvND"
+    },
+    {
+      "id": "BC-WC-04",
+      "x": 59.0,
+      "y": 65.7,
+      "confidence": "approx",
+      "sourceId": "mZ1DgVhoSM"
+    },
+    {
+      "id": "BC-WC-05",
+      "x": 52.3,
+      "y": 64.9,
+      "confidence": "approx",
+      "sourceId": "pRpUDcBQQW"
+    },
+    {
+      "id": "BC-WC-06",
+      "x": 49.5,
+      "y": 62.3,
+      "confidence": "approx",
+      "sourceId": "jKWehmg4TC"
+    },
+    {
+      "id": "BC-WC-07",
+      "x": 48.8,
+      "y": 62.5,
+      "confidence": "approx",
+      "sourceId": "Fxl07uiZaZ"
+    },
+    {
+      "id": "BC-WC-08",
+      "x": 47.3,
+      "y": 62.5,
+      "confidence": "approx",
+      "sourceId": "FBGgsW6Bpg"
+    },
+    {
+      "id": "BC-WC-09",
+      "x": 52.6,
+      "y": 60.9,
+      "confidence": "approx",
+      "sourceId": "59VjROFcoo"
+    },
+    {
+      "id": "BC-WC-10",
+      "x": 42.8,
+      "y": 61.1,
+      "confidence": "approx",
+      "sourceId": "n3hJeVwaPY"
+    },
+    {
+      "id": "BC-WC-11",
+      "x": 36.8,
+      "y": 63.6,
+      "confidence": "approx",
+      "sourceId": "FoWdY1OmQC"
+    },
+    {
+      "id": "BC-WC-12",
+      "x": 34.7,
+      "y": 68.4,
+      "confidence": "approx",
+      "sourceId": "q1NNODk8ko"
+    },
+    {
+      "id": "BC-WC-13",
+      "x": 34.5,
+      "y": 67.7,
+      "confidence": "approx",
+      "sourceId": "1OyZFc1SvT"
+    },
+    {
+      "id": "BC-WC-14",
+      "x": 23.0,
+      "y": 64.7,
+      "confidence": "approx",
+      "sourceId": "Rpq75NI2X7"
+    },
+    {
+      "id": "BC-WC-15",
+      "x": 26.4,
+      "y": 60.6,
+      "confidence": "approx",
+      "sourceId": "wKl9RnJAHS"
+    },
+    {
+      "id": "BC-WC-16",
+      "x": 24.2,
+      "y": 60.1,
+      "confidence": "approx",
+      "sourceId": "vmuIzO4QrR"
+    },
+    {
+      "id": "BC-WC-17",
+      "x": 26.6,
+      "y": 59.3,
+      "confidence": "approx",
+      "sourceId": "7bOyuvyObE"
+    },
+    {
+      "id": "BC-WC-18",
+      "x": 40.8,
+      "y": 54.3,
+      "confidence": "approx",
+      "sourceId": "z2BU9TdnP1"
+    },
+    {
+      "id": "BC-WC-19",
+      "x": 39.8,
+      "y": 51.3,
+      "confidence": "approx",
+      "sourceId": "CE04qbop9K"
+    },
+    {
+      "id": "BC-WC-20",
+      "x": 41.8,
+      "y": 50.0,
+      "confidence": "approx",
+      "sourceId": "FT7avUvwtH"
+    },
+    {
+      "id": "BC-WC-21",
+      "x": 31.7,
+      "y": 50.6,
+      "confidence": "approx",
+      "sourceId": "w33WuL6XQ9"
+    },
+    {
+      "id": "BC-WC-22",
+      "x": 31.0,
+      "y": 49.7,
+      "confidence": "approx",
+      "sourceId": "CGTRuMlP8V"
+    },
+    {
+      "id": "BC-WC-23",
+      "x": 53.8,
+      "y": 51.7,
+      "confidence": "approx",
+      "sourceId": "lKHobJMklB"
+    },
+    {
+      "id": "BC-WC-24",
+      "x": 52.2,
+      "y": 51.7,
+      "confidence": "approx",
+      "sourceId": "ZTnTWRvStL"
+    },
+    {
+      "id": "BC-WC-25",
+      "x": 46.4,
+      "y": 40.9,
+      "confidence": "approx",
+      "sourceId": "7V74YEsifM"
+    },
+    {
+      "id": "BC-WC-26",
+      "x": 33.1,
+      "y": 36.3,
+      "confidence": "approx",
+      "sourceId": "yMab5oYffl"
+    },
+    {
+      "id": "BC-WC-27",
+      "x": 26.9,
+      "y": 34.1,
+      "confidence": "approx",
+      "sourceId": "PzQUYPpPB8"
+    },
+    {
+      "id": "BC-WC-28",
+      "x": 27.5,
+      "y": 29.1,
+      "confidence": "approx",
+      "sourceId": "AvpC0zT3Ps"
+    },
+    {
+      "id": "BC-WC-29",
+      "x": 39.7,
+      "y": 29.6,
+      "confidence": "approx",
+      "sourceId": "EPNKO1yIWx"
+    },
+    {
+      "id": "BC-WC-30",
+      "x": 35.3,
+      "y": 25.7,
+      "confidence": "approx",
+      "sourceId": "ZLppws4GBN"
+    },
+    {
+      "id": "BC-WC-31",
+      "x": 54.9,
+      "y": 35.4,
+      "confidence": "approx",
+      "sourceId": "izR8xQIKwW"
+    },
+    {
+      "id": "BC-WC-32",
+      "x": 54.2,
+      "y": 35.5,
+      "confidence": "approx",
+      "sourceId": "WZ2Ynr9vsv"
+    },
+    {
+      "id": "BC-WC-33",
+      "x": 60.3,
+      "y": 31.2,
+      "confidence": "approx",
+      "sourceId": "fPUTZzUMCB"
+    },
+    {
+      "id": "BC-WC-34",
+      "x": 49.3,
+      "y": 25.9,
+      "confidence": "approx",
+      "sourceId": "48PbHIDYmg"
+    },
+    {
+      "id": "BC-WC-35",
+      "x": 40.5,
+      "y": 59.0,
+      "confidence": "approx",
+      "sourceId": "K6O3Bra9Js"
+    }
   ]
 }

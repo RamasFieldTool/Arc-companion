@@ -1,0 +1,181 @@
+{
+  "version": "13.0.7-test",
+  "map": "riven-tides",
+  "label": {
+    "de": "RIVEN TIDES",
+    "en": "Riven Tides"
+  },
+  "type": "weapon-cases",
+  "defaultVisible": false,
+  "lastReviewed": "2026-09-19",
+  "status": "community-map-current-approximate",
+  "reportedPool": 22,
+  "mappedVisiblePoints": 22,
+  "disclaimer": {
+    "de": "Mögliche Waffenlager-Spawns. Die Positionen stammen aus einer aktuellen Community-Karte und wurden auf unsere Kartenbasis übertragen. Durch unterschiedliche Kartenbilder sind sie als ungefähr zu verstehen. Ein Waffenlager erscheint nicht garantiert in jedem Raid.",
+    "en": "Possible Weapon Case spawns. Positions come from a current community map and were transferred to our map base. Because the base maps differ, positions are approximate. A Weapon Case is not guaranteed to appear in every raid."
+  },
+  "sources": [
+    {
+      "label": "Wand – Riven Tides Weapon Crates",
+      "url": "https://wand.com/maps/arc-raiders/riven-tides",
+      "type": "community-map"
+    }
+  ],
+  "points": [
+    {
+      "id": "RT-WC-01",
+      "x": 18.9,
+      "y": 57.8,
+      "confidence": "approx",
+      "sourceId": "ceeCrWVFdz"
+    },
+    {
+      "id": "RT-WC-02",
+      "x": 51.1,
+      "y": 68.0,
+      "confidence": "approx",
+      "sourceId": "K3YtOfnUW4"
+    },
+    {
+      "id": "RT-WC-03",
+      "x": 53.4,
+      "y": 70.7,
+      "confidence": "approx",
+      "sourceId": "OTJ1lvZnoS"
+    },
+    {
+      "id": "RT-WC-04",
+      "x": 69.7,
+      "y": 57.7,
+      "confidence": "approx",
+      "sourceId": "swbxFwdyLs"
+    },
+    {
+      "id": "RT-WC-05",
+      "x": 25.1,
+      "y": 37.5,
+      "confidence": "approx",
+      "sourceId": "MwfuyNAzQ6"
+    },
+    {
+      "id": "RT-WC-06",
+      "x": 26.6,
+      "y": 55.2,
+      "confidence": "approx",
+      "sourceId": "GG4r0TzZTe"
+    },
+    {
+      "id": "RT-WC-07",
+      "x": 66.7,
+      "y": 49.5,
+      "confidence": "approx",
+      "sourceId": "4pvfxAgY7W"
+    },
+    {
+      "id": "RT-WC-08",
+      "x": 56.0,
+      "y": 45.2,
+      "confidence": "approx",
+      "sourceId": "gsi4xJzSxR"
+    },
+    {
+      "id": "RT-WC-09",
+      "x": 57.7,
+      "y": 44.4,
+      "confidence": "approx",
+      "sourceId": "qZxG7NmB5A"
+    },
+    {
+      "id": "RT-WC-10",
+      "x": 68.8,
+      "y": 45.3,
+      "confidence": "approx",
+      "sourceId": "v88qx2b5hj"
+    },
+    {
+      "id": "RT-WC-11",
+      "x": 40.7,
+      "y": 37.1,
+      "confidence": "approx",
+      "sourceId": "2j46ePJ5nh"
+    },
+    {
+      "id": "RT-WC-12",
+      "x": 66.2,
+      "y": 45.0,
+      "confidence": "approx",
+      "sourceId": "L9G0cKMamq"
+    },
+    {
+      "id": "RT-WC-13",
+      "x": 49.3,
+      "y": 56.4,
+      "confidence": "approx",
+      "sourceId": "MR2CZKvHws"
+    },
+    {
+      "id": "RT-WC-14",
+      "x": 74.9,
+      "y": 50.9,
+      "confidence": "approx",
+      "sourceId": "ZrHw1hxDAH"
+    },
+    {
+      "id": "RT-WC-15",
+      "x": 47.0,
+      "y": 35.2,
+      "confidence": "approx",
+      "sourceId": "KxG8beFtio"
+    },
+    {
+      "id": "RT-WC-16",
+      "x": 46.1,
+      "y": 34.3,
+      "confidence": "approx",
+      "sourceId": "O4LE92FF6N"
+    },
+    {
+      "id": "RT-WC-17",
+      "x": 59.0,
+      "y": 51.0,
+      "confidence": "approx",
+      "sourceId": "EmiAnGCuLr"
+    },
+    {
+      "id": "RT-WC-18",
+      "x": 59.0,
+      "y": 60.3,
+      "confidence": "approx",
+      "sourceId": "qBGNtE7T4z"
+    },
+    {
+      "id": "RT-WC-19",
+      "x": 43.3,
+      "y": 35.9,
+      "confidence": "approx",
+      "sourceId": "HddRViXS7a"
+    },
+    {
+      "id": "RT-WC-20",
+      "x": 44.4,
+      "y": 35.5,
+      "confidence": "approx",
+      "sourceId": "C4yJyj6nmX"
+    },
+    {
+      "id": "RT-WC-21",
+      "x": 55.7,
+      "y": 50.6,
+      "confidence": "approx",
+      "sourceId": "xAm7YUKN1J"
+    },
+    {
+      "id": "RT-WC-22",
+      "x": 57.9,
+      "y": 44.8,
+      "confidence": "approx",
+      "sourceId": "JxA9RH8wvk"
+    }
+  ]
+}
