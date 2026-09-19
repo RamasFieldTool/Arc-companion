@@ -1,14 +1,14 @@
 // V13.0.0 — compact navigation, language sync and active-section feedback.
 (()=>{
   const labels={
-    de:{goals:'ZIELE',supply:'BEDARF',items:'SUCHE',more:'MEHR',raid:'NÄCHSTER RAID',quests:'QUESTS',blueprints:'BAUPLÄNE',maps:'KARTEN',tips:'TIPPS'},
-    en:{goals:'GOALS',supply:'NEEDS',items:'SEARCH',more:'MORE',raid:'NEXT RAID',quests:'QUESTS',blueprints:'BLUEPRINTS',maps:'MAPS',tips:'TIPS'}
+    de:{goals:'ZIELE',supply:'BEDARF',items:'SUCHE',more:'MEHR',events:'LIVE-EVENTS',raid:'NÄCHSTER RAID',quests:'QUESTS',blueprints:'BAUPLÄNE',maps:'KARTEN',tips:'TIPPS'},
+    en:{goals:'GOALS',supply:'NEEDS',items:'SEARCH',more:'MORE',events:'LIVE EVENTS',raid:'NEXT RAID',quests:'QUESTS',blueprints:'BLUEPRINTS',maps:'MAPS',tips:'TIPS'}
   };
   const nav=document.querySelector('.nav-v1301');
   if(!nav)return;
   const more=nav.querySelector('.nav-more');
   const tracked=[
-    ['goals','goalsSection'],['raid','nextRaidDrawer'],['supply','supplySection'],['items','itemsSection'],
+    ['goals','goalsSection'],['events','liveEventsDrawer'],['raid','nextRaidDrawer'],['supply','supplySection'],['items','itemsSection'],
     ['quests','questDrawer'],['blueprints','blueprintDrawer'],['maps','spawnPanel'],['tips','tipsDrawer']
   ];
   function syncLanguage(){
@@ -25,7 +25,7 @@
       link.classList.toggle('active',active);
       if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');
     });
-    more.classList.toggle('active',['raid','quests','blueprints','maps','tips'].includes(key));
+    more.classList.toggle('active',['events','raid','quests','blueprints','maps','tips'].includes(key));
   }
   let ticking=false;
   function updateActive(){

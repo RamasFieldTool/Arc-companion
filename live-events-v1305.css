@@ -1,0 +1,56 @@
+/* V13.0.5 test — official live map conditions and local reminders. */
+.live-events-drawer{padding:0;overflow:hidden;border-left:5px solid var(--orange)}
+.live-events-summary{
+  min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:14px 16px;box-sizing:border-box;list-style:none;cursor:pointer
+}
+.live-events-summary::-webkit-details-marker{display:none}
+.live-events-summary::marker{content:""}
+.live-events-summary>span{display:grid;gap:3px;min-width:0}
+.live-events-kicker{color:var(--amber);font:700 10px monospace;letter-spacing:.13em}
+.live-events-summary b{color:var(--ui-text);font:700 21px/1 "Rajdhani",sans-serif;letter-spacing:.055em}
+.live-events-summary small{color:var(--ui-muted);font-size:13px;line-height:1.25}
+.live-events-summary>strong{
+  flex:0 0 auto;padding:8px 10px;border:0;border-bottom:3px solid var(--orange);
+  background:var(--amber);color:#17120a;font:700 12px "Rajdhani",sans-serif;letter-spacing:.055em;
+  clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px)
+}
+.live-events-drawer[open]>.live-events-summary{background:var(--ui-soft);border-bottom:1px solid var(--ui-line)}
+.live-events-summary:hover,.live-events-summary:focus-visible{background:var(--ui-soft)}
+.live-events-body{padding:14px 16px 17px}
+.live-events-body>.section-help{margin:0 0 13px}
+.live-events-controls{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.live-events-controls label{display:grid;gap:5px;color:var(--ui-muted);font:700 10px monospace;letter-spacing:.08em}
+.live-events-controls select{width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--ui-line);background:var(--ui-input);color:var(--ui-text);font:700 14px "Rajdhani",sans-serif}
+.live-events-notice{margin:0;color:var(--ui-muted);font-size:13px;line-height:1.4}
+.live-events-notice:not(:empty){margin:0 0 13px;padding:9px 10px;border-left:3px solid var(--amber);background:var(--ui-soft)}
+.live-events-notice.is-error{border-left-color:var(--orange)}
+.live-events-group{margin-top:15px}
+.live-events-group h3{margin:0 0 7px;color:var(--amber);font:700 11px monospace;letter-spacing:.11em}
+.live-events-list{display:grid;gap:7px}
+.live-event-card{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:9px;align-items:center;padding:10px 11px;border:1px solid var(--ui-line);background:var(--ui-panel-2)}
+.live-event-card.is-active{border-left:4px solid var(--green)}
+.live-event-card.is-major:not(.is-active){border-left:4px solid var(--orange)}
+.live-event-copy{min-width:0;display:grid;gap:2px}
+.live-event-copy strong{color:var(--ui-text);font:700 17px/1.05 "Rajdhani",sans-serif;letter-spacing:.025em}
+.live-event-copy span{color:var(--ui-muted);font-size:12px;line-height:1.25}
+.live-event-copy small{color:var(--ui-muted);font:700 10px monospace;letter-spacing:.055em}
+.live-event-side{display:grid;justify-items:end;gap:5px}
+.live-event-countdown{color:var(--amber);font:700 13px monospace;white-space:nowrap}
+.live-event-remind{min-height:36px;padding:6px 9px;border:1px solid var(--green);background:transparent;color:var(--ui-text);font:700 11px "Rajdhani",sans-serif;letter-spacing:.055em;cursor:pointer}
+.live-event-remind:hover,.live-event-remind:focus-visible,.live-event-remind.is-set{background:var(--green);color:#07130d}
+.live-event-empty{padding:13px;border:1px dashed var(--ui-line);color:var(--ui-muted);text-align:center;font-size:13px}
+.live-events-source{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:15px;padding-top:11px;border-top:1px solid var(--ui-line);color:var(--ui-muted);font:700 10px monospace;letter-spacing:.04em}
+.live-events-source a{padding:6px 8px;border:1px solid var(--ui-line);text-decoration:none}
+.live-events-close{width:100%;min-height:46px;margin-top:10px;padding:9px 10px;border:1px solid var(--green);border-bottom:4px solid var(--green);background:transparent;color:var(--ui-text);font:700 12px "Rajdhani",sans-serif;letter-spacing:.055em;cursor:pointer}
+.live-events-close:hover,.live-events-close:focus-visible{background:var(--green);color:#07130d}
+html[data-theme="dark"] .live-events-summary>strong{background:var(--amber);color:#17120a}
+html[data-theme="light"] .live-events-summary>strong{background:var(--orange);color:#fff}
+html[data-theme="dark"] .live-event-card{background:#0b1116}
+html[data-theme="light"] .live-event-card{background:#f7fafc}
+@media(max-width:420px){
+  .live-events-summary{padding:13px 11px;gap:9px}.live-events-summary b{font-size:19px}
+  .live-events-summary>strong{padding:7px 8px;font-size:11px}.live-events-body{padding:12px 11px 14px}
+  .live-events-controls{grid-template-columns:1fr}.live-event-card{grid-template-columns:minmax(0,1fr)}
+  .live-event-side{grid-template-columns:1fr auto;align-items:center;justify-items:stretch}.live-event-countdown{text-align:left}
+}

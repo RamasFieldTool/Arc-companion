@@ -1,0 +1,54 @@
+name: Sync ARC Raiders live events
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-live-events
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out live data branch
+        uses: actions/checkout@v4
+        with:
+          ref: live-events-data
+
+      - name: Fetch and validate official Embark feed
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --silent --show-error --retry 3 \
+            https://arcraiders.com/external-api/map-conditions \
+            --output live-events.download.json
+          jq --arg syncedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            'if (.conditions | type) != "array" or (.conditions | length) == 0 then error("invalid feed") else . + {syncedAt: $syncedAt} end' \
+            live-events.download.json > live-events.candidate.json
+          rm live-events.download.json
+
+          if test -f live-events.json && \
+             cmp -s <(jq -S '.conditions' live-events.json) <(jq -S '.conditions' live-events.candidate.json); then
+            rm live-events.candidate.json
+            exit 0
+          fi
+          mv live-events.candidate.json live-events.json
+
+      - name: Publish only when data changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- live-events.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add live-events.json
+          git commit -m "Update official live event schedule"
+          git push origin HEAD:live-events-data
