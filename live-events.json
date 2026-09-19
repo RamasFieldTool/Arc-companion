@@ -1,90 +1,6 @@
 {
   "conditions": [
     {
-      "type": "minor",
-      "conditionName": "Bird City",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T03:00:00.000Z",
-          "end": "2026-09-19T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T10:00:00.000Z",
-          "end": "2026-09-19T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T09:00:00.000Z",
-          "end": "2026-09-19T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-18T22:00:00.000Z",
-          "end": "2026-09-18T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-18T18:00:00.000Z",
-          "end": "2026-09-18T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T03:00:00.000Z",
-          "end": "2026-09-19T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T10:00:00.000Z",
-          "end": "2026-09-19T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T09:00:00.000Z",
-          "end": "2026-09-19T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-18T22:00:00.000Z",
-          "end": "2026-09-18T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-18T18:00:00.000Z",
-          "end": "2026-09-18T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T03:00:00.000Z",
-          "end": "2026-09-19T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T10:00:00.000Z",
-          "end": "2026-09-19T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T09:00:00.000Z",
-          "end": "2026-09-19T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-18T22:00:00.000Z",
-          "end": "2026-09-18T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-18T18:00:00.000Z",
-          "end": "2026-09-18T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Stella Montis",
@@ -4537,5 +4453,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
     }
   ],
-  "syncedAt": "2026-09-19T10:36:34Z"
+  "syncedAt": "2026-09-19T11:06:09Z"
 }
