@@ -40,12 +40,12 @@
 .spawn-map-instructions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 8px;padding:9px 10px;border:1px solid var(--ui-line);border-left:3px solid var(--amber);background:var(--ui-soft)}
 .spawn-map-instructions strong{flex:none;color:var(--cream);font:700 11px Rajdhani,sans-serif;letter-spacing:.08em;text-transform:uppercase}
 .spawn-map-instructions span{color:var(--ui-muted);font-size:11px;line-height:1.25;text-align:right}
-.spawn-map-shell>.spawn-zoom-controls{position:absolute;right:10px;bottom:10px;z-index:20;padding:5px;border:1px solid var(--amber);background:rgba(13,15,12,.92);box-shadow:2px 2px 0 var(--shadow);backdrop-filter:blur(4px)}
-.spawn-map-shell>.spawn-zoom-controls button{height:42px;min-width:42px;background:#11130f}
-.spawn-map-shell>.spawn-zoom-controls #spawnReset{padding:0 12px}
+.spawn-zoom-controls-below{display:flex;justify-content:center;gap:6px;margin-top:8px;padding:6px;border:1px solid var(--ui-line);border-top:2px solid var(--amber);background:var(--ui-soft)}
+.spawn-zoom-controls-below button{height:42px;min-width:48px;background:#11130f}
+.spawn-zoom-controls-below #spawnReset{padding:0 16px}
 @media(max-width:520px){
   .spawn-map-instructions{display:block;padding:8px 9px}
   .spawn-map-instructions span{display:block;margin-top:3px;text-align:left;font-size:10px}
-  .spawn-map-shell>.spawn-zoom-controls{right:8px;bottom:8px}
-  .spawn-map-shell>.spawn-zoom-controls button{height:44px;min-width:44px}
+  .spawn-zoom-controls-below{padding:5px}
+  .spawn-zoom-controls-below button{height:44px;min-width:52px}
 }
