@@ -49,7 +49,8 @@
 .spawn-map-stage-head button{min-height:40px;padding:0 12px;border:1px solid var(--amber);background:#11130f;color:var(--cream);font:700 12px Rajdhani,sans-serif;letter-spacing:.06em}
 .spawn-map-stage.is-expanded .map-layer-controls{flex:none;max-height:28vh;overflow-y:auto;margin:0;padding:7px;overscroll-behavior:contain}
 .spawn-map-stage.is-expanded .map-layer-toggle{flex:1 1 145px}
-.spawn-map-stage.is-expanded .spawn-map-shell{flex:1;min-height:0;width:100%;aspect-ratio:auto;box-shadow:none;touch-action:none}
+.spawn-map-stage.is-expanded .spawn-map-shell{flex:1;min-height:0;width:100%;aspect-ratio:auto;box-shadow:none}
+.spawn-map-stage.is-expanded .spawn-map-shell:not(.map-interactive){cursor:default;touch-action:pan-y}
 .spawn-map-stage.is-expanded .spawn-canvas img{object-fit:contain}
 .spawn-map-stage.is-expanded .spawn-zoom-controls-expanded{display:flex;justify-content:center;gap:8px;flex:none;padding:7px;border:1px solid var(--ui-line);border-top:2px solid var(--amber);background:#151812}
 .spawn-map-stage.is-expanded .spawn-zoom-controls-expanded button{height:46px;min-width:60px;background:#0d0f0c}
