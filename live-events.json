@@ -1,118 +1,6 @@
 {
   "conditions": [
     {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T16:00:00.000Z",
-          "end": "2026-09-19T17:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T23:00:00.000Z",
-          "end": "2026-09-20T00:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T22:00:00.000Z",
-          "end": "2026-09-19T23:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T11:00:00.000Z",
-          "end": "2026-09-19T12:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-19T07:00:00.000Z",
-          "end": "2026-09-19T08:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Beachcombing",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T16:00:00.000Z",
-          "end": "2026-09-19T17:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T23:00:00.000Z",
-          "end": "2026-09-20T00:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T22:00:00.000Z",
-          "end": "2026-09-19T23:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T11:00:00.000Z",
-          "end": "2026-09-19T12:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-19T07:00:00.000Z",
-          "end": "2026-09-19T08:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/beachcombing.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T16:00:00.000Z",
-          "end": "2026-09-19T17:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T23:00:00.000Z",
-          "end": "2026-09-20T00:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T22:00:00.000Z",
-          "end": "2026-09-19T23:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T11:00:00.000Z",
-          "end": "2026-09-19T12:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-19T07:00:00.000Z",
-          "end": "2026-09-19T08:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Locked Gate",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-09-19T16:00:00.000Z",
-          "end": "2026-09-19T17:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-19T23:00:00.000Z",
-          "end": "2026-09-20T00:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-19T22:00:00.000Z",
-          "end": "2026-09-19T23:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-19T11:00:00.000Z",
-          "end": "2026-09-19T12:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-19T07:00:00.000Z",
-          "end": "2026-09-19T08:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/locked-gate.svg"
-    },
-    {
       "type": "minor",
       "conditionName": "Prospecting Probes",
       "mapDisplayName": "Riven Tides",
@@ -3277,5 +3165,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
     }
   ],
-  "syncedAt": "2026-09-19T23:06:08Z"
+  "syncedAt": "2026-09-20T00:09:44Z"
 }
