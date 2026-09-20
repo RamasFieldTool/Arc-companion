@@ -35,3 +35,31 @@
   .spawn-map-info span{max-width:none;text-align:left;margin-top:4px}
   .spawn-zoom-controls button{height:36px;min-width:36px}
 }
+
+/* Full-screen map experience */
+.spawn-map-instructions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 8px;padding:9px 10px;border:1px solid var(--ui-line);border-left:3px solid var(--amber);background:var(--ui-soft)}
+.spawn-map-instructions strong{flex:none;color:var(--cream);font:700 11px Rajdhani,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.spawn-map-instructions span{color:var(--ui-muted);font-size:11px;line-height:1.25;text-align:right}
+.spawn-expand-map{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:48px;margin:0 0 9px;border:1px solid var(--amber);border-left:4px solid var(--orange);background:#171914;color:var(--cream);font:700 14px Rajdhani,sans-serif;letter-spacing:.08em;box-shadow:2px 2px 0 var(--shadow)}
+.spawn-expand-map:first-letter{color:var(--amber);font-size:20px}
+.spawn-map-stage-head,.spawn-zoom-controls-expanded{display:none}
+.spawn-map-stage.is-expanded{position:fixed;inset:0;z-index:10000;display:flex;flex-direction:column;gap:8px;padding:max(10px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(10px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));background:#090b09}
+.spawn-map-stage.is-expanded .spawn-map-stage-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex:none;padding:7px 8px;border-left:3px solid var(--orange);background:#151812}
+.spawn-map-stage-head strong{color:var(--cream);font:700 13px Rajdhani,sans-serif;letter-spacing:.08em}
+.spawn-map-stage-head button{min-height:40px;padding:0 12px;border:1px solid var(--amber);background:#11130f;color:var(--cream);font:700 12px Rajdhani,sans-serif;letter-spacing:.06em}
+.spawn-map-stage.is-expanded .map-layer-controls{flex:none;max-height:28vh;overflow-y:auto;margin:0;padding:7px;overscroll-behavior:contain}
+.spawn-map-stage.is-expanded .map-layer-toggle{flex:1 1 145px}
+.spawn-map-stage.is-expanded .spawn-map-shell{flex:1;min-height:0;width:100%;aspect-ratio:auto;box-shadow:none}
+.spawn-map-stage.is-expanded .spawn-map-shell:not(.map-interactive){cursor:default;touch-action:pan-y}
+.spawn-map-stage.is-expanded .spawn-canvas img{object-fit:contain}
+.spawn-map-stage.is-expanded .spawn-zoom-controls-expanded{display:flex;justify-content:center;gap:8px;flex:none;padding:7px;border:1px solid var(--ui-line);border-top:2px solid var(--amber);background:#151812}
+.spawn-map-stage.is-expanded .spawn-zoom-controls-expanded button{height:46px;min-width:60px;background:#0d0f0c}
+.spawn-map-stage.is-expanded .spawn-zoom-controls-expanded #spawnReset{padding:0 20px}
+body.map-expanded{overflow:hidden}
+@media(max-width:520px){
+  .spawn-map-instructions{display:block;padding:8px 9px}
+  .spawn-map-instructions span{display:block;margin-top:3px;text-align:left;font-size:10px}
+  .spawn-expand-map{min-height:52px}
+  .spawn-map-stage.is-expanded{gap:6px;padding:max(6px,env(safe-area-inset-top)) max(6px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(6px,env(safe-area-inset-left))}
+  .spawn-map-stage.is-expanded .spawn-zoom-controls-expanded button{height:48px;min-width:64px}
+}
