@@ -1,6 +1,6 @@
 // V13.0.7 – map presentation; overlays are loaded explicitly by index.html.
 (()=>{
-  const copy={de:{details:'DATEN & QUELLEN',hint:'Marker antippen · +/- zum Zoomen · vergrößerte Karte ziehen'},en:{details:'DATA & SOURCES',hint:'Tap marker · +/- to zoom · drag when zoomed'}};
-  function applyMapUxCopy(){const l=(typeof lang!=='undefined'&&lang==='en')?'en':'de';const details=document.getElementById('spawnDataDetailsLabel');if(details)details.textContent=copy[l].details;const hint=document.getElementById('spawnGestureHint');if(hint&&spawnData?.points?.length)hint.textContent=copy[l].hint}
+  const copy={de:{details:'DATEN & QUELLEN',gestureTitle:'KARTE BEDIENEN',hint:'Mit + / − bis zu 3× zoomen · danach die Karte mit dem Finger verschieben'},en:{details:'DATA & SOURCES',gestureTitle:'MAP CONTROLS',hint:'Use + / − to zoom up to 3× · then drag the map to explore'}};
+  function applyMapUxCopy(){const l=(typeof lang!=='undefined'&&lang==='en')?'en':'de';const details=document.getElementById('spawnDataDetailsLabel');if(details)details.textContent=copy[l].details;const title=document.getElementById('spawnGestureTitle');if(title)title.textContent=copy[l].gestureTitle;const hint=document.getElementById('spawnGestureHint');if(hint)hint.textContent=copy[l].hint}
   document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(applyMapUxCopy,0));document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(applyMapUxCopy,0));document.getElementById('spawnMapSelect')?.addEventListener('change',()=>setTimeout(applyMapUxCopy,0));const observer=new MutationObserver(()=>applyMapUxCopy());const title=document.getElementById('spawnMapTitle');if(title)observer.observe(title,{childList:true,subtree:true});setTimeout(applyMapUxCopy,0);
 })();
