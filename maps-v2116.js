@@ -7,6 +7,9 @@
   const stage=document.getElementById('spawnMapStage');
   const expand=document.getElementById('spawnExpand');
   const close=document.getElementById('spawnCloseExpanded');
+  const layerControls=document.querySelector('.map-layer-controls');
+  const layerHome=layerControls?.parentNode;
+  const layerNext=layerControls?.nextSibling;
   let returnFocus=null;
   function language(){return(typeof lang!=='undefined'&&lang==='en')?'en':'de'}
   function applyMapUxCopy(){
@@ -22,6 +25,8 @@
     if(!stage)return;
     returnFocus=document.activeElement;
     stage.classList.add('is-expanded');
+    const stageHead=stage.querySelector('.spawn-map-stage-head');
+    if(layerControls&&stageHead)stageHead.after(layerControls);
     stage.setAttribute('role','dialog');
     stage.setAttribute('aria-modal','true');
     document.body.classList.add('map-expanded');
@@ -33,6 +38,7 @@
     stage.setAttribute('role','region');
     stage.removeAttribute('aria-modal');
     document.body.classList.remove('map-expanded');
+    if(layerControls&&layerHome){if(layerNext&&layerNext.parentNode===layerHome)layerHome.insertBefore(layerControls,layerNext);else layerHome.appendChild(layerControls)}
     if(returnFocus&&typeof returnFocus.focus==='function')returnFocus.focus();
   }
   expand?.addEventListener('click',openLargeMap);
