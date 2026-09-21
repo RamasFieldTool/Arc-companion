@@ -385,7 +385,45 @@ body.light-app .launcher-section .spawn-map-stage-head strong{color:#243247!impo
 body.light-app .launcher-section .spawn-zoom-controls button{background:#fff!important;color:#243247!important}
 body.light-app :focus-visible{outline:2px solid #325ca8!important;outline-offset:3px}
 @media(max-width:600px){body.light-app .launcher-section #out{grid-template-columns:minmax(0,1fr)!important}}
-</style></head><body class="palette-enabled"><main>
+</style>
+<style id="launcher-theme-restoration">
+/* Restore the existing appearance selector for the redesigned launcher/detail system. */
+html[data-surface="dark"] body.palette-enabled,
+html[data-surface="black"] body.palette-enabled{color:#edf1f7!important}
+html[data-surface="dark"] body.palette-enabled{background:#101318!important;--ui-text:#edf1f7;--ui-muted:#a8b3c4;--ui-panel:#191e27;--ui-panel-2:#141922;--ui-soft:#202733;--ui-line:#303947}
+html[data-surface="black"] body.palette-enabled{background:#000!important;--ui-text:#f1f3f6;--ui-muted:#aeb6c2;--ui-panel:#080a0c;--ui-panel-2:#030506;--ui-soft:#11161a;--ui-line:#2a343b}
+html[data-surface="dark"] body.palette-enabled .masthead,
+html[data-surface="black"] body.palette-enabled .masthead{background:transparent!important}
+html[data-surface="dark"] body.palette-enabled .launcher-intro h2,
+html[data-surface="black"] body.palette-enabled .launcher-intro h2,
+html[data-surface="dark"] body.palette-enabled .brand-title h1,
+html[data-surface="black"] body.palette-enabled .brand-title h1{color:#f4f7fc!important}
+html[data-surface="dark"] body.palette-enabled .launcher-intro p,
+html[data-surface="black"] body.palette-enabled .launcher-intro p{color:#a8b3c4!important}
+html[data-surface="dark"] body.palette-enabled #appLauncher .app-tile{background:#1c222b!important}
+html[data-surface="black"] body.palette-enabled #appLauncher .app-tile{background:#080a0c!important;box-shadow:0 9px 20px #000,inset 0 -1px 0 #ffffff0b!important}
+html[data-surface="dark"] body.palette-enabled #appLauncher .app-tile b,
+html[data-surface="black"] body.palette-enabled #appLauncher .app-tile b{color:#f5f7fa!important}
+html[data-surface="dark"] body.palette-enabled #appLauncher .app-tile small,
+html[data-surface="black"] body.palette-enabled #appLauncher .app-tile small{color:#b5c1d2!important}
+html[data-surface="dark"] body.palette-enabled #appBack{background:#202733!important;color:#edf1f7!important;border-color:#303947!important}
+html[data-surface="black"] body.palette-enabled #appBack{background:#0b0f12!important;color:#f1f3f6!important;border-color:#2a343b!important}
+html[data-surface="dark"] body.palette-enabled.view-open,
+html[data-surface="dark"] body.palette-enabled.view-open main{background:#101318!important}
+html[data-surface="black"] body.palette-enabled.view-open,
+html[data-surface="black"] body.palette-enabled.view-open main{background:#000!important}
+html[data-surface="dark"] body.palette-enabled.view-open .detail-hero,
+html[data-surface="black"] body.palette-enabled.view-open .detail-hero{background:color-mix(in srgb,var(--detail-accent) 18%,var(--ui-panel))!important;color:var(--ui-text)!important}
+html[data-surface="dark"] body.palette-enabled.view-open .launcher-active,
+html[data-surface="black"] body.palette-enabled.view-open .launcher-active{background:var(--ui-panel)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
+html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.backup-body,.tips-body),
+html[data-surface="black"] body.palette-enabled.view-open .launcher-active :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.backup-body,.tips-body){background:var(--ui-panel)!important;color:var(--ui-text)!important}
+html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions),
+html[data-surface="black"] body.palette-enabled.view-open .launcher-active :is(.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions){background:var(--ui-soft)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
+html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell),
+html[data-surface="black"] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell){background:var(--ui-panel-2)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
+</style>
+</head><body class="palette-enabled"><main>
 <header class="masthead masthead-with-logo"><div class="masthead-brand"><img class="official-app-logo" src="arc-companion-logo.svg?v=1301" width="512" height="512" alt="ARC Companion – For Raiders. By Raiders."><div class="brand-title"><div class="eyebrow">RAMA // FIELD TOOL</div><h1>ARC <span>COMPANION</span></h1></div></div><div class="headtools"><div class="lang-switch" aria-label="Language"><button id="deBtn" class="lang active" type="button">DE</button><span>/</span><button id="enBtn" class="lang" type="button">EN</button></div><div class="theme-switch" aria-label="Darstellung"><button class="theme-btn active" data-theme-value="dark" type="button" aria-label="Dunkle Darstellung" aria-pressed="true">DARK</button><button class="theme-btn" data-theme-value="light" type="button" aria-label="Helle Darstellung" aria-pressed="false">LIGHT</button></div><div class="head-status"><div id="dataStatus" class="data-status">DATEN // LIVE</div><div class="version" data-app-version>V13.0.0</div></div></div></header><button id="appBack" type="button">← Zurück</button><section id="detailHero" aria-labelledby="detailTitle"><span class="detail-icon" aria-hidden="true"></span><div><h2 id="detailTitle"></h2><p id="detailStatus"></p></div></section><section id="appLauncher" aria-label="App-Startseite"><div class="launcher-intro"><h2 id="launcherHeading">Bereit für den nächsten Raid?</h2><p id="launcherSubtitle">Deine Vorbereitung. Alles an einem Ort.</p></div><div class="app-grid"><button class="app-tile" type="button" data-app-target="nextRaidDrawer" style="--tile-color:#ff986a"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="14" rx="4"/><path d="M9 7V5a3 3 0 016 0v2M8 13h8M9 17h6"/></svg></span><b>Mein nächster Raid</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="liveEventsDrawer" style="--tile-color:#90b6ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span><b>Live-Events</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="goalsSection" style="--tile-color:#ba9aff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 9v6M9 12h6"/></svg></span><b>Meine Ziele</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="supplySection" style="--tile-color:#efc879"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10M7 5l9 4"/></svg></span><b>Gesamtbedarf</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="itemsSection" style="--tile-color:#7bdbcc"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg></span><b>Item-Suche</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="questDrawer" style="--tile-color:#b8c5ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 3h6v4H9zM9 12h6M9 16h4"/></svg></span><b>Quests</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="blueprintDrawer" style="--tile-color:#81c4ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h12a2 2 0 012 2v16H7a3 3 0 01-3-3V5a2 2 0 012-2M4 17h15M8 8l3-2 4 2v5H8z"/></svg></span><b>Baupläne</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="spawnPanel" style="--tile-color:#a6d68d"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></span><b>Karten</b><small>Orte und Fundstellen</small></button></div><div class="launcher-utilities"><button type="button" data-app-target="tipsDrawer">Tipps</button><button type="button" data-app-target="paletteLab">Darstellung</button><button type="button" data-app-target="backupPanel">Backup</button><button type="button" data-app-target="launcherHelp">Hilfe</button><button type="button" data-app-target="communityCredit">Community</button></div></section>
 
 <nav class="quick-nav nav-v1301" aria-label="Schnellnavigation"><a class="nav-main-link" href="#goalsSection" data-nav-key="goals"><span class="nav-glyph" aria-hidden="true">⌖</span><span data-nav-label="goals">ZIELE</span></a><a class="nav-main-link" href="#supplySection" data-nav-key="supply"><span class="nav-glyph" aria-hidden="true">▤</span><span data-nav-label="supply">BEDARF</span></a><a class="nav-main-link" href="#itemsSection" data-nav-key="items"><span class="nav-glyph" aria-hidden="true">⌕</span><span data-nav-label="items">SUCHE</span></a><details class="nav-more"><summary><span class="nav-glyph" aria-hidden="true">＋</span><span data-nav-label="more">MEHR</span><span class="nav-more-chevron" aria-hidden="true">⌄</span></summary><div class="nav-more-menu"><a href="#liveEventsDrawer" data-nav-key="events"><span data-nav-label="events">LIVE-EVENTS</span><small>00</small></a><a href="#nextRaidDrawer" data-nav-key="raid"><span data-nav-label="raid">NÄCHSTER RAID</span><small>01</small></a><a href="#questDrawer" data-nav-key="quests"><span data-nav-label="quests">QUESTS</span><small>02</small></a><a href="#blueprintDrawer" data-nav-key="blueprints"><span data-nav-label="blueprints">BAUPLÄNE</span><small>03</small></a><a href="#spawnPanel" data-nav-key="maps"><span data-nav-label="maps">KARTEN</span><small>04</small></a><a href="#tipsDrawer" data-nav-key="tips"><span data-nav-label="tips">TIPPS</span><small>05</small></a></div></details></nav>
@@ -453,6 +491,15 @@ sections.forEach(e=>{if(e.tagName==='DETAILS'){e.addEventListener('toggle',()=>{
 const watch=new MutationObserver(sync);
 entries.forEach(e=>{const s=document.getElementById(e[3]);if(s)watch.observe(s,{childList:true,subtree:true,characterData:true})});
 document.getElementById('deBtn').addEventListener('click',()=>setTimeout(sync,0));document.getElementById('enBtn').addEventListener('click',()=>setTimeout(sync,0));
-document.body.classList.add('launcher-mode','light-app');sync();go(location.hash.slice(1));
+document.body.classList.add('launcher-mode');
+function syncLauncherSurface(){
+ const surface=document.documentElement.dataset.surface||'dark';
+ document.body.classList.toggle('light-app',surface==='light');
+ document.body.classList.toggle('dark-app',surface==='dark');
+ document.body.classList.toggle('black-app',surface==='black');
+}
+syncLauncherSurface();
+new MutationObserver(syncLauncherSurface).observe(document.documentElement,{attributes:true,attributeFilter:['data-surface']});
+sync();go(location.hash.slice(1));
 })();
 </script></body></html>
