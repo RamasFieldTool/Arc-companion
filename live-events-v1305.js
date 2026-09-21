@@ -10,7 +10,8 @@
   const REMINDERS_KEY='arcEventReminders';
   const regions=['europe','north-america','brazil','east-asia','oceania'];
   const allowedLeads=[5,10,15,30];
-  const state={events:[],syncedAt:null,source:'',lastBoundary:0};
+  const state={events:[],syncedAt:null,source:'',lastBoundary:0,clockOffsetMs:0};
+  const trustedNow=()=>Date.now()+state.clockOffsetMs;
 
   const COPY={
     de:{
@@ -90,7 +91,14 @@
       try{
         const response=await fetch(url,{cache:'no-store'});
         if(!response.ok)throw new Error(`Event feed ${response.status}`);
+        const requestStarted=Date.now();
         const payload=await response.json();
+        const requestFinished=Date.now();
+        const syncedMs=Date.parse(payload?.syncedAt||'');
+        if(Number.isFinite(syncedMs)){
+          const midpoint=requestStarted+(requestFinished-requestStarted)/2;
+          state.clockOffsetMs=syncedMs-midpoint;
+        }
         state.source=url;
         return payload;
       }catch(error){lastError=error}
@@ -98,14 +106,14 @@
     throw lastError||new Error('Event feed unavailable');
   }
 
-  function duration(target,now=Date.now()){
-    const seconds=Math.max(0,Math.floor((target-now)/1000));
+  function duration(target,currentNow=trustedNow()){
+    const seconds=Math.max(0,Math.floor((target-currentNow)/1000));
     const hours=Math.floor(seconds/3600),minutes=Math.floor((seconds%3600)/60),secs=seconds%60;
     return hours?`${hours}:${String(minutes).padStart(2,'0')}:${String(secs).padStart(2,'0')}`:`${minutes}:${String(secs).padStart(2,'0')}`;
   }
   function localTime(date){return new Intl.DateTimeFormat(language()==='en'?'en-GB':'de-CH',{weekday:'short',hour:'2-digit',minute:'2-digit'}).format(date)}
   function visibleEvents(){
-    const now=Date.now();
+    const now=trustedNow();
     const active=state.events.filter(event=>event.start<=now&&event.end>now);
     const upcoming=state.events.filter(event=>event.start>now).slice(0,8);
     return {active,upcoming};
@@ -137,12 +145,12 @@
     el('liveEventsUpcoming').innerHTML=upcoming.length?upcoming.map(event=>card(event,false)).join(''):`<div class="live-event-empty">${c.noneUpcoming}</div>`;
     const next=upcoming[0];
     el('liveEventsSummary').textContent=c.summary(active.length,next?duration(next.start):'');
-    state.lastBoundary=Math.min(...[...active.map(event=>event.end.getTime()),...upcoming.map(event=>event.start.getTime())].filter(time=>time>Date.now()),Infinity);
+    state.lastBoundary=Math.min(...[...active.map(event=>event.end.getTime()),...upcoming.map(event=>event.start.getTime())].filter(time=>time>trustedNow()),Infinity);
     updateCountdowns();
   }
 
   function updateCountdowns(){
-    const c=copy(),now=Date.now();
+    const c=copy(),now=trustedNow();
     document.querySelectorAll('[data-countdown]').forEach(node=>{
       const target=new Date(node.dataset.countdown);
       node.textContent=`${node.dataset.mode==='active'?c.activeFor:c.startsIn} ${duration(target,now)}`;
@@ -188,7 +196,7 @@
   }
 
   function checkReminders(){
-    const now=Date.now(),reminders=readReminders(),kept=[];
+    const now=trustedNow(),reminders=readReminders(),kept=[];
     reminders.forEach(item=>{
       const start=new Date(item.start).getTime(),end=new Date(item.end||item.start).getTime(),due=start-Number(item.lead)*60000;
       if(end<now)return;
@@ -208,7 +216,7 @@
       const payload=await fetchPayload();
       state.events=normalizePayload(payload);
       const latestEnd=Math.max(...state.events.map(event=>event.end.getTime()));
-      if(latestEnd<Date.now()+3600000)setNotice(copy().stale,'error');
+      if(latestEnd<trustedNow()+3600000)setNotice(copy().stale,'error');
       render();
     }catch(error){
       console.error('Live event feed unavailable',error);

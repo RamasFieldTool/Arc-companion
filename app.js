@@ -17,6 +17,7 @@ let questFilter='all';
 let lang=localStorage.getItem('arcLang')||'de';
 
 const norm=s=>(s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const escapeHtml=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const owned=JSON.parse(localStorage.getItem('arcOwned')||'{}');
 const active=JSON.parse(localStorage.getItem('arcActiveGoals')||'{}');
 const questStates=JSON.parse(localStorage.getItem('arcQuestStatus')||'{}');
@@ -129,12 +130,12 @@ function toggleGoal(k,checked){
 function drawGoals(){
   goalsEl.innerHTML=goals.map(g=>`
     <div class="goalbox">
-      <div class="goalhead">${goalName(g)}</div>
+      <div class="goalhead">${escapeHtml(goalName(g))}</div>
       <div class="levelrow">
         ${g.levels.map(l=>`
           <label class="levelbtn">
-            <input type="checkbox" data-key="${key(g.id,l.level)}" ${active[key(g.id,l.level)]?'checked':''}>
-            ${tr('level')} ${l.level}
+            <input type="checkbox" data-key="${escapeHtml(key(g.id,l.level))}" ${active[key(g.id,l.level)]?'checked':''}>
+            ${escapeHtml(tr('level'))} ${escapeHtml(l.level)}
           </label>`).join('')}
       </div>
     </div>`).join('');
@@ -157,11 +158,11 @@ function drawSummary(){
     const missing=Math.max(0,r.total-have);
     return `<div class="sumrow">
       <div>
-        <div class="sumname">${name}</div>
+        <div class="sumname">${escapeHtml(name)}</div>
         <div class="summeta">${tr('total')} ${r.total} · ${tr('owned')} ${have} · ${tr('missing')} ${missing}</div>
-        <div class="summeta">${r.reasons.join(' · ')}</div>
+        <div class="summeta">${escapeHtml(r.reasons.join(' · '))}</div>
       </div>
-      <input class="qty" type="number" min="0" inputmode="numeric" value="${have}" data-id="${id}" aria-label="${tr('owned')} ${name}">
+      <input class="qty" type="number" min="0" inputmode="numeric" value="${have}" data-id="${escapeHtml(id)}" aria-label="${escapeHtml(tr('owned')+' '+name)}">
     </div>`;
   }).join('');
   summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('input',e=>saveOwned(e.target.dataset.id,e.target.value)));
@@ -173,9 +174,9 @@ function goalDecision(i){
   const have=owned[i.id]||0;
   const missing=Math.max(0,req.total-have);
   if(missing===0){
-    return `<div class="need ok">${tr('fulfilled')}<div class="reasons">${req.reasons.join(' · ')}</div></div>`;
+    return `<div class="need ok">${tr('fulfilled')}<div class="reasons">${escapeHtml(req.reasons.join(' · '))}</div></div>`;
   }
-  return `<div class="need keep">${tr('keepA')} ${missing} ${tr('keepB')} ${req.total}<div class="reasons">${req.reasons.join(' · ')}</div></div>`;
+  return `<div class="need keep">${tr('keepA')} ${missing} ${tr('keepB')} ${req.total}<div class="reasons">${escapeHtml(req.reasons.join(' · '))}</div></div>`;
 }
 
 function recyclingText(i){
@@ -194,21 +195,21 @@ function card(i){
   const type=typeName(i.type);
   const rarity=rarityName(i.rarity||'');
   const desc=itemDesc(i);
-  return `<article class="card" data-item-id="${i.id}">
+  return `<article class="card" data-item-id="${escapeHtml(i.id)}">
     <div class="card-head">
       <div>
-        <h3>${itemName(i)}</h3>
-        ${type?`<div class="item-type">${type}</div>`:''}
+        <h3>${escapeHtml(itemName(i))}</h3>
+        ${type?`<div class="item-type">${escapeHtml(type)}</div>`:''}
       </div>
-      ${rarity?`<div class="rarity">${rarity}</div>`:''}
+      ${rarity?`<div class="rarity">${escapeHtml(rarity)}</div>`:''}
     </div>
     <div class="facts">
       <div class="fact"><span>${tr('value')}</span><b>${formatNum(i.value)}</b></div>
       <div class="fact"><span>${tr('weight')}</span><b>${itemWeight(i)==null?'—':formatNum(itemWeight(i))+' kg'}</b></div>
       <div class="fact"><span>${tr('stack')}</span><b>${formatNum(itemStack(i))}</b></div>
     </div>
-    ${desc?`<div class="desc"><b>${tr('use')}:</b> ${desc}</div>`:''}
-    <div class="recycle"><b>${tr('recycle')}:</b> ${recyclingText(i)}</div>
+    ${desc?`<div class="desc"><b>${escapeHtml(tr('use'))}:</b> ${escapeHtml(desc)}</div>`:''}
+    <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${escapeHtml(recyclingText(i))}</div>
     ${goalDecision(i)}
   </article>`;
 }
@@ -269,20 +270,20 @@ function questCard(x){
   return `<article class="quest-card quest-${st}">
     <div class="quest-card-head">
       <div>
-        <h3>${questName(x)}</h3>
-        ${x.trader?`<div class="quest-trader">${tr('trader')}: ${x.trader}</div>`:''}
+        <h3>${escapeHtml(questName(x))}</h3>
+        ${x.trader?`<div class="quest-trader">${escapeHtml(tr('trader'))}: ${escapeHtml(x.trader)}</div>`:''}
       </div>
       <div class="quest-state">
-        <button type="button" data-qid="${x.id}" data-state="open" class="${st==='open'?'selected':''}">${tr('open')}</button>
-        <button type="button" data-qid="${x.id}" data-state="active" class="${st==='active'?'selected':''}">${tr('active')}</button>
-        <button type="button" data-qid="${x.id}" data-state="done" class="${st==='done'?'selected':''}">${tr('done')}</button>
+        <button type="button" data-qid="${escapeHtml(x.id)}" data-state="open" class="${st==='open'?'selected':''}">${tr('open')}</button>
+        <button type="button" data-qid="${escapeHtml(x.id)}" data-state="active" class="${st==='active'?'selected':''}">${tr('active')}</button>
+        <button type="button" data-qid="${escapeHtml(x.id)}" data-state="done" class="${st==='done'?'selected':''}">${tr('done')}</button>
       </div>
     </div>
-    ${objectives.length?`<div class="quest-section"><b>${tr('objectives')}</b><ul>${objectives.map(o=>`<li>${o}</li>`).join('')}</ul></div>`:''}
+    ${objectives.length?`<div class="quest-section"><b>${tr('objectives')}</b><ul>${objectives.map(o=>`<li>${escapeHtml(o)}</li>`).join('')}</ul></div>`:''}
     <div class="quest-grid">
-      <div class="quest-mini ${required?'has-required':''}"><b>${tr('required')}</b><span>${required||tr('noRequired')}</span></div>
-      ${granted?`<div class="quest-mini"><b>${tr('granted')}</b><span>${granted}</span></div>`:''}
-      <div class="quest-mini"><b>${tr('rewards')}</b><span>${rewards||tr('noRewards')}</span></div>
+      <div class="quest-mini ${required?'has-required':''}"><b>${tr('required')}</b><span>${escapeHtml(required||tr('noRequired'))}</span></div>
+      ${granted?`<div class="quest-mini"><b>${tr('granted')}</b><span>${escapeHtml(granted)}</span></div>`:''}
+      <div class="quest-mini"><b>${tr('rewards')}</b><span>${escapeHtml(rewards||tr('noRewards'))}</span></div>
     </div>
   </article>`;
 }
