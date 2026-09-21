@@ -441,6 +441,54 @@ html[data-accent] body.palette-enabled .palette-lab{border-color:var(--orange)!i
 html[data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{background:var(--orange)!important;border-color:var(--orange)!important}
 </style>
 
+<style id="accent-system-final">
+/* One global accent language for controls; feature tiles keep their own identity colours. */
+html[data-accent] body.palette-enabled{
+ --app-accent:var(--orange);
+ --app-accent-soft:color-mix(in srgb,var(--orange) 14%,transparent);
+ --app-accent-line:color-mix(in srgb,var(--orange) 46%,var(--ui-line));
+}
+html[data-accent] body.palette-enabled :focus-visible{outline-color:var(--orange)!important}
+html[data-accent] body.palette-enabled button:not(.app-tile):not(.spawn-marker):not(.weapon-case-marker),
+html[data-accent] body.palette-enabled .quick-nav a,
+html[data-accent] body.palette-enabled .nav-more>summary,
+html[data-accent] body.palette-enabled .inline-info>summary{
+ border-color:var(--app-accent-line)!important;
+}
+html[data-accent] body.palette-enabled button:not(.app-tile):not(.spawn-marker):not(.weapon-case-marker):hover,
+html[data-accent] body.palette-enabled .quick-nav a:hover,
+html[data-accent] body.palette-enabled .nav-more>summary:hover{
+ background:var(--app-accent-soft)!important;color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled button.active,
+html[data-accent] body.palette-enabled button[aria-pressed="true"],
+html[data-accent] body.palette-enabled .blueprint-filter.active{
+ background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important;
+}
+html[data-accent] body.palette-enabled input:focus,
+html[data-accent] body.palette-enabled select:focus,
+html[data-accent] body.palette-enabled .search-shell:focus-within{
+ border-color:var(--orange)!important;box-shadow:0 0 0 2px var(--app-accent-soft)!important;
+}
+html[data-accent] body.palette-enabled a{color:var(--orange)!important}
+html[data-accent] body.palette-enabled .palette-lab,
+html[data-accent] body.palette-enabled .launcher-active{
+ border-color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled .palette-lab-status,
+html[data-accent] body.palette-enabled .palette-group-label,
+html[data-accent] body.palette-enabled .section-kicker,
+html[data-accent] body.palette-enabled .next-raid-kicker,
+html[data-accent] body.palette-enabled .live-events-kicker{
+ color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{
+ background:var(--orange)!important;border-color:var(--orange)!important;box-shadow:inset 0 -3px 0 var(--amber)!important;
+}
+html[data-surface="light"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#fff!important}
+html[data-surface="black"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#101417!important}
+</style>
+
 <style id="black-white-theme-final">
 /* Two surface themes only: true white and true black. */
 .palette-choice[data-palette-surface="dark"]{display:none!important}
