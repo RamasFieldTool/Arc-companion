@@ -118,8 +118,8 @@ html[data-surface="black"] .goalbox,
 html[data-surface="black"] .quest-card,
 html[data-surface="black"] .blueprint-entry{background:#11161a}
 
-/* DARK and LIGHT keep the exact existing neutral colors. */
-html[data-surface="dark"]{color-scheme:dark}
+/* Only two surfaces are supported: BLACK and true WHITE. */
+html[data-surface="black"]{color-scheme:dark}
 html[data-surface="light"]{color-scheme:only light}
 
 /* Accent palettes for dark and black surfaces. */

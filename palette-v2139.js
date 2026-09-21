@@ -3,17 +3,19 @@
   const root=document.documentElement;
   const surfaceKey='arcPaletteSurface';
   const accentKey='arcPaletteAccent';
-  const surfaces=['black','dark','light'];
+  const surfaces=['black','light'];
   const accents=['orange','amber','green','cyan'];
   const enButton=document.getElementById('enBtn');
 
-  let surface='dark';
+  let surface='light';
   let accent='orange';
   try{
     const savedSurface=localStorage.getItem(surfaceKey);
     const savedAccent=localStorage.getItem(accentKey);
     const legacyTheme=localStorage.getItem('arcTheme');
-    if(surfaces.includes(savedSurface))surface=savedSurface;
+    if(savedSurface==='dark')surface='black';
+    else if(surfaces.includes(savedSurface))surface=savedSurface;
+    else if(legacyTheme==='dark')surface='black';
     else if(legacyTheme==='light')surface='light';
     if(accents.includes(savedAccent))accent=savedAccent;
   }catch(_){}
@@ -26,7 +28,6 @@
       surface:'HINTERGRUND',
       accent:'AKZENT',
       black:'SCHWARZ',
-      dark:'DUNKEL',
       light:'HELL',
       orange:'ORANGE',
       amber:'AMBER',
@@ -40,7 +41,6 @@
       surface:'BACKGROUND',
       accent:'ACCENT',
       black:'BLACK',
-      dark:'DARK',
       light:'LIGHT',
       orange:'ORANGE',
       amber:'AMBER',
@@ -69,7 +69,7 @@
     });
 
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta)meta.content=surface==='light'?'#f1f5f8':surface==='black'?'#000000':'#080d11';
+    if(meta)meta.content=surface==='light'?'#ffffff':'#000000';
 
     if(persist){
       try{
