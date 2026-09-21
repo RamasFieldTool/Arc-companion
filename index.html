@@ -272,8 +272,90 @@ body.palette-enabled #appLauncher .app-tile[data-app-target="supplySection"] .ap
 body.palette-enabled #appLauncher .launcher-utilities button{color:#e0e7ef!important}
 body.palette-enabled .launcher-intro p{color:#d2dce7!important}
 @media(hover:hover){body.palette-enabled #appLauncher .app-tile:hover{box-shadow:0 9px 19px #00000030!important}}
+</style><style id="light-detail-system">
+/* Light application shell and purpose-built detail components. */
+html:has(body.light-app){background:#f3f5f8!important}
+body.palette-enabled.light-app,body.palette-enabled.light-app.launcher-mode:not(.view-open){
+ background:#f3f5f8!important;color:#243247!important;
+ --ui-text:#243247;--ui-muted:#57677c;--ui-panel:#fff;--ui-panel-2:#f4f7fa;--ui-soft:#edf2f7;--ui-line:#d6dfe9;--ui-input:#fff;--cream:#243247;--cream-soft:#57677c;--line:#d6dfe9;--green:#237b58;--orange:#b44916;--amber:#805613;--accent:#325ca8;
+}
+body.light-app main{background:transparent!important}
+body.light-app .masthead h1,body.light-app .launcher-intro h2{color:#243247!important}
+body.light-app .eyebrow,body.light-app .launcher-intro p,body.light-app .head-status,body.light-app #appLauncher .launcher-utilities button{color:#57677c!important}
+body.light-app .lang-switch{background:#e3e9f0!important}
+body.light-app .lang{color:#354a63!important}
+body.light-app .lang.active{background:#fff!important;color:#243247!important}
+body.light-app.view-open .masthead{display:none!important}
+body.light-app #appBack{position:sticky;top:8px;z-index:50;background:#ffffffef!important;color:#243247!important;border:1px solid #d6dfe9!important;border-radius:24px!important;box-shadow:0 4px 14px #23354d0a!important}
+body.light-app #detailHero{display:none}
+body.light-app.view-open #detailHero{display:flex;align-items:center;gap:18px;padding:24px;margin:0 0 24px;border-radius:26px;background:linear-gradient(120deg,var(--detail-tint,#e8edf7),#fff);border:1px solid #ffffff;box-shadow:0 8px 24px #23354d08}
+body.light-app #detailHero h2{font-family:"Space Grotesk",sans-serif!important;font-size:27px;text-transform:none;line-height:1.15;margin:0 0 8px;color:#243247!important}
+body.light-app #detailHero p{margin:0;color:#52627a;line-height:1.5;font-size:14px}
+body.light-app #detailHero .detail-icon{width:58px;height:58px;flex:none;border-radius:19px;background:#ffffffa8;display:grid;place-items:center;color:var(--detail-accent,#325ca8)}
+.detail-icon svg{width:32px;height:32px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body.light-app main>.launcher-section.launcher-active,body.light-app main>#nextRaidDrawer.launcher-active{
+ background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible!important;padding:0!important;margin:0!important;
+}
+body.light-app main>.launcher-section>summary{display:none!important}
+body.light-app .launcher-section{--orange:var(--detail-accent,#325ca8);--amber:var(--detail-accent,#325ca8);--accent:var(--detail-accent,#325ca8)}
+body.light-app .launcher-section :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.tips-body,.backup-body,.palette-lab-body){padding:0!important;border:0!important;background:transparent!important}
+body.light-app .launcher-section :is(h2,h3,b,strong){color:#243247!important}
+body.light-app .launcher-section :is(p,small,.section-help,.muted,.empty,.summeta,.item-type,.desc,.recycle,.reasons,.quest-trader,.quest-section li,.quest-mini span){color:#57677c!important;line-height:1.55}
+body.light-app .launcher-section :is(button,input,select){font-size:14px!important}
+body.light-app .launcher-section button:not(.spawn-marker):not(.weapon-case-marker){
+ min-height:44px;border:1px solid #d6dfe9!important;background:#fff!important;color:#354a63!important;border-radius:12px!important;
+}
+body.light-app .launcher-section :is(input:not([type=checkbox]):not([type=file]),select){min-height:46px;border:1px solid #d6dfe9!important;border-radius:12px;background:#fff!important;color:#243247!important;padding:10px}
+body.light-app .launcher-section :is(.search-shell){background:#fff!important;border:1px solid #d6dfe9!important;border-radius:16px!important;padding:2px 14px!important;box-shadow:0 6px 20px #23354d08!important}
+body.light-app .launcher-section .search-shell input{border:0!important;box-shadow:none;width:100%}
+body.light-app .launcher-section input::placeholder{color:#65758a!important}
+body.light-app .launcher-section .search-shell>span{display:none}
+body.light-app .launcher-section :is(.quest-filters,.blueprint-filters){position:static!important;display:flex!important;gap:5px!important;padding:5px;border:0!important;border-radius:14px;background:#e6ecf3!important;overflow-x:auto}
+body.light-app .launcher-section :is(.quest-filter,.blueprint-filter){flex:1;min-width:0!important;border:0!important;background:transparent!important;padding:10px 5px!important;white-space:normal;font-size:12px!important;box-shadow:none!important}
+body.light-app .launcher-section :is(.quest-filter.active,.blueprint-filter.active,.quest-state button.selected,.map-layer-toggle[aria-pressed=true],.live-event-remind.is-set){background:var(--detail-accent,#325ca8)!important;color:#fff!important;border-color:transparent!important}
+body.light-app .launcher-section :is(.card,.quest-card,.blueprint-entry,.goalbox,.sumrow,.live-event-card,.next-raid-list){background:#fff!important;border:1px solid #e0e6ee!important;border-radius:18px!important;box-shadow:0 5px 16px #23354d06!important;clip-path:none!important}
+body.light-app .launcher-section :is(.card,.quest-card,.sumrow,.live-event-card){padding:18px!important}
+body.light-app .launcher-section :is(.card,.quest-card)::after{display:none!important}
+body.light-app .launcher-section :is(.card h3,.quest-card h3){font-size:21px!important;line-height:1.25!important;text-transform:none}
+body.light-app .launcher-section :is(.facts,.quest-grid,.blueprint-info-grid){gap:8px}
+body.light-app .launcher-section :is(.fact,.quest-mini,.blueprint-info-grid div){background:#f3f6fa!important;border:0!important;border-radius:10px;padding:12px}
+body.light-app .launcher-section :is(.desc,.quest-section,.need,.spawn-map-info,.spawn-selected){background:#eef3f8!important;border:0!important;border-radius:12px;padding:14px}
+body.light-app .launcher-section :is(.fact span,.rarity,.bp-evidence,.blueprint-info summary,.live-event-countdown){color:var(--detail-accent,#325ca8)!important}
+body.light-app .launcher-section .rarity{border:0!important;border-radius:20px;background:var(--detail-tint,#e8edf7)!important}
+body.light-app .launcher-section .goal-station>summary{padding:18px;min-height:68px}
+body.light-app .launcher-section .goal-station-name{font-size:17px;color:#243247!important}
+body.light-app .launcher-section .goal-station-meta{color:#57677c!important;font-size:12px}
+body.light-app .launcher-section .levelrow{padding:16px;gap:12px}
+body.light-app .launcher-section .levelbtn{background:#f3f6fa;padding:10px;border-radius:10px;color:#354a63}
+body.light-app .launcher-section .blueprint-row{padding:18px!important;min-height:76px;border:0!important}
+body.light-app .launcher-section .blueprint-check{color:var(--detail-accent,#325ca8)}
+body.light-app .launcher-section .blueprint-info{border-color:#e0e6ee!important;padding:0 18px 14px}
+body.light-app .launcher-section .quest-state{margin:8px 0;gap:6px}
+body.light-app .launcher-section .quest-active{border-left:4px solid var(--detail-accent,#325ca8)!important}
+body.light-app .launcher-section .quest-done{border-left:4px solid #237b58!important}
+body.light-app .launcher-section .live-event-card.is-active{border-left:4px solid #237b58!important}
+body.light-app .launcher-section .live-event-side{gap:9px}
+body.light-app .launcher-section .next-raid-item{padding:14px 10px;min-height:80px;border-color:#e0e6ee}
+body.light-app .launcher-section .next-raid-check span{border-radius:9px}
+body.light-app .launcher-section :is(.next-raid-empty,.live-event-empty){padding:30px 20px;background:#fff;border-radius:18px;border:1px dashed #c6d3e2;color:#57677c}
+body.light-app .launcher-section :is(.spawn-map-picker,.map-layer-controls,.spawn-map-instructions,.spawn-toolbar){background:#fff!important;border:1px solid #e0e6ee!important;border-radius:16px!important;padding:14px!important}
+body.light-app .launcher-section :is(.spawn-beta,.spawn-subtitle,.spawn-legend,.spawn-data-details,.spawn-image-credit){color:#57677c!important}
+body.light-app .launcher-section .spawn-expand-map,body.light-app .launcher-section .next-raid-add,body.light-app .launcher-section #backupExport{background:var(--detail-accent,#325ca8)!important;color:#fff!important;border:0!important}
+body.light-app .launcher-section .spawn-expand-map span{color:inherit!important}
+body.light-app .launcher-section :is(.spawn-data-details,.inline-info>summary){background:#edf2f7!important;border:0!important;border-radius:12px!important;color:#354a63!important}
+body.light-app .spawn-map-stage.is-expanded{background:#f3f5f8!important}
+body.light-app .spawn-map-stage.is-expanded :is(.spawn-map-stage-head,.spawn-zoom-controls-expanded){background:#fff!important;border-color:#d6dfe9!important}
+body.light-app .launcher-section :is(.core-drawer-close,.next-raid-close,.live-events-close,.backup-close,.tips-close){width:100%;margin-top:20px;background:#e6edf5!important;border:0!important;color:#354a63!important}
+body.light-app .launcher-section :is(.palette-lab-body,.tips-body,.help-content){line-height:1.6}
+body.light-app .launcher-section a{color:#2854a2!important}
+@media(max-width:480px){
+body.light-app #detailHero{padding:20px!important;gap:13px!important}
+body.light-app #detailHero h2{font-size:23px!important}
+body.light-app .launcher-section :is(.card,.quest-card,.live-event-card){padding:15px!important}
+body.light-app .launcher-section .live-event-card{grid-template-columns:1fr}
+}
 </style></head><body class="palette-enabled"><main>
-<header class="masthead masthead-with-logo"><div class="masthead-brand"><img class="official-app-logo" src="arc-companion-logo.svg?v=1301" width="512" height="512" alt="ARC Companion – For Raiders. By Raiders."><div class="brand-title"><div class="eyebrow">RAMA // FIELD TOOL</div><h1>ARC <span>COMPANION</span></h1></div></div><div class="headtools"><div class="lang-switch" aria-label="Language"><button id="deBtn" class="lang active" type="button">DE</button><span>/</span><button id="enBtn" class="lang" type="button">EN</button></div><div class="theme-switch" aria-label="Darstellung"><button class="theme-btn active" data-theme-value="dark" type="button" aria-label="Dunkle Darstellung" aria-pressed="true">DARK</button><button class="theme-btn" data-theme-value="light" type="button" aria-label="Helle Darstellung" aria-pressed="false">LIGHT</button></div><div class="head-status"><div id="dataStatus" class="data-status">DATEN // LIVE</div><div class="version" data-app-version>V13.0.0</div></div></div></header><button id="appBack" type="button">← Zurück</button><section id="appLauncher" aria-label="App-Startseite"><div class="launcher-intro"><h2 id="launcherHeading">Bereit für den nächsten Raid?</h2><p id="launcherSubtitle">Deine Vorbereitung. Alles an einem Ort.</p></div><div class="app-grid"><button class="app-tile" type="button" data-app-target="nextRaidDrawer" style="--tile-color:#ff986a"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="14" rx="4"/><path d="M9 7V5a3 3 0 016 0v2M8 13h8M9 17h6"/></svg></span><b>Mein nächster Raid</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="liveEventsDrawer" style="--tile-color:#90b6ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span><b>Live-Events</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="goalsSection" style="--tile-color:#ba9aff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 9v6M9 12h6"/></svg></span><b>Meine Ziele</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="supplySection" style="--tile-color:#efc879"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10M7 5l9 4"/></svg></span><b>Gesamtbedarf</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="itemsSection" style="--tile-color:#7bdbcc"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg></span><b>Item-Suche</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="questDrawer" style="--tile-color:#b8c5ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 3h6v4H9zM9 12h6M9 16h4"/></svg></span><b>Quests</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="blueprintDrawer" style="--tile-color:#81c4ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h12a2 2 0 012 2v16H7a3 3 0 01-3-3V5a2 2 0 012-2M4 17h15M8 8l3-2 4 2v5H8z"/></svg></span><b>Baupläne</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="spawnPanel" style="--tile-color:#a6d68d"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></span><b>Karten</b><small>Orte und Fundstellen</small></button></div><div class="launcher-utilities"><button type="button" data-app-target="tipsDrawer">Tipps</button><button type="button" data-app-target="paletteLab">Darstellung</button><button type="button" data-app-target="backupPanel">Backup</button><button type="button" data-app-target="launcherHelp">Hilfe</button><button type="button" data-app-target="communityCredit">Community</button></div></section>
+<header class="masthead masthead-with-logo"><div class="masthead-brand"><img class="official-app-logo" src="arc-companion-logo.svg?v=1301" width="512" height="512" alt="ARC Companion – For Raiders. By Raiders."><div class="brand-title"><div class="eyebrow">RAMA // FIELD TOOL</div><h1>ARC <span>COMPANION</span></h1></div></div><div class="headtools"><div class="lang-switch" aria-label="Language"><button id="deBtn" class="lang active" type="button">DE</button><span>/</span><button id="enBtn" class="lang" type="button">EN</button></div><div class="theme-switch" aria-label="Darstellung"><button class="theme-btn active" data-theme-value="dark" type="button" aria-label="Dunkle Darstellung" aria-pressed="true">DARK</button><button class="theme-btn" data-theme-value="light" type="button" aria-label="Helle Darstellung" aria-pressed="false">LIGHT</button></div><div class="head-status"><div id="dataStatus" class="data-status">DATEN // LIVE</div><div class="version" data-app-version>V13.0.0</div></div></div></header><button id="appBack" type="button">← Zurück</button><section id="detailHero" aria-labelledby="detailTitle"><span class="detail-icon" aria-hidden="true"></span><div><h2 id="detailTitle"></h2><p id="detailStatus"></p></div></section><section id="appLauncher" aria-label="App-Startseite"><div class="launcher-intro"><h2 id="launcherHeading">Bereit für den nächsten Raid?</h2><p id="launcherSubtitle">Deine Vorbereitung. Alles an einem Ort.</p></div><div class="app-grid"><button class="app-tile" type="button" data-app-target="nextRaidDrawer" style="--tile-color:#ff986a"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="14" rx="4"/><path d="M9 7V5a3 3 0 016 0v2M8 13h8M9 17h6"/></svg></span><b>Mein nächster Raid</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="liveEventsDrawer" style="--tile-color:#90b6ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></span><b>Live-Events</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="goalsSection" style="--tile-color:#ba9aff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 9v6M9 12h6"/></svg></span><b>Meine Ziele</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="supplySection" style="--tile-color:#efc879"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10M7 5l9 4"/></svg></span><b>Gesamtbedarf</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="itemsSection" style="--tile-color:#7bdbcc"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="M15 15l6 6"/></svg></span><b>Item-Suche</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="questDrawer" style="--tile-color:#b8c5ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="3"/><path d="M9 3h6v4H9zM9 12h6M9 16h4"/></svg></span><b>Quests</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="blueprintDrawer" style="--tile-color:#81c4ff"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h12a2 2 0 012 2v16H7a3 3 0 01-3-3V5a2 2 0 012-2M4 17h15M8 8l3-2 4 2v5H8z"/></svg></span><b>Baupläne</b><small>Öffnen</small></button><button class="app-tile" type="button" data-app-target="spawnPanel" style="--tile-color:#a6d68d"><span class="app-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg></span><b>Karten</b><small>Orte und Fundstellen</small></button></div><div class="launcher-utilities"><button type="button" data-app-target="tipsDrawer">Tipps</button><button type="button" data-app-target="paletteLab">Darstellung</button><button type="button" data-app-target="backupPanel">Backup</button><button type="button" data-app-target="launcherHelp">Hilfe</button><button type="button" data-app-target="communityCredit">Community</button></div></section>
 
 <nav class="quick-nav nav-v1301" aria-label="Schnellnavigation"><a class="nav-main-link" href="#goalsSection" data-nav-key="goals"><span class="nav-glyph" aria-hidden="true">⌖</span><span data-nav-label="goals">ZIELE</span></a><a class="nav-main-link" href="#supplySection" data-nav-key="supply"><span class="nav-glyph" aria-hidden="true">▤</span><span data-nav-label="supply">BEDARF</span></a><a class="nav-main-link" href="#itemsSection" data-nav-key="items"><span class="nav-glyph" aria-hidden="true">⌕</span><span data-nav-label="items">SUCHE</span></a><details class="nav-more"><summary><span class="nav-glyph" aria-hidden="true">＋</span><span data-nav-label="more">MEHR</span><span class="nav-more-chevron" aria-hidden="true">⌄</span></summary><div class="nav-more-menu"><a href="#liveEventsDrawer" data-nav-key="events"><span data-nav-label="events">LIVE-EVENTS</span><small>00</small></a><a href="#nextRaidDrawer" data-nav-key="raid"><span data-nav-label="raid">NÄCHSTER RAID</span><small>01</small></a><a href="#questDrawer" data-nav-key="quests"><span data-nav-label="quests">QUESTS</span><small>02</small></a><a href="#blueprintDrawer" data-nav-key="blueprints"><span data-nav-label="blueprints">BAUPLÄNE</span><small>03</small></a><a href="#spawnPanel" data-nav-key="maps"><span data-nav-label="maps">KARTEN</span><small>04</small></a><a href="#tipsDrawer" data-nav-key="tips"><span data-nav-label="tips">TIPPS</span><small>05</small></a></div></details></nav>
 <details id="goalsSection" class="goal-drawer panel"><summary><span><b data-t="activeGoals">AKTIVE ZIELE</b><small id="goalSummary">Keine aktiven Ziele</small></span><strong data-t="change">ÄNDERN</strong></summary><div class="drawer-body"><details class="inline-info"><summary><span>INFO</span></summary><p class="muted" data-t="goalHint">Aktiviere alle Stationen/Stufen, auf die du gerade hinarbeitest.</p></details><div id="goals"></div></div></details>
@@ -298,11 +380,25 @@ const help=main.querySelector('.flow-guide');if(help)help.id='launcherHelp';
 const sections=[...main.children].filter(e=>e.matches('.panel,.search-panel,.flow-guide'));
 sections.forEach(e=>e.classList.add('launcher-section'));
 let lastTile=null;
+const hero=document.getElementById('detailHero');
+const detailColours={nextRaidDrawer:['#ffe7d3','#9b481b'],liveEventsDrawer:['#daf2f5','#176878'],goalsSection:['#fff2bf','#775919'],supplySection:['#efdfd0','#795037'],itemsSection:['#e9f7c5','#456a1b'],questDrawer:['#fbe0ed','#993861'],blueprintDrawer:['#f4e8c6','#765a1d'],spawnPanel:['#daeee6','#276853']};
+function syncDetail(){
+ const active=sections.find(e=>e.classList.contains('launcher-active'));
+ if(!active)return;
+ const tile=home.querySelector('[data-app-target="'+active.id+'"]');
+ const colors=detailColours[active.id]||['#e8edf7','#325ca8'];
+ document.body.style.setProperty('--detail-tint',colors[0]);document.body.style.setProperty('--detail-accent',colors[1]);
+ document.getElementById('detailTitle').textContent=tile?.querySelector('b')?.textContent||tile?.textContent||'';
+ document.getElementById('detailStatus').textContent=tile?.querySelector('small')?.textContent||'';
+ hero.querySelector('.detail-icon').innerHTML=tile?.querySelector('svg')?.outerHTML||'<svg viewBox="0 0 24 24"><path d="M5 6h14M5 12h14M5 18h14"/></svg>';
+}
+
 function go(id){
 const target=sections.find(e=>e.id===id);
 sections.forEach(e=>e.classList.toggle('launcher-active',e===target));
 document.body.classList.toggle('view-open',!!target);
 if(target?.tagName==='DETAILS')target.open=true;
+syncDetail();
 window.scrollTo(0,0);
 if(target)back.focus({preventScroll:true});else lastTile?.focus({preventScroll:true});
 }
@@ -317,7 +413,7 @@ tile.querySelector('b').textContent=en?english:de;
 tile.querySelector('small').textContent=status?document.getElementById(status)?.textContent||'':en?'Locations and loot':'Orte und Fundstellen';
 });
 const labels=en?['Tips','Appearance','Backup','Help','Community']:['Tipps','Darstellung','Backup','Hilfe','Community'];
-home.querySelectorAll('.launcher-utilities button').forEach((b,i)=>b.textContent=labels[i]);
+home.querySelectorAll('.launcher-utilities button').forEach((b,i)=>b.textContent=labels[i]);syncDetail();
 }
 home.addEventListener('click',e=>{const tile=e.target.closest('[data-app-target]');if(!tile)return;lastTile=tile;location.hash=tile.dataset.appTarget;go(tile.dataset.appTarget)});
 back.addEventListener('click',()=>{location.hash='home';go('home')});
@@ -326,6 +422,6 @@ sections.forEach(e=>{if(e.tagName==='DETAILS'){e.addEventListener('toggle',()=>{
 const watch=new MutationObserver(sync);
 entries.forEach(e=>{const s=document.getElementById(e[3]);if(s)watch.observe(s,{childList:true,subtree:true,characterData:true})});
 document.getElementById('deBtn').addEventListener('click',()=>setTimeout(sync,0));document.getElementById('enBtn').addEventListener('click',()=>setTimeout(sync,0));
-document.body.classList.add('launcher-mode');sync();go(location.hash.slice(1));
+document.body.classList.add('launcher-mode','light-app');sync();go(location.hash.slice(1));
 })();
 </script></body></html>
