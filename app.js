@@ -105,7 +105,7 @@ function requirementMap(){
 
   goals.forEach(g=>g.levels.forEach(l=>{
     if(!active[key(g.id,l.level)]) return;
-    l.requirements.forEach(r=>add(r.itemId,r.quantity,`${goalName(g)} ${escapeHtml(tr('level'))} ${escapeHtml(l.level)}: ${r.quantity}`));
+    l.requirements.forEach(r=>add(r.itemId,r.quantity,`${goalName(g)} ${tr('level')} ${l.level}: ${r.quantity}`));
   }));
 
   quests.forEach(x=>{
