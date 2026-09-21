@@ -624,8 +624,27 @@ document.getElementById('deBtn').addEventListener('click',()=>setTimeout(sync,0)
 document.body.classList.add('launcher-mode');
 function syncLauncherSurface(){
  let surface=document.documentElement.dataset.surface||'light';
- document.body.classList.toggle('light-app',surface==='light');
+ const light=surface==='light';
+ document.body.classList.toggle('light-app',light);
  document.body.classList.toggle('black-app',surface==='black');
+ document.documentElement.style.setProperty('background',light?'#ffffff':'#000000','important');
+ document.body.style.setProperty('background',light?'#ffffff':'#000000','important');
+ document.body.style.setProperty('color',light?'#151515':'#f3f5f7','important');
+ if(light){
+  document.body.style.setProperty('--ui-text','#151515');
+  document.body.style.setProperty('--ui-muted','#60656d');
+  document.body.style.setProperty('--ui-panel','#ffffff');
+  document.body.style.setProperty('--ui-panel-2','#ffffff');
+  document.body.style.setProperty('--ui-soft','#f7f7f7');
+  document.body.style.setProperty('--ui-line','#d9dde2');
+ }else{
+  document.body.style.setProperty('--ui-text','#f3f5f7');
+  document.body.style.setProperty('--ui-muted','#aeb5bf');
+  document.body.style.setProperty('--ui-panel','#090909');
+  document.body.style.setProperty('--ui-panel-2','#050505');
+  document.body.style.setProperty('--ui-soft','#111111');
+  document.body.style.setProperty('--ui-line','#303030');
+ }
 }
 syncLauncherSurface();
 new MutationObserver(syncLauncherSurface).observe(document.documentElement,{attributes:true,attributeFilter:['data-surface']});
