@@ -6,6 +6,64 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=294"><link rel="stylesheet" href="style-polish.css?v=295"><link rel="stylesheet" href="onboarding-v297.css?v=2125"><link rel="stylesheet" href="raider-spawns-v298.css?v=1307"><link rel="stylesheet" href="weapon-cases-v2130.css?v=1307"><link rel="stylesheet" href="theme-v2110.css?v=2130"><link rel="stylesheet" href="nav-v1301.css?v=1305"><link rel="stylesheet" href="active-goals-v2112.css?v=2112b"><link rel="stylesheet" href="summary-v2113.css?v=1302"><link rel="stylesheet" href="search-groups-v2114.css?v=2114"><link rel="stylesheet" href="quests-v2115.css?v=2115"><link rel="stylesheet" href="maps-v2116.css?v=2145"><link rel="stylesheet" href="status-v2117.css?v=2117"><link rel="stylesheet" href="blueprints-v2130.css?v=2130"><link rel="stylesheet" href="theme-contrast-v2131.css?v=2131"><link rel="stylesheet" href="sticky-list-headers-v2133.css?v=1306"><link rel="stylesheet" href="community-credit-v2134.css?v=2134"><link rel="stylesheet" href="palette-v2139.css?v=2139"><link rel="stylesheet" href="ux-v1300.css?v=1300"><link rel="stylesheet" href="tips-v1300.css?v=1300"><link rel="stylesheet" href="next-raid-v1302.css?v=1303"><link rel="stylesheet" href="live-events-v1305.css?v=1305"><link rel="stylesheet" href="backup-v1304.css?v=1304"><link rel="stylesheet" href="collapsible-core-v1306.css?v=1306">
+<style id="modern-design-prototype">
+/* Design prototype: modern companion. No application logic changes. */
+body.palette-enabled{font-family:system-ui,-apple-system,"Segoe UI",sans-serif!important;background:#101318!important;color:#edf1f7!important;--cream:#edf1f7;--cream-soft:#b6c0cf;--ui-text:#edf1f7;--ui-muted:#a8b3c4;--ui-panel:#191e27;--ui-panel-2:#141922;--ui-soft:#202733;--ui-line:#303947;--orange:#ff814f;--amber:#ffab78}
+body.palette-enabled::before,body.palette-enabled::after{display:none!important}
+body.palette-enabled *{font-family:inherit!important;letter-spacing:normal!important}
+body.palette-enabled main{max-width:760px;padding:22px 18px 48px}
+body.palette-enabled .masthead{background:transparent!important;border:0!important;box-shadow:none!important;clip-path:none!important;padding:0 0 24px!important;align-items:center!important}
+body.palette-enabled .masthead::after{display:none!important}
+body.palette-enabled .masthead-brand{display:flex!important;flex-direction:row!important;align-items:center!important;gap:14px!important}
+body.palette-enabled .official-app-logo{width:80px!important;height:80px!important;max-width:80px!important;margin:0!important;filter:none!important}
+body.palette-enabled h1{font-size:24px!important;line-height:1.12!important}
+body.palette-enabled .eyebrow{font-size:10px!important;color:#a8b3c4!important;margin-bottom:6px}
+body.palette-enabled .headtools{gap:8px}
+body.palette-enabled .lang-switch{border:0!important;border-radius:12px;background:#202733!important;padding:5px!important}
+body.palette-enabled .lang{border-radius:8px;min-height:32px;padding:4px 7px!important}
+body.palette-enabled .version{font-size:10px!important}
+body.palette-enabled .quick-nav{border:0!important;border-radius:16px!important;background:#202733!important;box-shadow:0 8px 24px #0003!important;padding:5px!important;margin-bottom:22px!important;gap:4px!important}
+body.palette-enabled .quick-nav a,body.palette-enabled .nav-more>summary{border:0!important;border-radius:11px!important;min-height:52px!important;font-size:12px!important;background:transparent!important;color:#c6cfdd!important;box-shadow:none!important}
+body.palette-enabled .quick-nav a:hover,body.palette-enabled .nav-more[open]>summary{background:#35333a!important;color:#ffab78!important}
+body.palette-enabled .nav-more-menu{background:#202733!important;border-radius:14px!important;border:1px solid #303947!important;box-shadow:0 12px 40px #0006!important}
+body.palette-enabled main>.panel,body.palette-enabled main>.search-panel,body.palette-enabled main>.flow-guide{border:1px solid #ffffff09!important;border-radius:18px!important;background:#191e27!important;box-shadow:none!important;clip-path:none!important;margin:12px 0!important}
+body.palette-enabled main>details>summary{padding:21px 18px!important;min-height:90px!important;background:transparent!important;border:0!important}
+body.palette-enabled main>details>summary b{font-size:17px!important;font-weight:650!important;line-height:1.3!important;color:#edf1f7!important}
+body.palette-enabled main>details>summary small{font-size:13px!important;line-height:1.5!important;margin-top:6px!important;color:#a8b3c4!important}
+body.palette-enabled main>details>summary>strong{font-size:10px!important;background:#28313e!important;color:#d3dce9!important;border:0!important;border-radius:9px!important;padding:9px!important;clip-path:none!important;box-shadow:none!important}
+body.palette-enabled #nextRaidDrawer{background:linear-gradient(120deg,#382821,#211f24)!important;border:1px solid #ff814f38!important}
+body.palette-enabled #nextRaidDrawer>summary>strong{background:#ff814f!important;color:#20140f!important}
+body.palette-enabled .next-raid-kicker,body.palette-enabled .core-drawer-kicker,body.palette-enabled .live-events-kicker,body.palette-enabled .backup-kicker,body.palette-enabled .tips-kicker,body.palette-enabled .section-kicker,body.palette-enabled .palette-lab-kicker{display:none!important}
+body.palette-enabled .drawer-body,body.palette-enabled .core-drawer-body,body.palette-enabled .next-raid-body,body.palette-enabled .live-events-body,body.palette-enabled .backup-body,body.palette-enabled .tips-body{background:transparent!important;padding:4px 18px 20px!important}
+body.palette-enabled button:not(.spawn-marker):not(.weapon-case-marker){border-radius:10px!important;clip-path:none!important;box-shadow:none!important}
+body.palette-enabled .search-shell{border:1px solid #3a4556!important;border-radius:12px!important;background:#11161f!important;box-shadow:none!important}
+body.palette-enabled input,body.palette-enabled select{font-size:15px!important}
+body.palette-enabled .goalbox,body.palette-enabled .card,body.palette-enabled .quest-card,body.palette-enabled .sumrow{background:#202733!important;border:1px solid #303947!important;border-radius:12px!important;box-shadow:none!important;clip-path:none!important}
+body.palette-enabled .card::after{display:none!important}
+body.palette-enabled .spawn-panel{padding:18px!important}
+body.palette-enabled .spawn-map-picker,body.palette-enabled .map-layer-controls,body.palette-enabled .spawn-map-instructions{border:0!important;border-radius:12px!important;background:#202733!important;padding:12px!important}
+body.palette-enabled .spawn-head h2{font-size:23px!important}
+body.palette-enabled .spawn-map-shell{border-radius:12px!important;border:1px solid #303947!important}
+body.palette-enabled .spawn-expand-map{background:#ff814f!important;color:#20140f!important;border:0!important}
+body.palette-enabled .spawn-map-stage.is-expanded{background:#101318!important}
+body.palette-enabled .inline-info>summary{border:0!important;border-radius:8px;background:#202733!important;color:#b6c0cf!important}
+body.palette-enabled .community-credit{padding:22px!important}
+body.palette-enabled .community-credit h2{font-size:20px!important}
+body.palette-enabled .community-credit p{font-size:14px!important;line-height:1.65!important}
+body.palette-enabled footer{font-size:10px!important;line-height:1.7!important;border-color:#303947!important}
+body.palette-enabled :focus-visible{outline:2px solid #ffab78!important;outline-offset:3px}
+@media(max-width:480px){
+body.palette-enabled main{padding:16px 14px 36px}
+body.palette-enabled .official-app-logo{width:62px!important;height:62px!important;max-width:62px!important}
+body.palette-enabled h1{font-size:19px!important}
+body.palette-enabled .masthead-brand{gap:10px!important}
+body.palette-enabled .eyebrow{font-size:8px!important}
+body.palette-enabled .head-status{display:none!important}
+body.palette-enabled main>details>summary{padding:18px 15px!important}
+body.palette-enabled main>details>summary b{font-size:15px!important}
+body.palette-enabled .quick-nav a,body.palette-enabled .nav-more>summary{font-size:11px!important}
+}
+</style>
 </head><body class="palette-enabled"><main>
 <header class="masthead masthead-with-logo"><div class="masthead-brand"><img class="official-app-logo" src="arc-companion-logo.svg?v=1301" width="512" height="512" alt="ARC Companion – For Raiders. By Raiders."><div class="brand-title"><div class="eyebrow">RAMA // FIELD TOOL</div><h1>ARC <span>COMPANION</span></h1></div></div><div class="headtools"><div class="lang-switch" aria-label="Language"><button id="deBtn" class="lang active" type="button">DE</button><span>/</span><button id="enBtn" class="lang" type="button">EN</button></div><div class="theme-switch" aria-label="Darstellung"><button class="theme-btn active" data-theme-value="dark" type="button" aria-label="Dunkle Darstellung" aria-pressed="true">DARK</button><button class="theme-btn" data-theme-value="light" type="button" aria-label="Helle Darstellung" aria-pressed="false">LIGHT</button></div><div class="head-status"><div id="dataStatus" class="data-status">DATEN // LIVE</div><div class="version" data-app-version>V13.0.0</div></div></div></header>
 
