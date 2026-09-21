@@ -10,8 +10,8 @@
   const REMINDERS_KEY='arcEventReminders';
   const regions=['europe','north-america','brazil','east-asia','oceania'];
   const allowedLeads=[5,10,15,30];
-  const state={events:[],syncedAt:null,source:'',lastBoundary:0,serverOffsetMs:0};
-  const trustedNow=()=>Date.now()+state.serverOffsetMs;
+  const state={events:[],syncedAt:null,source:'',lastBoundary:0,clockOffsetMs:0};
+  const trustedNow=()=>Date.now()+state.clockOffsetMs;
 
   const COPY={
     de:{
@@ -91,9 +91,14 @@
       try{
         const response=await fetch(url,{cache:'no-store'});
         if(!response.ok)throw new Error(`Event feed ${response.status}`);
-        const serverDate=response.headers.get('Date');
-        if(serverDate){const serverMs=Date.parse(serverDate);if(Number.isFinite(serverMs))state.serverOffsetMs=serverMs-Date.now();}
+        const requestStarted=Date.now();
         const payload=await response.json();
+        const requestFinished=Date.now();
+        const syncedMs=Date.parse(payload?.syncedAt||'');
+        if(Number.isFinite(syncedMs)){
+          const midpoint=requestStarted+(requestFinished-requestStarted)/2;
+          state.clockOffsetMs=syncedMs-midpoint;
+        }
         state.source=url;
         return payload;
       }catch(error){lastError=error}
