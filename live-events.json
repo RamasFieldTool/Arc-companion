@@ -2,90 +2,6 @@
   "conditions": [
     {
       "type": "minor",
-      "conditionName": "Beachcombing",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-09-21T05:00:00.000Z",
-          "end": "2026-09-21T06:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-21T12:00:00.000Z",
-          "end": "2026-09-21T13:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-21T11:00:00.000Z",
-          "end": "2026-09-21T12:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-21T00:00:00.000Z",
-          "end": "2026-09-21T01:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-20T20:00:00.000Z",
-          "end": "2026-09-20T21:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/beachcombing.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-09-21T05:00:00.000Z",
-          "end": "2026-09-21T06:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-21T12:00:00.000Z",
-          "end": "2026-09-21T13:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-21T11:00:00.000Z",
-          "end": "2026-09-21T12:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-21T00:00:00.000Z",
-          "end": "2026-09-21T01:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-20T20:00:00.000Z",
-          "end": "2026-09-20T21:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-09-21T05:00:00.000Z",
-          "end": "2026-09-21T06:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-21T12:00:00.000Z",
-          "end": "2026-09-21T13:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-21T11:00:00.000Z",
-          "end": "2026-09-21T12:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-21T00:00:00.000Z",
-          "end": "2026-09-21T01:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-20T20:00:00.000Z",
-          "end": "2026-09-20T21:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
       "conditionName": "Lush Blooms",
       "mapDisplayName": "Buried City",
       "regions": {
@@ -4537,5 +4453,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
     }
   ],
-  "syncedAt": "2026-09-21T12:43:29Z"
+  "syncedAt": "2026-09-21T13:06:46Z"
 }
