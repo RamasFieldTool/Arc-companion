@@ -1,0 +1,8 @@
+{
+  "appId": "com.ramasfieldtool.app",
+  "appName": "Ramas Field Tool",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}
