@@ -1,0 +1,25 @@
+{
+  "appName": "Ramas Field Tool",
+  "applicationId": "com.ramasfieldtool.app",
+  "versionCode": 1,
+  "versionName": "13.0.0-prep",
+  "sourceBranch": "android/build-prep-secure",
+  "liveTesterBranch": "main",
+  "distributionTrack": "internal",
+  "languages": ["de", "en"],
+  "permissionsExpected": ["android.permission.INTERNET"],
+  "ads": false,
+  "analytics": false,
+  "inAppPurchases": false,
+  "userAccounts": false,
+  "supportEmail": null,
+  "privacyPolicyUrl": null,
+  "targetSdkVersion": 36,
+  "minSdkVersion": 24,
+  "capacitorVersion": "8.5.2",
+  "signing": {
+    "keystoreInRepository": false,
+    "configured": false
+  },
+  "status": "debug-build-preparation"
+}
