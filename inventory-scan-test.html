@@ -9,6 +9,7 @@
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Rucksack Scan Test</title>
   <link rel="stylesheet" href="inventory-scan-test.css">
+  <link rel="stylesheet" href="inventory-scan-test-v2.css">
 </head>
 <body>
   <main class="shell">
@@ -16,7 +17,7 @@
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE VERARBEITUNG</div>
         <h1>Rucksack-Scan</h1>
-        <p>Erster Prototyp: Kamera oder Bild wählen, Rucksackraster erkennen und belegte Slots markieren.</p>
+        <p>Test 2: Rucksack beim Fotografieren in den sichtbaren Rahmen bringen. Nur dieser Ausschnitt wird analysiert.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Bild bleibt auf diesem Gerät">🔒 Bild bleibt auf diesem Gerät</div>
     </header>
@@ -32,11 +33,21 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint">Für den Test den kompletten ARC-Inventarbildschirm möglichst gerade ins Bild nehmen. Reflexionen sind erlaubt – wir wollen bewusst reale Bedingungen testen.</p>
+      <p class="hint"><strong>Neu:</strong> Beim Fotografieren siehst du jetzt den Erkennungsrahmen. Geh näher heran oder weiter weg, bis das komplette 4-spaltige Rucksackraster möglichst groß innerhalb des Rahmens liegt.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
-      <video id="video" playsinline muted></video>
+      <div id="cameraView" class="camera-view">
+        <video id="video" playsinline muted></video>
+        <div id="scanGuide" class="scan-guide" aria-hidden="true">
+          <span class="guide-label">RUCKSACK</span>
+          <span class="guide-note">Raster vollständig hier hinein</span>
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <span class="guide-v v1"></span><span class="guide-v v2"></span><span class="guide-v v3"></span>
+        </div>
+      </div>
+      <p class="camera-help">Der Rahmen bleibt absichtlich fest. Die Größe des echten Rucksacks verändert sich beim Näher-/Weitergehen – richte ihn so aus, dass alle Slots innerhalb des Rahmens liegen.</p>
       <div class="camera-actions">
         <button id="capture" class="primary" type="button">Foto aufnehmen</button>
         <button id="closeCamera" class="secondary" type="button">Kamera schließen</button>
@@ -52,6 +63,7 @@
         <button id="clearImage" class="ghost" type="button">Bild verwerfen</button>
       </div>
 
+      <p id="cropNote" class="crop-note" hidden>Hier siehst du exakt den Bildausschnitt, den der Scanner analysiert hat.</p>
       <div class="stage-wrap">
         <canvas id="displayCanvas" aria-label="Lokale Bildanalyse"></canvas>
       </div>
@@ -72,12 +84,12 @@
     </section>
 
     <section class="scope-card">
-      <strong>Was dieser erste Test bewusst noch nicht macht</strong>
-      <p>Keine Item-Namen, keine Mengen und keine Warenlisten-Buchung. Zuerst prüfen wir, ob unterschiedliche Augments und echte Handyfotos zuverlässig als Rucksackraster erkannt werden.</p>
+      <strong>Was dieser Test bewusst noch nicht macht</strong>
+      <p>Keine Item-Namen, keine Mengen und keine Warenlisten-Buchung. Zuerst muss die Kamera bei unterschiedlichen Augments zuverlässig Rucksackgröße und Slots finden.</p>
     </section>
   </main>
 
   <canvas id="workCanvas" hidden></canvas>
-  <script src="inventory-scan-test.js" defer></script>
+  <script src="inventory-scan-test-v2.js" defer></script>
 </body>
 </html>
