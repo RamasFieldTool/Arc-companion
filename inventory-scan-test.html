@@ -7,17 +7,17 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; script-src 'self'; style-src 'self'; connect-src 'none'; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
-  <title>Ramas Field Tool – Rucksack Scan Test</title>
+  <title>Ramas Field Tool – Inventar Scan Test</title>
   <link rel="stylesheet" href="inventory-scan-test.css">
-  <link rel="stylesheet" href="inventory-scan-test-v2.css">
+  <link rel="stylesheet" href="inventory-scan-test-v3.css?v=3">
 </head>
 <body>
   <main class="shell">
     <header class="hero">
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE VERARBEITUNG</div>
-        <h1>Rucksack-Scan</h1>
-        <p>Test 2: Rucksack beim Fotografieren in den sichtbaren Rahmen bringen. Nur dieser Ausschnitt wird analysiert.</p>
+        <h1>Inventar-Scan</h1>
+        <p>Test 3: Rucksack, Schnelleinsatz und Sicherheitstasche gemeinsam erfassen.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Bild bleibt auf diesem Gerät">🔒 Bild bleibt auf diesem Gerät</div>
     </header>
@@ -33,21 +33,23 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Neu:</strong> Beim Fotografieren siehst du jetzt den Erkennungsrahmen. Geh näher heran oder weiter weg, bis das komplette 4-spaltige Rucksackraster möglichst groß innerhalb des Rahmens liegt.</p>
+      <p class="hint"><strong>Neu:</strong> Der Rahmen ist deutlich breiter und kürzer. Im grünen Bereich liegt der Rucksack, rechts oben der Schnelleinsatz und rechts unten die Sicherheitstasche.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
       <div id="cameraView" class="camera-view">
         <video id="video" playsinline muted></video>
         <div id="scanGuide" class="scan-guide" aria-hidden="true">
-          <span class="guide-label">RUCKSACK</span>
-          <span class="guide-note">Raster vollständig hier hinein</span>
+          <span class="guide-label">INVENTAR</span>
+          <span class="guide-note">Rucksack + rechte Bereiche</span>
+          <div class="guide-zone backpack"><span>RUCKSACK</span></div>
+          <div class="guide-zone quick"><span>SCHNELLEINSATZ</span></div>
+          <div class="guide-zone safe"><span>SICHERHEITSTASCHE</span></div>
           <span class="corner tl"></span><span class="corner tr"></span>
           <span class="corner bl"></span><span class="corner br"></span>
-          <span class="guide-v v1"></span><span class="guide-v v2"></span><span class="guide-v v3"></span>
         </div>
       </div>
-      <p class="camera-help">Der Rahmen bleibt absichtlich fest. Die Größe des echten Rucksacks verändert sich beim Näher-/Weitergehen – richte ihn so aus, dass alle Slots innerhalb des Rahmens liegen.</p>
+      <p class="camera-help">Nicht den ganzen Spielbildschirm in den Rahmen quetschen. Wichtig sind nur die drei markierten Bereiche. Die Ausrüstung/Waffen links dürfen außerhalb liegen.</p>
       <div class="camera-actions">
         <button id="capture" class="primary" type="button">Foto aufnehmen</button>
         <button id="closeCamera" class="secondary" type="button">Kamera schließen</button>
@@ -63,21 +65,26 @@
         <button id="clearImage" class="ghost" type="button">Bild verwerfen</button>
       </div>
 
-      <p id="cropNote" class="crop-note" hidden>Hier siehst du exakt den Bildausschnitt, den der Scanner analysiert hat.</p>
+      <p id="cropNote" class="crop-note" hidden>Hier siehst du exakt den Bildausschnitt, den der Scanner lokal analysiert hat.</p>
       <div class="stage-wrap">
         <canvas id="displayCanvas" aria-label="Lokale Bildanalyse"></canvas>
       </div>
 
-      <div id="metrics" class="metrics" hidden>
-        <div class="metric"><span>Rucksackplätze</span><strong id="slotCount">–</strong></div>
-        <div class="metric"><span>davon belegt</span><strong id="occupiedCount">–</strong></div>
-        <div class="metric"><span>Raster</span><strong id="gridSize">–</strong></div>
+      <div id="metrics" class="section-metrics" hidden>
+        <div class="metric"><span>Rucksackplätze</span><strong id="backpackSlots">–</strong></div>
+        <div class="metric"><span>Rucksack belegt</span><strong id="backpackOccupied">–</strong></div>
+        <div class="metric"><span>Schnelleinsatz Plätze</span><strong id="quickSlots">–</strong></div>
+        <div class="metric"><span>Schnelleinsatz belegt</span><strong id="quickOccupied">–</strong></div>
+        <div class="metric"><span>Sicherheitstasche Plätze</span><strong id="safeSlots">–</strong></div>
+        <div class="metric"><span>Sicherheitstasche belegt</span><strong id="safeOccupied">–</strong></div>
+        <div class="metric"><span>Gesamt belegt</span><strong id="totalOccupied">–</strong></div>
         <div class="metric"><span>Bildprüfung</span><strong id="qualityState">–</strong></div>
       </div>
 
       <div class="legend">
-        <span><i class="box occupied"></i> vermutlich belegt</span>
-        <span><i class="box empty"></i> vermutlich leer</span>
+        <span><i class="box occupied"></i> Rucksack</span>
+        <span><i class="box quick-mark"></i> Schnelleinsatz</span>
+        <span><i class="box safe-mark"></i> Sicherheitstasche</span>
       </div>
 
       <div id="status" class="status" role="status" aria-live="polite"></div>
@@ -85,11 +92,11 @@
 
     <section class="scope-card">
       <strong>Was dieser Test bewusst noch nicht macht</strong>
-      <p>Keine Item-Namen, keine Mengen und keine Warenlisten-Buchung. Zuerst muss die Kamera bei unterschiedlichen Augments zuverlässig Rucksackgröße und Slots finden.</p>
+      <p>Keine Item-Namen, keine Mengen und noch keine Warenlisten-Buchung. Augment-Plätze werden nicht mitgezählt. Zuerst prüfen wir, ob alle für die Beute relevanten Inventarbereiche zuverlässig erfasst werden.</p>
     </section>
   </main>
 
   <canvas id="workCanvas" hidden></canvas>
-  <script src="inventory-scan-test-v2.js" defer></script>
+  <script src="inventory-scan-test-v3.js?v=3" defer></script>
 </body>
 </html>
