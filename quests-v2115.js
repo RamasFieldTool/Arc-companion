@@ -7,35 +7,37 @@ const QUEST_UX={
 function qx(k){return QUEST_UX[lang]?.[k]||QUEST_UX.de[k]||k}
 
 function questCardV2115(x){
-  const st=getQuestState(x.id);
+  const rawState=getQuestState(x.id);
+  const st=['open','active','done'].includes(rawState)?rawState:'open';
   const objectives=(x.objectives||[]).map(o=>text(o)).filter(Boolean);
   const required=questItemsText(x.requiredItemIds);
   const rewards=questItemsText(x.rewardItemIds);
   const granted=questItemsText(x.grantedItemIds);
   const reqCount=(x.requiredItemIds||[]).reduce((sum,r)=>sum+(Number(r.quantity)||0),0);
+  const questId=escapeHtml(String(x.id??''));
   return `<article class="quest-card quest-${st}">
     <div class="quest-card-head">
       <div class="quest-title-block">
-        <div class="quest-title-row"><h3>${questName(x)}</h3><span class="quest-status-chip">${tr(st)}</span></div>
-        ${x.trader?`<div class="quest-trader">${tr('trader')}: ${x.trader}</div>`:''}
+        <div class="quest-title-row"><h3>${escapeHtml(questName(x))}</h3><span class="quest-status-chip">${escapeHtml(tr(st))}</span></div>
+        ${x.trader?`<div class="quest-trader">${escapeHtml(tr('trader'))}: ${escapeHtml(x.trader)}</div>`:''}
         <div class="quest-material-line ${required?'has-required':''}">
-          <b>${qx('requiredShort')}</b><span>${required||qx('noMaterial')}</span>
-          ${st==='active'&&required?`<small>${qx('affectsNeed')}</small>`:''}
+          <b>${escapeHtml(qx('requiredShort'))}</b><span>${escapeHtml(required||qx('noMaterial'))}</span>
+          ${st==='active'&&required?`<small>${escapeHtml(qx('affectsNeed'))}</small>`:''}
         </div>
       </div>
       <div class="quest-state" role="group" aria-label="Quest status">
-        <button type="button" data-qid="${x.id}" data-state="open" class="${st==='open'?'selected':''}">${tr('open')}</button>
-        <button type="button" data-qid="${x.id}" data-state="active" class="${st==='active'?'selected':''}">${tr('active')}</button>
-        <button type="button" data-qid="${x.id}" data-state="done" class="${st==='done'?'selected':''}">${tr('done')}</button>
+        <button type="button" data-qid="${questId}" data-state="open" class="${st==='open'?'selected':''}">${escapeHtml(tr('open'))}</button>
+        <button type="button" data-qid="${questId}" data-state="active" class="${st==='active'?'selected':''}">${escapeHtml(tr('active'))}</button>
+        <button type="button" data-qid="${questId}" data-state="done" class="${st==='done'?'selected':''}">${escapeHtml(tr('done'))}</button>
       </div>
     </div>
     <details class="quest-details">
-      <summary><span>${qx('details')}</span><small>${objectives.length} ${tr('objectives').toLowerCase()}${reqCount?` · ${reqCount} ${qx('requiredShort').toLowerCase()}`:''}</small></summary>
+      <summary><span>${escapeHtml(qx('details'))}</span><small>${objectives.length} ${escapeHtml(tr('objectives').toLowerCase())}${reqCount?` · ${reqCount} ${escapeHtml(qx('requiredShort').toLowerCase())}`:''}</small></summary>
       <div class="quest-details-body">
-        ${objectives.length?`<div class="quest-section"><b>${tr('objectives')}</b><ul>${objectives.map(o=>`<li>${o}</li>`).join('')}</ul></div>`:''}
+        ${objectives.length?`<div class="quest-section"><b>${escapeHtml(tr('objectives'))}</b><ul>${objectives.map(o=>`<li>${escapeHtml(o)}</li>`).join('')}</ul></div>`:''}
         <div class="quest-grid">
-          ${granted?`<div class="quest-mini"><b>${tr('granted')}</b><span>${granted}</span></div>`:''}
-          <div class="quest-mini"><b>${tr('rewards')}</b><span>${rewards||tr('noRewards')}</span></div>
+          ${granted?`<div class="quest-mini"><b>${escapeHtml(tr('granted'))}</b><span>${escapeHtml(granted)}</span></div>`:''}
+          <div class="quest-mini"><b>${escapeHtml(tr('rewards'))}</b><span>${escapeHtml(rewards||tr('noRewards'))}</span></div>
         </div>
       </div>
     </details>
