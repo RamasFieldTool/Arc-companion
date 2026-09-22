@@ -1,0 +1,75 @@
+name: Android debug build
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-debug-apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Use Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Use JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android 16 SDK
+        run: sdkmanager "platforms;android-36" "build-tools;36.0.0"
+
+      - name: Install pinned Capacitor dependencies
+        run: npm install --no-fund --no-audit
+
+      - name: Prepare reviewed web snapshot
+        run: npm run android:web
+
+      - name: Generate Android project
+        run: npx cap add android
+
+      - name: Sync web assets
+        run: npx cap sync android
+
+      - name: Apply Android security hardening
+        run: npm run android:harden
+
+      - name: Record dependency tree
+        run: |
+          cd android
+          ./gradlew app:dependencies > ../android-dependencies.txt
+
+      - name: Android lint
+        run: |
+          cd android
+          ./gradlew lintDebug
+
+      - name: Build debug APK
+        run: |
+          cd android
+          ./gradlew assembleDebug
+
+      - name: Upload debug APK and review files
+        uses: actions/upload-artifact@v4
+        with:
+          name: ramas-field-tool-android-debug
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            android/app/build/outputs/apk/debug/app-debug.apk
+            android/app/src/main/AndroidManifest.xml
+            android/app/src/main/res/xml/network_security_config.xml
+            android-dependencies.txt
