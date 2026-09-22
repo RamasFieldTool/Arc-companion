@@ -4367,7 +4367,119 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/close-scrutiny.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-09-23T15:00:00.000Z",
+          "end": "2026-09-23T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-23T22:00:00.000Z",
+          "end": "2026-09-23T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-23T21:00:00.000Z",
+          "end": "2026-09-23T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-23T10:00:00.000Z",
+          "end": "2026-09-23T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-23T06:00:00.000Z",
+          "end": "2026-09-23T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-09-23T15:00:00.000Z",
+          "end": "2026-09-23T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-23T22:00:00.000Z",
+          "end": "2026-09-23T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-23T21:00:00.000Z",
+          "end": "2026-09-23T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-23T10:00:00.000Z",
+          "end": "2026-09-23T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-23T06:00:00.000Z",
+          "end": "2026-09-23T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Locked Gate",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-23T15:00:00.000Z",
+          "end": "2026-09-23T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-23T22:00:00.000Z",
+          "end": "2026-09-23T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-23T21:00:00.000Z",
+          "end": "2026-09-23T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-23T10:00:00.000Z",
+          "end": "2026-09-23T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-23T06:00:00.000Z",
+          "end": "2026-09-23T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/locked-gate.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-09-23T15:00:00.000Z",
+          "end": "2026-09-23T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-23T22:00:00.000Z",
+          "end": "2026-09-23T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-23T21:00:00.000Z",
+          "end": "2026-09-23T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-23T10:00:00.000Z",
+          "end": "2026-09-23T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-23T06:00:00.000Z",
+          "end": "2026-09-23T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-09-22T05:06:42Z"
+  "syncedAt": "2026-09-22T05:37:41Z"
 }
