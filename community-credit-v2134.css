@@ -56,3 +56,45 @@
   outline:2px solid var(--amber);
   outline-offset:2px;
 }
+
+
+.first-testers{
+  margin-top:18px;
+  padding-top:16px;
+  border-top:1px solid var(--ui-line);
+}
+.first-testers-label{
+  margin-bottom:10px;
+  color:var(--amber);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.11em;
+}
+.first-testers-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.first-tester-card{
+  min-width:0;
+  padding:13px 14px;
+  border:1px solid var(--ui-line);
+  border-radius:12px;
+  background:var(--ui-soft);
+}
+.first-tester-card strong{
+  display:block;
+  margin-bottom:5px;
+  color:var(--ui-text);
+  font-size:15px;
+  line-height:1.2;
+}
+.first-tester-card span{
+  display:block;
+  color:var(--ui-muted);
+  font-size:12px;
+  line-height:1.45;
+}
+@media(max-width:560px){
+  .first-testers-grid{grid-template-columns:1fr}
+}
