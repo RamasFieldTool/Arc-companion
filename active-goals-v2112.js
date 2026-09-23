@@ -1,4 +1,4 @@
-// V2.12.1 – active-goal UI without obsolete summary/language wrappers
+// V2.12.2 – active-goal UI without obsolete summary/language wrappers
 (()=>{
   T.de.goalNoneActive='Keine aktiven Ziele';
   T.en.goalNoneActive='No active goals';
@@ -8,6 +8,8 @@
   T.en.goalManyActive=n=>`${n} goals active`;
   T.de.additionalCost='Zusätzliche Kosten';
   T.en.additionalCost='Additional cost';
+  T.de.goalClose='Ziele schließen';
+  T.en.goalClose='Close goals';
 
   const baseGoalName=goalName;
   goalName=function(g){
@@ -72,6 +74,33 @@
     drawSummary();
     drawItems();
   };
+
+  // A floating close control stays reachable even after scrolling through long goal lists.
+  const goalsSection=document.getElementById('goalsSection');
+  if(goalsSection&&!goalsSection.querySelector('.goal-floating-close')){
+    const close=document.createElement('button');
+    close.type='button';
+    close.className='goal-floating-close';
+    close.textContent='×';
+    const updateCloseLabel=()=>{
+      const label=T[lang]?.goalClose||'Close goals';
+      close.setAttribute('aria-label',label);
+      close.title=label;
+    };
+    close.addEventListener('click',()=>{
+      const appBack=document.getElementById('appBack');
+      if(appBack&&document.body.classList.contains('view-open')){
+        appBack.click();
+        return;
+      }
+      if('open' in goalsSection)goalsSection.open=false;
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+    document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(updateCloseLabel,0));
+    document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(updateCloseLabel,0));
+    updateCloseLabel();
+    goalsSection.append(close);
+  }
 
   // drawGoals is already called by applyLanguage(), so the active-count label
   // stays synchronized without an additional MutationObserver.
