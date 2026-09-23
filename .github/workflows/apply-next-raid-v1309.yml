@@ -1,0 +1,112 @@
+name: Apply next raid v1309 test patch
+
+on:
+  push:
+    branches:
+      - test/inventory-camera-scan
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: test/inventory-camera-scan
+      - name: Apply tested post-raid hardening
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p=Path('next-raid-v1302.js')
+          s=p.read_text()
+          s=s.replace('// V13.0.8 test — next-raid checklist + post-raid findings workflow.','// V13.0.9 test — next-raid checklist + post-raid findings workflow.',1)
+          s=s.replace("stylesheet.href='next-raid-post-v1308.css?v=1308';","stylesheet.href='next-raid-post-v1308.css?v=1309';",1)
+          s=s.replace("storageError:'Speichern auf diesem Gerät ist fehlgeschlagen.',surplus:'Überschuss wird als vorhandener Bestand behalten.'","storageError:'Speichern auf diesem Gerät ist fehlgeschlagen.',raidStorageError:'Funde wurden gespeichert, aber die Raid-Liste konnte nicht aktualisiert werden.',surplus:'Überschuss wird als vorhandener Bestand behalten.'",1)
+          s=s.replace("storageError:'Saving on this device failed.',surplus:'Any surplus is kept as owned stock.'","storageError:'Saving on this device failed.',raidStorageError:'Findings were saved, but the raid checklist could not be updated.',surplus:'Any surplus is kept as owned stock.'",1)
+          s=s.replace("raid[id]={target:Math.max(1,toCount(entry.target,1)),done:!!entry.done};","const done=!!entry.done;\n        raid[id]={target:done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)),done};",1)
+          s=s.replace("if(postRaidButton)postRaidButton.hidden=!all.length;","if(postRaidButton)postRaidButton.hidden=!(all.length||missingRequirementRows().length);",1)
+          s=s.replace("list.innerHTML=`<div class=\"next-raid-empty\">${escapeHtml(c.empty)}</div>`;\n      closePostRaid();","list.innerHTML=`<div class=\"next-raid-empty\">${escapeHtml(c.empty)}</div>`;\n      if(!missingRequirementRows().length)closePostRaid();",1)
+          s=s.replace("const target=Math.max(1,toCount(entry.target,1));","const target=entry.done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1));",1)
+          s=s.replace("<input type=\"number\" min=\"1\" max=\"${MAX_COUNT}\" step=\"1\" inputmode=\"numeric\" value=\"${target}\" data-raid-action=\"target\"","<input type=\"number\" min=\"${entry.done?'0':'1'}\" max=\"${MAX_COUNT}\" step=\"1\" inputmode=\"numeric\" value=\"${target}\" data-raid-action=\"target\"",1)
+          s=s.replace("cancelPostButton.textContent=c.cancelFinds;","cancelPostButton.textContent=c.cancelFinds;\n    cancelPostTopButton.setAttribute('aria-label',c.cancelFinds);",1)
+
+          start=s.index('  function syncRaidToCurrentNeeds(){')
+          end=s.index('  function applyFindings(){',start)
+          replacement="""  function syncRaidAfterFindings(updates){
+            const req=currentRequirements();
+            updates.forEach(({id,count})=>{
+              if(!hasOwn(raid,id)||!req[id])return;
+              const entry=raid[id];
+              const remaining=Math.max(0,toCount(req[id].total,0)-currentOwned(id));
+              if(remaining===0){entry.target=0;entry.done=true;return}
+              if(entry.done)return;
+              const before=Math.max(1,toCount(entry.target,1));
+              entry.target=Math.min(Math.max(0,before-toCount(count,0)),remaining);
+              entry.done=entry.target===0;
+            });
+          }
+
+"""
+          s=s[:start]+replacement+s[end:]
+
+          start=s.index('  function applyFindings(){')
+          end=s.index('  function changeFound(',start)
+          replacement="""  function applyFindings(){
+            const c=copy();
+            const inputs=[...postRaidList.querySelectorAll('[data-found-input]')];
+            const beforeRows=new Map(missingRequirementRows().map(row=>[row.id,row]));
+            const updates=inputs.map(input=>({id:input.dataset.id,count:toCount(input.value,0)})).filter(update=>update.count>0);
+            if(!updates.length){setPostStatus(c.noAmounts,'warn');return}
+            const hasSurplus=updates.some(({id,count})=>count>(beforeRows.get(id)?.missing||0));
+            try{
+              if(typeof owned!=='undefined'&&owned&&typeof owned==='object'){
+                const next=Object.assign(Object.create(null),owned);
+                updates.forEach(({id,count})=>{next[id]=toCount(currentOwned(id)+count,0)});
+                localStorage.setItem('arcOwned',JSON.stringify(next));
+                updates.forEach(({id})=>{owned[id]=next[id]});
+                if(typeof drawSummary==='function')drawSummary();
+                if(typeof drawItems==='function')drawItems();
+              }else if(typeof saveOwned==='function'){
+                updates.forEach(({id,count})=>saveOwned(id,currentOwned(id)+count));
+              }else{
+                const stored=JSON.parse(localStorage.getItem('arcOwned')||'{}');
+                const next=stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};
+                updates.forEach(({id,count})=>{next[id]=toCount(toCount(next[id],0)+count,0)});
+                localStorage.setItem('arcOwned',JSON.stringify(next));
+              }
+            }catch{setPostStatus(c.storageError,'error');return}
+            syncRaidAfterFindings(updates);
+            const raidSaved=save();
+            render();
+            renderPostRaid(true);
+            if(!raidSaved){setPostStatus(c.raidStorageError,'error');return}
+            const message=updates.length===1?c.appliedOne:`${updates.length} ${c.appliedMany}`;
+            setPostStatus(`${message}${hasSurplus?` ${c.surplus}`:''}`,'success');
+          }
+
+"""
+          s=s[:start]+replacement+s[end:]
+
+          s=s.replace("if(control.dataset.raidAction==='done')raid[control.dataset.id].done=control.checked;\n    if(control.dataset.raidAction==='target'){\n      const target=Math.max(1,toCount(control.value,1));\n      raid[control.dataset.id].target=target;control.value=String(target);\n    }","if(control.dataset.raidAction==='done'){\n      raid[control.dataset.id].done=control.checked;\n      if(!control.checked)raid[control.dataset.id].target=Math.max(1,toCount(raid[control.dataset.id].target,1));\n    }\n    if(control.dataset.raidAction==='target'){\n      const target=Math.max(control.closest('.next-raid-item')?.classList.contains('is-done')?0:1,toCount(control.value,1));\n      raid[control.dataset.id].target=target;control.value=String(target);\n    }",1)
+          s=s.replace("postRaidList.querySelectorAll('[data-found-input]').forEach(input=>{input.value='0'});\n    closePostRaid();","setPostStatus(copy().nothingSaved,'success');\n    postRaidList.querySelectorAll('[data-found-input]').forEach(input=>{input.value='0'});\n    setTimeout(closePostRaid,250);",1)
+          p.write_text(s)
+
+          b=Path('backup-v1304.js')
+          x=b.read_text()
+          old="arcNextRaid:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['target','done'].includes(key))&&finiteNumber(entry.target)&&entry.target>=1&&typeof entry.done==='boolean')},"
+          new="arcNextRaid:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['target','done'].includes(key))&&typeof entry.done==='boolean'&&finiteNumber(entry.target)&&(entry.done?entry.target>=0:entry.target>=1))},"
+          if old not in x: raise SystemExit('backup rule anchor missing')
+          b.write_text(x.replace(old,new,1))
+          PY
+          rm .github/workflows/apply-next-raid-v1309.yml
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add next-raid-v1302.js backup-v1304.js .github/workflows/apply-next-raid-v1309.yml
+          git commit -m "test: harden post-raid findings workflow"
+          git push origin HEAD:test/inventory-camera-scan
