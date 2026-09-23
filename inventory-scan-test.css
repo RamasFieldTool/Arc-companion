@@ -51,6 +51,8 @@ button,.button{display:inline-flex;align-items:center;justify-content:center;bor
 .status.error{color:#ffb4a9}
 .status.good{color:#a6e8c4}
 .scope-card{font-size:13px}
+#itemRecognitionState{color:var(--muted);line-height:1.5;margin:10px 0}
+#itemRecognitionOutput{white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0 0;padding:12px;border:1px solid var(--line);border-radius:11px;background:#0b1016;color:#dce7f2;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
 [hidden]{display:none!important}
 @media(max-width:650px){
   .hero{display:block}
