@@ -8,7 +8,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://raw.githubusercontent.com; script-src 'self'; style-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Inventar Scan Test</title>
-  <link rel="stylesheet" href="inventory-scan-test.css?v=9">
+  <link rel="stylesheet" href="inventory-scan-test.css?v=10">
   <link rel="stylesheet" href="inventory-scan-test-v3.css?v=8">
 </head>
 <body>
@@ -17,14 +17,14 @@
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE BILDVERARBEITUNG</div>
         <h1>Inventar-Scan</h1>
-        <p>Test 9: Belegte Inventarplätze werden jetzt experimentell mit ARC-Raiders-Referenz-Itembildern verglichen. Pro Slot werden die drei ähnlichsten Kandidaten ausgegeben.</p>
+        <p>Test 10: Belegte Inventarplätze werden experimentell mit ARC-Raiders-Referenz-Itembildern verglichen und die erkannten Itemnamen direkt angezeigt.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Inventarbild bleibt auf diesem Gerät">🔒 Inventarbild bleibt auf diesem Gerät</div>
     </header>
 
     <section class="privacy-card">
       <strong>Datenschutz im Test</strong>
-      <p>Das Inventarbild wird ausschließlich im Browser verarbeitet. Es wird nicht hochgeladen, nicht in Supabase gespeichert und nicht in Local Storage oder IndexedDB abgelegt. Für Test 9 lädt die Seite nur öffentliche Referenz-Icons aus dem ARC-Raiders-Datenbestand auf GitHub; das Inventarbild selbst wird dabei nie übertragen.</p>
+      <p>Das Inventarbild wird ausschließlich im Browser verarbeitet. Es wird nicht hochgeladen, nicht in Supabase gespeichert und nicht in Local Storage oder IndexedDB abgelegt. Für die Item-Erkennung lädt die Seite nur öffentliche Referenz-Icons aus dem ARC-Raiders-Datenbestand auf GitHub; das Inventarbild selbst wird nie übertragen.</p>
     </section>
 
     <section class="controls-card">
@@ -33,7 +33,7 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Test 9:</strong> Zuerst läuft die bisherige Belegt-Erkennung. Danach werden nur die belegten Rucksack-, Schnelleinsatz- und Sicherheitstaschen-Slots mit den Referenz-Icons verglichen. Die Top-3-Werte sind zunächst Diagnosewerte.</p>
+      <p class="hint"><strong>Test 10:</strong> Nach dem normalen Scan erscheint unter dem Ergebnis ein eigener Block „Item-Erkennung“ mit dem aktuell wahrscheinlichsten Itemnamen je belegtem Slot.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
@@ -87,14 +87,32 @@
       <div id="status" class="status" role="status" aria-live="polite"></div>
     </section>
 
+    <section id="itemRecognitionTest" class="scope-card item-recognition-card">
+      <div class="item-recognition-head">
+        <div>
+          <div class="kicker">TEST 10</div>
+          <strong>Item-Erkennung</strong>
+        </div>
+        <button id="itemRecognitionRetry" class="secondary" type="button">Erkennung erneut starten</button>
+      </div>
+      <p id="itemRecognitionState">Noch kein Scan. Nach dem nächsten erfolgreichen Inventar-Scan startet die Item-Erkennung automatisch.</p>
+      <div id="itemRecognitionNames" class="item-recognition-names"></div>
+      <details>
+        <summary>Diagnose anzeigen</summary>
+        <pre id="itemRecognitionOutput" aria-label="Test-10-Diagnose">[camera test v9]
+status: waiting for scan</pre>
+      </details>
+    </section>
+
     <section class="scope-card">
       <strong>Was dieser Test bewusst noch nicht macht</strong>
-      <p>Die Item-Namen sind in Test 9 noch experimentelle Ähnlichkeitstreffer. Mengen werden noch nicht gelesen und es erfolgt keine automatische Warenlisten- oder Inventarbuchung. Augment-Plätze werden weiterhin nicht mitgezählt.</p>
+      <p>Die Item-Namen sind noch experimentelle Ähnlichkeitstreffer. Mengen werden noch nicht gelesen und es erfolgt keine automatische Warenlisten- oder Inventarbuchung. Augment-Plätze werden weiterhin nicht mitgezählt.</p>
     </section>
   </main>
   <canvas id="workCanvas" hidden></canvas>
   <script src="inventory-scan-test-v5.js?v=8" defer></script>
   <script src="inventory-scan-test-v6-patch.js?v=8" defer></script>
   <script src="inventory-scan-test-v9-patch.js?v=1" defer></script>
+  <script src="inventory-scan-test-v10-ui.js?v=1" defer></script>
 </body>
 </html>
