@@ -45,15 +45,10 @@ function relabelV14Messages() {
 }
 
 setControls(false);
-if (stateEl) stateEl.textContent = "Test 15: vollständige TensorFlow-Laufzeit wird geladen …";
-if (outputEl) outputEl.textContent = "[camera test v15]\nstatus: loading TensorFlow runtime";
+if (stateEl) stateEl.textContent = "Test 15: Low-Memory-ML-Laufzeit wird geladen …";
+if (outputEl) outputEl.textContent = "[camera test v15]\nstatus: loading low-memory TensorFlow runtime";
 
 try {
-  // Use one known-good TensorFlow namespace for the whole test. Test 14 mixed
-  // browser globals from different bundles, which is why core functions were
-  // missing on this Android browser.
-  window.tf = tfModule;
-
   if (typeof tfModule.ready !== "function" ||
       typeof tfModule.getBackend !== "function" ||
       typeof tfModule.loadGraphModel !== "function" ||
@@ -61,48 +56,38 @@ try {
     throw new Error("TensorFlow-ESM ist unvollständig");
   }
 
-  try {
-    await tfModule.setBackend("webgl");
-  } catch (_) {
-    try { await tfModule.setBackend("cpu"); } catch (_) {}
-  }
+  // The previous build initialized WebGL and immediately warmed the full
+  // MobileNet graph. On the tested Android browser that can kill the renderer
+  // process before JavaScript can report an exception. Keep this feasibility
+  // test deliberately conservative: CPU only, no warm-up, no eager inference.
+  await tfModule.setBackend("cpu");
   await tfModule.ready();
-
   const backend = tfModule.getBackend();
-  if (stateEl) stateEl.textContent = `TensorFlow bereit (${backend}). Direktes MobileNet-Modell wird geladen …`;
-  if (outputEl) outputEl.textContent = `[camera test v15]\nruntime: tfjs ${tfModule.version?.tfjs || "unknown"}\nbackend: ${backend}\nmodel-source: storage.googleapis.com\nstatus: loading direct graph model`;
 
-  // The previous MobileNet helper loads from TFHub. TFHub now redirects model
-  // traffic and the browser returned "Failed to fetch". Test 15 bypasses that
-  // path entirely and loads TensorFlow's public graph model directly from
-  // storage.googleapis.com.
+  // v14's scanner asks for WebGL during loadModel(). Give it a compatibility
+  // facade that keeps the already selected CPU backend instead of switching.
+  const tfFacade = Object.create(null);
+  for (const key of Object.keys(tfModule)) tfFacade[key] = tfModule[key];
+  tfFacade.setBackend = async (name) => {
+    if (name === "webgl") return true;
+    return tfModule.setBackend(name);
+  };
+  tfFacade.getBackend = () => tfModule.getBackend();
+  window.tf = tfFacade;
+
+  if (stateEl) stateEl.textContent = `TensorFlow bereit (${backend}). Modell wird speicherschonend geladen …`;
+  if (outputEl) outputEl.textContent = `[camera test v15]\nruntime: tfjs ${tfModule.version?.tfjs || "unknown"}\nbackend: ${backend}\nmode: low-memory / no warm-up\nstatus: loading direct graph model`;
+
   const probe = await fetch(MODEL_URL, { method: "GET", cache: "force-cache", mode: "cors" });
   if (!probe.ok) throw new Error(`MobileNet model.json HTTP ${probe.status}`);
 
-  const graphModel = await tfModule.loadGraphModel(MODEL_URL, { requestInit: { cache: "force-cache", mode: "cors" } });
+  const graphModel = await tfModule.loadGraphModel(MODEL_URL, {
+    requestInit: { cache: "force-cache", mode: "cors" }
+  });
 
-  let useEmbeddingNode = false;
-  const warmInput = tfModule.zeros([1, 224, 224, 3]);
-  try {
-    let warm = firstTensor(graphModel.execute(warmInput, EMBEDDING_NODE));
-    if (warm && typeof warm.data === "function") {
-      await warm.data();
-      warm.dispose?.();
-      useEmbeddingNode = true;
-    }
-  } catch (_) {
-    let warm = firstTensor(graphModel.predict(warmInput));
-    if (warm && typeof warm.data === "function") {
-      await warm.data();
-      warm.dispose?.();
-    }
-  } finally {
-    warmInput.dispose();
-  }
-
-  // Present the direct graph model through the tiny API expected by the
-  // existing scan engine. infer() stays synchronous and returns a Tensor, just
-  // like @tensorflow-models/mobilenet.
+  // Do not execute the graph here. The old eager warm-up was the point at
+  // which the browser tab died. The first real inference happens only after a
+  // scan, and every temporary tensor is contained in tf.tidy().
   window.mobilenet = {
     load: async () => ({
       infer(image, embedding = true) {
@@ -112,7 +97,7 @@ try {
             .div(255)
             .expandDims(0);
           let result;
-          if (embedding && useEmbeddingNode) {
+          if (embedding) {
             try {
               result = graphModel.execute(input, EMBEDDING_NODE);
             } catch (_) {
@@ -131,19 +116,17 @@ try {
     })
   };
 
-  // Reuse the tested slot/ARC comparison pipeline, but without the failing
-  // MobileNet network loader. The wrapper above already owns the model.
-  await loadClassicScript("inventory-scan-test-v14.js?v=15-direct-model-2");
+  await loadClassicScript("inventory-scan-test-v14.js?v=15-low-memory-1");
 
   const relabelObserver = new MutationObserver(relabelV14Messages);
   if (stateEl) relabelObserver.observe(stateEl, { childList: true, characterData: true, subtree: true });
   if (outputEl) relabelObserver.observe(outputEl, { childList: true, characterData: true, subtree: true });
 
   setControls(true);
-  if (stateEl) stateEl.textContent = "ML-Laufzeit und direktes MobileNet-Modell bereit. Jetzt Inventar scannen.";
-  if (outputEl) outputEl.textContent = `[camera test v15]\nruntime: tfjs ${tfModule.version?.tfjs || "unknown"}\nbackend: ${backend}\nloadGraphModel: OK\nmodel: direct storage model OK\nfeature-output: ${useEmbeddingNode ? "AvgPool embedding" : "classification vector fallback"}\nstatus: ready for scan`;
+  if (stateEl) stateEl.textContent = "Low-Memory-ML bereit. Jetzt Inventar scannen.";
+  if (outputEl) outputEl.textContent = `[camera test v15]\nruntime: tfjs ${tfModule.version?.tfjs || "unknown"}\nbackend: ${backend}\nloadGraphModel: OK\nmodel: loaded without warm-up\nmode: CPU / low-memory\nstatus: ready for scan`;
 } catch (error) {
   setControls(false);
-  if (stateEl) stateEl.textContent = "Test 15 konnte die ML-Laufzeit oder das Modell nicht starten. Diagnose siehe unten.";
+  if (stateEl) stateEl.textContent = "Test 15 konnte die Low-Memory-ML-Laufzeit nicht starten. Diagnose siehe unten.";
   if (outputEl) outputEl.textContent = `[camera test v15]\nerror: ${String(error?.message || error).slice(0,300)}`;
 }
