@@ -199,7 +199,6 @@
     refreshAddButtons();
   }
 
-  // Post-raid UI is injected here so the existing HTML stays untouched while this remains a test-branch feature.
   const postRaidButton=document.createElement('button');
   postRaidButton.id='nextRaidFinished';
   postRaidButton.className='next-raid-finished';
@@ -298,17 +297,10 @@
   function syncRaidAfterFindings(updates){
     const req=currentRequirements();
     updates.forEach(({id,count})=>{
-      if(!hasOwn(raid,id)||!req[id])return; // Purely personal items stay untouched.
+      if(!hasOwn(raid,id)||!req[id])return;
       const entry=raid[id];
       const remaining=Math.max(0,toCount(req[id].total,0)-currentOwned(id));
-      if(remaining===0){
-        entry.target=0;
-        entry.done=true;
-        return;
-      }
-      // A manually completed checklist entry remains completed. Otherwise only
-      // reduce the user's own raid target by what was actually found; do not
-      // overwrite a deliberate small raid target with the full global need.
+      if(remaining===0){entry.target=0;entry.done=true;return}
       if(entry.done)return;
       const before=Math.max(1,toCount(entry.target,1));
       const after=Math.max(0,before-toCount(count,0));
@@ -322,18 +314,13 @@
     const inputs=[...postRaidList.querySelectorAll('[data-found-input]')];
     const beforeRows=new Map(missingRequirementRows().map(row=>[row.id,row]));
     const updates=inputs.map(input=>({id:input.dataset.id,count:toCount(input.value,0)})).filter(update=>update.count>0);
-    if(!updates.length){
-      setPostStatus(c.noAmounts,'warn');
-      return;
-    }
+    if(!updates.length){setPostStatus(c.noAmounts,'warn');return}
     const hasSurplus=updates.some(({id,count})=>count>(beforeRows.get(id)?.missing||0));
 
     try{
       if(typeof owned!=='undefined'&&owned&&typeof owned==='object'){
         const next=Object.assign(Object.create(null),owned);
         updates.forEach(({id,count})=>{next[id]=toCount(currentOwned(id)+count,0)});
-        // Persist first, then mutate the in-memory object so a failed write
-        // cannot make this tab disagree with what will survive a reload.
         localStorage.setItem('arcOwned',JSON.stringify(next));
         updates.forEach(({id})=>{owned[id]=next[id]});
         if(typeof drawSummary==='function')drawSummary();
@@ -351,14 +338,18 @@
       return;
     }
 
+    const previousRaid=Object.fromEntries(entries().map(([id,entry])=>[id,{target:entry.target,done:entry.done}]));
     syncRaidAfterFindings(updates);
     const raidSaved=save();
-    render();
-    renderPostRaid(true);
     if(!raidSaved){
+      raid=Object.assign(Object.create(null),previousRaid);
+      render();
+      renderPostRaid(true);
       setPostStatus(c.raidStorageError,'error');
       return;
     }
+    render();
+    renderPostRaid(true);
     const message=updates.length===1?c.appliedOne:`${updates.length} ${c.appliedMany}`;
     setPostStatus(`${message}${hasSurplus?` ${c.surplus}`:''}`,'success');
   }
