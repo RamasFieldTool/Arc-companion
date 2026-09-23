@@ -1,4 +1,4 @@
-// V13.0.8 test — next-raid checklist + post-raid findings workflow.
+// V13.0.9 test — next-raid checklist + post-raid findings workflow.
 (()=>{
   const drawer=document.getElementById('nextRaidDrawer');
   const list=document.getElementById('nextRaidList');
@@ -13,7 +13,7 @@
   if(!document.querySelector('link[data-next-raid-post-style]')){
     const stylesheet=document.createElement('link');
     stylesheet.rel='stylesheet';
-    stylesheet.href='next-raid-post-v1308.css?v=1308';
+    stylesheet.href='next-raid-post-v1308.css?v=1309';
     stylesheet.dataset.nextRaidPostStyle='';
     document.head.append(stylesheet);
   }
@@ -34,7 +34,7 @@
       applyFinds:'FUNDE ÜBERNEHMEN',nothingFound:'NICHTS RELEVANTES GEFUNDEN',cancelFinds:'ABBRECHEN',
       noNeeds:'Für deine aktiven Ziele fehlt aktuell kein Item.',noAmounts:'Noch keine Fundmenge eingetragen.',
       appliedOne:'1 Fund übernommen.',appliedMany:'Funde übernommen.',nothingSaved:'Keine Funde eingetragen. Deine Bedarfe bleiben unverändert.',
-      storageError:'Speichern auf diesem Gerät ist fehlgeschlagen.',surplus:'Überschuss wird als vorhandener Bestand behalten.'
+      storageError:'Speichern auf diesem Gerät ist fehlgeschlagen.',raidStorageError:'Funde wurden gespeichert, aber die Raid-Liste konnte nicht aktualisiert werden.',surplus:'Überschuss wird als vorhandener Bestand behalten.'
     },
     en:{
       kicker:'RUN PLAN // PERSONAL',title:'MY NEXT RAID',emptySummary:'No saved items yet',
@@ -49,7 +49,7 @@
       applyFinds:'APPLY FINDINGS',nothingFound:'NO RELEVANT FINDS',cancelFinds:'CANCEL',
       noNeeds:'No items are currently missing for your active goals.',noAmounts:'No found amount entered yet.',
       appliedOne:'1 finding applied.',appliedMany:'findings applied.',nothingSaved:'No findings entered. Your requirements stay unchanged.',
-      storageError:'Saving on this device failed.',surplus:'Any surplus is kept as owned stock.'
+      storageError:'Saving on this device failed.',raidStorageError:'Findings were saved, but the raid checklist could not be updated.',surplus:'Any surplus is kept as owned stock.'
     }
   };
 
@@ -84,7 +84,8 @@
     if(stored&&typeof stored==='object'&&!Array.isArray(stored)){
       Object.entries(stored).forEach(([id,entry])=>{
         if(!id||!entry||typeof entry!=='object')return;
-        raid[id]={target:Math.max(1,toCount(entry.target,1)),done:!!entry.done};
+        const done=!!entry.done;
+        raid[id]={target:done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)),done};
       });
     }
   }catch{raid=Object.create(null)}
@@ -135,18 +136,18 @@
     closeButton.textContent=c.closeList;
     actions.hidden=!all.length;
     removeDoneButton.disabled=!all.some(([,entry])=>entry.done);
-    if(postRaidButton)postRaidButton.hidden=!all.length;
+    if(postRaidButton)postRaidButton.hidden=!(all.length||missingRequirementRows().length);
 
     if(!all.length){
       list.innerHTML=`<div class="next-raid-empty">${escapeHtml(c.empty)}</div>`;
-      closePostRaid();
+      if(!missingRequirementRows().length)closePostRaid();
       refreshAddButtons();
       return;
     }
 
     list.innerHTML=all.map(([id,entry])=>{
       const safeId=escapeHtml(id);
-      const target=Math.max(1,toCount(entry.target,1));
+      const target=entry.done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1));
       const name=displayName(id);
       return `<article class="next-raid-item${entry.done?' is-done':''}" data-raid-id="${safeId}">
         <label class="next-raid-check">
@@ -154,7 +155,7 @@
           <span aria-hidden="true">✓</span>
         </label>
         <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id))} · ${entry.done?c.doneState:c.openState}</small></div>
-        <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="1" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
+        <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="${entry.done?'0':'1'}" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
         <button class="next-raid-remove" type="button" data-raid-action="remove" data-id="${safeId}" aria-label="${escapeHtml(c.remove)}: ${escapeHtml(name)}">×</button>
       </article>`;
     }).join('');
@@ -240,10 +241,7 @@
 
   function capturePendingFinds(){
     const pending=Object.create(null);
-    if(!postRaidList)return pending;
-    postRaidList.querySelectorAll('[data-found-input]').forEach(input=>{
-      pending[input.dataset.id]=toCount(input.value,0);
-    });
+    postRaidList.querySelectorAll('[data-found-input]').forEach(input=>{pending[input.dataset.id]=toCount(input.value,0)});
     return pending;
   }
 
@@ -256,6 +254,7 @@
     applyFindsButton.textContent=c.applyFinds;
     nothingFoundButton.textContent=c.nothingFound;
     cancelPostButton.textContent=c.cancelFinds;
+    cancelPostTopButton.setAttribute('aria-label',c.cancelFinds);
 
     const rows=missingRequirementRows();
     if(!rows.length){
@@ -281,7 +280,7 @@
   }
 
   function openPostRaid(){
-    renderPostRaid(true);
+    renderPostRaid();
     setPostStatus('');
     postRaidPanel.hidden=false;
     postRaidButton.setAttribute('aria-expanded','true');
@@ -296,37 +295,47 @@
     setPostStatus('');
   }
 
-  function syncRaidToCurrentNeeds(){
+  function syncRaidAfterFindings(updates){
     const req=currentRequirements();
-    entries().forEach(([id,entry])=>{
-      const info=req[id];
-      if(!info)return; // Keep purely personal items untouched.
-      const remaining=Math.max(0,toCount(info.total,0)-currentOwned(id));
+    updates.forEach(({id,count})=>{
+      if(!hasOwn(raid,id)||!req[id])return; // Purely personal items stay untouched.
+      const entry=raid[id];
+      const remaining=Math.max(0,toCount(req[id].total,0)-currentOwned(id));
       if(remaining===0){
-        entry.target=Math.max(1,toCount(entry.target,1));
+        entry.target=0;
         entry.done=true;
-      }else{
-        entry.target=remaining;
-        entry.done=false;
+        return;
       }
+      // A manually completed checklist entry remains completed. Otherwise only
+      // reduce the user's own raid target by what was actually found; do not
+      // overwrite a deliberate small raid target with the full global need.
+      if(entry.done)return;
+      const before=Math.max(1,toCount(entry.target,1));
+      const after=Math.max(0,before-toCount(count,0));
+      entry.target=Math.min(after,remaining);
+      entry.done=entry.target===0;
     });
   }
 
   function applyFindings(){
     const c=copy();
     const inputs=[...postRaidList.querySelectorAll('[data-found-input]')];
+    const beforeRows=new Map(missingRequirementRows().map(row=>[row.id,row]));
     const updates=inputs.map(input=>({id:input.dataset.id,count:toCount(input.value,0)})).filter(update=>update.count>0);
     if(!updates.length){
       setPostStatus(c.noAmounts,'warn');
       return;
     }
+    const hasSurplus=updates.some(({id,count})=>count>(beforeRows.get(id)?.missing||0));
 
     try{
       if(typeof owned!=='undefined'&&owned&&typeof owned==='object'){
-        const nextOwned={...owned};
-        updates.forEach(({id,count})=>{nextOwned[id]=toCount(currentOwned(id)+count,0)});
-        localStorage.setItem('arcOwned',JSON.stringify(nextOwned));
-        updates.forEach(({id})=>{owned[id]=nextOwned[id]});
+        const next=Object.assign(Object.create(null),owned);
+        updates.forEach(({id,count})=>{next[id]=toCount(currentOwned(id)+count,0)});
+        // Persist first, then mutate the in-memory object so a failed write
+        // cannot make this tab disagree with what will survive a reload.
+        localStorage.setItem('arcOwned',JSON.stringify(next));
+        updates.forEach(({id})=>{owned[id]=next[id]});
         if(typeof drawSummary==='function')drawSummary();
         if(typeof drawItems==='function')drawItems();
       }else if(typeof saveOwned==='function'){
@@ -336,23 +345,22 @@
         const next=stored&&typeof stored==='object'&&!Array.isArray(stored)?stored:{};
         updates.forEach(({id,count})=>{next[id]=toCount(toCount(next[id],0)+count,0)});
         localStorage.setItem('arcOwned',JSON.stringify(next));
-        if(typeof drawSummary==='function')drawSummary();
-        if(typeof drawItems==='function')drawItems();
       }
     }catch{
       setPostStatus(c.storageError,'error');
       return;
     }
 
-    syncRaidToCurrentNeeds();
+    syncRaidAfterFindings(updates);
     const raidSaved=save();
     render();
     renderPostRaid(true);
     if(!raidSaved){
-      setPostStatus(c.storageError,'error');
+      setPostStatus(c.raidStorageError,'error');
       return;
     }
-    setPostStatus(`${updates.length===1?c.appliedOne:`${updates.length} ${c.appliedMany}`} ${c.surplus}`,'success');
+    const message=updates.length===1?c.appliedOne:`${updates.length} ${c.appliedMany}`;
+    setPostStatus(`${message}${hasSurplus?` ${c.surplus}`:''}`,'success');
   }
 
   function changeFound(id,delta){
@@ -373,9 +381,12 @@
   list.addEventListener('change',event=>{
     const control=event.target.closest('[data-raid-action]');
     if(!control||!hasOwn(raid,control.dataset.id))return;
-    if(control.dataset.raidAction==='done')raid[control.dataset.id].done=control.checked;
+    if(control.dataset.raidAction==='done'){
+      raid[control.dataset.id].done=control.checked;
+      if(!control.checked)raid[control.dataset.id].target=Math.max(1,toCount(raid[control.dataset.id].target,1));
+    }
     if(control.dataset.raidAction==='target'){
-      const target=Math.max(1,toCount(control.value,1));
+      const target=Math.max(control.closest('.next-raid-item')?.classList.contains('is-done')?0:1,toCount(control.value,1));
       raid[control.dataset.id].target=target;control.value=String(target);
     }
     save();render();
@@ -407,8 +418,9 @@
   });
   applyFindsButton.addEventListener('click',applyFindings);
   nothingFoundButton.addEventListener('click',()=>{
+    setPostStatus(copy().nothingSaved,'success');
     postRaidList.querySelectorAll('[data-found-input]').forEach(input=>{input.value='0'});
-    closePostRaid();
+    setTimeout(closePostRaid,250);
   });
   cancelPostButton.addEventListener('click',closePostRaid);
   cancelPostTopButton.addEventListener('click',closePostRaid);
