@@ -26,7 +26,7 @@
     arcQuestStatus:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>['open','active','done'].includes(entry))},
     arc_blueprints_learned_v1:{type:'json',valid:value=>Array.isArray(value)&&value.length<=5000&&value.every(entry=>typeof entry==='string'&&entry.length<=180)},
     arcSpawnMap:{type:'string',valid:value=>typeof value==='string'&&/^[a-z0-9-]{1,80}$/i.test(value)},
-    arcNextRaid:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['target','done'].includes(key))&&finiteNumber(entry.target)&&entry.target>=1&&typeof entry.done==='boolean')},
+    arcNextRaid:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['target','done'].includes(key))&&typeof entry.done==='boolean'&&finiteNumber(entry.target)&&(entry.done?entry.target>=0:entry.target>=1))},
     arcEventRegion:{type:'string',valid:value=>['europe','north-america','brazil','east-asia','oceania'].includes(value)},
     arcEventLead:{type:'string',valid:value=>['5','10','15','30'].includes(value)},
     arcEventReminders:{type:'json',valid:value=>Array.isArray(value)&&value.length<=100&&value.every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['key','start','end','name','map','lead','notified'].includes(key))&&typeof entry.key==='string'&&entry.key.length<=500&&typeof entry.start==='string'&&!Number.isNaN(Date.parse(entry.start))&&typeof entry.end==='string'&&!Number.isNaN(Date.parse(entry.end))&&typeof entry.name==='string'&&entry.name.length<=100&&typeof entry.map==='string'&&entry.map.length<=100&&[5,10,15,30].includes(Number(entry.lead))&&typeof entry.notified==='boolean')}

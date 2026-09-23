@@ -1,0 +1,70 @@
+/* V13.0.8 test — post-raid findings workflow for My Next Raid. */
+.next-raid-finished{
+  width:100%;min-height:50px;margin-top:12px;padding:10px 14px;border:1px solid var(--orange);
+  border-bottom:4px solid var(--orange);background:color-mix(in srgb,var(--orange) 24%,var(--ui-panel));
+  color:var(--ui-text);font:700 13px "Rajdhani",sans-serif;letter-spacing:.065em;cursor:pointer
+}
+.next-raid-finished:hover,.next-raid-finished:focus-visible{
+  background:var(--orange);color:#0b0e10
+}
+.next-raid-post[hidden]{display:none!important}
+.next-raid-post{
+  margin-top:12px;border:1px solid color-mix(in srgb,var(--orange) 46%,var(--ui-line));
+  border-left:5px solid var(--orange);background:var(--ui-panel-2)
+}
+.next-raid-post-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:13px 13px 11px;
+  border-bottom:1px solid var(--ui-line);background:color-mix(in srgb,var(--orange) 9%,var(--ui-soft))
+}
+.next-raid-post-head>div{min-width:0}
+.next-raid-post-head strong{display:block;color:var(--ui-text);font:700 17px/1.15 "Rajdhani",sans-serif;letter-spacing:.045em}
+.next-raid-post-head p{margin:5px 0 0;color:var(--ui-muted);font-size:12px;line-height:1.4}
+.next-raid-post-head>button{
+  flex:0 0 auto;width:44px;height:44px;border:1px solid var(--ui-line);background:transparent;color:var(--ui-muted);
+  font:700 20px/1 monospace;cursor:pointer
+}
+.next-raid-post-head>button:hover,.next-raid-post-head>button:focus-visible{border-color:var(--orange);color:var(--orange)}
+.next-raid-post-list{display:grid}
+.next-raid-found-row{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;padding:11px 12px;
+  border-bottom:1px solid var(--ui-line)
+}
+.next-raid-found-row:last-child{border-bottom:0}
+.next-raid-found-copy{min-width:0;display:grid;gap:4px}
+.next-raid-found-copy strong{color:var(--ui-text);font:700 15px/1.15 "Rajdhani",sans-serif}
+.next-raid-found-copy small{color:var(--ui-muted);font:700 10px monospace;letter-spacing:.04em}
+.next-raid-found-control{display:grid;grid-template-columns:44px 64px 44px;align-items:end;gap:5px}
+.next-raid-found-control>button{
+  width:44px;height:44px;border:1px solid var(--ui-line);background:var(--ui-panel);color:var(--ui-text);
+  font:700 20px/1 monospace;cursor:pointer
+}
+.next-raid-found-control>button:hover,.next-raid-found-control>button:focus-visible{border-color:var(--orange);background:var(--ui-soft)}
+.next-raid-found-control label{display:grid;gap:3px;margin:0;text-align:center}
+.next-raid-found-control label span{color:var(--ui-muted);font:700 8px monospace;letter-spacing:.08em}
+.next-raid-found-control input{
+  width:64px;height:44px;box-sizing:border-box;padding:5px;border:1px solid var(--ui-line);
+  background:var(--ui-input,var(--ui-panel));color:var(--ui-text);font:700 17px "Rajdhani",sans-serif;text-align:center
+}
+.next-raid-found-control input:focus{border-color:var(--orange);outline:2px solid color-mix(in srgb,var(--orange) 25%,transparent);outline-offset:1px}
+.next-raid-post-empty{padding:18px 14px;color:var(--ui-muted);font-size:13px;line-height:1.45;text-align:center}
+.next-raid-post-status{min-height:18px;padding:0 12px;color:var(--ui-muted);font-size:11px;line-height:1.4}
+.next-raid-post-status:not(:empty){padding-top:10px}
+.next-raid-post-status[data-type="success"]{color:var(--green,#61c98d)}
+.next-raid-post-status[data-type="warn"]{color:var(--amber,#f3ba63)}
+.next-raid-post-status[data-type="error"]{color:#e67b7b}
+.next-raid-post-actions{display:grid;grid-template-columns:1.2fr 1fr auto;gap:7px;padding:12px}
+.next-raid-post-actions button{
+  min-height:44px;padding:8px 10px;border:1px solid var(--ui-line);background:transparent;color:var(--ui-text);
+  font:700 11px "Rajdhani",sans-serif;letter-spacing:.045em;cursor:pointer
+}
+.next-raid-post-actions button:first-child{border-color:var(--green,#61c98d);border-bottom:4px solid var(--green,#61c98d)}
+.next-raid-post-actions button:first-child:hover,.next-raid-post-actions button:first-child:focus-visible{background:var(--green,#61c98d);color:#07130d}
+.next-raid-post-actions button:hover,.next-raid-post-actions button:focus-visible{border-color:var(--orange);background:var(--ui-soft)}
+.next-raid-post-actions button:disabled{opacity:.45;cursor:not-allowed;background:transparent;color:var(--ui-muted)}
+@media(max-width:520px){
+  .next-raid-found-row{grid-template-columns:1fr;gap:9px}
+  .next-raid-found-control{grid-template-columns:44px minmax(70px,1fr) 44px;width:100%}
+  .next-raid-found-control>button{width:44px}
+  .next-raid-found-control input{width:100%}
+  .next-raid-post-actions{grid-template-columns:1fr}
+}
