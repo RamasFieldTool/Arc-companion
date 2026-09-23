@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0f141b">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; script-src 'self'; style-src 'self'; connect-src 'none'; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://raw.githubusercontent.com; script-src 'self'; style-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Inventar Scan Test</title>
   <link rel="stylesheet" href="inventory-scan-test.css">
@@ -15,16 +15,16 @@
   <main class="shell">
     <header class="hero">
       <div>
-        <div class="kicker">TEST-BRANCH · LOKALE VERARBEITUNG</div>
+        <div class="kicker">TEST-BRANCH · LOKALE BILDVERARBEITUNG</div>
         <h1>Inventar-Scan</h1>
-        <p>Test 8: Die Rucksack-Belegt-Erkennung wertet jetzt die eigentliche Item-Silhouette im Slot aus statt Reflexionen und Rasterlinien.</p>
+        <p>Test 9: Belegte Inventarplätze werden jetzt experimentell mit den offiziellen ARC-Raiders-Itembildern verglichen. Pro Slot werden die drei ähnlichsten Kandidaten ausgegeben.</p>
       </div>
-      <div class="privacy-badge" aria-label="Datenschutz: Bild bleibt auf diesem Gerät">🔒 Bild bleibt auf diesem Gerät</div>
+      <div class="privacy-badge" aria-label="Datenschutz: Inventarbild bleibt auf diesem Gerät">🔒 Inventarbild bleibt auf diesem Gerät</div>
     </header>
 
     <section class="privacy-card">
       <strong>Datenschutz im Test</strong>
-      <p>Das Foto wird ausschließlich im Browser verarbeitet. Es wird nicht hochgeladen, nicht in Supabase gespeichert und nicht in Local Storage oder IndexedDB abgelegt. Diese Testseite blockiert Netzwerkverbindungen aus dem Scanner per Content Security Policy.</p>
+      <p>Das Inventarbild wird ausschließlich im Browser verarbeitet. Es wird nicht hochgeladen, nicht in Supabase gespeichert und nicht in Local Storage oder IndexedDB abgelegt. Für Test 9 lädt die Seite nur öffentliche Referenz-Icons aus dem ARC-Raiders-Datenbestand auf GitHub; das Inventarbild selbst wird dabei nie übertragen.</p>
     </section>
 
     <section class="controls-card">
@@ -33,7 +33,7 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Test 8:</strong> Leere Rucksackplätze mit Reflexionen, Moiré oder hellen Rasterlinien sollen nicht mehr als belegt zählen. Schnelleinsatz und Sicherheitstasche bleiben ebenfalls aktiv.</p>
+      <p class="hint"><strong>Test 9:</strong> Zuerst läuft die bisherige Belegt-Erkennung. Danach werden nur die belegten Rucksack-, Schnelleinsatz- und Sicherheitstaschen-Slots mit den Referenz-Icons verglichen. Die Top-3-Werte sind zunächst Diagnosewerte.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
@@ -89,11 +89,12 @@
 
     <section class="scope-card">
       <strong>Was dieser Test bewusst noch nicht macht</strong>
-      <p>Keine Item-Namen, keine Mengen und noch keine Warenlisten-Buchung. Augment-Plätze werden nicht mitgezählt. Zuerst prüfen wir, ob alle für die Beute relevanten Inventarbereiche zuverlässig erfasst werden.</p>
+      <p>Die Item-Namen sind in Test 9 noch experimentelle Ähnlichkeitstreffer. Mengen werden noch nicht gelesen und es erfolgt keine automatische Warenlisten- oder Inventarbuchung. Augment-Plätze werden weiterhin nicht mitgezählt.</p>
     </section>
   </main>
   <canvas id="workCanvas" hidden></canvas>
   <script src="inventory-scan-test-v5.js?v=8" defer></script>
   <script src="inventory-scan-test-v6-patch.js?v=8" defer></script>
+  <script src="inventory-scan-test-v9-patch.js?v=1" defer></script>
 </body>
 </html>
