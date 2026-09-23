@@ -1,4 +1,4 @@
-// V2.12.2 – active-goal UI without obsolete summary/language wrappers
+// V2.12.3 – active-goal UI without obsolete summary/language wrappers
 (()=>{
   T.de.goalNoneActive='Keine aktiven Ziele';
   T.en.goalNoneActive='No active goals';
@@ -10,6 +10,8 @@
   T.en.additionalCost='Additional cost';
   T.de.goalClose='Ziele schließen';
   T.en.goalClose='Close goals';
+  T.de.inlineGoalClose='Zielauswahl schließen';
+  T.en.inlineGoalClose='Close goal manager';
 
   const baseGoalName=goalName;
   goalName=function(g){
@@ -101,6 +103,33 @@
     updateCloseLabel();
     goalsSection.append(close);
   }
+
+  // "Manage goals right here" lives inside My Next Raid and is created by a later script.
+  // Install its own floating close button after all page scripts have run.
+  function installInlineGoalsClose(){
+    const inlineGoals=document.querySelector('.next-raid-goals');
+    if(!inlineGoals||inlineGoals.querySelector('.inline-goals-floating-close')) return;
+    const close=document.createElement('button');
+    close.type='button';
+    close.className='inline-goals-floating-close';
+    close.textContent='×';
+    const updateLabel=()=>{
+      const label=T[lang]?.inlineGoalClose||'Close goal manager';
+      close.setAttribute('aria-label',label);
+      close.title=label;
+    };
+    close.addEventListener('click',()=>{
+      inlineGoals.open=false;
+      inlineGoals.scrollIntoView({behavior:'smooth',block:'start'});
+      inlineGoals.querySelector(':scope > summary')?.focus({preventScroll:true});
+    });
+    document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(updateLabel,0));
+    document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(updateLabel,0));
+    updateLabel();
+    inlineGoals.append(close);
+  }
+  if(document.readyState==='complete') setTimeout(installInlineGoalsClose,0);
+  else window.addEventListener('load',installInlineGoalsClose,{once:true});
 
   // drawGoals is already called by applyLanguage(), so the active-count label
   // stays synchronized without an additional MutationObserver.
