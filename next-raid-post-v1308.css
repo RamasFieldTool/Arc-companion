@@ -20,7 +20,7 @@
 .next-raid-post-head strong{display:block;color:var(--ui-text);font:700 17px/1.15 "Rajdhani",sans-serif;letter-spacing:.045em}
 .next-raid-post-head p{margin:5px 0 0;color:var(--ui-muted);font-size:12px;line-height:1.4}
 .next-raid-post-head>button{
-  flex:0 0 auto;width:36px;height:36px;border:1px solid var(--ui-line);background:transparent;color:var(--ui-muted);
+  flex:0 0 auto;width:44px;height:44px;border:1px solid var(--ui-line);background:transparent;color:var(--ui-muted);
   font:700 20px/1 monospace;cursor:pointer
 }
 .next-raid-post-head>button:hover,.next-raid-post-head>button:focus-visible{border-color:var(--orange);color:var(--orange)}
@@ -33,16 +33,16 @@
 .next-raid-found-copy{min-width:0;display:grid;gap:4px}
 .next-raid-found-copy strong{color:var(--ui-text);font:700 15px/1.15 "Rajdhani",sans-serif}
 .next-raid-found-copy small{color:var(--ui-muted);font:700 10px monospace;letter-spacing:.04em}
-.next-raid-found-control{display:grid;grid-template-columns:38px 64px 38px;align-items:end;gap:5px}
+.next-raid-found-control{display:grid;grid-template-columns:44px 64px 44px;align-items:end;gap:5px}
 .next-raid-found-control>button{
-  width:38px;height:40px;border:1px solid var(--ui-line);background:var(--ui-panel);color:var(--ui-text);
+  width:44px;height:44px;border:1px solid var(--ui-line);background:var(--ui-panel);color:var(--ui-text);
   font:700 20px/1 monospace;cursor:pointer
 }
 .next-raid-found-control>button:hover,.next-raid-found-control>button:focus-visible{border-color:var(--orange);background:var(--ui-soft)}
 .next-raid-found-control label{display:grid;gap:3px;margin:0;text-align:center}
 .next-raid-found-control label span{color:var(--ui-muted);font:700 8px monospace;letter-spacing:.08em}
 .next-raid-found-control input{
-  width:64px;height:40px;box-sizing:border-box;padding:5px;border:1px solid var(--ui-line);
+  width:64px;height:44px;box-sizing:border-box;padding:5px;border:1px solid var(--ui-line);
   background:var(--ui-input,var(--ui-panel));color:var(--ui-text);font:700 17px "Rajdhani",sans-serif;text-align:center
 }
 .next-raid-found-control input:focus{border-color:var(--orange);outline:2px solid color-mix(in srgb,var(--orange) 25%,transparent);outline-offset:1px}
