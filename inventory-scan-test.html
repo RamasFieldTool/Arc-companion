@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#0f141b">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://raw.githubusercontent.com; script-src 'self'; style-src 'self'; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://raw.githubusercontent.com; script-src 'self' https://cdn.jsdelivr.net; style-src 'self'; connect-src 'self' https://api.github.com https://raw.githubusercontent.com https://tfhub.dev https://storage.googleapis.com https://cdn.jsdelivr.net; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Inventar Scan Test</title>
-  <link rel="stylesheet" href="inventory-scan-test.css?v=13">
+  <link rel="stylesheet" href="inventory-scan-test.css?v=14">
   <link rel="stylesheet" href="inventory-scan-test-v3.css?v=8">
 </head>
 <body>
@@ -17,14 +17,14 @@
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE BILDVERARBEITUNG</div>
         <h1>Inventar-Scan</h1>
-        <p>Test 13: Blindtest mit vollständigem ARC-Itemkatalog. Die Item-Erkennung nutzt einen neuen lokalen Form-Embedding-Vergleich statt des bisherigen direkten Silhouettenvergleichs.</p>
+        <p>Test 14: erster echter ML-Blindtest. Die Item-Erkennung nutzt jetzt ein vortrainiertes neuronales Bildmodell (MobileNet) statt handgebauter Silhouetten- und Pixelregeln.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Inventarbild bleibt auf diesem Gerät">🔒 Inventarbild bleibt auf diesem Gerät</div>
     </header>
 
     <section class="privacy-card">
       <strong>Datenschutz im Test</strong>
-      <p>Das Inventarbild wird ausschließlich im Browser verarbeitet und nicht hochgeladen oder gespeichert. Test 13 lädt nur den öffentlichen ARC-Itemkatalog, Referenz-Icons und bei den Top-Treffern die öffentlichen Itemnamen von GitHub. Das fotografierte Inventar wird dabei nie übertragen.</p>
+      <p>Das Inventarbild wird weiterhin nur auf diesem Gerät verarbeitet und nicht hochgeladen oder gespeichert. Test 14 lädt dafür TensorFlow.js, das MobileNet-Modell sowie öffentliche ARC-Item-Icons und Itemnamen. Das fotografierte Inventar wird nicht an diese Dienste übertragen.</p>
     </section>
 
     <section class="controls-card">
@@ -33,7 +33,7 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Test 13:</strong> Absichtlich ohne bekannte Soll-Lösung. Nimm einfach deinen aktuellen Rucksack, auch wenn er inzwischen völlig anders aussieht. Beim ersten Scan kann das Laden des vollständigen Referenzkatalogs deutlich länger dauern.</p>
+      <p class="hint"><strong>Test 14:</strong> Bitte wieder einen echten aktuellen Rucksack scannen und vorher keine Itemnamen nennen. Beim ersten Durchlauf kann die Vorbereitung des neuronalen Modells und der Referenz-Embeddings deutlich länger dauern. Der Fortschritt wird angezeigt.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
@@ -87,28 +87,30 @@
     <section id="itemRecognitionTest" class="scope-card item-recognition-card">
       <div class="item-recognition-head">
         <div>
-          <div class="kicker">TEST 13</div>
-          <strong>Item-Erkennung · Blindtest</strong>
+          <div class="kicker">TEST 14</div>
+          <strong>Item-Erkennung · ML-Blindtest</strong>
         </div>
         <button id="itemRecognitionRetry" class="secondary" type="button">Erkennung erneut starten</button>
       </div>
-      <p id="itemRecognitionState">Noch kein Scan. Nach dem nächsten erfolgreichen Inventar-Scan startet die Item-Erkennung automatisch.</p>
+      <p id="itemRecognitionState">Noch kein Scan. Nach dem nächsten erfolgreichen Inventar-Scan startet die ML-Erkennung automatisch.</p>
       <div id="itemRecognitionNames" class="item-recognition-names"></div>
       <details>
         <summary>Diagnose anzeigen</summary>
-        <pre id="itemRecognitionOutput" aria-label="Test-13-Diagnose">[camera test v13]
+        <pre id="itemRecognitionOutput" aria-label="Test-14-Diagnose">[camera test v14]
 status: waiting for scan</pre>
       </details>
     </section>
 
     <section class="scope-card">
-      <strong>Was Test 13 klären soll</strong>
-      <p>Wir testen jetzt auf einem unbekannten Inventar. Entscheidend ist nicht, ob irgendein ähnlicher Name erscheint, sondern wie viele echte Items ohne vorher bekannte Sollwerte korrekt getroffen werden. Mengen bleiben weiterhin außen vor.</p>
+      <strong>Was Test 14 klären soll</strong>
+      <p>Das ist bewusst kein weiteres Schwellenwert-Tuning. Ein vortrainiertes neuronales Modell erzeugt Bild-Embeddings für fotografierte Slots und die ARC-Referenz-Icons. Mengen bleiben vorerst außen vor. Wenn auch dieser Ansatz auf unbekannten Raids klar scheitert, stoppen wir die automatische Item-Erkennung.</p>
     </section>
   </main>
   <canvas id="workCanvas" hidden></canvas>
   <script src="inventory-scan-test-v5.js?v=8" defer></script>
   <script src="inventory-scan-test-v6-patch.js?v=8" defer></script>
-  <script src="inventory-scan-test-v13.js?v=1" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js" defer></script>
+  <script src="inventory-scan-test-v14.js?v=1" defer></script>
 </body>
 </html>
