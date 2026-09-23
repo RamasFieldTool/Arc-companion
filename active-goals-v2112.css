@@ -1,4 +1,4 @@
-/* V2.11.2 – active goals clarity */
+/* V2.12.2 – active goals clarity */
 #goalSummary.has-active-goals{color:var(--amber);font-weight:700}
 .goalbox{padding:11px}
 .levelrow{gap:8px}
@@ -20,9 +20,35 @@
 }
 html[data-theme="light"] .levelbtn.is-active{background:linear-gradient(90deg,rgba(241,91,42,.14),#e7dec7)}
 html[data-theme="light"] .levelbtn.is-active .level-label{color:#24251f}
+
+/* Floating close button for the Active Goals detail view. */
+html body.palette-enabled #goalsSection .goal-floating-close{
+  position:fixed!important;
+  right:max(18px,env(safe-area-inset-right))!important;
+  bottom:calc(18px + env(safe-area-inset-bottom))!important;
+  z-index:140!important;
+  width:56px!important;
+  height:56px!important;
+  min-width:56px!important;
+  min-height:56px!important;
+  padding:0!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid color-mix(in srgb,var(--orange) 65%,#fff)!important;
+  border-radius:999px!important;
+  background:var(--orange)!important;
+  color:#fff!important;
+  box-shadow:0 10px 28px #0005, inset 0 1px 0 #ffffff55!important;
+  font:500 34px/1 system-ui,sans-serif!important;
+  cursor:pointer!important;
+}
+html body.palette-enabled #goalsSection .goal-floating-close:active{transform:scale(.94)}
+body:not(.view-open) #goalsSection .goal-floating-close{display:none!important}
+
 @media(max-width:420px){
   .levelrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
   .levelbtn{min-width:0;width:100%;padding:9px 8px}
   .goal-extra{font-size:10px}
   .goal-cost-total{min-width:68px;font-size:17px;padding:8px 6px}
+  html body.palette-enabled #goalsSection .goal-floating-close{right:14px!important;bottom:calc(14px + env(safe-area-inset-bottom))!important;width:54px!important;height:54px!important;min-width:54px!important;min-height:54px!important}
 }
