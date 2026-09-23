@@ -8,7 +8,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob: https://raw.githubusercontent.com; script-src 'self'; style-src 'self'; connect-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'none'; child-src 'none'; base-uri 'none'; form-action 'none';">
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Inventar Scan Test</title>
-  <link rel="stylesheet" href="inventory-scan-test.css?v=10">
+  <link rel="stylesheet" href="inventory-scan-test.css?v=12">
   <link rel="stylesheet" href="inventory-scan-test-v3.css?v=8">
 </head>
 <body>
@@ -17,14 +17,14 @@
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE BILDVERARBEITUNG</div>
         <h1>Inventar-Scan</h1>
-        <p>Test 11: Item-Erkennung startet jetzt direkt nach dem Inventar-Scan. Zusätzlich wird ein möglicherweise übersehener fünfter Rucksack-Row geprüft, damit 20 Plätze nicht fälschlich als 16 erkannt werden.</p>
+        <p>Test 12: Schnelleinsatz-Leerplätze werden gezielt über den grauen Kreis und fehlende Slot-Metadaten erkannt. Die Item-Erkennung vergleicht jetzt normalisierte Item-Silhouetten statt das komplette Slotbild.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Inventarbild bleibt auf diesem Gerät">🔒 Inventarbild bleibt auf diesem Gerät</div>
     </header>
 
     <section class="privacy-card">
       <strong>Datenschutz im Test</strong>
-      <p>Das Inventarbild wird ausschließlich im Browser verarbeitet. Es wird nicht hochgeladen, nicht in Supabase gespeichert und nicht in Local Storage oder IndexedDB abgelegt. Für die Item-Erkennung lädt die Seite nur öffentliche Referenz-Icons aus dem ARC-Raiders-Datenbestand auf GitHub; das Inventarbild selbst wird nie übertragen.</p>
+      <p>Das Inventarbild wird ausschließlich im Browser verarbeitet. Es wird nicht hochgeladen, nicht in Supabase gespeichert und nicht in Local Storage oder IndexedDB abgelegt. Für die Item-Erkennung lädt die Seite nur öffentliche Referenz-Icons; das Inventarbild selbst wird nie übertragen.</p>
     </section>
 
     <section class="controls-card">
@@ -33,7 +33,7 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Test 11:</strong> Nach dem normalen Scan startet die Item-Erkennung automatisch. Unter dem Ergebnis müssen Itemnamen erscheinen; die Diagnose zeigt zusätzlich den technischen Status.</p>
+      <p class="hint"><strong>Test 12:</strong> Für dein aktuelles Referenzbild kennen wir die Soll-Items: B1 Schwere Munition, B4 Adrenalinspritze, Q1 Kräuterverband, Q2 Schildauflader, S1 Vita-Spritze. Diese Sollwerte werden nur zur Auswertung benutzt – nicht zur Auswahl des Treffers.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
@@ -49,7 +49,7 @@
           <span class="corner bl"></span><span class="corner br"></span>
         </div>
       </div>
-      <p class="camera-help">Alle Rucksackreihen müssen sichtbar sein. Rechts sollten Schnelleinsatz und Sicherheitstasche komplett im Rahmen liegen. Ausrüstung/Waffen links dürfen außerhalb bleiben.</p>
+      <p class="camera-help">Alle Rucksackreihen müssen sichtbar sein. Rechts sollten Schnelleinsatz und Sicherheitstasche komplett im Rahmen liegen.</p>
       <div class="camera-actions">
         <button id="capture" class="primary" type="button">Foto aufnehmen</button>
         <button id="closeCamera" class="secondary" type="button">Kamera schließen</button>
@@ -90,8 +90,8 @@
     <section id="itemRecognitionTest" class="scope-card item-recognition-card">
       <div class="item-recognition-head">
         <div>
-          <div class="kicker">TEST 11</div>
-          <strong>Item-Erkennung</strong>
+          <div class="kicker">TEST 12</div>
+          <strong>Item-Erkennung · Benchmark</strong>
         </div>
         <button id="itemRecognitionRetry" class="secondary" type="button">Erkennung erneut starten</button>
       </div>
@@ -99,19 +99,19 @@
       <div id="itemRecognitionNames" class="item-recognition-names"></div>
       <details>
         <summary>Diagnose anzeigen</summary>
-        <pre id="itemRecognitionOutput" aria-label="Test-11-Diagnose">[camera test v11]
+        <pre id="itemRecognitionOutput" aria-label="Test-12-Diagnose">[camera test v12]
 status: waiting for scan</pre>
       </details>
     </section>
 
     <section class="scope-card">
-      <strong>Was dieser Test bewusst noch nicht macht</strong>
-      <p>Die Item-Namen sind noch experimentelle Ähnlichkeitstreffer. Mengen werden noch nicht gelesen und es erfolgt keine automatische Warenlisten- oder Inventarbuchung. Augment-Plätze werden weiterhin nicht mitgezählt.</p>
+      <strong>Worum es bei Test 12 geht</strong>
+      <p>Wir prüfen jetzt bewusst nicht mehr nur, ob irgendein Name ausgegeben wird. Entscheidend ist, welchen Rang das korrekte Item unter allen Referenzen bekommt. Mengen und Warenlisten-Buchung bleiben vorerst außen vor.</p>
     </section>
   </main>
   <canvas id="workCanvas" hidden></canvas>
   <script src="inventory-scan-test-v5.js?v=8" defer></script>
   <script src="inventory-scan-test-v6-patch.js?v=8" defer></script>
-  <script src="inventory-scan-test-v11.js?v=1" defer></script>
+  <script src="inventory-scan-test-v12.js?v=1" defer></script>
 </body>
 </html>
