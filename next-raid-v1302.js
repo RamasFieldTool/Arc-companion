@@ -84,7 +84,7 @@
     if(stored&&typeof stored==='object'&&!Array.isArray(stored)){
       Object.entries(stored).forEach(([id,entry])=>{
         if(!id||!entry||typeof entry!=='object')return;
-        const done=!!entry.done;
+        const done=entry.done===true;
         raid[id]={target:done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)),done};
       });
     }
@@ -420,8 +420,8 @@
     updateHeader();
     if(!drawer.open)closePostRaid();
   });
-  document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(()=>{render();decorate();if(!postRaidPanel.hidden)renderPostRaid()},0));
-  document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(()=>{render();decorate();if(!postRaidPanel.hidden)renderPostRaid()},0));
+  document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(()=>{render();decorate();renderPostRaid()},0));
+  document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(()=>{render();decorate();renderPostRaid()},0));
 
   const observer=new MutationObserver(()=>{decorate();render();if(!postRaidPanel.hidden)renderPostRaid()});
   const summaryRoot=document.getElementById('summary');
