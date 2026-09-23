@@ -9,7 +9,7 @@
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Inventar Scan Test</title>
   <link rel="stylesheet" href="inventory-scan-test.css">
-  <link rel="stylesheet" href="inventory-scan-test-v3.css?v=4">
+  <link rel="stylesheet" href="inventory-scan-test-v3.css?v=5">
 </head>
 <body>
   <main class="shell">
@@ -17,7 +17,7 @@
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE VERARBEITUNG</div>
         <h1>Inventar-Scan</h1>
-        <p>Test 4: größerer Kamerabereich sowie Rucksack, Schnelleinsatz und Sicherheitstasche gemeinsam erfassen.</p>
+        <p>Test 5: größerer Kamerabereich sowie verbesserte Erkennung von Schnelleinsatz und Sicherheitstasche.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Bild bleibt auf diesem Gerät">🔒 Bild bleibt auf diesem Gerät</div>
     </header>
@@ -33,7 +33,7 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Neu:</strong> Der Rahmen ist jetzt größer und höher. Im grünen Bereich liegt der komplette Rucksack inklusive letzter Reihe, rechts oben der Schnelleinsatz und rechts unten die Sicherheitstasche.</p>
+      <p class="hint"><strong>Neu:</strong> Der Rahmen nutzt fast die komplette Vorschau. Im grünen Bereich liegt der komplette Rucksack, rechts oben der Schnelleinsatz und rechts unten die Sicherheitstasche.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
@@ -93,6 +93,6 @@
     </section>
   </main>
   <canvas id="workCanvas" hidden></canvas>
-  <script src="inventory-scan-test-v4.js?v=4" defer></script>
+  <script src="inventory-scan-test-v5.js?v=5" defer></script>
 </body>
 </html>
