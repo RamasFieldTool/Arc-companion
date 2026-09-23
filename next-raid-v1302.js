@@ -146,7 +146,7 @@
 
     list.innerHTML=all.map(([id,entry])=>{
       const safeId=escapeHtml(id);
-      const target=entry.done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1));
+      const target=Math.max(1,toCount(entry.target,1));
       const name=displayName(id);
       return `<article class="next-raid-item${entry.done?' is-done':''}" data-raid-id="${safeId}">
         <label class="next-raid-check">
@@ -154,7 +154,7 @@
           <span aria-hidden="true">✓</span>
         </label>
         <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id))} · ${entry.done?c.doneState:c.openState}</small></div>
-        <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="${entry.done?'0':'1'}" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
+        <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="1" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
         <button class="next-raid-remove" type="button" data-raid-action="remove" data-id="${safeId}" aria-label="${escapeHtml(c.remove)}: ${escapeHtml(name)}">×</button>
       </article>`;
     }).join('');
@@ -303,7 +303,7 @@
       if(!info)return; // Keep purely personal items untouched.
       const remaining=Math.max(0,toCount(info.total,0)-currentOwned(id));
       if(remaining===0){
-        entry.target=0;
+        entry.target=Math.max(1,toCount(entry.target,1));
         entry.done=true;
       }else{
         entry.target=remaining;
@@ -375,7 +375,7 @@
     if(!control||!hasOwn(raid,control.dataset.id))return;
     if(control.dataset.raidAction==='done')raid[control.dataset.id].done=control.checked;
     if(control.dataset.raidAction==='target'){
-      const target=Math.max(control.closest('.next-raid-item')?.classList.contains('is-done')?0:1,toCount(control.value,1));
+      const target=Math.max(1,toCount(control.value,1));
       raid[control.dataset.id].target=target;control.value=String(target);
     }
     save();render();
