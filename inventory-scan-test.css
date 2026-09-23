@@ -51,8 +51,18 @@ button,.button{display:inline-flex;align-items:center;justify-content:center;bor
 .status.error{color:#ffb4a9}
 .status.good{color:#a6e8c4}
 .scope-card{font-size:13px}
-#itemRecognitionState{color:var(--muted);line-height:1.5;margin:10px 0}
-#itemRecognitionOutput{white-space:pre-wrap;overflow-wrap:anywhere;margin:12px 0 0;padding:12px;border:1px solid var(--line);border-radius:11px;background:#0b1016;color:#dce7f2;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+.item-recognition-card{border-color:#5a4639;background:#191712}
+.item-recognition-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.item-recognition-head strong{font-size:18px}
+#itemRecognitionState{color:var(--muted);line-height:1.5;margin:12px 0}
+.item-recognition-names{display:grid;gap:8px;margin-top:12px}
+.item-result-card{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--panel2)}
+.item-result-title{font-size:15px;font-weight:800;color:var(--text)}
+.item-result-score{font-size:12px;color:var(--accent2);margin-top:3px}
+.item-result-alt{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}
+.item-recognition-card details{margin-top:12px}
+.item-recognition-card summary{cursor:pointer;color:var(--muted);font-weight:700}
+#itemRecognitionOutput{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 0;padding:12px;border:1px solid var(--line);border-radius:11px;background:#0b1016;color:#dce7f2;font:12px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
 [hidden]{display:none!important}
 @media(max-width:650px){
   .hero{display:block}
@@ -60,4 +70,6 @@ button,.button{display:inline-flex;align-items:center;justify-content:center;bor
   .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
   .actions .primary,.actions .button{flex:1 1 100%}
   .result-head{align-items:center}
+  .item-recognition-head{display:block}
+  .item-recognition-head button{width:100%;margin-top:10px}
 }
