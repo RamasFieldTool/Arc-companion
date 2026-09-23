@@ -9,7 +9,7 @@
   <meta http-equiv="Permissions-Policy" content="camera=(self), microphone=(), geolocation=(), payment=(), usb=()">
   <title>Ramas Field Tool – Inventar Scan Test</title>
   <link rel="stylesheet" href="inventory-scan-test.css">
-  <link rel="stylesheet" href="inventory-scan-test-v3.css?v=7">
+  <link rel="stylesheet" href="inventory-scan-test-v3.css?v=8">
 </head>
 <body>
   <main class="shell">
@@ -17,7 +17,7 @@
       <div>
         <div class="kicker">TEST-BRANCH · LOKALE VERARBEITUNG</div>
         <h1>Inventar-Scan</h1>
-        <p>Test 7: Rucksack, Schnelleinsatz und Sicherheitstasche – graue Quick-Use-Platzhalter werden über die fehlenden Eck-Markierungen als leer erkannt.</p>
+        <p>Test 8: Die Rucksack-Belegt-Erkennung wertet jetzt die eigentliche Item-Silhouette im Slot aus statt Reflexionen und Rasterlinien.</p>
       </div>
       <div class="privacy-badge" aria-label="Datenschutz: Bild bleibt auf diesem Gerät">🔒 Bild bleibt auf diesem Gerät</div>
     </header>
@@ -33,7 +33,7 @@
         <label class="button secondary" for="fileInput">🖼️ Foto auswählen</label>
         <input id="fileInput" type="file" accept="image/*" capture="environment">
       </div>
-      <p class="hint"><strong>Test 7:</strong> Beim Schnelleinsatz werden jetzt die kleinen weißen UI-Markierungen in den unteren Ecken ausgewertet. Ein grauer leerer Kreis sollte dadurch nicht mehr als Item zählen.</p>
+      <p class="hint"><strong>Test 8:</strong> Leere Rucksackplätze mit Reflexionen, Moiré oder hellen Rasterlinien sollen nicht mehr als belegt zählen. Schnelleinsatz und Sicherheitstasche bleiben ebenfalls aktiv.</p>
     </section>
 
     <section id="cameraCard" class="camera-card" hidden>
@@ -93,7 +93,7 @@
     </section>
   </main>
   <canvas id="workCanvas" hidden></canvas>
-  <script src="inventory-scan-test-v5.js?v=7" defer></script>
-  <script src="inventory-scan-test-v6-patch.js?v=7" defer></script>
+  <script src="inventory-scan-test-v5.js?v=8" defer></script>
+  <script src="inventory-scan-test-v6-patch.js?v=8" defer></script>
 </body>
 </html>
