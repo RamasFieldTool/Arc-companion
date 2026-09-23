@@ -80,38 +80,59 @@
   }
 
   function slotLooksOccupied(box) {
-    const { width, height, data } = cleanFrame;
-    const margin = Math.max(3, Math.round(Math.min(box.w, box.h) * 0.14));
-    const x0 = clamp(Math.round(box.x + margin), 0, width - 1);
-    const y0 = clamp(Math.round(box.y + margin), 0, height - 1);
-    const x1 = clamp(Math.round(box.x + box.w - margin), x0 + 1, width);
-    const y1 = clamp(Math.round(box.y + box.h - margin), y0 + 1, height);
+    if (!cleanFrame) return false;
 
+    // Filled ARC quick-use slots consistently expose UI metadata in the lower corners:
+    // a bright item/type badge at lower-left and/or bright quantity text at lower-right.
+    // The gray empty circular placeholder is centered and does not contain those corner marks.
+    const leftBadge = cornerFeature(box, 0.05, 0.57, 0.38, 0.94);
+    const rightQty = cornerFeature(box, 0.56, 0.58, 0.96, 0.95);
+
+    if (leftBadge.whiteRatio > 0.055 || leftBadge.brightRatio > 0.105) return true;
+    if (rightQty.whiteRatio > 0.030 || rightQty.brightRatio > 0.072) return true;
+
+    // Secondary cue for unusual items whose badges are partly washed out by a camera photo.
+    // Sample only the upper/central interior so colored slot borders cannot create a false hit.
+    const body = regionStats(box, 0.18, 0.12, 0.82, 0.64);
+    return body.satRatio > 0.14 && body.p90 > 120;
+  }
+
+  function cornerFeature(box, fx0, fy0, fx1, fy1) {
+    return regionStats(box, fx0, fy0, fx1, fy1);
+  }
+
+  function regionStats(box, fx0, fy0, fx1, fy1) {
+    const { width, height, data } = cleanFrame;
+    const x0 = clamp(Math.round(box.x + box.w * fx0), 0, width - 1);
+    const y0 = clamp(Math.round(box.y + box.h * fy0), 0, height - 1);
+    const x1 = clamp(Math.round(box.x + box.w * fx1), x0 + 1, width);
+    const y1 = clamp(Math.round(box.y + box.h * fy1), y0 + 1, height);
+
+    let n = 0, white = 0, bright = 0, saturated = 0;
     const luminance = [];
-    let saturated = 0;
-    let samples = 0;
+
     for (let y = y0; y < y1; y += 2) {
       for (let x = x0; x < x1; x += 2) {
         const p = (y * width + x) * 4;
         const r = data[p], g = data[p + 1], b = data[p + 2];
         const lum = r * 0.299 + g * 0.587 + b * 0.114;
-        luminance.push(lum);
         const mx = Math.max(r, g, b), mn = Math.min(r, g, b);
         const sat = mx ? (mx - mn) / mx : 0;
-        if (mx > 75 && sat > 0.38) saturated++;
-        samples++;
+        luminance.push(lum);
+        if (lum > 172) bright++;
+        if (lum > 166 && sat < 0.26) white++;
+        if (mx > 72 && sat > 0.34) saturated++;
+        n++;
       }
     }
-    if (!luminance.length) return false;
-    luminance.sort((a, b) => a - b);
-    const median = percentile(luminance, 0.50);
-    const p90 = percentile(luminance, 0.90);
-    const contrast = p90 - median;
-    const satRatio = samples ? saturated / samples : 0;
 
-    // Echte Quick-Use-Items besitzen in ARC typischerweise eine sehr helle Icon-Silhouette
-    // oder eine deutliche Raritätsfarbe. Der graue leere Platzhalter hat beides nicht.
-    return (p90 > 150 && contrast > 100) || satRatio > 0.16;
+    luminance.sort((a, b) => a - b);
+    return {
+      whiteRatio: n ? white / n : 0,
+      brightRatio: n ? bright / n : 0,
+      satRatio: n ? saturated / n : 0,
+      p90: luminance.length ? percentile(luminance, 0.90) : 0
+    };
   }
 
   function percentile(sorted, f) {
