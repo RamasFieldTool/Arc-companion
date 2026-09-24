@@ -25,6 +25,12 @@ async function installRoutes(page){
 async function waitForLanguage(page,language){
   await page.waitForFunction(expected=>document.documentElement.dataset.uiLanguage===expected,language,{timeout:30000});
 }
+async function waitForText(page,selector,text){
+  await page.waitForFunction(({selector,text})=>document.querySelector(selector)?.textContent?.trim()===text,{selector,text},{timeout:30000});
+}
+async function waitForPrefix(page,selector,prefix){
+  await page.waitForFunction(({selector,prefix})=>document.querySelector(selector)?.textContent?.trim().startsWith(prefix),{selector,prefix},{timeout:30000});
+}
 
 const browser=await chromium.launch({headless:true});
 try{
@@ -35,33 +41,33 @@ try{
   await page.goto(`${BASE_URL}?firstlang=1`,{waitUntil:'load'});
   await page.locator('#arcLanguageFirstRun').waitFor({state:'visible'});
   await waitForLanguage(page,'en');
-  if((await page.locator('#launcherHeading').innerText()).trim()!=='Ready for your next raid?')throw new Error('First launch must show English before a language is chosen');
+  await waitForText(page,'#launcherHeading','Ready for your next raid?');
   if(await page.locator('#arcLanguageFirstRun [data-first-language]').count()!==4)throw new Error('First-run chooser must offer EN, DE, FR and ES');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('EN'))throw new Error('Permanent language button must show EN on first launch');
 
   await page.locator('[data-first-language="fr"]').tap();
   await page.locator('#arcLanguageFirstRun').waitFor({state:'detached'});
   await waitForLanguage(page,'fr');
+  await waitForText(page,'#launcherHeading','Prêt pour votre prochain raid ?');
+  await waitForPrefix(page,'#dataStatusPersistent','DONNÉES');
   const frenchState=await page.evaluate(()=>({ui:localStorage.getItem('arcUiLanguage'),engine:localStorage.getItem('arcLang'),html:document.documentElement.lang}));
   if(frenchState.ui!=='fr'||frenchState.engine!=='en'||frenchState.html!=='fr')throw new Error(`French language state invalid: ${JSON.stringify(frenchState)}`);
-  if((await page.locator('#launcherHeading').innerText()).trim()!=='Prêt pour votre prochain raid ?')throw new Error('French launcher heading was not applied');
-  if(!(await page.locator('#dataStatusPersistent').innerText()).startsWith('DONNÉES'))throw new Error('French data status was not applied');
   await page.locator('[data-app-target="itemsSection"]').tap();
-  if((await page.locator('#itemsDrawerTitle').innerText()).trim()!=='RECHERCHE D’OBJETS')throw new Error('French item-search title was not applied');
+  await waitForText(page,'#itemsDrawerTitle','RECHERCHE D’OBJETS');
   await page.locator('#appBack').tap();
 
   await page.locator('#arcLanguageButton').tap();
   await page.locator('#arcLanguageMenu [data-arc-language="es"]').tap();
   await waitForLanguage(page,'es');
-  if((await page.locator('#launcherHeading').innerText()).trim()!=='¿Listo para tu próxima incursión?')throw new Error('Spanish launcher heading was not applied');
-  if(!(await page.locator('#dataStatusPersistent').innerText()).startsWith('DATOS'))throw new Error('Spanish data status was not applied');
+  await waitForText(page,'#launcherHeading','¿Listo para tu próxima incursión?');
+  await waitForPrefix(page,'#dataStatusPersistent','DATOS');
   const spanishStored=await page.evaluate(()=>localStorage.getItem('arcUiLanguage'));
   if(spanishStored!=='es')throw new Error('Spanish UI language was not persisted');
 
   await page.goto(BASE_URL,{waitUntil:'load'});
   await waitForLanguage(page,'es');
+  await waitForText(page,'#launcherHeading','¿Listo para tu próxima incursión?');
   if(await page.locator('#arcLanguageFirstRun').count())throw new Error('First-run chooser must not reappear after a language has been chosen');
-  if((await page.locator('#launcherHeading').innerText()).trim()!=='¿Listo para tu próxima incursión?')throw new Error('Spanish selection did not survive reload');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('ES'))throw new Error('Permanent language button did not retain ES');
 
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
