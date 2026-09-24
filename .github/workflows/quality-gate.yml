@@ -1,0 +1,57 @@
+name: ARC Companion Quality Gate
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quality-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-integrity:
+    name: Static data and asset integrity
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate JSON, assets, script order and version
+        env:
+          EXPECTED_APP_VERSION: '13.0.15'
+        run: node tests/data-integrity.mjs
+
+  browser-smoke:
+    name: Browser smoke and fallback scenarios
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Start local app server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/arc-http.log 2>&1 &
+          echo $! > /tmp/arc-http.pid
+          for i in {1..20}; do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 0.5
+          done
+          cat /tmp/arc-http.log
+          exit 1
+      - name: Run browser quality gate
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/quality-gate.mjs
+      - name: Show server log on failure
+        if: failure()
+        run: cat /tmp/arc-http.log || true
