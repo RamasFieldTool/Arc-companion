@@ -94,10 +94,49 @@ const dataStatusPoll=setInterval(()=>{
 },250);
 renderDataStatus();
 
+// FR/ES are currently an overlay over the stable English rendering engine.
+// The overlay intentionally re-applies translated labels when dynamic modules render.
+// Prevent redundant text/HTML assignments in the few controls the overlay rewrites on
+// every pass; otherwise those writes trigger its MutationObserver again and can cause
+// a permanent render loop (visible as whole-page flicker on mobile browsers/WebViews).
+function installI18nStabilityGuard(){
+  if(window.__arcI18nStabilityInstalled)return;
+  window.__arcI18nStabilityInstalled=true;
+  const overlayActive=()=>['fr','es'].includes(document.documentElement.dataset.uiLanguage);
+  const textTargets='#appLauncher .app-tile b,#appLauncher .app-tile small,#appLauncher .launcher-utilities button,#liveEventsRegion option,#liveEventsLead option';
+
+  const textDescriptor=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');
+  if(textDescriptor?.get&&textDescriptor?.set&&textDescriptor.configurable){
+    Object.defineProperty(Node.prototype,'textContent',{
+      configurable:textDescriptor.configurable,
+      enumerable:textDescriptor.enumerable,
+      get:textDescriptor.get,
+      set(value){
+        if(overlayActive()&&typeof value==='string'&&this.nodeType===Node.ELEMENT_NODE&&this.matches?.(textTargets)&&textDescriptor.get.call(this)===value)return;
+        textDescriptor.set.call(this,value);
+      }
+    });
+  }
+
+  const htmlDescriptor=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML');
+  if(htmlDescriptor?.get&&htmlDescriptor?.set&&htmlDescriptor.configurable){
+    Object.defineProperty(Element.prototype,'innerHTML',{
+      configurable:htmlDescriptor.configurable,
+      enumerable:htmlDescriptor.enumerable,
+      get:htmlDescriptor.get,
+      set(value){
+        if(overlayActive()&&typeof value==='string'&&this.id==='arcLanguageButton'&&htmlDescriptor.get.call(this)===value)return;
+        htmlDescriptor.set.call(this,value);
+      }
+    });
+  }
+}
+
 function loadI18nV13017(){
   if(document.querySelector('script[data-arc-i18n-v13017]'))return;
+  installI18nStabilityGuard();
   const script=document.createElement('script');
-  script.src='i18n-v13017.js?v=13017a';
+  script.src='i18n-v13017.js?v=13017b';
   script.dataset.arcI18nV13017='';
   script.async=false;
   document.body.append(script);
