@@ -1,5 +1,5 @@
-// V13.0.16 – persistent user-facing loading/live/partial/fallback status.
-const APP_VERSION='13.0.16';
+// V13.0.17 – persistent user-facing loading/live/partial/fallback status.
+const APP_VERSION='13.0.17';
 const STATUS_COPY={
   de:{
     loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
@@ -42,7 +42,7 @@ function ensurePersistentDataStatus(){
   dock.className='data-status-dock';
   dock.setAttribute('role','status');
   dock.setAttribute('aria-live','polite');
-  dock.innerHTML=`<span id="dataStatusPersistent" class="data-status loading">DATEN // LADEN…</span><span class="version" data-app-version>V${APP_VERSION}</span>`;
+  dock.innerHTML=`<span id="dataStatusPersistent" class="data-status loading">DATA // LOADING…</span><span class="version" data-app-version>V${APP_VERSION}</span>`;
   const header=document.querySelector('.masthead');
   if(header?.parentNode===main)header.insertAdjacentElement('afterend',dock);
   else main.prepend(dock);
@@ -93,3 +93,14 @@ const dataStatusPoll=setInterval(()=>{
   if(state!=='loading'||dataStatusPollCount>=160)clearInterval(dataStatusPoll);
 },250);
 renderDataStatus();
+
+function loadI18nV13017(){
+  if(document.querySelector('script[data-arc-i18n-v13017]'))return;
+  const script=document.createElement('script');
+  script.src='i18n-v13017.js?v=13017a';
+  script.dataset.arcI18nV13017='';
+  script.async=false;
+  document.body.append(script);
+}
+if(document.readyState==='complete')setTimeout(loadI18nV13017,0);
+else window.addEventListener('load',loadI18nV13017,{once:true});
