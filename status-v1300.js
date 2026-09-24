@@ -1,4 +1,4 @@
-// V13.0.12 – user-facing loading/live/fallback status without touching application data logic.
+// V13.0.13 – persistent user-facing loading/live/fallback status without touching application data logic.
 const APP_VERSION='13.0.0';
 const STATUS_COPY={
   de:{
@@ -29,33 +29,45 @@ function currentDataState(){
   if(questLoadError)return 'partial';
   return 'live';
 }
-function ensureDataStatusVisible(){
-  const headStatus=document.querySelector('.head-status');
-  if(!headStatus)return;
-  // The modern mobile prototype still contains a legacy display:none!important rule.
-  // An inline important declaration safely overrides presentation only; no data logic changes.
-  headStatus.style.setProperty('display','flex','important');
-  headStatus.style.setProperty('align-items','center');
-  headStatus.style.setProperty('gap','5px');
-  headStatus.style.setProperty('flex-wrap','wrap');
+function ensurePersistentDataStatus(){
+  let dock=document.getElementById('dataStatusDock');
+  if(dock)return dock;
+  const main=document.querySelector('main');
+  if(!main)return null;
+  dock=document.createElement('div');
+  dock.id='dataStatusDock';
+  dock.className='data-status-dock';
+  dock.setAttribute('role','status');
+  dock.setAttribute('aria-live','polite');
+  dock.innerHTML='<span id="dataStatusPersistent" class="data-status loading">DATEN // LADEN…</span><span class="version" data-app-version>V13.0.0</span>';
+  const header=document.querySelector('.masthead');
+  if(header?.parentNode===main)header.insertAdjacentElement('afterend',dock);
+  else main.prepend(dock);
+  return dock;
+}
+function updateStatusElement(el,state,c){
+  if(!el)return;
+  const labels={loading:c.loading,live:c.live,fallback:c.fallback,partial:c.partial,error:c.error};
+  const titles={loading:c.loadingTitle,live:c.liveTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
+  el.textContent=labels[state];
+  el.dataset.state=state;
+  el.classList.toggle('fallback',state==='fallback');
+  el.classList.toggle('loading',state==='loading');
+  el.classList.toggle('partial',state==='partial');
+  el.classList.toggle('error',state==='error');
+  el.title=titles[state];
 }
 function renderDataStatus(){
-  ensureDataStatusVisible();
-  const el=document.getElementById('dataStatus');
+  const dock=ensurePersistentDataStatus();
+  const headerStatus=document.getElementById('dataStatus');
+  const persistentStatus=dock?.querySelector('#dataStatusPersistent');
   const notice=document.getElementById('fallbackNotice');
   const c=statusCopy();
   const state=currentDataState();
-  if(el){
-    const labels={loading:c.loading,live:c.live,fallback:c.fallback,partial:c.partial,error:c.error};
-    const titles={loading:c.loadingTitle,live:c.liveTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
-    el.textContent=labels[state];
-    el.dataset.state=state;
-    el.classList.toggle('fallback',state==='fallback');
-    el.classList.toggle('loading',state==='loading');
-    el.classList.toggle('partial',state==='partial');
-    el.classList.toggle('error',state==='error');
-    el.title=titles[state];
-  }
+
+  updateStatusElement(headerStatus,state,c);
+  updateStatusElement(persistentStatus,state,c);
+
   if(notice){
     notice.hidden=state!=='fallback';
     if(state==='fallback')notice.innerHTML=`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`;
