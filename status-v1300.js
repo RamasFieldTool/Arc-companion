@@ -162,9 +162,9 @@ renderDataStatus();
 // The launcher shipped before FR/ES and has its own MutationObserver. Whenever one of
 // the tile summary/status nodes changes, that legacy observer rewrites every launcher
 // tile from the DE/EN engine. In FR/ES the i18n layer then rewrites those labels again.
-// A live-event/status timer can therefore make the cards visibly alternate forever.
-// Capture only that specific parser-time observer and suppress its callback while the
-// FR/ES overlay owns the launcher. All other MutationObservers keep native behaviour.
+// Keep the bridge installed until DOMContentLoaded so the parser-end inline launcher
+// observer is definitely constructed through this wrapper. Restore the native observer
+// before the later FR/ES overlay installs its own body observer.
 (function installLegacyLauncherObserverBridge(){
   const NativeMutationObserver=window.MutationObserver;
   if(!NativeMutationObserver||window.__arcLegacyLauncherObserverBridge)return;
@@ -193,7 +193,11 @@ renderDataStatus();
   }
 
   window.MutationObserver=ArcMutationObserverBridge;
-  setTimeout(()=>{if(window.MutationObserver===ArcMutationObserverBridge)window.MutationObserver=NativeMutationObserver},0);
+  const restoreNative=()=>{
+    if(window.MutationObserver===ArcMutationObserverBridge)window.MutationObserver=NativeMutationObserver;
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',restoreNative,{once:true});
+  else setTimeout(restoreNative,0);
 })();
 
 function loadI18nV13017(){
