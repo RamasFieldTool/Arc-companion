@@ -3,6 +3,12 @@ name: Refresh full item catalog snapshot
 on:
   schedule:
     - cron: '17 */6 * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/catalog-snapshot.yml'
+      - 'scripts/build-catalog-snapshot.mjs'
+      - 'catalog-resilience-v2120.js'
   workflow_dispatch:
 
 permissions:
