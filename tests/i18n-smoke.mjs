@@ -31,6 +31,22 @@ async function waitForText(page,selector,text){
 async function waitForPrefix(page,selector,prefix){
   await page.waitForFunction(({selector,prefix})=>document.querySelector(selector)?.textContent?.trim().startsWith(prefix),{selector,prefix},{timeout:30000});
 }
+async function assertLauncherStable(page,label){
+  const mutations=await page.evaluate(()=>new Promise(resolve=>{
+    const target=document.getElementById('appLauncher');
+    if(!target){resolve(999);return;}
+    let count=0;
+    const observer=new MutationObserver(records=>{
+      for(const record of records){
+        if(record.type==='characterData')count++;
+        if(record.type==='childList')count+=record.addedNodes.length+record.removedNodes.length;
+      }
+    });
+    observer.observe(target,{subtree:true,childList:true,characterData:true});
+    setTimeout(()=>{observer.disconnect();resolve(count)},700);
+  }));
+  if(mutations>2)throw new Error(`${label}: launcher is still re-rendering/flickering (${mutations} DOM mutations in 700ms)`);
+}
 
 const browser=await chromium.launch({headless:true});
 try{
@@ -52,6 +68,7 @@ try{
   await waitForPrefix(page,'#dataStatusPersistent','DONNÉES');
   const frenchState=await page.evaluate(()=>({ui:localStorage.getItem('arcUiLanguage'),engine:localStorage.getItem('arcLang'),html:document.documentElement.lang}));
   if(frenchState.ui!=='fr'||frenchState.engine!=='en'||frenchState.html!=='fr')throw new Error(`French language state invalid: ${JSON.stringify(frenchState)}`);
+  await assertLauncherStable(page,'French UI');
   await page.locator('[data-app-target="itemsSection"]').tap();
   await waitForText(page,'#itemsDrawerTitle','RECHERCHE D’OBJETS');
   await page.locator('#appBack').tap();
@@ -63,17 +80,19 @@ try{
   await waitForPrefix(page,'#dataStatusPersistent','DATOS');
   const spanishStored=await page.evaluate(()=>localStorage.getItem('arcUiLanguage'));
   if(spanishStored!=='es')throw new Error('Spanish UI language was not persisted');
+  await assertLauncherStable(page,'Spanish UI');
 
   await page.goto(BASE_URL,{waitUntil:'load'});
   await waitForLanguage(page,'es');
   await waitForText(page,'#launcherHeading','¿Listo para tu próxima incursión?');
   if(await page.locator('#arcLanguageFirstRun').count())throw new Error('First-run chooser must not reappear after a language has been chosen');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('ES'))throw new Error('Permanent language button did not retain ES');
+  await assertLauncherStable(page,'Spanish UI after reload');
 
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`Language UI causes horizontal mobile overflow (${overflow}px)`);
 
-  console.log('PASS English-first onboarding, French UI, Spanish UI and persistence.');
+  console.log('PASS English-first onboarding, French UI, Spanish UI, persistence and flicker stability.');
   await context.close();
 }finally{
   await browser.close();
