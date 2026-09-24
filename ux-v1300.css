@@ -1,4 +1,4 @@
-/* V13.0.10 — progressive disclosure and compact controls. */
+/* V13.0.11 — progressive disclosure, inline raid goals, and free raid items. */
 
 /* Active goals: show exact station names first; reveal levels per station. */
 .goal-station{padding:0;overflow:hidden}
@@ -91,6 +91,71 @@
 .raid-goal-quest-add button:hover,.raid-goal-quest-add button:focus-visible{background:var(--orange);color:#101010}
 .raid-goal-empty{padding:9px 10px;border:1px dashed var(--ui-line);border-radius:10px;color:var(--ui-muted);font-size:12px;line-height:1.4}
 
+/* My Next Raid: free personal items. This only feeds the existing next-raid add action. */
+.raid-free-manager{
+  margin:0 0 14px;border:1px solid color-mix(in srgb,var(--amber) 34%,var(--ui-line));
+  border-radius:16px;overflow:hidden;background:color-mix(in srgb,var(--amber) 4%,var(--ui-panel-2))
+}
+.raid-free-manager>summary{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;
+  padding:12px 14px;list-style:none;cursor:pointer;
+  background:linear-gradient(105deg,color-mix(in srgb,var(--amber) 8%,var(--ui-panel)),var(--ui-panel))
+}
+.raid-free-manager>summary::-webkit-details-marker{display:none}
+.raid-free-manager>summary::marker{content:""}
+.raid-free-manager-copy{display:grid;gap:2px;min-width:0}
+.raid-free-manager-copy strong{color:var(--ui-text);font:700 15px/1.15 "Rajdhani",sans-serif;letter-spacing:.055em}
+.raid-free-manager-copy small{color:var(--ui-muted);font-size:11px;line-height:1.2}
+.raid-free-manager-meta{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.raid-free-manager-meta b{
+  padding:6px 9px;border:1px solid color-mix(in srgb,var(--amber) 45%,var(--ui-line));
+  border-radius:999px;background:color-mix(in srgb,var(--amber) 10%,var(--ui-panel));
+  color:var(--ui-text);font:700 9px monospace;letter-spacing:.07em
+}
+.raid-free-manager-meta i{
+  display:grid;place-items:center;width:28px;height:28px;border-radius:9px;border:1px solid var(--ui-line);
+  color:var(--amber);font-style:normal;font-size:17px;transition:transform .16s ease
+}
+.raid-free-manager[open] .raid-free-manager-meta i{transform:rotate(180deg)}
+.raid-free-manager[open]>summary{border-bottom:1px solid var(--ui-line)}
+.raid-free-manager-body{display:grid;gap:10px;padding:12px}
+.raid-free-search{display:grid;gap:5px;margin:0}
+.raid-free-search span{color:var(--ui-muted);font:700 9px monospace;letter-spacing:.1em}
+.raid-free-search input{
+  width:100%;min-height:44px;box-sizing:border-box;padding:9px 11px;
+  border:1px solid var(--ui-line);border-radius:11px;background:var(--ui-panel);color:var(--ui-text);font-size:14px
+}
+.raid-free-search input:focus{
+  border-color:var(--amber);outline:2px solid color-mix(in srgb,var(--amber) 20%,transparent);outline-offset:1px
+}
+.raid-free-results{display:grid;gap:7px}
+.raid-free-result{
+  display:grid;grid-template-columns:minmax(0,1fr) 72px auto;align-items:center;gap:9px;
+  padding:9px 10px;border:1px solid var(--ui-line);border-radius:11px;background:var(--ui-soft)
+}
+.raid-free-result-copy{display:grid;gap:2px;min-width:0}
+.raid-free-result-copy strong{color:var(--ui-text);font-size:13px;line-height:1.25}
+.raid-free-result-copy small{color:var(--ui-muted);font-size:10px;line-height:1.2}
+.raid-free-amount{display:grid;gap:3px;margin:0;text-align:center}
+.raid-free-amount span{color:var(--ui-muted);font:700 8px monospace;letter-spacing:.06em}
+.raid-free-amount input{
+  width:72px;min-height:38px;box-sizing:border-box;padding:6px;border:1px solid var(--ui-line);
+  border-radius:9px;background:var(--ui-panel);color:var(--ui-text);font:700 14px "Rajdhani",sans-serif;text-align:center
+}
+.raid-free-result button{
+  min-height:40px;padding:7px 10px;border:1px solid var(--amber);border-radius:10px;
+  background:color-mix(in srgb,var(--amber) 9%,var(--ui-panel));color:var(--ui-text);
+  font:700 10px "Rajdhani",sans-serif;letter-spacing:.04em;cursor:pointer
+}
+.raid-free-result button:hover,.raid-free-result button:focus-visible{background:var(--amber);color:#101010}
+.raid-free-result button:disabled,.raid-free-amount input:disabled{
+  opacity:.55;cursor:default;border-color:var(--ui-line);background:var(--ui-soft);color:var(--ui-muted)
+}
+.raid-free-empty{
+  padding:14px 12px;border:1px dashed var(--ui-line);border-radius:11px;
+  color:var(--ui-muted);font-size:12px;line-height:1.45;text-align:center
+}
+
 /* Quests and blueprints: one narrow segmented filter bar. */
 .quest-filters,.blueprint-filters{
   display:grid!important;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);
@@ -142,13 +207,17 @@
   .raid-goal-station-head{align-items:flex-start;flex-direction:column;gap:3px}
   .raid-goal-quest-add{grid-template-columns:1fr}
   .raid-goal-quest-add button{width:100%}
+  .raid-free-manager-body{padding:10px}
+  .raid-free-result{grid-template-columns:minmax(0,1fr) 66px}
+  .raid-free-result button{grid-column:1/-1;width:100%}
+  .raid-free-amount input{width:66px}
 }
 @media(max-width:420px){
   .goal-station-meta{font-size:10px}
   .quest-filter,.blueprint-filter{padding:6px 5px!important;font-size:10px!important}
   .palette-lab-summary{grid-template-columns:minmax(0,1fr) auto}
-  .raid-goal-manager>summary{padding:11px 10px;gap:8px}
-  .raid-goal-manager-copy strong{font-size:14px}
-  .raid-goal-manager-meta b{padding:5px 7px;font-size:8px}
+  .raid-goal-manager>summary,.raid-free-manager>summary{padding:11px 10px;gap:8px}
+  .raid-goal-manager-copy strong,.raid-free-manager-copy strong{font-size:14px}
+  .raid-goal-manager-meta b,.raid-free-manager-meta b{padding:5px 7px;font-size:8px}
   .raid-goal-chip span{min-width:54px;padding:7px 8px}
 }
