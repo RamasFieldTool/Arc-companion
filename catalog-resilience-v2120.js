@@ -1,12 +1,15 @@
-// V13.0.14 – resilient external catalog loading for mobile/browser clients.
+// V13.0.16 – resilient catalog loading with validated snapshot backup for mobile/browser clients.
 (()=>{
   const nativeFetch=window.fetch.bind(window);
+  const SNAPSHOT_URL='https://raw.githubusercontent.com/RamasFieldTool/Arc-companion/catalog-data/items-full-snapshot.json';
   const GITHUB_ITEMS_INDEX='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/items?ref=main';
   const LOCAL_ITEMS='items.json?v=293';
   const MAHCKS_TIMEOUT_MS=6000;
+  const SNAPSHOT_TIMEOUT_MS=8000;
   const GITHUB_TIMEOUT_MS=12000;
   const GITHUB_BATCH_SIZE=12;
-  let preferGithub=false;
+  let preferredBackup=null;
+  let snapshotCatalogPromise=null;
   let githubCatalogPromise=null;
 
   const setMeta=(source,partial=false,extra={})=>{
@@ -37,12 +40,34 @@
     }
   }
 
-  async function fetchGithubItem(file){
-    const response=await fetchWithTimeout(file.download_url,{cache:'no-store'},GITHUB_TIMEOUT_MS);
-    if(!response.ok) throw new Error(`RaidTheory item ${file.name}: ${response.status}`);
-    const data=await response.json();
-    if(!data?.id) throw new Error(`RaidTheory item ${file.name}: missing id`);
-    return data;
+  function validateCatalogItems(items,label,minCount=1){
+    if(!Array.isArray(items)||items.length<minCount) throw new Error(`${label}: suspicious item count ${Array.isArray(items)?items.length:'invalid'}`);
+    const ids=new Set();
+    for(const item of items){
+      if(!item?.id||typeof item.id!=='string') throw new Error(`${label}: item without valid id`);
+      if(ids.has(item.id)) throw new Error(`${label}: duplicate item id ${item.id}`);
+      ids.add(item.id);
+    }
+    return items;
+  }
+
+  async function mahcksResponseLooksUsable(response,input){
+    try{
+      const requestUrl=toUrl(input);
+      const data=await response.clone().json();
+      if(!data||!Array.isArray(data.items)) return false;
+      if(requestUrl?.searchParams.get('full')!=='true') return true;
+      const total=Number(data.total);
+      const offset=Math.max(0,Number(data.offset ?? requestUrl.searchParams.get('offset'))||0);
+      const count=Number(data.count);
+      if(!Number.isFinite(total)||total<1) return false;
+      if(Number.isFinite(count)&&count!==data.items.length) return false;
+      if(offset<total&&data.items.length===0) return false;
+      if(offset+data.items.length<total&&!data.next) return false;
+      return true;
+    }catch{
+      return false;
+    }
   }
 
   async function loadLocalItems(){
@@ -54,6 +79,32 @@
     }catch{
       return [];
     }
+  }
+
+  async function loadSnapshotCatalog(){
+    if(snapshotCatalogPromise) return snapshotCatalogPromise;
+    snapshotCatalogPromise=(async()=>{
+      const response=await fetchWithTimeout(SNAPSHOT_URL,{cache:'no-store'},SNAPSHOT_TIMEOUT_MS);
+      if(!response.ok) throw new Error(`Ramas snapshot ${response.status}`);
+      const snapshot=await response.json();
+      if(snapshot?.schema!=='ramas-field-tool-item-snapshot'||snapshot?.formatVersion!==1) throw new Error('Ramas snapshot: invalid schema');
+      const items=validateCatalogItems(snapshot.items,'Ramas snapshot',100);
+      if(Number(snapshot.count)!==items.length) throw new Error(`Ramas snapshot: count mismatch ${snapshot.count}/${items.length}`);
+      setMeta('snapshot',false,{total:items.length,generatedAt:snapshot.generatedAt||null});
+      return items;
+    })().catch(error=>{
+      snapshotCatalogPromise=null;
+      throw error;
+    });
+    return snapshotCatalogPromise;
+  }
+
+  async function fetchGithubItem(file){
+    const response=await fetchWithTimeout(file.download_url,{cache:'no-store'},GITHUB_TIMEOUT_MS);
+    if(!response.ok) throw new Error(`RaidTheory item ${file.name}: ${response.status}`);
+    const data=await response.json();
+    if(!data?.id) throw new Error(`RaidTheory item ${file.name}: missing id`);
+    return data;
   }
 
   async function loadGithubCatalog(){
@@ -109,18 +160,13 @@
     return githubCatalogPromise;
   }
 
-  async function githubResponseFor(input){
+  async function responseForCatalog(input,catalog,sourceHeader){
     const requestUrl=toUrl(input);
-    const catalog=await loadGithubCatalog();
     const full=requestUrl?.searchParams.get('full')==='true';
 
     if(!full){
-      const data={
-        type:'items',
-        count:catalog.length,
-        items:catalog.map(item=>({id:item.id,url:`/v1/items/${item.id}`}))
-      };
-      return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json','X-ARC-Catalog-Source':'RaidTheory-GitHub'}});
+      const data={type:'items',count:catalog.length,items:catalog.map(item=>({id:item.id,url:`/v1/items/${item.id}`}))};
+      return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json','X-ARC-Catalog-Source':sourceHeader}});
     }
 
     const requestedLimit=Number(requestUrl?.searchParams.get('limit'))||45;
@@ -130,39 +176,65 @@
     const data={type:'items',total:catalog.length,count:page.length,offset,limit,items:page};
     if(offset+limit<catalog.length) data.next=`/v1/items?full=true&offset=${offset+limit}&limit=${limit}`;
     if(offset>0) data.prev=`/v1/items?full=true&offset=${Math.max(0,offset-limit)}&limit=${limit}`;
-    return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json','X-ARC-Catalog-Source':window.__arcCatalogMeta?.partial?'RaidTheory-GitHub-Partial':'RaidTheory-GitHub'}});
+    return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json','X-ARC-Catalog-Source':sourceHeader}});
+  }
+
+  async function snapshotResponseFor(input){
+    const catalog=await loadSnapshotCatalog();
+    return responseForCatalog(input,catalog,'Ramas-Snapshot');
+  }
+
+  async function githubResponseFor(input){
+    const catalog=await loadGithubCatalog();
+    return responseForCatalog(input,catalog,window.__arcCatalogMeta?.partial?'RaidTheory-GitHub-Partial':'RaidTheory-GitHub');
   }
 
   window.fetch=async function(input,init){
     if(!isMahcksItems(input)) return nativeFetch(input,init);
-    if(preferGithub) return githubResponseFor(input);
+    if(preferredBackup==='snapshot') return snapshotResponseFor(input);
+    if(preferredBackup==='github') return githubResponseFor(input);
 
     const delays=[0,500];
-    let lastError;
+    let mahcksError;
     for(let attempt=0;attempt<delays.length;attempt++){
       if(delays[attempt]) await wait(delays[attempt]);
       try{
         const response=await fetchWithTimeout(input,init,MAHCKS_TIMEOUT_MS);
         if(response.ok){
-          setMeta('mahcks',false);
-          return response;
+          if(await mahcksResponseLooksUsable(response,input)){
+            setMeta('mahcks',false);
+            return response;
+          }
+          mahcksError=new Error('Mahcks items API returned an invalid or incomplete page');
+          break;
         }
-        lastError=new Error(`Mahcks items API ${response.status}`);
+        mahcksError=new Error(`Mahcks items API ${response.status}`);
         if(!retryable(response.status)) break;
       }catch(error){
-        lastError=error;
+        mahcksError=error;
       }
+    }
+
+    let snapshotError;
+    try{
+      const response=await snapshotResponseFor(input);
+      preferredBackup='snapshot';
+      console.warn('Mahcks items API unavailable or invalid; using validated Ramas catalog snapshot.',mahcksError);
+      return response;
+    }catch(error){
+      snapshotError=error;
+      console.warn('Validated Ramas catalog snapshot unavailable; trying RaidTheory directly.',snapshotError);
     }
 
     try{
       const response=await githubResponseFor(input);
-      preferGithub=true;
-      console.warn('Mahcks items API unavailable; using RaidTheory GitHub catalog.',lastError);
+      preferredBackup='github';
+      console.warn('Using RaidTheory GitHub catalog after Mahcks/snapshot failure.',mahcksError,snapshotError);
       return response;
     }catch(githubError){
-      console.error('RaidTheory GitHub catalog fallback failed.',githubError);
-      setMeta('local-fallback',false,{error:String(lastError||githubError)});
-      throw lastError||githubError;
+      console.error('All external catalog fallbacks failed.',githubError);
+      setMeta('local-fallback',false,{mahcksError:String(mahcksError||''),snapshotError:String(snapshotError||''),githubError:String(githubError||'')});
+      throw mahcksError||snapshotError||githubError;
     }
   };
 })();
