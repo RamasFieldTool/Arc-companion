@@ -50,14 +50,16 @@ const statusPos=index.indexOf('status-v1300.js');
 if(catalogPos<0||appPos<0||statusPos<0) fail('Required catalog/app/status scripts are not all referenced by index.html');
 if(!(catalogPos<appPos&&appPos<statusPos)) fail('Script order must be catalog-resilience -> app.js -> status-v1300.js');
 
-const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.15';
+const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.16';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
 
 const catalogScript=await read('catalog-resilience-v2120.js');
-for(const marker of ['window.__arcCatalogMeta','github-partial','local-fallback']){
+for(const marker of ['window.__arcCatalogMeta','SNAPSHOT_URL','Ramas-Snapshot','github-partial','local-fallback']){
   if(!catalogScript.includes(marker)) fail(`Catalog resilience marker missing: ${marker}`);
 }
+if(!catalogScript.includes('catalog-data/items-full-snapshot.json')) fail('Catalog snapshot URL is missing from resilience layer');
+if(!catalogScript.includes('mahcksResponseLooksUsable')) fail('Mahcks payload validation is missing');
 
 console.log(`PASS static integrity: ${items.length} local items, ${goals.length} goal groups, ${new Set(localAssets).size} referenced local assets, version ${version}.`);
