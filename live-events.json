@@ -2,90 +2,6 @@
   "conditions": [
     {
       "type": "minor",
-      "conditionName": "Lush Blooms",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-09-24T09:00:00.000Z",
-          "end": "2026-09-24T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-24T16:00:00.000Z",
-          "end": "2026-09-24T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-24T15:00:00.000Z",
-          "end": "2026-09-24T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-24T04:00:00.000Z",
-          "end": "2026-09-24T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-24T00:00:00.000Z",
-          "end": "2026-09-24T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-09-24T09:00:00.000Z",
-          "end": "2026-09-24T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-24T16:00:00.000Z",
-          "end": "2026-09-24T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-24T15:00:00.000Z",
-          "end": "2026-09-24T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-24T04:00:00.000Z",
-          "end": "2026-09-24T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-24T00:00:00.000Z",
-          "end": "2026-09-24T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-09-24T09:00:00.000Z",
-          "end": "2026-09-24T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-24T16:00:00.000Z",
-          "end": "2026-09-24T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-24T15:00:00.000Z",
-          "end": "2026-09-24T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-24T04:00:00.000Z",
-          "end": "2026-09-24T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-24T00:00:00.000Z",
-          "end": "2026-09-24T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "minor",
       "conditionName": "Bird City",
       "mapDisplayName": "Buried City",
       "regions": {
@@ -4425,5 +4341,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-09-24T16:41:08Z"
+  "syncedAt": "2026-09-24T17:06:22Z"
 }
