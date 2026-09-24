@@ -60,10 +60,17 @@ const statusPos=index.indexOf('status-v1300.js');
 if(catalogPos<0||appPos<0||statusPos<0) fail('Required catalog/app/status scripts are not all referenced by index.html');
 if(!(catalogPos<appPos&&appPos<statusPos)) fail('Script order must be catalog-resilience -> app.js -> status-v1300.js');
 
-const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.16';
+const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.17';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
+if(!statusScript.includes("i18n-v13017.js?v=13017a"))fail('V13.0.17 i18n layer is not loaded with an explicit cache-buster');
+try{await access(new URL('i18n-v13017.js',root),constants.F_OK)}catch{fail('i18n-v13017.js is missing')}
+
+const i18nScript=await read('i18n-v13017.js');
+for(const marker of ["const SUPPORTED=['en','de','fr','es']","arcUiLanguage","Choose your language","Prêt pour votre prochain raid ?","¿Listo para tu próxima incursión?"]){
+  if(!i18nScript.includes(marker))fail(`i18n safety marker missing: ${marker}`);
+}
 
 const catalogScript=await read('catalog-resilience-v2120.js');
 for(const marker of ['window.__arcCatalogMeta','SNAPSHOT_URL','Ramas-Snapshot','github-partial','local-fallback']){
@@ -71,6 +78,7 @@ for(const marker of ['window.__arcCatalogMeta','SNAPSHOT_URL','Ramas-Snapshot','
 }
 if(!catalogScript.includes('catalog-data/items-full-snapshot.json')) fail('Catalog snapshot URL is missing from resilience layer');
 if(!catalogScript.includes('mahcksResponseLooksUsable')) fail('Mahcks payload validation is missing');
+if(!catalogScript.includes("localStorage.setItem('arcLang','en')")||!catalogScript.includes("arcLanguageOnboardingPending")) fail('English-first language initialization is missing');
 
 const backupScript=await read('backup-v1304.js');
 for(const marker of ["const FORMAT_VERSION=1","blockedKeys=new Set(['__proto__','prototype','constructor'])",'function validateBackup','function applyBackup']){
@@ -81,4 +89,4 @@ const snapshotWorkflow=await read('.github/workflows/catalog-snapshot.yml');
 if(!snapshotWorkflow.includes('git status --porcelain -- items-full-snapshot.json')) fail('Catalog snapshot workflow must detect untracked first snapshots');
 if(snapshotWorkflow.includes('if git diff --quiet -- items-full-snapshot.json; then')) fail('Catalog snapshot workflow still uses git diff-only change detection');
 
-console.log(`PASS static integrity: ${items.length} local items, ${goals.length} goal groups, ${new Set(localAssets).size} referenced local assets, ${mutableRefs.length} cache-busted JS/CSS assets, version ${version}.`);
+console.log(`PASS static integrity: ${items.length} local items, ${goals.length} goal groups, ${new Set(localAssets).size} referenced local assets, ${mutableRefs.length} cache-busted JS/CSS assets, version ${version}, EN/DE/FR/ES language layer present.`);
