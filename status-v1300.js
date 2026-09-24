@@ -115,43 +115,70 @@ const dataStatusPoll=setInterval(()=>{
 },250);
 renderDataStatus();
 
-// Two legacy mechanisms can fight the FR/ES overlay:
-// 1) the launcher observer rewrites all card labels from the EN/DE engine whenever a
-//    summary changes; 2) the FR/ES body observer can observe its own text rewrites and
-//    schedule another full translation pass. Wrap only the observers created after this
-//    point, suppress the legacy launcher rewrite in FR/ES, and let the i18n body observer
-//    react only to structural content additions (not its own text-node mutations).
+// FR/ES uses an overlay that re-applies translated launcher labels whenever dynamic
+// content changes. Native textContent/innerHTML setters rebuild child nodes even when
+// the requested value is already identical, which in turn re-triggers the overlay's
+// MutationObserver. On phones this presents as constant launcher tile flicker.
+// Make only the known overlay-owned writes idempotent; all other DOM writes keep native
+// browser behaviour.
+(function installIdempotentI18nDomWrites(){
+  if(window.__arcI18nIdempotentDomWrites)return;
+  const textDescriptor=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');
+  const htmlDescriptor=Object.getOwnPropertyDescriptor(Element.prototype,'innerHTML');
+  if(!textDescriptor?.get||!textDescriptor?.set||!htmlDescriptor?.get||!htmlDescriptor?.set)return;
+  window.__arcI18nIdempotentDomWrites=true;
+
+  const nativeTextGet=textDescriptor.get;
+  const nativeTextSet=textDescriptor.set;
+  const nativeHtmlGet=htmlDescriptor.get;
+  const nativeHtmlSet=htmlDescriptor.set;
+
+  Object.defineProperty(Node.prototype,'textContent',{
+    configurable:textDescriptor.configurable,
+    enumerable:textDescriptor.enumerable,
+    get:nativeTextGet,
+    set(value){
+      if(this?.nodeType===Node.ELEMENT_NODE){
+        const element=this;
+        const inLauncher=typeof element.closest==='function'&&Boolean(element.closest('#appLauncher'));
+        const inTranslatedSelect=element.tagName==='OPTION'&&(element.parentElement?.id==='liveEventsRegion'||element.parentElement?.id==='liveEventsLead');
+        if((inLauncher||inTranslatedSelect)&&nativeTextGet.call(element)===String(value))return;
+      }
+      return nativeTextSet.call(this,value);
+    }
+  });
+
+  Object.defineProperty(Element.prototype,'innerHTML',{
+    configurable:htmlDescriptor.configurable,
+    enumerable:htmlDescriptor.enumerable,
+    get:nativeHtmlGet,
+    set(value){
+      if(this?.id==='arcLanguageButton'&&nativeHtmlGet.call(this)===String(value))return;
+      return nativeHtmlSet.call(this,value);
+    }
+  });
+})();
+
+// The launcher shipped before FR/ES and has its own MutationObserver. Whenever one of
+// the tile summary/status nodes changes, that legacy observer rewrites every launcher
+// tile from the DE/EN engine. In FR/ES the i18n layer then rewrites those labels again.
+// A live-event/status timer can therefore make the cards visibly alternate forever.
+// Capture only that specific parser-time observer and suppress its callback while the
+// FR/ES overlay owns the launcher. All other MutationObservers keep native behaviour.
 (function installLegacyLauncherObserverBridge(){
   const NativeMutationObserver=window.MutationObserver;
   if(!NativeMutationObserver||window.__arcLegacyLauncherObserverBridge)return;
   window.__arcLegacyLauncherObserverBridge=true;
   const launcherStatusIds=new Set(['nextRaidSummary','liveEventsSummary','goalSummary','supplyDrawerSummary','itemsDrawerSummary','questSummary','blueprintSummary']);
 
-  const activeUi=()=>{try{return localStorage.getItem('arcUiLanguage')||''}catch{return ''}};
-  const overlayActive=()=>{const ui=activeUi();return ui==='fr'||ui==='es'};
-  const hasStructuralElementChange=record=>{
-    if(record.type!=='childList')return false;
-    const changed=[...record.addedNodes,...record.removedNodes];
-    return changed.some(node=>node.nodeType===Node.ELEMENT_NODE);
-  };
-  const ignoredI18nTarget=target=>{
-    const element=target?.nodeType===Node.ELEMENT_NODE?target:target?.parentElement;
-    return !!element?.closest?.('#appLauncher,#arcLanguageMenu,#arcLanguageButton,#arcLanguageFirstRun,.lang-switch');
-  };
-
   class ArcMutationObserverBridge{
     constructor(callback){
       this._launcherTargets=new Set();
-      this._isI18nBodyObserver=false;
       this._native=new NativeMutationObserver(records=>{
-        if(overlayActive()&&this._launcherTargets.size>=3){
+        let ui='';
+        try{ui=localStorage.getItem('arcUiLanguage')||''}catch{}
+        if(this._launcherTargets.size>=3&&(ui==='fr'||ui==='es')){
           window.dispatchEvent(new Event('arc-launcher-status-dirty'));
-          return;
-        }
-        if(overlayActive()&&this._isI18nBodyObserver){
-          const structural=records.filter(record=>hasStructuralElementChange(record)&&!ignoredI18nTarget(record.target));
-          if(!structural.length)return;
-          callback(structural,this);
           return;
         }
         callback(records,this);
@@ -159,7 +186,6 @@ renderDataStatus();
     }
     observe(target,options){
       if(target?.id&&launcherStatusIds.has(target.id))this._launcherTargets.add(target.id);
-      if(target===document.body&&options?.subtree&&options?.childList&&options?.characterData)this._isI18nBodyObserver=true;
       return this._native.observe(target,options);
     }
     disconnect(){return this._native.disconnect()}
@@ -167,9 +193,7 @@ renderDataStatus();
   }
 
   window.MutationObserver=ArcMutationObserverBridge;
-  window.__arcRestoreNativeMutationObserver=()=>{
-    if(window.MutationObserver===ArcMutationObserverBridge)window.MutationObserver=NativeMutationObserver;
-  };
+  setTimeout(()=>{if(window.MutationObserver===ArcMutationObserverBridge)window.MutationObserver=NativeMutationObserver},0);
 })();
 
 function loadI18nV13017(){
@@ -178,7 +202,6 @@ function loadI18nV13017(){
   script.src='i18n-v13017.js?v=13017d';
   script.dataset.arcI18nV13017='';
   script.async=false;
-  script.addEventListener('load',()=>window.__arcRestoreNativeMutationObserver?.(),{once:true});
   document.body.append(script);
 }
 if(document.readyState==='complete')setTimeout(loadI18nV13017,0);
