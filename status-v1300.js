@@ -1,32 +1,72 @@
-// V13.0.0 – user-facing data status. Catalog/quest loading semantics stay elsewhere.
+// V13.0.11 – user-facing loading/live/fallback status without touching application data logic.
 const APP_VERSION='13.0.0';
 const STATUS_COPY={
-  de:{live:'DATEN // LIVE',fallback:'DATEN // BASISDATENSATZ',liveTitle:'Live-Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.'},
-  en:{live:'DATA // LIVE',fallback:'DATA // BASE DATASET',liveTitle:'Live catalog active',fallbackTitle:'Local base dataset active',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.'}
+  de:{
+    loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
+    loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Aktuelle Daten geladen',fallbackTitle:'Lokaler Basisdatensatz aktiv',
+    partialTitle:'Daten nur teilweise verfügbar',errorTitle:'Daten konnten nicht geladen werden',
+    fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.'
+  },
+  en:{
+    loading:'DATA // LOADING…',live:'DATA // LIVE',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
+    loadingTitle:'Current data is loading',liveTitle:'Current data loaded',fallbackTitle:'Local base dataset active',
+    partialTitle:'Data is only partially available',errorTitle:'Data could not be loaded',
+    fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.'
+  }
 };
 function statusCopy(){return STATUS_COPY[lang==='en'?'en':'de']}
+function currentDataState(){
+  const catalogReady=Array.isArray(items)&&items.length>0;
+  const catalogStatus=document.getElementById('status');
+  const catalogFailed=!catalogReady&&catalogStatus?.classList.contains('load-error');
+  if(catalogFailed)return 'error';
+  if(!catalogReady)return 'loading';
+
+  const questsReady=Array.isArray(quests)&&quests.length>0;
+  const questsSettled=questsReady||questLoadError===true;
+  if(!questsSettled)return 'loading';
+  if(usingFallback)return 'fallback';
+  if(questLoadError)return 'partial';
+  return 'live';
+}
 function renderDataStatus(){
   const el=document.getElementById('dataStatus');
   const notice=document.getElementById('fallbackNotice');
   const c=statusCopy();
+  const state=currentDataState();
   if(el){
-    el.textContent=usingFallback?c.fallback:c.live;
-    el.classList.toggle('fallback',!!usingFallback);
-    el.title=usingFallback?c.fallbackTitle:c.liveTitle;
+    const labels={loading:c.loading,live:c.live,fallback:c.fallback,partial:c.partial,error:c.error};
+    const titles={loading:c.loadingTitle,live:c.liveTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
+    el.textContent=labels[state];
+    el.dataset.state=state;
+    el.classList.toggle('fallback',state==='fallback');
+    el.classList.toggle('loading',state==='loading');
+    el.classList.toggle('partial',state==='partial');
+    el.classList.toggle('error',state==='error');
+    el.title=titles[state];
   }
   if(notice){
-    notice.hidden=!usingFallback;
-    if(usingFallback) notice.innerHTML=`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`;
+    notice.hidden=state!=='fallback';
+    if(state==='fallback')notice.innerHTML=`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`;
   }
   document.querySelectorAll('[data-app-version]').forEach(node=>node.textContent=`V${APP_VERSION}`);
+  return state;
 }
 
 // Language changes and the final boot render already pass through applyLanguage().
-// This lightweight compatibility hook only refreshes presentation state.
+// This compatibility hook refreshes presentation state only.
 const baseApplyLanguageV2117=applyLanguage;
 applyLanguage=function(){
   baseApplyLanguageV2117();
   renderDataStatus();
 };
 
+// app.js starts its asynchronous boot before this file loads. Show LOADING immediately,
+// then poll briefly so a hard catalog failure is also reflected even if boot returns early.
+let dataStatusPollCount=0;
+const dataStatusPoll=setInterval(()=>{
+  dataStatusPollCount++;
+  const state=renderDataStatus();
+  if(state!=='loading'||dataStatusPollCount>=160)clearInterval(dataStatusPoll);
+},250);
 renderDataStatus();
