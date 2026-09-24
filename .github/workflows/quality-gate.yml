@@ -23,7 +23,7 @@ jobs:
           node-version: '20'
       - name: Validate JSON, assets, cache-busters, backup guards and version
         env:
-          EXPECTED_APP_VERSION: '13.0.16'
+          EXPECTED_APP_VERSION: '13.0.17'
         run: node tests/data-integrity.mjs
 
   browser-smoke:
@@ -52,6 +52,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run English-first FR/ES language tests
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/i18n-smoke.mjs
       - name: Run backup, restore, migration and connection-loss tests
         env:
           BASE_URL: http://127.0.0.1:4173/

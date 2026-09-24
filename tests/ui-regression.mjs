@@ -36,7 +36,7 @@ function assertHome(m,label){
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
   if(m.tiles.length<8)throw new Error(`${label}: expected at least 8 launcher tiles, got ${m.tiles.length}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
-  if(m.version!=='V13.0.16')throw new Error(`${label}: expected V13.0.16, got ${m.version}`);
+  if(m.version!=='V13.0.17')throw new Error(`${label}: expected V13.0.17, got ${m.version}`);
 }
 async function openTarget(page,target){
   if(!(await page.locator('#appLauncher').isVisible())){await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}
@@ -57,6 +57,11 @@ const report=[];
 try{
   for(const cfg of configs){
     const context=await browser.newContext({viewport:{width:cfg.width,height:cfg.height},screen:{width:cfg.width,height:cfg.height},isMobile:cfg.isMobile,hasTouch:cfg.hasTouch,userAgent:cfg.isMobile?'Mozilla/5.0 (Linux; Android 16; RamasFieldToolVisualTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36':undefined});
+    await context.addInitScript(()=>{
+      localStorage.setItem('arcLang','en');
+      localStorage.setItem('arcUiLanguage','en');
+      localStorage.setItem('arcLanguageOnboardingPending','0');
+    });
     const page=await context.newPage(),pageErrors=[],consoleErrors=[];
     page.on('pageerror',e=>pageErrors.push(String(e)));page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text())});
     await installRoutes(page);await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(page);

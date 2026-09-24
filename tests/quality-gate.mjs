@@ -101,6 +101,11 @@ async function runScenario(browser,{name,mode,expectedState,interactive=false,mo
     viewport:{width:412,height:915},screen:{width:412,height:915},isMobile:true,hasTouch:true,
     userAgent:'Mozilla/5.0 (Linux; Android 16; RamasFieldToolTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36'
   }:{viewport:{width:1280,height:900}});
+  await context.addInitScript(()=>{
+    localStorage.setItem('arcLang','en');
+    localStorage.setItem('arcUiLanguage','en');
+    localStorage.setItem('arcLanguageOnboardingPending','0');
+  });
   const page=await context.newPage();
   const pageErrors=[];
   page.on('pageerror',error=>pageErrors.push(String(error)));
@@ -109,7 +114,7 @@ async function runScenario(browser,{name,mode,expectedState,interactive=false,mo
   await waitForState(page,expectedState);
 
   const version=(await page.locator('#dataStatusDock [data-app-version]').innerText()).trim();
-  if(version!=='V13.0.16') throw new Error(`${name}: expected V13.0.16, got ${version}`);
+  if(version!=='V13.0.17') throw new Error(`${name}: expected V13.0.17, got ${version}`);
 
   if(mobile){
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);

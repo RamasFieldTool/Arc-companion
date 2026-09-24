@@ -1,5 +1,15 @@
-// V13.0.16 – resilient catalog loading with validated snapshot backup for mobile/browser clients.
+// V13.0.17 – resilient catalog loading with validated snapshot backup for mobile/browser clients.
 (()=>{
+  // New installs start in English so the language control is understandable worldwide.
+  // Existing users keep their saved language. The i18n test layer shows the first-run chooser.
+  try{
+    if(localStorage.getItem('arcLang')===null){
+      localStorage.setItem('arcLang','en');
+      localStorage.setItem('arcUiLanguage','en');
+      localStorage.setItem('arcLanguageOnboardingPending','1');
+    }
+  }catch{}
+
   const nativeFetch=window.fetch.bind(window);
   const SNAPSHOT_URL='https://raw.githubusercontent.com/RamasFieldTool/Arc-companion/catalog-data/items-full-snapshot.json';
   const GITHUB_ITEMS_INDEX='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/items?ref=main';
