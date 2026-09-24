@@ -89,7 +89,7 @@ try{
   const downloadPromise=page.waitForEvent('download');await page.locator('#backupExport').click();
   const download=await downloadPromise,backupPath=join(temp,'roundtrip.json');await download.saveAs(backupPath);
   const backup=JSON.parse(await readFile(backupPath,'utf8'));
-  if(backup.schema!=='ramas-field-tool-backup'||backup.formatVersion!==1||!backup.appVersion.includes('13.0.16'))throw new Error('Export metadata invalid');
+  if(backup.schema!=='ramas-field-tool-backup'||backup.formatVersion!==1||!backup.appVersion.includes('13.0.17'))throw new Error('Export metadata invalid');
   for(const key of trackedKeys)equal(backup.data[key],initial[key],`Export mismatch for ${key}`);
   await page.evaluate(()=>localStorage.clear());await importBackup(page,backupPath);
   equal(await snapshot(page),initial,'Backup round trip did not restore tracked data');
