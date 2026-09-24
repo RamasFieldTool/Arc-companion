@@ -1,11 +1,13 @@
 import { chromium } from 'playwright';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const OUTPUT=new URL('../test-artifacts/ui/',import.meta.url);
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
 if(!Array.isArray(items)||!items.length)throw new Error('items.json fixture missing');
 const fixtureItems=items.slice(0,Math.min(items.length,60));
+const screenshotPath=name=>fileURLToPath(new URL(name,OUTPUT));
 
 async function installRoutes(page){
   await page.route('https://arcdata.mahcks.com/v1/items**',async route=>{
@@ -75,7 +77,8 @@ async function openTarget(page,target){
   await section.waitFor({state:'visible'});
   const state=await section.evaluate(el=>({active:el.classList.contains('launcher-active'),open:el.tagName==='DETAILS'?el.open:true,width:el.getBoundingClientRect().width,right:el.getBoundingClientRect().right}));
   if(!state.active||!state.open)throw new Error(`${target}: launcher did not activate/open the target`);
-  if(state.width<100||state.right>await page.evaluate(()=>innerWidth)+4)throw new Error(`${target}: opened view exceeds viewport`);
+  const viewportWidth=await page.evaluate(()=>innerWidth);
+  if(state.width<100||state.right>viewportWidth+4)throw new Error(`${target}: opened view exceeds viewport`);
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`${target}: opened view causes ${overflow}px horizontal overflow`);
 }
@@ -103,19 +106,21 @@ try{
     await installRoutes(page);
     await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
     await waitForLive(page);
-    await page.evaluate(()=>document.fonts?.ready).catch(()=>{});
+    await page.evaluate(async()=>{
+      if(document.fonts?.ready)await Promise.race([document.fonts.ready,new Promise(resolve=>setTimeout(resolve,1000))]);
+    });
     const homeMetrics=await measure(page);
     assertLayout(homeMetrics,config.name);
-    await page.screenshot({path:new URL(`${config.name}-home.png`,OUTPUT),fullPage:true});
+    await page.screenshot({path:screenshotPath(`${config.name}-home.png`),fullPage:true});
 
     const opened=[];
     for(const target of config.views){
       await openTarget(page,target);
-      await page.screenshot({path:new URL(`${config.name}-${target}.png`,OUTPUT),fullPage:true});
-      const details=await page.locator(`#${target}`).evaluate(el=>{
+      await page.screenshot({path:screenshotPath(`${config.name}-${target}.png`),fullPage:true});
+      const details=await page.locator(`#${target}`).evaluate((el,targetName)=>{
         const r=el.getBoundingClientRect();
-        return {target,width:Math.round(r.width),height:Math.round(r.height),scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth};
-      });
+        return {target:targetName,width:Math.round(r.width),height:Math.round(r.height),scrollWidth:document.documentElement.scrollWidth,clientWidth:document.documentElement.clientWidth};
+      },target);
       if(details.scrollWidth-details.clientWidth>4)throw new Error(`${config.name}/${target}: horizontal overflow after opening view`);
       opened.push(details);
       await page.locator('#appBack').click();
