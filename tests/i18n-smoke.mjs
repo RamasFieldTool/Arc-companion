@@ -47,6 +47,30 @@ async function assertLauncherStable(page,label){
   }));
   if(mutations>2)throw new Error(`${label}: launcher is still re-rendering/flickering (${mutations} DOM mutations in 700ms)`);
 }
+async function assertLegacyStatusCannotRewriteLauncher(page,label,expectedTitle){
+  const result=await page.evaluate(async ({expectedTitle})=>{
+    const source=document.getElementById('nextRaidSummary');
+    const title=document.querySelector('[data-app-target="nextRaidDrawer"] b');
+    if(!source||!title)return {missing:true,changes:999,text:title?.textContent||''};
+    let changes=0;
+    const observer=new MutationObserver(records=>{
+      for(const record of records){
+        if(record.type==='characterData'||record.type==='childList')changes++;
+      }
+    });
+    observer.observe(title,{subtree:true,childList:true,characterData:true});
+    for(let i=0;i<12;i++){
+      source.textContent=`synthetic-status-${i}`;
+      await new Promise(resolve=>setTimeout(resolve,25));
+    }
+    await new Promise(resolve=>setTimeout(resolve,120));
+    observer.disconnect();
+    return {missing:false,changes,text:title.textContent.trim(),expectedTitle};
+  },{expectedTitle});
+  if(result.missing)throw new Error(`${label}: launcher/status test nodes are missing`);
+  if(result.text!==expectedTitle)throw new Error(`${label}: legacy status observer rewrote launcher title to ${JSON.stringify(result.text)}`);
+  if(result.changes!==0)throw new Error(`${label}: launcher title changed ${result.changes} times while status source was updating`);
+}
 
 const browser=await chromium.launch({headless:true});
 try{
@@ -69,6 +93,7 @@ try{
   const frenchState=await page.evaluate(()=>({ui:localStorage.getItem('arcUiLanguage'),engine:localStorage.getItem('arcLang'),html:document.documentElement.lang}));
   if(frenchState.ui!=='fr'||frenchState.engine!=='en'||frenchState.html!=='fr')throw new Error(`French language state invalid: ${JSON.stringify(frenchState)}`);
   await assertLauncherStable(page,'French UI');
+  await assertLegacyStatusCannotRewriteLauncher(page,'French UI','Mon prochain raid');
   await page.locator('[data-app-target="itemsSection"]').tap();
   await waitForText(page,'#itemsDrawerTitle','RECHERCHE D’OBJETS');
   await page.locator('#appBack').tap();
@@ -81,6 +106,7 @@ try{
   const spanishStored=await page.evaluate(()=>localStorage.getItem('arcUiLanguage'));
   if(spanishStored!=='es')throw new Error('Spanish UI language was not persisted');
   await assertLauncherStable(page,'Spanish UI');
+  await assertLegacyStatusCannotRewriteLauncher(page,'Spanish UI','Mi próxima incursión');
 
   await page.goto(BASE_URL,{waitUntil:'load'});
   await waitForLanguage(page,'es');
@@ -88,11 +114,12 @@ try{
   if(await page.locator('#arcLanguageFirstRun').count())throw new Error('First-run chooser must not reappear after a language has been chosen');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('ES'))throw new Error('Permanent language button did not retain ES');
   await assertLauncherStable(page,'Spanish UI after reload');
+  await assertLegacyStatusCannotRewriteLauncher(page,'Spanish UI after reload','Mi próxima incursión');
 
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`Language UI causes horizontal mobile overflow (${overflow}px)`);
 
-  console.log('PASS English-first onboarding, French UI, Spanish UI, persistence and flicker stability.');
+  console.log('PASS English-first onboarding, French UI, Spanish UI, persistence and legacy launcher flicker suppression.');
   await context.close();
 }finally{
   await browser.close();
