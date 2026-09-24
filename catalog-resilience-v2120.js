@@ -1,12 +1,18 @@
-// V2.12.0 – keep the full item catalog usable when the Mahcks API is slow or unavailable.
+// V13.0.14 – resilient external catalog loading for mobile/browser clients.
 (()=>{
   const nativeFetch=window.fetch.bind(window);
   const GITHUB_ITEMS_INDEX='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/items?ref=main';
-  const MAHCKS_TIMEOUT_MS=3500;
-  const GITHUB_TIMEOUT_MS=10000;
-  const GITHUB_BATCH_SIZE=18;
+  const LOCAL_ITEMS='items.json?v=293';
+  const MAHCKS_TIMEOUT_MS=6000;
+  const GITHUB_TIMEOUT_MS=12000;
+  const GITHUB_BATCH_SIZE=12;
   let preferGithub=false;
   let githubCatalogPromise=null;
+
+  const setMeta=(source,partial=false,extra={})=>{
+    window.__arcCatalogMeta={source,partial,...extra};
+  };
+  setMeta('loading',false);
 
   const toUrl=input=>{
     const raw=typeof input==='string'?input:input?.url;
@@ -39,6 +45,17 @@
     return data;
   }
 
+  async function loadLocalItems(){
+    try{
+      const response=await nativeFetch(LOCAL_ITEMS,{cache:'no-store'});
+      if(!response.ok) return [];
+      const data=await response.json();
+      return Array.isArray(data)?data:[];
+    }catch{
+      return [];
+    }
+  }
+
   async function loadGithubCatalog(){
     if(githubCatalogPromise) return githubCatalogPromise;
     githubCatalogPromise=(async()=>{
@@ -61,7 +78,7 @@
           else retryFiles.push(batch[index]);
         });
         if(retryFiles.length){
-          await wait(250);
+          await wait(400);
           const secondPass=await Promise.allSettled(retryFiles.map(fetchGithubItem));
           secondPass.forEach((result,index)=>{
             if(result.status==='fulfilled') loaded.push(result.value);
@@ -70,12 +87,21 @@
         }
       }
 
-      const unique=[...new Map(loaded.map(item=>[item.id,item])).values()];
-      if(failed.length||unique.length!==files.length){
-        console.warn(`RaidTheory catalog incomplete: ${unique.length}/${files.length}`,failed);
-        throw new Error(`RaidTheory catalog incomplete ${unique.length}/${files.length}`);
+      const remoteUnique=[...new Map(loaded.map(item=>[item.id,item])).values()];
+      if(!remoteUnique.length) throw new Error('RaidTheory catalog returned no usable items');
+
+      let finalCatalog=remoteUnique;
+      if(failed.length||remoteUnique.length!==files.length){
+        const localItems=await loadLocalItems();
+        const merged=new Map(localItems.filter(item=>item?.id).map(item=>[item.id,item]));
+        remoteUnique.forEach(item=>merged.set(item.id,item));
+        finalCatalog=[...merged.values()];
+        console.warn(`RaidTheory catalog partial: ${remoteUnique.length}/${files.length}; supplemented with ${localItems.length} local base items.`,failed);
+        setMeta('github-partial',true,{remoteLoaded:remoteUnique.length,remoteExpected:files.length,total:finalCatalog.length,failed:failed.length});
+      }else{
+        setMeta('github',false,{remoteLoaded:remoteUnique.length,remoteExpected:files.length,total:remoteUnique.length,failed:0});
       }
-      return unique;
+      return finalCatalog;
     })().catch(error=>{
       githubCatalogPromise=null;
       throw error;
@@ -104,20 +130,23 @@
     const data={type:'items',total:catalog.length,count:page.length,offset,limit,items:page};
     if(offset+limit<catalog.length) data.next=`/v1/items?full=true&offset=${offset+limit}&limit=${limit}`;
     if(offset>0) data.prev=`/v1/items?full=true&offset=${Math.max(0,offset-limit)}&limit=${limit}`;
-    return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json','X-ARC-Catalog-Source':'RaidTheory-GitHub'}});
+    return new Response(JSON.stringify(data),{status:200,headers:{'Content-Type':'application/json','X-ARC-Catalog-Source':window.__arcCatalogMeta?.partial?'RaidTheory-GitHub-Partial':'RaidTheory-GitHub'}});
   }
 
   window.fetch=async function(input,init){
     if(!isMahcksItems(input)) return nativeFetch(input,init);
     if(preferGithub) return githubResponseFor(input);
 
-    const delays=[0,250];
+    const delays=[0,500];
     let lastError;
     for(let attempt=0;attempt<delays.length;attempt++){
       if(delays[attempt]) await wait(delays[attempt]);
       try{
         const response=await fetchWithTimeout(input,init,MAHCKS_TIMEOUT_MS);
-        if(response.ok) return response;
+        if(response.ok){
+          setMeta('mahcks',false);
+          return response;
+        }
         lastError=new Error(`Mahcks items API ${response.status}`);
         if(!retryable(response.status)) break;
       }catch(error){
@@ -132,6 +161,7 @@
       return response;
     }catch(githubError){
       console.error('RaidTheory GitHub catalog fallback failed.',githubError);
+      setMeta('local-fallback',false,{error:String(lastError||githubError)});
       throw lastError||githubError;
     }
   };
