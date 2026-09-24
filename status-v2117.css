@@ -1,5 +1,6 @@
-/* V13.0.13 – persistent data-state presentation, independent from mobile header visibility. */
+/* V13.0.14 – persistent data-state presentation, independent from mobile header visibility. */
 .head-status{display:flex;align-items:center;justify-content:flex-end;gap:6px;flex-wrap:wrap}
+.masthead .head-status{display:none!important}
 .data-status{font:700 9px ui-monospace,"Courier New",monospace;letter-spacing:.08em;padding:4px 6px;border:1px solid var(--green);color:var(--green);background:rgba(20,24,18,.45)}
 .data-status.loading{border-color:var(--amber);color:var(--amber)}
 .data-status.fallback,.data-status.partial{border-color:var(--orange);color:var(--orange)}
