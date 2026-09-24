@@ -115,26 +115,43 @@ const dataStatusPoll=setInterval(()=>{
 },250);
 renderDataStatus();
 
-// The launcher shipped before FR/ES and has its own MutationObserver. Whenever one of
-// the tile summary/status nodes changes, that legacy observer rewrites every launcher
-// tile from the DE/EN engine. In FR/ES the i18n layer then rewrites those labels again.
-// A live-event/status timer can therefore make the cards visibly alternate forever.
-// Capture only that specific parser-time observer and suppress its callback while the
-// FR/ES overlay owns the launcher. All other MutationObservers keep native behaviour.
+// Two legacy mechanisms can fight the FR/ES overlay:
+// 1) the launcher observer rewrites all card labels from the EN/DE engine whenever a
+//    summary changes; 2) the FR/ES body observer can observe its own text rewrites and
+//    schedule another full translation pass. Wrap only the observers created after this
+//    point, suppress the legacy launcher rewrite in FR/ES, and let the i18n body observer
+//    react only to structural content additions (not its own text-node mutations).
 (function installLegacyLauncherObserverBridge(){
   const NativeMutationObserver=window.MutationObserver;
   if(!NativeMutationObserver||window.__arcLegacyLauncherObserverBridge)return;
   window.__arcLegacyLauncherObserverBridge=true;
   const launcherStatusIds=new Set(['nextRaidSummary','liveEventsSummary','goalSummary','supplyDrawerSummary','itemsDrawerSummary','questSummary','blueprintSummary']);
 
+  const activeUi=()=>{try{return localStorage.getItem('arcUiLanguage')||''}catch{return ''}};
+  const overlayActive=()=>{const ui=activeUi();return ui==='fr'||ui==='es'};
+  const hasStructuralElementChange=record=>{
+    if(record.type!=='childList')return false;
+    const changed=[...record.addedNodes,...record.removedNodes];
+    return changed.some(node=>node.nodeType===Node.ELEMENT_NODE);
+  };
+  const ignoredI18nTarget=target=>{
+    const element=target?.nodeType===Node.ELEMENT_NODE?target:target?.parentElement;
+    return !!element?.closest?.('#appLauncher,#arcLanguageMenu,#arcLanguageButton,#arcLanguageFirstRun,.lang-switch');
+  };
+
   class ArcMutationObserverBridge{
     constructor(callback){
       this._launcherTargets=new Set();
+      this._isI18nBodyObserver=false;
       this._native=new NativeMutationObserver(records=>{
-        let ui='';
-        try{ui=localStorage.getItem('arcUiLanguage')||''}catch{}
-        if(this._launcherTargets.size>=3&&(ui==='fr'||ui==='es')){
+        if(overlayActive()&&this._launcherTargets.size>=3){
           window.dispatchEvent(new Event('arc-launcher-status-dirty'));
+          return;
+        }
+        if(overlayActive()&&this._isI18nBodyObserver){
+          const structural=records.filter(record=>hasStructuralElementChange(record)&&!ignoredI18nTarget(record.target));
+          if(!structural.length)return;
+          callback(structural,this);
           return;
         }
         callback(records,this);
@@ -142,6 +159,7 @@ renderDataStatus();
     }
     observe(target,options){
       if(target?.id&&launcherStatusIds.has(target.id))this._launcherTargets.add(target.id);
+      if(target===document.body&&options?.subtree&&options?.childList&&options?.characterData)this._isI18nBodyObserver=true;
       return this._native.observe(target,options);
     }
     disconnect(){return this._native.disconnect()}
@@ -149,15 +167,18 @@ renderDataStatus();
   }
 
   window.MutationObserver=ArcMutationObserverBridge;
-  setTimeout(()=>{if(window.MutationObserver===ArcMutationObserverBridge)window.MutationObserver=NativeMutationObserver},0);
+  window.__arcRestoreNativeMutationObserver=()=>{
+    if(window.MutationObserver===ArcMutationObserverBridge)window.MutationObserver=NativeMutationObserver;
+  };
 })();
 
 function loadI18nV13017(){
   if(document.querySelector('script[data-arc-i18n-v13017]'))return;
   const script=document.createElement('script');
-  script.src='i18n-v13017.js?v=13017c';
+  script.src='i18n-v13017.js?v=13017d';
   script.dataset.arcI18nV13017='';
   script.async=false;
+  script.addEventListener('load',()=>window.__arcRestoreNativeMutationObserver?.(),{once:true});
   document.body.append(script);
 }
 if(document.readyState==='complete')setTimeout(loadI18nV13017,0);
