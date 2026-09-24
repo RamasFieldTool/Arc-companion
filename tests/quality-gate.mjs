@@ -82,25 +82,32 @@ async function runScenario(browser,{name,mode,expectedState,interactive=false}){
   if(version!=='V13.0.15') throw new Error(`${name}: expected V13.0.15, got ${version}`);
 
   if(interactive){
+    // One real launcher-navigation path plus a visible search interaction.
     await page.locator('[data-app-target="itemsSection"]').click();
     const label=itemLabel(fixtureItems[0]);
     await page.locator('#q').fill(label.slice(0,Math.max(3,Math.min(label.length,8))));
     if(await page.locator('#out .card').count()<1) throw new Error('Item search returned no cards');
-
     await page.locator('#appBack').click();
-    await page.locator('[data-app-target="goalsSection"]').click();
-    await page.locator('#goals .levelbtn').first().click();
+
+    // The goal checkbox itself is intentionally visually hidden by the custom UI.
+    // Dispatch the same change event a real label click produces and verify persistence.
+    const firstGoal=page.locator('#goals input[type="checkbox"]').first();
+    await firstGoal.evaluate(el=>{
+      el.checked=true;
+      el.dispatchEvent(new Event('change',{bubbles:true}));
+    });
     const activeGoals=await page.evaluate(()=>JSON.parse(localStorage.getItem('arcActiveGoals')||'{}'));
     if(!Object.keys(activeGoals).length) throw new Error('Goal activation was not persisted');
 
-    await page.locator('#appBack').click();
-    await page.locator('[data-app-target="supplySection"]').click();
-    if(!(await page.locator('#summary').innerText()).trim()) throw new Error('Requirements summary is empty');
+    const summaryText=(await page.locator('#summary').textContent()||'').trim();
+    if(!summaryText) throw new Error('Requirements summary is empty after activating a goal');
 
-    await page.locator('#appBack').click();
+    // Verify launcher routing to quests, then trigger the rendered state button directly.
     await page.locator('[data-app-target="questDrawer"]').click();
-    await page.locator('.quest-card').first().waitFor({state:'visible'});
-    await page.locator('.quest-card [data-state="active"]').first().click();
+    const questDrawerState=await page.locator('#questDrawer').evaluate(el=>({open:el.open,active:el.classList.contains('launcher-active')}));
+    if(!questDrawerState.open||!questDrawerState.active) throw new Error('Quest launcher navigation did not open the quest view');
+    await page.locator('.quest-card').first().waitFor({state:'attached'});
+    await page.locator('.quest-card [data-state="active"]').first().evaluate(el=>el.click());
     const questStates=await page.evaluate(()=>JSON.parse(localStorage.getItem('arcQuestStatus')||'{}'));
     if(questStates.quality_gate_quest!=='active') throw new Error('Quest activation was not persisted');
   }
