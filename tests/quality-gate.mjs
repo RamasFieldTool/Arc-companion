@@ -89,8 +89,7 @@ async function runScenario(browser,{name,mode,expectedState,interactive=false}){
 
     await page.locator('#appBack').click();
     await page.locator('[data-app-target="goalsSection"]').click();
-    const firstGoal=page.locator('#goals input[type="checkbox"]').first();
-    await firstGoal.check();
+    await page.locator('#goals .levelbtn').first().click();
     const activeGoals=await page.evaluate(()=>JSON.parse(localStorage.getItem('arcActiveGoals')||'{}'));
     if(!Object.keys(activeGoals).length) throw new Error('Goal activation was not persisted');
 
