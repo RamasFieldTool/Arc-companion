@@ -14,20 +14,20 @@ concurrency:
 
 jobs:
   static-integrity:
-    name: Static data and asset integrity
+    name: Static data, cache and asset integrity
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Validate JSON, assets, script order and version
+      - name: Validate JSON, assets, cache-busters, backup guards and version
         env:
           EXPECTED_APP_VERSION: '13.0.16'
         run: node tests/data-integrity.mjs
 
   browser-smoke:
-    name: Browser smoke and fallback scenarios
+    name: Browser, Android and user-data safety
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -52,6 +52,22 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run backup, restore, migration and connection-loss tests
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/user-data-safety.mjs
+      - name: Run responsive UI regression checks and capture screenshots
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/ui-regression.mjs
+      - name: Upload UI regression evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-regression-${{ github.sha }}
+          path: test-artifacts/ui/
+          if-no-files-found: warn
+          retention-days: 14
       - name: Show server log on failure
         if: failure()
         run: cat /tmp/arc-http.log || true

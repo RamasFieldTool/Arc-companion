@@ -36,12 +36,22 @@ for(const goal of goals){
 }
 
 const index=await read('index.html');
-const localAssets=[...index.matchAll(/(?:src|href)="([^"#]+\.(?:js|css|json|svg)(?:\?[^"#]*)?)"/g)]
+const localAssetRefs=[...index.matchAll(/(?:src|href)="([^"#]+\.(?:js|css|json|svg)(?:\?[^"#]*)?)"/g)]
   .map(match=>match[1])
-  .filter(path=>!/^https?:\/\//i.test(path))
-  .map(path=>path.split('?')[0]);
+  .filter(path=>!/^https?:\/\//i.test(path));
+const localAssets=localAssetRefs.map(path=>path.split('?')[0]);
 for(const path of new Set(localAssets)){
   try{await access(new URL(path,root),constants.F_OK)}catch{fail(`index.html references missing local asset: ${path}`)}
+}
+
+// Mutable browser assets must carry an explicit cache-buster so Android/WebView clients do not keep stale JS/CSS forever.
+const mutableRefs=localAssetRefs.filter(path=>/\.(?:js|css)(?:\?|$)/i.test(path));
+const unversionedMutable=mutableRefs.filter(path=>!/[?&]v=[^&#]+/.test(path));
+if(unversionedMutable.length)fail(`Mutable local assets missing ?v= cache-buster: ${unversionedMutable.join(', ')}`);
+for(const critical of ['catalog-resilience-v2120.js','app.js','status-v1300.js','backup-v1304.js']){
+  const ref=mutableRefs.find(path=>path.split('?')[0]===critical);
+  if(!ref)fail(`Critical mutable asset is not referenced by index.html: ${critical}`);
+  if(!/[?&]v=[^&#]+/.test(ref))fail(`Critical mutable asset has no cache-buster: ${critical}`);
 }
 
 const catalogPos=index.indexOf('catalog-resilience-v2120.js');
@@ -62,8 +72,13 @@ for(const marker of ['window.__arcCatalogMeta','SNAPSHOT_URL','Ramas-Snapshot','
 if(!catalogScript.includes('catalog-data/items-full-snapshot.json')) fail('Catalog snapshot URL is missing from resilience layer');
 if(!catalogScript.includes('mahcksResponseLooksUsable')) fail('Mahcks payload validation is missing');
 
+const backupScript=await read('backup-v1304.js');
+for(const marker of ["const FORMAT_VERSION=1","blockedKeys=new Set(['__proto__','prototype','constructor'])",'function validateBackup','function applyBackup']){
+  if(!backupScript.includes(marker))fail(`Backup safety marker missing: ${marker}`);
+}
+
 const snapshotWorkflow=await read('.github/workflows/catalog-snapshot.yml');
 if(!snapshotWorkflow.includes('git status --porcelain -- items-full-snapshot.json')) fail('Catalog snapshot workflow must detect untracked first snapshots');
 if(snapshotWorkflow.includes('if git diff --quiet -- items-full-snapshot.json; then')) fail('Catalog snapshot workflow still uses git diff-only change detection');
 
-console.log(`PASS static integrity: ${items.length} local items, ${goals.length} goal groups, ${new Set(localAssets).size} referenced local assets, version ${version}.`);
+console.log(`PASS static integrity: ${items.length} local items, ${goals.length} goal groups, ${new Set(localAssets).size} referenced local assets, ${mutableRefs.length} cache-busted JS/CSS assets, version ${version}.`);
