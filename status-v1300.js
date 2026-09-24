@@ -1,4 +1,4 @@
-// V13.0.11 – user-facing loading/live/fallback status without touching application data logic.
+// V13.0.12 – user-facing loading/live/fallback status without touching application data logic.
 const APP_VERSION='13.0.0';
 const STATUS_COPY={
   de:{
@@ -29,7 +29,18 @@ function currentDataState(){
   if(questLoadError)return 'partial';
   return 'live';
 }
+function ensureDataStatusVisible(){
+  const headStatus=document.querySelector('.head-status');
+  if(!headStatus)return;
+  // The modern mobile prototype still contains a legacy display:none!important rule.
+  // An inline important declaration safely overrides presentation only; no data logic changes.
+  headStatus.style.setProperty('display','flex','important');
+  headStatus.style.setProperty('align-items','center');
+  headStatus.style.setProperty('gap','5px');
+  headStatus.style.setProperty('flex-wrap','wrap');
+}
 function renderDataStatus(){
+  ensureDataStatusVisible();
   const el=document.getElementById('dataStatus');
   const notice=document.getElementById('fallbackNotice');
   const c=statusCopy();
