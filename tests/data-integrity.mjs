@@ -64,7 +64,8 @@ const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.17';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
-if(!statusScript.includes("i18n-v13017.js?v=13017a"))fail('V13.0.17 i18n layer is not loaded with an explicit cache-buster');
+if(!statusScript.includes("i18n-v13017.js?v=13017b"))fail('V13.0.17 i18n layer is not loaded with the current explicit cache-buster');
+if(!statusScript.includes('installI18nStabilityGuard')||!statusScript.includes('__arcI18nStabilityInstalled'))fail('FR/ES render-loop stability guard is missing');
 try{await access(new URL('i18n-v13017.js',root),constants.F_OK)}catch{fail('i18n-v13017.js is missing')}
 
 const i18nScript=await read('i18n-v13017.js');
