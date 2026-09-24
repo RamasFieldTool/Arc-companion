@@ -32,20 +32,27 @@ async function waitForPrefix(page,selector,prefix){
   await page.waitForFunction(({selector,prefix})=>document.querySelector(selector)?.textContent?.trim().startsWith(prefix),{selector,prefix},{timeout:30000});
 }
 async function assertLauncherStable(page,label){
-  const mutations=await page.evaluate(()=>new Promise(resolve=>{
+  const result=await page.evaluate(()=>new Promise(resolve=>{
     const target=document.getElementById('appLauncher');
-    if(!target){resolve(999);return;}
+    if(!target){resolve({count:999,details:{missing:999}});return;}
     let count=0;
+    const details={};
     const observer=new MutationObserver(records=>{
       for(const record of records){
-        if(record.type==='characterData')count++;
-        if(record.type==='childList')count+=record.addedNodes.length+record.removedNodes.length;
+        const element=record.target.nodeType===Node.ELEMENT_NODE?record.target:record.target.parentElement;
+        const tile=element?.closest?.('[data-app-target]');
+        const key=`${tile?.dataset?.appTarget||element?.id||element?.tagName||'unknown'}:${record.type}`;
+        let amount=0;
+        if(record.type==='characterData')amount=1;
+        if(record.type==='childList')amount=record.addedNodes.length+record.removedNodes.length;
+        count+=amount;
+        details[key]=(details[key]||0)+amount;
       }
     });
     observer.observe(target,{subtree:true,childList:true,characterData:true});
-    setTimeout(()=>{observer.disconnect();resolve(count)},700);
+    setTimeout(()=>{observer.disconnect();resolve({count,details})},700);
   }));
-  if(mutations>2)throw new Error(`${label}: launcher is still re-rendering/flickering (${mutations} DOM mutations in 700ms)`);
+  if(result.count>2)throw new Error(`${label}: launcher is still re-rendering/flickering (${result.count} DOM mutations in 700ms; ${JSON.stringify(result.details)})`);
 }
 async function assertLegacyStatusCannotRewriteLauncher(page,label,expectedTitle){
   const result=await page.evaluate(async ({expectedTitle})=>{
