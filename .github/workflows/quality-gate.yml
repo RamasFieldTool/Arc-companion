@@ -23,7 +23,7 @@ jobs:
           node-version: '20'
       - name: Validate JSON, assets, script order and version
         env:
-          EXPECTED_APP_VERSION: '13.0.15'
+          EXPECTED_APP_VERSION: '13.0.16'
         run: node tests/data-integrity.mjs
 
   browser-smoke:
@@ -48,7 +48,7 @@ jobs:
           done
           cat /tmp/arc-http.log
           exit 1
-      - name: Run browser quality gate
+      - name: Run browser and Android/mobile quality gate
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
