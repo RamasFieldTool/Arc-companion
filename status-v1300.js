@@ -1,17 +1,19 @@
-// V13.0.13 – persistent user-facing loading/live/fallback status without touching application data logic.
-const APP_VERSION='13.0.0';
+// V13.0.14 – persistent user-facing loading/live/partial/fallback status.
+const APP_VERSION='13.0.14';
 const STATUS_COPY={
   de:{
     loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
     loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Aktuelle Daten geladen',fallbackTitle:'Lokaler Basisdatensatz aktiv',
     partialTitle:'Daten nur teilweise verfügbar',errorTitle:'Daten konnten nicht geladen werden',
-    fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.'
+    fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.',
+    partialBody:'Der externe Katalog wurde nur teilweise geladen. Fehlende Einträge wurden soweit möglich mit lokalen Basisdaten ergänzt.'
   },
   en:{
     loading:'DATA // LOADING…',live:'DATA // LIVE',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
     loadingTitle:'Current data is loading',liveTitle:'Current data loaded',fallbackTitle:'Local base dataset active',
     partialTitle:'Data is only partially available',errorTitle:'Data could not be loaded',
-    fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.'
+    fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.',
+    partialBody:'The external catalog loaded only partially. Missing entries were supplemented with local base data where possible.'
   }
 };
 function statusCopy(){return STATUS_COPY[lang==='en'?'en':'de']}
@@ -26,6 +28,7 @@ function currentDataState(){
   const questsSettled=questsReady||questLoadError===true;
   if(!questsSettled)return 'loading';
   if(usingFallback)return 'fallback';
+  if(window.__arcCatalogMeta?.partial===true)return 'partial';
   if(questLoadError)return 'partial';
   return 'live';
 }
@@ -39,7 +42,7 @@ function ensurePersistentDataStatus(){
   dock.className='data-status-dock';
   dock.setAttribute('role','status');
   dock.setAttribute('aria-live','polite');
-  dock.innerHTML='<span id="dataStatusPersistent" class="data-status loading">DATEN // LADEN…</span><span class="version" data-app-version>V13.0.0</span>';
+  dock.innerHTML=`<span id="dataStatusPersistent" class="data-status loading">DATEN // LADEN…</span><span class="version" data-app-version>V${APP_VERSION}</span>`;
   const header=document.querySelector('.masthead');
   if(header?.parentNode===main)header.insertAdjacentElement('afterend',dock);
   else main.prepend(dock);
@@ -69,23 +72,20 @@ function renderDataStatus(){
   updateStatusElement(persistentStatus,state,c);
 
   if(notice){
-    notice.hidden=state!=='fallback';
+    notice.hidden=state!=='fallback'&&state!=='partial';
     if(state==='fallback')notice.innerHTML=`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`;
+    if(state==='partial')notice.innerHTML=`<b>${c.partialTitle}</b><span>${c.partialBody}</span>`;
   }
   document.querySelectorAll('[data-app-version]').forEach(node=>node.textContent=`V${APP_VERSION}`);
   return state;
 }
 
-// Language changes and the final boot render already pass through applyLanguage().
-// This compatibility hook refreshes presentation state only.
 const baseApplyLanguageV2117=applyLanguage;
 applyLanguage=function(){
   baseApplyLanguageV2117();
   renderDataStatus();
 };
 
-// app.js starts its asynchronous boot before this file loads. Show LOADING immediately,
-// then poll briefly so a hard catalog failure is also reflected even if boot returns early.
 let dataStatusPollCount=0;
 const dataStatusPoll=setInterval(()=>{
   dataStatusPollCount++;
