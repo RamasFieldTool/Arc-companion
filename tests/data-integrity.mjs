@@ -62,4 +62,8 @@ for(const marker of ['window.__arcCatalogMeta','SNAPSHOT_URL','Ramas-Snapshot','
 if(!catalogScript.includes('catalog-data/items-full-snapshot.json')) fail('Catalog snapshot URL is missing from resilience layer');
 if(!catalogScript.includes('mahcksResponseLooksUsable')) fail('Mahcks payload validation is missing');
 
+const snapshotWorkflow=await read('.github/workflows/catalog-snapshot.yml');
+if(!snapshotWorkflow.includes('git status --porcelain -- items-full-snapshot.json')) fail('Catalog snapshot workflow must detect untracked first snapshots');
+if(snapshotWorkflow.includes('if git diff --quiet -- items-full-snapshot.json; then')) fail('Catalog snapshot workflow still uses git diff-only change detection');
+
 console.log(`PASS static integrity: ${items.length} local items, ${goals.length} goal groups, ${new Set(localAssets).size} referenced local assets, version ${version}.`);
