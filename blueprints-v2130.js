@@ -18,8 +18,8 @@
   };
 
   const T={
-    de:{title:'BAUPLÄNE',all:'ALLE',learned:'GELERNT',missing:'FEHLT',plan:'Bauplan',learnedWord:'gelernt',missingWord:'fehlen',shown:'angezeigt',saved:'Fortschritt wird auf diesem Gerät gespeichert',none:'Keine Treffer.',load:'Bauplan-Daten konnten nicht geladen werden.',show:'ANZEIGEN',hide:'SCHLIESSEN',intro:'Markiere die Baupläne, die du bereits gelernt hast. So siehst du sofort, welche dir noch fehlen.',searchPlaceholder:'Bauplan suchen …',beta:'COMMUNITY BETA // Datenbestand wird vor Veröffentlichung weiter abgeglichen.',info:'INFO / FUNDORT',map:'Karte',condition:'Bedingung',container:'Container',quest:'Quest',trials:'Trials',scavengable:'Plünderbar',unknown:'Nicht bestätigt',yes:'Ja',no:'Nein',community:'COMMUNITY-DATEN',confirmed:'BESTÄTIGT',trialRandom:'Trial-Belohnungen können zufällig sein; dieser Blueprint ist dadurch nicht garantiert.',lootWarning:'Fundortangaben aus Community-Quellen sind keine garantierten Spawnpunkte.',sourceNote:'BESTÄTIGT wird nur für unabhängig belegte Einzelangaben verwendet; alle übrigen nichtleeren Angaben bleiben Community-Daten.'},
-    en:{title:'BLUEPRINTS',all:'ALL',learned:'LEARNED',missing:'MISSING',plan:'Blueprint',learnedWord:'learned',missingWord:'missing',shown:'shown',saved:'Progress is saved on this device',none:'No results.',load:'Blueprint data could not be loaded.',show:'SHOW',hide:'CLOSE',intro:'Mark the blueprints you have already learned so you can immediately see which ones are still missing.',searchPlaceholder:'Search blueprints …',beta:'COMMUNITY BETA // Dataset is still being cross-checked before release.',info:'INFO / LOCATION',map:'Map',condition:'Condition',container:'Container',quest:'Quest',trials:'Trials',scavengable:'Scavengable',unknown:'Not confirmed',yes:'Yes',no:'No',community:'COMMUNITY DATA',confirmed:'CONFIRMED',trialRandom:'Trial rewards can be random; this blueprint is not guaranteed.',lootWarning:'Location data from community sources is not a guaranteed spawn.',sourceNote:'CONFIRMED is reserved for independently corroborated individual fields; all other non-empty values remain community data.'}
+    de:{title:'BAUPLÄNE',all:'ALLE',learned:'GELERNT',missing:'FEHLT',plan:'Bauplan',learnedWord:'gelernt',missingWord:'fehlen',shown:'angezeigt',saved:'Fortschritt wird auf diesem Gerät gespeichert',none:'Keine Treffer.',load:'Bauplan-Daten konnten nicht geladen werden.',show:'ANZEIGEN',hide:'SCHLIESSEN',intro:'Markiere die Baupläne, die du bereits gelernt hast. So siehst du sofort, welche dir noch fehlen.',searchPlaceholder:'Bauplan suchen …',beta:'COMMUNITY BETA // Datenbestand wird vor Veröffentlichung weiter abgeglichen.',info:'INFO / FUNDORT',map:'Karte',condition:'Bedingung',container:'Container',quest:'Quest',trials:'Trials',scavengable:'Plünderbar',unknown:'Nicht bestätigt',yes:'Ja',no:'Nein',community:'COMMUNITY-DATEN',confirmed:'BESTÄTIGT',trialRandom:'Trial-Belohnungen können zufällig sein; dieser Blueprint ist dadurch nicht garantiert.',lootWarning:'Fundortangaben aus Community-Quellen sind keine garantierten Spawnpunkte.',sourceNote:'BESTÄTIGT wird nur für unabhängig belegte Einzelangaben verwendet; alle übrigen nichtleeren Angaben bleiben Community-Daten.',reset:'RESET',resetConfirm:'Wirklich alle als gelernt markierten Baupläne wieder auf ungelernt setzen? Andere App-Daten werden nicht verändert.'},
+    en:{title:'BLUEPRINTS',all:'ALL',learned:'LEARNED',missing:'MISSING',plan:'Blueprint',learnedWord:'learned',missingWord:'missing',shown:'shown',saved:'Progress is saved on this device',none:'No results.',load:'Blueprint data could not be loaded.',show:'SHOW',hide:'CLOSE',intro:'Mark the blueprints you have already learned so you can immediately see which ones are still missing.',searchPlaceholder:'Search blueprints …',beta:'COMMUNITY BETA // Dataset is still being cross-checked before release.',info:'INFO / LOCATION',map:'Map',condition:'Condition',container:'Container',quest:'Quest',trials:'Trials',scavengable:'Scavengable',unknown:'Not confirmed',yes:'Yes',no:'No',community:'COMMUNITY DATA',confirmed:'CONFIRMED',trialRandom:'Trial rewards can be random; this blueprint is not guaranteed.',lootWarning:'Location data from community sources is not a guaranteed spawn.',sourceNote:'CONFIRMED is reserved for independently corroborated individual fields; all other non-empty values remain community data.',reset:'RESET',resetConfirm:'Reset all blueprints marked as learned back to unlearned? No other app data will be changed.'}
   };
 
   const tr=k=>(T[lang()]||T.de)[k];
@@ -27,6 +27,22 @@
   function primary(x){return lang()==='en'?(x.name_en||x.name_de||x.name||x.id):(x.name_de||x.name_en||x.name||x.id);}
   function secondary(x){const p=primary(x),alt=lang()==='en'?(x.name_de||''):(x.name_en||'');return alt&&alt!==p?alt:tr('plan');}
   function value(z){if(z===true)return tr('yes');if(z===false)return tr('no');return z??tr('unknown');}
+
+  function ensureReset(){
+    const drawer=$('blueprintDrawer');
+    if(!drawer)return;
+    let b=$('blueprintReset');
+    if(!b){
+      const host=drawer.querySelector('.blueprint-toolbar');
+      if(!host)return;
+      b=document.createElement('button');
+      b.id='blueprintReset';b.type='button';b.className='blueprint-reset';b.title=tr('resetConfirm');
+      b.style.cssText='width:auto;min-width:0;flex:0 0 auto;padding:5px 9px;font-size:11px;line-height:1.1;border-radius:7px;margin-left:auto;';
+      host.appendChild(b);
+      b.onclick=()=>{if(!learned.size||!window.confirm(tr('resetConfirm')))return;learned.clear();save();render();};
+    }
+    b.textContent='↺ '+tr('reset');b.disabled=learned.size===0;b.title=tr('resetConfirm');
+  }
 
   function syncStatic(){
     const drawer=$('blueprintDrawer');
@@ -41,6 +57,7 @@
     if(intro)intro.textContent=tr('intro');
     if(note)note.textContent=tr('beta');
     if(input)input.placeholder=tr('searchPlaceholder');
+    ensureReset();
   }
 
   function status(x,k){
@@ -77,6 +94,7 @@
     $('blueprintSummary').textContent=`${n} / ${data.length} ${tr('learnedWord')} · ${Math.max(0,data.length-n)} ${tr('missingWord')}`;
     $('blueprintStatus').textContent=`${rows.length} ${tr('shown')} · ${tr('saved')}`;
     document.querySelectorAll('.blueprint-filter').forEach(b=>{b.textContent=tr(b.dataset.filter);b.classList.toggle('active',b.dataset.filter===filter)});
+    ensureReset();
     document.querySelectorAll('.blueprint-row').forEach(b=>b.onclick=()=>{learned.has(b.dataset.id)?learned.delete(b.dataset.id):learned.add(b.dataset.id);save();render();});
   }
 
