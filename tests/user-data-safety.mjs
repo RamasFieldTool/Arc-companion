@@ -111,7 +111,9 @@ const tempDir=await mkdtemp(join(tmpdir(),'rft-user-data-'));
 try{
   const context=await browser.newContext({viewport:{width:412,height:915},isMobile:true,hasTouch:true});
   await context.addInitScript(seedData=>{
+    if(sessionStorage.getItem('__rft_quality_seeded')==='1')return;
     for(const [key,value] of Object.entries(seedData))localStorage.setItem(key,value);
+    sessionStorage.setItem('__rft_quality_seeded','1');
   },seed);
   const page=await context.newPage();
   const pageErrors=[];
