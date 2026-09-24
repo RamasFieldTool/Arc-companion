@@ -64,8 +64,10 @@ const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.17';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
-if(!statusScript.includes("i18n-v13017.js?v=13017c"))fail('V13.0.17 i18n layer is not loaded with the current explicit cache-buster');
-if(!statusScript.includes('installLegacyLauncherObserverBridge')||!statusScript.includes('__arcLegacyLauncherObserverBridge'))fail('FR/ES legacy launcher observer bridge is missing');
+if(!statusScript.includes("i18n-v13017.js?v=13017d"))fail('V13.0.17 i18n layer is not loaded with the current explicit cache-buster');
+for(const marker of ['installLegacyLauncherObserverBridge','__arcLegacyLauncherObserverBridge','_isI18nBodyObserver','hasStructuralElementChange','__arcRestoreNativeMutationObserver']){
+  if(!statusScript.includes(marker))fail(`FR/ES observer stability marker missing: ${marker}`);
+}
 if(!statusScript.includes("loading:'DONNÉES // CHARGEMENT…'")||!statusScript.includes("loading:'DATOS // CARGANDO…'"))fail('Native FR/ES data-status copies are missing');
 try{await access(new URL('i18n-v13017.js',root),constants.F_OK)}catch{fail('i18n-v13017.js is missing')}
 
