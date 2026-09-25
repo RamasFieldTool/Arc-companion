@@ -4283,7 +4283,147 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T13:00:00.000Z",
+          "end": "2026-09-26T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-26T20:00:00.000Z",
+          "end": "2026-09-26T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T19:00:00.000Z",
+          "end": "2026-09-26T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T04:00:00.000Z",
+          "end": "2026-09-26T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T13:00:00.000Z",
+          "end": "2026-09-26T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-26T20:00:00.000Z",
+          "end": "2026-09-26T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T19:00:00.000Z",
+          "end": "2026-09-26T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T04:00:00.000Z",
+          "end": "2026-09-26T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/beachcombing.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Hurricane",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T13:00:00.000Z",
+          "end": "2026-09-26T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-26T20:00:00.000Z",
+          "end": "2026-09-26T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T19:00:00.000Z",
+          "end": "2026-09-26T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T04:00:00.000Z",
+          "end": "2026-09-26T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T13:00:00.000Z",
+          "end": "2026-09-26T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-26T20:00:00.000Z",
+          "end": "2026-09-26T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T19:00:00.000Z",
+          "end": "2026-09-26T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T04:00:00.000Z",
+          "end": "2026-09-26T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T13:00:00.000Z",
+          "end": "2026-09-26T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-26T20:00:00.000Z",
+          "end": "2026-09-26T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T19:00:00.000Z",
+          "end": "2026-09-26T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T04:00:00.000Z",
+          "end": "2026-09-26T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
     }
   ],
-  "syncedAt": "2026-09-25T03:06:41Z"
+  "syncedAt": "2026-09-25T03:38:54Z"
 }
