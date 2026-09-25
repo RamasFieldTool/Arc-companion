@@ -4367,7 +4367,119 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/close-scrutiny.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T17:00:00.000Z",
+          "end": "2026-09-26T18:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-27T00:00:00.000Z",
+          "end": "2026-09-27T01:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T23:00:00.000Z",
+          "end": "2026-09-27T00:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T12:00:00.000Z",
+          "end": "2026-09-26T13:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T17:00:00.000Z",
+          "end": "2026-09-26T18:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-27T00:00:00.000Z",
+          "end": "2026-09-27T01:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T23:00:00.000Z",
+          "end": "2026-09-27T00:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T12:00:00.000Z",
+          "end": "2026-09-26T13:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T17:00:00.000Z",
+          "end": "2026-09-26T18:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-27T00:00:00.000Z",
+          "end": "2026-09-27T01:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T23:00:00.000Z",
+          "end": "2026-09-27T00:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T12:00:00.000Z",
+          "end": "2026-09-26T13:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Locked Gate",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-26T17:00:00.000Z",
+          "end": "2026-09-26T18:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-27T00:00:00.000Z",
+          "end": "2026-09-27T01:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-26T23:00:00.000Z",
+          "end": "2026-09-27T00:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-26T12:00:00.000Z",
+          "end": "2026-09-26T13:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-26T08:00:00.000Z",
+          "end": "2026-09-26T09:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/locked-gate.svg"
     }
   ],
-  "syncedAt": "2026-09-25T07:07:51Z"
+  "syncedAt": "2026-09-25T07:40:25Z"
 }
