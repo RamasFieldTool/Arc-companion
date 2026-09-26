@@ -4451,7 +4451,91 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/hidden-bunker.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-09-27T23:00:00.000Z",
+          "end": "2026-09-28T00:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T06:00:00.000Z",
+          "end": "2026-09-28T07:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T05:00:00.000Z",
+          "end": "2026-09-28T06:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-27T18:00:00.000Z",
+          "end": "2026-09-27T19:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-27T14:00:00.000Z",
+          "end": "2026-09-27T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Husk Graveyard",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-09-27T23:00:00.000Z",
+          "end": "2026-09-28T00:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T06:00:00.000Z",
+          "end": "2026-09-28T07:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T05:00:00.000Z",
+          "end": "2026-09-28T06:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-27T18:00:00.000Z",
+          "end": "2026-09-27T19:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-27T14:00:00.000Z",
+          "end": "2026-09-27T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/husk-graveyard.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-27T23:00:00.000Z",
+          "end": "2026-09-28T00:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T06:00:00.000Z",
+          "end": "2026-09-28T07:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T05:00:00.000Z",
+          "end": "2026-09-28T06:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-27T18:00:00.000Z",
+          "end": "2026-09-27T19:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-27T14:00:00.000Z",
+          "end": "2026-09-27T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
     }
   ],
-  "syncedAt": "2026-09-26T13:08:34Z"
+  "syncedAt": "2026-09-26T13:36:44Z"
 }
