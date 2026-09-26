@@ -42,6 +42,8 @@ This file is the authoritative checklist for inputs that are still missing. Do n
   - Google Play requires the privacy policy to be accessible from within the app as well as from the Play Store listing.
 - [ ] Final support/contact name and postal details required for the chosen Play developer account
 - [ ] Final rights review for every map, logo, screenshot and third-party visual
+  - Initial review started on 26 September 2026 in `android/RIGHTS_REVIEW.md`.
+  - Current main blocker: licences/permissions for third-party map base images are not yet verified.
 - [ ] Final stable web version selected for the first Android snapshot
 - [x] Initial distribution countries selected
   - Switzerland (CH)
@@ -66,7 +68,7 @@ This file is the authoritative checklist for inputs that are still missing. Do n
 - [x] Application ID: `com.ramasfieldtool.app`
 - [x] Android preparation is isolated on `android-release-prep`
 - [x] The public tester build on `main` must remain unchanged except for standalone release-support pages that do not alter app behavior
-- [x] German and English store-listing drafts prepared
+- [x] German, English, French and Spanish store-listing drafts prepared
 - [x] German and English privacy policy updated for current reviewed behavior on 26 September 2026
 - [x] Initial Data safety assessment prepared
 - [x] First release planned without advertising and in-app purchases
