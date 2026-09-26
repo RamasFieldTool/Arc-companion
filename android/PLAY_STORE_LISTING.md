@@ -8,7 +8,9 @@ App identity:
 - Price: Free
 - Ads: No
 - In-app purchases: No
-- Languages: German and English
+- Languages: German, English, French and Spanish
+- Support email: `ramasfieldtool@proton.me`
+- Privacy policy: `https://ramasfieldtool.github.io/Arc-companion/privacy.html`
 
 ## German
 
@@ -28,7 +30,7 @@ Plane deine Ausbauziele, behalte benötigte Materialien im Blick und finde schne
 
 FUNKTIONEN
 
-• Item-Suche auf Deutsch und Englisch  
+• Item-Suche auf Deutsch, Englisch, Französisch und Spanisch  
 • Direkte Treffer und mögliche Recycling-Quellen getrennt dargestellt  
 • Ausbauziele und Werkbank-Stufen verwalten  
 • Gesamtbedarf automatisch berechnen  
@@ -36,7 +38,7 @@ FUNKTIONEN
 • Quests als offen, aktiv oder erledigt markieren  
 • Bauplan-Fortschritt lokal speichern  
 • Community-basierte Karteninformationen anzeigen  
-• Zwischen dunkler und heller Darstellung wechseln  
+• Zwischen heller und dunkler Darstellung wechseln  
 
 DEINE DATEN BLEIBEN AUF DEINEM GERÄT
 
@@ -52,7 +54,7 @@ Ramas Field Tool ist ein unabhängiges, inoffizielles Community-Projekt. Es ist 
 
 Erste Android-Testversion von Ramas Field Tool.
 
-Enthalten sind Item-Suche, Ausbauziele, Gesamtbedarf, Quest-Tracker, Bauplan-Tracker, Community-Karten sowie deutsche und englische Darstellung.
+Enthalten sind Item-Suche, Ausbauziele, Gesamtbedarf, Quest-Tracker, Bauplan-Tracker, Community-Karten sowie deutsche, englische, französische und spanische Darstellung.
 
 ## English
 
@@ -72,7 +74,7 @@ Plan your upgrade goals, keep track of required materials and find the informati
 
 FEATURES
 
-• Item search in German and English  
+• Item search in German, English, French and Spanish  
 • Direct matches and possible recycling sources shown separately  
 • Manage upgrade goals and workshop levels  
 • Automatically calculate total requirements  
@@ -80,7 +82,7 @@ FEATURES
 • Mark quests as open, active or completed  
 • Save blueprint progress locally  
 • View community-based map information  
-• Switch between dark and light appearance  
+• Switch between light and dark appearance  
 
 YOUR DATA STAYS ON YOUR DEVICE
 
@@ -96,4 +98,92 @@ Ramas Field Tool is an independent, unofficial community project. It is not affi
 
 First Android test release of Ramas Field Tool.
 
-Includes item search, upgrade goals, total requirements, quest tracking, blueprint tracking, community maps, and German and English display.
+Includes item search, upgrade goals, total requirements, quest tracking, blueprint tracking, community maps, and German, English, French and Spanish display.
+
+## Français
+
+### Nom de l'application
+
+Ramas Field Tool
+
+### Description courte
+
+Outil communautaire non officiel pour objets, quêtes, plans et améliorations.
+
+### Description complète
+
+Ramas Field Tool est un outil communautaire non officiel pour ARC Raiders.
+
+Planifiez vos améliorations, suivez les matériaux nécessaires et trouvez plus rapidement les informations utiles pour votre prochaine sortie. L'application regroupe plusieurs outils pratiques dans une interface optimisée pour mobile.
+
+FONCTIONNALITÉS
+
+• Recherche d'objets en allemand, anglais, français et espagnol  
+• Résultats directs et sources possibles via recyclage affichés séparément  
+• Gestion des objectifs d'amélioration et des niveaux d'atelier  
+• Calcul automatique des besoins totaux  
+• Suivi des matériaux possédés et manquants  
+• Quêtes marquées comme ouvertes, actives ou terminées  
+• Progression des plans enregistrée localement  
+• Informations cartographiques basées sur la communauté  
+• Choix entre affichage clair et sombre  
+
+VOS DONNÉES RESTENT SUR VOTRE APPAREIL
+
+Les quantités de matériaux, objectifs actifs, états des quêtes, progression des plans, langue et préférences d'affichage sont enregistrés localement sur votre appareil. Ramas Field Tool ne lit aucune donnée provenant de votre compte ARC Raiders ni d'une partie en cours.
+
+DES DONNÉES COMMUNAUTAIRES PRÉSENTÉES AVEC TRANSPARENCE
+
+Certaines informations proviennent de sources externes ou communautaires. Les données approximatives, incomplètes ou non confirmées sont signalées comme telles. Les marqueurs de carte ne garantissent pas un point d'apparition et n'affichent aucune position en direct d'autres joueurs.
+
+Ramas Field Tool est un projet communautaire indépendant et non officiel. Il n'est ni affilié à Embark Studios, ni approuvé, ni soutenu par Embark Studios. ARC Raiders ainsi que les noms et marques associés appartiennent à leurs propriétaires respectifs.
+
+### Notes de la première version
+
+Première version Android de test de Ramas Field Tool.
+
+Comprend la recherche d'objets, les objectifs d'amélioration, les besoins totaux, le suivi des quêtes, le suivi des plans, les cartes communautaires et l'interface en allemand, anglais, français et espagnol.
+
+## Español
+
+### Nombre de la aplicación
+
+Ramas Field Tool
+
+### Descripción breve
+
+Herramienta no oficial para objetos, misiones, planos y mejoras.
+
+### Descripción completa
+
+Ramas Field Tool es una herramienta comunitaria no oficial para ARC Raiders.
+
+Planifica tus mejoras, controla los materiales necesarios y encuentra más rápido la información que necesitas para tu próxima incursión. La aplicación reúne varias funciones prácticas en una interfaz optimizada para dispositivos móviles.
+
+FUNCIONES
+
+• Búsqueda de objetos en alemán, inglés, francés y español  
+• Resultados directos y posibles fuentes mediante reciclaje mostrados por separado  
+• Gestión de objetivos de mejora y niveles del taller  
+• Cálculo automático de los requisitos totales  
+• Seguimiento de materiales disponibles y faltantes  
+• Misiones marcadas como abiertas, activas o completadas  
+• Progreso de planos guardado localmente  
+• Información de mapas basada en datos de la comunidad  
+• Cambio entre apariencia clara y oscura  
+
+TUS DATOS PERMANECEN EN TU DISPOSITIVO
+
+Las cantidades de materiales, los objetivos activos, el estado de las misiones, el progreso de los planos, el idioma y la apariencia se guardan localmente en tu dispositivo. Ramas Field Tool no lee datos de tu cuenta de ARC Raiders ni de una partida en curso.
+
+DATOS DE LA COMUNIDAD CON TRANSPARENCIA
+
+Parte de la información procede de fuentes externas y comunitarias. Los datos aproximados, incompletos o no confirmados se indican como tales. Los marcadores del mapa no garantizan puntos de aparición y no muestran posiciones en directo de otros jugadores.
+
+Ramas Field Tool es un proyecto comunitario independiente y no oficial. No está afiliado, respaldado ni asociado con Embark Studios. ARC Raiders y los nombres y marcas relacionados pertenecen a sus respectivos propietarios.
+
+### Notas de la primera versión
+
+Primera versión Android de prueba de Ramas Field Tool.
+
+Incluye búsqueda de objetos, objetivos de mejora, requisitos totales, seguimiento de misiones, seguimiento de planos, mapas comunitarios e interfaz en alemán, inglés, francés y español.
