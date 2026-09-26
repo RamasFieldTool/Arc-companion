@@ -148,3 +148,12 @@ document.getElementById('spawnMapSelect')?.addEventListener('change',event=>{
 });
 document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(renderWeaponCases,40));
 document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(renderWeaponCases,40));
+
+// Test-only feature loader: Spaceport extraction layer. Kept off main until reviewed.
+(()=>{
+  if(document.getElementById('spaceportExtractionsScript'))return;
+  const script=document.createElement('script');
+  script.id='spaceportExtractionsScript';
+  script.src='extractions-v1310.js?v=1310';
+  document.head.appendChild(script);
+})();
