@@ -18,7 +18,10 @@
       firstTesters:'DIE ERSTEN TESTER',
       jan:'Sein frühes Feedback zur nicht intuitiven Oberfläche hat die grundlegende Überarbeitung der App angestoßen.',
       jasmin:'Ihr Feedback war der Anstoß für die Bauplanliste, die heute ein fester Teil der App ist.',
-      link:'GRUPPE AUF FACEBOOK'
+      link:'GRUPPE AUF FACEBOOK',
+      privacy:'Datenschutz',
+      legal:'Kontakt & Rechtliches',
+      support:'Kontakt'
     },
     en:{
       kicker:'COMMUNITY // THANK YOU',
@@ -27,9 +30,29 @@
       firstTesters:'THE FIRST TESTERS',
       jan:'His early feedback that the interface was not intuitive helped trigger the app’s fundamental UI overhaul.',
       jasmin:'Her feedback sparked the blueprint tracker, which is now a core part of the app.',
-      link:'OPEN FACEBOOK GROUP'
+      link:'OPEN FACEBOOK GROUP',
+      privacy:'Privacy',
+      legal:'Contact & legal',
+      support:'Contact'
     }
   };
+
+  const footer=document.querySelector('main > footer');
+  let legalLinks=null;
+  if(footer){
+    legalLinks=document.createElement('span');
+    legalLinks.id='legalLinks';
+    legalLinks.style.display='flex';
+    legalLinks.style.flexWrap='wrap';
+    legalLinks.style.gap='8px 12px';
+    legalLinks.style.alignItems='center';
+    legalLinks.innerHTML='<a id="privacyLink" href="privacy.html">Datenschutz</a><a id="legalLink" href="legal.html">Kontakt & Rechtliches</a><a id="supportMail" href="mailto:ramasfieldtool@proton.me">ramasfieldtool@proton.me</a>';
+    footer.appendChild(legalLinks);
+    footer.style.setProperty('display','flex','important');
+    footer.style.flexWrap='wrap';
+    footer.style.gap='8px 16px';
+    footer.style.alignItems='center';
+  }
 
   function sync(){
     const text=copy[en?.classList.contains('active')?'en':'de'];
@@ -41,6 +64,10 @@
     jasminTesterCredit.textContent=text.jasmin;
     link.textContent=text.link;
     link.setAttribute('aria-label',`${text.link}: ${text.title}`);
+    document.getElementById('privacyLink')?.replaceChildren(document.createTextNode(text.privacy));
+    document.getElementById('legalLink')?.replaceChildren(document.createTextNode(text.legal));
+    const support=document.getElementById('supportMail');
+    if(support)support.setAttribute('aria-label',`${text.support}: ramasfieldtool@proton.me`);
   }
 
   document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(sync,0));
