@@ -9,7 +9,7 @@
 - Target SDK for submission: Android 16 / API 36 (current requirement for new phone/tablet apps after 31 August 2026)
 - Minimum SDK: decide only after the Capacitor version and physical-device support range are selected
 - Orientation: portrait preferred; landscape supported and tested
-- Languages: German and English
+- Languages: German, English, French and Spanish
 - Distribution artifact: signed Android App Bundle (AAB)
 - First distribution track: Google Play Internal testing
 
