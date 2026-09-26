@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Ramas Field Tool Spaceport tactical map</title>
+  <desc id="desc">Original simplified tactical base map for the Spaceport pilot.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111820"/>
+      <stop offset="1" stop-color="#081015"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#27333a"/>
+      <stop offset="1" stop-color="#1a242a"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity=".35"/>
+    </filter>
+    <style>
+      .terrain{fill:url(#land);stroke:#516169;stroke-width:3}
+      .ridge{fill:none;stroke:#3a4951;stroke-width:9;stroke-linecap:round;opacity:.55}
+      .road{fill:none;stroke:#d2b98d;stroke-width:12;stroke-linecap:round;stroke-linejoin:round;opacity:.93}
+      .road2{fill:none;stroke:#b9a67e;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;opacity:.78}
+      .building{fill:#697780;stroke:#aeb8bd;stroke-width:2}
+      .building2{fill:#4c5b64;stroke:#86959d;stroke-width:2}
+      .pad{fill:#34434b;stroke:#65747d;stroke-width:2}
+      .track{fill:none;stroke:#7a898f;stroke-width:8;opacity:.75}
+      .labelbox{fill:#0a1014;fill-opacity:.78;stroke:#7f8e94;stroke-opacity:.28}
+      .label{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:26px;font-weight:700;fill:#f1e7d2;letter-spacing:.4px}
+      .minor{font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:13px;font-weight:600;fill:#bfc8cc;letter-spacing:1.1px}
+    </style>
+  </defs>
+
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <path class="terrain" filter="url(#soft)" d="M82 116 L210 58 L381 54 L517 17 L707 55 L856 121 L928 254 L949 410 L929 583 L965 746 L902 886 L739 946 L566 927 L396 974 L229 925 L91 814 L46 659 L62 505 L35 341 Z"/>
+
+  <path class="ridge" d="M63 168 C140 125 198 99 272 86"/>
+  <path class="ridge" d="M739 66 C820 92 884 139 920 218"/>
+  <path class="ridge" d="M901 334 C949 415 940 516 910 598"/>
+  <path class="ridge" d="M842 847 C754 915 681 928 605 915"/>
+  <path class="ridge" d="M109 762 C70 694 62 626 72 554"/>
+
+  <!-- perimeter and arterial roads -->
+  <path class="road" d="M99 202 C167 133 252 102 339 119 C421 135 494 112 548 81"/>
+  <path class="road" d="M549 82 C620 97 703 130 760 174 C831 229 875 300 903 389"/>
+  <path class="road" d="M902 389 C932 516 904 646 851 748 C799 846 707 896 597 908"/>
+  <path class="road" d="M597 908 C465 938 332 924 221 864 C131 815 82 735 70 644"/>
+  <path class="road" d="M71 644 C56 539 76 424 103 338 C125 267 146 229 99 202"/>
+
+  <path class="road" d="M130 340 C227 348 313 328 378 281 C446 231 512 207 599 216"/>
+  <path class="road" d="M186 574 C282 528 352 494 437 455 C528 413 616 385 735 367"/>
+  <path class="road" d="M205 777 C315 711 374 649 423 573 C468 503 508 420 542 318"/>
+  <path class="road" d="M741 366 C772 440 783 518 774 607 C765 695 740 780 708 850"/>
+
+  <path class="road2" d="M135 258 C207 234 263 226 320 249"/>
+  <path class="road2" d="M248 180 C301 214 326 245 347 287"/>
+  <path class="road2" d="M621 148 C653 194 667 236 670 284"/>
+  <path class="road2" d="M692 271 C748 278 796 294 838 324"/>
+  <path class="road2" d="M676 487 C725 522 755 560 774 607"/>
+  <path class="road2" d="M607 665 C654 715 674 762 684 820"/>
+  <path class="road2" d="M342 706 C404 734 457 751 518 758"/>
+  <path class="road2" d="M146 673 C204 646 250 621 296 590"/>
+
+  <!-- north-west / Alberi -->
+  <g>
+    <rect class="building2" x="122" y="156" width="75" height="46" rx="5"/>
+    <rect class="building2" x="210" y="132" width="56" height="78" rx="4"/>
+    <rect class="building2" x="274" y="145" width="70" height="48" rx="4"/>
+    <rect class="building" x="165" y="220" width="96" height="55" rx="5"/>
+    <rect class="building2" x="284" y="212" width="48" height="76" rx="4"/>
+    <circle class="pad" cx="112" cy="276" r="30"/>
+  </g>
+
+  <!-- north hangars -->
+  <g>
+    <rect class="building" x="354" y="86" width="92" height="63" rx="4"/>
+    <rect class="building" x="454" y="67" width="122" height="82" rx="4"/>
+    <rect class="building2" x="591" y="96" width="104" height="64" rx="4"/>
+    <rect class="building2" x="708" y="132" width="91" height="58" rx="4"/>
+  </g>
+
+  <!-- west / arrival-departure blocks -->
+  <g>
+    <rect class="building" x="253" y="294" width="104" height="77" rx="4"/>
+    <rect class="building" x="142" y="382" width="113" height="78" rx="4"/>
+    <rect class="building2" x="267" y="398" width="76" height="60" rx="4"/>
+    <rect class="building2" x="169" y="478" width="89" height="63" rx="4"/>
+    <rect class="building2" x="95" y="465" width="55" height="84" rx="4"/>
+  </g>
+
+  <!-- central launch complex -->
+  <g filter="url(#soft)">
+    <path class="pad" d="M385 267 L515 224 L625 281 L604 409 L494 454 L377 387 Z"/>
+    <rect class="building" x="411" y="297" width="84" height="102" rx="6" transform="rotate(-15 453 348)"/>
+    <rect class="building" x="501" y="271" width="77" height="137" rx="6" transform="rotate(13 540 340)"/>
+    <path class="track" d="M417 206 L504 431"/>
+    <path class="track" d="M470 191 L557 416"/>
+    <rect class="building2" x="356" y="430" width="101" height="66" rx="4"/>
+    <rect class="building2" x="470" y="447" width="98" height="60" rx="4"/>
+  </g>
+
+  <!-- east industrial zone -->
+  <g>
+    <rect class="building" x="630" y="246" width="98" height="66" rx="4"/>
+    <rect class="building2" x="742" y="257" width="73" height="63" rx="4"/>
+    <rect class="building" x="629" y="333" width="119" height="70" rx="4"/>
+    <rect class="building2" x="770" y="339" width="63" height="88" rx="4"/>
+    <rect class="building2" x="695" y="435" width="106" height="63" rx="4"/>
+    <circle class="pad" cx="844" cy="468" r="34"/>
+    <circle class="pad" cx="863" cy="537" r="26"/>
+  </g>
+
+  <!-- south central maintenance / control -->
+  <g>
+    <rect class="building" x="366" y="515" width="104" height="75" rx="4"/>
+    <rect class="building" x="485" y="527" width="94" height="70" rx="4"/>
+    <rect class="building" x="596" y="518" width="105" height="83" rx="4"/>
+    <rect class="building2" x="432" y="607" width="93" height="70" rx="4"/>
+    <rect class="building2" x="544" y="622" width="117" height="80" rx="4"/>
+    <rect class="building2" x="318" y="615" width="88" height="57" rx="4"/>
+  </g>
+
+  <!-- south / La Chiesa -->
+  <g>
+    <rect class="building2" x="216" y="724" width="91" height="62" rx="4"/>
+    <rect class="building2" x="319" y="755" width="80" height="56" rx="4"/>
+    <rect class="building" x="458" y="756" width="102" height="64" rx="4"/>
+    <rect class="building2" x="570" y="743" width="76" height="80" rx="4"/>
+    <rect class="building2" x="648" y="790" width="86" height="53" rx="4"/>
+    <circle class="pad" cx="191" cy="817" r="32"/>
+  </g>
+
+  <!-- subtle minor facility lines -->
+  <path class="road2" d="M320 249 L366 316 L343 398"/>
+  <path class="road2" d="M584 208 L625 281 L630 333"/>
+  <path class="road2" d="M455 495 L458 756"/>
+  <path class="road2" d="M568 507 L570 743"/>
+
+  <!-- zone labels -->
+  <g>
+    <rect class="labelbox" x="72" y="300" width="190" height="46" rx="10"/>
+    <text class="label" x="91" y="332">Alberi-Hügel</text>
+
+    <rect class="labelbox" x="384" y="390" width="202" height="50" rx="10"/>
+    <text class="label" x="406" y="424">Raumhafen</text>
+
+    <rect class="labelbox" x="705" y="574" width="219" height="46" rx="10"/>
+    <text class="label" x="724" y="606">Östliche Ebenen</text>
+
+    <rect class="labelbox" x="307" y="823" width="145" height="46" rx="10"/>
+    <text class="label" x="328" y="855">La Chiesa</text>
+  </g>
+
+  <text class="minor" x="36" y="968">RAMAS FIELD TOOL // ORIGINAL TACTICAL BASE // SPACEPORT V2</text>
+</svg>
