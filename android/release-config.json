@@ -8,15 +8,17 @@
   "distributionTrack": "internal",
   "languages": [
     "de",
-    "en"
+    "en",
+    "fr",
+    "es"
   ],
   "permissionsExpected": [
     "android.permission.INTERNET"
   ],
   "ads": false,
   "inAppPurchases": false,
-  "supportEmail": null,
-  "privacyPolicyUrl": null,
+  "supportEmail": "ramasfieldtool@proton.me",
+  "privacyPolicyUrl": "https://ramasfieldtool.github.io/Arc-companion/privacy.html",
   "releaseCountries": [
     "CH",
     "DE",
@@ -49,5 +51,5 @@
     "featureGraphic": "android/assets/store/ramas-field-tool-feature-graphic-1024x500.jpg",
     "phoneScreenshotsReady": false
   },
-  "releaseCountryStrategy": "phase-1-german-english"
+  "releaseCountryStrategy": "phase-1-selected-markets"
 }
