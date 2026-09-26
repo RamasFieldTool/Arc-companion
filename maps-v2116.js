@@ -51,3 +51,13 @@
   const title=document.getElementById('spawnMapTitle');if(title)observer.observe(title,{childList:true,subtree:true});
   setTimeout(applyMapUxCopy,0);
 })();
+
+// Isolated Spaceport V2 pilot. Loaded only on the test branch that contains this file.
+(()=>{
+  if(document.querySelector('script[data-spaceport-v2-loader]'))return;
+  const script=document.createElement('script');
+  script.src='spaceport-v2.js?v=2';
+  script.defer=true;
+  script.dataset.spaceportV2Loader='true';
+  document.head.appendChild(script);
+})();
