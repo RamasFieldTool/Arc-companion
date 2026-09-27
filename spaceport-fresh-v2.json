@@ -1,5 +1,5 @@
 {
-  "version": "3.1.0-test",
+  "version": "3.2.0-test",
   "map": "spaceport",
   "label": {
     "de": "Spaceport",
@@ -9,8 +9,8 @@
   },
   "verificationStatus": "fresh-remap-pending",
   "lastReviewed": "2026-09-27",
-  "mapImage": "assets/maps/spaceport-v5.jpg?v=5",
-  "mapImageSource": "Ramas Field Tool – eigene detaillierte Kartenbasis in voller Testauflösung",
+  "mapImage": "assets/maps/spaceport-v7.jpg?v=7",
+  "mapImageSource": "Ramas Field Tool – eigene detaillierte Kartenbasis als einzelne Bilddatei",
   "notes": {
     "de": "Spaceport wird auf dieser Testversion vollständig neu kartiert. Keine alten Raider-Spawn-, Waffenkisten- oder Extraktionskoordinaten werden übernommen.",
     "en": "Spaceport is being remapped from scratch in this test version. No previous Raider Spawn, Weapon Case, or Extraction coordinates are reused.",
