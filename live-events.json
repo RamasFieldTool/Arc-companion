@@ -4143,7 +4143,119 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-09-28T13:00:00.000Z",
+          "end": "2026-09-28T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T20:00:00.000Z",
+          "end": "2026-09-28T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T19:00:00.000Z",
+          "end": "2026-09-28T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T08:00:00.000Z",
+          "end": "2026-09-28T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T04:00:00.000Z",
+          "end": "2026-09-28T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-28T13:00:00.000Z",
+          "end": "2026-09-28T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T20:00:00.000Z",
+          "end": "2026-09-28T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T19:00:00.000Z",
+          "end": "2026-09-28T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T08:00:00.000Z",
+          "end": "2026-09-28T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T04:00:00.000Z",
+          "end": "2026-09-28T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-28T13:00:00.000Z",
+          "end": "2026-09-28T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T20:00:00.000Z",
+          "end": "2026-09-28T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T19:00:00.000Z",
+          "end": "2026-09-28T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T08:00:00.000Z",
+          "end": "2026-09-28T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T04:00:00.000Z",
+          "end": "2026-09-28T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/electromagnetic-storm.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Husk Graveyard",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-09-28T13:00:00.000Z",
+          "end": "2026-09-28T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-28T20:00:00.000Z",
+          "end": "2026-09-28T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-28T19:00:00.000Z",
+          "end": "2026-09-28T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T08:00:00.000Z",
+          "end": "2026-09-28T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T04:00:00.000Z",
+          "end": "2026-09-28T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/husk-graveyard.svg"
     }
   ],
-  "syncedAt": "2026-09-27T03:06:39Z"
+  "syncedAt": "2026-09-27T03:40:30Z"
 }
