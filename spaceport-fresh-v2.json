@@ -85,6 +85,61 @@
           }
         }
       ]
+    },
+    "raiderHatches": {
+      "status": "visual-draft-awaiting-user-review",
+      "reference": "13255.jpg (map), 13256.jpg (legend), 13253.jpg (cross-check), supplied 2026-09-27",
+      "method": "Fresh visual landmark comparison; approximate candidates on the illustrative base, not verified entrances. No legacy coordinates used.",
+      "points": [
+        {
+          "id": "RH-01",
+          "x": 53.1,
+          "y": 12.4,
+          "confidence": "approximate",
+          "label": {
+            "de": "Bei den nördlichen Hallen",
+            "en": "By the northern hangars",
+            "fr": "Près des hangars nord",
+            "es": "Junto a los hangares del norte"
+          }
+        },
+        {
+          "id": "RH-02",
+          "x": 73.1,
+          "y": 31.6,
+          "confidence": "approximate",
+          "label": {
+            "de": "Östlicher Hallenkomplex",
+            "en": "Eastern hangar complex",
+            "fr": "Complexe de hangars est",
+            "es": "Complejo de hangares del este"
+          }
+        },
+        {
+          "id": "RH-03",
+          "x": 56.4,
+          "y": 44.1,
+          "confidence": "approximate",
+          "label": {
+            "de": "Östlich des zentralen Vorplatzes",
+            "en": "East of the central apron",
+            "fr": "À l’est de l’esplanade centrale",
+            "es": "Al este de la explanada central"
+          }
+        },
+        {
+          "id": "RH-04",
+          "x": 51.4,
+          "y": 49.0,
+          "confidence": "approximate",
+          "label": {
+            "de": "Südlicher zentraler Vorplatz",
+            "en": "Southern central apron",
+            "fr": "Partie sud de l’esplanade centrale",
+            "es": "Parte sur de la explanada central"
+          }
+        }
+      ]
     }
   }
 }

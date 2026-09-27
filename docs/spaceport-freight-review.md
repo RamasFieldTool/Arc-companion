@@ -20,3 +20,9 @@ The approved illustrative base has local differences in building shape, road lay
 Layer off on entry; enable “Lastenaufzüge · Entwurf”. Own numbered rectangular arrow markers, with explicit uncertainty on tap. Other Spaceport layers remain empty/disabled. Geometry uses the actual rendered bitmap, including contain letterboxing in large view; markers follow pan/zoom with constant screen size.
 
 Await Daniel's visual review of these four candidates before refining or adding Raider Hatches. Do not merge PR #78 or change main.
+
+## Raider Hatch draft — added after instruction to continue
+
+Four curved hatch symbols are visible in the same supplied map references, distinguished using `13256.jpg`. Fresh visual candidates on the approved base: RH-01 by the northern hangars (53.1 / 12.4), RH-02 eastern hangar complex (73.1 / 31.6), RH-03 east of the central apron (56.4 / 44.1), RH-04 southern central apron (51.4 / 49.0). These are descriptive labels and approximate positions, not official names or verified entrances. No legacy hatch positions were used.
+
+Hatches have a separate toggle and small round teal numbered markers. Both extraction layers can be enabled together; raider spawns and weapon cases remain disabled. Freight positions remain unmodified and unverified.

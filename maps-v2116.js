@@ -56,7 +56,7 @@
 (()=>{
   if(document.querySelector('script[data-spaceport-v2-loader]'))return;
   const script=document.createElement('script');
-  script.src='spaceport-v2.js?v=freight-draft-1';
+  script.src='spaceport-v2.js?v=hatches-draft-1';
   script.defer=true;
   script.dataset.spaceportV2Loader='true';
   document.head.appendChild(script);
