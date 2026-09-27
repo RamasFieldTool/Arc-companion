@@ -1,7 +1,7 @@
 /* Spaceport freight draft: own symbols, anchored to the bitmap, constant screen size. */
 .spaceport-freight-layer{position:absolute;pointer-events:none;z-index:6}
-#spawnCanvas .spaceport-freight-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--freight-marker-scale,1));transform-origin:center;width:36px;height:30px!important;min-height:30px!important;padding:0!important;border:2px solid #ffcb7c!important;border-radius:5px!important;background:#21190f!important;color:#ffe1b1!important;box-shadow:0 0 0 2px #090c10b3,0 2px 7px #0008!important;font:700 13px system-ui,sans-serif!important;cursor:pointer;pointer-events:auto;touch-action:manipulation}
-.spaceport-freight-marker::after{content:"";position:absolute;inset:-8px}
+#spawnCanvas .spaceport-freight-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--freight-marker-scale,1));transform-origin:center;width:24px;height:20px!important;min-height:20px!important;padding:0!important;border:1px solid #ffcb7c!important;border-radius:3px!important;background:#21190f!important;color:#ffe1b1!important;box-shadow:0 0 0 1px #090c10b3,0 1px 4px #0008!important;font:700 10px system-ui,sans-serif!important;cursor:pointer;pointer-events:auto;touch-action:manipulation}
+.spaceport-freight-marker::after{content:"";position:absolute;inset:-12px}
 #spawnCanvas .spaceport-freight-marker[aria-pressed="true"]{border-color:#fff!important;background:#684215!important;color:#fff!important}
 .spaceport-freight-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .spaceport-freight-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
