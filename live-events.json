@@ -4171,7 +4171,91 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-09-29T03:00:00.000Z",
+          "end": "2026-09-29T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-29T10:00:00.000Z",
+          "end": "2026-09-29T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-29T09:00:00.000Z",
+          "end": "2026-09-29T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T22:00:00.000Z",
+          "end": "2026-09-28T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T18:00:00.000Z",
+          "end": "2026-09-28T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Launch Tower Loot",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-09-29T03:00:00.000Z",
+          "end": "2026-09-29T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-29T10:00:00.000Z",
+          "end": "2026-09-29T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-29T09:00:00.000Z",
+          "end": "2026-09-29T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T22:00:00.000Z",
+          "end": "2026-09-28T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T18:00:00.000Z",
+          "end": "2026-09-28T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/launch-tower-loot.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-09-29T03:00:00.000Z",
+          "end": "2026-09-29T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-29T10:00:00.000Z",
+          "end": "2026-09-29T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-29T09:00:00.000Z",
+          "end": "2026-09-29T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-28T22:00:00.000Z",
+          "end": "2026-09-28T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-28T18:00:00.000Z",
+          "end": "2026-09-28T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
     }
   ],
-  "syncedAt": "2026-09-27T17:06:17Z"
+  "syncedAt": "2026-09-27T17:37:02Z"
 }
