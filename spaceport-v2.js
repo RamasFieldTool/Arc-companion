@@ -1,6 +1,17 @@
-// Spaceport V5 test pilot: approved detailed full-resolution map base, zero legacy coordinates.
+// Spaceport V6 test pilot: approved detailed map base, zero legacy coordinates.
 (()=>{
-  const MAP_URL='assets/maps/spaceport-v5.jpg?v=5';
+  const MAP_PARTS=[
+    'assets/maps/spaceport-rft-base-v3.part01.b64?v=6',
+    'assets/maps/spaceport-rft-base-v3.part02.b64?v=6',
+    'assets/maps/spaceport-rft-base-v3.part03.b64?v=6',
+    'assets/maps/spaceport-rft-base-v3.part04.b64?v=6',
+    'assets/maps/spaceport-rft-base-v3.part05.b64?v=6',
+    'assets/maps/spaceport-rft-base-v3.part06.b64?v=6',
+    'assets/maps/spaceport-rft-base-v3.part07.b64?v=6'
+  ];
+  let mapDataUrl=null;
+  let mapLoading=null;
+  let settingMap=false;
 
   const copy={
     de:{raiders:'RAIDER-SPAWNS // NEU',cases:'WAFFENKISTEN // NEU',freight:'LASTENAUFZÜGE // NEU',hatches:'RAIDER-LUKEN // NEU',pending:'wird komplett neu kartiert',ready:'SPACEPORT // NEUE KARTENBASIS',body:'Die neue detaillierte Spaceport-Karte ist aktiv. Alle bisherigen Markerkoordinaten wurden verworfen. Raider-Spawns, Waffenkisten, Lastenaufzüge und Raider-Luken werden jetzt von Grund auf neu eingemessen.',source:'Kartenbasis: Ramas Field Tool – eigene detaillierte Spaceport-Karte',none:'Noch keine neu vermessene Ebene verfügbar',mapError:'Die neue Kartenbasis konnte nicht geladen werden. Bitte die Vorschau neu laden.'},
@@ -16,6 +27,23 @@
   }
   function t(){return copy[language()]}
   function isSpaceport(){return document.getElementById('spawnMapSelect')?.value==='spaceport'}
+
+  async function getMapDataUrl(){
+    if(mapDataUrl)return mapDataUrl;
+    if(mapLoading)return mapLoading;
+    mapLoading=Promise.all(MAP_PARTS.map(url=>fetch(url,{cache:'no-store'}).then(r=>{
+      if(!r.ok)throw new Error(`Spaceport map part ${r.status}`);
+      return r.text();
+    }))).then(parts=>{
+      mapDataUrl='data:image/webp;base64,'+parts.join('').replace(/\s+/g,'');
+      return mapDataUrl;
+    }).catch(err=>{
+      console.error('Spaceport map load failed',err);
+      mapLoading=null;
+      return null;
+    });
+    return mapLoading;
+  }
 
   function clearSpaceportMarkers(){
     ['spawnMarkers','weaponCaseMarkers','extractionMarkers','spaceportV2Markers'].forEach(id=>{
@@ -55,12 +83,7 @@
   }
 
   function restoreLegacyButtons(){
-    const labels={
-      de:{r:'RAIDER-SPAWNS',w:'WAFFENKISTEN'},
-      en:{r:'RAIDER SPAWNS',w:'WEAPON CASES'},
-      fr:{r:'APPARITIONS RAIDER',w:'CAISSES D’ARMES'},
-      es:{r:'APARICIONES RAIDER',w:'CAJAS DE ARMAS'}
-    }[language()]||{r:'RAIDER SPAWNS',w:'WEAPON CASES'};
+    const labels={de:{r:'RAIDER-SPAWNS',w:'WAFFENKISTEN'},en:{r:'RAIDER SPAWNS',w:'WEAPON CASES'},fr:{r:'APPARITIONS RAIDER',w:'CAISSES D’ARMES'},es:{r:'APARICIONES RAIDER',w:'CAJAS DE ARMAS'}}[language()]||{r:'RAIDER SPAWNS',w:'WEAPON CASES'};
     const r=document.getElementById('layerRaiders');
     const w=document.getElementById('layerWeaponCases');
     [r,w].forEach(btn=>{if(btn){btn.disabled=false;btn.removeAttribute('aria-disabled');btn.classList.remove('spaceport-v2-pending');btn.title=''}});
@@ -73,25 +96,30 @@
     const title=document.getElementById('spawnPendingTitle');if(title)title.textContent=t().ready;
     const body=document.getElementById('spawnPendingBody');if(body)body.textContent=t().body;
     const credit=document.getElementById('spawnImageCredit');if(credit)credit.textContent=t().source;
-    const legend=document.querySelector('.spawn-legend');
-    legend?.classList.remove('layer-raiders','layer-cases','layer-extractions');
+    const legend=document.querySelector('.spawn-legend');legend?.classList.remove('layer-raiders','layer-cases','layer-extractions');
     const legendText=document.getElementById('spawnLegendText');if(legendText)legendText.textContent=t().none;
     const selected=document.getElementById('spawnSelected');if(selected){selected.hidden=true;selected.innerHTML=''}
     const key=document.getElementById('spaceportV2Key');if(key)key.remove();
   }
 
-  function setMapImage(){
-    if(!isSpaceport())return;
+  async function setMapImage(){
+    if(!isSpaceport()||settingMap)return;
     const image=document.getElementById('spawnMapImage');
     if(!image)return;
-    if(!image.src.includes('spaceport-v5.jpg')){
-      image.src=MAP_URL;
-      image.removeAttribute('srcset');
-      image.style.imageRendering='auto';
+    const src=await getMapDataUrl();
+    if(!src||!isSpaceport()){
+      const body=document.getElementById('spawnPendingBody');if(body)body.textContent=t().mapError;
+      return;
     }
+    if(image.src===src)return;
+    settingMap=true;
+    image.src=src;
+    image.removeAttribute('srcset');
+    image.style.imageRendering='auto';
+    requestAnimationFrame(()=>{settingMap=false});
   }
 
-  function applySpaceport(){
+  async function applySpaceport(){
     if(!isSpaceport()){
       restoreLegacyButtons();
       return;
@@ -102,12 +130,12 @@
     ensurePendingToggle('layerSpaceportFreight','spaceport-freight',t().freight);
     ensurePendingToggle('layerSpaceportHatches','spaceport-hatches',t().hatches);
     setInfo();
-    setMapImage();
+    await setMapImage();
   }
 
   document.getElementById('spawnMapSelect')?.addEventListener('change',()=>setTimeout(applySpaceport,120));
   ['deBtn','enBtn','frBtn','esBtn'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>setTimeout(applySpaceport,60)));
   const img=document.getElementById('spawnMapImage');
-  if(img)new MutationObserver(()=>{if(isSpaceport()&&!img.src.includes('spaceport-v5.jpg'))setTimeout(setMapImage,0)}).observe(img,{attributes:true,attributeFilter:['src']});
+  if(img)new MutationObserver(()=>{if(isSpaceport()&&!settingMap&&mapDataUrl&&img.src!==mapDataUrl)setTimeout(setMapImage,0)}).observe(img,{attributes:true,attributeFilter:['src']});
   setTimeout(applySpaceport,180);
 })();
