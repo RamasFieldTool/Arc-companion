@@ -9,8 +9,8 @@
   },
   "verificationStatus": "fresh-remap-pending",
   "lastReviewed": "2026-09-27",
-  "mapImage": "assets/maps/spaceport-v8.webp?v=8",
-  "mapImageSource": "Ramas Field Tool – eigene detaillierte Kartenbasis als einzelne WebP-Bilddatei",
+  "mapImage": "assets/maps/spaceport-approved-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene detaillierte Kartenbasis als einzelne vollständige JPEG-Bilddatei",
   "notes": {
     "de": "Spaceport wird auf dieser Testversion vollständig neu kartiert. Keine alten Raider-Spawn-, Waffenkisten- oder Extraktionskoordinaten werden übernommen.",
     "en": "Spaceport is being remapped from scratch in this test version. No previous Raider Spawn, Weapon Case, or Extraction coordinates are reused.",

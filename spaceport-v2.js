@@ -1,12 +1,11 @@
-// Spaceport V8 test pilot: direct single-file WebP map base, zero legacy coordinates.
+// Spaceport test pilot: approved single-file map base, zero legacy coordinates.
 (()=>{
-  const MAP_URL='assets/maps/spaceport-v8.webp?v=8';
 
   const copy={
-    de:{raiders:'RAIDER-SPAWNS // NEU',cases:'WAFFENKISTEN // NEU',freight:'LASTENAUFZÜGE // NEU',hatches:'RAIDER-LUKEN // NEU',pending:'wird komplett neu kartiert',ready:'SPACEPORT // NEUE KARTENBASIS',body:'Die neue detaillierte Spaceport-Karte ist aktiv. Alle bisherigen Markerkoordinaten wurden verworfen. Raider-Spawns, Waffenkisten, Lastenaufzüge und Raider-Luken werden jetzt von Grund auf neu eingemessen.',source:'Kartenbasis: Ramas Field Tool – eigene detaillierte Spaceport-Karte',none:'Noch keine neu vermessene Ebene verfügbar',mapError:'Die Spaceport-Karte konnte nicht geladen werden.'},
-    en:{raiders:'RAIDER SPAWNS // REBUILD',cases:'WEAPON CASES // REBUILD',freight:'FREIGHT ELEVATORS // REBUILD',hatches:'RAIDER HATCHES // REBUILD',pending:'being remapped from scratch',ready:'SPACEPORT // NEW MAP BASE',body:'The new detailed Spaceport map is active. All previous marker coordinates have been discarded. Raider Spawns, Weapon Cases, Freight Elevators and Raider Hatches will now be measured again from scratch.',source:'Map base: Ramas Field Tool – original detailed Spaceport map',none:'No freshly measured layer available yet',mapError:'The Spaceport map could not be loaded.'},
-    fr:{raiders:'APPARITIONS // RECONSTRUCTION',cases:'CAISSES D’ARMES // RECONSTRUCTION',freight:'MONTE-CHARGES // RECONSTRUCTION',hatches:'TRAPPES RAIDER // RECONSTRUCTION',pending:'recartographie complète en cours',ready:'SPACEPORT // NOUVELLE CARTE',body:'La nouvelle carte détaillée de Spaceport est active. Toutes les anciennes coordonnées ont été abandonnées. Les apparitions, caisses d’armes, monte-charges et trappes Raider seront remesurés depuis zéro.',source:'Fond de carte : Ramas Field Tool – carte détaillée originale de Spaceport',none:'Aucune couche remesurée disponible pour le moment',mapError:'La carte Spaceport n’a pas pu être chargée.'},
-    es:{raiders:'APARICIONES // RECONSTRUCCIÓN',cases:'CAJAS DE ARMAS // RECONSTRUCCIÓN',freight:'MONTACARGAS // RECONSTRUCCIÓN',hatches:'ESCOTILLAS RAIDER // RECONSTRUCCIÓN',pending:'se está cartografiando desde cero',ready:'SPACEPORT // NUEVO MAPA BASE',body:'El nuevo mapa detallado de Spaceport está activo. Se han descartado todas las coordenadas anteriores. Las apariciones, cajas de armas, montacargas y escotillas Raider se medirán de nuevo desde cero.',source:'Mapa base: Ramas Field Tool – mapa detallado original de Spaceport',none:'Todavía no hay ninguna capa recién medida disponible',mapError:'No se pudo cargar el mapa de Spaceport.'}
+    de:{loading:'Spaceport-Karte wird geladen …',raiders:'RAIDER-SPAWNS // NEU',cases:'WAFFENKISTEN // NEU',freight:'LASTENAUFZÜGE // NEU',hatches:'RAIDER-LUKEN // NEU',pending:'wird komplett neu kartiert',ready:'SPACEPORT // NEUE KARTENBASIS',body:'Die neue detaillierte Spaceport-Karte ist aktiv. Alle bisherigen Markerkoordinaten wurden verworfen. Raider-Spawns, Waffenkisten, Lastenaufzüge und Raider-Luken werden jetzt von Grund auf neu eingemessen.',source:'Kartenbasis: Ramas Field Tool – eigene detaillierte Spaceport-Karte',none:'Noch keine neu vermessene Ebene verfügbar',mapError:'Die Spaceport-Karte konnte nicht geladen werden.'},
+    en:{loading:'Loading Spaceport map …',raiders:'RAIDER SPAWNS // REBUILD',cases:'WEAPON CASES // REBUILD',freight:'FREIGHT ELEVATORS // REBUILD',hatches:'RAIDER HATCHES // REBUILD',pending:'being remapped from scratch',ready:'SPACEPORT // NEW MAP BASE',body:'The new detailed Spaceport map is active. All previous marker coordinates have been discarded. Raider Spawns, Weapon Cases, Freight Elevators and Raider Hatches will now be measured again from scratch.',source:'Map base: Ramas Field Tool – original detailed Spaceport map',none:'No freshly measured layer available yet',mapError:'The Spaceport map could not be loaded.'},
+    fr:{loading:'Chargement de la carte Spaceport …',raiders:'APPARITIONS // RECONSTRUCTION',cases:'CAISSES D’ARMES // RECONSTRUCTION',freight:'MONTE-CHARGES // RECONSTRUCTION',hatches:'TRAPPES RAIDER // RECONSTRUCTION',pending:'recartographie complète en cours',ready:'SPACEPORT // NOUVELLE CARTE',body:'La nouvelle carte détaillée de Spaceport est active. Toutes les anciennes coordonnées ont été abandonnées. Les apparitions, caisses d’armes, monte-charges et trappes Raider seront remesurés depuis zéro.',source:'Fond de carte : Ramas Field Tool – carte détaillée originale de Spaceport',none:'Aucune couche remesurée disponible pour le moment',mapError:'La carte Spaceport n’a pas pu être chargée.'},
+    es:{loading:'Cargando el mapa Spaceport …',raiders:'APARICIONES // RECONSTRUCCIÓN',cases:'CAJAS DE ARMAS // RECONSTRUCCIÓN',freight:'MONTACARGAS // RECONSTRUCCIÓN',hatches:'ESCOTILLAS RAIDER // RECONSTRUCCIÓN',pending:'se está cartografiando desde cero',ready:'SPACEPORT // NUEVO MAPA BASE',body:'El nuevo mapa detallado de Spaceport está activo. Se han descartado todas las coordenadas anteriores. Las apariciones, cajas de armas, montacargas y escotillas Raider se medirán de nuevo desde cero.',source:'Mapa base: Ramas Field Tool – mapa detallado original de Spaceport',none:'Todavía no hay ninguna capa recién medida disponible',mapError:'No se pudo cargar el mapa de Spaceport.'}
   };
 
   function language(){
@@ -66,31 +65,15 @@
 
   function setInfo(){
     const title=document.getElementById('spawnPendingTitle');if(title)title.textContent=t().ready;
-    const body=document.getElementById('spawnPendingBody');if(body)body.textContent=t().body;
+    const image=document.getElementById('spawnMapImage');
+    const loaded=image?.complete&&image.naturalWidth>0;
+    const body=document.getElementById('spawnPendingBody');
+    if(body)body.textContent=loaded?t().body:(image?.complete?t().mapError:t().loading);
     const credit=document.getElementById('spawnImageCredit');if(credit)credit.textContent=t().source;
     document.querySelector('.spawn-legend')?.classList.remove('layer-raiders','layer-cases','layer-extractions');
     const legendText=document.getElementById('spawnLegendText');if(legendText)legendText.textContent=t().none;
     const selected=document.getElementById('spawnSelected');if(selected){selected.hidden=true;selected.innerHTML=''}
     document.getElementById('spaceportV2Key')?.remove();
-  }
-
-  function setMapImage(){
-    if(!isSpaceport())return;
-    const image=document.getElementById('spawnMapImage');
-    if(!image)return;
-    const current=image.getAttribute('src')||'';
-    if(!current.includes('spaceport-v8.webp')){
-      image.onload=()=>{image.hidden=false;image.style.opacity='1'};
-      image.onerror=()=>{
-        const body=document.getElementById('spawnPendingBody');
-        if(body)body.textContent=t().mapError;
-      };
-      image.src=MAP_URL;
-      image.removeAttribute('srcset');
-      image.style.imageRendering='auto';
-      image.style.opacity='1';
-      image.hidden=false;
-    }
   }
 
   function applySpaceport(){
@@ -104,12 +87,14 @@
     ensurePendingToggle('layerSpaceportFreight','spaceport-freight',t().freight);
     ensurePendingToggle('layerSpaceportHatches','spaceport-hatches',t().hatches);
     setInfo();
-    setMapImage();
   }
 
   document.getElementById('spawnMapSelect')?.addEventListener('change',()=>setTimeout(applySpaceport,120));
   ['deBtn','enBtn','frBtn','esBtn'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>setTimeout(applySpaceport,60)));
   const img=document.getElementById('spawnMapImage');
-  if(img)new MutationObserver(()=>{if(isSpaceport()&&!img.src.includes('spaceport-v8.webp'))setTimeout(setMapImage,0)}).observe(img,{attributes:true,attributeFilter:['src']});
+  // The regular map renderer owns src via spaceport-fresh-v2.json.
+  // Reapply the empty-layer state after asynchronous map loads, without rewriting src.
+  img?.addEventListener('load',applySpaceport);
+  img?.addEventListener('error',applySpaceport);
   setTimeout(applySpaceport,180);
 })();
