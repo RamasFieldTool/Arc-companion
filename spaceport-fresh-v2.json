@@ -30,6 +30,61 @@
     "extractions": {
       "status": "fresh-remap-pending",
       "points": []
+    },
+    "freightElevators": {
+      "status": "visual-draft-awaiting-user-review",
+      "reference": "13255.jpg (map), 13256.jpg (legend), 13253.jpg (cross-check), supplied 2026-09-27",
+      "method": "Fresh visual landmark comparison against the approved 1536x1536 base. Coordinates are approximate review candidates, not surveyed entrance locations. No legacy coordinates used.",
+      "points": [
+        {
+          "id": "FE-01",
+          "x": 48.7,
+          "y": 26.6,
+          "confidence": "approximate",
+          "label": {
+            "de": "Nördlicher Vorplatz",
+            "en": "Northern apron",
+            "fr": "Esplanade nord",
+            "es": "Explanada norte"
+          }
+        },
+        {
+          "id": "FE-02",
+          "x": 23.6,
+          "y": 43.0,
+          "confidence": "approximate",
+          "label": {
+            "de": "Westlicher Zugang",
+            "en": "Western approach",
+            "fr": "Accès ouest",
+            "es": "Acceso oeste"
+          }
+        },
+        {
+          "id": "FE-03",
+          "x": 44.3,
+          "y": 55.9,
+          "confidence": "approximate",
+          "label": {
+            "de": "Beim südwestlichen Langbau",
+            "en": "By the southwest long building",
+            "fr": "Près du long bâtiment sud-ouest",
+            "es": "Junto al edificio alargado suroeste"
+          }
+        },
+        {
+          "id": "FE-04",
+          "x": 72.1,
+          "y": 55.3,
+          "confidence": "approximate",
+          "label": {
+            "de": "Östlicher Weg",
+            "en": "Eastern path",
+            "fr": "Chemin est",
+            "es": "Camino este"
+          }
+        }
+      ]
     }
   }
 }

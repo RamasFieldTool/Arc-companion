@@ -1,0 +1,10 @@
+/* Spaceport freight draft: own symbols, anchored to the bitmap, constant screen size. */
+.spaceport-freight-layer{position:absolute;pointer-events:none;z-index:6}
+.spaceport-freight-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--freight-marker-scale,1));transform-origin:center;width:36px;height:30px;padding:0;border:2px solid #ffcb7c;border-radius:5px;background:#21190f;color:#ffe1b1;box-shadow:0 0 0 2px #090c10b3,0 2px 7px #0008;font:700 13px system-ui,sans-serif;cursor:pointer;pointer-events:auto;touch-action:manipulation}
+.spaceport-freight-marker::after{content:"";position:absolute;inset:-8px}
+.spaceport-freight-marker[aria-pressed="true"]{border-color:#fff;background:#684215;color:#fff}
+.spaceport-freight-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.spaceport-freight-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
+.spaceport-freight-details strong,.spaceport-freight-details span{display:block}
+.spaceport-freight-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe1b1;font-size:22px;cursor:pointer}
+#spaceportFreightMarkers[hidden],#spaceportFreightDetails[hidden],#layerSpaceportFreight[hidden],#layerSpaceportHatches[hidden]{display:none!important}
