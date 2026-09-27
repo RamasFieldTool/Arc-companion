@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0-test",
+  "version": "3.0.0-test",
   "map": "spaceport",
   "label": {
     "de": "Spaceport",
@@ -7,15 +7,15 @@
     "fr": "Spaceport",
     "es": "Spaceport"
   },
-  "verificationStatus": "fresh-remap-on-new-spaceport-map",
+  "verificationStatus": "fresh-remap-pending",
   "lastReviewed": "2026-09-27",
   "mapImage": "spaceport-rft-base-v2.svg?v=3",
-  "mapImageSource": "Ramas Field Tool – neue eigene Spaceport-Kartenbasis; hochauflösende Testkarte wird vom Spaceport-V2-Controller geladen",
+  "mapImageSource": "Ramas Field Tool – eigene detaillierte Kartenbasis",
   "notes": {
-    "de": "Spaceport wird auf diesem Test-Branch mit der neuen eigenen Kartenbasis neu aufgebaut. Alte Raider-Spawn-, Waffenkisten- und Extraktionskoordinaten werden nicht übernommen.",
-    "en": "Spaceport is being rebuilt on this test branch using the new original map base. Previous Raider Spawn, Weapon Case and Extraction coordinates are not reused.",
-    "fr": "Spaceport est reconstruit sur cette branche de test avec la nouvelle carte originale. Les anciennes coordonnées ne sont pas réutilisées.",
-    "es": "Spaceport se está reconstruyendo en esta rama de prueba con el nuevo mapa original. Las coordenadas anteriores no se reutilizan."
+    "de": "Spaceport wird auf dieser Testversion vollständig neu kartiert. Keine alten Raider-Spawn-, Waffenkisten- oder Extraktionskoordinaten werden übernommen.",
+    "en": "Spaceport is being remapped from scratch in this test version. No previous Raider Spawn, Weapon Case, or Extraction coordinates are reused.",
+    "fr": "Spaceport est entièrement recartographié dans cette version de test. Aucune ancienne coordonnée d'apparition de Raider, de caisse d'armes ou d'extraction n'est réutilisée.",
+    "es": "Spaceport se está cartografiando de nuevo desde cero en esta versión de prueba. No se reutiliza ninguna coordenada anterior de apariciones de Raiders, cajas de armas o extracciones."
   },
   "points": [],
   "layers": {
@@ -28,18 +28,8 @@
       "points": []
     },
     "extractions": {
-      "status": "fresh-reference-remapped-on-new-map",
-      "referenceCanvas": {"width":1536,"height":1536},
-      "points": [
-        {"id":"SP-X-H01","type":"raider-hatch","x":48.96,"y":12.43,"name":{"de":"Raider-Luke Nord","en":"Raider Hatch North","fr":"Trappe Raider Nord","es":"Escotilla Raider Norte"}},
-        {"id":"SP-X-F01","type":"freight-elevator","x":42.51,"y":26.69,"name":{"de":"Lastenaufzug Nordwest","en":"Freight Elevator Northwest","fr":"Monte-charge Nord-Ouest","es":"Montacargas Noroeste"}},
-        {"id":"SP-X-H02","type":"raider-hatch","x":71.48,"y":34.18,"name":{"de":"Raider-Luke Nordost","en":"Raider Hatch Northeast","fr":"Trappe Raider Nord-Est","es":"Escotilla Raider Noreste"}},
-        {"id":"SP-X-F02","type":"freight-elevator","x":17.58,"y":37.50,"name":{"de":"Lastenaufzug West","en":"Freight Elevator West","fr":"Monte-charge Ouest","es":"Montacargas Oeste"}},
-        {"id":"SP-X-H03","type":"raider-hatch","x":54.56,"y":45.44,"name":{"de":"Raider-Luke Zentrum","en":"Raider Hatch Center","fr":"Trappe Raider Centre","es":"Escotilla Raider Centro"}},
-        {"id":"SP-X-H04","type":"raider-hatch","x":50.39,"y":50.52,"name":{"de":"Raider-Luke Süd-Zentrum","en":"Raider Hatch South Center","fr":"Trappe Raider Centre-Sud","es":"Escotilla Raider Centro-Sur"}},
-        {"id":"SP-X-F03","type":"freight-elevator","x":42.06,"y":55.08,"name":{"de":"Lastenaufzug Südwest","en":"Freight Elevator Southwest","fr":"Monte-charge Sud-Ouest","es":"Montacargas Suroeste"}},
-        {"id":"SP-X-F04","type":"freight-elevator","x":72.20,"y":55.01,"name":{"de":"Lastenaufzug Ost","en":"Freight Elevator East","fr":"Monte-charge Est","es":"Montacargas Este"}}
-      ]
+      "status": "fresh-remap-pending",
+      "points": []
     }
   }
 }
