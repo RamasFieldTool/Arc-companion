@@ -20,8 +20,102 @@
   "points": [],
   "layers": {
     "raiderSpawns": {
-      "status": "fresh-remap-pending",
-      "points": []
+      "status": "partial-visual-draft-awaiting-user-review",
+      "source": "https://arcraidersmap.online/arc-raiders-map/the-spaceport/",
+      "sourceObserved": "2026-09-27",
+      "sourceStatus": "probable community locations, not independently verified",
+      "coverage": {
+        "sourceCount": 21,
+        "mappedCandidates": 6,
+        "unmapped": 15
+      },
+      "method": "Fresh visual landmark matching on approved illustration; no old repository coordinates or automatic coordinate transform. Remaining source points omitted because correspondence is unclear.",
+      "points": [
+        {
+          "id": "RS-01",
+          "x": 8,
+          "y": 36,
+          "confidence": "approximate",
+          "sourceMarkerIndex": 8,
+          "landmark": "West road bend beside western industrial area",
+          "label": {
+            "de": "Westlicher Straßenzugang",
+            "en": "Western road approach",
+            "fr": "Accès routier ouest",
+            "es": "Acceso vial oeste"
+          }
+        },
+        {
+          "id": "RS-02",
+          "x": 17,
+          "y": 58,
+          "confidence": "approximate",
+          "sourceMarkerIndex": 7,
+          "landmark": "Western tanks beside perimeter road",
+          "label": {
+            "de": "Westliche Tankanlage",
+            "en": "Western tanks",
+            "fr": "Réservoirs ouest",
+            "es": "Depósitos occidentales"
+          }
+        },
+        {
+          "id": "RS-03",
+          "x": 23,
+          "y": 68,
+          "confidence": "approximate",
+          "sourceMarkerIndex": 20,
+          "landmark": "Junction southwest of long diagonal building",
+          "label": {
+            "de": "Südwestliche Straßenkreuzung",
+            "en": "Southwestern road junction",
+            "fr": "Carrefour sud-ouest",
+            "es": "Cruce suroeste"
+          }
+        },
+        {
+          "id": "RS-04",
+          "x": 35,
+          "y": 71,
+          "confidence": "approximate",
+          "sourceMarkerIndex": 16,
+          "landmark": "Rocky patch north of southern tank group",
+          "label": {
+            "de": "Nördlich der südlichen Tanks",
+            "en": "North of the southern tanks",
+            "fr": "Au nord des réservoirs sud",
+            "es": "Al norte de los depósitos del sur"
+          }
+        },
+        {
+          "id": "RS-05",
+          "x": 86,
+          "y": 56,
+          "confidence": "approximate",
+          "sourceMarkerIndex": 5,
+          "landmark": "Eastern terrain path near communications area",
+          "label": {
+            "de": "Weg in den östlichen Ebenen",
+            "en": "Eastern plains path",
+            "fr": "Chemin des plaines orientales",
+            "es": "Camino de las llanuras orientales"
+          }
+        },
+        {
+          "id": "RS-06",
+          "x": 77,
+          "y": 94,
+          "confidence": "approximate",
+          "sourceMarkerIndex": 10,
+          "landmark": "Southern perimeter road beside checkpoint approach",
+          "label": {
+            "de": "Südliche Zufahrt",
+            "en": "Southern approach",
+            "fr": "Accès sud",
+            "es": "Acceso sur"
+          }
+        }
+      ]
     },
     "weaponCases": {
       "status": "fresh-remap-pending",

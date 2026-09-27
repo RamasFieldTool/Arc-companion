@@ -26,3 +26,20 @@ Await Daniel's visual review of these four candidates before refining or adding 
 Four curved hatch symbols are visible in the same supplied map references, distinguished using `13256.jpg`. Fresh visual candidates on the approved base: RH-01 by the northern hangars (53.1 / 12.4), RH-02 eastern hangar complex (73.1 / 31.6), RH-03 east of the central apron (56.4 / 44.1), RH-04 southern central apron (51.4 / 49.0). These are descriptive labels and approximate positions, not official names or verified entrances. No legacy hatch positions were used.
 
 Hatches have a separate toggle and small round teal numbered markers. Both extraction layers can be enabled together; raider spawns and weapon cases remain disabled. Freight positions remain unmodified and unverified.
+
+## Raider spawn partial draft — online reference, 2026-09-27 UTC
+
+Source: https://arcraidersmap.online/arc-raiders-map/the-spaceport/ (Raider Spawns filter). The visible reference lists 21 markers, all labelled probable. This is not official verification or an exhaustive claim. Six candidates were freshly matched by landmarks; the remaining 15 were omitted because their correspondence on the illustration is unclear. No old repository spawn data or automatic coordinate transformation was used. The source image is not redistributed.
+
+Source indices below are zero-based visible marker order for this observation, not stable source IDs. Labels are descriptive, not official names.
+
+| Candidate | Source index | Landmark | New base x/y (%) |
+| --- | --- | --- | --- |
+| RS-01 | 8 | West road bend beside western industrial area | 8 / 36 |
+| RS-02 | 7 | Western tanks beside perimeter road | 17 / 58 |
+| RS-03 | 20 | Junction southwest of long diagonal building | 23 / 68 |
+| RS-04 | 16 | Rocky patch north of southern tank group | 35 / 71 |
+| RS-05 | 5 | Eastern terrain path near communications area | 86 / 56 |
+| RS-06 | 10 | Southern perimeter road beside checkpoint approach | 77 / 94 |
+
+All six remain approximate and unverified in-game. Separate spawn toggle, off initially; source uncertainty appears on tap. Extraction candidates unchanged; weapon cases remain disabled.
