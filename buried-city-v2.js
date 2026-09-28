@@ -37,12 +37,12 @@
     const target=grid('raiderLoot');if(!target)return;
     mutating=true;
     const mapping=[['layerRaiders',t().spawns],['layerWeaponCases',t().cases]];
-    mapping.forEach(([id,text])=>{const button=document.getElementById(id);if(button){button.hidden=false;button.disabled=false;button.removeAttribute('aria-disabled');if(button.parentElement!==target)target.appendChild(button);setButtonLabel(button,text);button.classList.add('buried-city-core-toggle')}});
+    mapping.forEach(([id,text])=>{const button=document.getElementById(id);if(button){if(button.hidden)button.hidden=false;if(button.disabled)button.disabled=false;if(button.hasAttribute('aria-disabled'))button.removeAttribute('aria-disabled');if(button.parentElement!==target)target.appendChild(button);setButtonLabel(button,text);button.classList.add('buried-city-core-toggle')}});
     mutating=false;
   }
   function restoreCoreButtons(){
     mutating=true;
-    coreButtons.forEach(button=>{const home=coreHomes.get(button);if(home?.parent){if(home.next&&home.next.parentNode===home.parent)home.parent.insertBefore(button,home.next);else home.parent.appendChild(button)}button.classList.remove('buried-city-core-toggle')});
+    coreButtons.forEach(button=>{const home=coreHomes.get(button);if(home?.parent&&button.parentNode!==home.parent){if(home.next&&home.next.parentNode===home.parent)home.parent.insertBefore(button,home.next);else home.parent.appendChild(button)}button.classList.remove('buried-city-core-toggle')});
     mutating=false;
   }
 
@@ -50,11 +50,11 @@
     const target=grid(group);if(!target)return null;
     let button=document.getElementById(`layerBuriedCity-${key}`);
     if(!button){button=document.createElement('button');button.id=`layerBuriedCity-${key}`;button.type='button';button.className='map-layer-toggle buried-city-map-toggle';button.dataset.buriedLayer=key;button.innerHTML='<span class="layer-indicator"></span><span></span>';button.addEventListener('click',()=>{if(!isBuried())return;state[key]=!state[key];selectedId=null;render()});target.appendChild(button)}
-    const text=key==='metro'?t().metro:key==='hatches'?t().hatches:t()[key];setButtonLabel(button,text);button.setAttribute('aria-pressed',String(state[key]));return button;
+    const text=key==='metro'?t().metro:key==='hatches'?t().hatches:t()[key];setButtonLabel(button,text);const pressed=String(state[key]);if(button.getAttribute('aria-pressed')!==pressed)button.setAttribute('aria-pressed',pressed);return button;
   }
   function ensureToggles(){
     ensureOwnToggle('metro','extraction');ensureOwnToggle('hatches','extraction');
-    arcTypes.forEach(type=>{const button=ensureOwnToggle(type,'major');if(button){const has=(data?.majorArcPoints||[]).some(p=>(p.possibleTypes||[]).includes(type));button.hidden=!has;button.title=t().review}});
+    arcTypes.forEach(type=>{const button=ensureOwnToggle(type,'major');if(button){const has=(data?.majorArcPoints||[]).some(p=>(p.possibleTypes||[]).includes(type));if(button.hidden===has)button.hidden=!has;button.title=t().review}});
   }
 
   function activeCoreCount(){return ['layerRaiders','layerWeaponCases'].filter(id=>document.getElementById(id)?.getAttribute('aria-pressed')==='true').length}
@@ -90,12 +90,12 @@
   }
   function render(){ensureToggles();renderMarkers();updateCount()}
 
-  function setLegendVisibility(){const legend=document.querySelector('.spawn-legend');if(legend)legend.hidden=isBuried()}
+  function setLegendVisibility(){const legend=document.querySelector('.spawn-legend');if(legend&&legend.hidden!==isBuried())legend.hidden=isBuried()}
   function apply(){
     const now=isBuried(),picker=ensurePicker();if(!picker)return;
     if(now&&!lastBuried){Object.keys(state).forEach(k=>state[k]=false);selectedId=null;picker.open=false}
-    picker.hidden=!now;setLegendVisibility();
-    if(now){updateCopy();render()}else{const layer=document.getElementById('buriedCityOverlayMarkers');if(layer)layer.hidden=true;const details=document.getElementById('buriedCityOverlayDetails');if(details)details.hidden=true;restoreCoreButtons()}
+    if(picker.hidden===now)picker.hidden=!now;setLegendVisibility();
+    if(now){updateCopy();render()}else{const layer=document.getElementById('buriedCityOverlayMarkers');if(layer&&!layer.hidden)layer.hidden=true;const details=document.getElementById('buriedCityOverlayDetails');if(details&&!details.hidden)details.hidden=true;restoreCoreButtons()}
     lastBuried=now;
   }
 
