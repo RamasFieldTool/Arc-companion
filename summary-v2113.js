@@ -80,7 +80,7 @@
       ${extras.map(cost=>`<article class="sumrow summary-item summary-cost"><div class="summary-main"><div class="summary-name-row"><div class="sumname">${cost.unit}</div><div class="summary-state">${formatNum(cost.total)}</div></div>${usageDetails(cost.reasons)}</div></article>`).join('')}`:'';
 
     summaryEl.innerHTML=materialSummary+materialRows+extraRows;
-    summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('input',e=>saveOwned(e.target.dataset.id,e.target.value)));
+    summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('change',e=>saveOwned(e.target.dataset.id,e.target.value)));
   };
 
   drawSummary();
