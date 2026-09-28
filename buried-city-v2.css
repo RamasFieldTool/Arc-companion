@@ -1,5 +1,5 @@
 /* Buried City V2 review: Spaceport-style layer picker and own overlay markers. */
-#buriedCityLayerPicker[hidden],#buriedCityOverlayMarkers[hidden],#buriedCityOverlayDetails[hidden]{display:none!important}
+#buriedCityLayerPicker[hidden],#buriedCityOverlayMarkers[hidden],#buriedCityOverlayDetails[hidden],#spawnPanel .spawn-legend[hidden]{display:none!important}
 
 /* Own Buried City base is 4:3. Keep the whole map visible inside the square tactical viewport. */
 .spawn-map-shell[data-map="buried-city"] .spawn-canvas img{object-fit:contain!important;filter:saturate(.9) contrast(1.04) brightness(.9)}
