@@ -1,0 +1,22 @@
+/* Spaceport freight draft: own symbols, anchored to the bitmap, constant screen size. */
+.spaceport-freight-layer{position:absolute;pointer-events:none;z-index:6}
+#spawnCanvas .spaceport-freight-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--freight-marker-scale,1));transform-origin:center;width:16px;height:13.3333px!important;min-height:13.3333px!important;padding:0!important;border:1px solid #ffcb7c!important;border-radius:2px!important;background:#21190f!important;color:#ffe1b1!important;box-shadow:0 0 0 1px #090c10b3,0 1px 4px #0008!important;font:700 6.6667px system-ui,sans-serif!important;cursor:pointer;pointer-events:auto;touch-action:manipulation}
+.spaceport-freight-marker::after{content:"";position:absolute;left:50%;top:50%;width:48px;height:44px;transform:translate(-50%,-50%)}
+#spawnCanvas .spaceport-freight-marker[aria-pressed="true"]{border-color:#fff!important;background:#684215!important;color:#fff!important}
+.spaceport-freight-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.spaceport-freight-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
+.spaceport-freight-details strong,.spaceport-freight-details span{display:block}
+.spaceport-freight-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe1b1;font-size:22px;cursor:pointer}
+#spaceportFreightMarkers[hidden],#spaceportFreightDetails[hidden],#layerSpaceportFreight[hidden],#layerSpaceportHatches[hidden],#layerSpaceportSpawns[hidden],#layerSpaceportCases[hidden],#layerRaiders[hidden],#layerWeaponCases[hidden]{display:none!important}
+
+/* Small round hatch markers; same bitmap alignment and touch target as lifts. */
+#spawnCanvas .spaceport-freight-marker.spaceport-hatch-marker{width:14px;height:14px!important;min-height:14px!important;border-radius:50%!important;border-color:#6ed5cf!important;background:#102324!important;color:#bdfaf3!important}
+#spawnCanvas .spaceport-freight-marker.spaceport-hatch-marker[aria-pressed="true"]{border-color:#fff!important;background:#23514e!important;color:#fff!important}
+
+/* Own spawn badge, retaining the approved small marker size. */
+#spawnCanvas .spaceport-freight-marker.spaceport-spawn-marker{border-radius:5px 0 5px 0!important;border-color:#a8ceff!important;background:#13233b!important;color:#d3e6ff!important}
+#spawnCanvas .spaceport-freight-marker.spaceport-spawn-marker[aria-pressed="true"]{border-color:#fff!important;background:#31517d!important;color:#fff!important}
+
+/* Weapon-crate review markers; visually separate from lifts, hatches and player spawns. */
+#spawnCanvas .spaceport-freight-marker.spaceport-case-marker{width:15px;height:12px!important;min-height:12px!important;border-radius:2px!important;border-color:#f0a6a6!important;background:#2a1515!important;color:#ffd4d4!important;font-size:6px!important}
+#spawnCanvas .spaceport-freight-marker.spaceport-case-marker[aria-pressed="true"]{border-color:#fff!important;background:#713535!important;color:#fff!important}

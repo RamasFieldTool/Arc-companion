@@ -1,0 +1,32 @@
+@import url("spaceport-freight.css?v=6");
+/* Spaceport: collapsible display selector and major-ARC review markers. */
+#spaceportLayerPicker[hidden],#spaceportMajorArcMarkers[hidden],#spaceportArcDetails[hidden]{display:none!important}
+.map-layer-controls>.spaceport-layer-picker{grid-column:1/-1;width:100%;margin:0;border:1px solid var(--ui-line);border-radius:12px;background:var(--ui-soft);overflow:hidden}
+.spaceport-layer-picker>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:11px 13px;cursor:pointer;list-style:none;color:var(--ui-text);font-weight:700;text-align:left}
+.spaceport-layer-picker>summary::-webkit-details-marker{display:none}
+.spaceport-layer-picker>summary::before{content:'+';width:18px;flex:none;color:var(--amber);font-size:18px;line-height:1}
+.spaceport-layer-picker[open]>summary::before{content:'−'}
+#spaceportLayerPickerTitle{flex:1}
+.spaceport-layer-count{flex:none;padding:4px 8px;border-radius:999px;background:var(--ui-panel);color:var(--ui-muted);font-size:11px;font-weight:700;white-space:nowrap}
+.spaceport-layer-groups{display:grid;gap:12px;padding:0 12px 12px}
+.spaceport-layer-group{border-top:1px solid var(--ui-line);padding-top:10px}
+.spaceport-layer-group h3{margin:0 0 7px;color:var(--ui-muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.spaceport-layer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.spaceport-layer-grid .map-layer-toggle{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:8px 10px;text-align:left;border-radius:9px}
+.spaceport-layer-grid .map-layer-toggle .layer-indicator{flex:none}
+.spaceport-major-arc-layer{position:absolute;pointer-events:none;z-index:7}
+#spawnCanvas .spaceport-arc-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--arc-marker-scale,1));transform-origin:center;width:18px;height:18px!important;min-height:18px!important;padding:0!important;border:1.5px solid #ff756d!important;border-radius:50%!important;background:#351516!important;color:#ffe3df!important;box-shadow:0 0 0 1px #090c10b3,0 1px 4px #0008!important;font:800 7px system-ui,sans-serif!important;cursor:pointer;pointer-events:auto;touch-action:manipulation}
+#spawnCanvas .spaceport-arc-marker::after{content:'';position:absolute;left:50%;top:50%;width:48px;height:44px;transform:translate(-50%,-50%)}
+#spawnCanvas .spaceport-arc-marker[aria-pressed='true']{border-color:#fff!important;background:#7a2b2d!important;color:#fff!important}
+#spawnCanvas .spaceport-arc-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#spawnCanvas .spaceport-arc-marker.arc-rocketeer{border-radius:4px!important;border-color:#ff9866!important}
+#spawnCanvas .spaceport-arc-marker.arc-bombardier{border-radius:3px!important;border-color:#ffc85f!important;color:#fff0bd!important}
+#spawnCanvas .spaceport-arc-marker.arc-sentinel{border-color:#d18aff!important;color:#f0dcff!important}
+#spawnCanvas .spaceport-arc-marker.arc-leaper{border-color:#8be0a4!important;color:#d9ffe5!important}
+#spawnCanvas .spaceport-arc-marker.arc-queen,#spawnCanvas .spaceport-arc-marker.arc-matriarch{width:20px;height:20px!important;min-height:20px!important;border-radius:4px!important;border-width:2px!important}
+#spawnCanvas .spaceport-arc-marker.arc-queen{border-color:#ff69bc!important;background:#4a1533!important;color:#ffe1f2!important}
+#spawnCanvas .spaceport-arc-marker.arc-matriarch{border-color:#ef8cff!important;background:#40164c!important;color:#f9e1ff!important}
+.spaceport-arc-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#27151b;border-left:3px solid #ff756d;color:#ffe3df;font:12px/1.4 system-ui,sans-serif}
+.spaceport-arc-details strong,.spaceport-arc-details span{display:block}
+.spaceport-arc-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe3df;font-size:22px;cursor:pointer}
+@media(max-width:380px){.spaceport-layer-grid{grid-template-columns:1fr}}
