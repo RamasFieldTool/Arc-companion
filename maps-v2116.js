@@ -55,9 +55,24 @@
 // Isolated Spaceport V2 pilot. Loaded only on the test branch that contains this file.
 (()=>{
   if(document.querySelector('script[data-spaceport-v2-loader]'))return;
+  if(!document.querySelector('link[data-spaceport-major-arcs-style]')){
+    const style=document.createElement('link');
+    style.rel='stylesheet';
+    style.href='spaceport-major-arcs.css?v=major-arcs-review-1';
+    style.dataset.spaceportMajorArcsStyle='true';
+    document.head.appendChild(style);
+  }
   const script=document.createElement('script');
   script.src='spaceport-v2.js?v=community-review-2';
   script.defer=true;
   script.dataset.spaceportV2Loader='true';
+  script.addEventListener('load',()=>{
+    if(document.querySelector('script[data-spaceport-major-arcs-loader]'))return;
+    const arcScript=document.createElement('script');
+    arcScript.src='spaceport-major-arcs.js?v=major-arcs-review-1';
+    arcScript.defer=true;
+    arcScript.dataset.spaceportMajorArcsLoader='true';
+    document.head.appendChild(arcScript);
+  });
   document.head.appendChild(script);
 })();
