@@ -11,7 +11,7 @@
   };
   const state=Object.fromEntries(Object.keys(types).map(k=>[k,false]));
   const points=Object.fromEntries(Object.keys(types).map(k=>[k,[]]));
-  let selectedId=null,lastSpaceport=false,mutating=false;
+  let selectedId=null,lastSpaceport=false,mutating=false,refreshQueued=false;
 
   function language(){const l=(window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2).toLowerCase();return copy[l]?l:'de'}
   function t(){return copy[language()]}
@@ -62,8 +62,12 @@
   function activeCoreCount(){return ['layerSpaceportSpawns','layerSpaceportCases','layerSpaceportFreight','layerSpaceportHatches'].filter(id=>document.getElementById(id)?.getAttribute('aria-pressed')==='true').length}
   function updateCount(){
     const total=activeCoreCount()+Object.values(state).filter(Boolean).length;
-    const count=document.getElementById('spaceportLayerCount');if(count)count.textContent=t().count(total);
-    if(isSpaceport()){const legend=document.getElementById('spawnLegendText');if(legend)legend.textContent=total?t().count(total):t().none}
+    const countText=t().count(total);
+    const count=document.getElementById('spaceportLayerCount');if(count&&count.textContent!==countText)count.textContent=countText;
+    if(isSpaceport()){
+      const legend=document.getElementById('spawnLegendText'),legendText=total?countText:t().none;
+      if(legend&&legend.textContent!==legendText)legend.textContent=legendText;
+    }
   }
 
   function ensureLayer(){
@@ -104,7 +108,16 @@
   }
 
   const controls=document.querySelector('.map-layer-controls');
-  if(controls)new MutationObserver(()=>{if(mutating||!isSpaceport())return;queueMicrotask(()=>{updateCopy();updateCount()})}).observe(controls,{subtree:true,childList:true,attributes:true,attributeFilter:['aria-pressed','hidden']});
+  function scheduleControlRefresh(){
+    if(refreshQueued||mutating||!isSpaceport())return;
+    refreshQueued=true;
+    queueMicrotask(()=>{
+      refreshQueued=false;
+      if(!isSpaceport())return;
+      updateCopy();updateCount();
+    });
+  }
+  if(controls)new MutationObserver(scheduleControlRefresh).observe(controls,{subtree:true,childList:true,attributes:true,attributeFilter:['aria-pressed','hidden']});
   document.getElementById('spawnMapSelect')?.addEventListener('change',()=>setTimeout(apply,150));
   ['deBtn','enBtn','frBtn','esBtn'].forEach(id=>document.getElementById(id)?.addEventListener('click',()=>setTimeout(apply,80)));
   window.addEventListener('arc-language-change',apply);
