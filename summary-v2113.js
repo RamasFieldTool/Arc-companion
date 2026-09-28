@@ -93,7 +93,7 @@
       summarySort=e.target.value==='missing'?'missing':'alphabetical';
       drawSummary();
     });
-    summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('input',e=>saveOwned(e.target.dataset.id,e.target.value)));
+    summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('change',e=>saveOwned(e.target.dataset.id,e.target.value)));
   };
 
   drawSummary();
