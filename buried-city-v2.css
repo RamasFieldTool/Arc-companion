@@ -1,15 +1,41 @@
 /* Buried City V2 review: Spaceport-style layer picker and own overlay markers. */
 #buriedCityLayerPicker[hidden],#buriedCityOverlayMarkers[hidden],#buriedCityOverlayDetails[hidden]{display:none!important}
+
+/* Own Buried City base is 4:3. Keep the whole map visible inside the square tactical viewport. */
+.spawn-map-shell[data-map="buried-city"] .spawn-canvas img{object-fit:contain!important;filter:saturate(.9) contrast(1.04) brightness(.9)}
+.spawn-map-shell[data-map="buried-city"] .spawn-marker-layer,.spawn-map-shell[data-map="buried-city"] .weapon-case-marker-layer{top:12.5%;bottom:12.5%;height:auto}
+
 .map-layer-controls>.buried-city-layer-picker{grid-column:1/-1;width:100%;margin:0;border:1px solid var(--ui-line);border-radius:12px;background:var(--ui-soft);overflow:hidden}
 .buried-city-layer-picker>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:11px 13px;cursor:pointer;list-style:none;color:var(--ui-text);font-weight:700;text-align:left}
-.buried-city-layer-picker>summary::-webkit-details-marker{display:none}.buried-city-layer-picker>summary::before{content:'+';width:18px;flex:none;color:var(--amber);font-size:18px;line-height:1}.buried-city-layer-picker[open]>summary::before{content:'−'}
-#buriedCityLayerPickerTitle{flex:1}.buried-city-layer-count{flex:none;padding:4px 8px;border-radius:999px;background:var(--ui-panel);color:var(--ui-muted);font-size:11px;font-weight:700;white-space:nowrap}
-.buried-city-layer-groups{display:grid;gap:12px;padding:0 12px 12px}.buried-city-layer-group{border-top:1px solid var(--ui-line);padding-top:10px}.buried-city-layer-group h3{margin:0 0 7px;color:var(--ui-muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}.buried-city-layer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.buried-city-layer-grid .map-layer-toggle{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:8px 10px;text-align:left;border-radius:9px}.buried-city-layer-grid .map-layer-toggle .layer-indicator{flex:none}
-.buried-city-overlay-layer{position:absolute;pointer-events:none;z-index:7}
+.buried-city-layer-picker>summary::-webkit-details-marker{display:none}
+.buried-city-layer-picker>summary::before{content:'+';width:18px;flex:none;color:var(--amber);font-size:18px;line-height:1}
+.buried-city-layer-picker[open]>summary::before{content:'−'}
+#buriedCityLayerPickerTitle{flex:1}
+.buried-city-layer-count{flex:none;padding:4px 8px;border-radius:999px;background:var(--ui-panel);color:var(--ui-muted);font-size:11px;font-weight:700;white-space:nowrap}
+.buried-city-layer-groups{display:grid;gap:12px;padding:0 12px 12px}
+.buried-city-layer-group{border-top:1px solid var(--ui-line);padding-top:10px}
+.buried-city-layer-group h3{margin:0 0 7px;color:var(--ui-muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.buried-city-layer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.buried-city-layer-grid .map-layer-toggle{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:8px 10px;text-align:left;border-radius:9px}
+.buried-city-layer-grid .map-layer-toggle .layer-indicator{flex:none}
+
+/* Marker layer follows the visible 4:3 bitmap (75% of the square viewport height). */
+.buried-city-overlay-layer{position:absolute;left:0;right:0;top:12.5%;height:75%;pointer-events:none;z-index:7}
 #spawnCanvas .buried-city-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--buried-marker-scale,1));transform-origin:center;width:16px;height:13.3333px!important;min-height:13.3333px!important;padding:0!important;border:1px solid #ffcb7c!important;border-radius:2px!important;background:#21190f!important;color:#ffe1b1!important;box-shadow:0 0 0 1px #090c10b3,0 1px 4px #0008!important;font:700 6.6667px system-ui,sans-serif!important;cursor:pointer;pointer-events:auto;touch-action:manipulation}
 #spawnCanvas .buried-city-marker::after{content:'';position:absolute;left:50%;top:50%;width:48px;height:44px;transform:translate(-50%,-50%)}
-#spawnCanvas .buried-city-marker[aria-pressed='true']{border-color:#fff!important;background:#684215!important;color:#fff!important}.buried-city-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
-#spawnCanvas .buried-city-marker.is-hatch{width:14px;height:14px!important;min-height:14px!important;border-radius:50%!important;border-color:#6ed5cf!important;background:#102324!important;color:#bdfaf3!important}#spawnCanvas .buried-city-marker.is-hatch[aria-pressed='true']{background:#23514e!important}
-#spawnCanvas .buried-city-marker.is-arc{width:18px;height:18px!important;min-height:18px!important;border:1.5px solid #ff756d!important;border-radius:50%!important;background:#351516!important;color:#ffe3df!important;font:800 7px system-ui,sans-serif!important}#spawnCanvas .buried-city-marker.is-arc[aria-pressed='true']{background:#7a2b2d!important}#spawnCanvas .buried-city-marker.arc-bombardier{border-radius:3px!important;border-color:#ffc85f!important;color:#fff0bd!important}#spawnCanvas .buried-city-marker.arc-sentinel{border-color:#d18aff!important;color:#f0dcff!important}#spawnCanvas .buried-city-marker.arc-leaper{border-color:#8be0a4!important;color:#d9ffe5!important}
-.buried-city-overlay-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}.buried-city-overlay-details strong,.buried-city-overlay-details span{display:block}.buried-city-overlay-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe1b1;font-size:22px;cursor:pointer}
+#spawnCanvas .buried-city-marker[aria-pressed='true']{border-color:#fff!important;background:#684215!important;color:#fff!important}
+.buried-city-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
+
+/* Same visual language as Spaceport: amber extraction, teal hatch, red/purple/green major ARC. */
+#spawnCanvas .buried-city-marker.is-hatch{width:14px;height:14px!important;min-height:14px!important;border-radius:50%!important;border-color:#6ed5cf!important;background:#102324!important;color:#bdfaf3!important}
+#spawnCanvas .buried-city-marker.is-hatch[aria-pressed='true']{border-color:#fff!important;background:#23514e!important;color:#fff!important}
+#spawnCanvas .buried-city-marker.is-arc{width:18px;height:18px!important;min-height:18px!important;border:1.5px solid #ff756d!important;border-radius:50%!important;background:#351516!important;color:#ffe3df!important;font:800 7px system-ui,sans-serif!important}
+#spawnCanvas .buried-city-marker.is-arc[aria-pressed='true']{border-color:#fff!important;background:#7a2b2d!important;color:#fff!important}
+#spawnCanvas .buried-city-marker.arc-bombardier{border-radius:3px!important;border-color:#ffc85f!important;color:#fff0bd!important}
+#spawnCanvas .buried-city-marker.arc-sentinel{border-color:#d18aff!important;color:#f0dcff!important}
+#spawnCanvas .buried-city-marker.arc-leaper{border-color:#8be0a4!important;color:#d9ffe5!important}
+
+.buried-city-overlay-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
+.buried-city-overlay-details strong,.buried-city-overlay-details span{display:block}
+.buried-city-overlay-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe1b1;font-size:22px;cursor:pointer}
 @media(max-width:380px){.buried-city-layer-grid{grid-template-columns:1fr}}
