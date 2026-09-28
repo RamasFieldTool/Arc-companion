@@ -1,45 +1,67 @@
-# Spaceport freight elevator review — 2026-09-27
+# Spaceport review — fresh remap
 
-Base image approved by Daniel on Samsung before this phase. This phase adds only freight elevator review candidates. No legacy coordinate file was read or reused to place these points.
+Status: Draft / do not merge without explicit approval.
 
-## Evidence and limits
+## Approved map base
 
-User-provided screenshots: `13255.jpg` (map), `13256.jpg` (legend), `13253.jpg` (map with area outlines). The legend identifies the rectangular lift symbol, distinct from the curved hatch symbol. Four lift symbols are visible in both map screenshots. This establishes the category/count visible in these references, not guaranteed availability in every raid.
+- `assets/maps/spaceport-approved-base.jpg`
+- Single complete JPEG, 1536 × 1536.
+- Approved visually by Daniel before marker work.
+- Do not reintroduce legacy Spaceport coordinates, fragmented image files, Base64 assembly, or automatic coordinate transforms from the old map.
 
-The approved illustrative base has local differences in building shape, road layout and scale compared with the in-game screenshots. All four locations are **approximate visual review candidates**. Exact entrances are not verified; labels below are descriptive review labels, not official extraction names. Decimal percentages are rendering coordinates, not a claim of survey accuracy.
+## Freight elevators — visual draft
 
-| ID | Landmark correspondence used | Base x/y (%) | Review status |
-| --- | --- | --- | --- |
-| FE-01 | Northern open apron, to the west of the central diagonal terminal/runway structure | 48.7 / 26.6 | Approximate; check local entrance |
-| FE-02 | Western approach beside the west industrial block, south of the cross-map connection | 23.6 / 43.0 | Approximate; block shapes differ |
-| FE-03 | Open industrial space to the east of the southwest long building | 44.3 / 55.9 | Approximate; local footprint differs |
-| FE-04 | Eastern path beside the north end of the southern industrial block | 72.1 / 55.3 | Approximate; check path alignment |
+Source references supplied 2026-09-27: `13255.jpg` (map), `13256.jpg` (legend), `13253.jpg` (cross-check).
+
+| ID | Base x/y (%) | Review status |
+| --- | --- | --- |
+| FE-01 | 48.7 / 26.6 | approximate |
+| FE-02 | 23.6 / 43.0 | approximate |
+| FE-03 | 44.3 / 55.9 | approximate |
+| FE-04 | 72.1 / 55.3 | approximate |
+
+These are fresh visual candidates, not verified entrances or official names.
+
+## Raider Hatches — visual draft
+
+Using the same supplied screenshot references, four hatch candidates remain in the review layer:
+
+| ID | Base x/y (%) | Review status |
+| --- | --- | --- |
+| RH-01 | 53.1 / 12.4 | approximate |
+| RH-02 | 73.1 / 31.6 | approximate |
+| RH-03 | 56.4 / 44.1 | approximate |
+| RH-04 | 51.4 / 49.0 | approximate |
+
+## Raider Spawns — community review set, 2026-09-28
+
+The earlier six-marker partial visual draft has been replaced by a current community-data review set.
+
+Source used for the new set: current Spaceport Player Spawn entries from MapGenie community data as represented in the public `Pwingles/arc-raiders-map` snapshot. The source is not official and the locations are not independently verified by Ramas Field Tool.
+
+- 19 Player Spawn markers are present in the source snapshot.
+- All 19 were normalized against the source Spaceport map bounds and transferred to the approved Ramas Field Tool base as review candidates.
+- No legacy Ramas Field Tool Spaceport spawn coordinates were reused.
+- This is a complete mapping of that source snapshot, not a claim that the game has exactly 19 possible spawns.
+
+## Weapon Crates — community review set, 2026-09-28
+
+Source used: current Spaceport Weapon Crate entries from the same community-data snapshot.
+
+- 23 Weapon Crate markers are present in the source snapshot used for this review pass.
+- All 23 were normalized against the source Spaceport map bounds and transferred to the approved map as review candidates.
+- Some source entries are chance spawns, locked/keyed-area spawns, or special-mission spawns; the layer therefore must not imply guaranteed availability in every raid.
+- No legacy Ramas Field Tool Spaceport weapon-crate coordinates were reused.
 
 ## Review behavior
 
-Layer off on entry; enable “Lastenaufzüge · Entwurf”. Own numbered rectangular arrow markers, with explicit uncertainty on tap. Other Spaceport layers remain empty/disabled. Geometry uses the actual rendered bitmap, including contain letterboxing in large view; markers follow pan/zoom with constant screen size.
+- Freight elevators, Raider Hatches, Raider Spawns, and Weapon Crates each have their own toggle.
+- Layers start disabled when entering Spaceport.
+- Spawn markers are small blue `S1…S19` badges.
+- Weapon-crate markers are small distinct `W1…W23` badges.
+- Existing large touch targets are retained so the visible badges can stay small.
+- Marker positions remain review candidates until checked visually and, where possible, in-game.
 
-Await Daniel's visual review of these four candidates before refining or adding Raider Hatches. Do not merge PR #78 or change main.
+## Merge rule
 
-## Raider Hatch draft — added after instruction to continue
-
-Four curved hatch symbols are visible in the same supplied map references, distinguished using `13256.jpg`. Fresh visual candidates on the approved base: RH-01 by the northern hangars (53.1 / 12.4), RH-02 eastern hangar complex (73.1 / 31.6), RH-03 east of the central apron (56.4 / 44.1), RH-04 southern central apron (51.4 / 49.0). These are descriptive labels and approximate positions, not official names or verified entrances. No legacy hatch positions were used.
-
-Hatches have a separate toggle and small round teal numbered markers. Both extraction layers can be enabled together; raider spawns and weapon cases remain disabled. Freight positions remain unmodified and unverified.
-
-## Raider spawn partial draft — online reference, 2026-09-27 UTC
-
-Source: https://arcraidersmap.online/arc-raiders-map/the-spaceport/ (Raider Spawns filter). The visible reference lists 21 markers, all labelled probable. This is not official verification or an exhaustive claim. Six candidates were freshly matched by landmarks; the remaining 15 were omitted because their correspondence on the illustration is unclear. No old repository spawn data or automatic coordinate transformation was used. The source image is not redistributed.
-
-Source indices below are zero-based visible marker order for this observation, not stable source IDs. Labels are descriptive, not official names.
-
-| Candidate | Source index | Landmark | New base x/y (%) |
-| --- | --- | --- | --- |
-| RS-01 | 8 | West road bend beside western industrial area | 8 / 36 |
-| RS-02 | 7 | Western tanks beside perimeter road | 17 / 58 |
-| RS-03 | 20 | Junction southwest of long diagonal building | 23 / 68 |
-| RS-04 | 16 | Rocky patch north of southern tank group | 35 / 71 |
-| RS-05 | 5 | Eastern terrain path near communications area | 86 / 56 |
-| RS-06 | 10 | Southern perimeter road beside checkpoint approach | 77 / 94 |
-
-All six remain approximate and unverified in-game. Separate spawn toggle, off initially; source uncertainty appears on tap. Extraction candidates unchanged; weapon cases remain disabled.
+PR #78 remains a work-in-progress test preview. Main must not be changed until Daniel explicitly approves a merge.
