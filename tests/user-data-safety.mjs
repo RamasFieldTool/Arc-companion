@@ -18,12 +18,14 @@ const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/mai
 const quest={id:'quality_gate_user_data',name:{de:'Nutzerdatentest',en:'User data test'},trader:'Test',objectives:[{de:'Test',en:'Test'}],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]};
 const jsonKeys=new Set(['arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventReminders']);
 const trackedKeys=['arcLang','arcTheme','arcPaletteSurface','arcPaletteAccent','arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventRegion','arcEventLead','arcEventReminders'];
+const reminderStart=new Date(Date.now()+24*60*60*1000).toISOString();
+const reminderEnd=new Date(Date.now()+25*60*60*1000).toISOString();
 const seed={
   arcLang:'en',arcTheme:'dark',arcPaletteSurface:'black',arcPaletteAccent:'cyan',
   arcOwned:JSON.stringify({[firstItem.id]:42}),arcActiveGoals:JSON.stringify({[firstGoalKey]:true}),
   arcQuestStatus:JSON.stringify({quality_gate_user_data:'done'}),arc_blueprints_learned_v1:JSON.stringify([firstBlueprint.id]),
   arcNextRaid:JSON.stringify({[firstItem.id]:{target:3,done:false}}),arcEventRegion:'europe',arcEventLead:'15',
-  arcEventReminders:JSON.stringify([{key:'quality-gate-reminder',start:'2026-09-25T10:00:00.000Z',end:'2026-09-25T11:00:00.000Z',name:'Quality Gate',map:'Blue Gate',lead:15,notified:false}])
+  arcEventReminders:JSON.stringify([{key:'quality-gate-reminder',start:reminderStart,end:reminderEnd,name:'Quality Gate',map:'Blue Gate',lead:15,notified:false}])
 };
 
 const norm=(raw,key)=>raw===null?null:(jsonKeys.has(key)?JSON.parse(raw):raw);
