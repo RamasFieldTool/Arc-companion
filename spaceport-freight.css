@@ -7,7 +7,7 @@
 .spaceport-freight-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
 .spaceport-freight-details strong,.spaceport-freight-details span{display:block}
 .spaceport-freight-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe1b1;font-size:22px;cursor:pointer}
-#spaceportFreightMarkers[hidden],#spaceportFreightDetails[hidden],#layerSpaceportFreight[hidden],#layerSpaceportHatches[hidden],#layerSpaceportSpawns[hidden],#layerRaiders[hidden]{display:none!important}
+#spaceportFreightMarkers[hidden],#spaceportFreightDetails[hidden],#layerSpaceportFreight[hidden],#layerSpaceportHatches[hidden],#layerSpaceportSpawns[hidden],#layerSpaceportCases[hidden],#layerRaiders[hidden],#layerWeaponCases[hidden]{display:none!important}
 
 /* Small round hatch markers; same bitmap alignment and touch target as lifts. */
 #spawnCanvas .spaceport-freight-marker.spaceport-hatch-marker{width:14px;height:14px!important;min-height:14px!important;border-radius:50%!important;border-color:#6ed5cf!important;background:#102324!important;color:#bdfaf3!important}
@@ -16,3 +16,7 @@
 /* Own spawn badge, retaining the approved small marker size. */
 #spawnCanvas .spaceport-freight-marker.spaceport-spawn-marker{border-radius:5px 0 5px 0!important;border-color:#a8ceff!important;background:#13233b!important;color:#d3e6ff!important}
 #spawnCanvas .spaceport-freight-marker.spaceport-spawn-marker[aria-pressed="true"]{border-color:#fff!important;background:#31517d!important;color:#fff!important}
+
+/* Weapon-crate review markers; visually separate from lifts, hatches and player spawns. */
+#spawnCanvas .spaceport-freight-marker.spaceport-case-marker{width:15px;height:12px!important;min-height:12px!important;border-radius:2px!important;border-color:#f0a6a6!important;background:#2a1515!important;color:#ffd4d4!important;font-size:6px!important}
+#spawnCanvas .spaceport-freight-marker.spaceport-case-marker[aria-pressed="true"]{border-color:#fff!important;background:#713535!important;color:#fff!important}
