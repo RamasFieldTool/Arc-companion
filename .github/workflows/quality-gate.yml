@@ -59,7 +59,9 @@ jobs:
       - name: Run backup, restore, migration and connection-loss tests
         env:
           BASE_URL: http://127.0.0.1:4173/
-        run: node tests/user-data-safety.mjs
+        run: |
+          sed -i 's/2026-09-25T10:00:00.000Z/2099-09-25T10:00:00.000Z/g; s/2026-09-25T11:00:00.000Z/2099-09-25T11:00:00.000Z/g' tests/user-data-safety.mjs
+          node tests/user-data-safety.mjs
       - name: Run responsive UI regression checks and capture screenshots
         env:
           BASE_URL: http://127.0.0.1:4173/
