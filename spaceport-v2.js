@@ -3,7 +3,7 @@
   const copy={
     de:{
       spawns:"RAIDER-SPAWNS · ENTWURF", spawnDraft:"Spawn-Entwurf · Community-Position; nicht im Spiel bestätigt.",
-      spawnBody:"19 Community-Spawns als Review-Satz eingetragen.",
+      spawnBody:"20 Community-Spawns als Review-Satz eingetragen.",
       cases:"WAFFENKISTEN · ENTWURF", caseDraft:"Waffenkisten-Entwurf · Community-Position; Spawn kann zufällig oder bedingt sein.",
       caseBody:"23 Community-Waffenkisten als Review-Satz eingetragen.",
       activeHatches:"4 Raider-Luken · Positionen zur Prüfung", close:"Details schließen",
@@ -17,7 +17,7 @@
     },
     en:{
       spawns:"RAIDER SPAWNS · DRAFT", spawnDraft:"Spawn draft · community position; not verified in-game.",
-      spawnBody:"19 community spawns added as a review set.",
+      spawnBody:"20 community spawns added as a review set.",
       cases:"WEAPON CRATES · DRAFT", caseDraft:"Weapon-crate draft · community position; spawn may be random or conditional.",
       caseBody:"23 community weapon crates added as a review set.",
       activeHatches:"4 Raider Hatches · positions for review", close:"Close details",
@@ -31,7 +31,7 @@
     },
     fr:{
       spawns:"APPARITIONS RAIDER · BROUILLON", spawnDraft:"Apparition provisoire · position communautaire, non vérifiée en jeu.",
-      spawnBody:"19 apparitions communautaires ajoutées pour vérification.",
+      spawnBody:"20 apparitions communautaires ajoutées pour vérification.",
       cases:"CAISSES D’ARMES · BROUILLON", caseDraft:"Caisse d’armes provisoire · position communautaire ; apparition potentiellement aléatoire ou conditionnelle.",
       caseBody:"23 caisses d’armes communautaires ajoutées pour vérification.",
       activeHatches:"4 trappes Raider · positions à vérifier", close:"Fermer les détails",
@@ -45,7 +45,7 @@
     },
     es:{
       spawns:"APARICIONES RAIDER · BORRADOR", spawnDraft:"Aparición provisional · posición comunitaria, sin verificar en el juego.",
-      spawnBody:"19 apariciones comunitarias añadidas para revisión.",
+      spawnBody:"20 apariciones comunitarias añadidas para revisión.",
       cases:"CAJAS DE ARMAS · BORRADOR", caseDraft:"Caja de armas provisional · posición comunitaria; la aparición puede ser aleatoria o condicional.",
       caseBody:"23 cajas de armas comunitarias añadidas para revisión.",
       activeHatches:"4 escotillas Raider · posiciones por revisar", close:"Cerrar detalles",
@@ -297,7 +297,7 @@
   img?.addEventListener('load',applySpaceport);
   img?.addEventListener('error',applySpaceport);
 
-  fetch('spaceport-fresh-v2.json?v=community-review-2',{cache:'no-store'})
+  fetch('spaceport-fresh-v2.json?v=community-review-3',{cache:'no-store'})
     .then(response=>{if(!response.ok)throw new Error('Spaceport data unavailable');return response.json()})
     .then(data=>{
       const valid=p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.x>=0&&p.x<=100&&p.y>=0&&p.y<=100;
