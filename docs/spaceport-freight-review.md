@@ -53,13 +53,44 @@ Source used: current Spaceport Weapon Crate entries from the same community-data
 - Some source entries are chance spawns, locked/keyed-area spawns, or special-mission spawns; the layer therefore must not imply guaranteed availability in every raid.
 - No legacy Ramas Field Tool Spaceport weapon-crate coordinates were reused.
 
+## Major ARC — focused review layers, 2026-09-28
+
+Only large or tactically important ARC requested for the companion map are included. Small ARC types are deliberately excluded.
+
+Primary coordinate source: current Spaceport ARC entries from the same MapGenie-derived community snapshot. Coordinates use the same normalization method already used for the Raider Spawn and Weapon Crate review layers.
+
+Current safe review subset:
+
+- Bastion: 4 community positions.
+- Rocketeer: 1 community position.
+- Leaper: 1 community patrol-area position.
+- Sentinel: 6 community positions.
+- Bombardier: 1 shared `Bastion/Bombardier` candidate tagged by the source for Night Raid; it must not be represented as a guaranteed Bombardier spawn.
+- Queen: event-only search-area reference between Maintenance Hangar and Staff Parking for the Harvester condition; this is an area reference, not a surveyed exact spawn coordinate.
+- Matriarch: event-only search-area reference around Launch Towers; this is an area reference, not a surveyed exact spawn coordinate.
+
+The major-ARC set is intentionally marked partial. Other public community maps report different totals, so this review layer must not claim exhaustive or official spawn coverage.
+
+## “Auf Karte anzeigen” selector
+
+Spaceport now uses a collapsible selector labelled `Auf Karte anzeigen` instead of exposing a growing flat list of technical map layers.
+
+The selector is grouped as:
+
+- Raider & Loot: Raider Spawns, Weapon Crates.
+- Extraction: Freight Elevators, Raider Hatches.
+- Major ARC: Bastion, Rocketeer, Bombardier, Sentinel, Leaper.
+- Boss / Event: Queen, Matriarch.
+
+The summary displays the number of active selections. Existing Spaceport toggles are moved into this selector only while Spaceport is active; other maps retain their existing controls. The selector remains part of the existing map controls container so it also follows the controls into the large/full-screen map view.
+
 ## Review behavior
 
-- Freight elevators, Raider Hatches, Raider Spawns, and Weapon Crates each have their own toggle.
-- Layers start disabled when entering Spaceport.
-- Spawn markers are small blue `S1…S19` badges.
-- Weapon-crate markers are small distinct `W1…W23` badges.
-- Existing large touch targets are retained so the visible badges can stay small.
+- Every display starts disabled when entering Spaceport.
+- Existing Raider Spawn, Weapon Crate, Freight Elevator, and Raider Hatch markers are unchanged.
+- Major ARC markers use their own small touch-friendly badges.
+- Queen and Matriarch are visually distinct and described as event search areas.
+- Existing large invisible touch targets are retained so visible markers can stay compact.
 - Marker positions remain review candidates until checked visually and, where possible, in-game.
 
 ## Merge rule
