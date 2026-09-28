@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0-review",
+  "map": "buried-city",
+  "verificationStatus": "community-review-draft",
+  "lastReviewed": "2026-09-28",
+  "mapImage": "assets/maps/buried-city-rft-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene Buried-City-Kartenbasis",
+  "notes": {
+    "de": "Eigene Ramas-Field-Tool-Kartenbasis. Metro-Stationen, Raider-Luken und große ARC wurden aus Community-Koordinaten auf die neue Kartenbasis übertragen. Positionen sind Review-Daten und nicht offiziell oder für jeden Raid garantiert.",
+    "en": "Original Ramas Field Tool map base. Metro stations, Raider Hatches and major ARC were transferred from community coordinates onto the new map base. Positions are review data and are not official or guaranteed in every raid.",
+    "fr": "Fond de carte original de Ramas Field Tool. Les stations de métro, trappes Raider et ARC majeurs ont été transférés depuis des coordonnées communautaires. Les positions sont provisoires, non officielles et non garanties à chaque raid.",
+    "es": "Mapa base original de Ramas Field Tool. Las estaciones de metro, escotillas Raider y ARC grandes se transfirieron desde coordenadas de la comunidad. Son posiciones de revisión, no oficiales ni garantizadas en cada incursión."
+  },
+  "sources": [
+    {
+      "label": "Pwingles/arc-raiders-map – MapGenie community data snapshot",
+      "url": "https://github.com/Pwingles/arc-raiders-map",
+      "type": "community-data"
+    }
+  ],
+  "layers": {
+    "metro": {
+      "label": {"de":"U-Bahn-Stationen","en":"Metro stations","fr":"Stations de métro","es":"Estaciones de metro"},
+      "points": [
+        {"id":"BC-ME-01","x":37.58,"y":46.41,"sourceId":491327,"label":{"de":"Westliche Station","en":"Western Station","fr":"Station ouest","es":"Estación oeste"},"confidence":"transferred-review"},
+        {"id":"BC-ME-02","x":47.43,"y":71.18,"sourceId":491358,"label":{"de":"Südliche Station","en":"Southern Station","fr":"Station sud","es":"Estación sur"},"confidence":"transferred-review"},
+        {"id":"BC-ME-03","x":54.57,"y":59.14,"sourceId":491360,"label":{"de":"Östliche Station","en":"Eastern Station","fr":"Station est","es":"Estación este"},"confidence":"transferred-review"},
+        {"id":"BC-ME-04","x":46.02,"y":30.68,"sourceId":491366,"label":{"de":"Nördliche Station","en":"Northern Station","fr":"Station nord","es":"Estación norte"},"confidence":"transferred-review"}
+      ]
+    },
+    "hatches": {
+      "label": {"de":"Raider-Luken","en":"Raider Hatches","fr":"Trappes Raider","es":"Escotillas Raider"},
+      "points": [
+        {"id":"BC-RH-01","x":32.43,"y":34.01,"sourceId":491328,"label":{"de":"Bahnhofs-Luke","en":"Train Station Hatch","fr":"Trappe de la gare","es":"Escotilla de la estación"},"confidence":"transferred-review"},
+        {"id":"BC-RH-02","x":50.23,"y":18.77,"sourceId":491334,"label":{"de":"Eingestürzter Supermarkt","en":"Collapsed Supermarket Hatch","fr":"Trappe du supermarché effondré","es":"Escotilla del supermercado derrumbado"},"confidence":"transferred-review"},
+        {"id":"BC-RH-03","x":52.71,"y":50.25,"sourceId":491350,"label":{"de":"Highway-Überführung","en":"Highway Overpass Hatch","fr":"Trappe de l’échangeur","es":"Escotilla del paso elevado"},"confidence":"transferred-review"},
+        {"id":"BC-RH-04","x":36.98,"y":64.23,"sourceId":491353,"label":{"de":"Altstadt-Luke","en":"Old Town Hatch","fr":"Trappe de la vieille ville","es":"Escotilla del casco antiguo"},"confidence":"transferred-review"}
+      ]
+    }
+  },
+  "majorArcPoints": [
+    {
+      "id":"BC-ARC-01",
+      "x":47.87,"y":64.67,
+      "sourceId":493194,
+      "possibleTypes":["bastion","bombardier"],
+      "label":{"de":"Bastion / Bombardier","en":"Bastion / Bombardier","fr":"Bastion / Bombardier","es":"Bastion / Bombardier"},
+      "confidence":"community-randomized",
+      "note":{"de":"Zufälliger Spawn: Bastion oder Bombardier.","en":"Randomized spawn: Bastion or Bombardier.","fr":"Apparition aléatoire : Bastion ou Bombardier.","es":"Aparición aleatoria: Bastion o Bombardier."}
+    },
+    {
+      "id":"BC-ARC-02",
+      "x":47.44,"y":45.14,
+      "sourceId":493195,
+      "possibleTypes":["bastion","bombardier","leaper"],
+      "label":{"de":"Bastion / Bombardier / Leaper","en":"Bastion / Bombardier / Leaper","fr":"Bastion / Bombardier / Leaper","es":"Bastion / Bombardier / Leaper"},
+      "confidence":"community-randomized",
+      "note":{"de":"Zufälliger großer Boden-ARC; Patrouillenbereich im Park.","en":"Randomized major ground ARC; patrol area in the park.","fr":"ARC terrestre majeur aléatoire ; zone de patrouille dans le parc.","es":"ARC terrestre grande aleatorio; zona de patrulla en el parque."}
+    },
+    {
+      "id":"BC-ARC-03",
+      "x":54.41,"y":52.80,
+      "sourceId":497841,
+      "possibleTypes":["sentinel"],
+      "label":{"de":"Sentinel","en":"Sentinel","fr":"Sentinel","es":"Sentinel"},
+      "confidence":"community-conditional",
+      "note":{"de":"Sentinels können an der Unterseite der Schnellstraße erscheinen.","en":"Sentinels can spawn on the underside of the freeway.","fr":"Des Sentinels peuvent apparaître sous l’autoroute.","es":"Los Sentinels pueden aparecer bajo la autopista."}
+    }
+  ]
+}
