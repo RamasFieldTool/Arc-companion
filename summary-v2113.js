@@ -14,6 +14,13 @@
   T.en.summaryOwnedLabel='Owned';
   T.de.summaryExtraCosts='Zusätzliche Kosten';
   T.en.summaryExtraCosts='Additional costs';
+  const sortLabels={
+    de:{label:'Sortieren nach',alphabetical:'Alphabetisch',missing:'Fehlende Menge'},
+    en:{label:'Sort by',alphabetical:'Alphabetical',missing:'Missing amount'},
+    fr:{label:'Trier par',alphabetical:'Alphabétique',missing:'Quantité manquante'},
+    es:{label:'Ordenar por',alphabetical:'Alfabético',missing:'Cantidad faltante'}
+  };
+  let summarySort='alphabetical';
 
   function nonItemCosts(){
     const costs={};
@@ -50,7 +57,7 @@
     }).sort((a,b)=>{
       const aDone=a.missing===0, bDone=b.missing===0;
       if(aDone!==bDone) return aDone?1:-1;
-      if(a.missing!==b.missing) return b.missing-a.missing;
+      if(summarySort==='missing' && a.missing!==b.missing) return b.missing-a.missing;
       return a.name.localeCompare(b.name,lang==='de'?'de':'en');
     });
     const extras=nonItemCosts();
@@ -79,8 +86,14 @@
       <div class="summary-extra-head">${T[lang].summaryExtraCosts}</div>
       ${extras.map(cost=>`<article class="sumrow summary-item summary-cost"><div class="summary-main"><div class="summary-name-row"><div class="sumname">${cost.unit}</div><div class="summary-state">${formatNum(cost.total)}</div></div>${usageDetails(cost.reasons)}</div></article>`).join('')}`:'';
 
-    summaryEl.innerHTML=materialSummary+materialRows+extraRows;
-    summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('input',e=>saveOwned(e.target.dataset.id,e.target.value)));
+    const labels=sortLabels[lang]||sortLabels.en;
+    const sortControl=rows.length?`<label class="summary-sort">${labels.label}<select aria-label="${labels.label}"><option value="alphabetical" ${summarySort==='alphabetical'?'selected':''}>${labels.alphabetical}</option><option value="missing" ${summarySort==='missing'?'selected':''}>${labels.missing}</option></select></label>`:'';
+    summaryEl.innerHTML=materialSummary+sortControl+materialRows+extraRows;
+    summaryEl.querySelector('.summary-sort select')?.addEventListener('change',e=>{
+      summarySort=e.target.value==='missing'?'missing':'alphabetical';
+      drawSummary();
+    });
+    summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('change',e=>saveOwned(e.target.dataset.id,e.target.value)));
   };
 
   drawSummary();
