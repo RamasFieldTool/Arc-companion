@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0-review",
+  "version": "1.0.1-review",
   "map": "spaceport",
   "verificationStatus": "community-review-draft",
   "lastReviewed": "2026-09-28",
@@ -8,7 +8,7 @@
   "method": "MapGenie ARC coordinates were normalized with the same Spaceport bounds used by the existing Raider Spawn and Weapon Crate review layers. Queen and Matriarch use named event search-area references rather than surveyed spawn coordinates.",
   "layers": {
     "bastion": {
-      "status": "partial-community-review",
+      "status": "complete-selected-type-snapshot-review",
       "points": [
         {"id":"BA-01","arcType":"bastion","x":69.98,"y":46.2,"confidence":"community-reference","sourceId":494781,"label":{"de":"Bastion · bei den Triebwerken","en":"Bastion · near the thrusters","fr":"Bastion · près des propulseurs","es":"Bastion · cerca de los propulsores"}},
         {"id":"BA-02","arcType":"bastion","x":68.39,"y":53.06,"confidence":"community-reference","sourceId":494784,"label":{"de":"Bastion","en":"Bastion","fr":"Bastion","es":"Bastion"}},
@@ -17,19 +17,19 @@
       ]
     },
     "rocketeer": {
-      "status": "partial-community-review",
+      "status": "complete-selected-type-snapshot-review",
       "points": [
         {"id":"RO-01","arcType":"rocketeer","x":51.03,"y":39.16,"confidence":"community-reference","sourceId":494783,"label":{"de":"Rocketeer","en":"Rocketeer","fr":"Rocketeer","es":"Rocketeer"}}
       ]
     },
     "bombardier": {
-      "status": "partial-community-review",
+      "status": "complete-selected-type-snapshot-review",
       "points": [
         {"id":"BO-01","arcType":"bombardier","x":56.4,"y":12.41,"confidence":"community-reference","sourceId":496164,"condition":"night-raid","possibleTypes":["Bastion","Bombardier"],"label":{"de":"Bastion/Bombardier · Nacht-Raid","en":"Bastion/Bombardier · Night Raid","fr":"Bastion/Bombardier · Raid nocturne","es":"Bastion/Bombardier · Incursión nocturna"}}
       ]
     },
     "sentinel": {
-      "status": "partial-community-review",
+      "status": "complete-selected-type-snapshot-review",
       "points": [
         {"id":"SE-01","arcType":"sentinel","x":65.93,"y":59.5,"confidence":"community-reference","sourceId":496172,"label":{"de":"Sentinel · Balkon 3. Stock","en":"Sentinel · 3rd-floor balcony","fr":"Sentinel · balcon du 3e étage","es":"Sentinel · balcón del 3er piso"}},
         {"id":"SE-02","arcType":"sentinel","x":39.79,"y":58.6,"confidence":"community-reference","sourceId":496948,"label":{"de":"Sentinel","en":"Sentinel","fr":"Sentinel","es":"Sentinel"}},
@@ -40,7 +40,7 @@
       ]
     },
     "leaper": {
-      "status": "partial-community-review",
+      "status": "complete-selected-type-snapshot-review",
       "points": [
         {"id":"LE-01","arcType":"leaper","x":43.42,"y":31.66,"confidence":"community-reference","sourceId":494787,"label":{"de":"Leaper · Patrouillenbereich","en":"Leaper · patrol area","fr":"Leaper · zone de patrouille","es":"Leaper · zona de patrulla"}}
       ]
