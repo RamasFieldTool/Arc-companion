@@ -47,7 +47,7 @@
       const target=grid(meta.group);if(!target)return;
       let button=document.getElementById(`layerSpaceportArc-${type}`);
       if(!button){button=document.createElement('button');button.id=`layerSpaceportArc-${type}`;button.type='button';button.className='map-layer-toggle spaceport-map-toggle spaceport-arc-toggle';button.dataset.arcType=type;button.innerHTML='<span class="layer-indicator"></span><span></span>';button.addEventListener('click',()=>{if(!isSpaceport())return;state[type]=!state[type];selectedId=null;render()});target.appendChild(button)}
-      setFriendlyLabel(button,meta.label);button.hidden=!points[type].length;button.setAttribute('aria-pressed',String(state[type]));button.title=(type==='queen'||type==='matriarch')?t().event:t().community;
+      setFriendlyLabel(button,meta.label);const shouldHide=!points[type].length;if(button.hidden!==shouldHide)button.hidden=shouldHide;const pressed=String(state[type]);if(button.getAttribute('aria-pressed')!==pressed)button.setAttribute('aria-pressed',pressed);button.title=(type==='queen'||type==='matriarch')?t().event:t().community;
     });
   }
 
@@ -93,7 +93,7 @@
     if(!layer.hidden)visible.forEach(point=>{const meta=types[point.arcType],marker=document.createElement('button');marker.type='button';marker.className=`spaceport-arc-marker arc-${point.arcType}`;marker.dataset.arcId=point.id;marker.style.left=`${point.x}%`;marker.style.top=`${point.y}%`;marker.textContent=meta?.code||'ARC';marker.setAttribute('aria-pressed',String(selectedId===point.id));marker.setAttribute('aria-label',`${point.label?.[language()]||point.label?.en||meta?.label}. ${noteFor(point)}`);marker.addEventListener('pointerdown',e=>e.stopPropagation());marker.addEventListener('click',e=>{e.stopPropagation();selectedId=selectedId===point.id?null:point.id;renderMarkers();document.querySelector(`[data-arc-id="${point.id}"]`)?.focus()});layer.appendChild(marker)});
     positionLayer();renderDetails();
   }
-  function render(){ensureArcToggles();Object.keys(state).forEach(type=>{const b=document.getElementById(`layerSpaceportArc-${type}`);if(b)b.setAttribute('aria-pressed',String(state[type]))});renderMarkers();updateCount()}
+  function render(){ensureArcToggles();Object.keys(state).forEach(type=>{const b=document.getElementById(`layerSpaceportArc-${type}`),pressed=String(state[type]);if(b&&b.getAttribute('aria-pressed')!==pressed)b.setAttribute('aria-pressed',pressed)});renderMarkers();updateCount()}
 
   function apply(){
     const now=isSpaceport(),picker=ensurePicker();if(!picker)return;
