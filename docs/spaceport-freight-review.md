@@ -39,10 +39,11 @@ The earlier six-marker partial visual draft has been replaced by a current commu
 
 Source used for the new set: current Spaceport Player Spawn entries from MapGenie community data as represented in the public `Pwingles/arc-raiders-map` snapshot. The source is not official and the locations are not independently verified by Ramas Field Tool.
 
-- 19 Player Spawn markers are present in the source snapshot.
-- All 19 were normalized against the source Spaceport map bounds and transferred to the approved Ramas Field Tool base as review candidates.
+- 20 Player Spawn markers are present in the current source snapshot.
+- All 20 were normalized against the source Spaceport map bounds and transferred to the approved Ramas Field Tool base as review candidates.
+- One source entry (`496645`) at the eastern source-map boundary was missed in the first extraction and was added during the 2026-09-28 audit.
 - No legacy Ramas Field Tool Spaceport spawn coordinates were reused.
-- This is a complete mapping of that source snapshot, not a claim that the game has exactly 19 possible spawns.
+- This is a complete mapping of that source snapshot, not a claim that the game has exactly 20 possible spawns.
 
 ## Weapon Crates — community review set, 2026-09-28
 
@@ -59,7 +60,7 @@ Only large or tactically important ARC requested for the companion map are inclu
 
 Primary coordinate source: current Spaceport ARC entries from the same MapGenie-derived community snapshot. Coordinates use the same normalization method already used for the Raider Spawn and Weapon Crate review layers.
 
-Current safe review subset:
+Current review set:
 
 - Bastion: 4 community positions.
 - Rocketeer: 1 community position.
@@ -69,7 +70,7 @@ Current safe review subset:
 - Queen: event-only search-area reference between Maintenance Hangar and Staff Parking for the Harvester condition; this is an area reference, not a surveyed exact spawn coordinate.
 - Matriarch: event-only search-area reference around Launch Towers; this is an area reference, not a surveyed exact spawn coordinate.
 
-The major-ARC set is intentionally marked partial. Other public community maps report different totals, so this review layer must not claim exhaustive or official spawn coverage.
+The normal Bastion, Rocketeer, Leaper, Sentinel and shared Bastion/Bombardier records above are a complete extraction of the selected large/tactical ARC entries present in the current community snapshot. That does not make them official or exhaustive in-game spawn coverage. A `Sentinel Firing Core` record in the source is deliberately excluded because it is not a Sentinel spawn location.
 
 ## “Auf Karte anzeigen” selector
 
@@ -87,7 +88,7 @@ The summary displays the number of active selections. Existing Spaceport toggles
 ## Review behavior
 
 - Every display starts disabled when entering Spaceport.
-- Existing Raider Spawn, Weapon Crate, Freight Elevator, and Raider Hatch markers are unchanged.
+- Existing Raider Spawn, Weapon Crate, Freight Elevator, and Raider Hatch markers are unchanged except for the corrected twentieth Raider Spawn from the current source snapshot.
 - Major ARC markers use their own small touch-friendly badges.
 - Queen and Matriarch are visually distinct and described as event search areas.
 - Existing large invisible touch targets are retained so visible markers can stay compact.
