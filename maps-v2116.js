@@ -58,7 +58,7 @@
   if(!document.querySelector('link[data-spaceport-major-arcs-style]')){
     const style=document.createElement('link');
     style.rel='stylesheet';
-    style.href='spaceport-major-arcs.css?v=major-arcs-review-2';
+    style.href='spaceport-major-arcs.css?v=major-arcs-review-3';
     style.dataset.spaceportMajorArcsStyle='true';
     document.head.appendChild(style);
   }
@@ -76,7 +76,7 @@
     }
     if(document.querySelector('script[data-spaceport-major-arcs-loader]'))return;
     const arcScript=document.createElement('script');
-    arcScript.src='spaceport-major-arcs.js?v=major-arcs-review-2';
+    arcScript.src='spaceport-major-arcs.js?v=major-arcs-review-3';
     arcScript.defer=true;
     arcScript.dataset.spaceportMajorArcsLoader='true';
     document.head.appendChild(arcScript);
