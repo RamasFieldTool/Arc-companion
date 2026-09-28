@@ -30,3 +30,6 @@ html[data-theme="light"] .summary-overview{background:#e8dfc9}
   .summary-owned .qty{width:58px}
   .summary-overview{gap:5px;padding:8px}
 }
+
+.summary-sort{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 10px;color:var(--ui-muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.summary-sort select{max-width:65%;min-height:38px;padding:6px 10px;border:1px solid var(--ui-line);border-radius:6px;background:var(--ui-soft);color:var(--ui-text);font:inherit;text-transform:none}
