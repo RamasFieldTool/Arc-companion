@@ -1,15 +1,17 @@
 {
-  "version": "2.10.1",
+  "version": "2.10.2-rft-map-review",
   "map": "buried-city",
-  "label": {"de": "Buried City", "en": "Buried City"},
-  "verificationStatus": "community-screenshot-approximate",
-  "lastReviewed": "2026-09-11",
+  "label": {"de": "Buried City", "en": "Buried City", "fr": "Buried City", "es": "Buried City"},
+  "verificationStatus": "community-review-approximate",
+  "lastReviewed": "2026-09-28",
   "reportedPool": 19,
-  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Buried_City_Map_Blank.png",
-  "mapImageSource": "ARC Raiders Wiki – Buried City Map Blank",
+  "mapImage": "assets/maps/buried-city-rft-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene Buried-City-Kartenbasis",
   "notes": {
-    "de": "19 mögliche Raider-Startpositionen, manuell aus einem aktuellen Wand-Screenshot mit aktivem Player-Spawn-Filter übertragen. Positionen sind ungefähr und nicht offiziell von Embark bestätigt.",
-    "en": "19 possible Raider starting positions manually transferred from a current Wand screenshot with the Player Spawn filter active. Positions are approximate and not officially confirmed by Embark."
+    "de": "19 mögliche Raider-Startpositionen aus Community-Daten. Die Positionen sind ungefähr, auf die eigene Ramas-Field-Tool-Kartenbasis übertragen und nicht offiziell von Embark bestätigt.",
+    "en": "19 possible Raider starting positions from community data. Positions are approximate, transferred onto the original Ramas Field Tool map base and not officially confirmed by Embark.",
+    "fr": "19 positions de départ Raider possibles issues de données communautaires. Les positions sont approximatives, transférées sur le fond de carte original de Ramas Field Tool et non confirmées officiellement par Embark.",
+    "es": "19 posibles posiciones iniciales de Raider procedentes de datos de la comunidad. Las posiciones son aproximadas, transferidas al mapa base original de Ramas Field Tool y no están confirmadas oficialmente por Embark."
   },
   "reportedCounts": [
     {"source": "Wand", "count": 19},
