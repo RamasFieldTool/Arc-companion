@@ -1,3 +1,4 @@
+@import url("spaceport-freight.css?v=6");
 /* Spaceport: collapsible display selector and major-ARC review markers. */
 #spaceportLayerPicker[hidden],#spaceportMajorArcMarkers[hidden],#spaceportArcDetails[hidden]{display:none!important}
 .map-layer-controls>.spaceport-layer-picker{grid-column:1/-1;width:100%;margin:0;border:1px solid var(--ui-line);border-radius:12px;background:var(--ui-soft);overflow:hidden}
