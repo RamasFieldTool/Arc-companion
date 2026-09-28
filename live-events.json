@@ -4087,7 +4087,91 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-09-30T05:00:00.000Z",
+          "end": "2026-09-30T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-30T12:00:00.000Z",
+          "end": "2026-09-30T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-30T11:00:00.000Z",
+          "end": "2026-09-30T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-30T00:00:00.000Z",
+          "end": "2026-09-30T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-29T20:00:00.000Z",
+          "end": "2026-09-29T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-09-30T05:00:00.000Z",
+          "end": "2026-09-30T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-30T12:00:00.000Z",
+          "end": "2026-09-30T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-30T11:00:00.000Z",
+          "end": "2026-09-30T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-30T00:00:00.000Z",
+          "end": "2026-09-30T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-29T20:00:00.000Z",
+          "end": "2026-09-29T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-09-30T05:00:00.000Z",
+          "end": "2026-09-30T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-09-30T12:00:00.000Z",
+          "end": "2026-09-30T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-09-30T11:00:00.000Z",
+          "end": "2026-09-30T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-09-30T00:00:00.000Z",
+          "end": "2026-09-30T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-09-29T20:00:00.000Z",
+          "end": "2026-09-29T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-09-28T19:08:29Z"
+  "syncedAt": "2026-09-28T19:40:48Z"
 }
