@@ -83,3 +83,12 @@
   });
   document.head.appendChild(script);
 })();
+
+// Buried City V2 review. Own map base plus Spaceport-style layer picker.
+(()=>{
+  if(!document.querySelector('link[data-buried-city-v2-style]')){
+    const style=document.createElement('link');style.rel='stylesheet';style.href='buried-city-v2.css?v=review-2';style.dataset.buriedCityV2Style='true';document.head.appendChild(style);
+  }
+  if(document.querySelector('script[data-buried-city-v2-loader]'))return;
+  const script=document.createElement('script');script.src='buried-city-v2.js?v=review-1';script.defer=true;script.dataset.buriedCityV2Loader='true';document.head.appendChild(script);
+})();
