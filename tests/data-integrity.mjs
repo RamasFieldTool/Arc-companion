@@ -60,13 +60,16 @@ const statusPos=index.indexOf('status-v1300.js');
 if(catalogPos<0||appPos<0||statusPos<0) fail('Required catalog/app/status scripts are not all referenced by index.html');
 if(!(catalogPos<appPos&&appPos<statusPos)) fail('Script order must be catalog-resilience -> app.js -> status-v1300.js');
 
-const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.18';
+const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.19';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
 if(!statusScript.includes("i18n-v13017.js?v=13017d"))fail('V13.0.17 i18n layer is not loaded with the current explicit cache-buster');
 for(const marker of ['installLegacyLauncherObserverBridge','__arcLegacyLauncherObserverBridge','installIdempotentI18nDomWrites','__arcI18nIdempotentDomWrites']){
   if(!statusScript.includes(marker))fail(`FR/ES observer stability marker missing: ${marker}`);
+}
+for(const marker of ['installLogoHomeButton','goHomeFromLogo','spawnCloseExpanded','data-home-button']){
+  if(!statusScript.includes(marker))fail(`Logo home-button safety marker missing: ${marker}`);
 }
 if(!statusScript.includes("loading:'DONNÉES // CHARGEMENT…'")||!statusScript.includes("loading:'DATOS // CARGANDO…'"))fail('Native FR/ES data-status copies are missing');
 try{await access(new URL('i18n-v13017.js',root),constants.F_OK)}catch{fail('i18n-v13017.js is missing')}

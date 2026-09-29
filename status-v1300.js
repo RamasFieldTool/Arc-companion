@@ -1,5 +1,5 @@
-// V13.0.18 – persistent user-facing loading/live/partial/fallback status.
-const APP_VERSION='13.0.18';
+// V13.0.19 – persistent user-facing loading/live/partial/fallback status.
+const APP_VERSION='13.0.19';
 const STATUS_COPY={
   de:{
     loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
@@ -38,6 +38,62 @@ function statusLanguage(){
   return lang==='en'?'en':'de';
 }
 function statusCopy(){return STATUS_COPY[statusLanguage()]||STATUS_COPY.en}
+
+const HOME_LABEL_COPY={de:'Zur Startseite',en:'Home',fr:'Accueil',es:'Inicio'};
+function updateHomeLogoAccessibility(){
+  const logo=document.querySelector('.official-app-logo');
+  if(!logo)return;
+  const label=HOME_LABEL_COPY[statusLanguage()]||HOME_LABEL_COPY.en;
+  logo.setAttribute('aria-label',label);
+  logo.setAttribute('title',label);
+}
+function goHomeFromLogo(){
+  const expanded=document.getElementById('spawnMapStage');
+  if(expanded?.classList.contains('is-expanded'))document.getElementById('spawnCloseExpanded')?.click();
+  document.querySelectorAll('main details[open], .nav-more[open]').forEach(details=>{details.open=false});
+  const back=document.getElementById('appBack');
+  if(back)back.click();
+  else{
+    location.hash='home';
+    document.body.classList.remove('view-open');
+    document.querySelectorAll('.launcher-section.launcher-active').forEach(section=>section.classList.remove('launcher-active'));
+  }
+  window.scrollTo(0,0);
+}
+function installLogoHomeButton(){
+  const logo=document.querySelector('.official-app-logo');
+  if(!logo||logo.dataset.homeButton==='true')return;
+  logo.dataset.homeButton='true';
+  logo.setAttribute('role','button');
+  logo.setAttribute('tabindex','0');
+  updateHomeLogoAccessibility();
+  logo.addEventListener('click',goHomeFromLogo);
+  logo.addEventListener('keydown',event=>{
+    if(event.key!=='Enter'&&event.key!==' ')return;
+    event.preventDefault();
+    goHomeFromLogo();
+  });
+  if(!document.getElementById('logo-home-v13019-style')){
+    const style=document.createElement('style');
+    style.id='logo-home-v13019-style';
+    style.textContent=`
+      .official-app-logo[data-home-button="true"]{cursor:pointer;touch-action:manipulation;border-radius:16px}
+      .official-app-logo[data-home-button="true"]:focus-visible{outline:3px solid var(--orange,#ff814f)!important;outline-offset:4px}
+      body.palette-enabled.view-open .masthead{display:flex!important;padding:0 0 10px!important;min-height:52px!important}
+      body.palette-enabled.view-open .masthead .brand-title,body.palette-enabled.view-open .masthead .headtools{display:none!important}
+      body.palette-enabled.view-open .masthead-brand{display:flex!important;gap:0!important}
+      body.palette-enabled.view-open .official-app-logo{width:48px!important;height:48px!important;max-width:48px!important;margin:0!important}
+      body.map-expanded .masthead{position:fixed!important;top:max(8px,env(safe-area-inset-top));left:max(8px,env(safe-area-inset-left));z-index:10001!important;width:48px!important;height:48px!important;padding:0!important;margin:0!important;display:block!important}
+      body.map-expanded .masthead-brand{display:block!important;width:48px!important;height:48px!important}
+      body.map-expanded .masthead .brand-title,body.map-expanded .masthead .headtools{display:none!important}
+      body.map-expanded .official-app-logo{width:48px!important;height:48px!important;max-width:48px!important;background:var(--ui-panel,#090909);box-shadow:0 2px 12px #0008!important}
+      body.map-expanded .spawn-map-stage-head{padding-left:64px!important}
+    `;
+    document.head.appendChild(style);
+  }
+}
+installLogoHomeButton();
+
 function currentDataState(){
   const catalogReady=Array.isArray(items)&&items.length>0;
   const catalogStatus=document.getElementById('status');
@@ -91,6 +147,7 @@ function renderDataStatus(){
 
   updateStatusElement(headerStatus,state,c);
   updateStatusElement(persistentStatus,state,c);
+  updateHomeLogoAccessibility();
 
   if(notice){
     notice.hidden=state!=='fallback'&&state!=='partial';
