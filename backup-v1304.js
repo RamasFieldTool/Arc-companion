@@ -1,4 +1,4 @@
-// V13.0.4 test — validated local backup export/import without a server.
+// V13.0.18 test — validated local backup export/import without a server.
 (()=>{
   const panel=document.getElementById('backupPanel');
   const exportButton=document.getElementById('backupExport');
@@ -15,6 +15,17 @@
   const blockedKeys=new Set(['__proto__','prototype','constructor']);
   const safeKeys=value=>isRecord(value)&&Object.keys(value).length<=5000&&Object.keys(value).every(key=>typeof key==='string'&&key.length<=180&&!blockedKeys.has(key));
   const finiteNumber=value=>typeof value==='number'&&Number.isFinite(value)&&value>=0&&value<=1000000000;
+  const validRaidEntry=entry=>{
+    if(!isRecord(entry)||Object.keys(entry).some(key=>!['target','done','personal','found'].includes(key)))return false;
+    if(typeof entry.done!=='boolean'||!finiteNumber(entry.target)||(entry.done?entry.target<0:entry.target<1))return false;
+    if(entry.personal!==undefined&&typeof entry.personal!=='boolean')return false;
+    if(entry.found!==undefined&&!finiteNumber(entry.found))return false;
+    if(entry.personal===true){
+      if(entry.target<1)return false;
+      if(entry.found!==undefined&&entry.found>entry.target)return false;
+    }
+    return true;
+  };
 
   const RULES={
     arcLang:{type:'string',valid:value=>['de','en'].includes(value)},
@@ -26,7 +37,7 @@
     arcQuestStatus:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>['open','active','done'].includes(entry))},
     arc_blueprints_learned_v1:{type:'json',valid:value=>Array.isArray(value)&&value.length<=5000&&value.every(entry=>typeof entry==='string'&&entry.length<=180)},
     arcSpawnMap:{type:'string',valid:value=>typeof value==='string'&&/^[a-z0-9-]{1,80}$/i.test(value)},
-    arcNextRaid:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['target','done'].includes(key))&&typeof entry.done==='boolean'&&finiteNumber(entry.target)&&(entry.done?entry.target>=0:entry.target>=1))},
+    arcNextRaid:{type:'json',valid:value=>safeKeys(value)&&Object.values(value).every(validRaidEntry)},
     arcEventRegion:{type:'string',valid:value=>['europe','north-america','brazil','east-asia','oceania'].includes(value)},
     arcEventLead:{type:'string',valid:value=>['5','10','15','30'].includes(value)},
     arcEventReminders:{type:'json',valid:value=>Array.isArray(value)&&value.length<=100&&value.every(entry=>isRecord(entry)&&Object.keys(entry).every(key=>['key','start','end','name','map','lead','notified'].includes(key))&&typeof entry.key==='string'&&entry.key.length<=500&&typeof entry.start==='string'&&!Number.isNaN(Date.parse(entry.start))&&typeof entry.end==='string'&&!Number.isNaN(Date.parse(entry.end))&&typeof entry.name==='string'&&entry.name.length<=100&&typeof entry.map==='string'&&entry.map.length<=100&&[5,10,15,30].includes(Number(entry.lead))&&typeof entry.notified==='boolean')}
