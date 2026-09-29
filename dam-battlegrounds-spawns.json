@@ -5,8 +5,8 @@
   "verificationStatus": "community-approximate-from-current-wand-screenshot",
   "lastReviewed": "2026-09-11",
   "reportedPool": 22,
-  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Dam_Battlegrounds_V2_Map_Blank.png",
-  "mapImageSource": "ARC Raiders Wiki – Dam Battlegrounds V2 Map Blank",
+  "mapImage": "assets/maps/dam-battlegrounds-rft-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene Dam-Battlegrounds-Kartenbasis",
   "notes": {
     "de": "22 mögliche Raider-Startpositionen wurden manuell aus einem aktuellen Wand-Screenshot übertragen. Die Positionen sind Community-Daten und ungefähr; sie sind nicht von Embark offiziell bestätigt.",
     "en": "22 possible Raider start positions were manually transferred from a current Wand screenshot. Positions are approximate community data and are not officially confirmed by Embark."
