@@ -25,6 +25,7 @@
 .spawn-data-details .spawn-source-row{margin-top:8px}
 .spawn-data-details .spawn-image-credit{margin-top:7px}
 .spawn-map-shell[data-map="dam-battlegrounds"] .spawn-canvas img{object-fit:contain!important}
+.spawn-map-shell[data-map="dam-battlegrounds"] .spawn-marker-layer,.spawn-map-shell[data-map="dam-battlegrounds"] .weapon-case-marker-layer{top:12.5%;bottom:12.5%;height:auto}
 @media(max-width:520px){
   .spawn-panel{padding:11px}
   .spawn-head{align-items:flex-start}
