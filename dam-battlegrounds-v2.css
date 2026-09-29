@@ -1,4 +1,4 @@
-/* Dam Battlegrounds V2 review – extraction layer only. */
+/* Dam Battlegrounds V2 review – extraction + major ARC layers. */
 #damBattlegroundsLayerPicker[hidden],#damBattlegroundsOverlayMarkers[hidden],#damBattlegroundsOverlayDetails[hidden]{display:none!important}
 
 .map-layer-controls>.dam-battlegrounds-layer-picker{grid-column:1/-1;width:100%;margin:0;border:1px solid var(--ui-line);border-radius:12px;background:var(--ui-soft);overflow:hidden}
@@ -23,6 +23,8 @@
 .dam-battlegrounds-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
 #spawnCanvas .dam-battlegrounds-marker.is-hatch{width:14px;height:14px!important;min-height:14px!important;border-radius:50%!important;border-color:#6ed5cf!important;background:#102324!important;color:#bdfaf3!important}
 #spawnCanvas .dam-battlegrounds-marker.is-hatch[aria-pressed='true']{border-color:#fff!important;background:#23514e!important;color:#fff!important}
+#spawnCanvas .dam-battlegrounds-marker.is-arc{width:20px;height:16px!important;min-height:16px!important;border-radius:4px!important;border-color:#ef8c7d!important;background:#351614!important;color:#ffd6cf!important;font-size:6px!important;letter-spacing:-.02em}
+#spawnCanvas .dam-battlegrounds-marker.is-arc[aria-pressed='true']{border-color:#fff!important;background:#7a2b23!important;color:#fff!important}
 
 .dam-battlegrounds-overlay-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
 .dam-battlegrounds-overlay-details strong,.dam-battlegrounds-overlay-details span{display:block}
