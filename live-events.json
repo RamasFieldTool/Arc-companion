@@ -3,118 +3,6 @@
     {
       "type": "major",
       "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-09-29T13:00:00.000Z",
-          "end": "2026-09-29T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-29T20:00:00.000Z",
-          "end": "2026-09-29T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-29T19:00:00.000Z",
-          "end": "2026-09-29T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-29T08:00:00.000Z",
-          "end": "2026-09-29T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-29T04:00:00.000Z",
-          "end": "2026-09-29T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Beachcombing",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-09-29T13:00:00.000Z",
-          "end": "2026-09-29T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-29T20:00:00.000Z",
-          "end": "2026-09-29T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-29T19:00:00.000Z",
-          "end": "2026-09-29T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-29T08:00:00.000Z",
-          "end": "2026-09-29T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-29T04:00:00.000Z",
-          "end": "2026-09-29T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/beachcombing.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Hidden Bunker",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-09-29T13:00:00.000Z",
-          "end": "2026-09-29T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-29T20:00:00.000Z",
-          "end": "2026-09-29T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-29T19:00:00.000Z",
-          "end": "2026-09-29T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-29T08:00:00.000Z",
-          "end": "2026-09-29T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-29T04:00:00.000Z",
-          "end": "2026-09-29T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/hidden-bunker.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-09-29T13:00:00.000Z",
-          "end": "2026-09-29T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-09-29T20:00:00.000Z",
-          "end": "2026-09-29T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-09-29T19:00:00.000Z",
-          "end": "2026-09-29T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-29T08:00:00.000Z",
-          "end": "2026-09-29T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-29T04:00:00.000Z",
-          "end": "2026-09-29T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
       "mapDisplayName": "Spaceport",
       "regions": {
         "europe": {
@@ -4173,5 +4061,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-09-29T20:43:43Z"
+  "syncedAt": "2026-09-29T21:07:29Z"
 }
