@@ -1,0 +1,39 @@
+{
+  "version": "1.0.0-review",
+  "map": "dam-battlegrounds",
+  "verificationStatus": "community-visual-review",
+  "lastReviewed": "2026-09-29",
+  "mapImage": "assets/maps/dam-battlegrounds-rft-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene Dam-Battlegrounds-Kartenbasis",
+  "notes": {
+    "de": "Eigene Ramas-Field-Tool-Kartenbasis. Die Extraktionspunkte wurden anhand der aktuellen visuellen Referenz sowie aktueller Community-Karten auf die neue Kartenbasis übertragen. Positionen sind Review-Daten und nicht offiziell bestätigt.",
+    "en": "Original Ramas Field Tool map base. Extraction points were transferred to the new map base using the current visual reference and current community maps. Positions are review data and are not officially confirmed.",
+    "fr": "Fond de carte original de Ramas Field Tool. Les points d’extraction ont été transférés sur la nouvelle carte à partir de la référence visuelle actuelle et de cartes communautaires récentes. Les positions sont provisoires et non officielles.",
+    "es": "Mapa base original de Ramas Field Tool. Los puntos de extracción se transfirieron al nuevo mapa usando la referencia visual actual y mapas recientes de la comunidad. Las posiciones son provisionales y no oficiales."
+  },
+  "sources": [
+    {"label":"ARC Raiders Guide & Wiki – Dam Battlegrounds interactive map","url":"https://arcraiders.co/map/dam-battlegrounds","type":"community-data"},
+    {"label":"ARC Raiders Hub – Dam Battlegrounds map","url":"https://arcraidershub.com/maps/dam-battlegrounds","type":"community-data"},
+    {"label":"ARC Raiders Wiki – Hatch Repairs / Good Old Baron's Hatch","url":"https://arcraiders.wiki/wiki/Hatch_Repairs","type":"community-wiki"}
+  ],
+  "layers": {
+    "elevators": {
+      "label": {"de":"Aufzüge","en":"Elevators","fr":"Ascenseurs","es":"Ascensores"},
+      "points": [
+        {"id":"DAM-EX-01","x":54.4,"y":18.2,"label":{"de":"North Complex Elevator","en":"North Complex Elevator","fr":"North Complex Elevator","es":"North Complex Elevator"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-EX-02","x":32.9,"y":36.3,"label":{"de":"Central Swamp Lift","en":"Central Swamp Lift","fr":"Central Swamp Lift","es":"Central Swamp Lift"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-EX-03","x":38.4,"y":48.2,"label":{"de":"Water Treatment Elevator","en":"Water Treatment Elevator","fr":"Water Treatment Elevator","es":"Water Treatment Elevator"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-EX-04","x":57.7,"y":57.1,"label":{"de":"Red Lakes Balcony Lift","en":"Red Lakes Balcony Lift","fr":"Red Lakes Balcony Lift","es":"Red Lakes Balcony Lift"},"confidence":"visual-transfer-review"}
+      ]
+    },
+    "hatches": {
+      "label": {"de":"Raider-Luken","en":"Raider Hatches","fr":"Trappes Raider","es":"Escotillas Raider"},
+      "points": [
+        {"id":"DAM-RH-01","x":30.5,"y":24.4,"label":{"de":"Sunroof Hatch","en":"Sunroof Hatch","fr":"Sunroof Hatch","es":"Sunroof Hatch"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-RH-02","x":66.5,"y":32.2,"label":{"de":"Pump House Hatch","en":"Pump House Hatch","fr":"Pump House Hatch","es":"Pump House Hatch"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-RH-03","x":27.9,"y":56.3,"label":{"de":"Good Old Baron's Hatch","en":"Good Old Baron's Hatch","fr":"Good Old Baron's Hatch","es":"Good Old Baron's Hatch"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-RH-04","x":59.0,"y":47.9,"label":{"de":"Red Lakes Hatch","en":"Red Lakes Hatch","fr":"Red Lakes Hatch","es":"Red Lakes Hatch"},"confidence":"visual-transfer-review"}
+      ]
+    }
+  }
+}
