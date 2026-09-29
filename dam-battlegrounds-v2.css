@@ -1,0 +1,32 @@
+/* Dam Battlegrounds V2 review – extraction + major ARC layers. */
+#damBattlegroundsLayerPicker[hidden],#damBattlegroundsOverlayMarkers[hidden],#damBattlegroundsOverlayDetails[hidden]{display:none!important}
+
+.map-layer-controls>.dam-battlegrounds-layer-picker{grid-column:1/-1;width:100%;margin:0;border:1px solid var(--ui-line);border-radius:12px;background:var(--ui-soft);overflow:hidden}
+.dam-battlegrounds-layer-picker>summary{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:11px 13px;cursor:pointer;list-style:none;color:var(--ui-text);font-weight:700;text-align:left}
+.dam-battlegrounds-layer-picker>summary::-webkit-details-marker{display:none}
+.dam-battlegrounds-layer-picker>summary::before{content:'+';width:18px;flex:none;color:var(--amber);font-size:18px;line-height:1}
+.dam-battlegrounds-layer-picker[open]>summary::before{content:'−'}
+#damBattlegroundsLayerPickerTitle{flex:1}
+.dam-battlegrounds-layer-count{flex:none;padding:4px 8px;border-radius:999px;background:var(--ui-panel);color:var(--ui-muted);font-size:11px;font-weight:700;white-space:nowrap}
+.dam-battlegrounds-layer-groups{display:grid;gap:12px;padding:0 12px 12px}
+.dam-battlegrounds-layer-group{border-top:1px solid var(--ui-line);padding-top:10px}
+.dam-battlegrounds-layer-group h3{margin:0 0 7px;color:var(--ui-muted);font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.dam-battlegrounds-layer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.dam-battlegrounds-layer-grid .map-layer-toggle{display:flex;align-items:center;gap:8px;width:100%;min-height:44px;padding:8px 10px;text-align:left;border-radius:9px}
+.dam-battlegrounds-layer-grid .map-layer-toggle .layer-indicator{flex:none}
+
+/* Own Dam base is 4:3 inside the square tactical viewport. */
+.dam-battlegrounds-overlay-layer{position:absolute;left:0;right:0;top:12.5%;height:75%;pointer-events:none;z-index:7}
+#spawnCanvas .dam-battlegrounds-marker{position:absolute;display:grid;place-items:center;transform:translate(-50%,-50%) scale(var(--dam-marker-scale,1));transform-origin:center;width:16px;height:13.3333px!important;min-height:13.3333px!important;padding:0!important;border:1px solid #ffcb7c!important;border-radius:2px!important;background:#21190f!important;color:#ffe1b1!important;box-shadow:0 0 0 1px #090c10b3,0 1px 4px #0008!important;font:700 6.6667px system-ui,sans-serif!important;cursor:pointer;pointer-events:auto;touch-action:manipulation}
+#spawnCanvas .dam-battlegrounds-marker::after{content:'';position:absolute;left:50%;top:50%;width:48px;height:44px;transform:translate(-50%,-50%)}
+#spawnCanvas .dam-battlegrounds-marker[aria-pressed='true']{border-color:#fff!important;background:#684215!important;color:#fff!important}
+.dam-battlegrounds-marker:focus-visible{outline:3px solid #fff;outline-offset:3px}
+#spawnCanvas .dam-battlegrounds-marker.is-hatch{width:14px;height:14px!important;min-height:14px!important;border-radius:50%!important;border-color:#6ed5cf!important;background:#102324!important;color:#bdfaf3!important}
+#spawnCanvas .dam-battlegrounds-marker.is-hatch[aria-pressed='true']{border-color:#fff!important;background:#23514e!important;color:#fff!important}
+#spawnCanvas .dam-battlegrounds-marker.is-arc{width:20px;height:16px!important;min-height:16px!important;border-radius:4px!important;border-color:#ef8c7d!important;background:#351614!important;color:#ffd6cf!important;font-size:6px!important;letter-spacing:-.02em}
+#spawnCanvas .dam-battlegrounds-marker.is-arc[aria-pressed='true']{border-color:#fff!important;background:#7a2b23!important;color:#fff!important}
+
+.dam-battlegrounds-overlay-details{position:relative;flex:none;padding:9px 44px 9px 12px;background:#21190f;border-left:3px solid #ffcb7c;color:#ffe1b1;font:12px/1.4 system-ui,sans-serif}
+.dam-battlegrounds-overlay-details strong,.dam-battlegrounds-overlay-details span{display:block}
+.dam-battlegrounds-overlay-details button{position:absolute;right:2px;top:2px;width:40px;height:40px;border:0;background:transparent;color:#ffe1b1;font-size:22px;cursor:pointer}
+@media(max-width:380px){.dam-battlegrounds-layer-grid{grid-template-columns:1fr}}

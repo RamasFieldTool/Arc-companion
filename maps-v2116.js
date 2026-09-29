@@ -92,3 +92,12 @@
   if(document.querySelector('script[data-buried-city-v2-loader]'))return;
   const script=document.createElement('script');script.src='buried-city-v2.js?v=review-1';script.defer=true;script.dataset.buriedCityV2Loader='true';document.head.appendChild(script);
 })();
+
+// Dam Battlegrounds V2 review. Extraction layer on the verified RFT base map.
+(()=>{
+  if(!document.querySelector('link[data-dam-battlegrounds-v2-style]')){
+    const style=document.createElement('link');style.rel='stylesheet';style.href='dam-battlegrounds-v2.css?v=review-1';style.dataset.damBattlegroundsV2Style='true';document.head.appendChild(style);
+  }
+  if(document.querySelector('script[data-dam-battlegrounds-v2-loader]'))return;
+  const script=document.createElement('script');script.src='dam-battlegrounds-v2.js?v=review-1';script.defer=true;script.dataset.damBattlegroundsV2Loader='true';document.head.appendChild(script);
+})();

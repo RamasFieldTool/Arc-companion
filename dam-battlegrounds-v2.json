@@ -1,0 +1,54 @@
+{
+  "version": "1.1.0-review",
+  "map": "dam-battlegrounds",
+  "verificationStatus": "community-visual-and-affine-review",
+  "lastReviewed": "2026-09-29",
+  "mapImage": "assets/maps/dam-battlegrounds-rft-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene Dam-Battlegrounds-Kartenbasis",
+  "notes": {
+    "de": "Eigene Ramas-Field-Tool-Kartenbasis. Extraktionspunkte wurden visuell übertragen; Große-ARC-Punkte wurden aus Community-Rohkoordinaten mit derselben affinen Transformation übertragen, die für Raider-Spawns und Waffenkisten auf Android bestätigt wurde. Alle Punkte bleiben Community-Daten und sind nicht offiziell von Embark bestätigt.",
+    "en": "Original Ramas Field Tool map base. Extraction points were transferred visually; major ARC points were transferred from community raw coordinates using the same affine transform that passed Android review for Raider spawns and Weapon Cases. All points remain community data and are not officially confirmed by Embark.",
+    "fr": "Fond de carte original de Ramas Field Tool. Les extractions ont été transférées visuellement ; les grands ARC proviennent de coordonnées communautaires transformées avec la même méthode validée sur Android pour les apparitions Raider et les caisses d’armes. Ces données ne sont pas officielles.",
+    "es": "Mapa base original de Ramas Field Tool. Las extracciones se transfirieron visualmente; los ARC grandes provienen de coordenadas comunitarias transformadas con el mismo método validado en Android para apariciones Raider y cajas de armas. Estos datos no son oficiales."
+  },
+  "sources": [
+    {"label":"ARC Raiders Guide & Wiki – Dam Battlegrounds interactive map","url":"https://arcraiders.co/map/dam-battlegrounds","type":"community-data"},
+    {"label":"ARC Raiders Hub – Dam Battlegrounds map","url":"https://arcraidershub.com/maps/dam-battlegrounds","type":"community-data"},
+    {"label":"ARC Raiders Wiki – Hatch Repairs / Good Old Baron's Hatch","url":"https://arcraiders.wiki/wiki/Hatch_Repairs","type":"community-wiki"},
+    {"label":"Pwingles/arc-raiders-map – MapGenie data snapshot","url":"https://github.com/Pwingles/arc-raiders-map","type":"community-data"}
+  ],
+  "layers": {
+    "elevators": {
+      "label": {"de":"Aufzüge","en":"Elevators","fr":"Ascenseurs","es":"Ascensores"},
+      "points": [
+        {"id":"DAM-EX-01","x":59.45,"y":19.70,"label":{"de":"North Complex Elevator","en":"North Complex Elevator","fr":"North Complex Elevator","es":"North Complex Elevator"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-EX-02","x":35.91,"y":39.32,"label":{"de":"Central Swamp Lift","en":"Central Swamp Lift","fr":"Central Swamp Lift","es":"Central Swamp Lift"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-EX-03","x":42.02,"y":52.64,"label":{"de":"Water Treatment Elevator","en":"Water Treatment Elevator","fr":"Water Treatment Elevator","es":"Water Treatment Elevator"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-EX-04","x":63.03,"y":62.56,"label":{"de":"Red Lakes Balcony Lift","en":"Red Lakes Balcony Lift","fr":"Red Lakes Balcony Lift","es":"Red Lakes Balcony Lift"},"confidence":"visual-transfer-review"}
+      ]
+    },
+    "hatches": {
+      "label": {"de":"Raider-Luken","en":"Raider Hatches","fr":"Trappes Raider","es":"Escotillas Raider"},
+      "points": [
+        {"id":"DAM-RH-01","x":33.12,"y":26.23,"label":{"de":"Sunroof Hatch","en":"Sunroof Hatch","fr":"Sunroof Hatch","es":"Sunroof Hatch"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-RH-02","x":72.55,"y":35.14,"label":{"de":"Pump House Hatch","en":"Pump House Hatch","fr":"Pump House Hatch","es":"Pump House Hatch"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-RH-03","x":31.18,"y":60.50,"label":{"de":"Good Old Baron's Hatch","en":"Good Old Baron's Hatch","fr":"Good Old Baron's Hatch","es":"Good Old Baron's Hatch"},"confidence":"visual-transfer-review"},
+        {"id":"DAM-RH-04","x":64.31,"y":52.09,"label":{"de":"Red Lakes Hatch","en":"Red Lakes Hatch","fr":"Red Lakes Hatch","es":"Red Lakes Hatch"},"confidence":"visual-transfer-review"}
+      ]
+    },
+    "majorArc": {
+      "label": {"de":"Große ARC","en":"Major ARC","fr":"Grands ARC","es":"ARC grandes"},
+      "points": [
+        {"id":"DAM-ARC-01","sourceId":493194,"x":48.44,"y":69.67,"types":["bastion","bombardier"],"label":{"de":"Bastion / Bombardier","en":"Bastion / Bombardier","fr":"Bastion / Bombardier","es":"Bastion / Bombardier"},"note":{"de":"Community-Daten: zufälliger Spawn eines Bastion oder Bombardier.","en":"Community data: random Bastion or Bombardier spawn.","fr":"Données communautaires : apparition aléatoire d’un Bastion ou Bombardier.","es":"Datos de la comunidad: aparición aleatoria de Bastion o Bombardier."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-02","sourceId":493195,"x":47.00,"y":45.33,"types":["bastion","bombardier","leaper"],"label":{"de":"Bastion / Bombardier / Leaper","en":"Bastion / Bombardier / Leaper","fr":"Bastion / Bombardier / Leaper","es":"Bastion / Bombardier / Leaper"},"note":{"de":"Community-Daten: zufälliger großer Boden-ARC in diesem Patrouillenbereich.","en":"Community data: randomized large ground ARC in this patrol area.","fr":"Données communautaires : grand ARC terrestre aléatoire dans cette zone de patrouille.","es":"Datos de la comunidad: ARC terrestre grande aleatorio en esta zona de patrulla."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-03","sourceId":493369,"x":49.85,"y":30.02,"types":["bombardier"],"label":{"de":"Bombardier","en":"Bombardier","fr":"Bombardier","es":"Bombardier"},"note":{"de":"Community-Daten: gemeldeter Bombardier beim Parkhaus.","en":"Community data: reported Bombardier by the parking garage.","fr":"Données communautaires : Bombardier signalé près du parking.","es":"Datos de la comunidad: Bombardier reportado junto al aparcamiento."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-04","sourceId":491533,"x":60.40,"y":51.78,"types":["leaper"],"label":{"de":"Leaper","en":"Leaper","fr":"Leaper","es":"Leaper"},"note":{"de":"Community-Daten: gemeldeter Leaper-Spawn.","en":"Community data: reported Leaper spawn.","fr":"Données communautaires : apparition de Leaper signalée.","es":"Datos de la comunidad: aparición de Leaper reportada."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-05","sourceId":495907,"x":45.54,"y":31.13,"types":["bastion"],"label":{"de":"Bastion","en":"Bastion","fr":"Bastion","es":"Bastion"},"note":{"de":"Community-Daten: Bastion patrouilliert in diesem Bereich.","en":"Community data: Bastion reported roaming this area.","fr":"Données communautaires : Bastion signalé en patrouille dans cette zone.","es":"Datos de la comunidad: Bastion reportado patrullando esta zona."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-06","sourceId":495611,"x":55.74,"y":32.72,"types":["sentinel"],"label":{"de":"Sentinel – The Breach","en":"Sentinel – The Breach","fr":"Sentinel – The Breach","es":"Sentinel – The Breach"},"note":{"de":"Community-Daten: erhöhter Aussichtspunkt nordwestlich von The Breach.","en":"Community data: elevated outcrop northwest of The Breach.","fr":"Données communautaires : promontoire surélevé au nord-ouest de The Breach.","es":"Datos de la comunidad: saliente elevado al noroeste de The Breach."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-07","sourceId":496175,"x":52.81,"y":57.37,"types":["sentinel"],"label":{"de":"Sentinel – Blue Staircase","en":"Sentinel – Blue Staircase","fr":"Sentinel – Blue Staircase","es":"Sentinel – Blue Staircase"},"note":{"de":"Community-Daten: möglicher Spawn über der blauen Treppe.","en":"Community data: possible spawn above the blue staircase.","fr":"Données communautaires : apparition possible au-dessus de l’escalier bleu.","es":"Datos de la comunidad: posible aparición sobre la escalera azul."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-08","sourceId":496954,"x":53.74,"y":40.21,"types":["sentinel"],"label":{"de":"Sentinel – Broken Walkway","en":"Sentinel – Broken Walkway","fr":"Sentinel – Broken Walkway","es":"Sentinel – Broken Walkway"},"note":{"de":"Community-Daten: möglicher Spawn am beschädigten Laufsteg.","en":"Community data: possible spawn on the broken walkway.","fr":"Données communautaires : apparition possible sur la passerelle endommagée.","es":"Datos de la comunidad: posible aparición en la pasarela rota."},"confidence":"affine-transfer-review"},
+        {"id":"DAM-ARC-09","sourceId":497841,"x":55.70,"y":54.81,"types":["sentinel"],"label":{"de":"Sentinel – Freeway","en":"Sentinel – Freeway","fr":"Sentinel – Freeway","es":"Sentinel – Freeway"},"note":{"de":"Community-Daten: möglicher Spawn an der Unterseite der Hochstraße.","en":"Community data: possible spawn on the underside of the freeway.","fr":"Données communautaires : apparition possible sous l’autoroute.","es":"Datos de la comunidad: posible aparición bajo la autopista."},"confidence":"affine-transfer-review"}
+      ]
+    }
+  }
+}

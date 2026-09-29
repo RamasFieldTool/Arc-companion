@@ -1,42 +1,45 @@
 {
-  "version": "2.10.2",
+  "version": "2.10.3-rft-affine-review",
   "map": "dam-battlegrounds",
   "label": {"de": "Dam Battlegrounds", "en": "Dam Battlegrounds"},
-  "verificationStatus": "community-approximate-from-current-wand-screenshot",
-  "lastReviewed": "2026-09-11",
-  "reportedPool": 22,
-  "mapImage": "https://arcraiders.wiki/wiki/Special:Redirect/file/Dam_Battlegrounds_V2_Map_Blank.png",
-  "mapImageSource": "ARC Raiders Wiki – Dam Battlegrounds V2 Map Blank",
+  "verificationStatus": "community-mapgenie-affine-transfer-review",
+  "lastReviewed": "2026-09-29",
+  "reportedPool": 21,
+  "mapImage": "assets/maps/dam-battlegrounds-rft-base.jpg?v=1",
+  "mapImageSource": "Ramas Field Tool – eigene Dam-Battlegrounds-Kartenbasis",
   "notes": {
-    "de": "22 mögliche Raider-Startpositionen wurden manuell aus einem aktuellen Wand-Screenshot übertragen. Die Positionen sind Community-Daten und ungefähr; sie sind nicht von Embark offiziell bestätigt.",
-    "en": "22 possible Raider start positions were manually transferred from a current Wand screenshot. Positions are approximate community data and are not officially confirmed by Embark."
+    "de": "21 Raider-Startpunkte mit MapGenie-Rohkoordinaten wurden über eine affine Transformation auf die RFT-Karte übertragen. Die Transformation wurde aus 8 auf Android bestätigten Dam-Extraktionspunkten berechnet; die Referenzabweichung liegt bei etwa 0,4 bis 1,0 Prozentpunkten. Die Punkte sind Community-Daten, nicht von Embark offiziell bestätigt. Aktuellere Community-Karten führen teilweise 23 Startpunkte, daher ist diese Liste bewusst als belastbare Teilmenge markiert.",
+    "en": "21 Raider spawn points with MapGenie raw coordinates were transferred onto the RFT map using an affine transform. The transform was fitted from 8 Dam extraction anchors confirmed on Android; anchor residuals are about 0.4 to 1.0 percentage points. These are community data and are not officially confirmed by Embark. Some newer community maps currently list 23 spawns, so this set is intentionally marked as a defensible subset."
   },
   "reportedCounts": [
-    {"source": "Wand", "count": 22},
-    {"source": "ARC Raiders Hub", "count": 19}
+    {"source": "Pwingles/MapGenie snapshot", "count": 21, "status": "coordinate-backed"},
+    {"source": "ARC Raiders Guide & Wiki", "count": 23, "status": "newer-community-count"}
+  ],
+  "sources": [
+    {"label":"Pwingles/arc-raiders-map – MapGenie data snapshot","url":"https://github.com/Pwingles/arc-raiders-map","type":"community-data"},
+    {"label":"ARC Raiders Guide & Wiki – Dam Battlegrounds interactive map","url":"https://arcraiders.co/map/dam-battlegrounds","type":"community-count"}
   ],
   "points": [
-    {"id":"DAM-01","x":44.1,"y":5.3,"confidence":"approx"},
-    {"id":"DAM-02","x":56.9,"y":5.5,"confidence":"approx"},
-    {"id":"DAM-03","x":69.2,"y":9.8,"confidence":"approx"},
-    {"id":"DAM-04","x":80.3,"y":12.0,"confidence":"approx"},
-    {"id":"DAM-05","x":33.6,"y":14.6,"confidence":"approx"},
-    {"id":"DAM-06","x":17.4,"y":19.5,"confidence":"approx"},
-    {"id":"DAM-07","x":6.2,"y":30.1,"confidence":"approx"},
-    {"id":"DAM-08","x":67.0,"y":27.9,"confidence":"approx"},
-    {"id":"DAM-09","x":86.1,"y":28.4,"confidence":"approx"},
-    {"id":"DAM-10","x":3.8,"y":50.2,"confidence":"approx"},
-    {"id":"DAM-11","x":55.3,"y":52.8,"confidence":"approx"},
-    {"id":"DAM-12","x":58.0,"y":52.5,"confidence":"approx"},
-    {"id":"DAM-13","x":91.0,"y":55.5,"confidence":"approx"},
-    {"id":"DAM-14","x":7.6,"y":64.6,"confidence":"approx"},
-    {"id":"DAM-15","x":91.8,"y":64.0,"confidence":"approx"},
-    {"id":"DAM-16","x":20.5,"y":74.5,"confidence":"approx"},
-    {"id":"DAM-17","x":47.5,"y":73.3,"confidence":"approx"},
-    {"id":"DAM-18","x":89.2,"y":76.7,"confidence":"approx"},
-    {"id":"DAM-19","x":74.1,"y":80.5,"confidence":"approx"},
-    {"id":"DAM-20","x":27.2,"y":82.6,"confidence":"approx"},
-    {"id":"DAM-21","x":42.0,"y":85.4,"confidence":"approx"},
-    {"id":"DAM-22","x":53.5,"y":86.6,"confidence":"approx"}
+    {"id":"DAM-01","sourceId":491528,"x":66.14,"y":19.32,"confidence":"affine-transfer-review","note":{"en":"Inside the Deployment Tunnels Dam"}},
+    {"id":"DAM-02","sourceId":491531,"x":60.81,"y":31.58,"confidence":"affine-transfer-review","note":{"en":"Inside Pipeline Tower"}},
+    {"id":"DAM-03","sourceId":491532,"x":52.68,"y":49.96,"confidence":"affine-transfer-review"},
+    {"id":"DAM-04","sourceId":491534,"x":57.41,"y":75.63,"confidence":"affine-transfer-review"},
+    {"id":"DAM-05","sourceId":491536,"x":51.47,"y":10.16,"confidence":"affine-transfer-review","note":{"en":"In the tunnels"}},
+    {"id":"DAM-06","sourceId":491560,"x":67.09,"y":77.23,"confidence":"affine-transfer-review"},
+    {"id":"DAM-07","sourceId":491836,"x":39.27,"y":70.67,"confidence":"affine-transfer-review"},
+    {"id":"DAM-08","sourceId":491837,"x":23.56,"y":49.81,"confidence":"affine-transfer-review"},
+    {"id":"DAM-09","sourceId":491846,"x":24.07,"y":38.83,"confidence":"affine-transfer-review"},
+    {"id":"DAM-10","sourceId":491928,"x":35.23,"y":15.81,"confidence":"affine-transfer-review"},
+    {"id":"DAM-11","sourceId":491943,"x":29.04,"y":21.31,"confidence":"affine-transfer-review"},
+    {"id":"DAM-12","sourceId":493388,"x":70.73,"y":22.06,"confidence":"affine-transfer-review"},
+    {"id":"DAM-13","sourceId":493389,"x":58.43,"y":12.12,"confidence":"affine-transfer-review"},
+    {"id":"DAM-14","sourceId":494203,"x":29.22,"y":60.20,"confidence":"affine-transfer-review"},
+    {"id":"DAM-15","sourceId":494205,"x":33.12,"y":67.88,"confidence":"affine-transfer-review"},
+    {"id":"DAM-16","sourceId":494207,"x":45.57,"y":76.76,"confidence":"affine-transfer-review"},
+    {"id":"DAM-17","sourceId":494245,"x":69.41,"y":64.74,"confidence":"affine-transfer-review"},
+    {"id":"DAM-18","sourceId":494625,"x":44.40,"y":62.91,"confidence":"affine-transfer-review"},
+    {"id":"DAM-19","sourceId":494902,"x":72.65,"y":35.42,"confidence":"affine-transfer-review"},
+    {"id":"DAM-20","sourceId":495614,"x":44.71,"y":15.74,"confidence":"affine-transfer-review","note":{"en":"Victory Ridge Spawn"}},
+    {"id":"DAM-21","sourceId":500161,"x":48.92,"y":48.20,"confidence":"affine-transfer-review"}
   ]
 }
