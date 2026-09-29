@@ -1,0 +1,19 @@
+{
+  "name": "ramas-field-tool-android",
+  "version": "13.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "android:web": "node scripts/prepare-android-web.mjs",
+    "android:harden": "node scripts/harden-android.mjs",
+    "android:prepare": "npm run android:web && npx cap sync android && npm run android:harden",
+    "android:doctor": "npx cap doctor"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.2",
+    "@capacitor/core": "8.5.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.2"
+  }
+}
