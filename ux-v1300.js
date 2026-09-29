@@ -1,4 +1,4 @@
-// V13.0.11 — progressive station groups, inline raid goals, and free raid items.
+// V13.0.18 — progressive station groups, inline raid goals, and free raid item progress.
 (()=>{
   function stationActiveCount(goal){
     return (goal.levels||[]).filter(level=>active[key(goal.id,level.level)]).length;
@@ -232,7 +232,9 @@
 
     results.innerHTML=matches.map(item=>{
       const id=String(item?.id||'');
+      const savedEntry=saved[id];
       const isSaved=Object.prototype.hasOwnProperty.call(saved,id);
+      const savedTarget=isSaved?Math.max(1,Math.min(999999,Math.floor(Number(savedEntry?.target)||1))):1;
       const name=freeItemDisplayName(item);
       const type=freeItemType(item);
       return `<article class="raid-free-result" role="listitem" data-free-item-id="${uxEscape(id)}">
@@ -242,11 +244,12 @@
         </div>
         <label class="raid-free-amount">
           <span>${uxEscape(c.amount)}</span>
-          <input type="number" min="1" max="999999" step="1" inputmode="numeric" value="1" ${isSaved?'disabled':''}>
+          <input type="number" min="1" max="999999" step="1" inputmode="numeric" value="${savedTarget}" ${isSaved?'disabled':''}>
         </label>
         <button type="button"
           data-free-item-add
           data-next-raid-add
+          data-raid-personal="true"
           data-item-id="${uxEscape(id)}"
           data-quantity="1"
           ${isSaved?'disabled':''}>${uxEscape(isSaved?c.saved:c.add)}</button>
