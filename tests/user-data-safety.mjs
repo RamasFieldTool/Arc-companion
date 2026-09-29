@@ -24,7 +24,7 @@ const seed={
   arcLang:'en',arcTheme:'dark',arcPaletteSurface:'black',arcPaletteAccent:'cyan',
   arcOwned:JSON.stringify({[firstItem.id]:42}),arcActiveGoals:JSON.stringify({[firstGoalKey]:true}),
   arcQuestStatus:JSON.stringify({quality_gate_user_data:'done'}),arc_blueprints_learned_v1:JSON.stringify([firstBlueprint.id]),
-  arcNextRaid:JSON.stringify({[firstItem.id]:{target:3,done:false}}),arcEventRegion:'europe',arcEventLead:'15',
+  arcNextRaid:JSON.stringify({[firstItem.id]:{target:10,done:false,personal:true,found:5}}),arcEventRegion:'europe',arcEventLead:'15',
   arcEventReminders:JSON.stringify([{key:'quality-gate-reminder',start:reminderStart,end:reminderEnd,name:'Quality Gate',map:'Blue Gate',lead:15,notified:false}])
 };
 
@@ -91,17 +91,19 @@ try{
   const downloadPromise=page.waitForEvent('download');await page.locator('#backupExport').click();
   const download=await downloadPromise,backupPath=join(temp,'roundtrip.json');await download.saveAs(backupPath);
   const backup=JSON.parse(await readFile(backupPath,'utf8'));
-  if(backup.schema!=='ramas-field-tool-backup'||backup.formatVersion!==1||!backup.appVersion.includes('13.0.17'))throw new Error('Export metadata invalid');
+  if(backup.schema!=='ramas-field-tool-backup'||backup.formatVersion!==1||!backup.appVersion.includes('13.0.18'))throw new Error('Export metadata invalid');
   for(const key of trackedKeys)equal(backup.data[key],initial[key],`Export mismatch for ${key}`);
   await page.evaluate(()=>localStorage.clear());await importBackup(page,backupPath);
   equal(await snapshot(page),initial,'Backup round trip did not restore tracked data');
-  console.log('PASS backup export/import round trip restores tracked progress');
+  console.log('PASS backup export/import round trip restores personal raid progress');
 
-  const old={...backup,appVersion:'V12.9.0',exportedAt:'2026-01-01T00:00:00.000Z',data:{...backup.data,arcOwned:{[firstItem.id]:7}}};
+  const legacyRaid={[firstItem.id]:{target:3,done:false}};
+  const old={...backup,appVersion:'V12.9.0',exportedAt:'2026-01-01T00:00:00.000Z',data:{...backup.data,arcOwned:{[firstItem.id]:7},arcNextRaid:legacyRaid}};
   const oldPath=join(temp,'older-version.json');await writeFile(oldPath,JSON.stringify(old));
   await openBackup(page);await importBackup(page,oldPath);
   equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcOwned')||'{}')),old.data.arcOwned,'Older app-version backup was not restored');
-  console.log('PASS older appVersion backup remains compatible when formatVersion is supported');
+  equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcNextRaid')||'{}')),legacyRaid,'Legacy raid entry was not restored');
+  console.log('PASS legacy {target, done} raid backups remain compatible');
 
   const beforeReject=await snapshot(page);await openBackup(page);
   await page.locator('#backupFile').setInputFiles({name:'broken.json',mimeType:'application/json',buffer:Buffer.from('{ broken')});
