@@ -1,4 +1,4 @@
-// V13.0.9 test — next-raid checklist + post-raid findings workflow.
+// V13.0.18 test — next-raid checklist + personal progress + post-raid findings workflow.
 (()=>{
   const drawer=document.getElementById('nextRaidDrawer');
   const list=document.getElementById('nextRaidList');
@@ -13,7 +13,7 @@
   if(!document.querySelector('link[data-next-raid-post-style]')){
     const stylesheet=document.createElement('link');
     stylesheet.rel='stylesheet';
-    stylesheet.href='next-raid-post-v1308.css?v=1309';
+    stylesheet.href='next-raid-post-v1308.css?v=1318';
     stylesheet.dataset.nextRaidPostStyle='';
     document.head.append(stylesheet);
   }
@@ -29,7 +29,7 @@
       quantity:'MENGE',add:'＋ NÄCHSTER RAID',saved:'✓ GEMERKT',empty:'Noch ist nichts auf deiner Raid-Liste.',
       remove:'Item entfernen',removeDone:'ERLEDIGTE ENTFERNEN',clear:'LISTE LEEREN',closeList:'RAID-LISTE SCHLIESSEN',
       clearConfirm:'Die komplette Raid-Liste wirklich leeren?',
-      raidFinished:'RAID BEENDET',postTitle:'FUNDE EINTRAGEN',postIntro:'Trage nur relevante Funde ein. Angezeigt werden ausschließlich Items, die für deine aktuell aktiven Ziele noch fehlen.',
+      raidFinished:'RAID BEENDET',postTitle:'FUNDE EINTRAGEN',
       needed:'fehlen',owned:'vorhanden',found:'GEFUNDEN',minus:'Menge verringern',plus:'Menge erhöhen',
       applyFinds:'FUNDE ÜBERNEHMEN',nothingFound:'NICHTS RELEVANTES GEFUNDEN',cancelFinds:'ABBRECHEN',
       noNeeds:'Für deine aktiven Ziele fehlt aktuell kein Item.',noAmounts:'Noch keine Fundmenge eingetragen.',
@@ -44,7 +44,7 @@
       quantity:'AMOUNT',add:'＋ NEXT RAID',saved:'✓ SAVED',empty:'Your raid checklist is still empty.',
       remove:'Remove item',removeDone:'REMOVE COMPLETED',clear:'CLEAR LIST',closeList:'CLOSE RAID LIST',
       clearConfirm:'Clear the entire raid checklist?',
-      raidFinished:'RAID FINISHED',postTitle:'LOG FINDINGS',postIntro:'Enter only relevant finds. This shows only items still missing for your currently active goals.',
+      raidFinished:'RAID FINISHED',postTitle:'LOG FINDINGS',
       needed:'missing',owned:'owned',found:'FOUND',minus:'Decrease amount',plus:'Increase amount',
       applyFinds:'APPLY FINDINGS',nothingFound:'NO RELEVANT FINDS',cancelFinds:'CANCEL',
       noNeeds:'No items are currently missing for your active goals.',noAmounts:'No found amount entered yet.',
@@ -84,16 +84,23 @@
     if(stored&&typeof stored==='object'&&!Array.isArray(stored)){
       Object.entries(stored).forEach(([id,entry])=>{
         if(!id||!entry||typeof entry!=='object')return;
-        const done=entry.done===true;
-        raid[id]={target:done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)),done};
+        const personal=entry.personal===true;
+        const target=personal?Math.max(1,toCount(entry.target,1)):(entry.done===true?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)));
+        if(personal){
+          const found=Math.min(target,toCount(entry.found,0));
+          raid[id]={target,done:entry.done===true||found>=target,personal:true,found};
+        }else{
+          raid[id]={target,done:entry.done===true};
+        }
       });
     }
   }catch{raid=Object.create(null)}
 
   const entries=()=>Object.entries(raid).filter(([,entry])=>entry&&typeof entry==='object');
 
-  function sourceLabel(id){
+  function sourceLabel(id,entry){
     const c=copy();
+    if(entry?.personal===true)return c.own;
     const reasons=currentRequirements()?.[id]?.reasons||[];
     if(!reasons.length)return c.own;
     const questPrefix=typeof tr==='function'?`${tr('questReason')} –`:'';
@@ -124,6 +131,13 @@
     action.textContent=drawer.open?c.close:c.open;
   }
 
+  function personalProgress(entry){
+    if(entry?.personal!==true)return null;
+    const target=Math.max(1,toCount(entry.target,1));
+    const found=Math.min(target,toCount(entry.found,0));
+    return {target,found,remaining:Math.max(0,target-found)};
+  }
+
   function render(){
     const c=copy();
     const all=entries().sort(([idA,a],[idB,b])=>{
@@ -136,35 +150,40 @@
     closeButton.textContent=c.closeList;
     actions.hidden=!all.length;
     removeDoneButton.disabled=!all.some(([,entry])=>entry.done);
-    if(postRaidButton)postRaidButton.hidden=!(all.length||missingRequirementRows().length);
+    if(postRaidButton)postRaidButton.hidden=!(all.length||postRaidRows().length);
 
     if(!all.length){
       list.innerHTML=`<div class="next-raid-empty">${escapeHtml(c.empty)}</div>`;
-      if(!missingRequirementRows().length)closePostRaid();
+      if(!postRaidRows().length)closePostRaid();
       refreshAddButtons();
       return;
     }
 
     list.innerHTML=all.map(([id,entry])=>{
       const safeId=escapeHtml(id);
-      const target=entry.done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1));
+      const personal=personalProgress(entry);
+      const target=personal?personal.target:(entry.done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)));
       const name=displayName(id);
+      const progress=personal?`<small class="next-raid-progress"><span>${personal.found} / ${personal.target}</span> <span>${escapeHtml(c.found)}</span> · <span>${personal.remaining}</span> <span>${escapeHtml(c.openState)}</span></small>`:'';
       return `<article class="next-raid-item${entry.done?' is-done':''}" data-raid-id="${safeId}">
         <label class="next-raid-check">
           <input type="checkbox" data-raid-action="done" data-id="${safeId}" ${entry.done?'checked':''} aria-label="${escapeHtml(c.done)}: ${escapeHtml(name)}">
           <span aria-hidden="true">✓</span>
         </label>
-        <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id))} · ${entry.done?c.doneState:c.openState}</small></div>
-        <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="${entry.done?'0':'1'}" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
+        <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id,entry))} · ${entry.done?c.doneState:c.openState}</small>${progress}</div>
+        <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="${personal?'1':entry.done?'0':'1'}" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
         <button class="next-raid-remove" type="button" data-raid-action="remove" data-id="${safeId}" aria-label="${escapeHtml(c.remove)}: ${escapeHtml(name)}">×</button>
       </article>`;
     }).join('');
     refreshAddButtons();
   }
 
-  function addItem(id,quantity){
+  function addItem(id,quantity,personal=false){
     if(!id)return;
-    if(!hasOwn(raid,id))raid[id]={target:Math.max(1,toCount(quantity,1)),done:false};
+    if(!hasOwn(raid,id)){
+      const target=Math.max(1,toCount(quantity,1));
+      raid[id]=personal?{target,done:false,personal:true,found:0}:{target,done:false};
+    }
     save();render();
   }
 
@@ -193,7 +212,7 @@
       if(card.querySelector('[data-next-raid-add]'))return;
       const button=document.createElement('button');
       button.type='button';button.className='next-raid-add';button.dataset.nextRaidAdd='';
-      button.dataset.itemId=card.dataset.itemId;button.dataset.quantity='1';
+      button.dataset.itemId=card.dataset.itemId;button.dataset.quantity='1';button.dataset.raidPersonal='true';
       card.append(button);
     });
     refreshAddButtons();
@@ -235,7 +254,23 @@
       const total=toCount(info?.total,0);
       const have=currentOwned(id);
       return {id,total,have,missing:Math.max(0,total-have),reasons:Array.isArray(info?.reasons)?info.reasons:[]};
-    }).filter(row=>row.missing>0).sort((a,b)=>displayName(a.id).localeCompare(displayName(b.id),language()==='de'?'de':'en'));
+    }).filter(row=>row.missing>0);
+  }
+
+  function postRaidRows(){
+    const rows=new Map();
+    missingRequirementRows().forEach(row=>rows.set(row.id,{...row,personal:false,personalTarget:0,personalFound:0,personalMissing:0}));
+    entries().forEach(([id,entry])=>{
+      const progress=personalProgress(entry);
+      if(!progress||entry.done||progress.remaining<=0)return;
+      const row=rows.get(id)||{id,total:0,have:currentOwned(id),missing:0,reasons:[]};
+      row.personal=true;
+      row.personalTarget=progress.target;
+      row.personalFound=progress.found;
+      row.personalMissing=progress.remaining;
+      rows.set(id,row);
+    });
+    return [...rows.values()].sort((a,b)=>displayName(a.id).localeCompare(displayName(b.id),language()==='de'?'de':'en'));
   }
 
   function capturePendingFinds(){
@@ -244,18 +279,29 @@
     return pending;
   }
 
+  function postRowMeta(row,c){
+    const parts=[];
+    if(row.personal){
+      parts.push(`<span>${escapeHtml(c.own)}</span> · <span>${row.personalFound} / ${row.personalTarget}</span> <span>${escapeHtml(c.found)}</span> · <span>${row.personalMissing}</span> <span>${escapeHtml(c.openState)}</span>`);
+    }
+    if(row.missing>0){
+      parts.push(`<span>${escapeHtml(c.needed)}</span> <span>${row.missing}</span> · <span>${escapeHtml(c.owned)}</span> <span>${row.have}</span>`);
+    }
+    return parts.join(' · ');
+  }
+
   function renderPostRaid(resetAmounts=false){
     const c=copy();
     const pending=resetAmounts?Object.create(null):capturePendingFinds();
     postRaidButton.textContent=c.raidFinished;
     postRaidPanel.querySelector('#nextRaidPostTitle').textContent=c.postTitle;
-    postRaidPanel.querySelector('#nextRaidPostIntro').textContent=c.postIntro;
+    postRaidPanel.querySelector('#nextRaidPostIntro').innerHTML=`<span>${escapeHtml(c.own)}</span> · <span>${escapeHtml(c.workshop)}</span> · <span>${escapeHtml(c.quest)}</span>`;
     applyFindsButton.textContent=c.applyFinds;
     nothingFoundButton.textContent=c.nothingFound;
     cancelPostButton.textContent=c.cancelFinds;
     cancelPostTopButton.setAttribute('aria-label',c.cancelFinds);
 
-    const rows=missingRequirementRows();
+    const rows=postRaidRows();
     if(!rows.length){
       postRaidList.innerHTML=`<div class="next-raid-post-empty">${escapeHtml(c.noNeeds)}</div>`;
       applyFindsButton.disabled=true;
@@ -268,7 +314,7 @@
       const id=escapeHtml(row.id);
       const name=escapeHtml(displayName(row.id));
       return `<article class="next-raid-found-row" data-found-id="${id}">
-        <div class="next-raid-found-copy"><strong>${name}</strong><small>${escapeHtml(c.needed)} ${row.missing} · ${escapeHtml(c.owned)} ${row.have}</small></div>
+        <div class="next-raid-found-copy"><strong>${name}</strong><small>${postRowMeta(row,c)}</small></div>
         <div class="next-raid-found-control" role="group" aria-label="${escapeHtml(c.found)}: ${name}">
           <button type="button" data-found-step="-1" data-id="${id}" aria-label="${escapeHtml(c.minus)}: ${name}">−</button>
           <label><span>${escapeHtml(c.found)}</span><input type="number" min="0" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${hasOwn(pending,row.id)?pending[row.id]:0}" data-found-input data-id="${id}" aria-label="${escapeHtml(c.found)}: ${name}"></label>
@@ -297,8 +343,15 @@
   function syncRaidAfterFindings(updates){
     const req=currentRequirements();
     updates.forEach(({id,count})=>{
-      if(!hasOwn(raid,id)||!req[id])return;
+      if(!hasOwn(raid,id))return;
       const entry=raid[id];
+      if(entry.personal===true){
+        const target=Math.max(1,toCount(entry.target,1));
+        entry.found=Math.min(target,toCount(toCount(entry.found,0)+count,0));
+        if(entry.found>=target)entry.done=true;
+        return;
+      }
+      if(!req[id])return;
       const remaining=Math.max(0,toCount(req[id].total,0)-currentOwned(id));
       if(remaining===0){entry.target=0;entry.done=true;return}
       if(entry.done)return;
@@ -312,10 +365,13 @@
   function applyFindings(){
     const c=copy();
     const inputs=[...postRaidList.querySelectorAll('[data-found-input]')];
-    const beforeRows=new Map(missingRequirementRows().map(row=>[row.id,row]));
+    const beforeRows=new Map(postRaidRows().map(row=>[row.id,row]));
     const updates=inputs.map(input=>({id:input.dataset.id,count:toCount(input.value,0)})).filter(update=>update.count>0);
     if(!updates.length){setPostStatus(c.noAmounts,'warn');return}
-    const hasSurplus=updates.some(({id,count})=>count>(beforeRows.get(id)?.missing||0));
+    const hasSurplus=updates.some(({id,count})=>{
+      const row=beforeRows.get(id);
+      return count>Math.max(row?.missing||0,row?.personalMissing||0);
+    });
 
     try{
       if(typeof owned!=='undefined'&&owned&&typeof owned==='object'){
@@ -338,7 +394,7 @@
       return;
     }
 
-    const previousRaid=Object.fromEntries(entries().map(([id,entry])=>[id,{target:entry.target,done:entry.done}]));
+    const previousRaid=Object.fromEntries(entries().map(([id,entry])=>[id,{...entry}]));
     syncRaidAfterFindings(updates);
     const raidSaved=save();
     if(!raidSaved){
@@ -362,7 +418,7 @@
 
   document.addEventListener('click',event=>{
     const addButton=event.target.closest('[data-next-raid-add]');
-    if(addButton){addItem(addButton.dataset.itemId,addButton.dataset.quantity);return}
+    if(addButton){addItem(addButton.dataset.itemId,addButton.dataset.quantity,addButton.dataset.raidPersonal==='true');return}
     const control=event.target.closest('[data-raid-action]');
     if(!control||!hasOwn(raid,control.dataset.id))return;
     if(control.dataset.raidAction==='remove'){
@@ -372,13 +428,22 @@
   list.addEventListener('change',event=>{
     const control=event.target.closest('[data-raid-action]');
     if(!control||!hasOwn(raid,control.dataset.id))return;
+    const entry=raid[control.dataset.id];
     if(control.dataset.raidAction==='done'){
-      raid[control.dataset.id].done=control.checked;
-      if(!control.checked)raid[control.dataset.id].target=Math.max(1,toCount(raid[control.dataset.id].target,1));
+      entry.done=control.checked;
+      if(!control.checked&&entry.personal!==true)entry.target=Math.max(1,toCount(entry.target,1));
     }
     if(control.dataset.raidAction==='target'){
-      const target=Math.max(control.closest('.next-raid-item')?.classList.contains('is-done')?0:1,toCount(control.value,1));
-      raid[control.dataset.id].target=target;control.value=String(target);
+      if(entry.personal===true){
+        const target=Math.max(1,toCount(control.value,1));
+        entry.target=target;
+        entry.found=Math.min(target,toCount(entry.found,0));
+        entry.done=entry.found>=target;
+        control.value=String(target);
+      }else{
+        const target=Math.max(control.closest('.next-raid-item')?.classList.contains('is-done')?0:1,toCount(control.value,1));
+        entry.target=target;control.value=String(target);
+      }
     }
     save();render();
   });
