@@ -55,7 +55,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.deepEqual(await cards.locator('a').evaluateAll(a=>a.map(x=>x.href)),expected);
   assert.deepEqual(await cards.locator('a').allTextContents(),[labels[language],labels[language],labels[language],labels[language]]);
   await page.waitForFunction(()=>[...document.querySelectorAll('.radio-song img')].every(i=>i.complete&&i.naturalWidth>0));
-  assert.deepEqual(await cards.locator('img').evaluateAll(a=>a.map(x=>x.dataset.coverSource)),['assets/music/ugly-cover.png','assets/music/the-arcs-are-the-enemy-cover.png','assets/music/loot-and-shoot-cover.png','assets/music/what-was-it-for-cover-fix.b64']);
+  assert.deepEqual(await cards.locator('img').evaluateAll(a=>a.map(x=>x.dataset.coverSource)),['assets/music/ugly-cover.png','assets/music/the-arcs-are-the-enemy-cover.png','assets/music/loot-and-shoot-cover.png','assets/music/what-was-it-for-cover']);
   assert.ok((await cards.locator('img').nth(3).getAttribute('src')).startsWith('data:image/webp;base64,'));
   const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('.radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio audio,#raiderRadio iframe').length}));
   assert.ok(metrics.overflow<=4,JSON.stringify(metrics));assert.equal(metrics.cardOverflow,false);assert.equal(metrics.download,0);
