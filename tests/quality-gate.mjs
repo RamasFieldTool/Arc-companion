@@ -114,7 +114,7 @@ async function runScenario(browser,{name,mode,expectedState,interactive=false,mo
   await waitForState(page,expectedState);
 
   const version=(await page.locator('#dataStatusDock [data-app-version]').innerText()).trim();
-  if(version!=='V13.0.19') throw new Error(`${name}: expected V13.0.19, got ${version}`);
+  if(version!=='V13.0.20') throw new Error(`${name}: expected V13.0.20, got ${version}`);
 
   if(mobile){
     const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
