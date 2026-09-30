@@ -26,6 +26,16 @@ async function installRoutes(page){
   await page.route(questUrl,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(quest)}));
 }
 
+async function assertSummary(page,{total,owned,missing}){
+  const row=page.locator(`#summary [data-item-id="${item.id}"]`);
+  await row.waitFor({state:'attached'});
+  await page.waitForFunction(({id,missing})=>document.querySelector(`#summary [data-item-id="${CSS.escape(id)}"]`)?.dataset.missing===String(missing),{id:item.id,missing});
+  const numbers=await row.locator('.summary-numbers b').allTextContents();
+  if(numbers[0]!==String(total)||numbers[1]!==String(owned))throw new Error(`Summary mismatch: expected total ${total}, owned ${owned}; got ${numbers.join(' / ')}`);
+  const usage=await row.locator('.summary-usage').innerText();
+  if(!usage.includes(`Personal need: ${total}`))throw new Error(`Personal requirement reason missing or unclear: ${usage}`);
+}
+
 const browser=await chromium.launch({headless:true});
 try{
   const context=await browser.newContext({viewport:{width:412,height:915},screen:{width:412,height:915},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 16; RamasFieldToolRaidProgressTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36'});
@@ -67,6 +77,9 @@ try{
   },item.id);
   console.log('PASS saved free-item picker keeps the planned amount visible');
 
+  await assertSummary(page,{total:10,owned:0,missing:10});
+  console.log('PASS personal raid target appears in total requirements');
+
   const raidRow=page.locator(`.next-raid-item[data-raid-id="${item.id}"]`);
   await raidRow.waitFor({state:'visible'});
   if(!(await raidRow.locator('.next-raid-progress').innerText()).includes('0 / 10'))throw new Error('Initial personal progress is not 0 / 10');
@@ -84,7 +97,8 @@ try{
   },item.id);
   const halfway=await raidRow.locator('.next-raid-progress').innerText();
   if(!halfway.includes('5 / 10')||!halfway.includes('5 OPEN'))throw new Error(`Halfway progress is unclear: ${halfway}`);
-  console.log('PASS 10 planned -> 5 found -> 5 open, with owned inventory updated once');
+  await assertSummary(page,{total:10,owned:5,missing:5});
+  console.log('PASS 10 planned -> 5 found -> 5 open, with total requirements synchronized');
 
   const secondFound=page.locator(`.next-raid-found-row[data-found-id="${item.id}"] [data-found-input]`);
   await secondFound.fill('5');
@@ -94,7 +108,8 @@ try{
     const owned=JSON.parse(localStorage.getItem('arcOwned')||'{}');
     return raid[id]?.target===10&&raid[id]?.found===10&&raid[id]?.done===true&&owned[id]===10;
   },item.id);
-  console.log('PASS personal raid target completes at 10 / 10');
+  await assertSummary(page,{total:10,owned:10,missing:0});
+  console.log('PASS personal raid target completes at 10 / 10 and total requirements is complete');
 
   if(pageErrors.length)throw new Error(`Uncaught browser errors: ${pageErrors.join(' | ')}`);
   await context.close();
