@@ -1,0 +1,27 @@
+/* Scoped to Raider Radio: existing launcher base, amber icon/header accents. */
+body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"]{
+  --tile-fill:#e7bd59;--tile-ink:#995000;
+  --tile-art:linear-gradient(135deg,#fff7e8,#f4efe6);
+}
+html:is([data-surface="dark"],[data-surface="black"]) body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"]{
+  --tile-ink:#ffc46b;--tile-art:linear-gradient(135deg,#302b24,#20211f);
+}
+body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"] .app-icon,
+body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"] .app-icon svg{
+  color:var(--tile-ink)!important;
+}
+#raiderRadio{scroll-margin-top:78px;padding:20px;box-sizing:border-box}
+.radio-about{margin:0 0 20px;padding:16px;border:1px solid var(--ui-line);border-left:4px solid #995000;border-radius:14px;background:var(--ui-panel-2)}
+#raiderRadio .radio-about h3{margin:0 0 8px;color:#995000!important;font-size:17px;line-height:1.35}
+.radio-about p{margin:8px 0 0;color:var(--ui-muted);font-size:14px;line-height:1.55}
+html:is([data-surface="dark"],[data-surface="black"]) .radio-about{border-left-color:#ffc46b}
+html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about h3{color:#ffc46b!important}
+.radio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.radio-song{min-width:0;border:1px solid var(--ui-line);border-radius:18px;overflow:hidden;background:var(--ui-panel);display:flex;flex-direction:column}
+.radio-song img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+#raiderRadio .radio-song h3{margin:16px;color:var(--ui-text)!important;font-size:20px;line-height:1.35;overflow-wrap:anywhere}
+.radio-listen{display:block;margin:auto 16px 16px;padding:12px;border:1px solid currentColor;border-radius:12px;color:#995000!important;text-decoration:none;font-weight:700;line-height:1.4;text-align:center;overflow-wrap:anywhere}
+html:is([data-surface="dark"],[data-surface="black"]) .radio-listen{color:#ffc46b!important}
+.radio-listen:hover{text-decoration:underline}
+.radio-listen:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+@media(max-width:380px){#raiderRadio{padding:14px}.radio-about{padding:14px;margin-bottom:14px}.radio-grid{gap:14px}}
