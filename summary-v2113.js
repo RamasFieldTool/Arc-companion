@@ -21,6 +21,12 @@
     es:{label:'Ordenar por',alphabetical:'Alfabético',missing:'Cantidad faltante'}
   };
   const personalReasonLabels={de:'Eigener Bedarf',en:'Personal need',fr:'Besoin personnel',es:'Necesidad personal'};
+  const ownedStepLabels={
+    de:{decrease:'Vorhanden verringern',increase:'Vorhanden erhöhen'},
+    en:{decrease:'Decrease owned',increase:'Increase owned'},
+    fr:{decrease:'Diminuer le stock',increase:'Augmenter le stock'},
+    es:{decrease:'Reducir existencias',increase:'Aumentar existencias'}
+  };
   let summarySort='alphabetical';
 
   function nonItemCosts(){
@@ -111,6 +117,7 @@
     const materialSummary=rows.length
       ? `<div class="summary-overview"><strong>${rows.length}</strong><span>${T[lang].summaryTypes}</span><i></i><strong>${complete}</strong><span>${T[lang].summaryComplete}</span></div>`
       : '';
+    const stepLabels=ownedStepLabels[uiLanguage()]||ownedStepLabels.en;
 
     const materialRows=rows.map(x=>`
       <article class="sumrow summary-item ${x.missing===0?'is-complete':'is-missing'}" data-item-id="${x.id}" data-missing="${x.missing}">
@@ -119,7 +126,7 @@
           <div class="summary-numbers"><span>${tr('total')} <b>${formatNum(x.r.total)}</b></span><span>${tr('owned')} <b>${formatNum(x.have)}</b></span></div>
           ${usageDetails(x.r.reasons)}
         </div>
-        <label class="summary-owned"><span>${T[lang].summaryOwnedLabel}</span><input class="qty" type="number" min="0" inputmode="numeric" value="${x.have}" data-id="${x.id}" aria-label="${tr('owned')} ${x.name}"></label>
+        <label class="summary-owned"><span>${T[lang].summaryOwnedLabel}</span><span class="summary-owned-controls"><button class="summary-owned-step" type="button" data-id="${x.id}" data-step="-1" aria-label="${stepLabels.decrease}: ${x.name}">−</button><input class="qty" type="number" min="0" step="1" inputmode="numeric" value="${x.have}" data-id="${x.id}" aria-label="${tr('owned')} ${x.name}"><button class="summary-owned-step" type="button" data-id="${x.id}" data-step="1" aria-label="${stepLabels.increase}: ${x.name}">+</button></span></label>
       </article>`).join('');
 
     const extraRows=extras.length?`
@@ -134,6 +141,16 @@
       drawSummary();
     });
     summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('change',e=>saveOwned(e.target.dataset.id,e.target.value)));
+    summaryEl.querySelectorAll('.summary-owned-step').forEach(button=>button.addEventListener('click',event=>{
+      const control=event.currentTarget;
+      const input=control.parentElement?.querySelector('.qty');
+      if(!input)return;
+      const delta=Number(control.dataset.step)||0;
+      const current=Math.max(0,Math.floor(Number(input.value)||0));
+      const next=Math.max(0,current+delta);
+      input.value=String(next);
+      saveOwned(control.dataset.id,next);
+    }));
   };
 
   let refreshTimer=0;
