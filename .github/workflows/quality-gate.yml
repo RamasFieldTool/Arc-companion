@@ -23,7 +23,7 @@ jobs:
           node-version: '20'
       - name: Validate JSON, assets, cache-busters, backup guards and version
         env:
-          EXPECTED_APP_VERSION: '13.0.21'
+          EXPECTED_APP_VERSION: '13.0.22'
         run: node tests/data-integrity.mjs
 
   browser-smoke:
@@ -56,6 +56,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/logo-home.mjs
+      - name: Run F-43 navigation cleanup regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/navigation-cleanup.mjs
       - name: Run personal raid progress regression
         env:
           BASE_URL: http://127.0.0.1:4173/
