@@ -44,6 +44,7 @@ for(const path of new Set(localAssets)){
   try{await access(new URL(path,root),constants.F_OK)}catch{fail(`index.html references missing local asset: ${path}`)}
 }
 
+// Mutable browser assets must carry an explicit cache-buster so Android/WebView clients do not keep stale JS/CSS forever.
 const mutableRefs=localAssetRefs.filter(path=>/\.(?:js|css)(?:\?|$)/i.test(path));
 const unversionedMutable=mutableRefs.filter(path=>!/[?&]v=[^&#]+/.test(path));
 if(unversionedMutable.length)fail(`Mutable local assets missing ?v= cache-buster: ${unversionedMutable.join(', ')}`);
