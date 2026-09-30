@@ -13,7 +13,7 @@
 .summary-owned{display:grid;gap:3px;justify-items:end}
 .summary-owned>span:first-child{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ui-muted)}
 .summary-owned-controls{display:grid;grid-template-columns:44px 56px 44px;gap:4px;align-items:center}
-.summary-owned-step{width:44px;min-width:44px;min-height:44px;padding:0;font-size:22px;line-height:1;touch-action:manipulation}
+.summary-owned-step{width:44px;min-width:44px;min-height:44px;padding:0;display:grid;place-items:center;font-size:24px;font-weight:800;line-height:1;color:var(--ui-text,#f3f5f7)!important;-webkit-text-fill-color:currentColor;opacity:1;touch-action:manipulation}
 .summary-owned .qty{width:56px;min-height:44px;font-size:16px;text-align:center;appearance:textfield;-moz-appearance:textfield}
 .summary-owned .qty::-webkit-inner-spin-button,.summary-owned .qty::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .summary-usage{margin-top:6px;border-top:1px dashed var(--ui-line);padding-top:5px}
