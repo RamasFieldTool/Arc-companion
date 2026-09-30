@@ -136,17 +136,18 @@
     summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('change',e=>saveOwned(e.target.dataset.id,e.target.value)));
   };
 
-  let refreshQueued=false;
+  let refreshTimer=0;
   function scheduleSummaryRefresh(){
-    if(refreshQueued)return;
-    refreshQueued=true;
-    queueMicrotask(()=>{
-      refreshQueued=false;
-      drawSummary();
-    });
+    clearTimeout(refreshTimer);
+    refreshTimer=setTimeout(()=>drawSummary(),0);
   }
-  const raidList=document.getElementById('nextRaidList');
-  if(raidList)new MutationObserver(scheduleSummaryRefresh).observe(raidList,{childList:true,subtree:true,characterData:true});
+  const raidMutationSelectors='[data-free-item-add],[data-next-raid-add],[data-raid-action],#nextRaidRemoveDone,#nextRaidClear,#nextRaidApplyFinds';
+  document.addEventListener('click',event=>{
+    if(event.target.closest?.(raidMutationSelectors))scheduleSummaryRefresh();
+  });
+  document.addEventListener('change',event=>{
+    if(event.target.closest?.('[data-raid-action="target"],[data-raid-action="done"]'))scheduleSummaryRefresh();
+  });
   window.addEventListener('storage',event=>{
     if(event.key==='arcNextRaid'||event.key==='arcOwned')scheduleSummaryRefresh();
   });
