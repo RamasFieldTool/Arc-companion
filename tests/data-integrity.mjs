@@ -44,7 +44,6 @@ for(const path of new Set(localAssets)){
   try{await access(new URL(path,root),constants.F_OK)}catch{fail(`index.html references missing local asset: ${path}`)}
 }
 
-// Mutable browser assets must carry an explicit cache-buster so Android/WebView clients do not keep stale JS/CSS forever.
 const mutableRefs=localAssetRefs.filter(path=>/\.(?:js|css)(?:\?|$)/i.test(path));
 const unversionedMutable=mutableRefs.filter(path=>!/[?&]v=[^&#]+/.test(path));
 if(unversionedMutable.length)fail(`Mutable local assets missing ?v= cache-buster: ${unversionedMutable.join(', ')}`);
@@ -60,7 +59,7 @@ const statusPos=index.indexOf('status-v1300.js');
 if(catalogPos<0||appPos<0||statusPos<0) fail('Required catalog/app/status scripts are not all referenced by index.html');
 if(!(catalogPos<appPos&&appPos<statusPos)) fail('Script order must be catalog-resilience -> app.js -> status-v1300.js');
 
-const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.21';
+const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.22';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
@@ -100,6 +99,13 @@ for(const marker of ['personalProgress','postRaidRows',"entry.personal===true","
 const summaryScript=await read('summary-v2113.js');
 for(const marker of ['personalRaidRequirements','combinedRequirementMap','personalReasonLabels','summary-owned-step','ownedStepLabels']){
   if(!summaryScript.includes(marker))fail(`Total-requirements safety marker missing: ${marker}`);
+}
+
+const navScript=await read('sticky-list-headers-v2133.js');
+const navCss=await read('sticky-list-headers-v2133.css');
+if(navScript.includes('floating-list-close'))fail('F-43 regression: floating list close control was reintroduced');
+for(const marker of ['#supplySection','#itemsSection']){
+  if(!navCss.includes(marker))fail(`F-43 sticky local-collapse marker missing: ${marker}`);
 }
 
 const snapshotWorkflow=await read('.github/workflows/catalog-snapshot.yml');
