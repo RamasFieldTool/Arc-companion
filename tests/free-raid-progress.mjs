@@ -27,9 +27,9 @@ async function installRoutes(page){
 }
 
 async function assertSummary(page,{total,owned,missing,personal}){
-  const row=page.locator(`#summary [data-item-id="${item.id}"]`);
+  const row=page.locator(`#summary article.summary-item[data-item-id="${item.id}"]`);
   await row.waitFor({state:'attached'});
-  await page.waitForFunction(({id,missing})=>document.querySelector(`#summary [data-item-id="${CSS.escape(id)}"]`)?.dataset.missing===String(missing),{id:item.id,missing});
+  await page.waitForFunction(({id,missing})=>document.querySelector(`#summary article.summary-item[data-item-id="${CSS.escape(id)}"]`)?.dataset.missing===String(missing),{id:item.id,missing});
   const numbers=await row.locator('.summary-numbers b').allTextContents();
   if(numbers[0]!==String(total)||numbers[1]!==String(owned))throw new Error(`Summary mismatch: expected total ${total}, owned ${owned}; got ${numbers.join(' / ')}`);
   const usage=await row.locator('.summary-usage').innerText();
@@ -54,7 +54,7 @@ try{
   await installRoutes(page);
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});
-  await page.waitForFunction(id=>document.querySelector(`#summary [data-item-id="${CSS.escape(id)}"]`)?.dataset.missing==='3',item.id);
+  await page.waitForFunction(id=>document.querySelector(`#summary article.summary-item[data-item-id="${CSS.escape(id)}"]`)?.dataset.missing==='3',item.id);
 
   await page.locator('[data-app-target="nextRaidDrawer"]').click();
   await page.locator('#nextRaidFreeItems').waitFor({state:'visible'});
