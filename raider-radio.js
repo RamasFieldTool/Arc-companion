@@ -3,7 +3,8 @@
   const songs=[
     {id:'ugly',title:'Ugly',cover:'assets/music/ugly-cover.png',sunoUrl:'https://suno.com/s/vbkPccvrI66ij4gJ'},
     {id:'the-arcs-are-the-enemy',title:'The ARCs Are the Enemy',cover:'assets/music/the-arcs-are-the-enemy-cover.png',sunoUrl:'https://suno.com/s/trsx9nLKROxaw5fW'},
-    {id:'loot-and-shoot',title:'Loot&Shoot',cover:'assets/music/loot-and-shoot-cover.png',sunoUrl:'https://suno.com/s/vkAaYpLp5LkJyuVz'}
+    {id:'loot-and-shoot',title:'Loot&Shoot',cover:'assets/music/loot-and-shoot-cover.png',sunoUrl:'https://suno.com/s/vkAaYpLp5LkJyuVz'},
+    {id:'what-was-it-for',title:'What Was It For?',cover:'assets/music/what-was-it-for-cover.webp',sunoUrl:'https://suno.com/s/xqxasdeSvRKfs74o'}
   ];
   const section=document.getElementById('raiderRadio');
   const grid=document.getElementById('raiderRadioSongs');

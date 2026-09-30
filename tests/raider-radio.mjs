@@ -25,7 +25,7 @@ async function installRoutes(page){
 
 const browser=await chromium.launch({headless:true});
 await mkdir(new URL('../test-artifacts/radio/',import.meta.url),{recursive:true});
-const expected=['https://suno.com/s/vbkPccvrI66ij4gJ','https://suno.com/s/trsx9nLKROxaw5fW','https://suno.com/s/vkAaYpLp5LkJyuVz'];
+const expected=['https://suno.com/s/vbkPccvrI66ij4gJ','https://suno.com/s/trsx9nLKROxaw5fW','https://suno.com/s/vkAaYpLp5LkJyuVz','https://suno.com/s/xqxasdeSvRKfs74o'];
 const labels={de:'▶ Auf Suno anhören',en:'▶ Listen on Suno',fr:'▶ Écouter sur Suno',es:'▶ Escuchar en Suno'};
 try{
 for(const width of [320,412,1280])for(const surface of ['light','black'])for(const language of ['en','de','fr','es']){
@@ -50,17 +50,17 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(await tile.locator('b').innerText(),'Raider Radio');
   await tile.click();
   await page.locator('#raiderRadio').waitFor({state:'visible'});
-  const cards=page.locator('.radio-song');assert.equal(await cards.count(),3);
-  assert.deepEqual(await cards.locator('h3').allTextContents(),['Ugly','The ARCs Are the Enemy','Loot&Shoot']);
+  const cards=page.locator('.radio-song');assert.equal(await cards.count(),4);
+  assert.deepEqual(await cards.locator('h3').allTextContents(),['Ugly','The ARCs Are the Enemy','Loot&Shoot','What Was It For?']);
   assert.deepEqual(await cards.locator('a').evaluateAll(a=>a.map(x=>x.href)),expected);
-  assert.deepEqual(await cards.locator('a').allTextContents(),[labels[language],labels[language],labels[language]]);
+  assert.deepEqual(await cards.locator('a').allTextContents(),[labels[language],labels[language],labels[language],labels[language]]);
   await page.waitForFunction(()=>[...document.querySelectorAll('.radio-song img')].every(i=>i.complete&&i.naturalWidth>0));
-  assert.deepEqual(await cards.locator('img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/ugly-cover.png','assets/music/the-arcs-are-the-enemy-cover.png','assets/music/loot-and-shoot-cover.png']);
+  assert.deepEqual(await cards.locator('img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/ugly-cover.png','assets/music/the-arcs-are-the-enemy-cover.png','assets/music/loot-and-shoot-cover.png','assets/music/what-was-it-for-cover.webp']);
   const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('.radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio audio,#raiderRadio iframe').length}));
   assert.ok(metrics.overflow<=4,JSON.stringify(metrics));assert.equal(metrics.cardOverflow,false);assert.equal(metrics.download,0);
   if(width===320&&language==='en')await page.screenshot({path:new URL(`../test-artifacts/radio/${surface}-320.png`,import.meta.url).pathname,fullPage:true});
   if(width===412&&language==='en'&&surface==='light'){
-    for(let i=0;i<3;i++){
+    for(let i=0;i<4;i++){
       const popupPromise=context.waitForEvent('page');await cards.locator('a').nth(i).click();const popup=await popupPromise;
       await popup.waitForLoadState('domcontentloaded');assert.equal(popup.url(),expected[i]);await popup.close();
     }
