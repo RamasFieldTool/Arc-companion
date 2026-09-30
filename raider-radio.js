@@ -4,7 +4,7 @@
     {id:'ugly',title:'Ugly',cover:'assets/music/ugly-cover.png',sunoUrl:'https://suno.com/s/vbkPccvrI66ij4gJ'},
     {id:'the-arcs-are-the-enemy',title:'The ARCs Are the Enemy',cover:'assets/music/the-arcs-are-the-enemy-cover.png',sunoUrl:'https://suno.com/s/trsx9nLKROxaw5fW'},
     {id:'loot-and-shoot',title:'Loot&Shoot',cover:'assets/music/loot-and-shoot-cover.png',sunoUrl:'https://suno.com/s/vkAaYpLp5LkJyuVz'},
-    {id:'what-was-it-for',title:'What Was It For?',cover:'assets/music/what-was-it-for-cover.webp',sunoUrl:'https://suno.com/s/xqxasdeSvRKfs74o'}
+    {id:'what-was-it-for',title:'What Was It For?',coverBase64:'assets/music/what-was-it-for-cover-fix.b64',sunoUrl:'https://suno.com/s/xqxasdeSvRKfs74o'}
   ];
   const section=document.getElementById('raiderRadio');
   const grid=document.getElementById('raiderRadioSongs');
@@ -28,11 +28,20 @@
     card.className='radio-song';
     card.dataset.songId=song.id;
     const cover=document.createElement('img');
-    cover.src=song.cover;
     cover.alt=song.title;
     cover.width=1254;
     cover.height=1254;
     cover.loading='lazy';
+    if(song.coverBase64){
+      cover.dataset.coverSource=song.coverBase64;
+      fetch(song.coverBase64,{cache:'no-cache'})
+        .then(response=>{if(!response.ok)throw new Error(`Cover ${response.status}`);return response.text();})
+        .then(data=>{cover.src=`data:image/webp;base64,${data.trim()}`;})
+        .catch(error=>console.error(`Raider Radio cover failed: ${song.title}`,error));
+    }else{
+      cover.src=song.cover;
+      cover.dataset.coverSource=song.cover;
+    }
     const title=document.createElement('h3');
     title.textContent=song.title;
     const link=document.createElement('a');
