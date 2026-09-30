@@ -11,8 +11,11 @@
 .summary-numbers{display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:3px;color:var(--ui-muted);font-size:12px}
 .summary-numbers b{color:var(--ui-text)}
 .summary-owned{display:grid;gap:3px;justify-items:end}
-.summary-owned>span{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ui-muted)}
-.summary-owned .qty{width:62px;min-height:36px;font-size:16px}
+.summary-owned>span:first-child{font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--ui-muted)}
+.summary-owned-controls{display:grid;grid-template-columns:44px 56px 44px;gap:4px;align-items:center}
+.summary-owned-step{width:44px;min-width:44px;min-height:44px;padding:0;font-size:22px;line-height:1;touch-action:manipulation}
+.summary-owned .qty{width:56px;min-height:44px;font-size:16px;text-align:center;appearance:textfield;-moz-appearance:textfield}
+.summary-owned .qty::-webkit-inner-spin-button,.summary-owned .qty::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .summary-usage{margin-top:6px;border-top:1px dashed var(--ui-line);padding-top:5px}
 .summary-usage summary{cursor:pointer;list-style:none;color:var(--ui-muted);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.035em}
 .summary-usage summary::-webkit-details-marker{display:none}
@@ -24,10 +27,9 @@
 .summary-cost .summary-state{font-size:15px;color:var(--amber)}
 html[data-theme="light"] .summary-overview{background:#e8dfc9}
 @media(max-width:420px){
-  .summary-item{grid-template-columns:minmax(0,1fr) 58px;gap:8px}
+  .summary-item{grid-template-columns:minmax(0,1fr) auto;gap:8px}
   .sumname{font-size:16px}
   .summary-state{font-size:10px}
-  .summary-owned .qty{width:58px}
   .summary-overview{gap:5px;padding:8px}
 }
 
