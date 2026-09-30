@@ -8,7 +8,7 @@ const fixtureItems=allItems.slice(0,Math.min(allItems.length,60));
 const item=fixtureItems.find(entry=>entry?.id&&(entry?.name?.en||entry?.name?.de||entry?.en||entry?.de))||fixtureItems[0];
 const itemName=item?.name?.en||item?.name?.de||item?.en||item?.de||item.id;
 const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/quests/quality_gate_free_raid.json';
-const quest={id:'quality_gate_free_raid',name:{de:'Raid-Test',en:'Raid test'},trader:'Test',objectives:[],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]};
+const quest={id:'quality_gate_free_raid',name:{de:'Raid-Test',en:'Raid test'},trader:'Test',objectives:[],requiredItemIds:[{itemId:item.id,quantity:3}],rewardItemIds:[],grantedItemIds:[]};
 
 async function installRoutes(page){
   await page.route('https://arcdata.mahcks.com/v1/items**',async route=>{
@@ -26,14 +26,14 @@ async function installRoutes(page){
   await page.route(questUrl,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(quest)}));
 }
 
-async function assertSummary(page,{total,owned,missing}){
+async function assertSummary(page,{total,owned,missing,personal}){
   const row=page.locator(`#summary [data-item-id="${item.id}"]`);
   await row.waitFor({state:'attached'});
   await page.waitForFunction(({id,missing})=>document.querySelector(`#summary [data-item-id="${CSS.escape(id)}"]`)?.dataset.missing===String(missing),{id:item.id,missing});
   const numbers=await row.locator('.summary-numbers b').allTextContents();
   if(numbers[0]!==String(total)||numbers[1]!==String(owned))throw new Error(`Summary mismatch: expected total ${total}, owned ${owned}; got ${numbers.join(' / ')}`);
   const usage=await row.locator('.summary-usage').innerText();
-  if(!usage.includes(`Personal need: ${total}`))throw new Error(`Personal requirement reason missing or unclear: ${usage}`);
+  if(!usage.includes(`Personal need: ${personal}`))throw new Error(`Personal requirement reason missing or unclear: ${usage}`);
 }
 
 const browser=await chromium.launch({headless:true});
@@ -45,7 +45,7 @@ try{
     localStorage.setItem('arcLanguageOnboardingPending','0');
     localStorage.setItem('arcOwned','{}');
     localStorage.setItem('arcActiveGoals','{}');
-    localStorage.setItem('arcQuestStatus','{}');
+    localStorage.setItem('arcQuestStatus',JSON.stringify({quality_gate_free_raid:'active'}));
     localStorage.removeItem('arcNextRaid');
   });
   const page=await context.newPage();
@@ -54,6 +54,7 @@ try{
   await installRoutes(page);
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});
+  await page.waitForFunction(id=>document.querySelector(`#summary [data-item-id="${CSS.escape(id)}"]`)?.dataset.missing==='3',item.id);
 
   await page.locator('[data-app-target="nextRaidDrawer"]').click();
   await page.locator('#nextRaidFreeItems').waitFor({state:'visible'});
@@ -77,8 +78,8 @@ try{
   },item.id);
   console.log('PASS saved free-item picker keeps the planned amount visible');
 
-  await assertSummary(page,{total:10,owned:0,missing:10});
-  console.log('PASS personal raid target appears in total requirements');
+  await assertSummary(page,{total:13,owned:0,missing:13,personal:10});
+  console.log('PASS quest need 3 + personal raid target 10 = total requirements 13');
 
   const raidRow=page.locator(`.next-raid-item[data-raid-id="${item.id}"]`);
   await raidRow.waitFor({state:'visible'});
@@ -97,8 +98,8 @@ try{
   },item.id);
   const halfway=await raidRow.locator('.next-raid-progress').innerText();
   if(!halfway.includes('5 / 10')||!halfway.includes('5 OPEN'))throw new Error(`Halfway progress is unclear: ${halfway}`);
-  await assertSummary(page,{total:10,owned:5,missing:5});
-  console.log('PASS 10 planned -> 5 found -> 5 open, with total requirements synchronized');
+  await assertSummary(page,{total:13,owned:5,missing:8,personal:10});
+  console.log('PASS owned stock is subtracted once from combined total requirements');
 
   const secondFound=page.locator(`.next-raid-found-row[data-found-id="${item.id}"] [data-found-input]`);
   await secondFound.fill('5');
@@ -108,8 +109,8 @@ try{
     const owned=JSON.parse(localStorage.getItem('arcOwned')||'{}');
     return raid[id]?.target===10&&raid[id]?.found===10&&raid[id]?.done===true&&owned[id]===10;
   },item.id);
-  await assertSummary(page,{total:10,owned:10,missing:0});
-  console.log('PASS personal raid target completes at 10 / 10 and total requirements is complete');
+  await assertSummary(page,{total:13,owned:10,missing:3,personal:10});
+  console.log('PASS personal raid target completes while independent quest need remains visible');
 
   if(pageErrors.length)throw new Error(`Uncaught browser errors: ${pageErrors.join(' | ')}`);
   await context.close();
