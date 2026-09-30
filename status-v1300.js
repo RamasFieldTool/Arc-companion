@@ -27,7 +27,7 @@ const STATUS_COPY={
     loadingTitle:'Cargando datos actuales',liveTitle:'Datos actuales cargados',fallbackTitle:'Datos locales básicos activos',
     partialTitle:'Los datos solo están disponibles parcialmente',errorTitle:'No se pudieron cargar los datos',
     fallbackBody:'El catálogo completo no está disponible. La búsqueda y los objetivos continúan con los datos locales básicos, que pueden ser menos completos o actuales.',
-    partialBody:'El catálogo externo se cargó solo parcialmente. Las entradas que faltan se completaron con los datos locales cuando fue posible.'
+    partialBody:'El catálogo externo se cargó solo parcialmente. Las entradas que faltan se completaron con datos locales cuando fue posible.'
   }
 };
 function statusLanguage(){
