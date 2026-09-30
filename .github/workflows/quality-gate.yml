@@ -23,7 +23,7 @@ jobs:
           node-version: '20'
       - name: Validate JSON, assets, cache-busters, backup guards and version
         env:
-          EXPECTED_APP_VERSION: '13.0.19'
+          EXPECTED_APP_VERSION: '13.0.20'
         run: node tests/data-integrity.mjs
 
   browser-smoke:
