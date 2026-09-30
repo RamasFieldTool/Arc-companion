@@ -36,7 +36,7 @@ function assertHome(m,label){
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
   if(m.tiles.length<8)throw new Error(`${label}: expected at least 8 launcher tiles, got ${m.tiles.length}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
-  if(m.version!=='V13.0.21')throw new Error(`${label}: expected V13.0.21, got ${m.version}`);
+  if(m.version!=='V13.0.22')throw new Error(`${label}: expected V13.0.22, got ${m.version}`);
 }
 async function openTarget(page,target){
   if(!(await page.locator('#appLauncher').isVisible())){await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}
