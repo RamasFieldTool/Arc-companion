@@ -46,6 +46,8 @@ try{
     localStorage.setItem('arcLang','en');
     localStorage.setItem('arcUiLanguage','en');
     localStorage.setItem('arcLanguageOnboardingPending','0');
+    localStorage.setItem('arcPaletteSurface','black');
+    localStorage.setItem('arcPaletteAccent','orange');
     localStorage.setItem('arcOwned',JSON.stringify({[itemId]:2}));
     localStorage.setItem('arcActiveGoals',JSON.stringify({[activeKey]:true}));
     localStorage.setItem('arcQuestStatus','{}');
@@ -73,6 +75,34 @@ try{
   for(const box of buttonBoxes){
     if(!box||box.width<44||box.height<44)throw new Error(`Stepper touch target too small: ${JSON.stringify(box)}`);
   }
+
+  const visibility=await page.evaluate(({itemId})=>{
+    const row=document.querySelector(`#summary article.summary-item[data-item-id="${CSS.escape(itemId)}"]`);
+    const buttons=[...row.querySelectorAll('.summary-owned-step')];
+    const parse=value=>{
+      const match=String(value||'').match(/rgba?\(\s*([\d.]+)[, ]+([\d.]+)[, ]+([\d.]+)(?:[, /]+([\d.]+))?/i);
+      return match?[Number(match[1]),Number(match[2]),Number(match[3]),match[4]===undefined?1:Number(match[4])]:null;
+    };
+    const luminance=rgb=>{
+      const channels=rgb.slice(0,3).map(value=>{const x=value/255;return x<=0.03928?x/12.92:Math.pow((x+0.055)/1.055,2.4)});
+      return .2126*channels[0]+.7152*channels[1]+.0722*channels[2];
+    };
+    return buttons.map(button=>{
+      const style=getComputedStyle(button);
+      const foreground=parse(style.color);
+      let background=parse(style.backgroundColor);
+      let parent=button.parentElement;
+      while((!background||background[3]===0)&&parent){background=parse(getComputedStyle(parent).backgroundColor);parent=parent.parentElement}
+      const ratio=foreground&&background?((Math.max(luminance(foreground),luminance(background))+.05)/(Math.min(luminance(foreground),luminance(background))+.05)):0;
+      return {text:button.textContent.trim(),color:style.color,background:style.backgroundColor,ratio,fontWeight:style.fontWeight,opacity:style.opacity};
+    });
+  },{itemId});
+  if(visibility.map(x=>x.text).join('|')!=='−|+')throw new Error(`Stepper symbols missing: ${JSON.stringify(visibility)}`);
+  for(const state of visibility){
+    if(state.ratio<3)throw new Error(`Stepper symbol contrast too low in black theme: ${JSON.stringify(state)}`);
+    if(Number(state.opacity)<0.99)throw new Error(`Stepper symbol unexpectedly transparent: ${JSON.stringify(state)}`);
+  }
+  console.log(`PASS black-theme stepper symbols are visible with contrast ratios ${visibility.map(x=>x.ratio.toFixed(2)).join(' / ')}`);
 
   await plus.tap();
   await page.waitForFunction(id=>JSON.parse(localStorage.getItem('arcOwned')||'{}')[id]===3,itemId);
