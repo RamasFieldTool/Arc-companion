@@ -4,7 +4,7 @@
     {id:'ugly',title:'Ugly',cover:'assets/music/ugly-cover.png',sunoUrl:'https://suno.com/s/vbkPccvrI66ij4gJ'},
     {id:'the-arcs-are-the-enemy',title:'The ARCs Are the Enemy',cover:'assets/music/the-arcs-are-the-enemy-cover.png',sunoUrl:'https://suno.com/s/trsx9nLKROxaw5fW'},
     {id:'loot-and-shoot',title:'Loot&Shoot',cover:'assets/music/loot-and-shoot-cover.png',sunoUrl:'https://suno.com/s/vkAaYpLp5LkJyuVz'},
-    {id:'what-was-it-for',title:'What Was It For?',coverBase64:'assets/music/what-was-it-for-cover-fix.b64',sunoUrl:'https://suno.com/s/xqxasdeSvRKfs74o'}
+    {id:'what-was-it-for',title:'What Was It For?',coverBase64Parts:['assets/music/what-was-it-for-cover.part1','assets/music/what-was-it-for-cover.part2','assets/music/what-was-it-for-cover.part3','assets/music/what-was-it-for-cover.part4','assets/music/what-was-it-for-cover.part5'],sunoUrl:'https://suno.com/s/xqxasdeSvRKfs74o'}
   ];
   const section=document.getElementById('raiderRadio');
   const grid=document.getElementById('raiderRadioSongs');
@@ -32,11 +32,13 @@
     cover.width=1254;
     cover.height=1254;
     cover.loading='lazy';
-    if(song.coverBase64){
-      cover.dataset.coverSource=song.coverBase64;
-      fetch(song.coverBase64,{cache:'no-cache'})
-        .then(response=>{if(!response.ok)throw new Error(`Cover ${response.status}`);return response.text();})
-        .then(data=>{cover.src=`data:image/webp;base64,${data.trim()}`;})
+    if(song.coverBase64Parts){
+      cover.dataset.coverSource='assets/music/what-was-it-for-cover';
+      Promise.all(song.coverBase64Parts.map(path=>fetch(path,{cache:'no-cache'}).then(response=>{
+        if(!response.ok)throw new Error(`Cover ${response.status}`);
+        return response.text();
+      })))
+        .then(parts=>{cover.src=`data:image/webp;base64,${parts.map(part=>part.trim()).join('')}`;})
         .catch(error=>console.error(`Raider Radio cover failed: ${song.title}`,error));
     }else{
       cover.src=song.cover;
