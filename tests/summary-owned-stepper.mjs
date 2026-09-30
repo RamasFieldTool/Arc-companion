@@ -39,7 +39,7 @@ async function installRoutes(page){
 
 const browser=await chromium.launch({headless:true});
 try{
-  const context=await browser.newContext({viewport:{width:412,height:915},screen:{width:412,height:915},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 16; RamasFieldToolOwnedStepperTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36'});
+  const context=await browser.newContext({viewport:{width:360,height:800},screen:{width:360,height:800},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 16; RamasFieldToolOwnedStepperTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36'});
   const activeKey=`${fixture.goal.id}:${fixture.level.level}`;
   const itemId=fixture.req.itemId;
   await context.addInitScript(({activeKey,itemId})=>{
@@ -55,16 +55,20 @@ try{
   page.on('pageerror',error=>pageErrors.push(String(error)));
   await installRoutes(page);
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});
+  await page.locator('[data-app-target="supplySection"]').tap();
+  await page.waitForFunction(()=>document.getElementById('supplySection')?.classList.contains('launcher-active'));
 
   const row=page.locator(`#summary article.summary-item[data-item-id="${itemId}"]`);
-  await row.waitFor({state:'attached',timeout:30000});
+  await row.waitFor({state:'visible',timeout:30000});
   const controls=row.locator('.summary-owned-step');
   if(await controls.count()!==2)throw new Error('Expected exactly two owned quantity step buttons');
-  const minus=controls.filter({has:page.locator('[data-step="-1"]')});
   const plus=row.locator('.summary-owned-step[data-step="1"]');
   const minusButton=row.locator('.summary-owned-step[data-step="-1"]');
   const input=row.locator('.qty');
 
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
+  if(overflow>4)throw new Error(`Owned stepper causes horizontal overflow on 360px viewport (${overflow}px)`);
   const buttonBoxes=await Promise.all([minusButton.boundingBox(),plus.boundingBox()]);
   for(const box of buttonBoxes){
     if(!box||box.width<44||box.height<44)throw new Error(`Stepper touch target too small: ${JSON.stringify(box)}`);
