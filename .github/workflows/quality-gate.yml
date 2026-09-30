@@ -56,14 +56,14 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/logo-home.mjs
-      - name: Run F-43 navigation cleanup regression
-        env:
-          BASE_URL: http://127.0.0.1:4173/
-        run: node tests/navigation-cleanup.mjs
       - name: Run personal raid progress regression
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/free-raid-progress.mjs
+      - name: Run F-43 navigation cleanup regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/navigation-cleanup.mjs
       - name: Run owned quantity stepper regression
         env:
           BASE_URL: http://127.0.0.1:4173/
