@@ -20,6 +20,7 @@
     fr:{label:'Trier par',alphabetical:'Alphabétique',missing:'Quantité manquante'},
     es:{label:'Ordenar por',alphabetical:'Alfabético',missing:'Cantidad faltante'}
   };
+  const personalReasonLabels={de:'Eigener Bedarf',en:'Personal need',fr:'Besoin personnel',es:'Necesidad personal'};
   let summarySort='alphabetical';
 
   function nonItemCosts(){
@@ -46,8 +47,47 @@
     return `<details class="summary-usage"><summary>${T[lang].summaryUsage} (${reasons.length})</summary><div>${reasons.map(x=>`<span>${x}</span>`).join('')}</div></details>`;
   }
 
+  function uiLanguage(){
+    try{
+      const saved=localStorage.getItem('arcUiLanguage');
+      if(saved&&personalReasonLabels[saved])return saved;
+    }catch{}
+    return personalReasonLabels[lang]?lang:'en';
+  }
+
+  function personalRaidRequirements(){
+    let stored={};
+    try{stored=JSON.parse(localStorage.getItem('arcNextRaid')||'{}')}catch{return []}
+    if(!stored||typeof stored!=='object'||Array.isArray(stored))return [];
+    return Object.entries(stored).flatMap(([id,entry])=>{
+      if(!id||!entry||typeof entry!=='object'||entry.personal!==true)return [];
+      const target=Math.floor(Number(entry.target));
+      if(!Number.isFinite(target)||target<1)return [];
+      return [{id,target}];
+    });
+  }
+
+  function combinedRequirementMap(){
+    const base=requirementMap();
+    const combined={};
+    Object.entries(base||{}).forEach(([id,entry])=>{
+      combined[id]={
+        ...entry,
+        total:Math.max(0,Number(entry?.total)||0),
+        reasons:Array.isArray(entry?.reasons)?[...entry.reasons]:[]
+      };
+    });
+    const reasonLabel=personalReasonLabels[uiLanguage()]||personalReasonLabels.en;
+    personalRaidRequirements().forEach(({id,target})=>{
+      if(!combined[id])combined[id]={total:0,reasons:[]};
+      combined[id].total+=target;
+      combined[id].reasons.push(`${reasonLabel}: ${formatNum(target)}`);
+    });
+    return combined;
+  }
+
   drawSummary=function(){
-    const req=requirementMap();
+    const req=combinedRequirementMap();
     const rows=Object.entries(req).map(([id,r])=>{
       const item=itemById(id);
       const name=item?itemName(item):id.replaceAll('_',' ');
@@ -95,6 +135,21 @@
     });
     summaryEl.querySelectorAll('.qty').forEach(el=>el.addEventListener('change',e=>saveOwned(e.target.dataset.id,e.target.value)));
   };
+
+  let refreshQueued=false;
+  function scheduleSummaryRefresh(){
+    if(refreshQueued)return;
+    refreshQueued=true;
+    queueMicrotask(()=>{
+      refreshQueued=false;
+      drawSummary();
+    });
+  }
+  const raidList=document.getElementById('nextRaidList');
+  if(raidList)new MutationObserver(scheduleSummaryRefresh).observe(raidList,{childList:true,subtree:true,characterData:true});
+  window.addEventListener('storage',event=>{
+    if(event.key==='arcNextRaid'||event.key==='arcOwned')scheduleSummaryRefresh();
+  });
 
   drawSummary();
 })();
