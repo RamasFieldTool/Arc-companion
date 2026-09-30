@@ -60,7 +60,7 @@ const statusPos=index.indexOf('status-v1300.js');
 if(catalogPos<0||appPos<0||statusPos<0) fail('Required catalog/app/status scripts are not all referenced by index.html');
 if(!(catalogPos<appPos&&appPos<statusPos)) fail('Script order must be catalog-resilience -> app.js -> status-v1300.js');
 
-const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.20';
+const expectedVersion=process.env.EXPECTED_APP_VERSION||'13.0.21';
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(version!==expectedVersion) fail(`Visible app version must be ${expectedVersion}; found ${version||'none'}`);
@@ -98,8 +98,8 @@ for(const marker of ['personalProgress','postRaidRows',"entry.personal===true","
 }
 
 const summaryScript=await read('summary-v2113.js');
-for(const marker of ['personalRaidRequirements','combinedRequirementMap','personalReasonLabels']){
-  if(!summaryScript.includes(marker))fail(`Personal total-requirements marker missing: ${marker}`);
+for(const marker of ['personalRaidRequirements','combinedRequirementMap','personalReasonLabels','summary-owned-step','ownedStepLabels']){
+  if(!summaryScript.includes(marker))fail(`Total-requirements safety marker missing: ${marker}`);
 }
 
 const snapshotWorkflow=await read('.github/workflows/catalog-snapshot.yml');
