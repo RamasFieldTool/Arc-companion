@@ -94,3 +94,8 @@ html[data-accent] body.palette-enabled #raiderRadio .fan-category-card:active{tr
   #raiderRadio .fan-category-copy strong{font-size:19px}
 }
 @media(prefers-reduced-motion:reduce){html[data-accent] body.palette-enabled #raiderRadio .fan-category-card{transition:none;transform:none!important}}
+
+/* Override the app's flush panel layout only in this creative corner. */
+body.view-open:has(#raiderRadio.launcher-active) #detailHero{display:none!important}
+body.palette-enabled #raiderRadio{padding:24px!important}
+@media(max-width:380px){body.palette-enabled #raiderRadio{padding:14px!important}}
