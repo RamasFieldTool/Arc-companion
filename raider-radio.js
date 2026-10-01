@@ -1,5 +1,6 @@
 // Cloudflare Web Analytics. This script is loaded site-wide by index.html.
 (()=>{
+  if(location.hostname!=='ramasfieldtool.github.io'||location.pathname.includes('/pr-preview/'))return;
   if(document.querySelector('script[data-cf-beacon]'))return;
   const beacon=document.createElement('script');
   beacon.type='module';
