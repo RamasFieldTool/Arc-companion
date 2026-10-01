@@ -1,90 +1,6 @@
 {
   "conditions": [
     {
-      "type": "minor",
-      "conditionName": "Husk Graveyard",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-09-30T23:00:00.000Z",
-          "end": "2026-10-01T00:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-01T06:00:00.000Z",
-          "end": "2026-10-01T07:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-01T05:00:00.000Z",
-          "end": "2026-10-01T06:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-30T18:00:00.000Z",
-          "end": "2026-09-30T19:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-30T14:00:00.000Z",
-          "end": "2026-09-30T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/husk-graveyard.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-09-30T23:00:00.000Z",
-          "end": "2026-10-01T00:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-01T06:00:00.000Z",
-          "end": "2026-10-01T07:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-01T05:00:00.000Z",
-          "end": "2026-10-01T06:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-30T18:00:00.000Z",
-          "end": "2026-09-30T19:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-30T14:00:00.000Z",
-          "end": "2026-09-30T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-09-30T23:00:00.000Z",
-          "end": "2026-10-01T00:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-01T06:00:00.000Z",
-          "end": "2026-10-01T07:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-01T05:00:00.000Z",
-          "end": "2026-10-01T06:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-30T18:00:00.000Z",
-          "end": "2026-09-30T19:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-30T14:00:00.000Z",
-          "end": "2026-09-30T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Riven Tides",
@@ -4089,5 +4005,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
     }
   ],
-  "syncedAt": "2026-10-01T06:46:28Z"
+  "syncedAt": "2026-10-01T07:09:29Z"
 }
