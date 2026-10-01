@@ -1,4 +1,4 @@
-/* Scoped to Raider Radio: existing launcher base, amber icon/header accents. */
+/* Fan Creations hub. The existing Raider Radio launcher target now opens the broader community hub. */
 body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"]{
   --tile-fill:#e7bd59;--tile-ink:#995000;
   --tile-art:linear-gradient(135deg,#fff7e8,#f4efe6);
@@ -10,7 +10,27 @@ body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"] .app-
 body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"] .app-icon svg{
   color:var(--tile-ink)!important;
 }
+
 #raiderRadio{scroll-margin-top:78px;padding:20px;box-sizing:border-box}
+#raiderRadio>h2,.fan-creations-hub>h2,.fan-view>h2{margin:0 0 8px;color:var(--ui-text);font-size:24px;line-height:1.25}
+.fan-creations-intro{margin:0 0 20px;color:var(--ui-muted);font-size:14px;line-height:1.55}
+.fan-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.fan-category-card{display:flex!important;align-items:center;gap:14px;width:100%;min-height:96px;padding:16px!important;text-align:left!important;border:1px solid var(--ui-line)!important;border-radius:16px!important;background:var(--ui-panel)!important;color:var(--ui-text)!important;cursor:pointer}
+.fan-category-card:hover{border-color:#995000!important;background:color-mix(in srgb,#995000 7%,var(--ui-panel))!important}
+.fan-category-card:focus-visible{outline:3px solid #995000!important;outline-offset:3px}
+.fan-category-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;border-radius:14px;background:color-mix(in srgb,#995000 13%,var(--ui-panel-2));color:#995000;font-size:25px;font-weight:800;line-height:1}
+.fan-category-copy{display:flex;flex-direction:column;gap:4px;min-width:0}
+.fan-category-copy strong{color:var(--ui-text)!important;font-size:17px;line-height:1.3}
+.fan-category-copy small{color:var(--ui-muted)!important;font-size:13px;line-height:1.4}
+html:is([data-surface="dark"],[data-surface="black"]) .fan-category-card:hover{border-color:#ffc46b!important;background:color-mix(in srgb,#ffc46b 9%,var(--ui-panel))!important}
+html:is([data-surface="dark"],[data-surface="black"]) .fan-category-card:focus-visible{outline-color:#ffc46b!important}
+html:is([data-surface="dark"],[data-surface="black"]) .fan-category-icon{background:color-mix(in srgb,#ffc46b 12%,var(--ui-panel-2));color:#ffc46b}
+
+.fan-view[hidden],.fan-creations-hub[hidden]{display:none!important}
+.fan-view-back{display:inline-flex!important;align-items:center;min-height:42px;margin:0 0 18px;padding:9px 12px!important;border:1px solid var(--ui-line)!important;border-radius:11px!important;background:var(--ui-panel)!important;color:#995000!important;font-weight:700;cursor:pointer}
+.fan-view-back:hover{text-decoration:underline}
+html:is([data-surface="dark"],[data-surface="black"]) .fan-view-back{color:#ffc46b!important}
+
 .radio-about{margin:0 0 20px;padding:16px;border:1px solid var(--ui-line);border-left:4px solid #995000;border-radius:14px;background:var(--ui-panel-2)}
 #raiderRadio .radio-about h3{margin:0 0 8px;color:#995000!important;font-size:17px;line-height:1.35}
 .radio-about p{margin:8px 0 0;color:var(--ui-muted);font-size:14px;line-height:1.55}
@@ -24,4 +44,16 @@ html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about 
 html:is([data-surface="dark"],[data-surface="black"]) .radio-listen{color:#ffc46b!important}
 .radio-listen:hover{text-decoration:underline}
 .radio-listen:focus-visible{outline:3px solid currentColor;outline-offset:3px}
-@media(max-width:380px){#raiderRadio{padding:14px}.radio-about{padding:14px;margin-bottom:14px}.radio-grid{gap:14px}}
+
+.fan-stories-empty{margin-top:16px;padding:22px;border:1px dashed var(--ui-line);border-radius:16px;background:var(--ui-panel-2);text-align:center}
+#raiderRadio .fan-stories-empty h3{margin:0 0 8px;color:var(--ui-text)!important;font-size:18px;line-height:1.35}
+.fan-stories-empty p{margin:0;color:var(--ui-muted);font-size:14px;line-height:1.55}
+
+@media(max-width:380px){
+  #raiderRadio{padding:14px}
+  .fan-category-grid{gap:10px}
+  .fan-category-card{padding:13px!important;min-height:88px}
+  .fan-category-icon{flex-basis:44px;width:44px;height:44px}
+  .radio-about{padding:14px;margin-bottom:14px}
+  .radio-grid{gap:14px}
+}
