@@ -1,90 +1,6 @@
 {
   "conditions": [
     {
-      "type": "minor",
-      "conditionName": "Bird City",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-10-01T01:00:00.000Z",
-          "end": "2026-10-01T02:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-01T08:00:00.000Z",
-          "end": "2026-10-01T09:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-01T07:00:00.000Z",
-          "end": "2026-10-01T08:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-30T20:00:00.000Z",
-          "end": "2026-09-30T21:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-30T16:00:00.000Z",
-          "end": "2026-09-30T17:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-10-01T01:00:00.000Z",
-          "end": "2026-10-01T02:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-01T08:00:00.000Z",
-          "end": "2026-10-01T09:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-01T07:00:00.000Z",
-          "end": "2026-10-01T08:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-30T20:00:00.000Z",
-          "end": "2026-09-30T21:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-30T16:00:00.000Z",
-          "end": "2026-09-30T17:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-10-01T01:00:00.000Z",
-          "end": "2026-10-01T02:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-01T08:00:00.000Z",
-          "end": "2026-10-01T09:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-01T07:00:00.000Z",
-          "end": "2026-10-01T08:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-09-30T20:00:00.000Z",
-          "end": "2026-09-30T21:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-09-30T16:00:00.000Z",
-          "end": "2026-09-30T17:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Buried City",
@@ -4145,5 +4061,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
     }
   ],
-  "syncedAt": "2026-10-01T08:31:11Z"
+  "syncedAt": "2026-10-01T09:09:35Z"
 }
