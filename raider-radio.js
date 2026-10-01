@@ -1,3 +1,14 @@
+// Cloudflare Web Analytics. This script is loaded site-wide by index.html.
+(()=>{
+  if(location.hostname!=='ramasfieldtool.github.io'||location.pathname.includes('/pr-preview/'))return;
+  if(document.querySelector('script[data-cf-beacon]'))return;
+  const beacon=document.createElement('script');
+  beacon.type='module';
+  beacon.src='https://static.cloudflareinsights.com/beacon.min.js';
+  beacon.setAttribute('data-cf-beacon',JSON.stringify({token:'0bdfe94cf6904a8a9835591732c6ce16'}));
+  document.head.append(beacon);
+})();
+
 // Add a cover and one entry here to extend Raider Radio. Array order is display order.
 (()=>{
   const songs=[
