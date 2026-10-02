@@ -1,90 +1,6 @@
 {
   "conditions": [
     {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-10-01T23:00:00.000Z",
-          "end": "2026-10-02T00:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-02T06:00:00.000Z",
-          "end": "2026-10-02T07:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-02T05:00:00.000Z",
-          "end": "2026-10-02T06:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-01T18:00:00.000Z",
-          "end": "2026-10-01T19:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-01T14:00:00.000Z",
-          "end": "2026-10-01T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Lush Blooms",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-10-01T23:00:00.000Z",
-          "end": "2026-10-02T00:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-02T06:00:00.000Z",
-          "end": "2026-10-02T07:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-02T05:00:00.000Z",
-          "end": "2026-10-02T06:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-01T18:00:00.000Z",
-          "end": "2026-10-01T19:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-01T14:00:00.000Z",
-          "end": "2026-10-01T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-10-01T23:00:00.000Z",
-          "end": "2026-10-02T00:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-02T06:00:00.000Z",
-          "end": "2026-10-02T07:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-02T05:00:00.000Z",
-          "end": "2026-10-02T06:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-01T18:00:00.000Z",
-          "end": "2026-10-01T19:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-01T14:00:00.000Z",
-          "end": "2026-10-01T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
       "type": "minor",
       "conditionName": "Husk Graveyard",
       "mapDisplayName": "Buried City",
@@ -4089,5 +4005,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/electromagnetic-storm.svg"
     }
   ],
-  "syncedAt": "2026-10-02T06:38:37Z"
+  "syncedAt": "2026-10-02T07:14:36Z"
 }
