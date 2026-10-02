@@ -158,7 +158,7 @@
     node.textContent=text;
     return node;
   }
-  function themeFor(story){return story.theme==='dark-ambush'?'dark-ambush':'default';}
+  function themeFor(story){return ['dark-ambush','rust-legend'].includes(story.theme)?story.theme:'default';}
   function makeImage(story,lazy=false){
     const image=document.createElement('img');
     image.src=story.image;
@@ -209,6 +209,11 @@
     storyDetail.setAttribute('aria-labelledby',title.id);
     const author=makeText('p','fan-story-author',story.author);
     heroCopy.append(kicker,title,author);
+    if(story.editorialNote){
+      const note=makeText('p','fan-story-editorial-note',story.editorialNote);
+      note.lang=story.originalLanguage||story.language;
+      heroCopy.append(note);
+    }
     hero.append(makeImage(story),heroCopy);
     const body=document.createElement('div');
     body.className='fan-story-body';

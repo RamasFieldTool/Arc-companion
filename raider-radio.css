@@ -150,3 +150,23 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-body,
 html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-body p{font-family:Arial,Helvetica,sans-serif!important;font-size:17px!important;line-height:1.85!important}
 html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-summary{line-height:1.7}
 html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-credit{font-size:14px!important;line-height:1.65!important;border-color:var(--story-line)!important}
+
+/* CaptainDefib: rust, embers and a field legend; scoped to Zoe's story. */
+#raiderRadio [data-story-theme="rust-legend"]{
+  --story-bg:#1b1210;--story-ink:#fff0d9;--story-muted:#e2c2a3;
+  --story-ember:#ffb367;--story-line:#8a4c2d;
+  background:radial-gradient(ellipse at 100% 0,#82311b55,transparent 60%),linear-gradient(145deg,#271913,#160f0d);
+}
+#raiderRadio [data-story-theme="rust-legend"] img{aspect-ratio:1;object-fit:contain}
+#raiderRadio [data-story-theme="rust-legend"] .fan-story-hero::after{display:none}
+#raiderRadio [data-story-theme="rust-legend"] .fan-story-hero-copy{position:relative;background:linear-gradient(135deg,#3c2116,#1b1210);border-top:3px solid var(--story-ember)}
+#raiderRadio [data-story-theme="rust-legend"] .fan-story-editorial-note{margin:16px 0 0;color:var(--story-muted)!important;font-size:12px!important;line-height:1.6!important;text-transform:none;letter-spacing:normal}
+#raiderRadio [data-story-theme="rust-legend"] .fan-story-body{padding-top:32px}
+#raiderRadio [data-story-theme="rust-legend"] .fan-legend-question{display:block;margin-top:1.5em;font-family:Georgia,serif;font-size:24px;color:var(--story-ember)}
+html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme="rust-legend"] .fan-story-body .fan-legend-reveal{
+  margin:0 0 1.4em;padding:24px 12px;border-block:1px solid var(--story-ember);
+  background:radial-gradient(ellipse,#7b341f66,transparent 75%);
+  color:var(--story-ember)!important;font-family:Georgia,serif!important;
+  font-size:clamp(25px,7vw,44px)!important;font-weight:700;line-height:1.3!important;
+  text-align:center;text-shadow:0 2px 16px #ff6a2633;
+}
