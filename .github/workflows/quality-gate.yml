@@ -68,6 +68,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/i18n-smoke.mjs
+      - name: Run community story text, navigation, radio and mobile language checks
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/raider-stories.mjs
       - name: Run backup, restore, migration and connection-loss tests
         env:
           BASE_URL: http://127.0.0.1:4173/
@@ -81,7 +85,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-regression-${{ github.sha }}
-          path: test-artifacts/ui/
+          path: |
+            test-artifacts/ui/
+            test-artifacts/stories/
           if-no-files-found: warn
           retention-days: 14
       - name: Show server log on failure
