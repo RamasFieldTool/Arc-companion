@@ -3,90 +3,6 @@
     {
       "type": "major",
       "conditionName": "Night Raid",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-10-02T03:00:00.000Z",
-          "end": "2026-10-02T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-02T10:00:00.000Z",
-          "end": "2026-10-02T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-02T09:00:00.000Z",
-          "end": "2026-10-02T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-01T22:00:00.000Z",
-          "end": "2026-10-01T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-01T18:00:00.000Z",
-          "end": "2026-10-01T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Husk Graveyard",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-10-02T03:00:00.000Z",
-          "end": "2026-10-02T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-02T10:00:00.000Z",
-          "end": "2026-10-02T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-02T09:00:00.000Z",
-          "end": "2026-10-02T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-01T22:00:00.000Z",
-          "end": "2026-10-01T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-01T18:00:00.000Z",
-          "end": "2026-10-01T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/husk-graveyard.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Lush Blooms",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-10-02T03:00:00.000Z",
-          "end": "2026-10-02T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-02T10:00:00.000Z",
-          "end": "2026-10-02T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-02T09:00:00.000Z",
-          "end": "2026-10-02T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-01T22:00:00.000Z",
-          "end": "2026-10-01T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-01T18:00:00.000Z",
-          "end": "2026-10-01T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
       "mapDisplayName": "Stella Montis",
       "regions": {
         "europe": {
@@ -4201,5 +4117,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
     }
   ],
-  "syncedAt": "2026-10-02T10:43:19Z"
+  "syncedAt": "2026-10-02T11:09:17Z"
 }
