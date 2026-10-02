@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
-const originalHash='76aaf09d39992c0f236bd827b1d3217818d4c91e084ac46d03ace2665fe0baca';
+const originalHash='7ab9b61aa40f645f6304258baaffdc878cafd7c55eef508d200cd1d67607ea39';
 const imageHash='028adc01c3ac543acc0850b0bb91fb9e21505dc610be963190549bd35e8aef14';
 assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/versteckspiel-chris-fenzelino.jpg',import.meta.url))).digest('hex'),imageHash);
 const labels={
@@ -15,10 +15,10 @@ const labels={
   es:['Leer historia','← Volver a Raider Stories','← Volver a Fan Creations']
 };
 const storyExpected={
-  de:{title:'Versteckspiel',summary:'Drei gegen einen. Geduldig warten sie im Dunkeln auf ihr Opfer.\n\nDoch diese Geschichte wird nicht aus der Perspektive eines Raiders erzählt.',first:'Ich warte. Warte bis endlich jemand kommt.',last:'Sie machen es uns so einfach…',credit:'Community Story von Chris Fenzelino'},
-  en:{title:'Hide and Seek',summary:'Three against one. They wait patiently in the darkness for their victim.\n\nBut this story is not told from a Raider’s perspective.',first:'I wait. I wait for someone to finally come.',last:'They make it so easy for us…',credit:'Community Story by Chris Fenzelino'},
-  fr:{title:'Cache-cache',summary:'Trois contre un. Ils attendent patiemment leur victime dans l’obscurité.\n\nMais cette histoire n’est pas racontée du point de vue d’un Raider.',first:'J’attends. J’attends que quelqu’un finisse enfin par arriver.',last:'Ils nous rendent les choses tellement faciles…',credit:'Histoire de la communauté par Chris Fenzelino'},
-  es:{title:'El escondite',summary:'Tres contra uno. Esperan pacientemente a su víctima en la oscuridad.\n\nPero esta historia no está contada desde la perspectiva de un Raider.',first:'Espero. Espero hasta que por fin aparezca alguien.',last:'Nos lo ponen demasiado fácil…',credit:'Historia de la comunidad de Chris Fenzelino'}
+  de:{title:'Versteckspiel',summary:'Drei gegen einen. Geduldig warten sie im Dunkeln auf ihr Opfer.',first:'Ich warte. Warte bis endlich jemand kommt.',last:'Sie machen es uns so einfach…',credit:'Community Story von Chris Fenzelino'},
+  en:{title:'Hide and Seek',summary:'Three against one. They wait patiently in the darkness for their victim.',first:'I wait. I wait for someone to finally come.',last:'They make it so easy for us…',credit:'Community Story by Chris Fenzelino'},
+  fr:{title:'Cache-cache',summary:'Trois contre un. Ils attendent patiemment leur victime dans l’obscurité.',first:'J’attends. J’attends que quelqu’un finisse enfin par arriver.',last:'Ils nous rendent les choses tellement faciles…',credit:'Histoire de la communauté par Chris Fenzelino'},
+  es:{title:'El escondite',summary:'Tres contra uno. Esperan pacientemente a su víctima en la oscuridad.',first:'Espero. Espero hasta que por fin aparezca alguien.',last:'Nos lo ponen demasiado fácil…',credit:'Historia de la comunidad de Chris Fenzelino'}
 };
 const songs=['https://suno.com/s/vbkPccvrI66ij4gJ','https://suno.com/s/trsx9nLKROxaw5fW','https://suno.com/s/vkAaYpLp5LkJyuVz','https://suno.com/s/xqxasdeSvRKfs74o'];
 
@@ -40,8 +40,9 @@ async function checkText(page,language){
   const text=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
   assert.equal(await page.locator('.fan-story-body').getAttribute('lang'),language);
   assert.equal(await page.locator('.fan-story-title').textContent(),expected.title);
-  assert.ok(text.startsWith(expected.title+'\n\n'+expected.first),text.slice(0,180));
+  assert.ok(text.startsWith(expected.first),text.slice(0,180));
   assert.ok(text.endsWith(expected.last),text.slice(-180));
+  assert.equal(await page.locator('.fan-story-body h3').count(),0,'Story title must not be repeated inside the reading body');
   assert.equal(await page.locator('.fan-story-credit p').first().textContent(),expected.credit);
   if(language==='de')assert.equal(createHash('sha256').update(text).digest('hex'),originalHash,'German original prose, punctuation and whitespace must remain verbatim');
 }
