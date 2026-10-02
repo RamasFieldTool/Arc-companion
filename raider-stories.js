@@ -158,8 +158,6 @@ window.RFTCommunityStories=Object.freeze([
     requestAnimationFrame(()=>{scheduled=false;applyStoryLanguage();});
   }
   new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
-  const section=document.getElementById('raiderRadio');
-  if(section)new MutationObserver(schedule).observe(section,{subtree:true,childList:true});
   window.addEventListener('hashchange',schedule);
   window.RFTApplyStoryLanguage=applyStoryLanguage;
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});
