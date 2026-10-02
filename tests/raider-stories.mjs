@@ -14,6 +14,12 @@ const labels={
   fr:['Lire l’histoire','← Retour à Raider Stories','← Retour à Fan Creations'],
   es:['Leer historia','← Volver a Raider Stories','← Volver a Fan Creations']
 };
+const storyExpected={
+  de:{title:'Versteckspiel',summary:'Drei gegen einen. Geduldig warten sie im Dunkeln auf ihr Opfer.\n\nDoch diese Geschichte wird nicht aus der Perspektive eines Raiders erzählt.',first:'Ich warte. Warte bis endlich jemand kommt.',last:'Sie machen es uns so einfach…',credit:'Community Story von Chris Fenzelino'},
+  en:{title:'Hide and Seek',summary:'Three against one. They wait patiently in the darkness for their victim.\n\nBut this story is not told from a Raider’s perspective.',first:'I wait. I wait for someone to finally come.',last:'They make it so easy for us…',credit:'Community Story by Chris Fenzelino'},
+  fr:{title:'Cache-cache',summary:'Trois contre un. Ils attendent patiemment leur victime dans l’obscurité.\n\nMais cette histoire n’est pas racontée du point de vue d’un Raider.',first:'J’attends. J’attends que quelqu’un finisse enfin par arriver.',last:'Ils nous rendent les choses tellement faciles…',credit:'Histoire de la communauté par Chris Fenzelino'},
+  es:{title:'El escondite',summary:'Tres contra uno. Esperan pacientemente a su víctima en la oscuridad.\n\nPero esta historia no está contada desde la perspectiva de un Raider.',first:'Espero. Espero hasta que por fin aparezca alguien.',last:'Nos lo ponen demasiado fácil…',credit:'Historia de la comunidad de Chris Fenzelino'}
+};
 const songs=['https://suno.com/s/vbkPccvrI66ij4gJ','https://suno.com/s/trsx9nLKROxaw5fW','https://suno.com/s/vkAaYpLp5LkJyuVz','https://suno.com/s/xqxasdeSvRKfs74o'];
 
 async function installRoutes(page){
@@ -28,10 +34,16 @@ async function installRoutes(page){
 }
 async function visible(page,selector){await page.locator(selector).waitFor({state:'visible'});}
 async function hash(page,value){await page.waitForFunction(expected=>location.hash===expected,value);}
-async function checkText(page){
+async function checkText(page,language){
+  const expected=storyExpected[language];
+  await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-body')?.lang===language&&document.querySelector('.fan-story-title')?.textContent===title,{language,title:expected.title});
   const text=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
-  assert.equal(createHash('sha256').update(text).digest('hex'),originalHash,'Original prose, punctuation and whitespace must remain verbatim');
-  assert.equal(await page.locator('.fan-story-body').getAttribute('lang'),'de');
+  assert.equal(await page.locator('.fan-story-body').getAttribute('lang'),language);
+  assert.equal(await page.locator('.fan-story-title').textContent(),expected.title);
+  assert.ok(text.startsWith(expected.title+'\n\n'+expected.first),text.slice(0,180));
+  assert.ok(text.endsWith(expected.last),text.slice(-180));
+  assert.equal(await page.locator('.fan-story-credit p').first().textContent(),expected.credit);
+  if(language==='de')assert.equal(createHash('sha256').update(text).digest('hex'),originalHash,'German original prose, punctuation and whitespace must remain verbatim');
 }
 async function checkLayout(page){
   const metrics=await page.evaluate(()=>{
@@ -70,9 +82,11 @@ try{
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
     assert.equal(await page.locator('.fan-story-card').count(),1);
-    assert.equal(await page.locator('.fan-story-card-title').textContent(),'Versteckspiel');
-    assert.equal(await page.locator('.fan-story-summary').textContent(),'Drei gegen einen. Geduldig warten sie im Dunkeln auf ihr Opfer.\n\nDoch diese Geschichte wird nicht aus der Perspektive eines Raiders erzählt.');
+    await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
+    assert.equal(await page.locator('.fan-story-card-title').textContent(),storyExpected[language].title);
+    assert.equal(await page.locator('.fan-story-summary').textContent(),storyExpected[language].summary);
     assert.equal(await page.locator('.fan-story-read').textContent(),labels[language][0]);
+    assert.equal(await page.locator('.fan-story-read').getAttribute('aria-label'),`${labels[language][0]}: ${storyExpected[language].title}`);
     assert.equal(await page.locator('.fan-view:has(.fan-stories-grid)>.fan-view-back').textContent(),labels[language][2]);
     await page.locator('.fan-story-read').tap();
     await hash(page,'#raiderRadio/stories/versteckspiel');
@@ -80,14 +94,14 @@ try{
     await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth===1536);
     assert.equal(await page.locator('.fan-story-hero>img').evaluate(img=>img.naturalHeight),1024);
     assert.equal(await page.locator('.fan-story-view>.fan-view-back').textContent(),labels[language][1]);
-    assert.equal(await page.locator('.fan-story-credit p').first().textContent(),'Community Story by Chris Fenzelino');
     assert.equal(await page.locator('.fan-story-social').getAttribute('target'),'_blank');
     assert.equal(await page.locator('.fan-story-social').getAttribute('rel'),'noopener noreferrer');
-    await checkText(page);await checkLayout(page);
+    await checkText(page,language);await checkLayout(page);
     if(width===390&&language==='de')await page.screenshot({path:new URL(`../test-artifacts/stories/${surface}-390.png`,import.meta.url).pathname,fullPage:true});
     await page.goBack();await visible(page,'.fan-stories-grid');
-    await page.goForward();await visible(page,'.fan-story-detail');await checkText(page);
-    await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');await checkText(page);
+    await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
+    await page.goForward();await visible(page,'.fan-story-detail');await checkText(page,language);
+    await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
     await page.locator('.fan-view:has(.fan-stories-grid)>.fan-view-back').tap();await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="radio"]').tap();await visible(page,'.radio-grid');
@@ -104,13 +118,14 @@ try{
     assert.equal(await page.locator('.fan-story-view').isVisible(),false);
     await page.evaluate(()=>{location.hash='raiderRadio/stories/missing';});await visible(page,'.fan-stories-grid');
     await page.goto(BASE_URL+'#raiderRadio/stories/versteckspiel',{waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
-    await checkText(page);
-    // A real language switch must keep German prose and update only UI chrome.
+    await checkText(page,language);
+    // A real language switch must update the story title, summary/prose and credit too.
     await page.evaluate(()=>window.arcSetLanguage('fr'));await page.waitForFunction(()=>document.documentElement.lang==='fr');
-    await page.waitForFunction(()=>document.querySelector('.fan-story-view>.fan-view-back').textContent==='← Retour à Raider Stories');await checkText(page);
+    await page.waitForFunction(()=>document.querySelector('.fan-story-view>.fan-view-back').textContent==='← Retour à Raider Stories');
+    await checkText(page,'fr');
     assert.equal(await page.locator('[data-app-target="raiderRadio"] b').textContent(),'Fan Creations');
     assert.deepEqual(errors,[]);
-    console.log(`PASS community story ${width}px ${surface} ${language}: verbatim text, UI, image, layout, hash/history/reload/back, radio covers and links`);
+    console.log(`PASS community story ${width}px ${surface} ${language}: localized story/UI, verbatim DE original, image, layout, hash/history/reload/back, radio covers and links`);
     await context.close();
   }
 }finally{await browser.close();}
