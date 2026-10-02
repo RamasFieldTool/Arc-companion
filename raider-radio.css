@@ -170,3 +170,6 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme=
   font-size:clamp(25px,7vw,44px)!important;font-weight:700;line-height:1.3!important;
   text-align:center;text-shadow:0 2px 16px #ff6a2633;
 }
+
+/* Keep the question legible against app-wide strong-text rules. */
+html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme="rust-legend"] .fan-story-body .fan-legend-question{color:var(--story-ember)!important;font-family:Georgia,serif!important}
