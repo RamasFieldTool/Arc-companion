@@ -3,10 +3,8 @@
 const RFT_VERSTECKSPIEL_TRANSLATIONS=Object.freeze({
   de:Object.freeze({
     title:'Versteckspiel',
-    summary:'Drei gegen einen. Geduldig warten sie im Dunkeln auf ihr Opfer.\n\nDoch diese Geschichte wird nicht aus der Perspektive eines Raiders erzählt.',
-    content:`Versteckspiel
-
-Ich warte. Warte bis endlich jemand kommt. Das kann dauern. Aber ich habe Zeit. Und die Chancen stehen gut. Irgendwann, spätestens kurz vorm Rundenende, kommen sie um die Ecke. Die Rucksäcke voll und die Freude groß es bis hierher geschafft zu haben. Meist nicht mehr so vorsichtig wie noch die Minuten zuvor, erleichtert.  Es ist immer das Gleiche, es ist so einfach für mich. Ich spüre keine Reue, keine Gnade, habe keinen Respekt und kein Mitleid. Es geht mir auch nicht um die Beute. Ich töte sie, einfach so, fühle nichts dabei. Ob sie mir zurufen oder schreien wenn es ihnen bewusst wird, ist mir egal. Es berührt mich nicht, es ändert nicht mein Tun. Ich bin auch nicht alleine. Zu dritt haben wir uns abgesprochen. Lauern im Dunkeln. Warten auf unseren Moment. Drei gegen einen. Es soll nichts schiefgehen. Chancenlos. Ein leichtes Spiel…
+    summary:'Drei gegen einen. Geduldig warten sie im Dunkeln auf ihr Opfer.',
+    content:`Ich warte. Warte bis endlich jemand kommt. Das kann dauern. Aber ich habe Zeit. Und die Chancen stehen gut. Irgendwann, spätestens kurz vorm Rundenende, kommen sie um die Ecke. Die Rucksäcke voll und die Freude groß es bis hierher geschafft zu haben. Meist nicht mehr so vorsichtig wie noch die Minuten zuvor, erleichtert.  Es ist immer das Gleiche, es ist so einfach für mich. Ich spüre keine Reue, keine Gnade, habe keinen Respekt und kein Mitleid. Es geht mir auch nicht um die Beute. Ich töte sie, einfach so, fühle nichts dabei. Ob sie mir zurufen oder schreien wenn es ihnen bewusst wird, ist mir egal. Es berührt mich nicht, es ändert nicht mein Tun. Ich bin auch nicht alleine. Zu dritt haben wir uns abgesprochen. Lauern im Dunkeln. Warten auf unseren Moment. Drei gegen einen. Es soll nichts schiefgehen. Chancenlos. Ein leichtes Spiel…
 
 Die Runde geht dem Ende zu. Ich höre schnelle Schritte. Sie nähern sich. Schwere Atmung. Gleich kommt unser Moment der Überraschung. Mein Moment. Die Schritte sind jetzt sehr nah. Ich höre ihn rufen: „Hey, don‘t shoot!“. Es wird nichts ändern. Ich sage nichts. Drei gegen einen. Aus dem Hinterhalt. Wir haben lange genug gewartet.
 
@@ -16,10 +14,8 @@ Die Menschen haben keine Chance. Sie verfolgen keinen einheitlichen Plan. Sie be
   }),
   en:Object.freeze({
     title:'Hide and Seek',
-    summary:'Three against one. They wait patiently in the darkness for their victim.\n\nBut this story is not told from a Raider’s perspective.',
-    content:`Hide and Seek
-
-I wait. I wait for someone to finally come. It can take a while. But I have time. And the odds are good. Eventually, at the latest shortly before the round ends, they come around the corner. Backpacks full, happy that they have made it this far. Usually not quite as cautious as they were only minutes before. Relieved.
+    summary:'Three against one. They wait patiently in the darkness for their victim.',
+    content:`I wait. I wait for someone to finally come. It can take a while. But I have time. And the odds are good. Eventually, at the latest shortly before the round ends, they come around the corner. Backpacks full, happy that they have made it this far. Usually not quite as cautious as they were only minutes before. Relieved.
 
 It is always the same. It is so easy for me. I feel no remorse, no mercy, no respect and no compassion. I am not interested in the loot either. I kill them, just like that, and feel nothing. Whether they call out to me or scream when they realize what is happening does not matter. It does not affect me. It does not change what I do. And I am not alone. The three of us have coordinated our positions. Lurking in the darkness. Waiting for our moment. Three against one. Nothing must go wrong. No chance. An easy game…
 
@@ -31,10 +27,8 @@ The humans do not stand a chance. They have no unified plan. They fight us, but 
   }),
   fr:Object.freeze({
     title:'Cache-cache',
-    summary:'Trois contre un. Ils attendent patiemment leur victime dans l’obscurité.\n\nMais cette histoire n’est pas racontée du point de vue d’un Raider.',
-    content:`Cache-cache
-
-J’attends. J’attends que quelqu’un finisse enfin par arriver. Cela peut prendre du temps. Mais j’ai le temps. Et les chances sont bonnes. Tôt ou tard, au plus tard peu avant la fin de la partie, ils apparaissent au coin. Les sacs à dos pleins, heureux d’être arrivés jusque-là. Généralement moins prudents que quelques minutes auparavant. Soulagés.
+    summary:'Trois contre un. Ils attendent patiemment leur victime dans l’obscurité.',
+    content:`J’attends. J’attends que quelqu’un finisse enfin par arriver. Cela peut prendre du temps. Mais j’ai le temps. Et les chances sont bonnes. Tôt ou tard, au plus tard peu avant la fin de la partie, ils apparaissent au coin. Les sacs à dos pleins, heureux d’être arrivés jusque-là. Généralement moins prudents que quelques minutes auparavant. Soulagés.
 
 C’est toujours la même chose. C’est tellement facile pour moi. Je ne ressens aucun remords, aucune pitié, aucun respect, aucune compassion. Le butin ne m’intéresse pas non plus. Je les tue, simplement, sans rien ressentir. Qu’ils m’interpellent ou qu’ils crient lorsqu’ils comprennent ce qui va se passer m’est complètement égal. Cela ne me touche pas. Cela ne change rien à ce que je fais. Et je ne suis pas seul. Nous sommes trois et nous nous sommes coordonnés. Cachés dans l’obscurité. Attendant notre moment. Trois contre un. Rien ne doit mal tourner. Aucune chance. Un jeu facile…
 
@@ -46,10 +40,8 @@ Les humains n’ont aucune chance. Ils ne suivent aucun plan commun. Ils nous co
   }),
   es:Object.freeze({
     title:'El escondite',
-    summary:'Tres contra uno. Esperan pacientemente a su víctima en la oscuridad.\n\nPero esta historia no está contada desde la perspectiva de un Raider.',
-    content:`El escondite
-
-Espero. Espero hasta que por fin aparezca alguien. Puede tardar. Pero tengo tiempo. Y las probabilidades están de mi lado. Tarde o temprano, como muy tarde poco antes de que termine la ronda, aparecen por la esquina. Las mochilas llenas y felices de haber llegado hasta aquí. Normalmente ya no son tan cuidadosos como unos minutos antes. Están aliviados.
+    summary:'Tres contra uno. Esperan pacientemente a su víctima en la oscuridad.',
+    content:`Espero. Espero hasta que por fin aparezca alguien. Puede tardar. Pero tengo tiempo. Y las probabilidades están de mi lado. Tarde o temprano, como muy tarde poco antes de que termine la ronda, aparecen por la esquina. Las mochilas llenas y felices de haber llegado hasta aquí. Normalmente ya no son tan cuidadosos como unos minutos antes. Están aliviados.
 
 Siempre es lo mismo. Es demasiado fácil para mí. No siento remordimiento ni piedad. No siento respeto ni compasión. Tampoco me interesa el botín. Los mato. Así de simple. Y no siento nada. No me importa si me gritan o intentan hablar conmigo cuando se dan cuenta de lo que está pasando. No me afecta. No cambia lo que voy a hacer. Y tampoco estoy solo. Somos tres y nos hemos coordinado. Acechamos en la oscuridad. Esperamos nuestro momento. Tres contra uno. Nada puede salir mal. No tiene ninguna posibilidad. Un juego fácil…
 
@@ -107,9 +99,8 @@ window.RFTCommunityStories=Object.freeze([
   function replaceBody(body,content,lang){
     if(body.dataset.storyLanguage===lang&&body.dataset.storyContent===content)return;
     body.replaceChildren();
-    content.split('\n\n').forEach((paragraph,index)=>{
-      const node=document.createElement(index===0?'h3':'p');
-      if(index===0)node.className='fan-story-text-title';
+    content.split('\n\n').forEach(paragraph=>{
+      const node=document.createElement('p');
       node.textContent=paragraph;
       body.append(node);
     });
