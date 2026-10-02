@@ -37,6 +37,8 @@ async function visible(page,selector){await page.locator(selector).waitFor({stat
 async function hash(page,value){await page.waitForFunction(expected=>location.hash===expected,value);}
 async function checkText(page,language){
   const expected=storyExpected[language];
+  // Catalog startup briefly applies the engine language; wait for its final live state.
+  await page.waitForFunction(()=>/LIVE/.test(document.getElementById('dataStatusDock')?.textContent||''));
   await page.waitForFunction(({language,title,credit})=>document.querySelector('.fan-story-body')?.lang===language&&document.querySelector('.fan-story-title')?.textContent===title&&!document.querySelector('.fan-story-body h3')&&document.querySelector('.fan-story-credit p')?.textContent===credit,{language,title:expected.title,credit:expected.credit});
   const text=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
   assert.equal(await page.locator('.fan-story-body').getAttribute('lang'),language);
