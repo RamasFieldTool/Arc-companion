@@ -9,7 +9,7 @@
   document.head.append(beacon);
 })();
 
-// Fan Creations hub. Raider Radio remains the first category; stories are ready for future entries.
+// Fan Creations hub, music and author-approved community stories.
 (()=>{
   const songs=[
     {id:'ugly',title:'Ugly',cover:'assets/music/ugly-cover.png',sunoUrl:'https://suno.com/s/vbkPccvrI66ij4gJ'},
@@ -48,6 +48,14 @@
       how:'Para escuchar una canción, se abre directamente en Suno en una nueva pestaña. Ramas Field Tool no almacena ni aloja archivos de audio y no ofrece descargas. Con el tiempo iremos añadiendo más canciones.',listen:'▶ Escuchar en Suno'
     }
   };
+
+  const storyCopy={
+    de:{read:'Story lesen',back:'← Zurück zu Raider Stories'},
+    en:{read:'Read story',back:'← Back to Raider Stories'},
+    fr:{read:'Lire l’histoire',back:'← Retour à Raider Stories'},
+    es:{read:'Leer historia',back:'← Volver a Raider Stories'}
+  };
+  const stories=window.RFTCommunityStories||[];
 
   const section=document.getElementById('raiderRadio');
   const tile=document.querySelector('#appLauncher [data-app-target="raiderRadio"]');
@@ -128,14 +136,105 @@
   storiesBack.type='button';
   storiesBack.className='fan-view-back';
   const storiesHeading=document.createElement('h2');
-  const storiesEmpty=document.createElement('div');
-  storiesEmpty.className='fan-stories-empty';
-  const storiesEmptyTitle=document.createElement('h3');
-  const storiesEmptyText=document.createElement('p');
-  storiesEmpty.append(storiesEmptyTitle,storiesEmptyText);
-  storiesView.append(storiesBack,storiesHeading,storiesEmpty);
+  const storiesGrid=document.createElement('div');
+  storiesGrid.className='fan-stories-grid';
+  storiesView.append(storiesBack,storiesHeading,storiesGrid);
 
-  section.append(hub,radioView,storiesView);
+  const storyView=document.createElement('div');
+  storyView.className='fan-view fan-story-view';
+  storyView.hidden=true;
+  const storyBack=document.createElement('a');
+  storyBack.className='fan-view-back';
+  storyBack.href='#raiderRadio/stories';
+  const storyDetail=document.createElement('article');
+  storyDetail.className='fan-story-detail';
+  storyView.append(storyBack,storyDetail);
+
+  // Community prose never becomes HTML. Themes and external protocols are allowlisted.
+  function makeText(tag,className,text){
+    const node=document.createElement(tag);
+    node.className=className;
+    node.textContent=text;
+    return node;
+  }
+  function themeFor(story){return story.theme==='dark-ambush'?'dark-ambush':'default';}
+  function makeImage(story,lazy=false){
+    const image=document.createElement('img');
+    image.src=story.image;
+    image.alt='';
+    image.width=story.imageWidth;
+    image.height=story.imageHeight;
+    image.decoding='async';
+    if(lazy)image.loading='lazy';
+    return image;
+  }
+  const storyLinks=[];
+  stories.forEach(story=>{
+    const card=document.createElement('article');
+    card.className='fan-story-card';
+    card.dataset.storyId=story.id;
+    card.dataset.storyTheme=themeFor(story);
+    const cover=makeImage(story,true);
+    const cardCopy=document.createElement('div');
+    cardCopy.className='fan-story-card-copy';
+    const title=makeText('h3','fan-story-card-title',story.title);
+    const author=makeText('p','fan-story-author',story.author);
+    const summary=makeText('p','fan-story-summary',story.summary);
+    title.lang=summary.lang=story.language;
+    const link=document.createElement('a');
+    link.className='fan-story-read';
+    link.href=`#raiderRadio/stories/${encodeURIComponent(story.id)}`;
+    storyLinks.push({link,title:story.title});
+    cardCopy.append(title,author,summary,link);
+    card.append(cover,cardCopy);
+    storiesGrid.append(card);
+  });
+
+  let currentStoryId=null;
+  function renderStory(story){
+    if(currentStoryId===story.id)return;
+    currentStoryId=story.id;
+    storyDetail.replaceChildren();
+    storyDetail.dataset.storyTheme=themeFor(story);
+    const hero=document.createElement('header');
+    hero.className='fan-story-hero';
+    const heroCopy=document.createElement('div');
+    heroCopy.className='fan-story-hero-copy';
+    const kicker=makeText('p','fan-story-kicker','Community Story');
+    const title=makeText('h2','fan-story-title',story.title);
+    title.lang=story.language;
+    title.tabIndex=-1;
+    title.id='fanStoryTitle';
+    storyDetail.setAttribute('aria-labelledby',title.id);
+    const author=makeText('p','fan-story-author',story.author);
+    heroCopy.append(kicker,title,author);
+    hero.append(makeImage(story),heroCopy);
+    const body=document.createElement('div');
+    body.className='fan-story-body';
+    body.lang=story.language;
+    story.content.split('\n\n').forEach((paragraph,index)=>{
+      body.append(makeText(index===0?'h3':'p',index===0?'fan-story-text-title':'',paragraph));
+    });
+    const credit=document.createElement('footer');
+    credit.className='fan-story-credit';
+    credit.lang='en';
+    credit.append(makeText('p','','Community Story by '+story.author),makeText('p','fan-story-permission','Published with permission of the author.'));
+    if(story.authorUrl){
+      try{
+        const url=new URL(story.authorUrl);
+        if(url.protocol==='https:'){
+          const social=makeText('a','fan-story-social','Instagram');
+          social.href=url.href;
+          social.target='_blank';
+          social.rel='noopener noreferrer';
+          credit.append(social);
+        }
+      }catch{/* Invalid author links are omitted. */}
+    }
+    storyDetail.append(hero,body,credit);
+  }
+
+  section.append(hub,radioView,storiesView,storyView);
 
   const links=[];
   songs.forEach(song=>{
@@ -175,21 +274,47 @@
     hub.hidden=false;
     radioView.hidden=true;
     storiesView.hidden=true;
+    storyView.hidden=true;
+    currentStoryId=null;
+    storyDetail.replaceChildren();
   }
   function showView(view){
     hub.hidden=true;
     radioView.hidden=view!=='radio';
     storiesView.hidden=view!=='stories';
+    storyView.hidden=true;
     const target=view==='radio'?radioHeading:storiesHeading;
     target.focus?.({preventScroll:true});
   }
 
   categoryGrid.addEventListener('click',event=>{
     const button=event.target.closest('[data-fan-view]');
-    if(button)showView(button.dataset.fanView);
+    if(button)location.hash=`raiderRadio/${button.dataset.fanView}`;
   });
-  radioBack.addEventListener('click',showHub);
-  storiesBack.addEventListener('click',showHub);
+  radioBack.addEventListener('click',()=>{location.hash='raiderRadio';});
+  storiesBack.addEventListener('click',()=>{location.hash='raiderRadio';});
+
+  function syncRoute(){
+    const parts=location.hash.slice(1).split('/');
+    if(parts[0]!=='raiderRadio'){showHub();return;}
+    if(parts[1]==='stories'){
+      const story=stories.find(entry=>encodeURIComponent(entry.id)===parts[2]);
+      if(story){
+        renderStory(story);
+        hub.hidden=radioView.hidden=storiesView.hidden=true;
+        storyView.hidden=false;
+      }else showView('stories');
+    }else if(parts[1]==='radio')showView('radio');
+    else showHub();
+    // The app router runs after this listener; focus the visible heading afterwards.
+    requestAnimationFrame(()=>{
+      if(!section.classList.contains('launcher-active'))return;
+      const heading=storyView.hidden?(hub.hidden?(radioView.hidden?storiesHeading:radioHeading):hubTitle):storyDetail.querySelector('h2');
+      heading.tabIndex=-1;
+      heading.focus({preventScroll:true});
+    });
+  }
+  window.addEventListener('hashchange',syncRoute);
 
   const tileIcon=tile.querySelector('.app-icon');
   if(tileIcon){
@@ -212,8 +337,12 @@
     storiesBack.textContent=lang.back;
     radioHeading.textContent=lang.radioTitle;
     storiesHeading.textContent=lang.storiesTitle;
-    storiesEmptyTitle.textContent=lang.storiesEmptyTitle;
-    storiesEmptyText.textContent=lang.storiesEmpty;
+    const storyLang=storyCopy[document.documentElement.lang]||storyCopy.en;
+    storyBack.textContent=storyLang.back;
+    storyLinks.forEach(({link,title})=>{
+      link.textContent=storyLang.read;
+      link.setAttribute('aria-label',`${storyLang.read}: ${title}`);
+    });
     aboutTitle.textContent=lang.aboutTitle;
     aboutText.textContent=lang.about;
     howText.textContent=lang.how;
@@ -223,14 +352,14 @@
     });
   }
 
-  showHub();
+  syncRoute();
   syncLanguage();
   new MutationObserver(syncLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 
   let wasActive=section.classList.contains('launcher-active');
   new MutationObserver(()=>{
     const isActive=section.classList.contains('launcher-active');
-    if(isActive&&!wasActive)showHub();
+    if(isActive&&!wasActive)syncRoute();
     wasActive=isActive;
   }).observe(section,{attributes:true,attributeFilter:['class']});
 })();
