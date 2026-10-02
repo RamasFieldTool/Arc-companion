@@ -20,6 +20,7 @@ const storyExpected={
   fr:{title:'Cache-cache',summary:'Trois contre un. Ils attendent patiemment leur victime dans l’obscurité.',first:'J’attends. J’attends que quelqu’un finisse enfin par arriver.',last:'Ils nous rendent les choses tellement faciles…',credit:'Histoire de la communauté par Chris Fenzelino'},
   es:{title:'El escondite',summary:'Tres contra uno. Esperan pacientemente a su víctima en la oscuridad.',first:'Espero. Espero hasta que por fin aparezca alguien.',last:'Nos lo ponen demasiado fácil…',credit:'Historia de la comunidad de Chris Fenzelino'}
 };
+assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/captain-defib-zoe-bristow.jpg',import.meta.url))).digest('hex'),'5553adcdc9ceae95525486ccc0e6c7ede6ff9c8189e3c5a350840d9fae194e6e');
 const songs=['https://suno.com/s/vbkPccvrI66ij4gJ','https://suno.com/s/trsx9nLKROxaw5fW','https://suno.com/s/vkAaYpLp5LkJyuVz','https://suno.com/s/xqxasdeSvRKfs74o'];
 
 async function installRoutes(page){
@@ -82,14 +83,14 @@ try{
     await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),1);
+    assert.equal(await page.locator('.fan-story-card').count(),2);
     await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
-    assert.equal(await page.locator('.fan-story-card-title').textContent(),storyExpected[language].title);
-    assert.equal(await page.locator('.fan-story-summary').textContent(),storyExpected[language].summary);
-    assert.equal(await page.locator('.fan-story-read').textContent(),labels[language][0]);
-    assert.equal(await page.locator('.fan-story-read').getAttribute('aria-label'),`${labels[language][0]}: ${storyExpected[language].title}`);
+    assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-card-title').textContent(),storyExpected[language].title);
+    assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-summary').textContent(),storyExpected[language].summary);
+    assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-read').textContent(),labels[language][0]);
+    assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-read').getAttribute('aria-label'),`${labels[language][0]}: ${storyExpected[language].title}`);
     assert.equal(await page.locator('.fan-view:has(.fan-stories-grid)>.fan-view-back').textContent(),labels[language][2]);
-    await page.locator('.fan-story-read').tap();
+    await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-read').tap();
     await hash(page,'#raiderRadio/stories/versteckspiel');
     await visible(page,'.fan-story-detail');
     await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth===1536);
@@ -125,6 +126,23 @@ try{
     await page.waitForFunction(()=>document.querySelector('.fan-story-view>.fan-view-back').textContent==='← Retour à Raider Stories');
     await checkText(page,'fr');
     assert.equal(await page.locator('[data-app-target="raiderRadio"] b').textContent(),'Fan Creations');
+    // The new German original stays verbatim in every app language and surface.
+    await page.goto(BASE_URL+'#raiderRadio/stories/captain-defib',{waitUntil:'domcontentloaded'});
+    await visible(page,'.fan-story-detail');
+    await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='de'&&document.querySelector('.fan-legend-reveal'));
+    assert.equal(await page.locator('.fan-story-title').textContent(),'Die Legende von CaptainDefib');
+    assert.equal(await page.locator('.fan-story-editorial-note').textContent(),'Redaktioneller Titel – Originalgeschichte ohne Titel');
+    const zoeText=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
+    assert.equal(createHash('sha256').update(zoeText).digest('hex'),'d1120f76cb09b6df1e25e35e819da53e9b34f4fb6eeb1232caf0c25e794e07b4');
+    assert.equal(await page.locator('.fan-legend-question').textContent(),'Sein Name?');
+    assert.equal(await page.locator('.fan-legend-reveal').textContent(),'"CaptainDefib"');
+    await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth===1536);
+    assert.equal(await page.locator('.fan-story-hero>img').evaluate(img=>img.naturalHeight),1536);
+    assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
+    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1));
+    await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
+    await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
+    assert.equal(await page.locator('.fan-story-card').count(),2);
     assert.deepEqual(errors,[]);
     console.log(`PASS community story ${width}px ${surface} ${language}: localized story/UI, verbatim DE original, image, layout, hash/history/reload/back, radio covers and links`);
     await context.close();
