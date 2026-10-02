@@ -68,6 +68,20 @@ window.RFTCommunityStories=Object.freeze([
     originalLanguage:'de',
     content:RFT_VERSTECKSPIEL_TRANSLATIONS.de.content,
     translations:RFT_VERSTECKSPIEL_TRANSLATIONS
+  }),
+  Object.freeze({
+    id:'captain-defib',
+    title:'Die Legende von CaptainDefib',
+    author:'Zoe Bristow',
+    summary:'Ein Raider kehrt ins Feuer zurück, um gefallene Kameraden ins Leben zu holen.',
+    image:'assets/stories/captain-defib-zoe-bristow.jpg',
+    imageWidth:1536,
+    imageHeight:1536,
+    theme:'rust-legend',
+    language:'de',
+    originalLanguage:'de',
+    editorialNote:'Redaktioneller Titel – Originalgeschichte ohne Titel',
+    content:"Es war einmal ein Raider, dessen Name durch den Rostgürtel hallte wie das ferne Grollen eines herannahenden Sturms. Man sagte, er kenne keine Angst und wenn doch, dann trug er sie wie eine alte Narbe: sichtbar, aber bedeutungslos. Während andere im Schatten verweilten oder sich vorsichtig von Deckung zu Deckung tasteten, trat er hinaus ins offene Chaos, dorthin, wo der Himmel in Flammen stand und der Boden unter Explosionen bebte. Mitten im Inferno aus Feuer, Laserstrahlen und dem unaufhörlichen Dröhnen bewegte er sich wie eine Erscheinung, entschlossen, unbeirrt, fast schon sagenhaft. Wo andere nur das eigene Überleben sahen, erkannte er etwas Größeres: Kameradschaft. Verantwortung. Vielleicht sogar so etwas wie Ehre..\nIch sah ihn zum ersten Mal in einem Moment, in dem alles verloren schien. Um mich herum tobte der Kampf gegen Verdampfer und all die anderen erbarmungslosen Arcs, die uns wie Beute durch das Schlachtfeld jagten. Einer nach dem anderen fiel. Schreie, Funken, Rauch. Und dann Stille... Die Art von Stille, die das Ende bedeutet.\nDoch dann... Schritte.\nNicht hastig. Nicht panisch. Sondern ruhig. Und bestimmt.\nEr kam durch das Feuer, als gehöre es zu ihm. Kugeln pfiffen an ihm vorbei, Laser schnitten durch die Luft, Explosionen rissen den Boden auf... und dennoch ging er weiter. Direkt auf uns zu. Direkt ins Herz der Gefahr. Und dort, wo andere gezögert hätten, kniete er sich nieder. Ein Defibrillator in der Hand, ein kurzer Moment zwischen Leben und Tod - und dann der Stoß. Ich stand wieder. Andere auch. Er holte uns zurück, einen nach dem anderen, als würde er dem Tod persönlich widersprechen.\nSein Name?\n\n\"CaptainDefib\"\n\nEin Name, der fast schon wie ein Versprechen klang. Und ich gebe zu: Ich feierte ihn allein schon dafür. Aber was er tat, machte diesen Namen zu einer Legende.\nMitten im Kampf - während um uns herum weiterhin das Chaos tobte - fand ich tatsächlich einen Moment, ihn zu fragen, ob ich diese Begegnung erzählen darf. Ob ich seinen Namen nennen darf... Vielleicht war es unpassend, aber solche Taten verdienen es, nicht im Staub des Rostgürtels verloren zu gehen. Er wird diesen Beitrag vermutlich nie lesen. Englisch ist seine Muttersprache, unsere Wege haben sich nur für diesen einen, flüchtigen Moment gekreuzt. Wir quatschten ein bisschen, sofern es die hektische Situation zuließ. Aber vielleicht ist genau das das Wesen solcher Begegnungen: kurz, intensiv und unvergesslich...\n\nIch trage stets drei Defis bei mir, sogar in Stella Montis, wenn ich nicht mit Gratisloadout rausgehe. Nicht, weil ich glaube, so furchtlos zu sein wie er, sondern weil ich gesehen habe, was es bedeuten kann...\nAlso frage ich euch, Raider: Wer von euch ignoriert manchmal auch das eigene Risiko, das pochende Herz in der Brust und die drohende Gefahr, nur um noch einmal umzudrehen, noch einen Schritt zurück ins Feuer zu wagen, um einen gefallenen Raider wieder ins Leben zu holen?\n\nDenn vielleicht beginnt genau dort die wahre Legende... eine Legende wie Captain Defib."
   })
 ]);
 
@@ -133,7 +147,23 @@ window.RFTCommunityStories=Object.freeze([
     const credit=detail.querySelector('.fan-story-credit');
     if(title){title.textContent=local.title;title.lang=lang;}
     if(kicker)kicker.textContent=labels.kicker;
-    if(body)replaceBody(body,local.content,lang);
+    if(body){
+      replaceBody(body,local.content,story.translations?lang:story.originalLanguage||story.language);
+      if(story.theme==='rust-legend'){
+        body.querySelectorAll('p').forEach(node=>{
+          const marker='Sein Name?';
+          if(node.textContent.endsWith(marker)&&!node.querySelector('.fan-legend-question')){
+            const prefix=node.textContent.slice(0,-marker.length);
+            node.textContent=prefix;
+            const emphasis=document.createElement('strong');
+            emphasis.className='fan-legend-question';
+            emphasis.textContent=marker;
+            node.append(emphasis);
+          }
+          if(node.textContent==='"CaptainDefib"')node.classList.add('fan-legend-reveal');
+        });
+      }
+    }
     if(credit){
       credit.lang=lang;
       const paragraphs=credit.querySelectorAll('p');
