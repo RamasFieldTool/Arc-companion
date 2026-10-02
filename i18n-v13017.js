@@ -119,6 +119,8 @@
       Object.entries(c.tiles).forEach(([target,label])=>{
         const tile=home.querySelector(`[data-app-target="${target}"]`);
         if(!tile)return;
+        // Fan Creations owns its four-language title and status copy.
+        if(tile.dataset.fanCreations==='true')return;
         const title=tile.querySelector('b');
         const small=tile.querySelector('small');
         if(title)title.textContent=label;

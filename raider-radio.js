@@ -60,6 +60,7 @@
   const section=document.getElementById('raiderRadio');
   const tile=document.querySelector('#appLauncher [data-app-target="raiderRadio"]');
   if(!section||!tile)return;
+  tile.dataset.fanCreations='true';
 
   section.setAttribute('aria-label','Fan Creations');
   section.replaceChildren();

@@ -25,7 +25,6 @@ async function installRoutes(page){
     return route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(body)});
   });
   await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',route=>route.fulfill({status:200,contentType:'application/json',body:'[]'}));
-  await page.route('https://suno.com/s/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<title>Suno destination fixture</title>'}));
 }
 async function visible(page,selector){await page.locator(selector).waitFor({state:'visible'});}
 async function hash(page,value){await page.waitForFunction(expected=>location.hash===expected,value);}
@@ -36,14 +35,15 @@ async function checkText(page){
 }
 async function checkLayout(page){
   const metrics=await page.evaluate(()=>{
-    const body=document.querySelector('.fan-story-body'),style=getComputedStyle(body);
+    const body=document.querySelector('.fan-story-body'),style=getComputedStyle(body.querySelector('p'));
     const buttons=[...document.querySelectorAll('.fan-story-view>.fan-view-back,.fan-story-social')].map(el=>el.getBoundingClientRect().height);
-    return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,font:parseFloat(style.fontSize),line:parseFloat(style.lineHeight),ink:style.color,buttons};
+    return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,font:parseFloat(style.fontSize),line:parseFloat(style.lineHeight),ink:style.color,buttons,paragraphInks:[...body.querySelectorAll('p')].map(p=>getComputedStyle(p).color)};
   });
   assert.ok(metrics.overflow<=1,JSON.stringify(metrics));
   assert.ok(metrics.bodyOverflow<=1,JSON.stringify(metrics));
   assert.ok(metrics.font>=17&&metrics.line/metrics.font>=1.7,JSON.stringify(metrics));
   assert.equal(metrics.ink,'rgb(238, 231, 220)');
+  assert.ok(metrics.paragraphInks.every(ink=>ink===metrics.ink),JSON.stringify(metrics));
   assert.ok(metrics.buttons.every(height=>height>=44),JSON.stringify(metrics));
 }
 
@@ -59,10 +59,12 @@ try{
       localStorage.setItem('arcPaletteSurface',surface);
     },{language,surface});
     const page=await context.newPage(),errors=[];
+    await context.route('https://suno.com/s/**',route=>route.fulfill({status:200,contentType:'text/html',body:'<title>Suno destination fixture</title>'}));
     page.on('pageerror',error=>errors.push(String(error)));
     await installRoutes(page);
     await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
     await page.waitForFunction(l=>document.documentElement.lang===l&&typeof window.arcSetLanguage==='function',language);
+    assert.equal(await page.locator('[data-app-target="raiderRadio"] b').textContent(),'Fan Creations');
     await page.locator('[data-app-target="raiderRadio"]').tap();
     await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="stories"]').tap();
@@ -106,6 +108,7 @@ try{
     // A real language switch must keep German prose and update only UI chrome.
     await page.evaluate(()=>window.arcSetLanguage('fr'));await page.waitForFunction(()=>document.documentElement.lang==='fr');
     await page.waitForFunction(()=>document.querySelector('.fan-story-view>.fan-view-back').textContent==='← Retour à Raider Stories');await checkText(page);
+    assert.equal(await page.locator('[data-app-target="raiderRadio"] b').textContent(),'Fan Creations');
     assert.deepEqual(errors,[]);
     console.log(`PASS community story ${width}px ${surface} ${language}: verbatim text, UI, image, layout, hash/history/reload/back, radio covers and links`);
     await context.close();

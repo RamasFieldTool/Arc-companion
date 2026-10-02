@@ -139,3 +139,14 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-social{
   #raiderRadio .fan-story-hero-copy{padding:18px}
   #raiderRadio .fan-story-kicker{margin-bottom:6px;font-size:10px}
 }
+
+/* App-wide paragraph/typography rules must not dilute this reading palette. */
+html[data-accent] body.palette-enabled.view-open #raiderRadio :is(.fan-story-summary,.fan-story-body p,.fan-story-credit p){color:var(--story-ink)!important}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-author,
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-credit .fan-story-permission{color:var(--story-muted)!important}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-kicker{color:var(--story-ember)!important;letter-spacing:.15em!important}
+html[data-accent] body.palette-enabled.view-open #raiderRadio :is(.fan-story-card-title,.fan-story-title){font-family:Georgia,serif!important}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-body,
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-body p{font-family:Arial,Helvetica,sans-serif!important;font-size:17px!important;line-height:1.85!important}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-summary{line-height:1.7}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-credit{font-size:14px!important;line-height:1.65!important;border-color:var(--story-line)!important}
