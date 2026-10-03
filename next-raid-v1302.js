@@ -197,8 +197,9 @@
   function refreshAddButtons(){
     const c=copy();
     document.querySelectorAll('[data-next-raid-add]').forEach(button=>{
-      const saved=hasOwn(raid,button.dataset.itemId);
-      const label=saved?c.saved:c.add;
+      const planningSearch=button.closest('#out')&&window.RFTPlanningUI;
+      const saved=!planningSearch&&hasOwn(raid,button.dataset.itemId);
+      const label=planningSearch?window.RFTPlanningUI.goalLabel(button.dataset.itemId):(saved?c.saved:c.add);
       if(button.textContent!==label)button.textContent=label;
       if(button.disabled!==saved)button.disabled=saved;
       button.classList.toggle('is-saved',saved);
@@ -439,6 +440,7 @@
 
   document.addEventListener('click',event=>{
     const addButton=event.target.closest('[data-next-raid-add]');
+    if(addButton&&addButton.closest('#out')){window.RFTPlanningUI?.openItemGoal(addButton.dataset.itemId,addButton);return}
     if(addButton){addItem(addButton.dataset.itemId,addButton.dataset.quantity,addButton.dataset.raidPersonal==='true');return}
     const control=event.target.closest('[data-raid-action]');
     if(!control||!hasOwn(raid,control.dataset.id))return;

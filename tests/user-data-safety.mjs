@@ -98,7 +98,7 @@ try{
   equal(await snapshot(page),initial,'Backup round trip did not restore tracked data');
   console.log('PASS backup round trip restores active, paused and completed planning goals');
   const fresh=await browser.newContext();const freshPage=await fresh.newPage();await installRoutes(freshPage);await freshPage.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(freshPage);
-  await freshPage.locator('#arcLanguageFirstRun button[data-ui-lang=\"en\"]').click().catch(()=>{});
+  if(await freshPage.locator('#arcLanguageFirstRun').isVisible())await freshPage.locator('#arcLanguageFirstRun [data-first-language="en"]').click();
   await openBackup(freshPage);await importBackup(freshPage,backupPath);equal(await snapshot(freshPage),initial,'Fresh browser context import differs');await fresh.close();
   console.log('PASS fresh browser context restores all tracked backup data');
 

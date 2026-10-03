@@ -41,7 +41,8 @@
     });
     Object.values(personalGoals()).forEach(goal=>{
       if(!record(goal)||goal.status!=='active'||!goal.itemId)return;
-      add(goal.itemId,goal.target,`Personal: ${count(goal.target)}`,{kind:'personal',id:goal.itemId});
+      const label={de:'Sammelziel',en:'Collection goal',fr:'Objectif de collecte',es:'Objetivo de colección',it:'Obiettivo di raccolta'}[localStorage.getItem('arcUiLanguage')]||'Collection goal';
+      add(goal.itemId,goal.target,`${label}: ${count(goal.target)}`,{kind:'personal',id:goal.itemId});
     });
     return map;
   }
@@ -60,12 +61,13 @@
     const stock=typeof owned!=='undefined'?owned:read('arcOwned',{});
     const nextStatus=status==='active'&&count(stock[itemId])>=qty?'done':status;
     personal[itemId]={itemId,target:qty,status:['active','paused','done'].includes(nextStatus)?nextStatus:'active'};
-    write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'));
+    write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'));return personal[itemId];
   }
   function removePersonal(itemId){const personal=personalGoals();delete personal[itemId];write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'))}
 
   // Stock and reached collection goals must persist together. Completion never consumes stock.
   function commitStock(next){
+    if(!record(next)||Object.values(next).some(value=>!Number.isSafeInteger(value)||value<0||value>1000000000))throw new Error('Invalid stock');
     const personal=personalGoals(),completed=[];
     for(const goal of Object.values(personal)){
       if(record(goal)&&goal.status==='active'&&count(goal.target)>0&&count(next[goal.itemId])>=count(goal.target)){
