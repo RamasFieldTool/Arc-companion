@@ -41,7 +41,8 @@
     });
     Object.values(personalGoals()).forEach(goal=>{
       if(!record(goal)||goal.status!=='active'||!goal.itemId)return;
-      add(goal.itemId,goal.target,`Personal: ${count(goal.target)}`,{kind:'personal',id:goal.itemId});
+      const label={de:'Sammelziel',en:'Collection goal',fr:'Objectif de collecte',es:'Objetivo de colección',it:'Obiettivo di raccolta'}[localStorage.getItem('arcUiLanguage')]||'Collection goal';
+      add(goal.itemId,goal.target,`${label}: ${count(goal.target)}`,{kind:'personal',id:goal.itemId});
     });
     return map;
   }
@@ -56,12 +57,32 @@
   }
 
   function setPersonal(itemId,target,status='active'){
-    const personal=personalGoals(),qty=count(target);if(!itemId||qty<1)throw new Error('Invalid personal goal');
-    personal[itemId]={itemId,target:qty,status:['active','paused','done'].includes(status)?status:'active'};
-    write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'));
+    const personal=personalGoals(),qty=Number(target);if(!itemId||['__proto__','constructor','prototype'].includes(itemId)||!Number.isSafeInteger(qty)||qty<1||qty>999999)throw new Error('Invalid personal goal');
+    const stock=typeof owned!=='undefined'?owned:read('arcOwned',{});
+    const nextStatus=status==='active'&&count(stock[itemId])>=qty?'done':status;
+    personal[itemId]={itemId,target:qty,status:['active','paused','done'].includes(nextStatus)?nextStatus:'active'};
+    write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'));return personal[itemId];
   }
   function removePersonal(itemId){const personal=personalGoals();delete personal[itemId];write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'))}
 
+  // Stock and reached collection goals must persist together. Completion never consumes stock.
+  function commitStock(next){
+    if(!record(next)||Object.values(next).some(value=>!Number.isSafeInteger(value)||value<0||value>1000000000))throw new Error('Invalid stock');
+    const personal=personalGoals(),completed=[];
+    for(const goal of Object.values(personal)){
+      if(record(goal)&&goal.status==='active'&&count(goal.target)>0&&count(next[goal.itemId])>=count(goal.target)){
+        goal.status='done';completed.push({...goal});
+      }
+    }
+    const writes={arcOwned:next};if(completed.length)writes[PERSONAL_KEY]=personal;
+    const before=Object.fromEntries(Object.keys(writes).map(k=>[k,localStorage.getItem(k)]));
+    try{Object.entries(writes).forEach(([k,v])=>write(k,v))}catch(error){
+      Object.entries(before).forEach(([k,v])=>{if(localStorage.getItem(k)!==v){if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}});
+      throw error;
+    }
+    if(typeof owned!=='undefined'){Object.keys(owned).forEach(k=>delete owned[k]);Object.assign(owned,next)}
+    return completed;
+  }
   migrateLegacyPersonal();
-  window.RFTPlanning={requirementMap:requirementMapUnified,rows,personalGoals,setPersonal,removePersonal,history:()=>read(HISTORY_KEY,[])};
+  window.RFTPlanning={requirementMap:requirementMapUnified,rows,personalGoals,setPersonal,removePersonal,commitStock,history:()=>read(HISTORY_KEY,[])};
 })();

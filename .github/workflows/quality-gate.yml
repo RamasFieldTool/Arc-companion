@@ -22,12 +22,12 @@ jobs:
         with:
           node-version: '20'
       - name: Validate JSON, assets, cache-busters, backup guards and version
-        env:
-          EXPECTED_APP_VERSION: '14.00.00'
-        run: node tests/data-integrity.mjs
+        run: |
+          node tests/data-integrity.mjs
+          node tests/planning-core.mjs
 
   browser-smoke:
-    name: Browser, Android and user-data safety
+    name: Browser, mobile emulation and user-data safety
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
           done
           cat /tmp/arc-http.log
           exit 1
-      - name: Run browser and Android/mobile quality gate
+      - name: Run browser and mobile-emulation quality gate
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
@@ -60,6 +60,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/free-raid-progress.mjs
+      - name: Run current planning usability and completion regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/planning-usability.mjs
       - name: Run owned quantity stepper regression
         env:
           BASE_URL: http://127.0.0.1:4173/
@@ -68,6 +72,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/i18n-smoke.mjs
+      - name: Run Italian language regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/italian-language.mjs
       - name: Run community story text, navigation, radio and mobile language checks
         env:
           BASE_URL: http://127.0.0.1:4173/

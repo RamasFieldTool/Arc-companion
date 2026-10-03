@@ -95,6 +95,7 @@ function formatNum(n){
 }
 
 function requirementMap(){
+  if(window.RFTPlanning)return window.RFTPlanning.requirementMap();
   const map={};
   const add=(itemId,quantity,reason)=>{
     if(!itemId||!quantity) return;
@@ -116,9 +117,13 @@ function requirementMap(){
 }
 
 function saveOwned(id,val){
-  owned[id]=Math.max(0,Number(val)||0);
-  localStorage.setItem('arcOwned',JSON.stringify(owned));
-  drawSummary(); drawItems();
+  const amount=Number(val);if(!Number.isSafeInteger(amount)||amount<0)throw new Error('Invalid stock quantity');
+  const next={...owned,[id]:amount};
+  const completed=window.RFTPlanning?window.RFTPlanning.commitStock(next):[];
+  if(!window.RFTPlanning)
+  {localStorage.setItem('arcOwned',JSON.stringify(next));Object.assign(owned,next)}
+  window.dispatchEvent(new Event('planning-changed'));
+  drawSummary(); drawItems();return completed;
 }
 
 function toggleGoal(k,checked){
@@ -243,8 +248,9 @@ function questItemsText(arr){
 }
 
 function setQuestState(id,state){
-  questStates[id]=state;
-  localStorage.setItem('arcQuestStatus',JSON.stringify(questStates));
+  if(state==='done'&&window.RFTCompletion){window.RFTCompletion.finish('quest',id,{allowIncomplete:true});return}
+  const next={...questStates,[id]:state};localStorage.setItem('arcQuestStatus',JSON.stringify(next));Object.assign(questStates,next);
+  window.dispatchEvent(new Event('planning-changed'));
   drawQuestHeader();
   drawQuests();
   drawSummary();

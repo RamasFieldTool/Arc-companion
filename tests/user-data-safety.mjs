@@ -16,11 +16,12 @@ const firstBlueprint=blueprints[0];
 const firstGoalKey=`${firstGoal.id}:${firstGoal.levels?.[0]?.level}`;
 const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/quests/quality_gate_user_data.json';
 const quest={id:'quality_gate_user_data',name:{de:'Nutzerdatentest',en:'User data test'},trader:'Test',objectives:[{de:'Test',en:'Test'}],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]};
-const jsonKeys=new Set(['arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventReminders']);
-const trackedKeys=['arcLang','arcTheme','arcPaletteSurface','arcPaletteAccent','arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventRegion','arcEventLead','arcEventReminders'];
+const jsonKeys=new Set(['arcPlanningPersonal','arcPlanningHistory','arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventReminders']);
+const trackedKeys=['arcUiLanguage','arcPlanningMigrationV1','arcPlanningPersonal','arcPlanningHistory','arcLang','arcTheme','arcPaletteSurface','arcPaletteAccent','arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventRegion','arcEventLead','arcEventReminders'];
 const reminderStart=new Date(Date.now()+24*60*60*1000).toISOString();
 const reminderEnd=new Date(Date.now()+25*60*60*1000).toISOString();
 const seed={
+  arcUiLanguage:'en',arcPlanningMigrationV1:'1',arcPlanningPersonal:JSON.stringify({[firstItem.id]:{itemId:firstItem.id,target:100,status:'active'},[fixtureItems[1].id]:{itemId:fixtureItems[1].id,target:7,status:'paused'},[fixtureItems[2].id]:{itemId:fixtureItems[2].id,target:2,status:'done'}}),arcPlanningHistory:'[]',
   arcLang:'en',arcTheme:'dark',arcPaletteSurface:'black',arcPaletteAccent:'cyan',
   arcOwned:JSON.stringify({[firstItem.id]:42}),arcActiveGoals:JSON.stringify({[firstGoalKey]:true}),
   arcQuestStatus:JSON.stringify({quality_gate_user_data:'done'}),arc_blueprints_learned_v1:JSON.stringify([firstBlueprint.id]),
@@ -68,9 +69,9 @@ try{
   const context=await browser.newContext({viewport:{width:412,height:915},screen:{width:412,height:915},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 16; RamasFieldToolSafetyTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36'});
   await context.addInitScript(data=>{if(sessionStorage.getItem('__rft_seeded')==='1')return;for(const [k,v] of Object.entries(data))localStorage.setItem(k,v);sessionStorage.setItem('__rft_seeded','1');},seed);
   const page=await context.newPage();
-  const pageErrors=[],consoleErrors=[];
+  const pageErrors=[],consoleErrors=[];let deliberateOffline=false;
   page.on('pageerror',e=>pageErrors.push(String(e)));
-  page.on('console',m=>{if(m.type()==='error'&&!m.text().includes('Backup import failed'))consoleErrors.push(m.text())});
+  page.on('console',m=>{if(m.type()==='error'&&!m.text().includes('Backup import failed')&&!(deliberateOffline&&m.text().includes('net::ERR_INTERNET_DISCONNECTED')))consoleErrors.push(m.text())});
   await installRoutes(page);
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(page);
 
@@ -78,32 +79,41 @@ try{
   for(const key of trackedKeys)equal(initial[key],norm(seed[key]??null,key),`Startup/update changed ${key}`);
   console.log('PASS existing user data survives app startup/update');
 
-  await context.setOffline(true);
+  deliberateOffline=true;await context.setOffline(true);
   await page.locator('[data-app-target="itemsSection"]').click();
   const label=firstItem?.name?.en||firstItem?.name?.de||firstItem.id;
   await page.locator('#q').fill(String(label).slice(0,8));
   if(await page.locator('#out .card').count()<1)throw new Error('Loaded catalog became unusable after connection loss');
   equal(await snapshot(page),initial,'Connection loss changed persisted user data');
-  await context.setOffline(false);await page.locator('#appBack').click();
-  console.log('PASS active Android session survives connection loss');
+  await context.setOffline(false);deliberateOffline=false;await page.locator('#appBack').click();
+  console.log('PASS loaded browser session survives simulated connection loss');
 
   await openBackup(page);
   const downloadPromise=page.waitForEvent('download');await page.locator('#backupExport').click();
   const download=await downloadPromise,backupPath=join(temp,'roundtrip.json');await download.saveAs(backupPath);
   const backup=JSON.parse(await readFile(backupPath,'utf8'));
-  if(backup.schema!=='ramas-field-tool-backup'||backup.formatVersion!==1||!backup.appVersion.includes('14.00.00'))throw new Error('Export metadata invalid');
+  if(backup.schema!=='ramas-field-tool-backup'||backup.formatVersion!==1||!/^V?\d+\.\d+\.\d+$/.test(String(backup.appVersion||'')))throw new Error('Export metadata invalid');
   for(const key of trackedKeys)equal(backup.data[key],initial[key],`Export mismatch for ${key}`);
   await page.evaluate(()=>localStorage.clear());await importBackup(page,backupPath);
   equal(await snapshot(page),initial,'Backup round trip did not restore tracked data');
-  console.log('PASS backup export/import round trip restores personal raid progress');
+  console.log('PASS backup round trip restores active, paused and completed planning goals');
+  const fresh=await browser.newContext();const freshPage=await fresh.newPage();await installRoutes(freshPage);await freshPage.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(freshPage);await freshPage.waitForFunction(()=>!!window.RFTPlanningUI&&!!document.getElementById('arcLanguageButton'));
+  if(await freshPage.locator('#arcLanguageFirstRun').isVisible())await freshPage.locator('#arcLanguageFirstRun [data-first-language="en"]').click();
+  await openBackup(freshPage);await importBackup(freshPage,backupPath);equal(await snapshot(freshPage),initial,'Fresh browser context import differs');await fresh.close();
+  console.log('PASS fresh browser context restores all tracked backup data');
 
   const legacyRaid={[firstItem.id]:{target:3,done:false}};
   const old={...backup,appVersion:'V12.9.0',exportedAt:'2026-01-01T00:00:00.000Z',data:{...backup.data,arcOwned:{[firstItem.id]:7},arcNextRaid:legacyRaid}};
+  for(const key of ['arcPlanningPersonal','arcPlanningHistory','arcPlanningMigrationV1','arcUiLanguage'])delete old.data[key];
   const oldPath=join(temp,'older-version.json');await writeFile(oldPath,JSON.stringify(old));
   await openBackup(page);await importBackup(page,oldPath);
   equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcOwned')||'{}')),old.data.arcOwned,'Older app-version backup was not restored');
   equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcNextRaid')||'{}')),legacyRaid,'Legacy raid entry was not restored');
-  console.log('PASS legacy {target, done} raid backups remain compatible');
+  equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')),{},'Old nonpersonal raid entries became personal goals or retained unrelated current goals');
+  console.log('PASS old backup removes unrelated current planning and does not migrate nonpersonal raid targets');
+  const personalOld={...old,data:{...old.data,arcNextRaid:{[firstItem.id]:{target:10,done:true,personal:true,found:9}},arcOwned:{[firstItem.id]:2}}};const personalOldPath=join(temp,'old-personal.json');await writeFile(personalOldPath,JSON.stringify(personalOld));await openBackup(page);await importBackup(page,personalOldPath);
+  equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcOwned')||'{}')),personalOld.data.arcOwned,'Legacy progress changed stock');
+  const migrated=await page.evaluate(()=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}'));equal(migrated[firstItem.id],{itemId:firstItem.id,target:10,status:'active',source:'legacy-raid'},'Legacy personal migration differs');await page.reload();await waitReady(page);equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')),migrated,'Reload duplicated legacy migration');console.log('PASS old personal backup migrates once without interpreting found/done as stock or completion');
 
   const beforeReject=await snapshot(page);await openBackup(page);
   await page.locator('#backupFile').setInputFiles({name:'broken.json',mimeType:'application/json',buffer:Buffer.from('{ broken')});

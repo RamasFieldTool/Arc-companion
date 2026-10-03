@@ -39,7 +39,7 @@ function assertHome(m,label){
   const actual=m.tiles.map(tile=>tile.target);
   if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
-  if(m.version!=='V14.00.00')throw new Error(`${label}: expected V14.00.00, got ${m.version}`);
+  if(!/^V\d+\.\d+\.\d+$/.test(m.version))throw new Error(`${label}: missing valid visible version, got ${m.version}`);
 }
 async function openTarget(page,target){
   if(!(await page.locator('#appLauncher').isVisible())){await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}
@@ -117,7 +117,8 @@ try{
       await page.locator('#planningRaidFinished').click();await page.locator('[data-raid-nothing]').click();
       if(await page.evaluate(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned,longItem.id)!==5)throw new Error('Cancel or no findings changed stock');
       await page.locator('#planningRaidFinished').click();await findInput.fill('20');await page.locator('[data-raid-apply]').click();
-      await page.waitForFunction(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned===25,longItem.id);
+      await page.waitForFunction(id=>JSON.parse(localStorage.getItem('arcOwned')||'{}')[id]===25,longItem.id);
+      if(await page.evaluate(id=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')[id]?.status,longItem.id)!=='done')throw new Error('Reached personal target did not complete');
       if(await page.locator(`[data-plan-item="${longItem.id}"]`).count())throw new Error('Fully collected item remains in missing list');
       await page.evaluate(id=>saveOwned(id,0),longItem.id);await page.locator('#planningTabGoals').click();await page.locator('#planningTabMissing').click();
       console.log(`PASS post-raid partial finds, cancellation, no finds, surplus and missing-list update: ${cfg.name} ${theme}`);

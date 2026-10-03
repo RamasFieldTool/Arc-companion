@@ -74,6 +74,7 @@
   }
 
   function combinedRequirementMap(){
+    if(window.RFTPlanning)return window.RFTPlanning.requirementMap();
     const base=requirementMap();
     const combined={};
     Object.entries(base||{}).forEach(([id,entry])=>{

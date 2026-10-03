@@ -1,5 +1,5 @@
-// V14.00.00 – persistent user-facing loading/live/partial/fallback status.
-const APP_VERSION='14.00.00';
+// V14.00.10 – persistent user-facing loading/live/partial/fallback status.
+const APP_VERSION='14.00.10';
 const STATUS_COPY={
   de:{
     loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
@@ -234,7 +234,7 @@ renderDataStatus();
       this._native=new NativeMutationObserver(records=>{
         let ui='';
         try{ui=localStorage.getItem('arcUiLanguage')||''}catch{}
-        if(this._launcherTargets.size>=3&&(ui==='fr'||ui==='es')){
+        if(this._launcherTargets.size>=3&&(ui==='fr'||ui==='es'||ui==='it')){
           window.dispatchEvent(new Event('arc-launcher-status-dirty'));
           return;
         }
@@ -260,7 +260,7 @@ renderDataStatus();
 function loadI18nV13017(){
   if(document.querySelector('script[data-arc-i18n-v13017]'))return;
   const script=document.createElement('script');
-  script.src='i18n-v13017.js?v=raid-clarity-1-stories1';
+  script.src='i18n-v13017.js?v=planning-language-2';
   script.dataset.arcI18nV13017='';
   script.async=false;
   document.body.append(script);

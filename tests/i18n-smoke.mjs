@@ -89,7 +89,9 @@ try{
   await page.locator('#arcLanguageFirstRun').waitFor({state:'visible'});
   await waitForLanguage(page,'en');
   await waitForText(page,'#launcherHeading','Ready for your next raid?');
-  if(await page.locator('#arcLanguageFirstRun [data-first-language]').count()!==4)throw new Error('First-run chooser must offer EN, DE, FR and ES');
+  await page.locator('#arcLanguageFirstRun [data-first-language=it]').waitFor({state:'visible'});
+  const offered=await page.locator('#arcLanguageFirstRun [data-first-language]').evaluateAll(nodes=>nodes.map(node=>node.dataset.firstLanguage).sort());
+  if(JSON.stringify(offered)!==JSON.stringify(['de','en','es','fr','it']))throw new Error('First-run chooser must offer DE, EN, FR, ES and IT');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('EN'))throw new Error('Permanent language button must show EN on first launch');
 
   await page.locator('[data-first-language="fr"]').tap();
@@ -130,7 +132,7 @@ try{
     await waitForText(page,'[data-app-target="planningSection"] b',title);
     await page.locator('[data-app-target="planningSection"]').tap();await waitForText(page,'#detailTitle',title);await waitForText(page,'#planningTabMissing',missing);await waitForText(page,'#planningTabGoals',goals);
     await page.locator('#planningTabGoals').tap();
-    const quantityLabel=await page.locator('.planning-personal-add label').nth(1).innerText();if(quantityLabel.trim()!==amount)throw new Error(`${language}: untranslated quantity label ${quantityLabel}`);
+    const quantityLabel=await page.locator('.planning-personal-add label:has(#planningPersonalAmount)').innerText();if(quantityLabel.trim()!==amount)throw new Error(`${language}: untranslated quantity label ${quantityLabel}`);
     const expectedName=language==='de'?items[0].de:items[0].en;
     await page.waitForFunction(({id,name})=>[...document.querySelector('#planningPersonalItem').options].some(o=>o.value===id&&o.textContent===name),{id:items[0].id,name:expectedName});
     await page.locator('#planningPersonalItem').selectOption(items[0].id);await page.locator('#planningPersonalAmount').fill('15');await page.locator('#planningPersonalAdd').tap();

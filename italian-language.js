@@ -17,7 +17,7 @@
     'TIPS & TRICKS':'CONSIGLI E TRUCCHI','Knowledge for better runs':'Informazioni per raid migliori','CLOSE TIPS':'CHIUDI CONSIGLI','TIPS':'CONSIGLI','START & MOVEMENT':'INIZIO E MOVIMENTO','LOOT & PROGRESSION':'LOOT E PROGRESSIONE','SURVIVAL & EXTRACTION':'SOPRAVVIVENZA ED ESTRAZIONE','RAIDERS & COOPERATION':'RAIDER E COOPERAZIONE','GROUP ON FACEBOOK':'GRUPPO SU FACEBOOK','THE FIRST TESTERS':'I PRIMI TESTER'
   };
   const tileIT={nextRaidDrawer:'Il mio prossimo raid',liveEventsDrawer:'Eventi live',goalsSection:'I miei obiettivi',supplySection:'Materiali necessari',itemsSection:'Ricerca oggetti',questDrawer:'Missioni',blueprintDrawer:'Progetti',spawnPanel:'Mappe',raiderRadio:'Raider Radio'};
-  let active=false, observer=null, syncing=false;
+  let active=false, observer=null, syncing=false, scheduled=false;
   const safeGet=k=>{try{return localStorage.getItem(k)}catch{return null}};
   const safeSet=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
   function translateText(value){
@@ -32,20 +32,22 @@
     const nodes=[];let n;while((n=walker.nextNode()))nodes.push(n);
     nodes.forEach(x=>{const v=translateText(x.nodeValue||'');if(v!==x.nodeValue)x.nodeValue=v});
   }
+  function setText(node,value){if(node&&node.textContent!==value)node.textContent=value}
   function sync(){
     if(!active||syncing)return; syncing=true;
     try{
-      document.documentElement.lang='it';document.documentElement.dataset.uiLanguage='it';
-      const h=document.getElementById('launcherHeading');if(h)h.textContent='Pronto per il prossimo raid?';
-      const s=document.getElementById('launcherSubtitle');if(s)s.textContent='La tua preparazione. Tutto in un unico posto.';
-      const back=document.getElementById('appBack');if(back)back.textContent='← Indietro';
-      Object.entries(tileIT).forEach(([id,label])=>{const tile=document.querySelector(`#appLauncher [data-app-target="${id}"]`);if(tile){const b=tile.querySelector('b');if(b)b.textContent=label;const small=tile.querySelector('small');if(small&&id!=='spawnPanel')small.textContent='Apri';if(small&&id==='spawnPanel')small.textContent='Luoghi e posizioni degli oggetti'}});
-      const util=['Consigli','Aspetto','Backup','Aiuto','Community'];document.querySelectorAll('#appLauncher .launcher-utilities button').forEach((b,i)=>{if(util[i])b.textContent=util[i]});
+      if(document.documentElement.lang!=='it')document.documentElement.lang='it';if(document.documentElement.dataset.uiLanguage!=='it')document.documentElement.dataset.uiLanguage='it';
+      const h=document.getElementById('launcherHeading');setText(h,'Pronto per il prossimo raid?');
+      const s=document.getElementById('launcherSubtitle');setText(s,'La tua preparazione. Tutto in un unico posto.');
+      const back=document.getElementById('appBack');setText(back,'← Indietro');
+      Object.entries(tileIT).forEach(([id,label])=>{const tile=document.querySelector(`#appLauncher [data-app-target="${id}"]`);if(tile){const b=tile.querySelector('b');setText(b,label);const small=tile.querySelector('small');if(small&&id!=='spawnPanel')setText(small,'Apri');if(small&&id==='spawnPanel')setText(small,'Luoghi e posizioni degli oggetti')}});
+      const util=['Consigli','Aspetto','Backup','Aiuto','Community'];document.querySelectorAll('#appLauncher .launcher-utilities button').forEach((b,i)=>{if(util[i])setText(b,util[i])});
       translateTree();
       const btn=document.getElementById('itBtn');if(btn)btn.classList.add('active');document.getElementById('deBtn')?.classList.remove('active');document.getElementById('enBtn')?.classList.remove('active');
     }finally{syncing=false}
   }
   function setItalian(){
+    document.getElementById('enBtn')?.click();
     active=true;safeSet(UI_KEY,'it');safeSet('arcLang','en');
     try{if(typeof lang!=='undefined')lang='en';if(typeof applyLanguage==='function')applyLanguage()}catch{}
     sync();setTimeout(sync,50);setTimeout(sync,250);window.dispatchEvent(new CustomEvent('arc-language-change',{detail:{language:'it'}}));
@@ -60,6 +62,7 @@
     document.getElementById('enBtn')?.addEventListener('click',()=>{leaveItalian();safeSet(UI_KEY,'en')});
     if(safeGet(UI_KEY)==='it'){setItalian();startObserver()}
   }
-  function startObserver(){if(observer)return;observer=new MutationObserver(()=>{if(active&&!syncing)requestAnimationFrame(sync)});observer.observe(document.body,{subtree:true,childList:true,characterData:true})}
+  function startObserver(){if(observer)return;observer=new MutationObserver(()=>{if(active&&!syncing&&!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;sync()})}});observer.observe(document.body,{subtree:true,childList:true,characterData:true})}
+  window.addEventListener('arc-language-change',event=>{if(event.detail?.language&&event.detail.language!=='it')leaveItalian()});
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',install,{once:true}):install();
 })();
