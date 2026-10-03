@@ -5,8 +5,18 @@ const browser=await chromium.launch({headless:true});
 try{
   const context=await browser.newContext({viewport:{width:360,height:800},screen:{width:360,height:800},isMobile:true,hasTouch:true});
   const page=await context.newPage();
-  await page.addInitScript(()=>localStorage.setItem('arcUiLanguage','de'));
   await page.goto(BASE_URL,{waitUntil:'load'});
+
+  const firstRun=page.locator('#arcLanguageFirstRun');
+  if(await firstRun.isVisible().catch(()=>false)){
+    const german=firstRun.locator('[data-arc-language="de"]');
+    if(await german.count()) await german.tap();
+    else {
+      const firstChoice=firstRun.locator('button').first();
+      await firstChoice.tap();
+    }
+    await firstRun.waitFor({state:'hidden',timeout:30000});
+  }
 
   await page.locator('#arcLanguageButton').waitFor({state:'visible',timeout:30000});
   await page.locator('#arcLanguageButton').tap();
@@ -15,7 +25,6 @@ try{
   await italian.tap();
   await page.waitForFunction(()=>document.documentElement.dataset.uiLanguage==='it',{timeout:30000});
   await page.waitForFunction(()=>localStorage.getItem('arcUiLanguage')==='it',{timeout:30000});
-  if(document.documentElement.lang==='it'){}
 
   const text=async selector=>(await page.locator(selector).innerText()).trim();
   if(await text('#launcherHeading')!=='Pronto per il prossimo raid?')throw new Error('Italian launcher heading missing');
