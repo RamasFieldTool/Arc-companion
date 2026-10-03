@@ -5,8 +5,10 @@ const browser=await chromium.launch({headless:true});
 try{
   const context=await browser.newContext({viewport:{width:360,height:800},screen:{width:360,height:800},isMobile:true,hasTouch:true});
   const page=await context.newPage();
+  await page.addInitScript(()=>localStorage.setItem('arcUiLanguage','de'));
   await page.goto(BASE_URL,{waitUntil:'load'});
 
+  await page.locator('#arcLanguageButton').waitFor({state:'visible',timeout:30000});
   await page.locator('#arcLanguageButton').tap();
   const italian=page.locator('#arcLanguageMenu [data-arc-language="it"]');
   await italian.waitFor({state:'visible',timeout:30000});
