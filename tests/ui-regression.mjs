@@ -77,6 +77,10 @@ try{
       await page.evaluate(theme=>{localStorage.setItem('arcTheme',theme);localStorage.setItem('arcPaletteSurface',theme)},theme);
       await page.reload({waitUntil:'domcontentloaded'});await waitReady(page);
       await page.locator('#planningTabGoals').click();
+      await page.locator('#goalsSection').waitFor({state:'visible'});await page.locator('#questDrawer').waitFor({state:'visible'});
+      const station=page.locator('#goals .goal-station').first();if(!(await station.evaluate(el=>el.open)))await station.locator('summary').click();
+      await page.locator('#goalsSection input[type=checkbox]').first().check();
+      await page.locator('.quest-state [data-state=active]').first().click();
       await page.locator('#planningPersonalItem').selectOption(longItem.id);await page.locator('#planningPersonalAmount').fill('15');await page.locator('#planningPersonalAdd').click();
       if(await page.locator('#planningMissing').isVisible())throw new Error(`${cfg.name}: missing list remains visible on Goals tab`);
       await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-goals.png`),fullPage:true});
@@ -87,7 +91,7 @@ try{
       });
       if(layout.overflow>1||layout.outside.length||layout.floating)throw new Error(`${cfg.name} ${theme}: planning layout failure ${JSON.stringify(layout)}`);
       if(theme==='dark'&&layout.buttons.some(b=>b.color==='rgb(0, 0, 0)'||b.fill==='rgb(0, 0, 0)'))throw new Error(`${cfg.name}: black button text in dark planning`);
-      await page.locator('#planningTabMissing').click();if(await page.locator('#planningGoals').isVisible())throw new Error(`${cfg.name}: Goals remain visible on Missing tab`);
+      await page.locator('#planningTabMissing').click();if(await page.locator('#goalsSection').isVisible()||await page.locator('#questDrawer').isVisible())throw new Error(`${cfg.name}: integrated goal sources remain visible on Missing tab`);if(await page.locator('#planningGoals').isVisible())throw new Error(`${cfg.name}: Goals remain visible on Missing tab`);
       await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-missing.png`),fullPage:true});
       report.push({planning:cfg.name,theme,layout});
     }

@@ -2,3 +2,5 @@
 
 #planningSection [hidden]{display:none!important}
 body.planning-open .floating-list-close{display:none!important}
+
+body.launcher-mode main>.launcher-section.planning-integrated-source.planning-integrated-visible{display:block!important}
