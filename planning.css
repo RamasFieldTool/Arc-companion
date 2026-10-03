@@ -13,4 +13,3 @@ body #questDrawer .quest-state button.selected{color:#111!important;background:#
 
 body.planning-open #appBack{position:static!important}
 
-.planning-raid-mark{display:grid;gap:6px;margin:10px 0}.planning-raid-mark button{min-height:44px;color:var(--ui-text)!important;background:var(--ui-soft)!important;-webkit-text-fill-color:currentColor}.planning-raid-mark small{color:var(--orange)}

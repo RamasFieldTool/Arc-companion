@@ -46,24 +46,15 @@
     return map;
   }
 
-  function rows({all=false,raidOnly=false}={}){
+  function rows({all=false}={}){
     const req=requirementMapUnified();
     const stock=typeof owned!=='undefined'&&record(owned)?owned:read('arcOwned',{});
-    const raid=read('arcNextRaid',{});
     return Object.entries(req).map(([itemId,entry])=>{
       const have=count(stock[itemId]),missing=Math.max(0,entry.total-have);
-      const raidEntry=record(raid)?raid[itemId]:null;
-      const priority=record(raidEntry)&&raidEntry.done!==true;
-      return {itemId,required:entry.total,owned:have,missing,reasons:entry.reasons,goals:entry.goals,raidPriority:priority};
-    }).filter(row=>(all||row.missing>0)&&(!raidOnly||row.raidPriority));
+      return {itemId,required:entry.total,owned:have,missing,reasons:entry.reasons,goals:entry.goals};
+    }).filter(row=>(all||row.missing>0));
   }
 
-  function setRaidPriority(itemId,selected){
-    const current=read('arcNextRaid',{}),raid=record(current)?current:{};
-    if(selected){const requirement=requirementMapUnified()[itemId];if(!requirement)return;raid[itemId]=record(raid[itemId])?{...raid[itemId],done:false}:{target:requirement.total,done:false,personal:false,found:0}}
-    else delete raid[itemId];
-    write('arcNextRaid',raid);window.dispatchEvent(new Event('raid-goals-completed'));window.dispatchEvent(new Event('planning-changed'));
-  }
   function setPersonal(itemId,target,status='active'){
     const personal=personalGoals(),qty=count(target);if(!itemId||qty<1)throw new Error('Invalid personal goal');
     personal[itemId]={itemId,target:qty,status:['active','paused','done'].includes(status)?status:'active'};
@@ -72,5 +63,5 @@
   function removePersonal(itemId){const personal=personalGoals();delete personal[itemId];write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'))}
 
   migrateLegacyPersonal();
-  window.RFTPlanning={setRaidPriority,requirementMap:requirementMapUnified,rows,personalGoals,setPersonal,removePersonal,history:()=>read(HISTORY_KEY,[])};
+  window.RFTPlanning={requirementMap:requirementMapUnified,rows,personalGoals,setPersonal,removePersonal,history:()=>read(HISTORY_KEY,[])};
 })();

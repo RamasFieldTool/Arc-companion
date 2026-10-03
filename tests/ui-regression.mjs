@@ -102,15 +102,12 @@ try{
       if(theme==='dark'&&layout.buttons.some(b=>(b.color==='rgb(0, 0, 0)'||b.fill==='rgb(0, 0, 0)')&&b.background!=='rgb(255, 179, 92)'))throw new Error(`${cfg.name}: black button text in dark planning`);
       await page.locator('#planningTabMissing').click();if(await page.locator('#goalsSection').isVisible()||await page.locator('#questDrawer').isVisible())throw new Error(`${cfg.name}: integrated goal sources remain visible on Missing tab`);if(await page.locator('#planningGoals').isVisible())throw new Error(`${cfg.name}: Goals remain visible on Missing tab`);
       await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-missing.png`),fullPage:true});
-      const markRow=page.locator(`[data-plan-item="${longItem.id}"]`);
-      await markRow.locator('[data-raid-mark]').click();await page.locator('#planningRaidOnly').check();
-      if(await page.locator('[data-plan-item]').count()!==1)throw new Error('Raid filter includes unmarked items');
-      await page.reload({waitUntil:'domcontentloaded'});await waitReady(page);await page.locator('#planningRaidOnly').check();
-      await markRow.locator('[data-raid-mark][aria-pressed=true]').waitFor({state:'visible'});
-      await markRow.locator('[data-raid-mark]').click();
-      if(await page.locator('[data-plan-item]').count()!==0)throw new Error('Unmarked item remains in filtered raid list');
-      await page.locator('#planningRaidOnly').uncheck();await markRow.waitFor({state:'visible'});
-      const goalStillPresent=await page.evaluate(id=>window.RFTPlanning.personalGoals()[id]?.target,longItem.id);if(goalStillPresent!==15)throw new Error('Removing raid mark changed collection goal');
+      if(await page.locator('#planningRaidOnly,[data-raid-mark]').count())throw new Error('Discarded raid priority controls remain');
+      const usage=page.locator(`[data-plan-item="${longItem.id}"] details`);
+      await usage.locator('summary').click();await page.waitForTimeout(150);
+      if(!(await usage.evaluate(el=>el.open)))throw new Error('Used for closes immediately after tapping');
+      if(!(await usage.locator('div').innerText()).includes('15'))throw new Error('Used for does not show the goal requirement');
+      await usage.locator('summary').click();await page.waitForTimeout(150);if(await usage.evaluate(el=>el.open))throw new Error('Used for cannot be collapsed');
       report.push({planning:cfg.name,theme,layout});
     }
     if(pageErrors.length)throw new Error(`${cfg.name}: uncaught browser errors: ${pageErrors.join(' | ')}`);if(consoleErrors.length)throw new Error(`${cfg.name}: console errors: ${consoleErrors.join(' | ')}`);
