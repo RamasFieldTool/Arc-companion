@@ -102,7 +102,7 @@ try{
       if(theme==='dark'&&layout.buttons.some(b=>(b.color==='rgb(0, 0, 0)'||b.fill==='rgb(0, 0, 0)')&&b.background!=='rgb(255, 179, 92)'))throw new Error(`${cfg.name}: black button text in dark planning`);
       await page.locator('#planningTabMissing').click();if(await page.locator('#goalsSection').isVisible()||await page.locator('#questDrawer').isVisible())throw new Error(`${cfg.name}: integrated goal sources remain visible on Missing tab`);if(await page.locator('#planningGoals').isVisible())throw new Error(`${cfg.name}: Goals remain visible on Missing tab`);
       await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-missing.png`),fullPage:true});
-      if(await page.locator('#planningRaidOnly,[data-raid-mark]').count())throw new Error('Discarded raid priority controls remain');
+      if(await page.locator('#planningShowAll,#planningRaidOnly,[data-raid-mark]').count())throw new Error('Discarded raid priority controls remain');
       const usage=page.locator(`[data-plan-item="${longItem.id}"] details`);
       await usage.locator('summary').click();await page.waitForTimeout(150);
       if(!(await usage.evaluate(el=>el.open)))throw new Error('Used for closes immediately after tapping');
@@ -119,7 +119,7 @@ try{
       await page.locator('#planningRaidFinished').click();await findInput.fill('20');await page.locator('[data-raid-apply]').click();
       await page.waitForFunction(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned===25,longItem.id);
       if(await page.locator(`[data-plan-item="${longItem.id}"]`).count())throw new Error('Fully collected item remains in missing list');
-      await page.locator('#planningShowAll').check();await page.locator(`[data-plan-item="${longItem.id}"] [data-stock]`).fill('0');await page.locator(`[data-plan-item="${longItem.id}"] [data-stock]`).press('Tab');await page.locator('#planningShowAll').uncheck();
+      await page.evaluate(id=>saveOwned(id,0),longItem.id);await page.locator('#planningTabGoals').click();await page.locator('#planningTabMissing').click();
       console.log(`PASS post-raid partial finds, cancellation, no finds, surplus and missing-list update: ${cfg.name} ${theme}`);
       report.push({planning:cfg.name,theme,layout});
     }
