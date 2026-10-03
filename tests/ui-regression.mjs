@@ -25,7 +25,7 @@ async function installRoutes(page){
   await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([{name:'quality_gate_ui.json',type:'file',download_url:questUrl}])}));
   await page.route(questUrl,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(quest)}));
 }
-async function waitReady(page){await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',null,{timeout:30000});await page.locator('[data-app-target="planningSection"]').waitFor({state:'visible'});await page.locator('[data-app-target="nextRaidDrawer"]').waitFor({state:'hidden'});}
+async function waitReady(page){await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',null,{timeout:30000});await page.waitForFunction(()=>!!window.RFTPlanning&&document.querySelector('[data-app-target="planningSection"]')&&getComputedStyle(document.querySelector('[data-app-target="nextRaidDrawer"]')).display==='none');}
 async function metrics(page){return page.evaluate(()=>{
   const rect=el=>{const r=el?.getBoundingClientRect();return r?{x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height)}:null};
   const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0};
