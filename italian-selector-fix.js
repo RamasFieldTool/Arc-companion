@@ -7,7 +7,11 @@
     if(!menu||!main||!legacy)return false;
     const sep=legacy.previousElementSibling;if(sep&&sep.tagName==='SPAN'&&sep.textContent==='/')sep.remove();legacy.style.display='none';
     let option=menu.querySelector('[data-arc-language="it"]');
-    if(!option){option=document.createElement('button');option.type='button';option.dataset.arcLanguage='it';option.setAttribute('role','menuitemradio');option.textContent='Italiano';option.addEventListener('click',()=>{legacy.click();menu.hidden=true;main.setAttribute('aria-expanded','false');setTimeout(syncMenu,0)});menu.append(option)}
+    if(!option){
+      option=document.createElement('button');option.type='button';option.dataset.arcLanguage='it';option.setAttribute('role','menuitemradio');option.textContent='Italiano';
+      option.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();legacy.click();menu.hidden=true;main.setAttribute('aria-expanded','false');setTimeout(syncMenu,0)});
+      menu.append(option)
+    }
     const italian=safeGet(UI_KEY)==='it';
     if(italian){menu.querySelectorAll('[data-arc-language]').forEach(node=>{const selected=node.dataset.arcLanguage==='it';node.classList.toggle('is-selected',selected);node.setAttribute('aria-checked',String(selected))});main.innerHTML='<span aria-hidden="true">🌐</span> IT';main.setAttribute('aria-label','Cambia lingua');main.title='Cambia lingua'}else{option.classList.remove('is-selected');option.setAttribute('aria-checked','false')}
     return true;
