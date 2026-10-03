@@ -13,3 +13,5 @@ body #questDrawer .quest-state button.selected{color:#111!important;background:#
 
 body.planning-open #appBack{position:static!important}
 
+
+#planningRaidFinished,#planningRaidPanel button{min-height:46px;color:var(--ui-text)!important;background:var(--ui-soft)!important;-webkit-text-fill-color:currentColor}#planningRaidFinished{width:100%;margin-bottom:14px}#planningRaidPanel{padding:14px;border:1px solid var(--ui-line);border-radius:14px;margin-bottom:14px}.planning-raid-find{display:grid;gap:8px;margin-bottom:14px}.planning-raid-quantity{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:8px;align-items:end}.planning-raid-quantity label{display:grid;min-width:0}.planning-raid-quantity input{width:100%;min-width:0;box-sizing:border-box}.planning-raid-buttons{display:grid;gap:8px}

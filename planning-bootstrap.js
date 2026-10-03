@@ -4,7 +4,7 @@
   const launcher=document.querySelector('#appLauncher .app-grid'),main=document.querySelector('main');
   const goalsSection=document.getElementById('goalsSection'),questDrawer=document.getElementById('questDrawer');
   if(!launcher||!main||!goalsSection||!questDrawer)return;
-  const style=document.createElement('link');style.rel='stylesheet';style.href='planning.css?v=7';document.head.append(style);
+  const style=document.createElement('link');style.rel='stylesheet';style.href='planning.css?v=8';document.head.append(style);
   const section=document.createElement('section');section.id='planningSection';section.className='panel launcher-section planning-panel';
   section.innerHTML=`<div class="drawer-body"><div class="planning-tabs" role="tablist"><button id="planningTabMissing" type="button" role="tab" aria-selected="true">Was fehlt mir?</button><button id="planningTabGoals" type="button" role="tab" aria-selected="false">Meine Ziele</button></div><div class="planning-filters"><label><input id="planningShowAll" type="checkbox"> <span>Alle benötigten Items</span></label></div><div id="planningStatus" role="status" aria-live="polite"></div><div id="planningMissing" class="planning-list"></div><div id="planningGoals" hidden><div class="planning-categories" role="group" aria-label="Zielbereich"><button type="button" data-goal-category="personal" aria-pressed="true">Sammelziele</button><button type="button" data-goal-category="workshop" aria-pressed="false">Werkstatt</button><button type="button" data-goal-category="quests" aria-pressed="false">Quests</button></div><section id="planningPersonalGroup" class="planning-goal-group"><h3>Persönliche Sammelziele</h3><div class="planning-personal-add"><label>Item<select id="planningPersonalItem"></select></label><label>Zielmenge<input id="planningPersonalAmount" type="number" min="1" inputmode="numeric" value="1"></label><button id="planningPersonalAdd" type="button">Hinzufügen</button></div><div id="planningPersonalList" class="planning-personal-list"></div></section></div></div>`;
   main.insertBefore(section,goalsSection);goalsSection.classList.add('planning-integrated-source');questDrawer.classList.add('planning-integrated-source');
@@ -23,6 +23,6 @@
   document.getElementById('appBack')?.addEventListener('click',()=>{section.classList.remove('launcher-active');document.body.classList.remove('planning-open');setIntegratedVisible(false)},true);
   window.addEventListener('hashchange',()=>{if(location.hash==='#planningSection')openPlanning();else{section.classList.remove('launcher-active');document.body.classList.remove('planning-open');setIntegratedVisible(false)}});
   window.RFTPlanningIntegratedSources={setVisible:setIntegratedVisible};
-  const core=document.createElement('script');core.src='planning-core.js?v=4';core.onload=()=>{const ui=document.createElement('script');ui.src='planning-ui.js?v=7';document.body.append(ui)};document.body.append(core);
+  const core=document.createElement('script');core.src='planning-core.js?v=4';core.onload=()=>{const ui=document.createElement('script');ui.src='planning-ui.js?v=7';ui.onload=()=>{const raid=document.createElement('script');raid.src='planning-raid.js?v=1';document.body.append(raid)};document.body.append(ui)};document.body.append(core);
   if(location.hash==='#planningSection')openPlanning();
 })();

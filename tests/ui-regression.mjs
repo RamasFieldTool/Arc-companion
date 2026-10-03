@@ -108,6 +108,19 @@ try{
       if(!(await usage.evaluate(el=>el.open)))throw new Error('Used for closes immediately after tapping');
       if(!(await usage.locator('div').innerText()).includes('15'))throw new Error('Used for does not show the goal requirement');
       await usage.locator('summary').click();await page.waitForTimeout(150);if(await usage.evaluate(el=>el.open))throw new Error('Used for cannot be collapsed');
+      await page.locator('#planningRaidFinished').click();
+      await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-raid-finished.png`),fullPage:true});
+      if(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)>1)throw new Error('Post-raid panel overflows mobile width');
+      const findInput=page.locator(`[data-raid-find="${longItem.id}"]`);await findInput.fill('5');
+      await page.locator('[data-raid-apply]').click();await page.waitForFunction(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned===5,longItem.id);
+      await page.locator('#planningRaidFinished').click();await findInput.fill('9');await page.locator('[data-raid-cancel]').click();
+      await page.locator('#planningRaidFinished').click();await page.locator('[data-raid-nothing]').click();
+      if(await page.evaluate(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned,longItem.id)!==5)throw new Error('Cancel or no findings changed stock');
+      await page.locator('#planningRaidFinished').click();await findInput.fill('20');await page.locator('[data-raid-apply]').click();
+      await page.waitForFunction(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned===25,longItem.id);
+      if(await page.locator(`[data-plan-item="${longItem.id}"]`).count())throw new Error('Fully collected item remains in missing list');
+      await page.locator('#planningShowAll').check();await page.locator(`[data-plan-item="${longItem.id}"] [data-stock]`).fill('0');await page.locator(`[data-plan-item="${longItem.id}"] [data-stock]`).press('Tab');await page.locator('#planningShowAll').uncheck();
+      console.log(`PASS post-raid partial finds, cancellation, no finds, surplus and missing-list update: ${cfg.name} ${theme}`);
       report.push({planning:cfg.name,theme,layout});
     }
     if(pageErrors.length)throw new Error(`${cfg.name}: uncaught browser errors: ${pageErrors.join(' | ')}`);if(consoleErrors.length)throw new Error(`${cfg.name}: console errors: ${consoleErrors.join(' | ')}`);
