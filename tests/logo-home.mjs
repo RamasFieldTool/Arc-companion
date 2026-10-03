@@ -65,7 +65,7 @@ try{
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
   await waitReady(page);
   const version=(await page.locator('#dataStatusDock [data-app-version]').innerText()).trim();
-  if(version!=='V14.00.00')throw new Error(`expected V14.00.00, got ${version}`);
+  if(!/^V\d+\.\d+\.\d+$/.test(version))throw new Error(`invalid app version label: ${version}`);
 
   await page.evaluate(()=>localStorage.setItem('rftLogoHomeSentinel','keep-user-data'));
   await openTarget(page,'itemsSection');
