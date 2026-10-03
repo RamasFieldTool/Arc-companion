@@ -27,7 +27,7 @@ jobs:
           node tests/planning-core.mjs
 
   browser-smoke:
-    name: Browser, Android and user-data safety
+    name: Browser, mobile emulation and user-data safety
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
           done
           cat /tmp/arc-http.log
           exit 1
-      - name: Run browser and Android/mobile quality gate
+      - name: Run browser and mobile-emulation quality gate
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs

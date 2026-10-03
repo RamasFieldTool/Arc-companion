@@ -86,7 +86,7 @@ try{
   if(await page.locator('#out .card').count()<1)throw new Error('Loaded catalog became unusable after connection loss');
   equal(await snapshot(page),initial,'Connection loss changed persisted user data');
   await context.setOffline(false);deliberateOffline=false;await page.locator('#appBack').click();
-  console.log('PASS active Android session survives connection loss');
+  console.log('PASS loaded browser session survives simulated connection loss');
 
   await openBackup(page);
   const downloadPromise=page.waitForEvent('download');await page.locator('#backupExport').click();
