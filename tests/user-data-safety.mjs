@@ -97,18 +97,23 @@ try{
   await page.evaluate(()=>localStorage.clear());await importBackup(page,backupPath);
   equal(await snapshot(page),initial,'Backup round trip did not restore tracked data');
   console.log('PASS backup round trip restores active, paused and completed planning goals');
-  const fresh=await browser.newContext();const freshPage=await fresh.newPage();await installRoutes(freshPage);await freshPage.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(freshPage);
+  const fresh=await browser.newContext();const freshPage=await fresh.newPage();await installRoutes(freshPage);await freshPage.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(freshPage);await freshPage.waitForFunction(()=>!!window.RFTPlanningUI&&!!document.getElementById('arcLanguageButton'));
   if(await freshPage.locator('#arcLanguageFirstRun').isVisible())await freshPage.locator('#arcLanguageFirstRun [data-first-language="en"]').click();
   await openBackup(freshPage);await importBackup(freshPage,backupPath);equal(await snapshot(freshPage),initial,'Fresh browser context import differs');await fresh.close();
   console.log('PASS fresh browser context restores all tracked backup data');
 
   const legacyRaid={[firstItem.id]:{target:3,done:false}};
   const old={...backup,appVersion:'V12.9.0',exportedAt:'2026-01-01T00:00:00.000Z',data:{...backup.data,arcOwned:{[firstItem.id]:7},arcNextRaid:legacyRaid}};
+  for(const key of ['arcPlanningPersonal','arcPlanningHistory','arcPlanningMigrationV1','arcUiLanguage'])delete old.data[key];
   const oldPath=join(temp,'older-version.json');await writeFile(oldPath,JSON.stringify(old));
   await openBackup(page);await importBackup(page,oldPath);
   equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcOwned')||'{}')),old.data.arcOwned,'Older app-version backup was not restored');
   equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcNextRaid')||'{}')),legacyRaid,'Legacy raid entry was not restored');
-  console.log('PASS legacy {target, done} raid backups remain compatible');
+  equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')),{},'Old nonpersonal raid entries became personal goals or retained unrelated current goals');
+  console.log('PASS old backup removes unrelated current planning and does not migrate nonpersonal raid targets');
+  const personalOld={...old,data:{...old.data,arcNextRaid:{[firstItem.id]:{target:10,done:true,personal:true,found:9}},arcOwned:{[firstItem.id]:2}}};const personalOldPath=join(temp,'old-personal.json');await writeFile(personalOldPath,JSON.stringify(personalOld));await openBackup(page);await importBackup(page,personalOldPath);
+  equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcOwned')||'{}')),personalOld.data.arcOwned,'Legacy progress changed stock');
+  const migrated=await page.evaluate(()=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}'));equal(migrated[firstItem.id],{itemId:firstItem.id,target:10,status:'active',source:'legacy-raid'},'Legacy personal migration differs');await page.reload();await waitReady(page);equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')),migrated,'Reload duplicated legacy migration');console.log('PASS old personal backup migrates once without interpreting found/done as stock or completion');
 
   const beforeReject=await snapshot(page);await openBackup(page);
   await page.locator('#backupFile').setInputFiles({name:'broken.json',mimeType:'application/json',buffer:Buffer.from('{ broken')});

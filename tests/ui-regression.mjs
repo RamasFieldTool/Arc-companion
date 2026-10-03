@@ -117,7 +117,8 @@ try{
       await page.locator('#planningRaidFinished').click();await page.locator('[data-raid-nothing]').click();
       if(await page.evaluate(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned,longItem.id)!==5)throw new Error('Cancel or no findings changed stock');
       await page.locator('#planningRaidFinished').click();await findInput.fill('20');await page.locator('[data-raid-apply]').click();
-      await page.waitForFunction(id=>window.RFTPlanning.rows({all:true}).find(r=>r.itemId===id)?.owned===25,longItem.id);
+      await page.waitForFunction(id=>JSON.parse(localStorage.getItem('arcOwned')||'{}')[id]===25,longItem.id);
+      if(await page.evaluate(id=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')[id]?.status,longItem.id)!=='done')throw new Error('Reached personal target did not complete');
       if(await page.locator(`[data-plan-item="${longItem.id}"]`).count())throw new Error('Fully collected item remains in missing list');
       await page.evaluate(id=>saveOwned(id,0),longItem.id);await page.locator('#planningTabGoals').click();await page.locator('#planningTabMissing').click();
       console.log(`PASS post-raid partial finds, cancellation, no finds, surplus and missing-list update: ${cfg.name} ${theme}`);

@@ -50,6 +50,11 @@ try{
   if(await row.locator('[data-find]').inputValue()!=='15')throw new Error('Other stock edit lost open find');
   await page.locator('#planningRaidFinished').click();await page.locator(`[data-raid-find="${item.id}"]`).fill('');await page.locator(`[data-raid-find="${item.id}"]`).pressSequentially('100');
   await page.locator('#planningTabGoals').click();await page.locator('#planningTabMissing').click();await page.locator('#planningRaidFinished').click();if(await page.locator(`[data-raid-find="${item.id}"]`).inputValue()!=='100')throw new Error('Tab switch lost raid draft');
+  for(const invalid of ['-1','1.5']){await page.locator(`[data-raid-find="${item.id}"]`).fill(invalid);await page.locator('[data-raid-apply]').click();await stock(page,item.id,2);if(!(await page.locator('#planningRaidPanel').isVisible()))throw new Error('Invalid find was accepted')}
+  await page.locator(`[data-raid-find="${item.id}"]`).fill('5');
+  await page.evaluate(()=>{window.__planningSetItem=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(key==='arcOwned')throw new Error('Simulated quota');return window.__planningSetItem.call(this,key,value)}});
+  await page.locator('[data-raid-apply]').click();await stock(page,item.id,2);if(await page.locator(`[data-raid-find="${item.id}"]`).inputValue()!=='5')throw new Error('Storage failure lost find draft');if(!(await page.locator('#planningRaidPanel [role=status]').innerText()).includes('Saving failed'))throw new Error('Storage failure not reported');
+  await page.evaluate(()=>{Storage.prototype.setItem=window.__planningSetItem;delete window.__planningSetItem});
   await page.locator('[data-raid-cancel]').click();await stock(page,item.id,2);
   console.log('PASS 15 and 100 input, independent stock change, tab switch and cancel preserve data');
   await setStock(page,other.id,0);await personal(page,other.id,2);await raid(page,{[other.id]:3,[item.id]:5});await stock(page,other.id,3);if((await read(page,'arcPlanningPersonal'))[other.id]?.status!=='done')throw new Error('Overshoot target remains active');
@@ -64,7 +69,7 @@ try{
   await setStock(page,item.id,0);await questTab(page);await page.locator('[data-qid="incomplete_test"][data-state="active"]').click();const message=await confirm(page,()=>page.locator('[data-qid="incomplete_test"][data-state="done"]').click());if(!message.includes('Only recorded stock'))throw new Error('Incomplete-stock confirmation is not explicit');await stock(page,item.id,0);
   console.log('PASS shared quest completion, cancellation, duplicate completion, reopening, material-free and already-in-game quests');
 
-  await setStock(page,item.id,6);await page.locator('[data-goal-category="workshop"]').click();await page.locator('[data-key="test_bench:1"]').check();await page.locator('[data-key="test_bench:2"]').check();await page.locator('#planningTabMissing').click();if(!(await page.locator('#planningExtraCosts').innerText()).includes('100 Coins'))throw new Error('Workshop extra costs missing');
+  await setStock(page,item.id,6);await page.locator('[data-goal-category="workshop"]').click();const station=page.locator('#goals .goal-station').first();if(!(await station.evaluate(el=>el.open)))await station.locator('summary').click();await page.locator('[data-key="test_bench:1"]').check();await page.locator('[data-key="test_bench:2"]').check();await page.locator('#planningTabMissing').click();if(!(await page.locator('#planningExtraCosts').innerText()).includes('100 Coins'))throw new Error('Workshop extra costs missing');
   await page.locator('#planningTabGoals').click();await page.locator('[data-goal-category="workshop"]').click();const costPrompt=await confirm(page,()=>page.locator('#goalsSection [data-complete-id="test_bench:1"]').click());if(!costPrompt.includes('100 Coins'))throw new Error('Completion omits extra costs');await stock(page,item.id,4);await confirm(page,()=>page.locator('#goalsSection [data-complete-id="test_bench:2"]').click());await stock(page,item.id,0);
   console.log('PASS several workshop levels, displayed extra costs and individual material consumption');
 
