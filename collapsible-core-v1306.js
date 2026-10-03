@@ -17,4 +17,5 @@
   supply.addEventListener('toggle',sync);items.addEventListener('toggle',sync);document.getElementById('supplyDrawerClose').addEventListener('click',()=>closeDrawer(supply));document.getElementById('itemsDrawerClose').addEventListener('click',()=>closeDrawer(items));document.getElementById('q')?.addEventListener('input',()=>setTimeout(sync,0));document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(sync,0));document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(sync,0));new MutationObserver(sync).observe(document.getElementById('summary'),{childList:true,subtree:true});new MutationObserver(sync).observe(document.getElementById('out'),{childList:true,subtree:true});sync();
 
   const planning=document.createElement('script');planning.src='planning-bootstrap.js?v=11';document.body.append(planning);
+  const italian=document.createElement('script');italian.src='italian-language.js?v=1';document.body.append(italian);
 })();
