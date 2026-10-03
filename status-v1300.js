@@ -260,7 +260,7 @@ renderDataStatus();
 function loadI18nV13017(){
   if(document.querySelector('script[data-arc-i18n-v13017]'))return;
   const script=document.createElement('script');
-  script.src='i18n-v13017.js?v=13017d-stories1';
+  script.src='i18n-v13017.js?v=raid-clarity-1-stories1';
   script.dataset.arcI18nV13017='';
   script.async=false;
   document.body.append(script);

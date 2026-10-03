@@ -123,6 +123,23 @@ try{
   await assertLauncherStable(page,'Spanish UI after reload');
   await assertLegacyStatusCannotRewriteLauncher(page,'Spanish UI after reload','Mi próxima incursión');
 
+  const planningCopy={de:['Meine Planung','Was fehlt mir?','Meine Ziele','Zielmenge','Aktiv'],en:['My planning','What am I missing?','My goals','Target quantity','Active'],fr:['Ma planification','Que me manque-t-il ?','Mes objectifs','Quantité cible','Actif'],es:['Mi planificación','¿Qué me falta?','Mis objetivos','Cantidad objetivo','Activo']};
+  for(const language of ['en','de','fr','es']){
+    await page.locator('#arcLanguageButton').tap();await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();await waitForLanguage(page,language);
+    const [title,missing,goals,amount,state]=planningCopy[language];
+    await waitForText(page,'[data-app-target="planningSection"] b',title);
+    await page.locator('[data-app-target="planningSection"]').tap();await waitForText(page,'#detailTitle',title);await waitForText(page,'#planningTabMissing',missing);await waitForText(page,'#planningTabGoals',goals);
+    await page.locator('#planningTabGoals').tap();
+    const quantityLabel=await page.locator('.planning-personal-add label').nth(1).innerText();if(quantityLabel.trim()!==amount)throw new Error(`${language}: untranslated quantity label ${quantityLabel}`);
+    const expectedName=language==='de'?items[0].de:items[0].en;
+    await page.waitForFunction(({id,name})=>[...document.querySelector('#planningPersonalItem').options].some(o=>o.value===id&&o.textContent===name),{id:items[0].id,name:expectedName});
+    await page.locator('#planningPersonalItem').selectOption(items[0].id);await page.locator('#planningPersonalAmount').fill('15');await page.locator('#planningPersonalAdd').tap();
+    await waitForText(page,`[data-personal="${items[0].id}"] strong`,expectedName);await waitForText(page,`[data-personal="${items[0].id}"] small`,`15 · ${state}`);
+    await page.locator('#planningTabMissing').tap();await waitForText(page,`[data-plan-item="${items[0].id}"] strong`,expectedName);
+    await page.reload({waitUntil:'load'});await waitForText(page,'#detailTitle',title);await waitForText(page,`[data-plan-item="${items[0].id}"] strong`,expectedName);
+    await page.locator('#appBack').tap();await waitForText(page,'[data-app-target="planningSection"] b',title);await assertLauncherStable(page,`${language} planning tile`);
+  }
+  console.log('PASS planning labels, tile, item names, personal status and reload in DE/EN/FR/ES (English item fallback for missing FR/ES names).');
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`Language UI causes horizontal mobile overflow (${overflow}px)`);
 
