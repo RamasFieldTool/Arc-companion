@@ -133,6 +133,29 @@ try{
   if(await page.locator(`#summary [data-item-id="${item.id}"]`).count())throw new Error('Completed target remains in total requirements');
   console.log('PASS confirmed quest completion consumes 3, removes active goal; personal completion clears raid and requirements while keeping stock');
 
+  // Two workshop goals share material: completing one must not complete the other.
+  await page.evaluate(id=>{
+    goals.push({id:'completion_fixture',de:'Abschluss-Test',en:'Completion test',levels:[
+      {level:1,requirements:[{itemId:id,quantity:6}],other:['100 coins']},
+      {level:2,requirements:[{itemId:id,quantity:6}]}
+    ]});
+    active['completion_fixture:1']=true;active['completion_fixture:2']=true;
+    localStorage.setItem('arcActiveGoals',JSON.stringify(active));
+    saveOwned(id,10);drawGoals();
+  },item.id);
+  const completeWorkshop=page.locator('#nextRaidDrawer [data-complete-kind="workshop"][data-complete-id="completion_fixture:1"]');
+  await completeWorkshop.waitFor({state:'visible'});
+  page.once('dialog',async dialog=>{
+    if(!dialog.message().includes('6')||!dialog.message().includes('additional costs'))throw new Error('Consumption or additional-cost confirmation missing');
+    await dialog.accept();
+  });
+  await completeWorkshop.click();
+  await page.waitForFunction(id=>!active['completion_fixture:1']&&active['completion_fixture:2']&&owned[id]===4,item.id);
+  if(await page.locator('#nextRaidDrawer [data-complete-id="completion_fixture:2"]').count())throw new Error('Shared stock counted twice');
+  const persisted=await page.evaluate(()=>JSON.parse(localStorage.getItem('arcActiveGoals')));
+  if(persisted['completion_fixture:1']||!persisted['completion_fixture:2'])throw new Error('Workshop completion was not persisted');
+  console.log('PASS workshop completion deactivates only confirmed level, deducts 6 and keeps unfinished shared-material goal');
+
   if(pageErrors.length)throw new Error(`Uncaught browser errors: ${pageErrors.join(' | ')}`);
   await context.close();
 }finally{
