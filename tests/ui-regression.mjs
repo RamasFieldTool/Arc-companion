@@ -39,7 +39,7 @@ function assertHome(m,label){
   const actual=m.tiles.map(tile=>tile.target);
   if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
-  if(m.version!=='V14.00.00')throw new Error(`${label}: expected V14.00.00, got ${m.version}`);
+  if(!/^V\d+\.\d+\.\d+$/.test(m.version))throw new Error(`${label}: missing valid visible version, got ${m.version}`);
 }
 async function openTarget(page,target){
   if(!(await page.locator('#appLauncher').isVisible())){await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}

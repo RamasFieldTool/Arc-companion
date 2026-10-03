@@ -28,7 +28,7 @@
   panel.querySelector('[data-raid-apply]').addEventListener('click',()=>{
     const inputs=[...list.querySelectorAll('[data-raid-find]')];if(inputs.some(input=>!input.checkValidity())){inputs.find(input=>!input.checkValidity()).reportValidity();return}
     const updates=inputs.map(input=>[input.dataset.raidFind,Number(input.value)||0]).filter(([,amount])=>amount>0);if(!updates.length){notice.textContent=c()[9];return}
-    try{const next={...owned};for(const [id,amount]of updates)next[id]=(Number(next[id])||0)+amount;localStorage.setItem('arcOwned',JSON.stringify(next));for(const [id]of updates)owned[id]=next[id]}catch{notice.textContent=c()[8];return}
+    try{const next={...owned};for(const [id,amount]of updates)next[id]=(Number(next[id])||0)+amount;window.RFTPlanning.commitStock(next)}catch{notice.textContent=c()[8];return}
     close();if(typeof drawSummary==='function')drawSummary();if(typeof drawItems==='function')drawItems();window.dispatchEvent(new Event('planning-changed'));document.getElementById('planningStatus').textContent=c()[6];
   });
   document.getElementById('planningTabGoals').addEventListener('click',()=>{button.hidden=true;close()});document.getElementById('planningTabMissing').addEventListener('click',()=>button.hidden=false);

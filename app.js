@@ -116,8 +116,11 @@ function requirementMap(){
 }
 
 function saveOwned(id,val){
-  owned[id]=Math.max(0,Number(val)||0);
-  localStorage.setItem('arcOwned',JSON.stringify(owned));
+  const amount=Number(val);if(!Number.isSafeInteger(amount)||amount<0)throw new Error('Invalid stock quantity');
+  const next={...owned,[id]:amount};
+  if(window.RFTPlanning)window.RFTPlanning.commitStock(next);
+  else{localStorage.setItem('arcOwned',JSON.stringify(next));Object.assign(owned,next)}
+  window.dispatchEvent(new Event('planning-changed'));
   drawSummary(); drawItems();
 }
 
