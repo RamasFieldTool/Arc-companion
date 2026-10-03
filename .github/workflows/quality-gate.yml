@@ -68,6 +68,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/i18n-smoke.mjs
+      - name: Run Italian language regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/italian-language.mjs
       - name: Run community story text, navigation, radio and mobile language checks
         env:
           BASE_URL: http://127.0.0.1:4173/
