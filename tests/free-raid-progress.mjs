@@ -112,6 +112,27 @@ try{
   await assertSummary(page,{total:13,owned:10,missing:3,personal:10});
   console.log('PASS personal raid target completes while independent quest need remains visible');
 
+  // Completion is explicit: cancellation preserves data; acceptance consumes only the quest's share.
+  const completeQuest=page.locator('#nextRaidDrawer [data-complete-kind="quest"][data-complete-id="quality_gate_free_raid"]');
+  await completeQuest.waitFor({state:'visible'});
+  page.once('dialog',dialog=>dialog.dismiss());
+  await completeQuest.click();
+  await page.waitForFunction(()=>getQuestState('quality_gate_free_raid')==='active');
+  page.once('dialog',dialog=>dialog.accept());
+  await completeQuest.click();
+  await page.waitForFunction(id=>getQuestState('quality_gate_free_raid')==='done'&&owned[id]===7,item.id);
+  if(await page.locator('#nextRaidDrawer [data-raid-quest-remove="quality_gate_free_raid"]').count())throw new Error('Completed quest remains in active raid goals');
+  if(await completeQuest.count())throw new Error('Completed quest still offered for completion');
+  await page.evaluate(id=>saveOwned(id,10),item.id);
+  const completePersonal=page.locator(`#nextRaidDrawer [data-complete-kind="personal"][data-complete-id="${item.id}"]`);
+  await completePersonal.waitFor({state:'visible'});
+  page.once('dialog',dialog=>dialog.accept());
+  await completePersonal.click();
+  await page.waitForFunction(id=>!JSON.parse(localStorage.getItem('arcNextRaid')||'{}')[id]&&owned[id]===10,item.id);
+  if(await raidRow.count())throw new Error('Completed personal target remains on raid list');
+  if(await page.locator(`#summary [data-item-id="${item.id}"]`).count())throw new Error('Completed target remains in total requirements');
+  console.log('PASS confirmed quest completion consumes 3, removes active goal; personal completion clears raid and requirements while keeping stock');
+
   if(pageErrors.length)throw new Error(`Uncaught browser errors: ${pageErrors.join(' | ')}`);
   await context.close();
 }finally{
