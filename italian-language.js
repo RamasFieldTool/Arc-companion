@@ -17,7 +17,7 @@
     'TIPS & TRICKS':'CONSIGLI E TRUCCHI','Knowledge for better runs':'Informazioni per raid migliori','CLOSE TIPS':'CHIUDI CONSIGLI','TIPS':'CONSIGLI','START & MOVEMENT':'INIZIO E MOVIMENTO','LOOT & PROGRESSION':'LOOT E PROGRESSIONE','SURVIVAL & EXTRACTION':'SOPRAVVIVENZA ED ESTRAZIONE','RAIDERS & COOPERATION':'RAIDER E COOPERAZIONE','GROUP ON FACEBOOK':'GRUPPO SU FACEBOOK','THE FIRST TESTERS':'I PRIMI TESTER'
   };
   const tileIT={nextRaidDrawer:'Il mio prossimo raid',liveEventsDrawer:'Eventi live',goalsSection:'I miei obiettivi',supplySection:'Materiali necessari',itemsSection:'Ricerca oggetti',questDrawer:'Missioni',blueprintDrawer:'Progetti',spawnPanel:'Mappe',raiderRadio:'Raider Radio'};
-  let active=false, observer=null, syncing=false;
+  let active=false, observer=null, syncing=false, scheduled=false;
   const safeGet=k=>{try{return localStorage.getItem(k)}catch{return null}};
   const safeSet=(k,v)=>{try{localStorage.setItem(k,v)}catch{}};
   function translateText(value){
@@ -36,7 +36,7 @@
   function sync(){
     if(!active||syncing)return; syncing=true;
     try{
-      document.documentElement.lang='it';document.documentElement.dataset.uiLanguage='it';
+      if(document.documentElement.lang!=='it')document.documentElement.lang='it';if(document.documentElement.dataset.uiLanguage!=='it')document.documentElement.dataset.uiLanguage='it';
       const h=document.getElementById('launcherHeading');setText(h,'Pronto per il prossimo raid?');
       const s=document.getElementById('launcherSubtitle');setText(s,'La tua preparazione. Tutto in un unico posto.');
       const back=document.getElementById('appBack');setText(back,'← Indietro');
@@ -61,7 +61,7 @@
     document.getElementById('enBtn')?.addEventListener('click',()=>{leaveItalian();safeSet(UI_KEY,'en')});
     if(safeGet(UI_KEY)==='it'){setItalian();startObserver()}
   }
-  function startObserver(){if(observer)return;observer=new MutationObserver(()=>{if(active&&!syncing)requestAnimationFrame(sync)});observer.observe(document.body,{subtree:true,childList:true,characterData:true})}
+  function startObserver(){if(observer)return;observer=new MutationObserver(()=>{if(active&&!syncing&&!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;sync()})}});observer.observe(document.body,{subtree:true,childList:true,characterData:true})}
   window.addEventListener('arc-language-change',event=>{if(event.detail?.language&&event.detail.language!=='it')leaveItalian()});
   document.readyState==='loading'?document.addEventListener('DOMContentLoaded',install,{once:true}):install();
 })();
