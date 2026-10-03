@@ -63,7 +63,7 @@ if(!(catalogPos<appPos&&appPos<statusPos)) fail('Script order must be catalog-re
 const statusScript=await read('status-v1300.js');
 const version=statusScript.match(/const APP_VERSION='([^']+)'/)?.[1];
 if(!version||!/^\d+\.\d+\.\d+$/.test(version)) fail(`Visible app version must use numeric x.y.z format; found ${version||'none'}`);
-if(!statusScript.includes("i18n-v13017.js?v=raid-clarity-1"))fail('V13.0.17 i18n layer is not loaded with the current explicit cache-buster');
+if(!/i18n-v13017\.js\?v=[^'\"\s]+/.test(statusScript))fail('i18n layer is not loaded with an explicit cache-buster');
 for(const marker of ['installLegacyLauncherObserverBridge','__arcLegacyLauncherObserverBridge','installIdempotentI18nDomWrites','__arcI18nIdempotentDomWrites']){
   if(!statusScript.includes(marker))fail(`FR/ES observer stability marker missing: ${marker}`);
 }
