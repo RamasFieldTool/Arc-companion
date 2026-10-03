@@ -23,10 +23,11 @@
   const COPY={
     de:{
       kicker:'RUN PLAN // PERSÖNLICH',title:'MEIN NÄCHSTER RAID',emptySummary:'Noch keine Items gemerkt',
-      intro:'Merke Items aus dem Gesamtbedarf oder der Suche und stelle deine kompakte Liste für den nächsten Raid zusammen.',
+      intro:'Suche Items und füge sie zum nächsten Raid hinzu. Deine hinzugefügten Items stehen unten unter „Deine Raid-Ziele“.',
+      listTitle:'Deine Raid-Ziele',checkLabel:'Als gesammelt markieren',uncheckLabel:'Als offen markieren',addedNotice:'Hinzugefügt – du findest das Item unten unter „Deine Raid-Ziele“.',
       open:'ÖFFNEN',close:'SCHLIESSEN',items:'Items',done:'erledigt',openState:'OFFEN',doneState:'ERLEDIGT',
       own:'EIGENE LISTE',workshop:'WERKBANK',quest:'QUEST',both:'QUEST + WERKBANK',
-      quantity:'MENGE',add:'＋ NÄCHSTER RAID',saved:'✓ GEMERKT',empty:'Noch ist nichts auf deiner Raid-Liste.',
+      quantity:'MENGE',add:'Zum nächsten Raid hinzufügen',saved:'✓ In deinen Raid-Zielen',empty:'Noch ist nichts auf deiner Raid-Liste.',
       remove:'Item entfernen',removeDone:'ERLEDIGTE ENTFERNEN',clear:'LISTE LEEREN',closeList:'RAID-LISTE SCHLIESSEN',
       clearConfirm:'Die komplette Raid-Liste wirklich leeren?',
       raidFinished:'RAID BEENDET',postTitle:'FUNDE EINTRAGEN',
@@ -38,10 +39,11 @@
     },
     en:{
       kicker:'RUN PLAN // PERSONAL',title:'MY NEXT RAID',emptySummary:'No saved items yet',
-      intro:'Save items from Total Needs or Search and build a compact checklist for your next raid.',
+      intro:'Search for items and add them to your next raid. Added items appear below under “Your raid goals”.',
+      listTitle:'Your raid goals',checkLabel:'Mark as collected',uncheckLabel:'Mark as outstanding',addedNotice:'Added – find the item below under “Your raid goals”.',
       open:'OPEN',close:'CLOSE',items:'items',done:'done',openState:'OPEN',doneState:'DONE',
       own:'PERSONAL LIST',workshop:'WORKSHOP',quest:'QUEST',both:'QUEST + WORKSHOP',
-      quantity:'AMOUNT',add:'＋ NEXT RAID',saved:'✓ SAVED',empty:'Your raid checklist is still empty.',
+      quantity:'AMOUNT',add:'Add to next raid',saved:'✓ In your raid goals',empty:'Your raid checklist is still empty.',
       remove:'Remove item',removeDone:'REMOVE COMPLETED',clear:'CLEAR LIST',closeList:'CLOSE RAID LIST',
       clearConfirm:'Clear the entire raid checklist?',
       raidFinished:'RAID FINISHED',postTitle:'LOG FINDINGS',
@@ -127,6 +129,9 @@
     document.getElementById('nextRaidKicker').textContent=c.kicker;
     document.getElementById('nextRaidTitle').textContent=c.title;
     document.getElementById('nextRaidIntro').textContent=c.intro;
+    listHeading.textContent=c.listTitle;
+    listHelp.textContent=c.checkLabel;
+    if(addStatus.dataset.added==='true')addStatus.textContent=c.addedNotice;
     summary.textContent=all.length?`${all.length} ${c.items} · ${completed} ${c.done}`:c.emptySummary;
     action.textContent=drawer.open?c.close:c.open;
   }
@@ -167,10 +172,10 @@
       const progress=personal?`<small class="next-raid-progress"><span>${personal.found} / ${personal.target}</span> <span>${escapeHtml(c.found)}</span> · <span>${personal.remaining}</span> <span>${escapeHtml(c.openState)}</span></small>`:'';
       return `<article class="next-raid-item${entry.done?' is-done':''}" data-raid-id="${safeId}">
         <label class="next-raid-check">
-          <input type="checkbox" data-raid-action="done" data-id="${safeId}" ${entry.done?'checked':''} aria-label="${escapeHtml(c.done)}: ${escapeHtml(name)}">
+          <input type="checkbox" data-raid-action="done" data-id="${safeId}" ${entry.done?'checked':''} aria-label="${escapeHtml(entry.done?c.uncheckLabel:c.checkLabel)}: ${escapeHtml(name)}">
           <span aria-hidden="true">✓</span>
         </label>
-        <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id,entry))} · ${entry.done?c.doneState:c.openState}</small>${progress}</div>
+        <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id,entry))} · ${entry.done?c.doneState:c.openState}</small>${progress}<small class="next-raid-check-caption">${escapeHtml(entry.done?c.uncheckLabel:c.checkLabel)}</small></div>
         <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="${personal?'1':entry.done?'0':'1'}" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
         <button class="next-raid-remove" type="button" data-raid-action="remove" data-id="${safeId}" aria-label="${escapeHtml(c.remove)}: ${escapeHtml(name)}">×</button>
       </article>`;
@@ -184,7 +189,9 @@
       const target=Math.max(1,toCount(quantity,1));
       raid[id]=personal?{target,done:false,personal:true,found:0}:{target,done:false};
     }
-    save();render();
+    const saved=save();render();
+    addStatus.dataset.added=String(saved);
+    addStatus.textContent=saved?copy().addedNotice:copy().storageError;
   }
 
   function refreshAddButtons(){
@@ -217,6 +224,20 @@
     });
     refreshAddButtons();
   }
+
+  const addStatus=document.createElement('p');
+  addStatus.id='nextRaidAddStatus';
+  addStatus.className='section-help next-raid-add-status';
+  addStatus.setAttribute('role','status');
+  addStatus.setAttribute('aria-live','polite');
+  document.getElementById('nextRaidIntro').after(addStatus);
+  const listHeading=document.createElement('h3');
+  listHeading.id='nextRaidListTitle';
+  listHeading.className='next-raid-list-title';
+  const listHelp=document.createElement('p');
+  listHelp.className='section-help';
+  list.before(listHeading,listHelp);
+  list.setAttribute('aria-labelledby',listHeading.id);
 
   const postRaidButton=document.createElement('button');
   postRaidButton.id='nextRaidFinished';

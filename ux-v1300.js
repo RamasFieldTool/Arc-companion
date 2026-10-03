@@ -91,13 +91,13 @@
       label:'ITEM SEARCH',placeholder:'Search item …',
       prompt:'Search for any item and add it directly to your raid list.',
       loading:'Items are loading …',noResults:'No item found.',
-      amount:'AMOUNT',add:'ADD',saved:'SAVED'
+      amount:'AMOUNT',add:'Add to next raid',saved:'✓ In your raid goals'
     }:{
       title:'FREIE ITEMS',subtitle:'Für Crafting & persönliche Pläne',badge:'OHNE ZIEL',
       label:'ITEM SUCHEN',placeholder:'Item suchen …',
       prompt:'Suche ein beliebiges Item und füge es direkt deiner Raid-Liste hinzu.',
       loading:'Items werden geladen …',noResults:'Kein Item gefunden.',
-      amount:'MENGE',add:'HINZUFÜGEN',saved:'GEMERKT'
+      amount:'MENGE',add:'Zum nächsten Raid hinzufügen',saved:'✓ In deinen Raid-Zielen'
     };
   }
 
