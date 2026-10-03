@@ -11,10 +11,7 @@ try{
   if(await firstRun.isVisible().catch(()=>false)){
     const german=firstRun.locator('[data-arc-language="de"]');
     if(await german.count()) await german.tap();
-    else {
-      const firstChoice=firstRun.locator('button').first();
-      await firstChoice.tap();
-    }
+    else await firstRun.locator('button').first().tap();
     await firstRun.waitFor({state:'hidden',timeout:30000});
   }
 
@@ -35,6 +32,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#detailTitle')?.textContent?.trim()==='La mia pianificazione');
   if(await text('#planningTabMissing')!=='Cosa mi manca?')throw new Error('Italian missing-items tab untranslated');
   if(await text('#planningTabGoals')!=='I miei obiettivi')throw new Error('Italian goals tab untranslated');
+  if(await text('#planningRaidFinished')!=='Raid terminato')throw new Error('Italian Raid finished action missing');
   await page.locator('#planningTabGoals').tap();
   const labels=await page.locator('.planning-personal-add label').allInnerTexts();
   if(!labels.some(v=>v.trim().startsWith('Oggetto')))throw new Error(`Italian item label untranslated: ${JSON.stringify(labels)}`);
@@ -49,11 +47,8 @@ try{
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`Italian mobile UI causes horizontal overflow (${overflow}px)`);
 
-  await page.locator('#appBack').tap();
-  await page.locator('[data-app-target="nextRaidDrawer"]').tap();
-  await page.waitForTimeout(200);
-  const raidText=await page.locator('#nextRaidDrawer').innerText();
-  if(!raidText.includes('RAID TERMINATO'))throw new Error('Italian Raid finished action missing');
+  await page.locator('#planningTabMissing').tap();
+  if(await text('#planningRaidFinished')!=='Raid terminato')throw new Error('Italian Raid finished action changed after reload');
 
   console.log('PASS Italian selector, planning, persistence, mobile overflow and raid action.');
   await context.close();
