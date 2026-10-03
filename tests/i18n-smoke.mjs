@@ -19,11 +19,11 @@ async function assertLegacyStatusCannotRewriteLauncher(page,label,legacyText){
 
 try{
   await context.clearCookies();
+  await context.addInitScript(()=>{localStorage.clear();sessionStorage.clear()});
   await page.goto(`${BASE_URL}?firstlang=1`,{waitUntil:'load'});
-  await page.evaluate(()=>{localStorage.clear();sessionStorage.clear()});
-  await page.goto(`${BASE_URL}?firstlang=1&fresh=1`,{waitUntil:'load'});
   await page.locator('#arcLanguageFirstRun').waitFor({state:'visible',timeout:10000});
   await page.locator('#arcLanguageFirstRun [data-arc-language="en"]').tap();
+  await context.clearInitScripts();
   await waitForLanguage(page,'en');
   await waitForText(page,'#launcherHeading','Ready for your next raid?');
   await assertLauncherStable(page,'English first-run');
