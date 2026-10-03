@@ -28,7 +28,8 @@ async function installRoutes(page){
 async function waitReady(page){await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});}
 async function metrics(page){return page.evaluate(()=>{
   const rect=el=>{const r=el?.getBoundingClientRect();return r?{x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height)}:null};
-  return {viewport:{width:innerWidth,height:innerHeight},document:{clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth},masthead:rect(document.querySelector('.masthead')),launcher:rect(document.querySelector('#appLauncher')),tiles:[...document.querySelectorAll('#appLauncher .app-tile')].map(el=>({target:el.dataset.appTarget,...rect(el)})),version:document.querySelector('#dataStatusDock [data-app-version]')?.textContent?.trim()||''};
+  const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0};
+  return {viewport:{width:innerWidth,height:innerHeight},document:{clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth},masthead:rect(document.querySelector('.masthead')),launcher:rect(document.querySelector('#appLauncher')),tiles:[...document.querySelectorAll('#appLauncher .app-tile')].filter(visible).map(el=>({target:el.dataset.appTarget,...rect(el)})),version:document.querySelector('#dataStatusDock [data-app-version]')?.textContent?.trim()||''};
 });}
 function assertHome(m,label){
   const overflow=m.document.scrollWidth-m.document.clientWidth;if(overflow>4)throw new Error(`${label}: horizontal overflow ${overflow}px`);
