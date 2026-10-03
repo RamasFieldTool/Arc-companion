@@ -42,7 +42,8 @@ try{
 
   await page.reload({waitUntil:'load'});
   await page.waitForFunction(()=>document.documentElement.dataset.uiLanguage==='it',{timeout:30000});
-  if(localStorage.getItem('arcUiLanguage')!=='it')throw new Error('Italian language did not persist after reload');
+  const persistedLanguage=await page.evaluate(()=>localStorage.getItem('arcUiLanguage'));
+  if(persistedLanguage!=='it')throw new Error(`Italian language did not persist after reload: ${persistedLanguage}`);
   if(await text('#detailTitle')!=='La mia pianificazione')throw new Error('Italian planning view did not survive reload');
 
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
