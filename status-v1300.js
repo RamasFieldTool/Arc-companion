@@ -234,7 +234,7 @@ renderDataStatus();
       this._native=new NativeMutationObserver(records=>{
         let ui='';
         try{ui=localStorage.getItem('arcUiLanguage')||''}catch{}
-        if(this._launcherTargets.size>=3&&(ui==='fr'||ui==='es')){
+        if(this._launcherTargets.size>=3&&(ui==='fr'||ui==='es'||ui==='it')){
           window.dispatchEvent(new Event('arc-launcher-status-dirty'));
           return;
         }
