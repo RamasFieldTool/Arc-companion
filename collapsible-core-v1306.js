@@ -16,5 +16,5 @@
   function closeDrawer(drawer){drawer.open=false;const summary=drawer.querySelector(':scope > summary');if(summary){try{summary.focus({preventScroll:true})}catch{summary.focus()}}summary?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'})}
   supply.addEventListener('toggle',sync);items.addEventListener('toggle',sync);document.getElementById('supplyDrawerClose').addEventListener('click',()=>closeDrawer(supply));document.getElementById('itemsDrawerClose').addEventListener('click',()=>closeDrawer(items));document.getElementById('q')?.addEventListener('input',()=>setTimeout(sync,0));document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(sync,0));document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(sync,0));new MutationObserver(sync).observe(document.getElementById('summary'),{childList:true,subtree:true});new MutationObserver(sync).observe(document.getElementById('out'),{childList:true,subtree:true});sync();
 
-  const planning=document.createElement('script');planning.src='planning-bootstrap.js?v=1';document.body.append(planning);
+  const planning=document.createElement('script');planning.src='planning-bootstrap.js?v=3';document.body.append(planning);
 })();

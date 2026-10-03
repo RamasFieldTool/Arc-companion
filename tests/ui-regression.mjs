@@ -25,7 +25,7 @@ async function installRoutes(page){
   await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify([{name:'quality_gate_ui.json',type:'file',download_url:questUrl}])}));
   await page.route(questUrl,route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(quest)}));
 }
-async function waitReady(page){await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});}
+async function waitReady(page){await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',null,{timeout:30000});await page.locator('[data-app-target="planningSection"]').waitFor({state:'visible'});await page.locator('[data-app-target="nextRaidDrawer"]').waitFor({state:'hidden'});}
 async function metrics(page){return page.evaluate(()=>{
   const rect=el=>{const r=el?.getBoundingClientRect();return r?{x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height)}:null};
   const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0};
@@ -35,7 +35,9 @@ function assertHome(m,label){
   const overflow=m.document.scrollWidth-m.document.clientWidth;if(overflow>4)throw new Error(`${label}: horizontal overflow ${overflow}px`);
   if(!m.masthead||m.masthead.width<100||m.masthead.height<40)throw new Error(`${label}: masthead collapsed`);
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
-  if(m.tiles.length<8)throw new Error(`${label}: expected at least 8 launcher tiles, got ${m.tiles.length}`);
+  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','raiderRadio'];
+  const actual=m.tiles.map(tile=>tile.target);
+  if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
   if(m.version!=='V13.0.21')throw new Error(`${label}: expected V13.0.21, got ${m.version}`);
 }
@@ -51,8 +53,8 @@ await mkdir(OUTPUT,{recursive:true});
 const browser=await chromium.launch({headless:true});
 const configs=[
   {name:'android-small',width:360,height:800,isMobile:true,hasTouch:true,views:['itemsSection']},
-  {name:'android-standard',width:412,height:915,isMobile:true,hasTouch:true,views:['backupPanel','questDrawer']},
-  {name:'desktop',width:1280,height:900,isMobile:false,hasTouch:false,views:['goalsSection','itemsSection']}
+  {name:'android-standard',width:412,height:915,isMobile:true,hasTouch:true,views:['backupPanel','planningSection']},
+  {name:'desktop',width:1280,height:900,isMobile:false,hasTouch:false,views:['planningSection','itemsSection']}
 ];
 const report=[];
 try{
@@ -69,6 +71,26 @@ try{
     const home=await metrics(page);assertHome(home,cfg.name);await page.screenshot({path:shot(`${cfg.name}-home.png`),fullPage:true});
     const opened=[];
     for(const target of cfg.views){await openTarget(page,target);await page.screenshot({path:shot(`${cfg.name}-${target}.png`),fullPage:true});opened.push(target);await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}
+    await openTarget(page,'planningSection');
+    const longItem=fixtureItems.slice().sort((a,b)=>String(b.name?.en||b.en||b.id).length-String(a.name?.en||a.en||a.id).length)[0];
+    for(const theme of ['dark','light']){
+      await page.evaluate(theme=>{localStorage.setItem('arcTheme',theme);localStorage.setItem('arcPaletteSurface',theme)},theme);
+      await page.reload({waitUntil:'domcontentloaded'});await waitReady(page);
+      await page.locator('#planningTabGoals').click();
+      await page.locator('#planningPersonalItem').selectOption(longItem.id);await page.locator('#planningPersonalAmount').fill('15');await page.locator('#planningPersonalAdd').click();
+      if(await page.locator('#planningMissing').isVisible())throw new Error(`${cfg.name}: missing list remains visible on Goals tab`);
+      await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-goals.png`),fullPage:true});
+      const layout=await page.evaluate(()=>{
+        const panel=document.getElementById('planningSection');
+        const controls=[...panel.querySelectorAll('button,input,select')].filter(el=>el.getBoundingClientRect().width>0);
+        return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,buttons:controls.filter(el=>el.tagName==='BUTTON').map(el=>({text:el.textContent,color:getComputedStyle(el).color,fill:getComputedStyle(el).webkitTextFillColor,background:getComputedStyle(el).backgroundColor})),outside:controls.filter(el=>{const r=el.getBoundingClientRect();return r.left<0||r.right>innerWidth+1}).map(el=>el.id||el.tagName),floating:!![...document.querySelectorAll('.floating-list-close')].find(el=>el.getBoundingClientRect().width>0)};
+      });
+      if(layout.overflow>1||layout.outside.length||layout.floating)throw new Error(`${cfg.name} ${theme}: planning layout failure ${JSON.stringify(layout)}`);
+      if(theme==='dark'&&layout.buttons.some(b=>b.color==='rgb(0, 0, 0)'||b.fill==='rgb(0, 0, 0)'))throw new Error(`${cfg.name}: black button text in dark planning`);
+      await page.locator('#planningTabMissing').click();if(await page.locator('#planningGoals').isVisible())throw new Error(`${cfg.name}: Goals remain visible on Missing tab`);
+      await page.screenshot({path:shot(`${cfg.name}-planning-${theme}-missing.png`),fullPage:true});
+      report.push({planning:cfg.name,theme,layout});
+    }
     if(pageErrors.length)throw new Error(`${cfg.name}: uncaught browser errors: ${pageErrors.join(' | ')}`);if(consoleErrors.length)throw new Error(`${cfg.name}: console errors: ${consoleErrors.join(' | ')}`);
     report.push({config:cfg,home,opened});console.log(`PASS ${cfg.name}: responsive layout and ${cfg.views.length} opened view(s)`);await context.close();
   }

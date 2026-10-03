@@ -191,6 +191,8 @@
 
   function renderFreeItemManager(){
     if(!freeItemManager)return;
+    // Keep unsaved quantities when catalog/language refresh rebuilds the picker.
+    const drafts=new Map([...freeItemManager.querySelectorAll('[data-free-item-id]')].map(row=>[row.dataset.freeItemId,row.querySelector('.raid-free-amount input')?.value]));
     const c=freeItemText();
     const title=freeItemManager.querySelector('.raid-free-manager-copy strong');
     const subtitle=freeItemManager.querySelector('.raid-free-manager-copy small');
@@ -234,7 +236,7 @@
       const id=String(item?.id||'');
       const savedEntry=saved[id];
       const isSaved=Object.prototype.hasOwnProperty.call(saved,id);
-      const savedTarget=isSaved?Math.max(1,Math.min(999999,Math.floor(Number(savedEntry?.target)||1))):1;
+      const savedTarget=Math.max(1,Math.min(999999,Math.floor(Number(isSaved?savedEntry?.target:drafts.get(id))||1)));
       const name=freeItemDisplayName(item);
       const type=freeItemType(item);
       return `<article class="raid-free-result" role="listitem" data-free-item-id="${uxEscape(id)}">
