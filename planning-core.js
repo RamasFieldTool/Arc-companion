@@ -56,7 +56,7 @@
   }
 
   function setPersonal(itemId,target,status='active'){
-    const personal=personalGoals(),qty=count(target);if(!itemId||qty<1)throw new Error('Invalid personal goal');
+    const personal=personalGoals(),qty=Number(target);if(!itemId||['__proto__','constructor','prototype'].includes(itemId)||!Number.isSafeInteger(qty)||qty<1||qty>999999)throw new Error('Invalid personal goal');
     const stock=typeof owned!=='undefined'?owned:read('arcOwned',{});
     const nextStatus=status==='active'&&count(stock[itemId])>=qty?'done':status;
     personal[itemId]={itemId,target:qty,status:['active','paused','done'].includes(nextStatus)?nextStatus:'active'};

@@ -22,7 +22,9 @@ jobs:
         with:
           node-version: '20'
       - name: Validate JSON, assets, cache-busters, backup guards and version
-        run: node tests/data-integrity.mjs
+        run: |
+          node tests/data-integrity.mjs
+          node tests/planning-core.mjs
 
   browser-smoke:
     name: Browser, Android and user-data safety
