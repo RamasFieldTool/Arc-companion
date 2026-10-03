@@ -4,3 +4,11 @@
 body.planning-open .floating-list-close{display:none!important}
 
 body.launcher-mode main>.launcher-section.planning-integrated-source.planning-integrated-visible{display:block!important}
+
+.planning-categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:16px}
+#planningSection .planning-categories button{min-width:0;min-height:48px;padding:8px 4px;white-space:normal;color:var(--ui-text)!important;background:var(--ui-soft)!important;-webkit-text-fill-color:currentColor}
+#planningSection .planning-categories button[aria-pressed=true]{color:#111!important;background:#ffb35c!important;border-color:#ffb35c!important;-webkit-text-fill-color:#111!important}
+body #questDrawer .quest-state button{color:var(--ui-text)!important;background:var(--ui-soft)!important;-webkit-text-fill-color:currentColor!important;min-height:44px}
+body #questDrawer .quest-state button.selected{color:#111!important;background:#ffb35c!important;border-color:#ffb35c!important;-webkit-text-fill-color:#111!important;font-weight:700}
+
+body.planning-open #appBack{position:static!important}
