@@ -208,6 +208,8 @@
 
   function setLanguage(next,{closePrompt=true}={}){
     if(!SUPPORTED.includes(next))return;
+    // Existing feature modules refresh their own copy through the engine buttons.
+    document.getElementById(next==='de'?'deBtn':'enBtn')?.click();
     currentUi=next;
     safeSet(UI_KEY,next);
     safeSet(FIRST_RUN_KEY,'0');

@@ -53,11 +53,16 @@ try{
   // Catch competing overlays after asynchronous status/catalog renders, then leave IT.
   await page.waitForTimeout(600);
   if(await text('#launcherHeading')!=='Pronto per il prossimo raid?')throw new Error('Italian heading overwritten after render');
+  await page.locator('#appBack').tap();
   for(const [language,heading] of [['en','Ready for your next raid?'],['fr','Prêt pour votre prochain raid ?'],['es','¿Listo para tu próxima incursión?'],['de','Bereit für den nächsten Raid?']]){
     await page.locator('#arcLanguageButton').tap();
     await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();
     await page.waitForFunction(code=>document.documentElement.dataset.uiLanguage===code,language);
     await page.waitForTimeout(350);
+    if(language==='en'){
+      if(JSON.stringify(await page.locator('#blueprintDrawer .blueprint-filter').allInnerTexts())!==JSON.stringify(['ALL','LEARNED','MISSING']))throw new Error('Blueprint filters did not return to English');
+      if(await text('#spawnMapSelectLabel')!=='Select map')throw new Error('Map selector did not return to English');
+    }
     if(await text('#launcherHeading')!==heading)throw new Error(`Italian overlay survived switch to ${language}: ${await text('#launcherHeading')}`);
   }
 

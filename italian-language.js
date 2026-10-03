@@ -47,6 +47,7 @@
     }finally{syncing=false}
   }
   function setItalian(){
+    document.getElementById('enBtn')?.click();
     active=true;safeSet(UI_KEY,'it');safeSet('arcLang','en');
     try{if(typeof lang!=='undefined')lang='en';if(typeof applyLanguage==='function')applyLanguage()}catch{}
     sync();setTimeout(sync,50);setTimeout(sync,250);window.dispatchEvent(new CustomEvent('arc-language-change',{detail:{language:'it'}}));
