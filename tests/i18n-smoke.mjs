@@ -132,7 +132,7 @@ try{
     await waitForText(page,'[data-app-target="planningSection"] b',title);
     await page.locator('[data-app-target="planningSection"]').tap();await waitForText(page,'#detailTitle',title);await waitForText(page,'#planningTabMissing',missing);await waitForText(page,'#planningTabGoals',goals);
     await page.locator('#planningTabGoals').tap();
-    const quantityLabel=await page.locator('.planning-personal-add label').nth(1).innerText();if(quantityLabel.trim()!==amount)throw new Error(`${language}: untranslated quantity label ${quantityLabel}`);
+    const quantityLabel=await page.locator('.planning-personal-add label:has(#planningPersonalAmount)').innerText();if(quantityLabel.trim()!==amount)throw new Error(`${language}: untranslated quantity label ${quantityLabel}`);
     const expectedName=language==='de'?items[0].de:items[0].en;
     await page.waitForFunction(({id,name})=>[...document.querySelector('#planningPersonalItem').options].some(o=>o.value===id&&o.textContent===name),{id:items[0].id,name:expectedName});
     await page.locator('#planningPersonalItem').selectOption(items[0].id);await page.locator('#planningPersonalAmount').fill('15');await page.locator('#planningPersonalAdd').tap();
