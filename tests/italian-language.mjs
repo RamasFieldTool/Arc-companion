@@ -50,6 +50,17 @@ try{
   await page.locator('#planningTabMissing').tap();
   if(await text('#planningRaidFinished')!=='Raid terminato')throw new Error('Italian Raid finished action changed after reload');
 
+  // Catch competing overlays after asynchronous status/catalog renders, then leave IT.
+  await page.waitForTimeout(600);
+  if(await text('#launcherHeading')!=='Pronto per il prossimo raid?')throw new Error('Italian heading overwritten after render');
+  for(const [language,heading] of [['en','Ready for your next raid?'],['fr','Prêt pour votre prochain raid ?'],['es','¿Listo para tu próxima incursión?'],['de','Bereit für den nächsten Raid?']]){
+    await page.locator('#arcLanguageButton').tap();
+    await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();
+    await page.waitForFunction(code=>document.documentElement.dataset.uiLanguage===code,language);
+    await page.waitForTimeout(350);
+    if(await text('#launcherHeading')!==heading)throw new Error(`Italian overlay survived switch to ${language}: ${await text('#launcherHeading')}`);
+  }
+
   console.log('PASS Italian selector, planning, persistence, mobile overflow and raid action.');
   await context.close();
 }finally{await browser.close();}

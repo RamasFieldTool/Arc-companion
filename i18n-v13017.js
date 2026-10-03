@@ -177,7 +177,7 @@
   }
 
   function syncAll(){
-    if(syncing)return;
+    if(syncing||safeGet(UI_KEY)==='it')return;
     syncing=true;
     try{
       syncLauncher();syncKnownControls();syncSelectOptions();syncLanguageControl();translateTree(document.body);
