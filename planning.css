@@ -12,3 +12,5 @@ body #questDrawer .quest-state button{color:var(--ui-text)!important;background:
 body #questDrawer .quest-state button.selected{color:#111!important;background:#ffb35c!important;border-color:#ffb35c!important;-webkit-text-fill-color:#111!important;font-weight:700}
 
 body.planning-open #appBack{position:static!important}
+
+.planning-raid-mark{display:grid;gap:6px;margin:10px 0}.planning-raid-mark button{min-height:44px;color:var(--ui-text)!important;background:var(--ui-soft)!important;-webkit-text-fill-color:currentColor}.planning-raid-mark small{color:var(--orange)}
