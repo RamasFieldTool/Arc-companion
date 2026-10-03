@@ -1,12 +1,12 @@
-// Unified planning core: one read-only calculation for workshop, quests, personal goals and raid priority.
+// Unified planning core: one calculation for workshop, quests, personal goals and raid priority.
 (()=>{
   const PERSONAL_KEY='arcPlanningPersonal';
   const HISTORY_KEY='arcPlanningHistory';
   const MIGRATION_KEY='arcPlanningMigrationV1';
   const record=value=>!!value&&typeof value==='object'&&!Array.isArray(value);
   const count=value=>Math.max(0,Math.floor(Number(value)||0));
-  const read=(key,fallback={})=>{try{const value=JSON.parse(localStorage.getItem(key)||'null');return value??fallback}catch{return fallback}};
-  const write=(key,value)=>{localStorage.setItem(key,JSON.stringify(value));return value};
+  const read=(storageKey,fallback={})=>{try{const value=JSON.parse(localStorage.getItem(storageKey)||'null');return value??fallback}catch{return fallback}};
+  const write=(storageKey,value)=>{localStorage.setItem(storageKey,JSON.stringify(value));return value};
 
   function migrateLegacyPersonal(){
     if(localStorage.getItem(MIGRATION_KEY)==='1')return;
@@ -14,20 +14,15 @@
     if(record(raid)&&record(personal)){
       Object.entries(raid).forEach(([itemId,entry])=>{
         if(!record(entry)||entry.personal!==true||personal[itemId])return;
-        const target=count(entry.target);
-        if(target<1)return;
-        // Legacy found/done is intentionally not converted into stock or completion.
+        const target=count(entry.target);if(target<1)return;
+        // Legacy found/done is deliberately not converted to stock or completion.
         personal[itemId]={itemId,target,status:'active',source:'legacy-raid'};
       });
       write(PERSONAL_KEY,personal);
     }
     localStorage.setItem(MIGRATION_KEY,'1');
   }
-
-  function personalGoals(){
-    const value=read(PERSONAL_KEY,{});
-    return record(value)?value:{};
-  }
+  function personalGoals(){const value=read(PERSONAL_KEY,{});return record(value)?value:{}}
 
   function requirementMapUnified(){
     const map={};
@@ -36,14 +31,13 @@
       if(!map[itemId])map[itemId]={total:0,reasons:[],goals:[]};
       map[itemId].total+=qty;map[itemId].reasons.push(reason);map[itemId].goals.push(goal);
     };
-    if(Array.isArray(window.goals))window.goals.forEach(goal=>(goal.levels||[]).forEach(level=>{
-      const id=typeof key==='function'?key(goal.id,level.level):`${goal.id}:${level.level}`;
-      if(!window.active?.[id])return;
-      (level.requirements||[]).forEach(req=>add(req.itemId,req.quantity,`${typeof goalName==='function'?goalName(goal):goal.id} ${typeof tr==='function'?tr('level'):'Level'} ${level.level}: ${req.quantity}`,{kind:'workshop',id}));
+    if(typeof goals!=='undefined'&&Array.isArray(goals))goals.forEach(goal=>(goal.levels||[]).forEach(level=>{
+      const id=key(goal.id,level.level);if(!active[id])return;
+      (level.requirements||[]).forEach(req=>add(req.itemId,req.quantity,`${goalName(goal)} ${tr('level')} ${level.level}: ${req.quantity}`,{kind:'workshop',id}));
     }));
-    if(Array.isArray(window.quests))window.quests.forEach(quest=>{
-      if(typeof getQuestState!=='function'||getQuestState(quest.id)!=='active')return;
-      (quest.requiredItemIds||[]).forEach(req=>add(req.itemId,req.quantity,`${typeof tr==='function'?tr('questReason'):'Quest'} – ${typeof questName==='function'?questName(quest):quest.id}: ${req.quantity}`,{kind:'quest',id:quest.id}));
+    if(typeof quests!=='undefined'&&Array.isArray(quests))quests.forEach(quest=>{
+      if(getQuestState(quest.id)!=='active')return;
+      (quest.requiredItemIds||[]).forEach(req=>add(req.itemId,req.quantity,`${tr('questReason')} – ${questName(quest)}: ${req.quantity}`,{kind:'quest',id:quest.id}));
     });
     Object.values(personalGoals()).forEach(goal=>{
       if(!record(goal)||goal.status!=='active'||!goal.itemId)return;
@@ -54,22 +48,22 @@
 
   function rows({all=false,raidOnly=false}={}){
     const req=requirementMapUnified();
-    const stock=window.owned||read('arcOwned',{});
+    const stock=typeof owned!=='undefined'&&record(owned)?owned:read('arcOwned',{});
     const raid=read('arcNextRaid',{});
     return Object.entries(req).map(([itemId,entry])=>{
-      const have=count(stock[itemId]);const missing=Math.max(0,entry.total-have);
-      const priority=record(raid)&&record(raid[itemId])&&raid[itemId].personal!==true;
+      const have=count(stock[itemId]),missing=Math.max(0,entry.total-have);
+      const raidEntry=record(raid)?raid[itemId]:null;
+      const priority=record(raidEntry)&&raidEntry.personal!==true;
       return {itemId,required:entry.total,owned:have,missing,reasons:entry.reasons,goals:entry.goals,raidPriority:priority};
     }).filter(row=>(all||row.missing>0)&&(!raidOnly||row.raidPriority));
   }
 
   function setPersonal(itemId,target,status='active'){
-    const goals=personalGoals();const qty=count(target);
-    if(!itemId||qty<1)throw new Error('Invalid personal goal');
-    goals[itemId]={itemId,target:qty,status:['active','paused','done'].includes(status)?status:'active'};
-    write(PERSONAL_KEY,goals);window.dispatchEvent(new Event('planning-changed'));
+    const personal=personalGoals(),qty=count(target);if(!itemId||qty<1)throw new Error('Invalid personal goal');
+    personal[itemId]={itemId,target:qty,status:['active','paused','done'].includes(status)?status:'active'};
+    write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'));
   }
-  function removePersonal(itemId){const goals=personalGoals();delete goals[itemId];write(PERSONAL_KEY,goals);window.dispatchEvent(new Event('planning-changed'))}
+  function removePersonal(itemId){const personal=personalGoals();delete personal[itemId];write(PERSONAL_KEY,personal);window.dispatchEvent(new Event('planning-changed'))}
 
   migrateLegacyPersonal();
   window.RFTPlanning={requirementMap:requirementMapUnified,rows,personalGoals,setPersonal,removePersonal,history:()=>read(HISTORY_KEY,[])};
