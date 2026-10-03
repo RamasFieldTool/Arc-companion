@@ -23,6 +23,6 @@
   document.getElementById('appBack')?.addEventListener('click',()=>{section.classList.remove('launcher-active');document.body.classList.remove('planning-open');setIntegratedVisible(false)},true);
   window.addEventListener('hashchange',()=>{if(location.hash==='#planningSection')openPlanning();else{section.classList.remove('launcher-active');document.body.classList.remove('planning-open');setIntegratedVisible(false)}});
   window.RFTPlanningIntegratedSources={setVisible:setIntegratedVisible};
-  const core=document.createElement('script');core.src='planning-core.js?v=4';core.onload=()=>{const ui=document.createElement('script');ui.src='planning-ui.js?v=6';document.body.append(ui)};document.body.append(core);
+  const core=document.createElement('script');core.src='planning-core.js?v=4';core.onload=()=>{const ui=document.createElement('script');ui.src='planning-ui.js?v=7';document.body.append(ui)};document.body.append(core);
   if(location.hash==='#planningSection')openPlanning();
 })();
