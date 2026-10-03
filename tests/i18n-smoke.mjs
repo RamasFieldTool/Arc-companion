@@ -89,7 +89,9 @@ try{
   await page.locator('#arcLanguageFirstRun').waitFor({state:'visible'});
   await waitForLanguage(page,'en');
   await waitForText(page,'#launcherHeading','Ready for your next raid?');
-  if(await page.locator('#arcLanguageFirstRun [data-first-language]').count()!==4)throw new Error('First-run chooser must offer EN, DE, FR and ES');
+  await page.locator('#arcLanguageFirstRun [data-first-language=it]').waitFor({state:'visible'});
+  const offered=await page.locator('#arcLanguageFirstRun [data-first-language]').evaluateAll(nodes=>nodes.map(node=>node.dataset.firstLanguage).sort());
+  if(JSON.stringify(offered)!==JSON.stringify(['de','en','es','fr','it']))throw new Error('First-run chooser must offer DE, EN, FR, ES and IT');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('EN'))throw new Error('Permanent language button must show EN on first launch');
 
   await page.locator('[data-first-language="fr"]').tap();
