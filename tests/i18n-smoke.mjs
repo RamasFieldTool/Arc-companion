@@ -21,7 +21,6 @@ try{
   await context.clearCookies();
   await context.addInitScript(()=>{localStorage.clear();sessionStorage.clear()});
   await page.goto(BASE_URL,{waitUntil:'load'});
-  await context.clearInitScripts();
   await waitForLanguage(page,'de');
   await waitForText(page,'#launcherHeading','Bereit für deinen nächsten Raid?');
   if(await page.locator('#arcLanguageFirstRun').count())throw new Error('Unexpected first-run language chooser: current app starts in German when no UI language is stored');
