@@ -516,7 +516,7 @@
   if(searchRoot)observer.observe(searchRoot,{childList:true,subtree:true});
 
   window.addEventListener('raid-goals-completed',()=>{
-    try{raid=Object.assign(Object.create(null),JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}')))}catch{return}
+    try{raid=Object.assign(Object.create(null),JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{return}
     render();decorate();if(!postRaidPanel.hidden)renderPostRaid();
   });
 
