@@ -22,7 +22,7 @@ async function assertPlanning(page,{required,owned,missing}){const row=await pla
 const browser=await chromium.launch({headless:true});
 try{
   const context=await browser.newContext({viewport:{width:412,height:915},screen:{width:412,height:915},isMobile:true,hasTouch:true,userAgent:'Mozilla/5.0 (Linux; Android 16; RamasFieldToolRaidProgressTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36'});
-  await context.addInitScript(()=>{localStorage.setItem('arcLang','en');localStorage.setItem('arcUiLanguage','en');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('arcOwned','{}');localStorage.setItem('arcActiveGoals','{}');localStorage.setItem('arcQuestStatus',JSON.stringify({quality_gate_free_raid:'active'}));localStorage.setItem('arcPlanningPersonal','{}');localStorage.setItem('arcPlanningMigrationV1','1');localStorage.removeItem('arcNextRaid')});
+  await context.addInitScript(()=>{if(sessionStorage.getItem('__rft_raid_seeded'))return;sessionStorage.setItem('__rft_raid_seeded','1');localStorage.setItem('arcLang','en');localStorage.setItem('arcUiLanguage','en');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('arcOwned','{}');localStorage.setItem('arcActiveGoals','{}');localStorage.setItem('arcQuestStatus',JSON.stringify({quality_gate_free_raid:'active'}));localStorage.setItem('arcPlanningPersonal','{}');localStorage.setItem('arcPlanningMigrationV1','1');localStorage.removeItem('arcNextRaid')});
   const page=await context.newPage(),pageErrors=[];page.on('pageerror',error=>pageErrors.push(String(error)));await installRoutes(page);await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});
 
   await page.locator('[data-app-target="planningSection"]').first().tap();
@@ -54,7 +54,9 @@ try{
   await page.waitForTimeout(100);
   const goal=await page.evaluate(id=>JSON.parse(localStorage.getItem('arcPlanningPersonal')||'{}')[id],item.id);
   if(goal?.status!=='done')throw new Error(`Personal target reached in visible raid flow but status is ${goal?.status||'missing'}, expected done`);
-  await assertPlanning(page,{required:3,owned:10,missing:0}).catch(async()=>{const rows=await page.locator('#planningMissing [data-plan-item]').count();if(rows!==0)throw new Error('Completed personal target still contributes active requirement')});
+  const remaining=await page.evaluate(id=>window.RFTPlanning.rows({all:true}).find(row=>row.itemId===id),item.id);
+  if(remaining?.required!==3||remaining.owned!==10||remaining.missing!==0)throw new Error(`Incorrect quest requirement after collection completion: ${JSON.stringify(remaining)}`);
+  if(await page.locator('#planningMissing [data-plan-item]').count()!==0)throw new Error('Completed target still contributes missing items');
   console.log('PASS reached personal target completes and leaves independent quest requirement only');
 
   await page.reload({waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live',{timeout:30000});
