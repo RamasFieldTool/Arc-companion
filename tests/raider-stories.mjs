@@ -2,6 +2,19 @@ import { chromium } from 'playwright';
 import { readFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
+import vm from 'node:vm';
+const storyContext={window:{},document:{documentElement:{lang:'de'},readyState:'loading',addEventListener(){}},MutationObserver:class{observe(){}}};
+storyContext.window.addEventListener=()=>{};
+vm.runInNewContext(await readFile(new URL('../raider-stories.js',import.meta.url),'utf8'),storyContext);
+const zoeSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='captain-defib');
+assert.equal(createHash('sha256').update(zoeSource.content).digest('hex'),'d1120f76cb09b6df1e25e35e819da53e9b34f4fb6eeb1232caf0c25e794e07b4');
+const zoeTitles={de:'Die Legende von CaptainDefib',en:'The Legend of CaptainDefib',fr:'La légende de CaptainDefib',es:'La leyenda de CaptainDefib'};
+for(const lang of ['de','en','fr','es']){
+  assert.equal(zoeSource.translations[lang].title,zoeTitles[lang]);
+  assert.ok(zoeSource.translations[lang].content.length>2500);
+  assert.ok(zoeSource.translations[lang].content.includes(zoeSource.translations[lang].nameQuestion));
+  assert.equal(zoeSource.translations[lang].content.split('"CaptainDefib"').length,2);
+}
 
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
@@ -128,16 +141,25 @@ try{
     await page.waitForFunction(()=>document.querySelector('.fan-story-view>.fan-view-back').textContent==='← Retour à Raider Stories');
     await checkText(page,'fr');
     assert.equal(await page.locator('[data-app-target="raiderRadio"] b').textContent(),'Fan Creations');
-    // The new German original stays verbatim in every app language and surface.
+    // Zoe's story follows the selected app language, including a switch while open.
     await page.goto(BASE_URL+'#raiderRadio/stories/captain-defib',{waitUntil:'domcontentloaded'});
     await visible(page,'.fan-story-detail');
-    await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='de'&&document.querySelector('.fan-legend-reveal'));
-    assert.equal(await page.locator('.fan-story-title').textContent(),'Die Legende von CaptainDefib');
-    assert.equal(await page.locator('.fan-story-editorial-note').textContent(),'Redaktioneller Titel – Originalgeschichte ohne Titel');
-    const zoeText=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
-    assert.equal(createHash('sha256').update(zoeText).digest('hex'),'d1120f76cb09b6df1e25e35e819da53e9b34f4fb6eeb1232caf0c25e794e07b4');
-    assert.equal(await page.locator('.fan-legend-question').textContent(),'Sein Name?');
-    assert.equal(await page.locator('.fan-legend-reveal').textContent(),'"CaptainDefib"');
+    await page.waitForFunction(()=>['live','partial','fallback'].includes(document.getElementById('dataStatusPersistent')?.dataset.state)&&typeof window.arcSetLanguage==='function');
+    for(const targetLanguage of [language,...['de','en','fr','es'].filter(value=>value!==language)]){
+      const expected=zoeSource.translations[targetLanguage];
+      await page.evaluate(lang=>window.arcSetLanguage(lang),targetLanguage);
+      await page.waitForFunction(({lang,title,note,question})=>
+        document.querySelector('.fan-story-body')?.lang===lang&&
+        document.querySelector('.fan-story-title')?.textContent===title&&
+        document.querySelector('.fan-story-editorial-note')?.textContent===note&&
+        document.querySelector('.fan-legend-question')?.textContent===question,
+        {lang:targetLanguage,title:expected.title,note:expected.editorialNote,question:expected.nameQuestion});
+      const zoeText=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
+      assert.equal(zoeText,expected.content);
+      assert.equal(await page.locator('.fan-story-title').getAttribute('lang'),targetLanguage);
+      assert.equal(await page.locator('.fan-story-editorial-note').getAttribute('lang'),targetLanguage);
+      assert.equal(await page.locator('.fan-legend-reveal').textContent(), '\"CaptainDefib\"');
+    }
     await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth===1536);
     assert.equal(await page.locator('.fan-story-hero>img').evaluate(img=>img.naturalHeight),1536);
     assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
@@ -145,6 +167,9 @@ try{
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
     assert.equal(await page.locator('.fan-story-card').count(),2);
+    const cardExpected=zoeSource.translations[await page.evaluate(()=>document.documentElement.lang)];
+    assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-card-title').textContent(),cardExpected.title);
+    assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-summary').textContent(),cardExpected.summary);
     assert.deepEqual(errors,[]);
     console.log(`PASS community story ${width}px ${surface} ${language}: localized story/UI, verbatim DE original, image, layout, hash/history/reload/back, radio covers and links`);
     await context.close();
