@@ -20,14 +20,18 @@ async function assertLegacyStatusCannotRewriteLauncher(page,label,legacyText){
 try{
   await context.clearCookies();
   await context.addInitScript(()=>{localStorage.clear();sessionStorage.clear()});
-  await page.goto(`${BASE_URL}?firstlang=1`,{waitUntil:'load'});
-  await page.locator('#arcLanguageFirstRun').waitFor({state:'visible',timeout:10000});
-  await page.locator('#arcLanguageFirstRun [data-arc-language="en"]').tap();
+  await page.goto(BASE_URL,{waitUntil:'load'});
   await context.clearInitScripts();
-  await waitForLanguage(page,'en');
+  await waitForLanguage(page,'de');
+  await waitForText(page,'#launcherHeading','Bereit für deinen nächsten Raid?');
+  if(await page.locator('#arcLanguageFirstRun').count())throw new Error('Unexpected first-run language chooser: current app starts in German when no UI language is stored');
+  await assertLauncherStable(page,'German default startup');
+  await assertLegacyStatusCannotRewriteLauncher(page,'German default startup','Mein nächster Raid');
+
+  await page.locator('#arcLanguageButton').tap();await page.locator('#arcLanguageMenu [data-arc-language="en"]').tap();await waitForLanguage(page,'en');
   await waitForText(page,'#launcherHeading','Ready for your next raid?');
-  await assertLauncherStable(page,'English first-run');
-  await assertLegacyStatusCannotRewriteLauncher(page,'English first-run','My next raid');
+  await assertLauncherStable(page,'English UI');
+  await assertLegacyStatusCannotRewriteLauncher(page,'English UI','My next raid');
 
   await page.locator('#arcLanguageButton').tap();await page.locator('#arcLanguageMenu [data-arc-language="fr"]').tap();await waitForLanguage(page,'fr');
   await waitForText(page,'#launcherHeading','Prêt pour votre prochain raid ?');
@@ -42,7 +46,6 @@ try{
   await page.goto(BASE_URL,{waitUntil:'load'});
   await waitForLanguage(page,'es');
   await waitForText(page,'#launcherHeading','¿Listo para tu próxima incursión?');
-  if(await page.locator('#arcLanguageFirstRun').count())throw new Error('First-run chooser must not reappear after a language has been chosen');
   if(!(await page.locator('#arcLanguageButton').innerText()).includes('ES'))throw new Error('Permanent language button did not retain ES');
   await assertLauncherStable(page,'Spanish UI after reload');
   await assertLegacyStatusCannotRewriteLauncher(page,'Spanish UI after reload','Mi próxima incursión');
