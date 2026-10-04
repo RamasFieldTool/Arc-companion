@@ -25,6 +25,7 @@ jobs:
         run: |
           node tests/data-integrity.mjs
           node tests/planning-core.mjs
+          node tests/item-find-locations.mjs
 
   browser-smoke:
     name: Browser, mobile emulation and user-data safety
