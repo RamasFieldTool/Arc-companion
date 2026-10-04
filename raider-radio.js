@@ -31,11 +31,11 @@
   };
 
   const collectionCopy={
-    de:{back:'← Zurück zu Raider Radio',open:'Alben öffnen',listen:'▶ Auf Originalplattform anhören',pending:'Original-Link wird ergänzt'},
-    en:{back:'← Back to Raider Radio',open:'Open albums',listen:'▶ Listen on the original platform',pending:'Original link to be added'},
-    fr:{back:'← Retour à Raider Radio',open:'Voir les albums',listen:'▶ Écouter sur la plateforme d’origine',pending:'Lien d’origine à venir'},
-    es:{back:'← Volver a Raider Radio',open:'Ver álbumes',listen:'▶ Escuchar en la plataforma original',pending:'Enlace original pendiente'},
-    it:{back:'← Torna a Raider Radio',open:'Apri gli album',listen:'▶ Ascolta sulla piattaforma originale',pending:'Link originale in arrivo'}
+    de:{back:'← Zurück zu Raider Radio',open:'Alben öffnen',listen:'▶ Auf YouTube anhören',pending:'Original-Link wird ergänzt'},
+    en:{back:'← Back to Raider Radio',open:'Open albums',listen:'▶ Listen on YouTube',pending:'Original link to be added'},
+    fr:{back:'← Retour à Raider Radio',open:'Voir les albums',listen:'▶ Écouter sur YouTube',pending:'Lien d’origine à venir'},
+    es:{back:'← Volver a Raider Radio',open:'Ver álbumes',listen:'▶ Escuchar en YouTube',pending:'Enlace original pendiente'},
+    it:{back:'← Torna a Raider Radio',open:'Apri gli album',listen:'▶ Ascolta su YouTube',pending:'Link originale in arrivo'}
   };
 
   const copy={
@@ -147,9 +147,10 @@
   radioBack.type='button';
   radioBack.className='fan-view-back';
   const radioHeading=document.createElement('h2');
-  const about=document.createElement('aside');
+  radioHeading.className='radio-wordmark';
+  const about=document.createElement('details');
   about.className='radio-about';
-  const aboutTitle=document.createElement('h3');
+  const aboutTitle=document.createElement('summary');
   const aboutText=document.createElement('p');
   const howText=document.createElement('p');
   about.append(aboutTitle,aboutText,howText);

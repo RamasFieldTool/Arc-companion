@@ -17,10 +17,10 @@ body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"] .app-
 html:is([data-surface="dark"],[data-surface="black"]) .fan-view-back{color:#ffc46b!important}
 
 .radio-about{margin:0 0 20px;padding:16px;border:1px solid var(--ui-line);border-left:4px solid #995000;border-radius:14px;background:var(--ui-panel-2)}
-#raiderRadio .radio-about h3{margin:0 0 8px;color:#995000!important;font-size:17px;line-height:1.35}
+#raiderRadio .radio-about summary{margin:0 0 8px;color:#995000!important;font-size:17px;line-height:1.35}
 .radio-about p{margin:8px 0 0;color:var(--ui-muted);font-size:14px;line-height:1.55}
 html:is([data-surface="dark"],[data-surface="black"]) .radio-about{border-left-color:#ffc46b}
-html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about h3{color:#ffc46b!important}
+html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about summary{color:#ffc46b!important}
 .radio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:14px}
 .radio-song{min-width:0;border:1px solid var(--ui-line);border-radius:18px;overflow:hidden;background:var(--ui-panel);display:flex;flex-direction:column}
 .radio-song img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
@@ -204,3 +204,12 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme=
 #raiderRadio [data-story-theme="forest-tragicomedy"] .fan-story-editorial-note{
   margin:16px 0 0;color:var(--story-muted)!important;font-size:12px!important;line-height:1.6!important;text-transform:none;letter-spacing:normal;
 }
+
+@font-face{font-family:'Raider Radio Script';src:url('assets/fonts/pacifico/raider-radio.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+#raiderRadio .radio-wordmark{font-family:'Raider Radio Script',cursive!important;font-size:clamp(32px,8vw,56px)!important;font-weight:400!important;text-transform:none!important;letter-spacing:0!important;line-height:1.5;margin:0 0 12px;color:#995000!important;text-shadow:1px 2px 0 #e7bd5940}
+html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-wordmark{color:#ffc46b!important;text-shadow:1px 2px 0 #995000}
+.radio-about summary{cursor:pointer;min-height:44px;box-sizing:border-box;padding:10px 0;list-style-position:inside}
+#raiderRadio .radio-about summary{margin:0}
+.radio-about{padding:6px 16px}
+.radio-about[open]{padding-bottom:16px}
+.radio-about summary:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}

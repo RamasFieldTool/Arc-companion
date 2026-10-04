@@ -51,6 +51,13 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   await tile.click();
   await page.locator('#raiderRadio').waitFor({state:'visible'});
   await page.locator('[data-fan-view="radio"]').click();
+  const about=page.locator('.radio-about');
+  assert.equal(await about.getAttribute('open'),null);
+  await about.locator('summary').click();
+  assert.equal(await about.evaluate(el=>el.open),true);
+  await about.locator('summary').click();
+  await page.evaluate(()=>document.fonts.ready);
+  assert.equal(await page.locator('.radio-wordmark').evaluate(el=>getComputedStyle(el).textTransform),'none');
   const collection=page.locator('#raiderRadioSongs .radio-collection');
   assert.equal(await collection.count(),1);
   assert.equal(await page.locator('#raiderRadioSongs > :first-child').getAttribute('data-collection-id'),'lion-montana-radio-speranza-relay');
@@ -81,6 +88,8 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   await page.waitForFunction(()=>[...document.querySelectorAll('.radio-album img')].every(i=>i.complete&&i.naturalWidth===1536));
   assert.deepEqual(await page.locator('.radio-album a').evaluateAll(a=>a.map(x=>x.href)),['https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g','https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo']);
   assert.equal(await page.locator('.radio-link-pending').count(),0);
+  const youtubeLabels={de:'▶ Auf YouTube anhören',en:'▶ Listen on YouTube',fr:'▶ Écouter sur YouTube',es:'▶ Escuchar en YouTube',it:'▶ Ascolta su YouTube'};
+  assert.deepEqual(await page.locator('.radio-album a').allTextContents(),[youtubeLabels[language],youtubeLabels[language]]);
   const albumMetrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cards:[...document.querySelectorAll('.radio-album')].some(c=>c.scrollWidth>c.clientWidth)}));
   assert.ok(albumMetrics.overflow<=4,JSON.stringify(albumMetrics));assert.equal(albumMetrics.cards,false);
   assert.equal(await page.locator('.radio-album a').evaluateAll(a=>a.every(x=>x.getBoundingClientRect().height>=44)),true);
