@@ -1,0 +1,24 @@
+import { chromium } from 'playwright';
+const base=process.env.BASE_URL||'http://127.0.0.1:4173/';
+const browser=await chromium.launch({headless:true});
+const page=await browser.newPage({viewport:{width:360,height:800}});
+await page.goto(base,{waitUntil:'networkidle'});
+const q=page.locator('#q');
+await q.fill('Magnetischer Beschleuniger');
+await page.waitForTimeout(250);
+const card=page.locator('.card[data-item-id="magnetic_accelerator"]').first();
+if(!await card.count())throw new Error('Magnetic Accelerator card missing');
+const details=card.locator('details.find-locations');
+if(!await details.count())throw new Error('Possible find locations details missing');
+if(await details.evaluate(el=>el.open))throw new Error('Possible find locations must start closed');
+await details.locator('summary').click();
+const text=await details.innerText();
+for(const expected of ['Exodus','MATRIARCH','THE QUEEN','Damm-Schlachtfelder','Raumhafen','Das blaue Tor']){if(!text.includes(expected))throw new Error(`Missing reference data: ${expected}`)}
+if(!text.includes('Kein garantierter Fund'))throw new Error('Community disclaimer missing');
+await page.evaluate(()=>{localStorage.setItem('arcOwned',JSON.stringify({magnetic_accelerator:2}))});
+await page.locator('#q').fill('Magnetischer Beschleuniger ');await page.locator('#q').fill('Magnetischer Beschleuniger');
+if(!await page.locator('.card[data-item-id="magnetic_accelerator"] details.find-locations').first().evaluate(el=>el.open))throw new Error('Open state was not preserved across redraw');
+await page.setViewportSize({width:412,height:900});
+if((await details.boundingBox())?.width>412)throw new Error('Find locations overflows mobile viewport');
+await browser.close();
+console.log('item-find-locations browser regression: OK');
