@@ -1,0 +1,5 @@
+{
+  "source": "RaidTheory/arcraiders-data@2a4abebb2486a633070f4e260058bcd5ad4511d6; items/magnetic_accelerator.json and bots.json (minimal field subset)",
+  "items": [{"id":"magnetic_accelerator","name":{"de":"Magnetischer Beschleuniger","en":"Magnetic Accelerator","fr":"Accélérateur Magnétique","es":"Acelerador Magnético"},"type":"Refined Material","rarity":"Epic","foundIn":"Exodus","value":5500,"weightKg":1,"stackSize":3}],
+  "bots": [{"id":"arc_matriarch","name":"MATRIARCH","maps":["dam_battlegrounds"],"drops":["magnetic_accelerator"]},{"id":"arc_the_queen","name":"THE QUEEN","maps":["dam_battlegrounds","the_spaceport","the_blue_gate"],"drops":["magnetic_accelerator"]}]
+}

@@ -1,6 +1,6 @@
 /* Item search: possible find locations. Kept isolated from the legacy stylesheet. */
 .find-locations{margin-top:11px;border:1px solid #55523e;background:#171913;max-width:100%;overflow:hidden}
-.find-locations summary{cursor:pointer;list-style:none;padding:9px 10px;color:var(--amber);font-weight:700;letter-spacing:.025em;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.find-locations summary{min-height:44px;box-sizing:border-box;cursor:pointer;list-style:none;padding:9px 10px;color:var(--amber);font-weight:700;letter-spacing:.025em;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .find-locations summary::-webkit-details-marker{display:none}
 .find-locations summary:after{content:'+';font:700 18px ui-monospace,"Courier New",monospace;color:var(--cream-soft)}
 .find-locations[open] summary:after{content:'−'}

@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
 import { readFile } from 'node:fs/promises';
+import { installItemCatalogRoute } from './helpers/item-catalog.mjs';
 
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const SNAPSHOT_URL='https://raw.githubusercontent.com/RamasFieldTool/Arc-companion/catalog-data/items-full-snapshot.json';
@@ -14,7 +15,7 @@ const quest={id:'quality_gate_quest',name:{de:'Qualitätstest',en:'Quality gate 
 const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/quests/quality_gate_quest.json';
 function itemLabel(item){return item?.name?.de||item?.name?.en||item?.de||item?.en||item?.id||''}
 async function installRoutes(page,mode){
- await page.route('https://arcdata.mahcks.com/v1/items**',async route=>{if(mode==='live'){const url=new URL(route.request().url()),offset=Math.max(0,Number(url.searchParams.get('offset'))||0),limit=Math.max(1,Number(url.searchParams.get('limit'))||45),pageItems=fixtureItems.slice(offset,offset+limit),body={type:'items',total:fixtureItems.length,count:pageItems.length,offset,limit,items:pageItems};if(offset+limit<fixtureItems.length)body.next=`/v1/items?full=true&offset=${offset+limit}&limit=${limit}`;await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(body)})}else if(mode==='invalid-live')await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({type:'items',total:999,count:1,offset:0,limit:45,items:[fixtureItems[0]]})});else await route.fulfill({status:503,contentType:'application/json',body:'{"error":"simulated Mahcks outage"}'})});
+ await installItemCatalogRoute(page,fixtureItems,mode);
  await page.route(SNAPSHOT_URL,async route=>{if(mode==='snapshot'||mode==='invalid-live')await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(snapshotFixture)});else await route.fulfill({status:503,contentType:'application/json',body:'{"error":"simulated snapshot outage"}'})});
  await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/items?ref=main',async route=>{if(mode==='github'||mode==='partial')await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(fallbackFiles.map(({name,type,download_url})=>({name,type,download_url})))});else await route.fulfill({status:503,contentType:'application/json',body:'{"error":"simulated GitHub outage"}'})});
  for(let i=0;i<fallbackFiles.length;i++){const file=fallbackFiles[i];await page.route(file.download_url,async route=>{if(mode==='partial'&&i===fallbackFiles.length-1)await route.fulfill({status:503,contentType:'application/json',body:'{"error":"simulated single-file failure"}'});else await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify(file.item)})})}

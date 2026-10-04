@@ -15,7 +15,7 @@
   let bots=FALLBACK;
   const opened=new Set();
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const language=()=>['de','en','fr','es','it'].includes(window.lang)?window.lang:'en';
+  const language=()=>{const ui=document.documentElement.dataset.uiLanguage||(typeof lang==='string'?lang:'en');return I18N[ui]?ui:'en'};
   const txt=k=>I18N[language()][k];
   const foundIn=v=>[...new Set((Array.isArray(v)?v:typeof v==='string'?v.split(','):[]).map(x=>String(x).trim()).filter(Boolean))];
   const mapName=id=>MAPS[id]?.[language()]||MAPS[id]?.en||String(id).replaceAll('_',' ');
@@ -33,12 +33,13 @@
       if(cardEl.querySelector('.find-locations'))return;
       const title=cardEl.querySelector('h3')?.textContent?.trim();
       if(!title)return;
-      const item=(window.items||[]).find(i=>typeof window.itemName==='function'&&window.itemName(i)===title);
+      const item=(typeof items!=='undefined'?items:[]).find(i=>typeof window.itemName==='function'&&window.itemName(i)===title);
       if(!item)return;
       cardEl.insertAdjacentHTML('beforeend',markup(item));
     });
     document.querySelectorAll('#out details.find-locations').forEach(el=>{if(el.dataset.findBound)return;el.dataset.findBound='1';el.addEventListener('toggle',()=>el.open?opened.add(el.dataset.findId):opened.delete(el.dataset.findId))});
   }
+  window.addEventListener('arc-language-change',()=>{document.querySelectorAll('#out .find-locations').forEach(x=>x.remove());enhance()});
   const observer=new MutationObserver(enhance);
   const start=()=>{const out=document.getElementById('out');if(!out)return;observer.observe(out,{childList:true,subtree:true});enhance();fetch(BOTS_URL,{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error(String(r.status));return r.json()}).then(v=>{if(Array.isArray(v)){bots=v;document.querySelectorAll('#out .find-locations').forEach(x=>x.remove());enhance()}}).catch(e=>console.warn('Item find-location ARC data unavailable; fallback retained',e))};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
