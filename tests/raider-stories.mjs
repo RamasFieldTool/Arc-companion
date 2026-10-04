@@ -78,7 +78,7 @@ async function checkLayout(page,expectedInk='rgb(238, 231, 220)'){
   const metrics=await page.evaluate(()=>{
     const body=document.querySelector('.fan-story-body'),style=getComputedStyle(body.querySelector('p'));
     const buttons=[...document.querySelectorAll('.fan-story-view>.fan-view-back,.fan-story-social')].map(el=>el.getBoundingClientRect().height);
-    return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,font:parseFloat(style.fontSize),line:parseFloat(style.lineHeight),ink:style.color,buttons,paragraphInks:[...body.querySelectorAll('p')].map(p=>getComputedStyle(p).color)};
+    return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,font:parseFloat(style.fontSize),line:parseFloat(style.lineHeight),ink:style.color,buttons,paragraphInks:[...body.querySelectorAll('p:not(.fan-legend-reveal)')].map(p=>getComputedStyle(p).color)};
   });
   assert.ok(metrics.overflow<=1,JSON.stringify(metrics));
   assert.ok(metrics.bodyOverflow<=1,JSON.stringify(metrics));
@@ -247,7 +247,12 @@ try{
         if(language==='it'){
           assert.equal(await page.locator('.fan-story-view>.fan-view-back').textContent(),'← Torna a Raider Stories');
           assert.equal(await page.locator('.fan-story-credit p').first().textContent(),`Racconto della community di ${story.author}`);
-          await checkLayout(page,story.id==='leaper'?'rgb(242, 241, 230)':'rgb(238, 231, 220)');
+          await checkLayout(page,story.id==='leaper'?'rgb(242, 241, 230)':story.id==='captain-defib'?'rgb(255, 240, 217)':'rgb(238, 231, 220)');
+          if(story.id==='captain-defib'){
+            assert.equal(await page.locator('.fan-legend-question').textContent(),expected.nameQuestion);
+            assert.equal(await page.locator('.fan-legend-reveal').textContent(),'"CaptainDefib"');
+            assert.equal(await page.locator('.fan-legend-reveal').evaluate(el=>getComputedStyle(el).color),'rgb(255, 179, 103)');
+          }
           await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
           await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='it');
           assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
