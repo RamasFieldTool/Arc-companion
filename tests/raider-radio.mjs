@@ -93,7 +93,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(new URL(page.url()).hash,'#raiderRadio/radio');
   const touch=await cards.locator('a').evaluateAll(a=>a.every(x=>x.getBoundingClientRect().height>=44));assert.equal(touch,true);
   await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});
-  await page.locator('[data-app-target="goalsSection"]').click();await page.locator('#goalsSection').waitFor({state:'visible'});
+  await page.locator('[data-app-target="itemsSection"]').click();await page.locator('#itemsSection').waitFor({state:'visible'});
   await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});
   await page.goto(BASE_URL+'#raiderRadio',{waitUntil:'domcontentloaded'});await page.locator('#raiderRadio').waitFor({state:'visible'});
   assert.deepEqual(audioRequests,[]);assert.deepEqual(errors,[]);
