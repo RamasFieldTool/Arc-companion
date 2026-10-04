@@ -133,7 +133,7 @@ try{
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
     await page.locator('.fan-view:has(.fan-stories-grid)>.fan-view-back').tap();await visible(page,'.fan-creations-hub');
-    await page.locator('[data-fan-view="radio"]').tap();await visible(page,'.radio-grid');
+    await page.locator('[data-fan-view="radio"]').tap();await visible(page,'#raiderRadioSongs');
     assert.deepEqual(await page.locator('#raiderRadioSongs .radio-listen').evaluateAll(links=>links.map(link=>link.href)),songs);
     await page.waitForFunction(()=>[...document.querySelectorAll('#raiderRadioSongs .radio-song img')].every(img=>img.complete&&img.naturalWidth>0));
     if(width===390&&surface==='light'&&language==='en'){
