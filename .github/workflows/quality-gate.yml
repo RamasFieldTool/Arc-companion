@@ -85,6 +85,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/raider-stories.mjs
+      - name: Run Raider Radio collection, album navigation and five-language layout checks
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/raider-radio.mjs
       - name: Run backup, restore, migration and connection-loss tests
         env:
           BASE_URL: http://127.0.0.1:4173/
@@ -101,6 +105,7 @@ jobs:
           path: |
             test-artifacts/ui/
             test-artifacts/stories/
+            test-artifacts/radio/
           if-no-files-found: warn
           retention-days: 14
       - name: Show server log on failure

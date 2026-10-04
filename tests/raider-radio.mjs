@@ -26,9 +26,9 @@ async function installRoutes(page){
 const browser=await chromium.launch({headless:true});
 await mkdir(new URL('../test-artifacts/radio/',import.meta.url),{recursive:true});
 const expected=['https://suno.com/s/vbkPccvrI66ij4gJ','https://suno.com/s/trsx9nLKROxaw5fW','https://suno.com/s/vkAaYpLp5LkJyuVz','https://suno.com/s/xqxasdeSvRKfs74o'];
-const labels={de:'▶ Auf Suno anhören',en:'▶ Listen on Suno',fr:'▶ Écouter sur Suno',es:'▶ Escuchar en Suno'};
+const labels={de:'▶ Auf Suno anhören',en:'▶ Listen on Suno',fr:'▶ Écouter sur Suno',es:'▶ Escuchar en Suno',it:'▶ Ascolta su Suno'};
 try{
-for(const width of [320,412,1280])for(const surface of ['light','black'])for(const language of ['en','de','fr','es']){
+for(const width of [320,412,1280])for(const surface of ['light','black'])for(const language of ['en','de','fr','es','it']){
   const context=await browser.newContext({viewport:{width,height:900},isMobile:width<600,hasTouch:width<600});
   await context.addInitScript(({language,surface})=>{
     localStorage.setItem('arcLang',language==='de'?'de':'en');
@@ -47,17 +47,22 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   await page.waitForFunction(l=>document.documentElement.lang===l,language);
   await page.evaluate(s=>document.documentElement.dataset.surface=s,surface);
   const tile=page.locator('[data-app-target="raiderRadio"]');
-  assert.equal(await tile.locator('b').innerText(),'Raider Radio');
+  assert.equal(await tile.locator('b').innerText(),'Fan Creations');
   await tile.click();
   await page.locator('#raiderRadio').waitFor({state:'visible'});
-  const cards=page.locator('.radio-song');assert.equal(await cards.count(),4);
+  await page.locator('[data-fan-view="radio"]').click();
+  const collection=page.locator('#raiderRadioSongs .radio-collection');
+  assert.equal(await collection.count(),1);
+  assert.equal(await page.locator('#raiderRadioSongs > :first-child').getAttribute('data-collection-id'),'lion-montana-radio-speranza-relay');
+  assert.equal(await collection.locator('img').getAttribute('src'),'assets/music/lion-montana/radio-speranza-relay-logo.png');
+  const cards=page.locator('#raiderRadioSongs article.radio-song');assert.equal(await cards.count(),4);
   assert.deepEqual(await cards.locator('h3').allTextContents(),['Ugly','The ARCs Are the Enemy','Loot&Shoot','What Was It For?']);
   assert.deepEqual(await cards.locator('a').evaluateAll(a=>a.map(x=>x.href)),expected);
   assert.deepEqual(await cards.locator('a').allTextContents(),[labels[language],labels[language],labels[language],labels[language]]);
-  await page.waitForFunction(()=>[...document.querySelectorAll('.radio-song img')].every(i=>i.complete&&i.naturalWidth>0));
+  await page.waitForFunction(()=>[...document.querySelectorAll('#raiderRadioSongs .radio-song img')].every(i=>i.complete&&i.naturalWidth>0));
   assert.deepEqual(await cards.locator('img').evaluateAll(a=>a.map(x=>x.dataset.coverSource)),['assets/music/ugly-cover.png','assets/music/the-arcs-are-the-enemy-cover.png','assets/music/loot-and-shoot-cover.png','assets/music/what-was-it-for-cover']);
   assert.ok((await cards.locator('img').nth(3).getAttribute('src')).startsWith('data:image/webp;base64,'));
-  const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('.radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio audio,#raiderRadio iframe').length}));
+  const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('#raiderRadioSongs .radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio audio,#raiderRadio iframe').length}));
   assert.ok(metrics.overflow<=4,JSON.stringify(metrics));assert.equal(metrics.cardOverflow,false);assert.equal(metrics.download,0);
   if(width===320&&language==='en')await page.screenshot({path:new URL(`../test-artifacts/radio/${surface}-320.png`,import.meta.url).pathname,fullPage:true});
   if(width===412&&language==='en'&&surface==='light'){
@@ -66,12 +71,30 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
       await popup.waitForLoadState('domcontentloaded');assert.equal(popup.url(),expected[i]);await popup.close();
     }
   }
+  await collection.click();
+  await page.locator('.radio-album-view').waitFor({state:'visible'});
+  assert.equal(await page.locator('.radio-album-view .radio-album').count(),2);
+  assert.deepEqual(await page.locator('.radio-album h3').allTextContents(),['Radio Speranza Relay Vol. 1','Radio Speranza Relay Vol. 2']);
+  assert.deepEqual(await page.locator('.radio-album img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/lion-montana/radio-speranza-relay-vol-1.png','assets/music/lion-montana/radio-speranza-relay-vol-2.png']);
+  await page.waitForFunction(()=>[...document.querySelectorAll('.radio-album img')].every(i=>i.complete&&i.naturalWidth===1536));
+  assert.deepEqual(await page.locator('.radio-album a').evaluateAll(a=>a.map(x=>x.href)),['https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g','https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo']);
+  assert.equal(await page.locator('.radio-link-pending').count(),0);
+  const albumMetrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cards:[...document.querySelectorAll('.radio-album')].some(c=>c.scrollWidth>c.clientWidth)}));
+  assert.ok(albumMetrics.overflow<=4,JSON.stringify(albumMetrics));assert.equal(albumMetrics.cards,false);
+  assert.ok(await page.locator('.radio-album-view').innerText().then(text=>!text.includes('Zoe')));
+  if(language==='en'&&[320,412,1280].includes(width))await page.screenshot({path:new URL('../test-artifacts/radio/albums-'+surface+'-'+width+'.png',import.meta.url).pathname,fullPage:true});
+  const backLabels={de:'← Zurück zu Raider Radio',en:'← Back to Raider Radio',fr:'← Retour à Raider Radio',es:'← Volver a Raider Radio',it:'← Torna a Raider Radio'};
+  assert.equal(await page.locator('.radio-album-view .fan-view-back').innerText(),backLabels[language]);
+  await page.reload({waitUntil:'domcontentloaded'});await page.locator('.radio-album-view').waitFor({state:'visible'});
+  await page.locator('.radio-album-view .fan-view-back').click();await collection.waitFor({state:'visible'});
+  assert.equal(new URL(page.url()).hash,'#raiderRadio/radio');
+  const touch=await cards.locator('a').evaluateAll(a=>a.every(x=>x.getBoundingClientRect().height>=44));assert.equal(touch,true);
   await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});
   await page.locator('[data-app-target="goalsSection"]').click();await page.locator('#goalsSection').waitFor({state:'visible'});
   await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});
   await page.goto(BASE_URL+'#raiderRadio',{waitUntil:'domcontentloaded'});await page.locator('#raiderRadio').waitFor({state:'visible'});
   assert.deepEqual(audioRequests,[]);assert.deepEqual(errors,[]);
-  console.log(`PASS Raider Radio ${width}px ${surface} ${language}: cards, covers, links, layout, back, direct hash, no audio/runtime errors`);
+  console.log(`PASS Raider Radio ${width}px ${surface} ${language}: collection first, original assets, albums/reload/back, four preserved song URLs, layout, no audio/runtime errors`);
   await context.close();
 }
 }finally{await browser.close()}

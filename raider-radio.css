@@ -21,11 +21,22 @@ html:is([data-surface="dark"],[data-surface="black"]) .fan-view-back{color:#ffc4
 .radio-about p{margin:8px 0 0;color:var(--ui-muted);font-size:14px;line-height:1.55}
 html:is([data-surface="dark"],[data-surface="black"]) .radio-about{border-left-color:#ffc46b}
 html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about h3{color:#ffc46b!important}
-.radio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.radio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:14px}
 .radio-song{min-width:0;border:1px solid var(--ui-line);border-radius:18px;overflow:hidden;background:var(--ui-panel);display:flex;flex-direction:column}
 .radio-song img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
-#raiderRadio .radio-song h3{margin:16px;color:var(--ui-text)!important;font-size:20px;line-height:1.35;overflow-wrap:anywhere}
-.radio-listen{display:block;margin:auto 16px 16px;padding:12px;border:1px solid currentColor;border-radius:12px;color:#995000!important;text-decoration:none;font-weight:700;line-height:1.4;text-align:center;overflow-wrap:anywhere}
+#raiderRadio .radio-song h3{margin:12px;color:var(--ui-text)!important;font-size:17px;line-height:1.35;overflow-wrap:anywhere}
+.radio-listen{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;margin:auto 12px 12px;padding:10px;border:1px solid currentColor;border-radius:12px;color:#995000!important;text-decoration:none;font-weight:700;line-height:1.4;text-align:center;overflow-wrap:anywhere}
+.radio-collection{color:var(--ui-text);text-decoration:none}
+.radio-collection:focus-visible{outline:3px solid #995000;outline-offset:3px}
+.radio-collection:hover .radio-open{text-decoration:underline}
+#raiderRadio .radio-artist{margin:12px 12px 0;color:var(--ui-muted);font-size:14px;line-height:1.4}
+#raiderRadio .radio-collection h3{margin-top:6px}
+.radio-open{margin:auto 12px 12px;padding-top:8px;color:#995000;font-weight:700;line-height:1.4}
+.radio-link-pending{margin:auto 12px 12px;color:var(--ui-muted);font-size:14px;line-height:1.5}
+.radio-album-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));max-width:720px}
+#raiderRadio .radio-album-view>.radio-artist{margin:0 0 6px}
+html:is([data-surface="dark"],[data-surface="black"]) .radio-open{color:#ffc46b}
+html:is([data-surface="dark"],[data-surface="black"]) .radio-collection:focus-visible{outline-color:#ffc46b}
 html:is([data-surface="dark"],[data-surface="black"]) .radio-listen{color:#ffc46b!important}
 .radio-listen:hover{text-decoration:underline}
 .radio-listen:focus-visible{outline:3px solid currentColor;outline-offset:3px}

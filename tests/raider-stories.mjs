@@ -135,7 +135,7 @@ try{
     await page.locator('.fan-view:has(.fan-stories-grid)>.fan-view-back').tap();await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="radio"]').tap();await visible(page,'.radio-grid');
     assert.deepEqual(await page.locator('.radio-listen').evaluateAll(links=>links.map(link=>link.href)),songs);
-    await page.waitForFunction(()=>[...document.querySelectorAll('.radio-song img')].every(img=>img.complete&&img.naturalWidth>0));
+    await page.waitForFunction(()=>[...document.querySelectorAll('#raiderRadioSongs .radio-song img')].every(img=>img.complete&&img.naturalWidth>0));
     if(width===390&&surface==='light'&&language==='en'){
       for(let index=0;index<4;index++){
         const popupPromise=context.waitForEvent('page');await page.locator('.radio-listen').nth(index).tap();const popup=await popupPromise;
