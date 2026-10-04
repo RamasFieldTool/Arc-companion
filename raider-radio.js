@@ -18,41 +18,61 @@
     {id:'what-was-it-for',title:'What Was It For?',coverBase64Parts:['assets/music/what-was-it-for-cover.part1','assets/music/what-was-it-for-cover.part2','assets/music/what-was-it-for-cover.part3','assets/music/what-was-it-for-cover.part4','assets/music/what-was-it-for-cover.part5'],sunoUrl:'https://suno.com/s/xqxasdeSvRKfs74o'}
   ];
 
+  const collection={
+    id:'lion-montana-radio-speranza-relay',
+    artist:'Lion Montana',
+    title:'Radio Speranza Relay',
+    cover:'assets/music/lion-montana/radio-speranza-relay-logo.png',
+    // Original YouTube album pages checked against title and artist on 2026-10-04.
+    albums:[
+      {title:'Radio Speranza Relay Vol. 1',cover:'assets/music/lion-montana/radio-speranza-relay-vol-1.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g'},
+      {title:'Radio Speranza Relay Vol. 2',cover:'assets/music/lion-montana/radio-speranza-relay-vol-2.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo'}
+    ]
+  };
+
+  const collectionCopy={
+    de:{back:'← Zurück zu Raider Radio',open:'Alben öffnen',listen:'▶ Auf YouTube anhören',pending:'Original-Link wird ergänzt'},
+    en:{back:'← Back to Raider Radio',open:'Open albums',listen:'▶ Listen on YouTube',pending:'Original link to be added'},
+    fr:{back:'← Retour à Raider Radio',open:'Voir les albums',listen:'▶ Écouter sur YouTube',pending:'Lien d’origine à venir'},
+    es:{back:'← Volver a Raider Radio',open:'Ver álbumes',listen:'▶ Escuchar en YouTube',pending:'Enlace original pendiente'},
+    it:{back:'← Torna a Raider Radio',open:'Apri gli album',listen:'▶ Ascolta su YouTube',pending:'Link originale in arrivo'}
+  };
+
   const copy={
     de:{
       hubTitle:'Fan Creations',hubIntro:'Kreative Werke aus der ARC-Raiders-Community.',tileStatus:'Musik, Storys & Community-Kreationen',
       radioTitle:'Raider Radio',radioDesc:'Songs, inspiriert von ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Geschichten aus der Community.',
       back:'← Zurück zu Fan Creations',storiesEmptyTitle:'Noch keine Story veröffentlicht',storiesEmpty:'Hier erscheinen Community-Geschichten, sobald sie für Ramas Field Tool bereit sind.',
-      aboutTitle:'Was ist Raider Radio?',about:'Raider Radio ist unser kleines Musikprojekt rund um Ramas Field Tool: selbst erstellte Songs, inspiriert von ARC Raiders. Sie sind keine offiziellen ARC-Raiders-Soundtracks.',
-      how:'Zum Anhören öffnet sich der jeweilige Song direkt bei Suno in einem neuen Tab. Ramas Field Tool speichert oder hostet keine Audiodateien und bietet keine Downloads an. Neue Songs werden hier nach und nach ergänzt.',listen:'▶ Auf Suno anhören'
+      aboutTitle:'Was ist Raider Radio?',about:'Raider Radio zeigt Musik aus und rund um die ARC-Raiders-Community: eigene Songs von Ramas Field Tool und Musik anderer Community-Künstler. Dies ist kein offizieller ARC-Raiders-Soundtrack.',
+      how:'Zum Anhören öffnet sich die jeweilige Originalplattform in einem neuen Tab. Ramas Field Tool speichert oder hostet keine Audiodateien und bietet keine Downloads an.',listen:'▶ Auf Suno anhören'
     },
     en:{
       hubTitle:'Fan Creations',hubIntro:'Creative work from the ARC Raiders community.',tileStatus:'Music, stories & community creations',
       radioTitle:'Raider Radio',radioDesc:'Songs inspired by ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Stories from the community.',
       back:'← Back to Fan Creations',storiesEmptyTitle:'No story published yet',storiesEmpty:'Community stories will appear here once they are ready for Ramas Field Tool.',
-      aboutTitle:'What is Raider Radio?',about:'Raider Radio is our small music project around Ramas Field Tool: self-created songs inspired by ARC Raiders. They are not official ARC Raiders soundtrack releases.',
-      how:'To listen, the selected song opens directly on Suno in a new tab. Ramas Field Tool does not store or host audio files and does not offer downloads. More songs will be added here over time.',listen:'▶ Listen on Suno'
+      aboutTitle:'What is Raider Radio?',about:'Raider Radio features music from and around the ARC Raiders community: songs by Ramas Field Tool and music by other community artists. This is not an official ARC Raiders soundtrack.',
+      how:'To listen, the original platform opens in a new tab. Ramas Field Tool does not store or host audio files and does not offer downloads.',listen:'▶ Listen on Suno'
     },
     fr:{
       hubTitle:'Fan Creations',hubIntro:'Des créations de la communauté ARC Raiders et autour de celle-ci.',tileStatus:'Musique, histoires et créations communautaires',
       radioTitle:'Raider Radio',radioDesc:'Des morceaux inspirés d’ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Des histoires de la communauté.',
       back:'← Retour à Fan Creations',storiesEmptyTitle:'Aucune histoire publiée pour le moment',storiesEmpty:'Les histoires de la communauté apparaîtront ici lorsqu’elles seront prêtes pour Ramas Field Tool.',
-      aboutTitle:'Qu’est-ce que Raider Radio ?',about:'Raider Radio est notre petit projet musical autour de Ramas Field Tool : des morceaux créés par nous et inspirés d’ARC Raiders. Il ne s’agit pas de morceaux officiels de la bande-son d’ARC Raiders.',
-      how:'Pour écouter un morceau, il s’ouvre directement sur Suno dans un nouvel onglet. Ramas Field Tool ne stocke ni n’héberge de fichiers audio et ne propose aucun téléchargement. D’autres morceaux seront ajoutés progressivement.',listen:'▶ Écouter sur Suno'
+      aboutTitle:'Qu’est-ce que Raider Radio ?',about:'Raider Radio présente de la musique issue de la communauté ARC Raiders et inspirée par celle-ci : des morceaux de Ramas Field Tool et d’autres artistes de la communauté. Il ne s’agit pas d’une bande-son officielle d’ARC Raiders.',
+      how:'Pour écouter, la plateforme d’origine s’ouvre dans un nouvel onglet. Ramas Field Tool ne stocke ni n’héberge de fichiers audio et ne propose aucun téléchargement.',listen:'▶ Écouter sur Suno'
     },
     es:{
       hubTitle:'Fan Creations',hubIntro:'Creaciones de la comunidad de ARC Raiders y de su entorno.',tileStatus:'Música, historias y creaciones de la comunidad',
       radioTitle:'Raider Radio',radioDesc:'Canciones inspiradas en ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Historias de la comunidad.',
       back:'← Volver a Fan Creations',storiesEmptyTitle:'Todavía no hay historias publicadas',storiesEmpty:'Las historias de la comunidad aparecerán aquí cuando estén listas para Ramas Field Tool.',
-      aboutTitle:'¿Qué es Raider Radio?',about:'Raider Radio es nuestro pequeño proyecto musical alrededor de Ramas Field Tool: canciones creadas por nosotros e inspiradas en ARC Raiders. No son canciones oficiales de la banda sonora de ARC Raiders.',
-      how:'Para escuchar una canción, se abre directamente en Suno en una nueva pestaña. Ramas Field Tool no almacena ni aloja archivos de audio y no ofrece descargas. Con el tiempo iremos añadiendo más canciones.',listen:'▶ Escuchar en Suno'
+      aboutTitle:'¿Qué es Raider Radio?',about:'Raider Radio presenta música de la comunidad de ARC Raiders y de su entorno: canciones de Ramas Field Tool y música de otros artistas de la comunidad. No es una banda sonora oficial de ARC Raiders.',
+      how:'Para escuchar, la plataforma original se abre en una nueva pestaña. Ramas Field Tool no almacena ni aloja archivos de audio y no ofrece descargas.',listen:'▶ Escuchar en Suno'
     },
     it:{
       hubTitle:'Fan Creations',hubIntro:'Opere creative della community di ARC Raiders.',tileStatus:'Musica, racconti e creazioni della community',
       radioTitle:'Raider Radio',radioDesc:'Brani ispirati ad ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Racconti della community.',
       back:'← Torna a Fan Creations',storiesEmptyTitle:'Nessun racconto ancora pubblicato',storiesEmpty:'Qui appariranno i racconti della community quando saranno pronti per Ramas Field Tool.',
-      aboutTitle:'Che cos’è Raider Radio?',about:'Raider Radio è il nostro piccolo progetto musicale dedicato a Ramas Field Tool: brani creati da noi e ispirati ad ARC Raiders. Non sono brani ufficiali della colonna sonora di ARC Raiders.',
-      how:'Per ascoltare un brano, si apre direttamente su Suno in una nuova scheda. Ramas Field Tool non memorizza né ospita file audio e non offre download. Altri brani saranno aggiunti nel tempo.',listen:'▶ Ascolta su Suno'
+      aboutTitle:'Che cos’è Raider Radio?',about:'Raider Radio propone musica della community di ARC Raiders e ispirata al suo mondo: brani di Ramas Field Tool e musica di altri artisti della community. Non è una colonna sonora ufficiale di ARC Raiders.',
+      how:'Per ascoltare, la piattaforma originale si apre in una nuova scheda. Ramas Field Tool non memorizza né ospita file audio e non offre download.',listen:'▶ Ascolta su Suno'
     }
   };
 
@@ -127,9 +147,10 @@
   radioBack.type='button';
   radioBack.className='fan-view-back';
   const radioHeading=document.createElement('h2');
-  const about=document.createElement('aside');
+  radioHeading.className='radio-wordmark';
+  const about=document.createElement('details');
   about.className='radio-about';
-  const aboutTitle=document.createElement('h3');
+  const aboutTitle=document.createElement('summary');
   const aboutText=document.createElement('p');
   const howText=document.createElement('p');
   about.append(aboutTitle,aboutText,howText);
@@ -137,6 +158,62 @@
   radioGrid.id='raiderRadioSongs';
   radioGrid.className='radio-grid';
   radioView.append(radioBack,radioHeading,about,radioGrid);
+
+  const albumView=document.createElement('div');
+  albumView.className='fan-view radio-album-view';
+  albumView.hidden=true;
+  const albumBack=document.createElement('a');
+  albumBack.className='fan-view-back';
+  albumBack.href='#raiderRadio/radio';
+  const albumHeading=document.createElement('h2');
+  albumHeading.textContent=collection.title;
+  const albumArtist=document.createElement('p');
+  albumArtist.className='radio-artist';
+  albumArtist.textContent=collection.artist;
+  const albumGrid=document.createElement('div');
+  albumGrid.className='radio-grid radio-album-grid';
+  const albumActions=[];
+  collection.albums.forEach(album=>{
+    const card=document.createElement('article');
+    card.className='radio-song radio-album';
+    const cover=document.createElement('img');
+    cover.src=album.cover;
+    cover.alt=album.title;
+    cover.width=cover.height=1536;
+    cover.loading='lazy';
+    const title=document.createElement('h3');
+    title.textContent=album.title;
+    const action=document.createElement(album.url?'a':'p');
+    action.className=album.url?'radio-listen':'radio-link-pending';
+    if(album.url){
+      action.href=album.url;
+      action.target='_blank';
+      action.rel='noopener noreferrer';
+    }
+    albumActions.push({action,title:album.title,hasUrl:!!album.url});
+    card.append(cover,title,action);
+    albumGrid.append(card);
+  });
+  albumView.append(albumBack,albumArtist,albumHeading,albumGrid);
+
+  const collectionCard=document.createElement('a');
+  collectionCard.className='radio-song radio-collection';
+  collectionCard.dataset.collectionId=collection.id;
+  collectionCard.href='#raiderRadio/radio/'+collection.id;
+  const collectionCover=document.createElement('img');
+  collectionCover.src=collection.cover;
+  collectionCover.alt=collection.artist+' – '+collection.title;
+  collectionCover.width=collectionCover.height=1536;
+  collectionCover.loading='lazy';
+  const collectionArtist=document.createElement('p');
+  collectionArtist.className='radio-artist';
+  collectionArtist.textContent=collection.artist;
+  const collectionTitle=document.createElement('h3');
+  collectionTitle.textContent=collection.title;
+  const collectionOpen=document.createElement('span');
+  collectionOpen.className='radio-open';
+  collectionCard.append(collectionCover,collectionArtist,collectionTitle,collectionOpen);
+  radioGrid.append(collectionCard);
 
   const storiesView=document.createElement('div');
   storiesView.className='fan-view';
@@ -248,7 +325,7 @@
     storyDetail.append(hero,body,credit);
   }
 
-  section.append(hub,radioView,storiesView,storyView);
+  section.append(hub,radioView,albumView,storiesView,storyView);
 
   const links=[];
   songs.forEach(song=>{
@@ -289,6 +366,7 @@
     radioView.hidden=true;
     storiesView.hidden=true;
     storyView.hidden=true;
+    albumView.hidden=true;
     currentStoryId=null;
     storyDetail.replaceChildren();
   }
@@ -297,6 +375,7 @@
     radioView.hidden=view!=='radio';
     storiesView.hidden=view!=='stories';
     storyView.hidden=true;
+    albumView.hidden=true;
     const target=view==='radio'?radioHeading:storiesHeading;
     target.focus?.({preventScroll:true});
   }
@@ -317,13 +396,20 @@
         renderStory(story);
         hub.hidden=radioView.hidden=storiesView.hidden=true;
         storyView.hidden=false;
+        albumView.hidden=true;
       }else showView('stories');
-    }else if(parts[1]==='radio')showView('radio');
+    }else if(parts[1]==='radio'){
+      showView('radio');
+      if(parts[2]===collection.id){
+        radioView.hidden=true;
+        albumView.hidden=false;
+      }
+    }
     else showHub();
     // The app router runs after this listener; focus the visible heading afterwards.
     requestAnimationFrame(()=>{
       if(!section.classList.contains('launcher-active'))return;
-      const heading=storyView.hidden?(hub.hidden?(radioView.hidden?storiesHeading:radioHeading):hubTitle):storyDetail.querySelector('h2');
+      const heading=!albumView.hidden?albumHeading:storyView.hidden?(hub.hidden?(radioView.hidden?storiesHeading:radioHeading):hubTitle):storyDetail.querySelector('h2');
       heading.tabIndex=-1;
       heading.focus({preventScroll:true});
     });
@@ -335,12 +421,23 @@
     tileIcon.innerHTML=illustrations.art;
   }
 
+  function syncLauncherLanguage(lang){
+    const title=tile.querySelector('b');
+    const status=tile.querySelector('small');
+    if(title&&title.textContent!==lang.hubTitle)title.textContent=lang.hubTitle;
+    if(status&&status.textContent!==lang.tileStatus)status.textContent=lang.tileStatus;
+  }
   function syncLanguage(){
     const lang=copy[document.documentElement.lang]||copy.en;
-    const tileTitle=tile.querySelector('b');
-    const tileSmall=tile.querySelector('small');
-    if(tileTitle)tileTitle.textContent=lang.hubTitle;
-    if(tileSmall)tileSmall.textContent=lang.tileStatus;
+    const musicLang=collectionCopy[document.documentElement.lang]||collectionCopy.en;
+    albumBack.textContent=musicLang.back;
+    collectionOpen.textContent=musicLang.open;
+    collectionCard.setAttribute('aria-label',collection.artist+' – '+collection.title+' — '+musicLang.open);
+    albumActions.forEach(({action,title,hasUrl})=>{
+      action.textContent=hasUrl?musicLang.listen:musicLang.pending;
+      if(hasUrl)action.setAttribute('aria-label',title+' — '+musicLang.listen);
+    });
+    syncLauncherLanguage(lang);
     hubTitle.textContent=lang.hubTitle;
     hubIntro.textContent=lang.hubIntro;
     radioCategory.title.textContent=lang.radioTitle;
@@ -369,6 +466,9 @@
   syncRoute();
   syncLanguage();
   new MutationObserver(syncLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  // The legacy launcher translator also updates this tile after a language switch.
+  new MutationObserver(()=>syncLauncherLanguage(copy[document.documentElement.lang]||copy.en))
+    .observe(tile,{childList:true,subtree:true,characterData:true});
 
   let wasActive=section.classList.contains('launcher-active');
   new MutationObserver(()=>{

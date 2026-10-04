@@ -17,18 +17,34 @@ body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"] .app-
 html:is([data-surface="dark"],[data-surface="black"]) .fan-view-back{color:#ffc46b!important}
 
 .radio-about{margin:0 0 20px;padding:16px;border:1px solid var(--ui-line);border-left:4px solid #995000;border-radius:14px;background:var(--ui-panel-2)}
-#raiderRadio .radio-about h3{margin:0 0 8px;color:#995000!important;font-size:17px;line-height:1.35}
+#raiderRadio .radio-about summary{margin:0 0 8px;color:#995000!important;font-size:17px;line-height:1.35}
 .radio-about p{margin:8px 0 0;color:var(--ui-muted);font-size:14px;line-height:1.55}
 html:is([data-surface="dark"],[data-surface="black"]) .radio-about{border-left-color:#ffc46b}
-html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about h3{color:#ffc46b!important}
-.radio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-about summary{color:#ffc46b!important}
+.radio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:14px}
 .radio-song{min-width:0;border:1px solid var(--ui-line);border-radius:18px;overflow:hidden;background:var(--ui-panel);display:flex;flex-direction:column}
 .radio-song img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
-#raiderRadio .radio-song h3{margin:16px;color:var(--ui-text)!important;font-size:20px;line-height:1.35;overflow-wrap:anywhere}
-.radio-listen{display:block;margin:auto 16px 16px;padding:12px;border:1px solid currentColor;border-radius:12px;color:#995000!important;text-decoration:none;font-weight:700;line-height:1.4;text-align:center;overflow-wrap:anywhere}
+#raiderRadio .radio-song h3{margin:12px;color:var(--ui-text)!important;font-size:17px;line-height:1.35;overflow-wrap:anywhere}
+.radio-listen{display:flex;align-items:center;justify-content:center;box-sizing:border-box;min-height:44px;margin:auto 12px 12px;padding:10px;border:1px solid currentColor;border-radius:12px;color:#995000!important;text-decoration:none;font-weight:700;line-height:1.4;text-align:center;overflow-wrap:anywhere}
+.radio-collection{color:var(--ui-text);text-decoration:none}
+.radio-collection:focus-visible{outline:3px solid #995000;outline-offset:3px}
+.radio-collection:hover .radio-open{text-decoration:underline}
+#raiderRadio .radio-artist{margin:12px 12px 0;color:var(--ui-muted);font-size:14px;line-height:1.4}
+#raiderRadio .radio-collection h3{margin-top:6px}
+.radio-open{margin:auto 12px 12px;padding-top:8px;color:#995000;font-weight:700;line-height:1.4}
+.radio-link-pending{margin:auto 12px 12px;color:var(--ui-muted);font-size:14px;line-height:1.5}
+.radio-album-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));max-width:720px}
+#raiderRadio .radio-album-view>.radio-artist{margin:0 0 6px}
+html:is([data-surface="dark"],[data-surface="black"]) .radio-open{color:#ffc46b}
+html:is([data-surface="dark"],[data-surface="black"]) .radio-collection:focus-visible{outline-color:#ffc46b}
 html:is([data-surface="dark"],[data-surface="black"]) .radio-listen{color:#ffc46b!important}
 .radio-listen:hover{text-decoration:underline}
 .radio-listen:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+
+/* Two compact cards on wider phones; narrow phones retain readable full-width cards. */
+@media(min-width:390px) and (max-width:600px){
+  #raiderRadioSongs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 
 .fan-stories-empty{margin-top:16px;padding:22px;border:1px dashed var(--ui-line);border-radius:16px;background:var(--ui-panel-2);text-align:center}
 #raiderRadio .fan-stories-empty h3{margin:0 0 8px;color:var(--ui-text)!important;font-size:18px;line-height:1.35}
@@ -188,3 +204,13 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme=
 #raiderRadio [data-story-theme="forest-tragicomedy"] .fan-story-editorial-note{
   margin:16px 0 0;color:var(--story-muted)!important;font-size:12px!important;line-height:1.6!important;text-transform:none;letter-spacing:normal;
 }
+
+@font-face{font-family:'Raider Radio Script';src:url('assets/fonts/pacifico/raider-radio.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
+#raiderRadio .radio-wordmark{font-family:'Raider Radio Script',cursive!important;font-size:clamp(32px,8vw,56px)!important;font-weight:400!important;text-transform:none!important;letter-spacing:0!important;line-height:1.5;margin:0 0 12px;color:#995000!important;text-shadow:1px 2px 0 #e7bd5940}
+html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-wordmark{color:#ffc46b!important;text-shadow:1px 2px 0 #995000}
+#raiderRadio .radio-wordmark:focus{outline:none!important}
+.radio-about summary{cursor:pointer;min-height:44px;box-sizing:border-box;padding:10px 0;list-style-position:inside}
+#raiderRadio .radio-about summary{margin:0}
+.radio-about{padding:6px 16px}
+.radio-about[open]{padding-bottom:16px}
+.radio-about summary:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}

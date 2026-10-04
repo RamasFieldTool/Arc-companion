@@ -133,12 +133,12 @@ try{
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
     await page.locator('.fan-view:has(.fan-stories-grid)>.fan-view-back').tap();await visible(page,'.fan-creations-hub');
-    await page.locator('[data-fan-view="radio"]').tap();await visible(page,'.radio-grid');
-    assert.deepEqual(await page.locator('.radio-listen').evaluateAll(links=>links.map(link=>link.href)),songs);
-    await page.waitForFunction(()=>[...document.querySelectorAll('.radio-song img')].every(img=>img.complete&&img.naturalWidth>0));
+    await page.locator('[data-fan-view="radio"]').tap();await visible(page,'#raiderRadioSongs');
+    assert.deepEqual(await page.locator('#raiderRadioSongs .radio-listen').evaluateAll(links=>links.map(link=>link.href)),songs);
+    await page.waitForFunction(()=>[...document.querySelectorAll('#raiderRadioSongs .radio-song img')].every(img=>img.complete&&img.naturalWidth>0));
     if(width===390&&surface==='light'&&language==='en'){
       for(let index=0;index<4;index++){
-        const popupPromise=context.waitForEvent('page');await page.locator('.radio-listen').nth(index).tap();const popup=await popupPromise;
+        const popupPromise=context.waitForEvent('page');await page.locator('#raiderRadioSongs .radio-listen').nth(index).tap();const popup=await popupPromise;
         await popup.waitForLoadState('domcontentloaded');assert.equal(popup.url(),songs[index]);await popup.close();
       }
     }
@@ -254,7 +254,7 @@ try{
             assert.equal(await page.locator('.fan-legend-reveal').evaluate(el=>getComputedStyle(el).color),'rgb(255, 179, 103)');
           }
           await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
-          await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='it');
+          await page.waitForFunction(content=>{const body=document.querySelector('.fan-story-body');return body?.lang==='it'&&[...body.children].map(node=>node.textContent).join('\n\n')===content},expected.content);
           assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
           assert.equal(await page.evaluate(()=>localStorage.getItem('arcUiLanguage')),'it');
           if(width===390)await page.screenshot({path:new URL(`../test-artifacts/stories/${story.id}-it-${surface}-390.png`,import.meta.url).pathname,fullPage:true});
