@@ -12,10 +12,8 @@ async function run(width){
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
   await page.waitForTimeout(500);
 
-  // Search UI is intentionally exercised through the real page instead of
-  // importing implementation details, so this remains a user-facing regression.
-  const input=page.locator('#q, input[type="search"], input[placeholder*="uch" i], input[placeholder*="earch" i]').first();
-  await assert.doesNotReject(()=>input.waitFor({state:'visible',timeout:5000}),'item search input must be visible');
+  const input=page.locator('#q');
+  await input.waitFor({state:'visible',timeout:5000});
 
   async function search(term){
     await input.fill(term);
@@ -26,10 +24,14 @@ async function run(width){
     return card;
   }
 
-  // Empty/no external location data still gets a safe, collapsed disclosure.
-  let card=await search('Kabel');
+  // Use the current UI language instead of assuming German. The application
+  // deliberately persists arcLang in localStorage between sessions.
+  const currentLang=await page.evaluate(()=>localStorage.getItem('arcLang')||'de');
+  const initialTerm=currentLang==='de'?'Kabel':'Wires';
+
+  let card=await search(initialTerm);
   let details=card.locator('.item-find-locations');
-  await assert.doesNotReject(()=>details.waitFor({state:'attached',timeout:5000}));
+  await details.waitFor({state:'attached',timeout:5000});
   assert.equal(await details.evaluate(el=>el.open),false,'location disclosure must start closed');
   await details.locator('summary').click();
   assert.equal(await details.evaluate(el=>el.open),true,'location disclosure must open');
@@ -38,23 +40,19 @@ async function run(width){
   await input.fill('');
   await input.dispatchEvent('input');
   await page.waitForTimeout(100);
-  card=await search('Kabel');
+  card=await search(initialTerm);
   details=card.locator('.item-find-locations');
   assert.equal(await details.evaluate(el=>el.open),true,'open state must survive redraw');
 
-  // Language switching: use the app selector if present and ensure the location
-  // heading is not stuck in German when English is selected.
-  const langSelect=page.locator('select#lang, select[data-lang], select[aria-label*="language" i]').first();
-  if(await langSelect.count()){
-    const options=await langSelect.locator('option').evaluateAll(nodes=>nodes.map(n=>n.value));
-    if(options.includes('en')){
-      await langSelect.selectOption('en');
-      await langSelect.dispatchEvent('change');
-      await page.waitForTimeout(250);
-      card=await search('Wires');
-      const summary=(await card.locator('.item-find-locations summary').innerText()).trim();
-      assert.match(summary,/Possible find locations/i,'English location heading expected');
-    }
+  // Language switching in this app uses buttons. Set English through the real
+  // control and verify the newly injected location UI follows the app language.
+  const enBtn=page.locator('#enBtn');
+  if(await enBtn.count()){
+    await enBtn.click();
+    await page.waitForTimeout(250);
+    card=await search('Wires');
+    const summary=(await card.locator('.item-find-locations summary').innerText()).trim();
+    assert.match(summary,/Possible find locations/i,'English location heading expected');
   }
 
   assert.equal(errors.length,0,`page errors at ${width}px: ${errors.join(' | ')}`);
