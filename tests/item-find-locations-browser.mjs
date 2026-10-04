@@ -2,6 +2,10 @@ import { chromium } from 'playwright';
 const base=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const browser=await chromium.launch({headless:true});
 const page=await browser.newPage({viewport:{width:360,height:800}});
+await page.addInitScript(()=>{
+  localStorage.setItem('arcUiLanguage','de');
+  localStorage.setItem('arcLanguageOnboardingPending','0');
+});
 await page.goto(base,{waitUntil:'networkidle'});
 await page.locator('[data-app-target="itemsSection"]').click();
 await page.locator('#itemsSection').waitFor({state:'visible'});
