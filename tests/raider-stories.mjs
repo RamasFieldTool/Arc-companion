@@ -210,4 +210,55 @@ try{
     console.log(`PASS community story ${width}px ${surface} ${language}: localized story/UI, verbatim DE original, image, layout, hash/history/reload/back, radio covers and links`);
     await context.close();
   }
+  // Italian uses the existing selector overlay, rather than arcSetLanguage('it').
+  for(const width of [360,390])for(const surface of ['light','dark','black']){
+    const context=await browser.newContext({viewport:{width,height:900},isMobile:true,hasTouch:true});
+    await context.addInitScript(surface=>{
+      if(!localStorage.getItem('arcUiLanguage')){
+        localStorage.setItem('arcLang','en');localStorage.setItem('arcUiLanguage','en');
+      }
+      localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('arcPaletteSurface',surface);
+    },surface);
+    const page=await context.newPage(),errors=[];
+    page.on('pageerror',error=>errors.push(String(error)));
+    await installRoutes(page);
+    await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>['live','partial','fallback'].includes(document.getElementById('dataStatusPersistent')?.dataset.state));
+    for(const language of ['it','de','it','en','it']){
+      if(await page.locator('#appBack').isVisible())await page.locator('#appBack').tap();
+      await visible(page,'#appLauncher');
+      await page.locator('#arcLanguageButton').tap();
+      await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();
+      await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
+      await page.locator('[data-app-target="raiderRadio"]').tap();
+      await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
+      assert.equal(await page.locator('.fan-story-card').count(),3);
+      for(const story of storyContext.window.RFTCommunityStories){
+        const expected=story.translations[language];
+        assert.ok(expected?.content.length>1500,`${story.id} ${language}: full translation missing`);
+        await page.waitForFunction(({id,title})=>document.querySelector(`[data-story-id="${id}"] .fan-story-card-title`)?.textContent===title,{id:story.id,title:expected.title});
+        assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-summary`).textContent(),expected.summary);
+        if(language==='it')assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-read`).textContent(),'Leggi il racconto');
+        await page.locator(`[data-story-id="${story.id}"] .fan-story-read`).tap();await visible(page,'.fan-story-detail');
+        await page.waitForFunction(lang=>document.querySelector('.fan-story-body')?.lang===lang,language);
+        assert.equal(await page.locator('.fan-story-title').textContent(),expected.title);
+        assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
+        await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth>0);
+        if(language==='it'){
+          assert.equal(await page.locator('.fan-story-view>.fan-view-back').textContent(),'← Torna a Raider Stories');
+          assert.equal(await page.locator('.fan-story-credit p').first().textContent(),`Racconto della community di ${story.author}`);
+          await checkLayout(page,story.id==='leaper'?'rgb(242, 241, 230)':'rgb(238, 231, 220)');
+          await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
+          await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='it');
+          assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
+          assert.equal(await page.evaluate(()=>localStorage.getItem('arcUiLanguage')),'it');
+          if(width===390)await page.screenshot({path:new URL(`../test-artifacts/stories/${story.id}-it-${surface}-390.png`,import.meta.url).pathname,fullPage:true});
+        }
+        await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
+      }
+    }
+    assert.deepEqual(errors,[]);
+    console.log(`PASS Italian all three stories ${width}px ${surface}: real selector IT–DE–IT–EN–IT, complete prose, cards, credits, reload, mobile layout and runtime`);
+    await context.close();
+  }
 }finally{await browser.close();}
