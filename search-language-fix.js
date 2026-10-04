@@ -21,7 +21,14 @@ function corpusMatches(corpus,terms){
 }
 
 function directItemSearchCorpus(i){
-  const values=[i?.id,i?.name?.de,i?.name?.en,i?.de,i?.en];
+  // A direct hit means the searched text identifies the item itself.
+  // Description/recycling text is deliberately excluded; otherwise e.g. "hoch"
+  // matched unrelated items merely because their description contained "Hochleistung".
+  const values=[
+    i?.id,
+    i?.name?.de,i?.name?.en,
+    i?.de,i?.en
+  ];
   const normal=searchNorm(values.filter(Boolean).join(' '));
   return {normal,compact:normal.replace(/\s+/g,'')};
 }
@@ -68,6 +75,7 @@ function recyclingMatchText(i,query){
   return hits.join(' · ');
 }
 
+// Avoid German legacy fallback strings leaking into English mode.
 itemDesc=function(i){
   if(i?.description){
     if(lang==='en') return i.description.en || '';
@@ -85,10 +93,12 @@ recyclingText=function(i){
       return `${n}× ${target?itemName(target):id.replaceAll('_',' ')}`;
     }).join(' · ');
   }
+
   if(lang==='en'){
     const english=i?.recycleEn || i?.recycle_en;
     return english && english!=='—' ? english : tr('noRecycle');
   }
+
   const german=i?.recycle || i?.recycleDe || i?.recycle_de;
   return german && german!=='—' ? german : tr('noRecycle');
 };
@@ -113,6 +123,7 @@ function recyclingSourceCard(i,query){
   </div>`;
 }
 
+// Direct matches and recycling-source matches are deliberately shown separately.
 drawItems=function(){
   const query=q.value.trim();
   if(!query){
@@ -121,34 +132,52 @@ drawItems=function(){
     status.classList.remove('load-error');
     return;
   }
+
   const direct=items.filter(i=>matchesDirectItemSearch(i,query));
   const directIds=new Set(direct.map(i=>i.id));
   const recycling=items.filter(i=>!directIds.has(i.id)&&matchesRecyclingOutput(i,query));
   const total=direct.length+recycling.length;
+
   status.classList.remove('load-error');
   status.textContent=`${total} ${tr('matches')} · ${items.length} ${tr('records')}`;
-  if(!total){out.innerHTML=`<div class="empty">${tr('noHit')}</div>`;return;}
+
+  if(!total){
+    out.innerHTML=`<div class="empty">${tr('noHit')}</div>`;
+    return;
+  }
+
   out.innerHTML=`
     ${direct.length?`<section class="search-result-group"><div class="search-group-head"><b>${T[lang].directHits}</b><span>${direct.length}</span></div><div class="search-group-list">${direct.map(card).join('')}</div></section>`:''}
     ${recycling.length?`<section class="search-result-group recycle-group"><div class="search-group-head"><div><b>${T[lang].recycleSources}</b><small>${T[lang].recycleSourceHint}</small></div><span>${recycling.length}</span></div><div class="recycle-source-list">${recycling.map(i=>recyclingSourceCard(i,query)).join('')}</div></section>`:''}
   `;
 };
 
+// Replace the listener captured by app.js instead of rendering every keystroke twice.
 q.removeEventListener('input',legacyDrawItemsListener);
 q.addEventListener('input',drawItems);
 
 try{
   const missingEn=Object.keys(T.de).filter(k=>!(k in T.en));
   const missingDe=Object.keys(T.en).filter(k=>!(k in T.de));
-  if(missingEn.length||missingDe.length){console.warn('Translation dictionary mismatch',{missingEn,missingDe});}
-}catch(err){console.warn('Translation dictionary check failed',err);}
+  if(missingEn.length||missingDe.length){
+    console.warn('Translation dictionary mismatch',{missingEn,missingDe});
+  }
+}catch(err){
+  console.warn('Translation dictionary check failed',err);
+}
 
-// Item-location feature loader. Kept isolated from the search implementation itself.
+// Load the isolated item-location feature without changing the existing search implementation.
 (()=>{
   const css=document.createElement('link');
-  css.rel='stylesheet';css.href='item-locations-v2.css?v=2';document.head.appendChild(css);
+  css.rel='stylesheet';
+  css.href='item-locations-v2.css?v=2';
+  document.head.appendChild(css);
   const data=document.createElement('script');
   data.src='item-locations-v2.js?v=2';
-  data.onload=()=>{const ui=document.createElement('script');ui.src='item-locations-ui-v2.js?v=2';document.body.appendChild(ui);};
+  data.onload=()=>{
+    const ui=document.createElement('script');
+    ui.src='item-locations-ui-v2.js?v=2';
+    document.body.appendChild(ui);
+  };
   document.body.appendChild(data);
 })();
