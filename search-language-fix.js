@@ -1,167 +1,30 @@
 // V2.12.0 – tolerant item search + separated recycling-source results
-// Keep a reference to the original app.js listener so it can be replaced cleanly.
 const legacyDrawItemsListener=drawItems;
+function searchNorm(value){return String(value??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,' ').trim()}
+function searchTerms(query){return searchNorm(query).split(/\s+/).filter(Boolean)}
+function corpusMatches(corpus,terms){return terms.every(term=>corpus.normal.includes(term)||corpus.compact.includes(term))}
+function directItemSearchCorpus(i){const values=[i?.id,i?.name?.de,i?.name?.en,i?.de,i?.en];const normal=searchNorm(values.filter(Boolean).join(' '));return {normal,compact:normal.replace(/\s+/g,'')}}
+function recyclingOutputCorpus(i){const values=[];if(i?.recyclesInto&&typeof i.recyclesInto==='object'){Object.keys(i.recyclesInto).forEach(id=>{values.push(id);const target=itemById(id);if(target)values.push(target?.name?.de,target?.name?.en,target?.de,target?.en)})}const normal=searchNorm(values.filter(Boolean).join(' '));return {normal,compact:normal.replace(/\s+/g,'')}}
+function matchesDirectItemSearch(i,query){const terms=searchTerms(query);return terms.length?corpusMatches(directItemSearchCorpus(i),terms):true}
+function matchesRecyclingOutput(i,query){const terms=searchTerms(query);if(!terms.length)return false;const corpus=recyclingOutputCorpus(i);return !!corpus.normal&&corpusMatches(corpus,terms)}
+function recyclingMatchText(i,query){const terms=searchTerms(query),rec=i?.recyclesInto;if(!rec||typeof rec!=='object')return '';return Object.entries(rec).filter(([id])=>{const target=itemById(id);const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.en].filter(Boolean).join(' '));return corpusMatches({normal,compact:normal.replace(/\s+/g,'')},terms)}).map(([id,n])=>{const target=itemById(id);return `${n}× ${target?itemName(target):id.replaceAll('_',' ')}`}).join(' · ')}
+itemDesc=function(i){if(i?.description)return i.description?.[lang]||i.description.de||i.description.en||'';if(lang==='en')return i?.useEn||i?.use_en||'';return i?.use||i?.useDe||i?.use_de||''};
+recyclingText=function(i){const rec=i?.recyclesInto;if(rec&&typeof rec==='object'&&Object.keys(rec).length)return Object.entries(rec).map(([id,n])=>{const target=itemById(id);return `${n}× ${target?itemName(target):id.replaceAll('_',' ')}`}).join(' · ');if(lang==='en'){const english=i?.recycleEn||i?.recycle_en;return english&&english!=='—'?english:tr('noRecycle')}const german=i?.recycle||i?.recycleDe||i?.recycle_de;return german&&german!=='—'?german:tr('noRecycle')};
+T.de.directHits='Direkte Treffer';T.en.directHits='Direct matches';T.de.recycleSources='Durch Recycling erhältlich';T.en.recycleSources='Available through recycling';T.de.recycleSourceHint='Diese Items enthalten den gesuchten Gegenstand beim Zerlegen.';T.en.recycleSourceHint='These items yield the searched item when recycled.';T.de.yields='Ergibt';T.en.yields='Yields';
 
-function searchNorm(value){
-  return String(value ?? '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g,'')
-    .replace(/ß/g,'ss')
-    .replace(/[^a-z0-9]+/g,' ')
-    .trim();
-}
-
-function searchTerms(query){
-  return searchNorm(query).split(/\s+/).filter(Boolean);
-}
-
-function corpusMatches(corpus,terms){
-  return terms.every(term=>corpus.normal.includes(term)||corpus.compact.includes(term));
-}
-
-function directItemSearchCorpus(i){
-  // A direct hit means the searched text identifies the item itself.
-  // Description/recycling text is deliberately excluded; otherwise e.g. "hoch"
-  // matched unrelated items merely because their description contained "Hochleistung".
-  const values=[
-    i?.id,
-    i?.name?.de,i?.name?.en,
-    i?.de,i?.en
-  ];
-  const normal=searchNorm(values.filter(Boolean).join(' '));
-  return {normal,compact:normal.replace(/\s+/g,'')};
-}
-
-function recyclingOutputCorpus(i){
-  const values=[];
-  if(i?.recyclesInto && typeof i.recyclesInto==='object'){
-    Object.keys(i.recyclesInto).forEach(id=>{
-      values.push(id);
-      const target=itemById(id);
-      if(target) values.push(target?.name?.de,target?.name?.en,target?.de,target?.en);
-    });
-  }
-  const normal=searchNorm(values.filter(Boolean).join(' '));
-  return {normal,compact:normal.replace(/\s+/g,'')};
-}
-
-function matchesDirectItemSearch(i,query){
-  const terms=searchTerms(query);
-  return terms.length ? corpusMatches(directItemSearchCorpus(i),terms) : true;
-}
-
-function matchesRecyclingOutput(i,query){
-  const terms=searchTerms(query);
-  if(!terms.length) return false;
-  const corpus=recyclingOutputCorpus(i);
-  if(!corpus.normal) return false;
-  return corpusMatches(corpus,terms);
-}
-
-function recyclingMatchText(i,query){
-  const terms=searchTerms(query);
-  const rec=i?.recyclesInto;
-  if(!rec || typeof rec!=='object') return '';
-  const hits=Object.entries(rec).filter(([id])=>{
-    const target=itemById(id);
-    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.en].filter(Boolean).join(' '));
-    const corpus={normal,compact:normal.replace(/\s+/g,'')};
-    return corpusMatches(corpus,terms);
-  }).map(([id,n])=>{
-    const target=itemById(id);
-    return `${n}× ${target?itemName(target):id.replaceAll('_',' ')}`;
-  });
-  return hits.join(' · ');
-}
-
-// Avoid German legacy fallback strings leaking into English mode.
-itemDesc=function(i){
-  if(i?.description){
-    if(lang==='en') return i.description.en || '';
-    return i.description.de || i.description.en || '';
-  }
-  if(lang==='en') return i?.useEn || i?.use_en || '';
-  return i?.use || i?.useDe || i?.use_de || '';
-};
-
-recyclingText=function(i){
-  const rec=i?.recyclesInto;
-  if(rec && typeof rec==='object' && Object.keys(rec).length){
-    return Object.entries(rec).map(([id,n])=>{
-      const target=itemById(id);
-      return `${n}× ${target?itemName(target):id.replaceAll('_',' ')}`;
-    }).join(' · ');
-  }
-
-  if(lang==='en'){
-    const english=i?.recycleEn || i?.recycle_en;
-    return english && english!=='—' ? english : tr('noRecycle');
-  }
-
-  const german=i?.recycle || i?.recycleDe || i?.recycle_de;
-  return german && german!=='—' ? german : tr('noRecycle');
-};
-
-T.de.directHits='Direkte Treffer';
-T.en.directHits='Direct matches';
-T.de.recycleSources='Durch Recycling erhältlich';
-T.en.recycleSources='Available through recycling';
-T.de.recycleSourceHint='Diese Items enthalten den gesuchten Gegenstand beim Zerlegen.';
-T.en.recycleSourceHint='These items yield the searched item when recycled.';
-T.de.yields='Ergibt';
-T.en.yields='Yields';
-
-function recyclingSourceCard(i,query){
-  const yieldText=recyclingMatchText(i,query);
-  return `<div class="recycle-source-card">
-    <div class="recycle-source-main">
-      <div class="recycle-source-name">${itemName(i)}</div>
-      <div class="recycle-source-yield"><span>${T[lang].yields}:</span> ${yieldText}</div>
-    </div>
-    <div class="recycle-source-full">${card(i)}</div>
-  </div>`;
-}
-
-// Direct matches and recycling-source matches are deliberately shown separately.
-drawItems=function(){
-  const query=q.value.trim();
-  if(!query){
-    out.innerHTML='';
-    status.textContent=`${items.length} ${tr('records')} · ${tr('searchPrompt')}`;
-    status.classList.remove('load-error');
-    return;
-  }
-
-  const direct=items.filter(i=>matchesDirectItemSearch(i,query));
-  const directIds=new Set(direct.map(i=>i.id));
-  const recycling=items.filter(i=>!directIds.has(i.id)&&matchesRecyclingOutput(i,query));
-  const total=direct.length+recycling.length;
-
-  status.classList.remove('load-error');
-  status.textContent=`${total} ${tr('matches')} · ${items.length} ${tr('records')}`;
-
-  if(!total){
-    out.innerHTML=`<div class="empty">${tr('noHit')}</div>`;
-    return;
-  }
-
-  out.innerHTML=`
-    ${direct.length?`<section class="search-result-group"><div class="search-group-head"><b>${T[lang].directHits}</b><span>${direct.length}</span></div><div class="search-group-list">${direct.map(card).join('')}</div></section>`:''}
-    ${recycling.length?`<section class="search-result-group recycle-group"><div class="search-group-head"><div><b>${T[lang].recycleSources}</b><small>${T[lang].recycleSourceHint}</small></div><span>${recycling.length}</span></div><div class="recycle-source-list">${recycling.map(i=>recyclingSourceCard(i,query)).join('')}</div></section>`:''}
-  `;
-};
-
-// Replace the listener captured by app.js instead of rendering every keystroke twice.
-q.removeEventListener('input',legacyDrawItemsListener);
-q.addEventListener('input',drawItems);
-
-try{
-  const missingEn=Object.keys(T.de).filter(k=>!(k in T.en));
-  const missingDe=Object.keys(T.en).filter(k=>!(k in T.de));
-  if(missingEn.length||missingDe.length){
-    console.warn('Translation dictionary mismatch',{missingEn,missingDe});
-  }
-}catch(err){
-  console.warn('Translation dictionary check failed',err);
-}
+// Possible find locations. RaidTheory is loaded once per page; search/open actions do not request external data.
+const FIND_UI={de:{title:'Mögliche Fundorte',areas:'Typische Suchbereiche',arc:'Mögliche ARC-Fundquellen',maps:'Karten',none:'Für dieses Item liegen keine Fundortinformationen vor.',note:'Community-Daten zu möglichen Fundquellen. Kein garantierter Fund.',source:'Quelle'},en:{title:'Possible find locations',areas:'Typical search areas',arc:'Possible ARC sources',maps:'Maps',none:'No find-location information is available for this item.',note:'Community data about possible sources. No guaranteed find.',source:'Source'},fr:{title:'Lieux possibles',areas:'Zones de recherche typiques',arc:'Sources ARC possibles',maps:'Cartes',none:'Aucune information de lieu n’est disponible pour cet objet.',note:'Données communautaires sur des sources possibles. Aucune trouvaille garantie.',source:'Source'},es:{title:'Posibles lugares',areas:'Zonas de búsqueda típicas',arc:'Posibles fuentes ARC',maps:'Mapas',none:'No hay información de ubicación disponible para este objeto.',note:'Datos de la comunidad sobre posibles fuentes. No se garantiza encontrarlo.',source:'Fuente'},it:{title:'Possibili luoghi',areas:'Aree di ricerca tipiche',arc:'Possibili fonti ARC',maps:'Mappe',none:'Non sono disponibili informazioni sui luoghi per questo oggetto.',note:'Dati della community su possibili fonti. Nessun ritrovamento garantito.',source:'Fonte'}};
+const FIND_CATEGORY={electrical:{de:'Elektrisch',en:'Electrical',fr:'Électrique',es:'Eléctrico',it:'Elettrico'},technological:{de:'Technologisch',en:'Technological',fr:'Technologique',es:'Tecnológico',it:'Tecnologico'},mechanical:{de:'Mechanisch',en:'Mechanical',fr:'Mécanique',es:'Mecánico',it:'Meccanico'},residential:{de:'Wohnbereiche',en:'Residential',fr:'Résidentiel',es:'Residencial',it:'Residenziale'},commercial:{de:'Gewerbebereiche',en:'Commercial',fr:'Commercial',es:'Comercial',it:'Commerciale'},exodus:{de:'Exodus',en:'Exodus',fr:'Exodus',es:'Exodus',it:'Exodus'}};
+const FIND_MAPS={dam_battlegrounds:{de:'Damm-Schlachtfelder',en:'Dam Battlegrounds',fr:'Champ de Bataille du Barrage',es:'Presas - Campos de batalla',it:'Campo di battaglia della diga'},the_spaceport:{de:'Raumhafen',en:'The Spaceport',fr:'Port Spatial',es:'El Puerto Espacial',it:'Lo spazioporto'},buried_city:{de:'Begrabene Stadt',en:'Buried City',fr:'Ville Enfouie',es:'Ciudad Enterrada',it:'Città Sepolta'},the_blue_gate:{de:'Das blaue Tor',en:'The Blue Gate',fr:'Le Portail Bleu',es:'La Puerta Azul',it:'Il Varco Blu'},stella_montis_upper:{de:'Stella Montis',en:'Stella Montis',fr:'Stella Montis',es:'Stella Montis',it:'Stella Montis'},stella_montis_lower:{de:'Stella Montis',en:'Stella Montis',fr:'Stella Montis',es:'Stella Montis',it:'Stella Montis'}};
+const FIND_FALLBACK_BOTS=[{id:'arc_bastion',name:'BASTION',maps:['dam_battlegrounds','the_spaceport','the_blue_gate','buried_city','stella_montis_lower','stella_montis_upper'],drops:['arc_alloy','arc_powercell','arc_motion_core','arc_circuitry','bastion_cell']},{id:'arc_matriarch',name:'MATRIARCH',maps:['dam_battlegrounds'],drops:['arc_alloy','arc_circuitry','arc_performance_steel','advanced_arc_powercell','arc_flex_rubber','arc_synthetic_resin','magnetic_accelerator','matriarch_reactor']},{id:'arc_the_queen',name:'THE QUEEN',maps:['dam_battlegrounds','the_spaceport','the_blue_gate'],drops:['arc_alloy','advanced_arc_powercell','arc_motion_core','arc_circuitry','arc_coolant','arc_flex_rubber','arc_thermo_lining','arc_synthetic_resin','arc_performance_steel','advanced_mechanical_components','advanced_electrical_components','complex_gun_parts','magnetic_accelerator','queen_reactor']}];
+let findBots=FIND_FALLBACK_BOTS,findBotSource='local-fallback';const openFindLocationIds=new Set();const RAIDTHEORY_BOTS='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/bots.json',RAIDTHEORY_REPO='https://github.com/RaidTheory/arcraiders-data';
+function findUi(){return FIND_UI[lang]||FIND_UI.en}function findCategories(value){const raw=Array.isArray(value)?value:(typeof value==='string'?value.split(','):[]);return [...new Set(raw.map(x=>String(x).trim()).filter(Boolean))]}function findCategoryName(value){const entry=FIND_CATEGORY[String(value).trim().toLowerCase()];return entry?.[lang]||entry?.en||String(value).trim()}function findMapName(id){const entry=FIND_MAPS[id];return entry?.[lang]||entry?.en||String(id).replaceAll('_',' ')}function findArcSources(itemId){return findBots.filter(bot=>Array.isArray(bot?.drops)&&bot.drops.includes(itemId))}
+function findLocationsMarkup(i){const ui=findUi(),areas=findCategories(i?.foundIn),bots=findArcSources(i?.id),hasData=areas.length||bots.length,open=openFindLocationIds.has(i.id)?' open':'';const areaHtml=areas.length?`<div class="find-locations-section"><b>${escapeHtml(ui.areas)}</b><div class="find-location-chips">${areas.map(x=>`<span>${escapeHtml(findCategoryName(x))}</span>`).join('')}</div></div>`:'';const botHtml=bots.length?`<div class="find-locations-section"><b>${escapeHtml(ui.arc)}</b>${bots.map(bot=>{const maps=[...new Set((bot.maps||[]).map(findMapName))];return `<div class="find-arc-row"><strong>${escapeHtml(bot.name||bot.id)}</strong>${maps.length?`<small>${escapeHtml(ui.maps)}: ${escapeHtml(maps.join(' · '))}</small>`:''}</div>`}).join('')}</div>`:'';return `<details class="find-locations" data-find-item="${escapeHtml(i.id)}"${open}><summary>${escapeHtml(ui.title)}</summary><div class="find-locations-body">${hasData?areaHtml+botHtml:`<div class="find-locations-empty">${escapeHtml(ui.none)}</div>`}<p class="find-locations-note">${escapeHtml(ui.note)}</p><div class="find-locations-source"><span>${escapeHtml(ui.source)}:</span> <a href="${RAIDTHEORY_REPO}" target="_blank" rel="noopener noreferrer">RaidTheory / ARC Raiders Data</a>${findBotSource==='local-fallback'?' · local fallback':''}</div></div></details>`}
+const cardWithoutFindLocations=card;card=function(i){const html=cardWithoutFindLocations(i),marker='<div class="need ',at=html.indexOf(marker);return at<0?html.replace('</article>',`${findLocationsMarkup(i)}</article>`):`${html.slice(0,at)}${findLocationsMarkup(i)}${html.slice(at)}`};
+out.addEventListener('toggle',event=>{const details=event.target.closest?.('details.find-locations');if(!details||event.target!==details)return;const id=details.dataset.findItem;if(details.open)openFindLocationIds.add(id);else openFindLocationIds.delete(id)},true);
+const findStyle=document.createElement('style');findStyle.textContent=`.find-locations{margin-top:10px;border:1px solid var(--ui-line,#55523e);border-radius:9px;background:rgba(12,13,10,.22);overflow:hidden}.find-locations>summary{cursor:pointer;list-style:none;min-height:44px;display:flex;align-items:center;justify-content:space-between;padding:10px 11px;font-weight:700;color:var(--cream,#f1e6c7)}.find-locations>summary::-webkit-details-marker{display:none}.find-locations>summary:after{content:'+';font-size:20px;line-height:1;color:var(--amber,#e6ad43)}.find-locations[open]>summary:after{content:'−'}.find-locations[open]>summary{border-bottom:1px solid var(--ui-line,#55523e)}.find-locations-body{padding:10px 11px;display:grid;gap:10px;overflow-wrap:anywhere}.find-locations-section{display:grid;gap:6px}.find-locations-section>b{font-size:12px;text-transform:uppercase;color:var(--amber,#e6ad43)}.find-location-chips{display:flex;flex-wrap:wrap;gap:6px}.find-location-chips span{padding:5px 8px;border-radius:999px;border:1px solid var(--ui-line,#55523e);font-size:13px}.find-arc-row{display:grid;gap:2px;padding:7px 0;border-top:1px dashed var(--ui-line,#55523e)}.find-arc-row strong{font-size:14px}.find-arc-row small{font-size:12px;color:var(--ui-muted,#b8b098);line-height:1.35}.find-locations-empty,.find-locations-note,.find-locations-source{font-size:12px;line-height:1.4;color:var(--ui-muted,#b8b098)}.find-locations-note{margin:0}.find-locations-source a{color:var(--amber,#e6ad43)}body.palette-enabled .find-locations{background:#171d26!important;border-color:#303947!important}body.palette-enabled .find-locations>summary{color:#edf1f7!important}@media(max-width:420px){.find-locations>summary{padding:10px;min-height:46px}.find-locations-body{padding:10px}.find-arc-row small{font-size:11px}}`;document.head.appendChild(findStyle);
+fetch(RAIDTHEORY_BOTS,{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(`RaidTheory bots ${response.status}`);return response.json()}).then(data=>{if(!Array.isArray(data)||!data.length||!data.every(bot=>bot?.id&&Array.isArray(bot?.drops)&&Array.isArray(bot?.maps)))throw new Error('Invalid RaidTheory bot data');findBots=data;findBotSource='RaidTheory';if(q.value.trim())drawItems()}).catch(error=>console.warn('Possible find locations: using validated local ARC fallback data.',error));
+function recyclingSourceCard(i,query){const ui=T[lang]||T.en,yieldText=recyclingMatchText(i,query);return `<div class="recycle-source-card"><div class="recycle-source-main"><div class="recycle-source-name">${escapeHtml(itemName(i))}</div><div class="recycle-source-yield"><span>${escapeHtml(ui.yields||T.en.yields)}:</span> ${escapeHtml(yieldText)}</div></div><div class="recycle-source-full">${card(i)}</div></div>`}
+drawItems=function(){const query=q.value.trim(),ui=T[lang]||T.en;if(!query){out.innerHTML='';status.textContent=`${items.length} ${tr('records')} · ${tr('searchPrompt')}`;status.classList.remove('load-error');return}const direct=items.filter(i=>matchesDirectItemSearch(i,query)),directIds=new Set(direct.map(i=>i.id)),recycling=items.filter(i=>!directIds.has(i.id)&&matchesRecyclingOutput(i,query)),total=direct.length+recycling.length;status.classList.remove('load-error');status.textContent=`${total} ${tr('matches')} · ${items.length} ${tr('records')}`;if(!total){out.innerHTML=`<div class="empty">${tr('noHit')}</div>`;return}out.innerHTML=`${direct.length?`<section class="search-result-group"><div class="search-group-head"><b>${escapeHtml(ui.directHits||T.en.directHits)}</b><span>${direct.length}</span></div><div class="search-group-list">${direct.map(card).join('')}</div></section>`:''}${recycling.length?`<section class="search-result-group recycle-group"><div class="search-group-head"><div><b>${escapeHtml(ui.recycleSources||T.en.recycleSources)}</b><small>${escapeHtml(ui.recycleSourceHint||T.en.recycleSourceHint)}</small></div><span>${recycling.length}</span></div><div class="recycle-source-list">${recycling.map(i=>recyclingSourceCard(i,query)).join('')}</div></section>`:''}`};
+q.removeEventListener('input',legacyDrawItemsListener);q.addEventListener('input',drawItems);
+try{const missingEn=Object.keys(T.de).filter(k=>!(k in T.en)),missingDe=Object.keys(T.en).filter(k=>!(k in T.de));if(missingEn.length||missingDe.length)console.warn('Translation dictionary mismatch',{missingEn,missingDe})}catch(err){console.warn('Translation dictionary check failed',err)}
