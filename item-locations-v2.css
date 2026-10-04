@@ -1,0 +1,15 @@
+.item-find-locations{margin:12px 0;border:1px solid color-mix(in srgb,var(--orange) 34%,var(--ui-line));border-radius:10px;overflow:hidden;max-width:100%;background:color-mix(in srgb,var(--orange) 5%,var(--ui-panel))}
+.item-find-locations>summary{cursor:pointer;list-style:none;min-height:44px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:650;color:var(--ui-text)}
+.item-find-locations>summary::-webkit-details-marker{display:none}
+.item-find-locations>summary::after{content:'+';font-size:20px;line-height:1;color:var(--orange)}
+.item-find-locations[open]>summary::after{content:'−'}
+.item-find-locations[open]>summary{border-bottom:1px solid color-mix(in srgb,var(--orange) 25%,var(--ui-line))}
+.item-find-locations-body{display:grid;gap:8px;padding:11px 12px;font-size:13px;line-height:1.45;overflow-wrap:anywhere}
+.item-find-locations-body b{color:var(--ui-text)}
+.item-find-locations-body small{display:block;padding-top:8px;border-top:1px dashed color-mix(in srgb,var(--orange) 22%,var(--ui-line));color:var(--ui-muted);font-size:11px;line-height:1.45}
+.item-find-locations-body a{color:var(--orange);text-decoration:underline;text-underline-offset:2px}
+html[data-surface="light"] .item-find-locations{background:#fff;color:#151515}
+html[data-surface="light"] .item-find-locations-body small{color:#60656d}
+html[data-surface="black"] .item-find-locations{background:#090909;color:#f3f5f7}
+html[data-surface="black"] .item-find-locations-body small{color:#aeb5bf}
+@media(max-width:420px){.item-find-locations>summary{padding:10px}.item-find-locations-body{padding:10px}}

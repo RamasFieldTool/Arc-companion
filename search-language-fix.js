@@ -165,3 +165,19 @@ try{
 }catch(err){
   console.warn('Translation dictionary check failed',err);
 }
+
+// Load the isolated item-location feature without changing the existing search implementation.
+(()=>{
+  const css=document.createElement('link');
+  css.rel='stylesheet';
+  css.href='item-locations-v2.css?v=2';
+  document.head.appendChild(css);
+  const data=document.createElement('script');
+  data.src='item-locations-v2.js?v=2';
+  data.onload=()=>{
+    const ui=document.createElement('script');
+    ui.src='item-locations-ui-v2.js?v=2';
+    document.body.appendChild(ui);
+  };
+  document.body.appendChild(data);
+})();
