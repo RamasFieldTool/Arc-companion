@@ -13,6 +13,23 @@ async function run(width){
   await page.waitForTimeout(500);
 
   const input=page.locator('#q');
+  // The app starts on its launcher. Find the real launcher control whose target
+  // contains #q and use it, rather than making the hidden search UI visible in
+  // the test. This keeps the check on the actual user navigation path.
+  if(!await input.isVisible()){
+    const opened=await page.evaluate(()=>{
+      const q=document.querySelector('#q');
+      if(!q) return false;
+      const section=q.closest('.launcher-section');
+      if(!section?.id) return false;
+      const candidates=[...document.querySelectorAll('.app-tile,[data-target],[data-section],[data-view]')];
+      const trigger=candidates.find(el=>[el.dataset.target,el.dataset.section,el.dataset.view].some(v=>v===section.id||v===`#${section.id}`));
+      if(!trigger) return false;
+      trigger.click();
+      return true;
+    });
+    assert.equal(opened,true,'item search launcher control must be discoverable');
+  }
   await input.waitFor({state:'visible',timeout:5000});
 
   async function search(term){
@@ -24,8 +41,6 @@ async function run(width){
     return card;
   }
 
-  // Use the current UI language instead of assuming German. The application
-  // deliberately persists arcLang in localStorage between sessions.
   const currentLang=await page.evaluate(()=>localStorage.getItem('arcLang')||'de');
   const initialTerm=currentLang==='de'?'Kabel':'Wires';
 
@@ -36,7 +51,6 @@ async function run(width){
   await details.locator('summary').click();
   assert.equal(await details.evaluate(el=>el.open),true,'location disclosure must open');
 
-  // Re-render/search must not lose the remembered open state for the same item.
   await input.fill('');
   await input.dispatchEvent('input');
   await page.waitForTimeout(100);
@@ -44,8 +58,6 @@ async function run(width){
   details=card.locator('.item-find-locations');
   assert.equal(await details.evaluate(el=>el.open),true,'open state must survive redraw');
 
-  // Language switching in this app uses buttons. Set English through the real
-  // control and verify the newly injected location UI follows the app language.
   const enBtn=page.locator('#enBtn');
   if(await enBtn.count()){
     await enBtn.click();
