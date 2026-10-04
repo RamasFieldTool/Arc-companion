@@ -25,6 +25,7 @@ jobs:
         run: |
           node tests/data-integrity.mjs
           node tests/planning-core.mjs
+          node tests/item-find-locations.mjs
 
   browser-smoke:
     name: Browser, mobile emulation and user-data safety
@@ -52,6 +53,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run item find-location browser regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/item-find-locations-browser.mjs
       - name: Run logo home-button regression
         env:
           BASE_URL: http://127.0.0.1:4173/
