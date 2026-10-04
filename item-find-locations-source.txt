@@ -1,6 +1,0 @@
-Possible item find locations data
-Source: RaidTheory / arcraiders-data
-https://github.com/RaidTheory/arcraiders-data
-Additional attribution requested by upstream: https://arctracker.io
-License: MIT (see upstream LICENSE)
-Data checked for the reference case on 2026-10-04. Community data; not a guaranteed in-game spawn or drop.
