@@ -9,7 +9,11 @@ await context.addInitScript(()=>{
 });
 const page=await context.newPage();
 await page.goto(base,{waitUntil:'domcontentloaded'});
-await page.locator('[data-app-target="itemsSection"]').click();
+async function openLauncherTarget(target){
+  const locator=page.locator(`[data-app-target="${target}"]`);
+  await locator.click();
+}
+await openLauncherTarget('itemsSection');
 await page.locator('#itemsSection').waitFor({state:'visible'});
 const q=page.locator('#q');
 await q.fill('Magnetischer Beschleuniger');
