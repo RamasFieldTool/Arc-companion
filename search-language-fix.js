@@ -1,4 +1,5 @@
 // V2.12.0 – tolerant item search + separated recycling-source results
+const findLocationStyles=document.createElement('link');findLocationStyles.rel='stylesheet';findLocationStyles.href='item-find-locations.css?v=1';document.head.appendChild(findLocationStyles);
 const legacyDrawItemsListener=drawItems;
 
 function searchNorm(value){return String(value??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ß/g,'ss').replace(/[^a-z0-9]+/g,' ').trim()}
