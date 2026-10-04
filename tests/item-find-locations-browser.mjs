@@ -1,5 +1,5 @@
 import { chromium, expect } from 'playwright/test';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
 import { installItemCatalogRoute } from './helpers/item-catalog.mjs';
 const base=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const fixture=JSON.parse(await readFile(new URL('./fixtures/item-find-locations.json',import.meta.url),'utf8'));
@@ -7,11 +7,13 @@ const local=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'
 const items=[...fixture.items,local.find(item=>item.id==='wires')];
 const browser=await chromium.launch({headless:true});
 try {
- for(const viewport of [{width:1280,height:900},{width:360,height:800}]) {
+ await mkdir('test-artifacts/ui',{recursive:true});
+ for(const theme of ['dark','light']) for(const viewport of [{width:1280,height:900},{width:360,height:800}]) {
   const context=await browser.newContext({viewport,hasTouch:viewport.width===360});
-  await context.addInitScript(()=>{
+  await context.addInitScript(theme=>{
+   localStorage.setItem('arcPaletteSurface',theme);
    localStorage.setItem('arcLang','en');localStorage.setItem('arcUiLanguage','en');localStorage.setItem('arcLanguageOnboardingPending','0');
-  });
+  },theme);
   const page=await context.newPage(),errors=[];
   page.on('pageerror',error=>errors.push(String(error)));
   await installItemCatalogRoute(page,items);
@@ -54,8 +56,16 @@ try {
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`Horizontal overflow: ${overflow}px`);
   const box=await details.locator('summary').boundingBox();if(!box||box.height<44)throw new Error('Location toggle touch area below 44px');
+  await page.screenshot({path:`test-artifacts/ui/find-locations-${theme}-${viewport.width}.png`,fullPage:true});
+  const contrast=await details.evaluate(el=>{
+   const rgb=s=>s.match(/[\d.]+/g).slice(0,3).map(Number);
+   const lum=c=>c.map(x=>{x/=255;return x<=.04045?x/12.92:((x+.055)/1.055)**2.4}).reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0);
+   const bg=lum(rgb(getComputedStyle(el).backgroundColor));
+   return [...el.querySelectorAll('.find-locations-body,.find-locations-body b,.find-locations-body small,.find-locations-body a')].map(node=>{const fg=lum(rgb(getComputedStyle(node).color));return (Math.max(bg,fg)+.05)/(Math.min(bg,fg)+.05)});
+  });
+  if(contrast.some(ratio=>ratio<4.5))throw new Error(`${theme}: insufficient location text contrast ${contrast}`);
   if(errors.length)throw new Error(errors.join('\n'));
-  console.log(`PASS find locations ${viewport.width}px: fixture, content, toggle, DE/EN/FR/ES, no-data, runtime`);
+  console.log(`PASS find locations ${theme} ${viewport.width}px: fixture, content, toggle, DE/EN/FR/ES, no-data, runtime`);
   await context.close();
  }
 } finally {await browser.close()}
