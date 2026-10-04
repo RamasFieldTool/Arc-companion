@@ -254,8 +254,21 @@ try{
             assert.equal(await page.locator('.fan-legend-reveal').evaluate(el=>getComputedStyle(el).color),'rgb(255, 179, 103)');
           }
           await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
-          await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='it');
-          assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
+          // Observe localization across render cycles: lang alone can lead the prose.
+          const settledProse=await page.evaluate(async content=>{
+            const deadline=performance.now()+10000;let stableSince=null;
+            while(performance.now()<deadline){
+              await new Promise(resolve=>requestAnimationFrame(resolve));
+              const body=document.querySelector('.fan-story-body');
+              const text=body?[...body.children].map(node=>node.textContent).join('\n\n'):'';
+              if(document.documentElement.lang==='it'&&body?.lang==='it'&&text===content){
+                stableSince??=performance.now();
+                if(performance.now()-stableSince>=600)return text;
+              }else stableSince=null;
+            }
+            throw new Error('Italian story prose did not remain stable after reload');
+          },expected.content);
+          assert.equal(settledProse,expected.content);
           assert.equal(await page.evaluate(()=>localStorage.getItem('arcUiLanguage')),'it');
           if(width===390)await page.screenshot({path:new URL(`../test-artifacts/stories/${story.id}-it-${surface}-390.png`,import.meta.url).pathname,fullPage:true});
         }
