@@ -43,6 +43,7 @@ try {
    await page.locator('#arcLanguageButton').click();await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).click();
    await page.waitForFunction(expected=>document.documentElement.dataset.uiLanguage===expected,language);
    await page.locator('[data-app-target="itemsSection"]').click();
+   await expect(details.locator('summary')).toHaveText(title);
    await q.fill(label);await expect(card).toBeVisible();await expect(details.locator('summary')).toHaveText(title);
    await expect(details.locator('.find-locations-body')).toBeVisible();await expect(details).toContainText(map);
    await expect(card.locator('h3')).toHaveText(label);
