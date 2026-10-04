@@ -65,7 +65,7 @@ function recyclingMatchText(i,query){
   if(!rec || typeof rec!=='object') return '';
   const hits=Object.entries(rec).filter(([id])=>{
     const target=itemById(id);
-    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.en].filter(Boolean).join(' '));
+    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.de,target?.en].filter(Boolean).join(' '));
     const corpus={normal,compact:normal.replace(/\s+/g,'')};
     return corpusMatches(corpus,terms);
   }).map(([id,n])=>{
@@ -165,3 +165,6 @@ try{
 }catch(err){
   console.warn('Translation dictionary check failed',err);
 }
+
+// Load the isolated optional find-location enhancement without changing search behavior.
+(()=>{const css=document.createElement('link');css.rel='stylesheet';css.href='item-find-locations.css?v=2';document.head.appendChild(css);const js=document.createElement('script');js.src='item-find-locations.js?v=2';document.head.appendChild(js)})();
