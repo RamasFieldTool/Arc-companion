@@ -208,6 +208,7 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme=
 @font-face{font-family:'Raider Radio Script';src:url('assets/fonts/pacifico/raider-radio.woff') format('woff');font-style:normal;font-weight:400;font-display:swap}
 #raiderRadio .radio-wordmark{font-family:'Raider Radio Script',cursive!important;font-size:clamp(32px,8vw,56px)!important;font-weight:400!important;text-transform:none!important;letter-spacing:0!important;line-height:1.5;margin:0 0 12px;color:#995000!important;text-shadow:1px 2px 0 #e7bd5940}
 html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-wordmark{color:#ffc46b!important;text-shadow:1px 2px 0 #995000}
+#raiderRadio .radio-wordmark:focus{outline:none}
 .radio-about summary{cursor:pointer;min-height:44px;box-sizing:border-box;padding:10px 0;list-style-position:inside}
 #raiderRadio .radio-about summary{margin:0}
 .radio-about{padding:6px 16px}
