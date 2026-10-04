@@ -65,7 +65,7 @@ function recyclingMatchText(i,query){
   if(!rec || typeof rec!=='object') return '';
   const hits=Object.entries(rec).filter(([id])=>{
     const target=itemById(id);
-    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.de,target?.en].filter(Boolean).join(' '));
+    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.en].filter(Boolean).join(' '));
     const corpus={normal,compact:normal.replace(/\s+/g,'')};
     return corpusMatches(corpus,terms);
   }).map(([id,n])=>{
