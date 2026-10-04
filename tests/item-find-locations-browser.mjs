@@ -1,12 +1,14 @@
 import { chromium } from 'playwright';
 const base=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const browser=await chromium.launch({headless:true});
-const page=await browser.newPage({viewport:{width:360,height:800}});
-await page.addInitScript(()=>{
+const context=await browser.newContext({viewport:{width:360,height:800}});
+await context.addInitScript(()=>{
+  localStorage.setItem('arcLang','de');
   localStorage.setItem('arcUiLanguage','de');
   localStorage.setItem('arcLanguageOnboardingPending','0');
 });
-await page.goto(base,{waitUntil:'networkidle'});
+const page=await context.newPage();
+await page.goto(base,{waitUntil:'domcontentloaded'});
 await page.locator('[data-app-target="itemsSection"]').click();
 await page.locator('#itemsSection').waitFor({state:'visible'});
 const q=page.locator('#q');
@@ -26,5 +28,6 @@ await page.locator('#q').fill('Magnetischer Beschleuniger ');await page.locator(
 if(!await page.locator('.card[data-item-id="magnetic_accelerator"] details.find-locations').first().evaluate(el=>el.open))throw new Error('Open state was not preserved across redraw');
 await page.setViewportSize({width:412,height:900});
 if((await details.boundingBox())?.width>412)throw new Error('Find locations overflows mobile viewport');
+await context.close();
 await browser.close();
 console.log('item-find-locations browser regression: OK');
