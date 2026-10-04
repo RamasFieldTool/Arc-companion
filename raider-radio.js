@@ -46,6 +46,13 @@
       back:'← Volver a Fan Creations',storiesEmptyTitle:'Todavía no hay historias publicadas',storiesEmpty:'Las historias de la comunidad aparecerán aquí cuando estén listas para Ramas Field Tool.',
       aboutTitle:'¿Qué es Raider Radio?',about:'Raider Radio es nuestro pequeño proyecto musical alrededor de Ramas Field Tool: canciones creadas por nosotros e inspiradas en ARC Raiders. No son canciones oficiales de la banda sonora de ARC Raiders.',
       how:'Para escuchar una canción, se abre directamente en Suno en una nueva pestaña. Ramas Field Tool no almacena ni aloja archivos de audio y no ofrece descargas. Con el tiempo iremos añadiendo más canciones.',listen:'▶ Escuchar en Suno'
+    },
+    it:{
+      hubTitle:'Fan Creations',hubIntro:'Opere creative della community di ARC Raiders.',tileStatus:'Musica, racconti e creazioni della community',
+      radioTitle:'Raider Radio',radioDesc:'Brani ispirati ad ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Racconti della community.',
+      back:'← Torna a Fan Creations',storiesEmptyTitle:'Nessun racconto ancora pubblicato',storiesEmpty:'Qui appariranno i racconti della community quando saranno pronti per Ramas Field Tool.',
+      aboutTitle:'Che cos’è Raider Radio?',about:'Raider Radio è il nostro piccolo progetto musicale dedicato a Ramas Field Tool: brani creati da noi e ispirati ad ARC Raiders. Non sono brani ufficiali della colonna sonora di ARC Raiders.',
+      how:'Per ascoltare un brano, si apre direttamente su Suno in una nuova scheda. Ramas Field Tool non memorizza né ospita file audio e non offre download. Altri brani saranno aggiunti nel tempo.',listen:'▶ Ascolta su Suno'
     }
   };
 
@@ -53,7 +60,8 @@
     de:{read:'Story lesen',back:'← Zurück zu Raider Stories'},
     en:{read:'Read story',back:'← Back to Raider Stories'},
     fr:{read:'Lire l’histoire',back:'← Retour à Raider Stories'},
-    es:{read:'Leer historia',back:'← Volver a Raider Stories'}
+    es:{read:'Leer historia',back:'← Volver a Raider Stories'},
+    it:{read:'Leggi il racconto',back:'← Torna a Raider Stories'}
   };
   const stories=window.RFTCommunityStories||[];
 
@@ -158,7 +166,7 @@
     node.textContent=text;
     return node;
   }
-  function themeFor(story){return ['dark-ambush','rust-legend'].includes(story.theme)?story.theme:'default';}
+  function themeFor(story){return ['dark-ambush','rust-legend','forest-tragicomedy'].includes(story.theme)?story.theme:'default';}
   function makeImage(story,lazy=false){
     const image=document.createElement('img');
     image.src=story.image;

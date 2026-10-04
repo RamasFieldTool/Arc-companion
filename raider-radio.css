@@ -173,3 +173,18 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme=
 
 /* Keep the question legible against app-wide strong-text rules. */
 html[data-accent] body.palette-enabled.view-open #raiderRadio [data-story-theme="rust-legend"] .fan-story-body .fan-legend-question{color:var(--story-ember)!important;font-family:Georgia,serif!important}
+
+/* Zoe's Leaper: woodland colours and a full, unobscured square cover. */
+#raiderRadio [data-story-theme="forest-tragicomedy"]{
+  --story-bg:#17211b;--story-ink:#f2f1e6;--story-muted:#cad3bd;
+  --story-ember:#e4bc84;--story-line:#546345;
+  background:radial-gradient(ellipse at 100% 0,#6a794833,transparent 60%),var(--story-bg);
+}
+#raiderRadio [data-story-theme="forest-tragicomedy"] img{aspect-ratio:1;object-fit:contain}
+#raiderRadio [data-story-theme="forest-tragicomedy"] .fan-story-hero::after{display:none}
+#raiderRadio [data-story-theme="forest-tragicomedy"] .fan-story-hero-copy{
+  position:relative;background:linear-gradient(135deg,#2b3726,#17211b);border-top:3px solid #b95439;
+}
+#raiderRadio [data-story-theme="forest-tragicomedy"] .fan-story-editorial-note{
+  margin:16px 0 0;color:var(--story-muted)!important;font-size:12px!important;line-height:1.6!important;text-transform:none;letter-spacing:normal;
+}

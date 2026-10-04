@@ -16,6 +16,18 @@ for(const lang of ['de','en','fr','es']){
   assert.equal(zoeSource.translations[lang].content.split('"CaptainDefib"').length,2);
 }
 
+const leaperSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='leaper');
+assert.equal(leaperSource.author,'Zoe Bristow');
+assert.equal(createHash('sha256').update(leaperSource.content).digest('hex'),'b960714c1a5cbb9cdb907155340b47e75258a872c7a0d6bf271c0354057e9386');
+assert.ok(leaperSource.content.endsWith('Der Springer ist eine Tragikomödie auf vier Beinen.'));
+assert.ok(!leaperSource.content.includes('Eine Anmerkung zu meinem Bild'));
+assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/leaper-zoe-bristow.jpg',import.meta.url))).digest('hex'),'1912297ffaa1b9fb1fce69f72ad1e3282f5c6313c34425d6a2cc38b32a656229');
+for(const lang of ['de','en','fr','es']){
+  assert.ok(leaperSource.translations[lang].content.length>3500);
+  assert.ok(leaperSource.translations[lang].title);
+  assert.ok(leaperSource.translations[lang].editorialNote);
+}
+
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
 const originalHash='7ab9b61aa40f645f6304258baaffdc878cafd7c55eef508d200cd1d67607ea39';
@@ -62,16 +74,16 @@ async function checkText(page,language){
   assert.equal(await page.locator('.fan-story-credit p').first().textContent(),expected.credit);
   if(language==='de')assert.equal(createHash('sha256').update(text).digest('hex'),originalHash,'German original prose, punctuation and whitespace must remain verbatim');
 }
-async function checkLayout(page){
+async function checkLayout(page,expectedInk='rgb(238, 231, 220)'){
   const metrics=await page.evaluate(()=>{
     const body=document.querySelector('.fan-story-body'),style=getComputedStyle(body.querySelector('p'));
     const buttons=[...document.querySelectorAll('.fan-story-view>.fan-view-back,.fan-story-social')].map(el=>el.getBoundingClientRect().height);
-    return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,font:parseFloat(style.fontSize),line:parseFloat(style.lineHeight),ink:style.color,buttons,paragraphInks:[...body.querySelectorAll('p')].map(p=>getComputedStyle(p).color)};
+    return {overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,bodyOverflow:body.scrollWidth-body.clientWidth,font:parseFloat(style.fontSize),line:parseFloat(style.lineHeight),ink:style.color,buttons,paragraphInks:[...body.querySelectorAll('p:not(.fan-legend-reveal)')].map(p=>getComputedStyle(p).color)};
   });
   assert.ok(metrics.overflow<=1,JSON.stringify(metrics));
   assert.ok(metrics.bodyOverflow<=1,JSON.stringify(metrics));
   assert.ok(metrics.font>=17&&metrics.line/metrics.font>=1.7,JSON.stringify(metrics));
-  assert.equal(metrics.ink,'rgb(238, 231, 220)');
+  assert.equal(metrics.ink,expectedInk);
   assert.ok(metrics.paragraphInks.every(ink=>ink===metrics.ink),JSON.stringify(metrics));
   assert.ok(metrics.buttons.every(height=>height>=44),JSON.stringify(metrics));
 }
@@ -98,7 +110,7 @@ try{
     await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),2);
+    assert.equal(await page.locator('.fan-story-card').count(),3);
     await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-card-title').textContent(),storyExpected[language].title);
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-summary').textContent(),storyExpected[language].summary);
@@ -166,12 +178,92 @@ try{
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1));
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),2);
+    assert.equal(await page.locator('.fan-story-card').count(),3);
     const cardExpected=zoeSource.translations[await page.evaluate(()=>document.documentElement.lang)];
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-card-title').textContent(),cardExpected.title);
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-summary').textContent(),cardExpected.summary);
+    // The third story uses the supplied cover and preserves Zoe's exact German text.
+    await page.locator('[data-story-id="leaper"] .fan-story-read').tap();
+    await hash(page,'#raiderRadio/stories/leaper');await visible(page,'.fan-story-detail');
+    for(const targetLanguage of ['de','en','fr','es']){
+      const expected=leaperSource.translations[targetLanguage];
+      await page.evaluate(lang=>window.arcSetLanguage(lang),targetLanguage);
+      await page.waitForFunction(({lang,title,note})=>document.querySelector('.fan-story-body')?.lang===lang&&document.querySelector('.fan-story-title')?.textContent===title&&document.querySelector('.fan-story-editorial-note')?.textContent===note,{lang:targetLanguage,title:expected.title,note:expected.editorialNote});
+      const prose=await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n'));
+      assert.equal(prose,expected.content);
+      assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
+    }
+    await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth===1536);
+    assert.equal(await page.locator('.fan-story-hero>img').evaluate(img=>img.naturalHeight),1536);
+    assert.equal(await page.locator('.fan-story-detail').getAttribute('data-story-theme'),'forest-tragicomedy');
+    await checkLayout(page,'rgb(242, 241, 230)');
+    if(width===390&&language==='de'){
+      await page.evaluate(()=>window.arcSetLanguage('de'));
+      await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='de');
+      await page.screenshot({path:new URL(`../test-artifacts/stories/leaper-${surface}-390.png`,import.meta.url).pathname,fullPage:true});
+    }
+    await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
+    await page.waitForFunction(()=>document.querySelector('.fan-story-body p')&&document.querySelector('.fan-story-hero>img')?.naturalWidth===1536);
+    await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
+    assert.equal(await page.locator('[data-story-id="leaper"] .fan-story-author').textContent(),'Zoe Bristow');
     assert.deepEqual(errors,[]);
     console.log(`PASS community story ${width}px ${surface} ${language}: localized story/UI, verbatim DE original, image, layout, hash/history/reload/back, radio covers and links`);
+    await context.close();
+  }
+  // Italian uses the existing selector overlay, rather than arcSetLanguage('it').
+  for(const width of [360,390])for(const surface of ['light','dark','black']){
+    const context=await browser.newContext({viewport:{width,height:900},isMobile:true,hasTouch:true});
+    await context.addInitScript(surface=>{
+      if(!localStorage.getItem('arcUiLanguage')){
+        localStorage.setItem('arcLang','en');localStorage.setItem('arcUiLanguage','en');
+      }
+      localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('arcPaletteSurface',surface);
+    },surface);
+    const page=await context.newPage(),errors=[];
+    page.on('pageerror',error=>errors.push(String(error)));
+    await installRoutes(page);
+    await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>['live','partial','fallback'].includes(document.getElementById('dataStatusPersistent')?.dataset.state));
+    for(const language of ['it','de','it','en','it']){
+      if(await page.locator('#appBack').isVisible())await page.locator('#appBack').tap();
+      await visible(page,'#appLauncher');
+      await page.locator('#arcLanguageButton').tap();
+      await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();
+      await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
+      await page.locator('[data-app-target="raiderRadio"]').tap();
+      await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
+      assert.equal(await page.locator('.fan-story-card').count(),3);
+      for(const story of storyContext.window.RFTCommunityStories){
+        const expected=story.translations[language];
+        assert.ok(expected?.content.length>1500,`${story.id} ${language}: full translation missing`);
+        await page.waitForFunction(({id,title})=>document.querySelector(`[data-story-id="${id}"] .fan-story-card-title`)?.textContent===title,{id:story.id,title:expected.title});
+        assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-summary`).textContent(),expected.summary);
+        if(language==='it')assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-read`).textContent(),'Leggi il racconto');
+        await page.locator(`[data-story-id="${story.id}"] .fan-story-read`).tap();await visible(page,'.fan-story-detail');
+        await page.waitForFunction(lang=>document.querySelector('.fan-story-body')?.lang===lang,language);
+        assert.equal(await page.locator('.fan-story-title').textContent(),expected.title);
+        assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
+        await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth>0);
+        if(language==='it'){
+          assert.equal(await page.locator('.fan-story-view>.fan-view-back').textContent(),'← Torna a Raider Stories');
+          assert.equal(await page.locator('.fan-story-credit p').first().textContent(),`Racconto della community di ${story.author}`);
+          await checkLayout(page,story.id==='leaper'?'rgb(242, 241, 230)':story.id==='captain-defib'?'rgb(255, 240, 217)':'rgb(238, 231, 220)');
+          if(story.id==='captain-defib'){
+            assert.equal(await page.locator('.fan-legend-question').textContent(),expected.nameQuestion);
+            assert.equal(await page.locator('.fan-legend-reveal').textContent(),'"CaptainDefib"');
+            assert.equal(await page.locator('.fan-legend-reveal').evaluate(el=>getComputedStyle(el).color),'rgb(255, 179, 103)');
+          }
+          await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
+          await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='it');
+          assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
+          assert.equal(await page.evaluate(()=>localStorage.getItem('arcUiLanguage')),'it');
+          if(width===390)await page.screenshot({path:new URL(`../test-artifacts/stories/${story.id}-it-${surface}-390.png`,import.meta.url).pathname,fullPage:true});
+        }
+        await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
+      }
+    }
+    assert.deepEqual(errors,[]);
+    console.log(`PASS Italian all three stories ${width}px ${surface}: real selector IT–DE–IT–EN–IT, complete prose, cards, credits, reload, mobile layout and runtime`);
     await context.close();
   }
 }finally{await browser.close();}
