@@ -257,7 +257,7 @@ try{
           // Boot reapplies English before the Italian overlay restores the story.
           await page.waitForFunction(content=>{
             const body=document.querySelector('.fan-story-body');
-            return ['live','partial','fallback'].includes(document.getElementById('dataStatusPersistent')?.dataset.state)&&body?.lang==='it'&&[...body.children].map(node=>node.textContent).join('\n\n')===content;
+            return ['live','partial','fallback'].includes(document.getElementById('dataStatusPersistent')?.dataset.state)&&/^\d/.test(document.getElementById('questStatus')?.textContent||'')&&body?.lang==='it'&&[...body.children].map(node=>node.textContent).join('\n\n')===content;
           },expected.content);
           assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
           assert.equal(await page.evaluate(()=>localStorage.getItem('arcUiLanguage')),'it');
