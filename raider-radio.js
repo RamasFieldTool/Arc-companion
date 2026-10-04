@@ -420,6 +420,12 @@
     tileIcon.innerHTML=illustrations.art;
   }
 
+  function syncLauncherLanguage(lang){
+    const title=tile.querySelector('b');
+    const status=tile.querySelector('small');
+    if(title&&title.textContent!==lang.hubTitle)title.textContent=lang.hubTitle;
+    if(status&&status.textContent!==lang.tileStatus)status.textContent=lang.tileStatus;
+  }
   function syncLanguage(){
     const lang=copy[document.documentElement.lang]||copy.en;
     const musicLang=collectionCopy[document.documentElement.lang]||collectionCopy.en;
@@ -430,10 +436,7 @@
       action.textContent=hasUrl?musicLang.listen:musicLang.pending;
       if(hasUrl)action.setAttribute('aria-label',title+' — '+musicLang.listen);
     });
-    const tileTitle=tile.querySelector('b');
-    const tileSmall=tile.querySelector('small');
-    if(tileTitle)tileTitle.textContent=lang.hubTitle;
-    if(tileSmall)tileSmall.textContent=lang.tileStatus;
+    syncLauncherLanguage(lang);
     hubTitle.textContent=lang.hubTitle;
     hubIntro.textContent=lang.hubIntro;
     radioCategory.title.textContent=lang.radioTitle;
@@ -462,6 +465,9 @@
   syncRoute();
   syncLanguage();
   new MutationObserver(syncLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  // The legacy launcher translator also updates this tile after a language switch.
+  new MutationObserver(()=>syncLauncherLanguage(copy[document.documentElement.lang]||copy.en))
+    .observe(tile,{childList:true,subtree:true,characterData:true});
 
   let wasActive=section.classList.contains('launcher-active');
   new MutationObserver(()=>{
