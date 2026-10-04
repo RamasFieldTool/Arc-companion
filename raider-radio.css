@@ -41,6 +41,11 @@ html:is([data-surface="dark"],[data-surface="black"]) .radio-listen{color:#ffc46
 .radio-listen:hover{text-decoration:underline}
 .radio-listen:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 
+/* Two compact cards on wider phones; narrow phones retain readable full-width cards. */
+@media(min-width:390px) and (max-width:600px){
+  #raiderRadioSongs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
 .fan-stories-empty{margin-top:16px;padding:22px;border:1px dashed var(--ui-line);border-radius:16px;background:var(--ui-panel-2);text-align:center}
 #raiderRadio .fan-stories-empty h3{margin:0 0 8px;color:var(--ui-text)!important;font-size:18px;line-height:1.35}
 .fan-stories-empty p{margin:0;color:var(--ui-muted);font-size:14px;line-height:1.55}

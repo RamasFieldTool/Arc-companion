@@ -64,6 +64,8 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.ok((await cards.locator('img').nth(3).getAttribute('src')).startsWith('data:image/webp;base64,'));
   const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('#raiderRadioSongs .radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio audio,#raiderRadio iframe').length}));
   assert.ok(metrics.overflow<=4,JSON.stringify(metrics));assert.equal(metrics.cardOverflow,false);assert.equal(metrics.download,0);
+  if(width===412)assert.equal(await page.locator('#raiderRadioSongs').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2);
+  assert.equal(await page.locator('#raiderRadioSongs h3').evaluateAll(a=>a.every(x=>x.scrollWidth<=x.clientWidth&&x.scrollHeight<=x.clientHeight)),true);
   if(width===320&&language==='en')await page.screenshot({path:new URL(`../test-artifacts/radio/${surface}-320.png`,import.meta.url).pathname,fullPage:true});
   if(width===412&&language==='en'&&surface==='light'){
     for(let i=0;i<4;i++){
@@ -81,6 +83,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(await page.locator('.radio-link-pending').count(),0);
   const albumMetrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cards:[...document.querySelectorAll('.radio-album')].some(c=>c.scrollWidth>c.clientWidth)}));
   assert.ok(albumMetrics.overflow<=4,JSON.stringify(albumMetrics));assert.equal(albumMetrics.cards,false);
+  assert.equal(await page.locator('.radio-album a').evaluateAll(a=>a.every(x=>x.getBoundingClientRect().height>=44)),true);
   assert.ok(await page.locator('.radio-album-view').innerText().then(text=>!text.includes('Zoe')));
   if(language==='en'&&[320,412,1280].includes(width))await page.screenshot({path:new URL('../test-artifacts/radio/albums-'+surface+'-'+width+'.png',import.meta.url).pathname,fullPage:true});
   const backLabels={de:'← Zurück zu Raider Radio',en:'← Back to Raider Radio',fr:'← Retour à Raider Radio',es:'← Volver a Raider Radio',it:'← Torna a Raider Radio'};
