@@ -10,13 +10,16 @@
   };
   const esc=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const normalizeFoundIn=value=>[...new Set((Array.isArray(value)?value:typeof value==='string'?value.split(','):[]).map(v=>String(v).trim()).filter(Boolean))];
-  const currentLang=()=>['de','en','fr','es','it'].includes(window.lang)?window.lang:(localStorage.getItem('arcLang')||'de');
+  const currentLang=()=>{
+    const appLang=typeof lang!=='undefined'?lang:'';
+    return ['de','en','fr','es','it'].includes(appLang)?appLang:(localStorage.getItem('arcLang')||'de');
+  };
   const openIds=new Set();
 
   function render(item){
-    const lang=currentLang();
-    const t=labels[lang]||labels.en;
-    const data=window.RFTItemLocations?.get(item,lang)||{foundIn:item?.foundIn||'',sources:[],maps:[]};
+    const uiLang=currentLang();
+    const t=labels[uiLang]||labels.en;
+    const data=window.RFTItemLocations?.get(item,uiLang)||{foundIn:item?.foundIn||'',sources:[],maps:[]};
     const areas=normalizeFoundIn(data.foundIn);
     const sources=Array.isArray(data.sources)?data.sources:[];
     const maps=Array.isArray(data.maps)?data.maps:[];
@@ -34,7 +37,7 @@
   }
 
   function enhance(){
-    const list=Array.isArray(window.items)?window.items:[];
+    const list=typeof items!=='undefined'&&Array.isArray(items)?items:[];
     document.querySelectorAll('#out .card[data-item-id]').forEach(card=>{
       const id=card.dataset.itemId;
       if(!id||card.querySelector('.item-find-locations')) return;
