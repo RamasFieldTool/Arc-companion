@@ -1,0 +1,12 @@
+/* Item search: possible find locations. Kept isolated from the legacy stylesheet. */
+.find-locations{margin-top:11px;border:1px solid #55523e;background:#171913;max-width:100%;overflow:hidden}
+.find-locations summary{cursor:pointer;list-style:none;padding:9px 10px;color:var(--amber);font-weight:700;letter-spacing:.025em;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.find-locations summary::-webkit-details-marker{display:none}
+.find-locations summary:after{content:'+';font:700 18px ui-monospace,"Courier New",monospace;color:var(--cream-soft)}
+.find-locations[open] summary:after{content:'−'}
+.find-locations[open] summary{border-bottom:1px solid #55523e;background:#20231c}
+.find-locations-body{display:grid;gap:7px;padding:10px;font-size:14px;line-height:1.35;color:var(--cream-soft);overflow-wrap:anywhere}
+.find-locations-body b{color:var(--cream)}
+.find-locations-body small{display:block;margin-top:2px;padding-top:7px;border-top:1px dashed #55523e;color:#aaa38b;font-size:11px}
+.find-locations-body a{color:var(--amber)}
+@media(max-width:420px){.find-locations-body{padding:9px}.find-locations summary{padding:9px}}
