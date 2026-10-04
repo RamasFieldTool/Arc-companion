@@ -15,7 +15,7 @@
   let bots=FALLBACK;
   const opened=new Set();
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const language=()=>{const ui=document.documentElement.dataset.uiLanguage||(typeof lang==='string'?lang:'en');return I18N[ui]?ui:'en'};
+  const language=()=>{const ui=localStorage.getItem('arcUiLanguage')||document.documentElement.dataset.uiLanguage||(typeof lang==='string'?lang:'en');return I18N[ui]?ui:'en'};
   const txt=k=>I18N[language()][k];
   const foundIn=v=>[...new Set((Array.isArray(v)?v:typeof v==='string'?v.split(','):[]).map(x=>String(x).trim()).filter(Boolean))];
   const mapName=id=>MAPS[id]?.[language()]||MAPS[id]?.en||String(id).replaceAll('_',' ');
