@@ -54,3 +54,31 @@
 #helpContent .help-topic>p{margin:0;padding:0 14px 16px;font-size:15px;line-height:1.7;max-width:72ch;color:var(--ui-text)}
 #helpContent .help-topic>summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:10px}
 body.launcher-mode #launcherHelp>summary{display:none!important}
+
+/* Integrated tester appearance rules from #116. Kept here so the combined review can load them without discarding other index.html asset changes. */
+html[data-surface="light"][data-accent="orange"]{--rft-primary:#ad4e00;--rft-secondary:#8a5400}
+html[data-surface="light"][data-accent="amber"]{--rft-primary:#9a6400;--rft-secondary:#7a4e00}
+html[data-surface="light"][data-accent="green"]{--rft-primary:#18794e;--rft-secondary:#12613e}
+html[data-surface="light"][data-accent="cyan"]{--rft-primary:#006f8a;--rft-secondary:#00586e}
+html[data-surface="black"][data-accent="orange"]{--rft-primary:#ff7a1a;--rft-secondary:#f4b942}
+html[data-surface="black"][data-accent="amber"]{--rft-primary:#f4b942;--rft-secondary:#ffd36a}
+html[data-surface="black"][data-accent="green"]{--rft-primary:#55c48d;--rft-secondary:#91e3b8}
+html[data-surface="black"][data-accent="cyan"]{--rft-primary:#35c2e5;--rft-secondary:#8de8f7}
+html[data-accent] body.palette-enabled,html[data-accent] body.palette-enabled .launcher-section{--orange:var(--rft-primary)!important;--amber:var(--rft-secondary)!important;--accent:var(--rft-primary)!important}
+html[data-accent] body.palette-enabled .goal-station-name{min-width:0;flex:1;font:700 1.05rem/1.45 system-ui,sans-serif!important;color:var(--ui-text)!important;overflow-wrap:anywhere}
+html[data-accent] body.palette-enabled .goal-station-meta{flex:none;max-width:5.5em;text-align:right;overflow-wrap:anywhere}
+html[data-accent] body.palette-enabled #planningSection :is(.planning-tabs button[aria-selected="true"],.planning-categories button[aria-pressed="true"]){background:color-mix(in srgb,var(--amber) 15%,var(--ui-panel))!important;color:var(--ui-text)!important;-webkit-text-fill-color:currentColor!important;border-color:var(--amber)!important;box-shadow:inset 0 -3px 0 var(--amber)!important}
+html[data-accent] body.palette-enabled :is(#launcherHeading,#detailTitle){font-family:system-ui,-apple-system,"Segoe UI",sans-serif!important;font-size:clamp(1.4rem,4.8vw,1.9rem)!important;font-weight:750!important;line-height:1.25!important;letter-spacing:-.025em!important;text-transform:none!important;overflow-wrap:anywhere;color:var(--ui-text)!important}
+html[data-accent] body.palette-enabled #detailHero{border-inline-start:4px solid var(--amber)!important;padding-inline-start:16px!important;gap:14px!important}
+html[data-accent] body.palette-enabled #detailHero .detail-icon{background:color-mix(in srgb,var(--amber) 14%,var(--ui-panel))!important;color:var(--amber)!important;border:1px solid color-mix(in srgb,var(--amber) 45%,var(--ui-line))!important}
+html[data-accent] body.palette-enabled :is(.goalhead,.planning-goal-group>h3,.search-group-head){font-family:system-ui,-apple-system,"Segoe UI",sans-serif!important;font-size:1.05rem!important;font-weight:700!important;line-height:1.45!important;letter-spacing:0!important;color:var(--ui-text)!important;overflow-wrap:anywhere}
+html[data-accent] body.palette-enabled :is(.card h3,.quest-card h3,.blueprint-row b){font-size:1rem!important;line-height:1.45!important;overflow-wrap:anywhere}
+html[data-accent] body.palette-enabled :is(.app-tile,.launcher-utilities button){border-color:color-mix(in srgb,var(--amber) 42%,var(--ui-line))!important}
+html[data-accent] body.palette-enabled .app-tile .app-icon{color:var(--amber)!important;background:color-mix(in srgb,var(--amber) 12%,var(--ui-panel))!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(.planning-tabs button[aria-selected="true"],.planning-categories button[aria-pressed="true"],.blueprint-filter.active,.quest-filter.active,.levelbtn.is-active){background:color-mix(in srgb,var(--amber) 15%,var(--ui-panel))!important;color:var(--ui-text)!important;border-color:var(--amber)!important;box-shadow:inset 0 -3px 0 var(--amber)!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active .levelbtn.is-active .level-label{color:var(--ui-text)!important}
+html[data-accent] body.palette-enabled :is(.app-tile,.launcher-utilities button,#appBack,.planning-tabs button,.planning-categories button,.blueprint-filter,.quest-filter):focus-visible{outline:3px solid var(--amber)!important;outline-offset:3px!important}
+html[data-accent] body.palette-enabled .levelbtn:has(input:focus-visible){outline:3px solid var(--amber)!important;outline-offset:3px!important}
+html[data-accent] body.palette-enabled .launcher-active :is(.inline-info,.find-locations,.blueprint-info){border-inline-start:3px solid var(--amber)!important}
+html[data-accent] body.palette-enabled .launcher-active :is(.find-locations>summary,.blueprint-info>summary){color:var(--amber)!important}
+@media(max-width:420px){html[data-accent] body.palette-enabled #detailHero{padding-inline-start:12px!important}html[data-accent] body.palette-enabled #detailStatus{line-height:1.5!important;overflow-wrap:anywhere}}
