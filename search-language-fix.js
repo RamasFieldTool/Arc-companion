@@ -103,21 +103,32 @@ recyclingText=function(i){
   return german && german!=='—' ? german : tr('noRecycle');
 };
 
-T.de.directHits='Direkte Treffer';
-T.en.directHits='Direct matches';
-T.de.recycleSources='Durch Recycling erhältlich';
-T.en.recycleSources='Available through recycling';
-T.de.recycleSourceHint='Diese Items enthalten den gesuchten Gegenstand beim Zerlegen.';
-T.en.recycleSourceHint='These items yield the searched item when recycled.';
-T.de.yields='Ergibt';
-T.en.yields='Yields';
+const SEARCH_RESULT_COPY={
+  de:{directHits:'Direkte Treffer',recycleSources:'Durch Recycling erhältlich',recycleSourceHint:'Diese Items enthalten den gesuchten Gegenstand beim Zerlegen.',yields:'Ergibt'},
+  en:{directHits:'Direct matches',recycleSources:'Available through recycling',recycleSourceHint:'These items yield the searched item when recycled.',yields:'Yields'},
+  fr:{directHits:'Résultats directs',recycleSources:'Disponible par recyclage',recycleSourceHint:'Ces objets fournissent l’objet recherché lorsqu’ils sont recyclés.',yields:'Produit'},
+  es:{directHits:'Resultados directos',recycleSources:'Disponible mediante reciclaje',recycleSourceHint:'Estos objetos proporcionan el objeto buscado al reciclarlos.',yields:'Produce'},
+  it:{directHits:'Risultati diretti',recycleSources:'Disponibile tramite riciclo',recycleSourceHint:'Questi oggetti forniscono l’oggetto cercato quando vengono riciclati.',yields:'Produce'}
+};
+
+function searchResultCopy(){
+  let uiLanguage=document.documentElement.lang||lang;
+  try{uiLanguage=localStorage.getItem('arcUiLanguage')||uiLanguage}catch{}
+  return SEARCH_RESULT_COPY[uiLanguage]||SEARCH_RESULT_COPY.en;
+}
+
+Object.entries(SEARCH_RESULT_COPY).forEach(([code,copy])=>{
+  if(!T[code]) T[code]={};
+  Object.assign(T[code],copy);
+});
 
 function recyclingSourceCard(i,query){
   const yieldText=recyclingMatchText(i,query);
+  const copy=searchResultCopy();
   return `<div class="recycle-source-card">
     <div class="recycle-source-main">
       <div class="recycle-source-name">${itemName(i)}</div>
-      <div class="recycle-source-yield"><span>${T[lang].yields}:</span> ${yieldText}</div>
+      <div class="recycle-source-yield"><span>${copy.yields}:</span> ${yieldText}</div>
     </div>
     <div class="recycle-source-full">${card(i)}</div>
   </div>`;
@@ -137,6 +148,7 @@ drawItems=function(){
   const directIds=new Set(direct.map(i=>i.id));
   const recycling=items.filter(i=>!directIds.has(i.id)&&matchesRecyclingOutput(i,query));
   const total=direct.length+recycling.length;
+  const copy=searchResultCopy();
 
   status.classList.remove('load-error');
   status.textContent=`${total} ${tr('matches')} · ${items.length} ${tr('records')}`;
@@ -147,8 +159,8 @@ drawItems=function(){
   }
 
   out.innerHTML=`
-    ${direct.length?`<section class="search-result-group"><div class="search-group-head"><b>${T[lang].directHits}</b><span>${direct.length}</span></div><div class="search-group-list">${direct.map(card).join('')}</div></section>`:''}
-    ${recycling.length?`<section class="search-result-group recycle-group"><div class="search-group-head"><div><b>${T[lang].recycleSources}</b><small>${T[lang].recycleSourceHint}</small></div><span>${recycling.length}</span></div><div class="recycle-source-list">${recycling.map(i=>recyclingSourceCard(i,query)).join('')}</div></section>`:''}
+    ${direct.length?`<section class="search-result-group"><div class="search-group-head"><b>${copy.directHits}</b><span>${direct.length}</span></div><div class="search-group-list">${direct.map(card).join('')}</div></section>`:''}
+    ${recycling.length?`<section class="search-result-group recycle-group"><div class="search-group-head"><div><b>${copy.recycleSources}</b><small>${copy.recycleSourceHint}</small></div><span>${recycling.length}</span></div><div class="recycle-source-list">${recycling.map(i=>recyclingSourceCard(i,query)).join('')}</div></section>`:''}
   `;
 };
 
