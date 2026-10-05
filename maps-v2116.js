@@ -63,7 +63,7 @@
     document.head.appendChild(style);
   }
   const script=document.createElement('script');
-  script.src='spaceport-v2.js?v=community-review-5';
+  script.src='spaceport-v2.js?v=source-audit-1';
   script.defer=true;
   script.dataset.spaceportV2Loader='true';
   script.addEventListener('load',()=>{
