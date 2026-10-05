@@ -27,6 +27,18 @@ Chromium war zunächst nicht installiert. Der erste CDN-Download lieferte ein un
 
 Der lokale Arbeitsbereich wurde später während der Sitzung geleert. Branches und PRs waren bereits auf GitHub gespeichert; lokale Logs und Screenshots mussten neu erstellt werden. Frühere Ergebnisse sind von den anschließend wiederholten finalen Prüfungen zu unterscheiden.
 
+## Abschlussprüfungen der kombinierten Fassung
+
+Nach Wiederherstellung des Arbeitsbereichs erneut bestanden: `data-integrity`, `planning-core`, `item-find-locations`, `workshop-materials`, `quality-gate`, `planning-usability`, `i18n-smoke`, `italian-language`, `item-find-locations-browser` sowie `git diff --check`.
+
+Zusätzlicher kontrollierter Browserlauf bestanden: DE/EN/FR/ES/IT jeweils auf 360 und 1280 Pixeln. Werkstattmaterialien vor Auswahl, zwei gemeinsam aktive Stufen, gemeinsamer Metallbedarf 83 mit Bestand 7 und Fehlmenge 76, Abwahl mit Bedarf 63, persönliche Zielmenge 3 unverändert und Auswahl nach Neuladen erhalten. Acht Hilfethemen, Tastatur-Enter und zwei gleichzeitig geöffnete Themen, ausgeblendeter redundanter Außenpfeil und kein horizontales Scrollen geprüft. In jedem Kontext acht Kombinationen aus light/black und orange/amber/green/cyan: unterschiedliche wirksame Hauptfarben, separate Nebenfarben, ausgewählte Werkstattkategorie mit Textkontrast mindestens 4,5:1, sichtbarer Tastaturfokus und keine horizontal abgeschnittenen Werkstattnamen. Dies ist keine vollständige Kontrastmessung jedes Elements. Handy-Screenshots der Hilfe und Werkstatt wurden visuell geprüft.
+
+Die finalen lokalen Gesamtläufe `user-data-safety`, `ui-regression` und `raider-radio` scheiterten wieder an externen `net::ERR_EMPTY_RESPONSE`-Ladefehlern. Alle sieben vorgeschalteten Datensicherheits-Assertions bestanden einschließlich Backup-Rundlauf, Import in frischem Browserkontext, Altbackup-Migration und Ablehnung unsicherer Dateien; der Gesamtlauf bleibt trotzdem fehlgeschlagen.
+
+GitHub Quality Gate erfolgreich für die Implementierungsstände: #113 `86e940de39e0a55e85d62ce4c766ea1dc9e8f770` (Lauf 320), #114 `4d77988ec7523adece00318efe6b9510378eb43e` (321), #115 `9488e5ce00332550e4571bb7c4e5591fb1326aca` (319), #116 `f609b5a57493cc32b66de0faf2e43c9e414646da` (322), #117 `5d17e13c48cb6a0a931e787f36626dcf582d7ac1` (323). Dieser Bericht wird anschließend ausschließlich dokumentarisch ergänzt; die angegebenen CI-Ergebnisse gelten exakt für diese SHAs.
+
+Zusätzlicher Datenvergleich erfolgreich: ursprünglicher Raumhafen-Bildpfad und sämtliche Punkte jedes Layers identisch zu main; `items.json`, `goals.json`, `blueprint-acquisition-v2130.json` und `planning-core.js` unverändert. Die Quellen-/Methodenhinweise wurden präzisiert, keine Position verschoben. main wurde am Ende erneut remote geprüft und steht weiterhin auf dem Ausgangscommit.
+
 ## Verwendete Datenquellen
 
 | Quelle | Tatsächlich geprüft | Nicht daraus ableitbar |
@@ -71,7 +83,7 @@ Dieses PR korrigiert deshalb die öffentlichen Aussagen: illustrative Kartenbasi
 2. [#113 – Werkstattmaterialien und Rückmeldung](https://github.com/RamasFieldTool/Arc-companion/pull/113)
 3. [#114 – Hilfe und erkennbare Startseiten-Navigation](https://github.com/RamasFieldTool/Arc-companion/pull/114)
 4. [#116 – Header und Theme-Nebenfarben](https://github.com/RamasFieldTool/Arc-companion/pull/116)
-5. Quellen-/Kartenhinweise in diesem PR; gemeinsame Abnahme nach Zusammenführung.
+5. [#117 – Quellen-/Kartenhinweise und Prüfbericht](https://github.com/RamasFieldTool/Arc-companion/pull/117). Die fünf Änderungen wurden lokal kombiniert geprüft; die spätere tatsächliche Zusammenführung muss erneut getestet werden.
 
 Mehrere PRs ändern dieselbe lange Asset-Zeile in `index.html`. Die Versionseinträge müssen bei der später autorisierten Zusammenführung gemeinsam erhalten werden; das bloße Übernehmen einer Konfliktseite würde Änderungen verlieren. Der lokale Integrationstest kombiniert ausdrücklich alle Cache-Buster und Dateien. Kein Merge in main erfolgt automatisch.
 
