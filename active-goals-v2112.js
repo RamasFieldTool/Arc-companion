@@ -61,6 +61,7 @@
       return `<li><span>${escapeHtml(item?itemName(item):req.itemId)}</span><b>${escapeHtml(req.quantity)} ×</b></li>`;
     }).join('')}</ul>`;
   }
+  window.RFTWorkshopDisplay={materials,feedback};
 
   drawGoals=function(){
     goalsEl.innerHTML=goals.map(g=>`
