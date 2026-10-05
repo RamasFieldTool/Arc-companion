@@ -177,6 +177,7 @@ try{
     assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+1));
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
+    await page.waitForFunction(()=>typeof window.arcSetLanguage==='function');
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
     assert.equal(await page.locator('.fan-story-card').count(),3);
     const cardExpected=zoeSource.translations[await page.evaluate(()=>document.documentElement.lang)];
