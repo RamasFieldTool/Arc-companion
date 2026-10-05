@@ -42,6 +42,26 @@
     return `<small class="goal-extra"><span>${T[lang].additionalCost}:</span> ${values.join(' · ')}</small>`;
   }
 
+  const WORKSHOP_COPY={
+    de:{added:'Materialbedarf unter „Was fehlt mir?“ hinzugefügt.',removed:'Materialbedarf dieser Stufe aus „Was fehlt mir?“ entfernt.'},
+    en:{added:'Material requirements added under “What am I missing?”.',removed:'This level’s requirements removed from “What am I missing?”.'},
+    fr:{added:'Besoins en matériaux ajoutés dans « Que me manque-t-il ? ».',removed:'Besoins de ce niveau retirés de « Que me manque-t-il ? ».'},
+    es:{added:'Materiales necesarios añadidos en « ¿Qué me falta? ».',removed:'Materiales de este nivel retirados de « ¿Qué me falta? ».'},
+    it:{added:'Materiali necessari aggiunti in « Cosa mi manca? ».',removed:'Materiali di questo livello rimossi da « Cosa mi manca? ».'}
+  };
+  const notice=document.createElement('p');notice.className='workshop-feedback';notice.setAttribute('role','status');notice.setAttribute('aria-live','polite');goalsEl.before(notice);
+  let lastChange=null;
+  function feedback(){
+    const copy=WORKSHOP_COPY[localStorage.getItem('arcUiLanguage')||lang]||WORKSHOP_COPY.en;
+    notice.textContent=lastChange===null?'':copy[lastChange?'added':'removed'];
+  }
+  function materials(level){
+    return `<ul class="workshop-materials">${(level.requirements||[]).map(req=>{
+      const item=itemById(req.itemId);
+      return `<li><span>${escapeHtml(item?itemName(item):req.itemId)}</span><b>${escapeHtml(req.quantity)} ×</b></li>`;
+    }).join('')}</ul>`;
+  }
+
   drawGoals=function(){
     goalsEl.innerHTML=goals.map(g=>`
       <div class="goalbox">
@@ -53,6 +73,7 @@
             return `<label class="levelbtn${isActive?' is-active':''}">
               <input type="checkbox" data-key="${k}" ${isActive?'checked':''}>
               <span class="level-label">${tr('level')} ${l.level}</span>
+              ${materials(l)}
               ${extraCost(l)}
             </label>`;
           }).join('')}
@@ -63,11 +84,13 @@
       el.addEventListener('change',e=>toggleGoal(e.target.dataset.key,e.target.checked));
     });
     refreshGoalSummary();
+    feedback();
   };
 
   toggleGoal=function(k,checked){
     if(checked) active[k]=true; else delete active[k];
     localStorage.setItem('arcActiveGoals',JSON.stringify(active));
+    lastChange=checked;
     drawGoals();
     drawSummary();
     drawItems();
@@ -76,4 +99,5 @@
   // drawGoals is already called by applyLanguage(), so the active-count label
   // stays synchronized without an additional MutationObserver.
   drawGoals();
+  window.addEventListener('arc-language-change',()=>{drawGoals();feedback()});
 })();
