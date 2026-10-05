@@ -53,3 +53,4 @@
 #helpContent .help-topic-action{font-size:12px;line-height:1.5;color:var(--amber)}
 #helpContent .help-topic>p{margin:0;padding:0 14px 16px;font-size:15px;line-height:1.7;max-width:72ch;color:var(--ui-text)}
 #helpContent .help-topic>summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:10px}
+body.launcher-mode #launcherHelp>summary{display:none!important}
