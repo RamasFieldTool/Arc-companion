@@ -1,3 +1,5 @@
+> Fortsetzung: [Vollständige lokale Quality-Gate-Nachprüfung](tester-feedback-full-quality-gate.md) am Commit `4f833c653b74f74ffe942f91f859f95e48104e85`: 19/19 Skripte mit Exit 0. Die folgenden Angaben beschreiben den jeweiligen früheren Lauf.
+
 # Testerfeedback: Netzwerk-Nachprüfung vom 06.10.2026
 
 **VERIFIZIERT: Die drei zuvor extern gescheiterten lokalen Gesamttests bestanden jetzt mit Exit 0 und ohne zusätzliche Ersatzantworten. Ein vollständiger GitHub-Actions-Lauf wird damit nicht behauptet.**
