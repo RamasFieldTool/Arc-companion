@@ -3,90 +3,6 @@
     {
       "type": "major",
       "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T00:00:00.000Z",
-          "end": "2026-10-05T01:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T07:00:00.000Z",
-          "end": "2026-10-05T08:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T06:00:00.000Z",
-          "end": "2026-10-05T07:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T19:00:00.000Z",
-          "end": "2026-10-04T20:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T15:00:00.000Z",
-          "end": "2026-10-04T16:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Launch Tower Loot",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T00:00:00.000Z",
-          "end": "2026-10-05T01:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T07:00:00.000Z",
-          "end": "2026-10-05T08:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T06:00:00.000Z",
-          "end": "2026-10-05T07:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T19:00:00.000Z",
-          "end": "2026-10-04T20:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T15:00:00.000Z",
-          "end": "2026-10-04T16:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/launch-tower-loot.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T00:00:00.000Z",
-          "end": "2026-10-05T01:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T07:00:00.000Z",
-          "end": "2026-10-05T08:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T06:00:00.000Z",
-          "end": "2026-10-05T07:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T19:00:00.000Z",
-          "end": "2026-10-04T20:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T15:00:00.000Z",
-          "end": "2026-10-04T16:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
       "mapDisplayName": "Buried City",
       "regions": {
         "europe": {
@@ -4397,5 +4313,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-10-05T07:34:36Z"
+  "syncedAt": "2026-10-05T08:12:42Z"
 }
