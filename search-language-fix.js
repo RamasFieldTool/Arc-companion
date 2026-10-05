@@ -26,7 +26,7 @@ function directItemSearchCorpus(i){
   // matched unrelated items merely because their description contained "Hochleistung".
   const values=[
     i?.id,
-    i?.name?.de,i?.name?.en,
+    i?.name?.de,i?.name?.en,i?.name?.fr,i?.name?.es,i?.name?.it,
     i?.de,i?.en
   ];
   const normal=searchNorm(values.filter(Boolean).join(' '));
@@ -39,7 +39,7 @@ function recyclingOutputCorpus(i){
     Object.keys(i.recyclesInto).forEach(id=>{
       values.push(id);
       const target=itemById(id);
-      if(target) values.push(target?.name?.de,target?.name?.en,target?.de,target?.en);
+      if(target) values.push(target?.name?.de,target?.name?.en,target?.name?.fr,target?.name?.es,target?.name?.it,target?.de,target?.en);
     });
   }
   const normal=searchNorm(values.filter(Boolean).join(' '));
@@ -65,7 +65,7 @@ function recyclingMatchText(i,query){
   if(!rec || typeof rec!=='object') return '';
   const hits=Object.entries(rec).filter(([id])=>{
     const target=itemById(id);
-    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.de,target?.en].filter(Boolean).join(' '));
+    const normal=searchNorm([id,target?.name?.de,target?.name?.en,target?.name?.fr,target?.name?.es,target?.name?.it,target?.de,target?.en].filter(Boolean).join(' '));
     const corpus={normal,compact:normal.replace(/\s+/g,'')};
     return corpusMatches(corpus,terms);
   }).map(([id,n])=>{

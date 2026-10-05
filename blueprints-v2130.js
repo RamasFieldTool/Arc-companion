@@ -29,7 +29,7 @@
   const tr=k=>(T[lang()]||T.en)[k];
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function save(){localStorage.setItem(KEY,JSON.stringify([...learned]));}
-  function primary(x){return x['name_'+lang()]||x.name_en||x.name_de||x.name||x.id;}
+  function primary(x){const source=typeof itemById==='function'?itemById(x.id.replaceAll('-','_')+'_blueprint'):null;return x['name_'+lang()]||source?.name?.[lang()]||x.name_en||x.name_de||x.name||x.id;}
   function secondary(x){return tr('plan');}
   function value(z,k){if(z===true)return tr('yes');if(z===false)return tr('no');return z===null||z===undefined?tr('unknown'):(window.RFTDataLabels?.value(z,k)||z);}
 
@@ -88,7 +88,7 @@
     const q=($('blueprintQ')?.value||'').trim().toLowerCase();
     const rows=data.filter(x=>{
       const a=x.acquisition||{};
-      const hay=[x.name_de,x.name_en,x.name,x.station,x.type,a.map,a.condition,a.container,a.quest,a.trials].filter(Boolean).join(' ').toLowerCase();
+      const hay=[primary(x),x.name_de,x.name_en,x.name,x.station,x.type,a.map,a.condition,a.container,a.quest,a.trials].filter(Boolean).join(' ').toLowerCase();
       return(!q||hay.includes(q))&&(filter==='all'||(filter==='learned')===learned.has(x.id));
     });
 
@@ -106,7 +106,7 @@
   async function init(){
     syncStatic();
     const drawer=$('blueprintDrawer');
-    drawer?.addEventListener('toggle',syncStatic);
+    drawer?.addEventListener('toggle',()=>{if(drawer.open&&data.length)render();else syncStatic()});
     try{
       const [bp,acq]=await Promise.all([
         fetch('blueprints.json?v=2130d').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}),
