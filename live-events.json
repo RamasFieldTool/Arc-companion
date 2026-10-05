@@ -1,90 +1,6 @@
 {
   "conditions": [
     {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T04:00:00.000Z",
-          "end": "2026-10-05T05:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T11:00:00.000Z",
-          "end": "2026-10-05T12:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T10:00:00.000Z",
-          "end": "2026-10-05T11:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T23:00:00.000Z",
-          "end": "2026-10-05T00:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T19:00:00.000Z",
-          "end": "2026-10-04T20:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Launch Tower Loot",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T04:00:00.000Z",
-          "end": "2026-10-05T05:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T11:00:00.000Z",
-          "end": "2026-10-05T12:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T10:00:00.000Z",
-          "end": "2026-10-05T11:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T23:00:00.000Z",
-          "end": "2026-10-05T00:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T19:00:00.000Z",
-          "end": "2026-10-04T20:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/launch-tower-loot.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T04:00:00.000Z",
-          "end": "2026-10-05T05:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T11:00:00.000Z",
-          "end": "2026-10-05T12:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T10:00:00.000Z",
-          "end": "2026-10-05T11:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T23:00:00.000Z",
-          "end": "2026-10-05T00:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T19:00:00.000Z",
-          "end": "2026-10-04T20:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
       "type": "minor",
       "conditionName": "Bird City",
       "mapDisplayName": "Buried City",
@@ -4509,5 +4425,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/electromagnetic-storm.svg"
     }
   ],
-  "syncedAt": "2026-10-05T11:47:56Z"
+  "syncedAt": "2026-10-05T12:10:43Z"
 }
