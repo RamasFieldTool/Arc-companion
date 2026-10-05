@@ -4255,7 +4255,147 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T15:00:00.000Z",
+          "end": "2026-10-06T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T22:00:00.000Z",
+          "end": "2026-10-06T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T10:00:00.000Z",
+          "end": "2026-10-06T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T06:00:00.000Z",
+          "end": "2026-10-06T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T15:00:00.000Z",
+          "end": "2026-10-06T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T22:00:00.000Z",
+          "end": "2026-10-06T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T10:00:00.000Z",
+          "end": "2026-10-06T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T06:00:00.000Z",
+          "end": "2026-10-06T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Beachcombing",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T15:00:00.000Z",
+          "end": "2026-10-06T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T22:00:00.000Z",
+          "end": "2026-10-06T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T10:00:00.000Z",
+          "end": "2026-10-06T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T06:00:00.000Z",
+          "end": "2026-10-06T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/beachcombing.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T15:00:00.000Z",
+          "end": "2026-10-06T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T22:00:00.000Z",
+          "end": "2026-10-06T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T10:00:00.000Z",
+          "end": "2026-10-06T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T06:00:00.000Z",
+          "end": "2026-10-06T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Electromagnetic Storm",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T15:00:00.000Z",
+          "end": "2026-10-06T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T22:00:00.000Z",
+          "end": "2026-10-06T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T10:00:00.000Z",
+          "end": "2026-10-06T11:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T06:00:00.000Z",
+          "end": "2026-10-06T07:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/electromagnetic-storm.svg"
     }
   ],
-  "syncedAt": "2026-10-05T05:12:53Z"
+  "syncedAt": "2026-10-05T05:34:04Z"
 }
