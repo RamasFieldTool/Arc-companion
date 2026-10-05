@@ -1,5 +1,7 @@
 # Testerfeedback: Work-Review vom 05.10.2026
 
+> **Aktualisierung 06.10.2026:** Die drei damals extern gescheiterten Gesamttests wurden mit korrigiertem Netzwerktransport erneut ausgeführt und bestanden ohne zusätzliche Ersatzantworten. Der vollständige [Nachprüfbericht](tester-feedback-network-recheck.md) ist maßgeblich für dieses neuere Ergebnis. Die folgenden Angaben dokumentieren weiterhin den früheren Lauf; ein vollständiger GitHub-Actions-Lauf wird auch nach der Nachprüfung nicht behauptet.
+
 ## Stand und Gesamturteil
 
 **TEILWEISE VERIFIZIERT.** Die geprüften App-Funktionen bestehen die unten aufgeführten lokalen Tests. Der unveränderte vollständige Quality-Gate-Ablauf ist wegen externer Ladefehler **nicht bestanden**. Kontrollierte Ersatzantworten erlauben zusätzlich erfolgreiche vollständige Datensicherheits-, Layout- und Radio-Tests; sie bestätigen keine externe Erreichbarkeit oder aktuellen Spieldaten.
