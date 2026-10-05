@@ -1,90 +1,6 @@
 {
   "conditions": [
     {
-      "type": "minor",
-      "conditionName": "Prospecting Probes",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T03:00:00.000Z",
-          "end": "2026-10-05T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T10:00:00.000Z",
-          "end": "2026-10-05T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T09:00:00.000Z",
-          "end": "2026-10-05T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T22:00:00.000Z",
-          "end": "2026-10-04T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T18:00:00.000Z",
-          "end": "2026-10-04T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/prospecting-probes.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T03:00:00.000Z",
-          "end": "2026-10-05T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T10:00:00.000Z",
-          "end": "2026-10-05T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T09:00:00.000Z",
-          "end": "2026-10-05T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T22:00:00.000Z",
-          "end": "2026-10-04T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T18:00:00.000Z",
-          "end": "2026-10-04T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T03:00:00.000Z",
-          "end": "2026-10-05T04:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-05T10:00:00.000Z",
-          "end": "2026-10-05T11:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-05T09:00:00.000Z",
-          "end": "2026-10-05T10:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-04T22:00:00.000Z",
-          "end": "2026-10-04T23:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-04T18:00:00.000Z",
-          "end": "2026-10-04T19:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Stella Montis",
@@ -4453,5 +4369,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/prospecting-probes.svg"
     }
   ],
-  "syncedAt": "2026-10-05T10:32:48Z"
+  "syncedAt": "2026-10-05T11:10:10Z"
 }
