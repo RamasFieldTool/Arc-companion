@@ -132,7 +132,7 @@
     el('liveEventsUpcomingTitle').textContent=c.upcoming;
     const remoteSources={de:COPY.de.source,en:COPY.en.source,fr:'Source : flux officiel d’Embark',es:'Fuente: feed oficial de Embark',it:'Fonte: feed ufficiale Embark'};
     const fallbackSources={de:COPY.de.localSource,en:COPY.en.localSource,fr:'Source : données locales de secours – vérifier l’actualité',es:'Fuente: datos locales de respaldo – comprobar vigencia',it:'Fonte: dati locali di riserva – verificare l’aggiornamento'};
-    const uiLanguage=document.documentElement.dataset.uiLanguage||safeStorageGet('arcUiLanguage',language());
+    const uiLanguage=safeStorageGet('arcUiLanguage',document.documentElement.lang||language());
     el('liveEventsSourceText').textContent=state.source===LOCAL_DATA?(fallbackSources[uiLanguage]||fallbackSources.en):(remoteSources[uiLanguage]||remoteSources.en);
     el('liveEventsClose').textContent=c.closePanel;
     el('liveEventsAction').textContent=panel.open?c.close:c.open;
