@@ -21,12 +21,13 @@ for(const locale of Object.keys(copies))for(const fallback of [false,true]){
  await expect(page.locator('.recycle-source-yield>span').first()).toHaveText(copies[locale][2]+':');
  await expect(page.locator('#liveEventsSourceText')).toContainText(fallback?copies[locale][3]:({de:'offizieller Embark',en:'official Embark',fr:'officiel d’Embark',es:'oficial de Embark',it:'ufficiale Embark'}[locale]));
  if(await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth)>2)throw Error('Search overflow');
- await page.locator('#arcLanguageButton').click();
+ await page.locator('#appBack').click();await page.locator('#arcLanguageButton').click();
  const other=locale==='de'?'fr':'de';
  await page.locator(`#arcLanguageMenu [data-arc-language="${other}"]`).click();
- await expect(page.locator('.search-group-head>b').first()).toHaveText(copies[other][0]);
+ await page.locator('[data-app-target="itemsSection"]').click();await expect(page.locator('.search-group-head>b').first()).toHaveText(copies[other][0]);
+ await page.locator('#appBack').click();
  await page.locator('#arcLanguageButton').click();await page.locator(`#arcLanguageMenu [data-arc-language="${locale}"]`).click();
- await expect(page.locator('.search-group-head>b').first()).toHaveText(copies[locale][0]);
+ await page.locator('[data-app-target="itemsSection"]').click();await expect(page.locator('.search-group-head>b').first()).toHaveText(copies[locale][0]);
  console.log(`PASS search headings, yield, source and mobile overflow ${locale}/${fallback?'local':'remote'}`);await context.close();
 }
 }finally{await browser.close()}
