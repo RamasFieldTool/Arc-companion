@@ -4283,7 +4283,91 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Hurricane",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T14:00:00.000Z",
+          "end": "2026-10-06T15:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T20:00:00.000Z",
+          "end": "2026-10-06T21:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T09:00:00.000Z",
+          "end": "2026-10-06T10:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T05:00:00.000Z",
+          "end": "2026-10-06T06:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T14:00:00.000Z",
+          "end": "2026-10-06T15:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T20:00:00.000Z",
+          "end": "2026-10-06T21:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T09:00:00.000Z",
+          "end": "2026-10-06T10:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T05:00:00.000Z",
+          "end": "2026-10-06T06:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-10-06T14:00:00.000Z",
+          "end": "2026-10-06T15:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-06T21:00:00.000Z",
+          "end": "2026-10-06T22:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-06T20:00:00.000Z",
+          "end": "2026-10-06T21:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-06T09:00:00.000Z",
+          "end": "2026-10-06T10:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-06T05:00:00.000Z",
+          "end": "2026-10-06T06:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
     }
   ],
-  "syncedAt": "2026-10-05T04:10:52Z"
+  "syncedAt": "2026-10-05T04:31:32Z"
 }
