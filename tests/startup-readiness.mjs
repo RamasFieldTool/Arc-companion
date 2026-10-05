@@ -23,7 +23,7 @@ try{
    await expect(page.locator('#planningTabGoals')).toBeDisabled();
    await expect(page.locator('#planningTabMissing')).toBeDisabled();
    expect(await page.evaluate(()=>!!window.RFTPlanningUI)).toBe(false);
-   releaseUI();await expect(page.locator('#planningTabGoals')).toBeEnabled();
+   releaseUI();await page.waitForFunction(()=>!!window.RFTPlanningUI);await expect(page.locator('#planningTabGoals')).toBeEnabled();
    await page.locator('#planningTabGoals').click();await expect(page.locator('#planningGoals')).toBeVisible();
    await page.waitForFunction(()=>typeof items!=='undefined'&&items.some(item=>item.id==='metal_parts'));
    await page.locator('#appBack').click();await page.locator('[data-app-target="itemsSection"]').click();await page.locator('#q').fill('metal');
