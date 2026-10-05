@@ -116,7 +116,7 @@
     const c=copy(),key=eventKey(event),saved=readReminders().some(item=>item.key===key);
     const meta=`${event.type==='major'?c.major:c.minor} · ${active?c.ends:c.starts} ${localTime(active?event.end:event.start)}`;
     return `<article class="live-event-card ${active?'is-active':''} ${event.type==='major'?'is-major':''}">
-      <div class="live-event-copy"><strong>${escapeHtml(event.conditionName)}</strong><span>${escapeHtml(event.mapDisplayName)}</span><small>${escapeHtml(meta)}</small></div>
+      <div class="live-event-copy"><strong>${escapeHtml(window.RFTDataLabels?.value(event.conditionName,'condition')||event.conditionName)}</strong><span>${escapeHtml(window.RFTDataLabels?.value(event.mapDisplayName,'map')||event.mapDisplayName)}</span><small>${escapeHtml(meta)}</small></div>
       <div class="live-event-side"><span class="live-event-countdown" data-countdown="${(active?event.end:event.start).toISOString()}" data-mode="${active?'active':'upcoming'}">${active?c.activeFor:c.startsIn} ${duration(active?event.end:event.start)}</span>${active?'':`<button class="live-event-remind${saved?' is-set':''}" type="button" data-event-key="${escapeHtml(key)}" ${saved?'disabled':''}>${saved?c.remembered:c.remind}</button>`}</div>
     </article>`;
   }
@@ -228,6 +228,7 @@
   panel.addEventListener('toggle',render);
   el('deBtn')?.addEventListener('click',()=>setTimeout(render,0));
   el('enBtn')?.addEventListener('click',()=>setTimeout(render,0));
+  window.addEventListener('arc-language-change',render);
   setInterval(updateCountdowns,1000);
   setInterval(checkReminders,15000);
   checkReminders();load();

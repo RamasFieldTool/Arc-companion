@@ -72,7 +72,7 @@ const typeDE={
 };
 
 function tr(k){return T[lang][k]}
-function text(obj){return obj?.[lang]||obj?.en||obj?.de||''}
+function text(obj){if(typeof obj==='string')return obj;const ui=window.RFTDataLabels?.language()||lang;return obj?.[ui]||obj?.en||obj?.de||''}
 function itemName(i){return i?.name?text(i.name):(lang==='de'?(i?.de||i?.en):(i?.en||i?.de))||i?.id||''}
 function itemDesc(i){return i?.description?text(i.description):(i?.use||'')}
 function itemWeight(i){return i?.weightKg ?? i?.weight ?? null}
@@ -82,13 +82,9 @@ function key(goalId,level){return `${goalId}:${level}`}
 function questName(x){return text(x?.name)||x?.id?.replaceAll('_',' ')||''}
 function getQuestState(id){return questStates[id]||'open'}
 
-function goalName(g){return (lang==='de'?g.de:g.en)||g.de||g.en||g.id}
-function rarityName(r){return lang==='de'?(rarityDE[r]||r):r}
-function typeName(type){
-  if(!type) return '';
-  if(lang==='en') return type;
-  return typeDE[type]||'';
-}
+function goalName(g){const ui=window.RFTDataLabels?.language()||lang;return g[ui]||g.en||g.de||g.id}
+function rarityName(r){return window.RFTDataLabels?.value(r,'rarity')||r}
+function typeName(type){return window.RFTDataLabels?.value(type,'type')||type||''}
 function formatNum(n){
   if(n===null||n===undefined||n==='') return '—';
   return new Intl.NumberFormat(lang==='de'?'de-DE':'en-US',{maximumFractionDigits:2}).format(n);
@@ -456,3 +452,5 @@ async function boot(){
   }
 }
 boot();
+
+window.addEventListener('arc-language-change',()=>{drawGoals();drawQuestHeader();drawQuests();drawSummary();drawItems()});

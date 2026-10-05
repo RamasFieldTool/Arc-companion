@@ -167,4 +167,4 @@ try{
 }
 
 // Load the isolated optional find-location enhancement without changing search behavior.
-(()=>{const css=document.createElement('link');css.rel='stylesheet';css.href='item-find-locations.css?v=4';document.head.appendChild(css);const js=document.createElement('script');js.src='item-find-locations.js?v=4';document.head.appendChild(js)})();
+(()=>{const css=document.createElement('link');css.rel='stylesheet';css.href='item-find-locations.css?v=4';document.head.appendChild(css);const js=document.createElement('script');js.src='item-find-locations.js?v=external-labels-1';document.head.appendChild(js)})();
