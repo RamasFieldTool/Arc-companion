@@ -3,7 +3,7 @@
   let data=[],filter='all';
   const learned=new Set(JSON.parse(localStorage.getItem(KEY)||'[]'));
   const $=id=>document.getElementById(id);
-  const lang=()=>localStorage.getItem('arcLang')||document.documentElement.lang||'de';
+  const lang=()=>localStorage.getItem('arcUiLanguage')||localStorage.getItem('arcLang')||'en';
 
   // Only fields independently corroborated outside the community spawn table
   // are allowed to show the stronger CONFIRMED badge.
@@ -22,11 +22,16 @@
     en:{title:'BLUEPRINTS',all:'ALL',learned:'LEARNED',missing:'MISSING',plan:'Blueprint',learnedWord:'learned',missingWord:'missing',shown:'shown',saved:'Progress is saved on this device',none:'No results.',load:'Blueprint data could not be loaded.',show:'SHOW',hide:'CLOSE',intro:'Mark the blueprints you have already learned so you can immediately see which ones are still missing.',searchPlaceholder:'Search blueprints …',beta:'COMMUNITY BETA // Dataset is still being cross-checked before release.',info:'INFO / LOCATION',map:'Map',condition:'Condition',container:'Container',quest:'Quest',trials:'Trials',scavengable:'Scavengable',unknown:'Not confirmed',yes:'Yes',no:'No',community:'COMMUNITY DATA',confirmed:'CONFIRMED',trialRandom:'Trial rewards can be random; this blueprint is not guaranteed.',lootWarning:'Location data from community sources is not a guaranteed spawn.',sourceNote:'CONFIRMED is reserved for independently corroborated individual fields; all other non-empty values remain community data.',reset:'RESET',resetConfirm:'Reset all blueprints marked as learned back to unlearned? No other app data will be changed.'}
   };
 
-  const tr=k=>(T[lang()]||T.de)[k];
+  T.fr={"title": "PLANS", "all": "TOUS", "learned": "APPRIS", "missing": "MANQUANTS", "plan": "Plan", "learnedWord": "appris", "missingWord": "manquants", "shown": "affichés", "saved": "Progression enregistrée sur cet appareil", "none": "Aucun résultat.", "load": "Impossible de charger les plans.", "show": "AFFICHER", "hide": "FERMER", "intro": "Marquez les plans déjà appris pour voir ceux qui manquent.", "searchPlaceholder": "Rechercher un plan …", "beta": "BÊTA COMMUNAUTAIRE // Données encore en cours de vérification.", "info": "INFO / LIEU", "map": "Carte", "condition": "Condition", "container": "Conteneur", "quest": "Quête", "trials": "Épreuves", "scavengable": "Récupérable", "unknown": "Non confirmé", "yes": "Oui", "no": "Non", "community": "DONNÉES COMMUNAUTAIRES", "confirmed": "CONFIRMÉ", "trialRandom": "Les récompenses des épreuves peuvent être aléatoires ; ce plan n’est pas garanti.", "lootWarning": "Les lieux communautaires ne garantissent pas un butin.", "sourceNote": "CONFIRMÉ désigne uniquement les champs corroborés indépendamment ; les autres restent des données communautaires.", "reset": "RÉINITIALISER", "resetConfirm": "Réinitialiser tous les plans appris ? Les autres données restent inchangées."};
+  T.es={"title": "PLANOS", "all": "TODOS", "learned": "APRENDIDOS", "missing": "FALTAN", "plan": "Plano", "learnedWord": "aprendidos", "missingWord": "faltan", "shown": "mostrados", "saved": "Progreso guardado en este dispositivo", "none": "Sin resultados.", "load": "No se pudieron cargar los planos.", "show": "MOSTRAR", "hide": "CERRAR", "intro": "Marca los planos ya aprendidos para ver cuáles faltan.", "searchPlaceholder": "Buscar plano …", "beta": "BETA COMUNITARIA // Datos aún en proceso de comprobación.", "info": "INFO / UBICACIÓN", "map": "Mapa", "condition": "Condición", "container": "Contenedor", "quest": "Misión", "trials": "Pruebas", "scavengable": "Saqueable", "unknown": "Sin confirmar", "yes": "Sí", "no": "No", "community": "DATOS COMUNITARIOS", "confirmed": "CONFIRMADO", "trialRandom": "Las recompensas de las pruebas pueden ser aleatorias; este plano no está garantizado.", "lootWarning": "Las ubicaciones comunitarias no garantizan botín.", "sourceNote": "CONFIRMADO se reserva para campos corroborados de forma independiente; los demás siguen siendo datos comunitarios.", "reset": "RESTABLECER", "resetConfirm": "¿Restablecer todos los planos aprendidos? Los demás datos no cambiarán."};
+  T.it={"title": "PROGETTI", "all": "TUTTI", "learned": "APPRESI", "missing": "MANCANTI", "plan": "Progetto", "learnedWord": "appresi", "missingWord": "mancanti", "shown": "mostrati", "saved": "Progressi salvati su questo dispositivo", "none": "Nessun risultato.", "load": "Impossibile caricare i progetti.", "show": "MOSTRA", "hide": "CHIUDI", "intro": "Segna i progetti già appresi per vedere quelli mancanti.", "searchPlaceholder": "Cerca progetto …", "beta": "BETA COMMUNITY // Dati ancora in fase di verifica.", "info": "INFO / LUOGO", "map": "Mappa", "condition": "Condizione", "container": "Contenitore", "quest": "Missione", "trials": "Prove", "scavengable": "Saccheggiabile", "unknown": "Non confermato", "yes": "Sì", "no": "No", "community": "DATI COMMUNITY", "confirmed": "CONFERMATO", "trialRandom": "Le ricompense delle prove possono essere casuali; questo progetto non è garantito.", "lootWarning": "I luoghi indicati dalla community non garantiscono ritrovamenti.", "sourceNote": "CONFERMATO indica solo i campi corroborati indipendentemente; gli altri restano dati della community.", "reset": "REIMPOSTA", "resetConfirm": "Reimpostare tutti i progetti appresi? Gli altri dati non cambiano."};
+
+  const tr=k=>(T[lang()]||T.en)[k];
+  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function save(){localStorage.setItem(KEY,JSON.stringify([...learned]));}
-  function primary(x){return lang()==='en'?(x.name_en||x.name_de||x.name||x.id):(x.name_de||x.name_en||x.name||x.id);}
-  function secondary(x){const p=primary(x),alt=lang()==='en'?(x.name_de||''):(x.name_en||'');return alt&&alt!==p?alt:tr('plan');}
-  function value(z){if(z===true)return tr('yes');if(z===false)return tr('no');return z??tr('unknown');}
+  function primary(x){const source=typeof itemById==='function'?itemById(x.id.replaceAll('-','_')+'_blueprint'):null;return x['name_'+lang()]||source?.name?.[lang()]||x.name_en||x.name_de||x.name||x.id;}
+  function secondary(x){return tr('plan');}
+  function value(z,k){if(z===true)return tr('yes');if(z===false)return tr('no');return z===null||z===undefined?tr('unknown'):(window.RFTDataLabels?.value(z,k)||z);}
 
   function ensureReset(){
     const drawer=$('blueprintDrawer');
@@ -70,7 +75,7 @@
   function field(x,k){
     const a=x.acquisition||{};
     const s=status(x,k);
-    return `<div><b>${tr(k)}</b><span>${value(a[k])}</span><em class="bp-evidence bp-${s}">${s==='confirmed'?tr('confirmed'):s==='community'?tr('community'):tr('unknown')}</em></div>`;
+    return `<div><b>${tr(k)}</b><span>${esc(value(a[k],k))}</span><em class="bp-evidence bp-${s}">${s==='confirmed'?tr('confirmed'):s==='community'?tr('community'):tr('unknown')}</em></div>`;
   }
 
   function info(x){
@@ -83,11 +88,11 @@
     const q=($('blueprintQ')?.value||'').trim().toLowerCase();
     const rows=data.filter(x=>{
       const a=x.acquisition||{};
-      const hay=[x.name_de,x.name_en,x.name,x.station,x.type,a.map,a.condition,a.container,a.quest,a.trials].filter(Boolean).join(' ').toLowerCase();
+      const hay=[primary(x),x.name_de,x.name_en,x.name,x.station,x.type,a.map,a.condition,a.container,a.quest,a.trials].filter(Boolean).join(' ').toLowerCase();
       return(!q||hay.includes(q))&&(filter==='all'||(filter==='learned')===learned.has(x.id));
     });
 
-    $('blueprintList').innerHTML=rows.map(x=>`<div class="blueprint-entry ${learned.has(x.id)?'is-learned':''}"><button class="blueprint-row ${learned.has(x.id)?'is-learned':''}" data-id="${x.id}" type="button"><span class="blueprint-check">${learned.has(x.id)?'✓':'○'}</span><span><b>${primary(x)}</b><small>${secondary(x)}</small></span></button>${info(x)}</div>`).join('')||`<p class="muted">${tr('none')}</p>`;
+    $('blueprintList').innerHTML=rows.map(x=>`<div class="blueprint-entry ${learned.has(x.id)?'is-learned':''}"><button class="blueprint-row ${learned.has(x.id)?'is-learned':''}" data-id="${x.id}" type="button"><span class="blueprint-check">${learned.has(x.id)?'✓':'○'}</span><span><b>${esc(primary(x))}</b><small>${esc(secondary(x))}</small></span></button>${info(x)}</div>`).join('')||`<p class="muted">${tr('none')}</p>`;
 
     const validIds=new Set(data.map(x=>x.id));
     const n=[...learned].filter(id=>validIds.has(id)).length;
@@ -101,7 +106,7 @@
   async function init(){
     syncStatic();
     const drawer=$('blueprintDrawer');
-    drawer?.addEventListener('toggle',syncStatic);
+    drawer?.addEventListener('toggle',()=>{if(drawer.open&&data.length)render();else syncStatic()});
     try{
       const [bp,acq]=await Promise.all([
         fetch('blueprints.json?v=2130d').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}),
@@ -110,6 +115,7 @@
       data=bp.map(x=>({...x,acquisition:acq[x.id]||null}));
       $('blueprintQ').oninput=render;
       document.querySelectorAll('.blueprint-filter').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;render();});
+      window.addEventListener('arc-language-change',render);
       $('deBtn')?.addEventListener('click',()=>setTimeout(render,0));
       $('enBtn')?.addEventListener('click',()=>setTimeout(render,0));
       render();

@@ -69,6 +69,14 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/planning-usability.mjs
+      - name: Run workshop material visibility and shared stock regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/workshop-materials.mjs
+      - name: Run delayed startup readiness regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/startup-readiness.mjs
       - name: Run owned quantity stepper regression
         env:
           BASE_URL: http://127.0.0.1:4173/

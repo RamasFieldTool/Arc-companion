@@ -17,7 +17,7 @@
     de:{
       kicker:'LIVE INTEL',title:'LIVE-EVENTS',loading:'Offizielle Daten werden geladen …',open:'ÖFFNEN',close:'SCHLIESSEN',
       intro:'Aktuelle und kommende Kartenbedingungen aus dem offiziellen Embark-Feed. Zeiten erscheinen in deiner Gerätezeit.',
-      region:'SERVER-REGION',lead:'ERINNERUNG',active:'JETZT AKTIV',upcoming:'ALS NÄCHSTES',source:'Quelle: offizieller Embark-Feed',official:'OFFIZIELLE ÜBERSICHT',closePanel:'EVENTS SCHLIESSEN',
+      region:'SERVER-REGION',lead:'ERINNERUNG',active:'JETZT AKTIV',upcoming:'ALS NÄCHSTES',source:'Quelle: offizieller Embark-Feed',localSource:'Quelle: lokaler Ersatzstand – Aktualität prüfen',official:'OFFIZIELLE ÜBERSICHT',closePanel:'EVENTS SCHLIESSEN',
       remind:'ERINNERN',remembered:'GEMERKT',noneActive:'Zurzeit ist keine Kartenbedingung aktiv.',noneUpcoming:'Keine kommenden Events in den geladenen Daten.',
       activeFor:'noch',startsIn:'in',major:'MAJOR',minor:'MINOR',ends:'Ende',starts:'Start',
       loadError:'Live-Daten konnten gerade nicht geladen werden. Nutze bitte die offizielle Übersicht.',
@@ -32,7 +32,7 @@
     en:{
       kicker:'LIVE INTEL',title:'LIVE EVENTS',loading:'Loading official data …',open:'OPEN',close:'CLOSE',
       intro:'Current and upcoming map conditions from the official Embark feed. Times use your device timezone.',
-      region:'SERVER REGION',lead:'REMINDER',active:'ACTIVE NOW',upcoming:'UP NEXT',source:'Source: official Embark feed',official:'OFFICIAL OVERVIEW',closePanel:'CLOSE EVENTS',
+      region:'SERVER REGION',lead:'REMINDER',active:'ACTIVE NOW',upcoming:'UP NEXT',source:'Source: official Embark feed',localSource:'Source: local fallback – check freshness',official:'OFFICIAL OVERVIEW',closePanel:'CLOSE EVENTS',
       remind:'REMIND ME',remembered:'SAVED',noneActive:'No map condition is active right now.',noneUpcoming:'No upcoming events in the loaded data.',
       activeFor:'for',startsIn:'in',major:'MAJOR',minor:'MINOR',ends:'Ends',starts:'Starts',
       loadError:'Live data could not be loaded right now. Please use the official overview.',
@@ -116,7 +116,7 @@
     const c=copy(),key=eventKey(event),saved=readReminders().some(item=>item.key===key);
     const meta=`${event.type==='major'?c.major:c.minor} · ${active?c.ends:c.starts} ${localTime(active?event.end:event.start)}`;
     return `<article class="live-event-card ${active?'is-active':''} ${event.type==='major'?'is-major':''}">
-      <div class="live-event-copy"><strong>${escapeHtml(event.conditionName)}</strong><span>${escapeHtml(event.mapDisplayName)}</span><small>${escapeHtml(meta)}</small></div>
+      <div class="live-event-copy"><strong>${escapeHtml(window.RFTDataLabels?.value(event.conditionName,'condition')||event.conditionName)}</strong><span>${escapeHtml(window.RFTDataLabels?.value(event.mapDisplayName,'map')||event.mapDisplayName)}</span><small>${escapeHtml(meta)}</small></div>
       <div class="live-event-side"><span class="live-event-countdown" data-countdown="${(active?event.end:event.start).toISOString()}" data-mode="${active?'active':'upcoming'}">${active?c.activeFor:c.startsIn} ${duration(active?event.end:event.start)}</span>${active?'':`<button class="live-event-remind${saved?' is-set':''}" type="button" data-event-key="${escapeHtml(key)}" ${saved?'disabled':''}>${saved?c.remembered:c.remind}</button>`}</div>
     </article>`;
   }
@@ -130,7 +130,10 @@
     el('liveEventsLeadLabel').textContent=c.lead;
     el('liveEventsActiveTitle').textContent=c.active;
     el('liveEventsUpcomingTitle').textContent=c.upcoming;
-    el('liveEventsSourceText').textContent=c.source;
+    const remoteSources={de:COPY.de.source,en:COPY.en.source,fr:'Source : flux officiel d’Embark',es:'Fuente: feed oficial de Embark',it:'Fonte: feed ufficiale Embark'};
+    const fallbackSources={de:COPY.de.localSource,en:COPY.en.localSource,fr:'Source : données locales de secours – vérifier l’actualité',es:'Fuente: datos locales de respaldo – comprobar vigencia',it:'Fonte: dati locali di riserva – verificare l’aggiornamento'};
+    const uiLanguage=safeStorageGet('arcUiLanguage',document.documentElement.lang||language());
+    el('liveEventsSourceText').textContent=state.source===LOCAL_DATA?(fallbackSources[uiLanguage]||fallbackSources.en):(remoteSources[uiLanguage]||remoteSources.en);
     el('liveEventsClose').textContent=c.closePanel;
     el('liveEventsAction').textContent=panel.open?c.close:c.open;
     document.querySelector('.live-events-source a').textContent=c.official;
@@ -228,6 +231,7 @@
   panel.addEventListener('toggle',render);
   el('deBtn')?.addEventListener('click',()=>setTimeout(render,0));
   el('enBtn')?.addEventListener('click',()=>setTimeout(render,0));
+  window.addEventListener('arc-language-change',render);
   setInterval(updateCountdowns,1000);
   setInterval(checkReminders,15000);
   checkReminders();load();

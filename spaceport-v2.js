@@ -11,8 +11,8 @@
       loading:"Spaceport-Karte wird geladen …", raidersLegacy:"RAIDER-SPAWNS // NEU", casesLegacy:"WAFFENKISTEN // NEU",
       freight:"LASTENAUFZÜGE · ENTWURF", hatches:"RAIDER-LUKEN · ENTWURF",
       pending:"wird komplett neu kartiert", ready:"SPACEPORT // NEUE KARTENBASIS",
-      body:"Kartenbasis bestätigt. Lastenaufzüge und Raider-Luken stammen aus der bisherigen visuellen Zuordnung; Spawns und Waffenkisten aus einem aktuellen Community-Datensatz. Alle Positionen bleiben bis zur Prüfung Entwürfe.",
-      source:"Kartenbasis: Ramas Field Tool – eigene detaillierte Spaceport-Karte",
+      body:"Illustrative Kartenbasis: Die Übereinstimmung mit der Spielkarte ist nicht geprüft. Lastenaufzüge und Raider-Luken beruhen auf visuellen Entwürfen; Spawns und Waffenkisten auf dem Community-Snapshot vom 28.09.2026. Alle Positionen sind ungeprüfte Entwürfe.",
+      source:"Kartenbasis: vorhandene Illustration; Herkunft und Nutzungsgrundlage noch zu prüfen",
       none:"Keine Ebene aktiv · Entwürfe verfügbar", mapError:"Die Spaceport-Karte konnte nicht geladen werden."
     },
     en:{
@@ -25,8 +25,8 @@
       loading:"Loading Spaceport map …", raidersLegacy:"RAIDER SPAWNS // REBUILD", casesLegacy:"WEAPON CASES // REBUILD",
       freight:"FREIGHT ELEVATORS · DRAFT", hatches:"RAIDER HATCHES · DRAFT",
       pending:"being remapped from scratch", ready:"SPACEPORT // NEW MAP BASE",
-      body:"Map base approved. Freight elevators and Raider Hatches use the existing visual draft; spawns and weapon crates use a current community dataset. All positions remain drafts until reviewed.",
-      source:"Map base: Ramas Field Tool – original detailed Spaceport map",
+      body:"Illustrative map base: fidelity to the game map has not been verified. Freight elevators and Raider Hatches use visual drafts; spawns and weapon crates use the community snapshot dated 2026-09-28. All positions remain unverified drafts.",
+      source:"Map base: existing illustration; origin and permitted use still need verification",
       none:"No layer active · drafts available", mapError:"The Spaceport map could not be loaded."
     },
     fr:{
@@ -39,8 +39,8 @@
       loading:"Chargement de la carte Spaceport …", raidersLegacy:"APPARITIONS // RECONSTRUCTION", casesLegacy:"CAISSES D’ARMES // RECONSTRUCTION",
       freight:"MONTE-CHARGES · BROUILLON", hatches:"TRAPPES RAIDER · BROUILLON",
       pending:"recartographie complète en cours", ready:"SPACEPORT // NOUVELLE CARTE",
-      body:"Fond de carte validé. Les monte-charges et trappes Raider utilisent le brouillon visuel existant ; les apparitions et caisses d’armes proviennent d’un jeu de données communautaire actuel. Toutes les positions restent provisoires jusqu’à vérification.",
-      source:"Fond de carte : Ramas Field Tool – carte détaillée originale de Spaceport",
+      body:"Carte illustrative : fidélité au jeu non vérifiée. Les monte-charges et trappes sont des brouillons visuels ; les apparitions et caisses proviennent du relevé communautaire du 28/09/2026. Toutes les positions restent non vérifiées.",
+      source:"Fond de carte : illustration existante ; origine et droit d’utilisation à vérifier",
       none:"Aucune couche active · brouillons disponibles", mapError:"La carte Spaceport n’a pas pu être chargée."
     },
     es:{
@@ -53,11 +53,13 @@
       loading:"Cargando el mapa de Spaceport …", raidersLegacy:"APARICIONES // RECONSTRUCCIÓN", casesLegacy:"CAJAS DE ARMAS // RECONSTRUCCIÓN",
       freight:"MONTACARGAS · BORRADOR", hatches:"ESCOTILLAS RAIDER · BORRADOR",
       pending:"se está cartografiando desde cero", ready:"SPACEPORT // NUEVO MAPA BASE",
-      body:"Mapa base validado. Los montacargas y escotillas Raider usan el borrador visual existente; las apariciones y cajas de armas usan un conjunto de datos comunitario actual. Todas las posiciones siguen siendo provisionales hasta su revisión.",
-      source:"Mapa base: Ramas Field Tool – mapa detallado original de Spaceport",
+      body:"Mapa ilustrativo: fidelidad al juego sin verificar. Los montacargas y escotillas son borradores visuales; las apariciones y cajas proceden del registro comunitario del 28/09/2026. Todas las posiciones siguen sin verificar.",
+      source:"Mapa base: ilustración existente; origen y permiso de uso pendientes de verificar",
       none:"Ninguna capa activa · borradores disponibles", mapError:"No se pudo cargar el mapa de Spaceport."
     }
   };
+
+  copy.it={"spawns": "SPAWN RAIDER · BOZZA", "spawnDraft": "Bozza di spawn · posizione della community, non verificata nel gioco.", "spawnBody": "20 spawn della community da verificare.", "cases": "CASSE ARMI · BOZZA", "caseDraft": "Bozza di cassa armi · posizione della community; ritrovamento casuale o condizionale.", "caseBody": "23 casse della community da verificare.", "activeHatches": "4 botole Raider · posizioni da verificare", "close": "Chiudi dettagli", "active": "4 ascensori merci · posizioni da verificare", "draft": "Posizione approssimativa da verificare; ingresso non confermato.", "loading": "Caricamento mappa Spazioporto …", "raidersLegacy": "SPAWN RAIDER // BOZZA", "casesLegacy": "CASSE ARMI // BOZZA", "freight": "ASCENSORI MERCI · BOZZA", "hatches": "BOTOLE RAIDER · BOZZA", "pending": "Mappa da verificare", "ready": "SPAZIOPORTO // MAPPA ILLUSTRATIVA", "body": "Mappa illustrativa: fedeltà al gioco non verificata. Gli ascensori e le botole sono bozze visive; gli spawn e le casse provengono dal registro della community del 28/09/2026. Tutte le posizioni restano non verificate.", "source": "Mappa: illustrazione esistente; origine e permesso d’uso da verificare", "none": "Nessun livello attivo · bozze disponibili", "mapError": "Impossibile caricare la mappa Spazioporto."};
 
   const caseStyle=document.createElement('style');
   caseStyle.id='spaceportCaseReviewStyles';
@@ -76,7 +78,7 @@
   let lastMap=null;
 
   function language(){
-    const l=(window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2).toLowerCase();
+    const l=(localStorage.getItem('arcUiLanguage')||window.arcCurrentLanguage?.()||document.documentElement.lang||'en').slice(0,2).toLowerCase();
     return copy[l]?l:'de';
   }
   function t(){return copy[language()]}
@@ -297,7 +299,7 @@
   img?.addEventListener('load',applySpaceport);
   img?.addEventListener('error',applySpaceport);
 
-  fetch('spaceport-fresh-v2.json?v=community-review-3',{cache:'no-store'})
+  fetch('spaceport-fresh-v2.json?v=source-audit-1',{cache:'no-store'})
     .then(response=>{if(!response.ok)throw new Error('Spaceport data unavailable');return response.json()})
     .then(data=>{
       const valid=p=>Number.isFinite(p.x)&&Number.isFinite(p.y)&&p.x>=0&&p.x<=100&&p.y>=0&&p.y<=100;

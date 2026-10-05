@@ -36,8 +36,8 @@ try {
   for(const [language,label,title,map] of [
    ['de','Magnetischer Beschleuniger','Mögliche Fundorte','Damm-Schlachtfelder'],
    ['en','Magnetic Accelerator','Possible find locations','Dam Battlegrounds'],
-   ['fr','Magnetic Accelerator','Lieux possibles','Champ de bataille du barrage'],
-   ['es','Magnetic Accelerator','Posibles lugares','Campos de batalla de la presa']
+   ['fr','Accélérateur Magnétique','Lieux possibles','Champ de bataille du barrage'],
+   ['es','Acelerador Magnético','Posibles lugares','Campos de batalla de la presa']
   ]) {
    await page.locator('#appBack').click();
    await page.locator('#arcLanguageButton').click();await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).click();
