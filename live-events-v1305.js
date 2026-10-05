@@ -17,7 +17,7 @@
     de:{
       kicker:'LIVE INTEL',title:'LIVE-EVENTS',loading:'Offizielle Daten werden geladen …',open:'ÖFFNEN',close:'SCHLIESSEN',
       intro:'Aktuelle und kommende Kartenbedingungen aus dem offiziellen Embark-Feed. Zeiten erscheinen in deiner Gerätezeit.',
-      region:'SERVER-REGION',lead:'ERINNERUNG',active:'JETZT AKTIV',upcoming:'ALS NÄCHSTES',source:'Quelle: offizieller Embark-Feed',official:'OFFIZIELLE ÜBERSICHT',closePanel:'EVENTS SCHLIESSEN',
+      region:'SERVER-REGION',lead:'ERINNERUNG',active:'JETZT AKTIV',upcoming:'ALS NÄCHSTES',source:'Quelle: offizieller Embark-Feed',localSource:'Quelle: lokaler Ersatzstand – Aktualität prüfen',official:'OFFIZIELLE ÜBERSICHT',closePanel:'EVENTS SCHLIESSEN',
       remind:'ERINNERN',remembered:'GEMERKT',noneActive:'Zurzeit ist keine Kartenbedingung aktiv.',noneUpcoming:'Keine kommenden Events in den geladenen Daten.',
       activeFor:'noch',startsIn:'in',major:'MAJOR',minor:'MINOR',ends:'Ende',starts:'Start',
       loadError:'Live-Daten konnten gerade nicht geladen werden. Nutze bitte die offizielle Übersicht.',
@@ -32,7 +32,7 @@
     en:{
       kicker:'LIVE INTEL',title:'LIVE EVENTS',loading:'Loading official data …',open:'OPEN',close:'CLOSE',
       intro:'Current and upcoming map conditions from the official Embark feed. Times use your device timezone.',
-      region:'SERVER REGION',lead:'REMINDER',active:'ACTIVE NOW',upcoming:'UP NEXT',source:'Source: official Embark feed',official:'OFFICIAL OVERVIEW',closePanel:'CLOSE EVENTS',
+      region:'SERVER REGION',lead:'REMINDER',active:'ACTIVE NOW',upcoming:'UP NEXT',source:'Source: official Embark feed',localSource:'Source: local fallback – check freshness',official:'OFFICIAL OVERVIEW',closePanel:'CLOSE EVENTS',
       remind:'REMIND ME',remembered:'SAVED',noneActive:'No map condition is active right now.',noneUpcoming:'No upcoming events in the loaded data.',
       activeFor:'for',startsIn:'in',major:'MAJOR',minor:'MINOR',ends:'Ends',starts:'Starts',
       loadError:'Live data could not be loaded right now. Please use the official overview.',
@@ -130,7 +130,10 @@
     el('liveEventsLeadLabel').textContent=c.lead;
     el('liveEventsActiveTitle').textContent=c.active;
     el('liveEventsUpcomingTitle').textContent=c.upcoming;
-    el('liveEventsSourceText').textContent=c.source;
+    const remoteSources={de:COPY.de.source,en:COPY.en.source,fr:'Source : flux officiel d’Embark',es:'Fuente: feed oficial de Embark',it:'Fonte: feed ufficiale Embark'};
+    const fallbackSources={de:COPY.de.localSource,en:COPY.en.localSource,fr:'Source : données locales de secours – vérifier l’actualité',es:'Fuente: datos locales de respaldo – comprobar vigencia',it:'Fonte: dati locali di riserva – verificare l’aggiornamento'};
+    const uiLanguage=document.documentElement.dataset.uiLanguage||safeStorageGet('arcUiLanguage',language());
+    el('liveEventsSourceText').textContent=state.source===LOCAL_DATA?(fallbackSources[uiLanguage]||fallbackSources.en):(remoteSources[uiLanguage]||remoteSources.en);
     el('liveEventsClose').textContent=c.closePanel;
     el('liveEventsAction').textContent=panel.open?c.close:c.open;
     document.querySelector('.live-events-source a').textContent=c.official;

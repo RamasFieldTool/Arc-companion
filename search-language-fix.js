@@ -118,7 +118,7 @@ Object.entries(SEARCH_RESULT_COPY).forEach(([code,copy])=>{
 
 function recyclingSourceCard(i,query){
   const yieldText=recyclingMatchText(i,query);
-  const copy=SEARCH_RESULT_COPY[lang] || SEARCH_RESULT_COPY.en;
+  const copy=SEARCH_RESULT_COPY[document.documentElement.dataset.uiLanguage||lang] || SEARCH_RESULT_COPY.en;
   return `<div class="recycle-source-card">
     <div class="recycle-source-main">
       <div class="recycle-source-name">${itemName(i)}</div>
@@ -142,7 +142,7 @@ drawItems=function(){
   const directIds=new Set(direct.map(i=>i.id));
   const recycling=items.filter(i=>!directIds.has(i.id)&&matchesRecyclingOutput(i,query));
   const total=direct.length+recycling.length;
-  const copy=SEARCH_RESULT_COPY[lang] || SEARCH_RESULT_COPY.en;
+  const copy=SEARCH_RESULT_COPY[document.documentElement.dataset.uiLanguage||lang] || SEARCH_RESULT_COPY.en;
 
   status.classList.remove('load-error');
   status.textContent=`${total} ${tr('matches')} · ${items.length} ${tr('records')}`;
