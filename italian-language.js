@@ -3,7 +3,7 @@
 (()=>{
   const UI_KEY='arcUiLanguage';
   const IT={
-    'Ready for your next raid?':'Pronto per il prossimo raid?','Your preparation. All in one place.':'La tua preparazione. Tutto in un unico posto.','← Back':'← Indietro','Open':'Apri','Places and item locations':'Luoghi e posizioni degli oggetti',
+    'Ready for your next raid?':'Pronto per il prossimo raid?','Your preparation. All in one place.':'La tua preparazione. Tutto in un unico posto.','← Home':'← Pagina iniziale','Open':'Apri','Places and item locations':'Luoghi e posizioni degli oggetti',
     'My next raid':'Il mio prossimo raid','Live events':'Eventi live','My goals':'I miei obiettivi','Requirements':'Materiali necessari','Item search':'Ricerca oggetti','Quests':'Missioni','Blueprints':'Progetti','Maps':'Mappe','Tips':'Consigli','Appearance':'Aspetto','Backup':'Backup','Help':'Aiuto','Community':'Community',
     'ACTIVE GOALS':'OBIETTIVI ATTIVI','CHANGE':'MODIFICA','Total requirements':'MATERIALI TOTALI','SEARCH ITEM':'CERCA OGGETTO','Level':'Livello','Total':'Totale','owned':'posseduti','missing':'mancanti','Value':'Valore','Weight':'Peso','Stack':'Pila','Description':'Descrizione','Recycling':'Riciclaggio','No recycling data':'Nessun dato sul riciclaggio','Enter a search term':'Inserisci un termine di ricerca','matches':'risultati','No results.':'Nessun risultato.',
     'QUESTS':'MISSIONI','Open quest tracker':'Apri il tracker delle missioni','SHOW':'MOSTRA','CLOSE':'CHIUDI','Search quests …':'Cerca missioni …','ALL':'TUTTE','OPEN':'APERTE','ACTIVE':'ATTIVE','DONE':'COMPLETATE','Loading quests …':'Caricamento missioni …','Objectives':'Obiettivi','Required items':'Oggetti necessari','Rewards':'Ricompense','Granted':'Forniti','Quest giver':'Committente','No item requirements':'Nessun oggetto richiesto','No item rewards':'Nessuna ricompensa in oggetti','Quest':'Missione','active':'attive',
@@ -39,7 +39,7 @@
       if(document.documentElement.lang!=='it')document.documentElement.lang='it';if(document.documentElement.dataset.uiLanguage!=='it')document.documentElement.dataset.uiLanguage='it';
       const h=document.getElementById('launcherHeading');setText(h,'Pronto per il prossimo raid?');
       const s=document.getElementById('launcherSubtitle');setText(s,'La tua preparazione. Tutto in un unico posto.');
-      const back=document.getElementById('appBack');setText(back,'← Indietro');
+      const back=document.getElementById('appBack');setText(back,'← Pagina iniziale');
       Object.entries(tileIT).forEach(([id,label])=>{const tile=document.querySelector(`#appLauncher [data-app-target="${id}"]`);if(tile){const b=tile.querySelector('b');setText(b,label);const small=tile.querySelector('small');if(small&&id!=='spawnPanel')setText(small,'Apri');if(small&&id==='spawnPanel')setText(small,'Luoghi e posizioni degli oggetti')}});
       const util=['Consigli','Aspetto','Backup','Aiuto','Community'];document.querySelectorAll('#appLauncher .launcher-utilities button').forEach((b,i)=>{if(util[i])setText(b,util[i])});
       translateTree();

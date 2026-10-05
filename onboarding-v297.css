@@ -43,3 +43,13 @@
 @media(max-width:520px){
   .flow-steps{grid-template-columns:repeat(2,1fr)}
 }
+
+/* Help topics form one readable column in every viewport. Native details provide keyboard disclosure. */
+#helpContent.help-content{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;width:100%;min-width:0}
+#helpContent .help-topic{min-width:0;margin:0;border:1px solid var(--ui-line);border-radius:12px;background:var(--ui-panel);color:var(--ui-text);overflow-wrap:anywhere}
+#helpContent .help-topic>summary{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;min-height:48px;padding:14px;cursor:pointer;list-style:none;color:var(--ui-text)}
+#helpContent .help-topic>summary::-webkit-details-marker{display:none}
+#helpContent .help-topic>summary b{font-size:16px;line-height:1.5;min-width:0}
+#helpContent .help-topic-action{font-size:12px;line-height:1.5;color:var(--amber)}
+#helpContent .help-topic>p{margin:0;padding:0 14px 16px;font-size:15px;line-height:1.7;max-width:72ch;color:var(--ui-text)}
+#helpContent .help-topic>summary:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:10px}
