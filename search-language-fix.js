@@ -111,6 +111,12 @@ const SEARCH_RESULT_COPY={
   it:{directHits:'Risultati diretti',recycleSources:'Disponibile tramite riciclo',recycleSourceHint:'Questi oggetti forniscono l’oggetto cercato quando vengono riciclati.',yields:'Produce'}
 };
 
+function searchResultCopy(){
+  let uiLanguage=document.documentElement.lang||lang;
+  try{uiLanguage=localStorage.getItem('arcUiLanguage')||uiLanguage}catch{}
+  return SEARCH_RESULT_COPY[uiLanguage]||SEARCH_RESULT_COPY.en;
+}
+
 Object.entries(SEARCH_RESULT_COPY).forEach(([code,copy])=>{
   if(!T[code]) T[code]={};
   Object.assign(T[code],copy);
@@ -118,7 +124,7 @@ Object.entries(SEARCH_RESULT_COPY).forEach(([code,copy])=>{
 
 function recyclingSourceCard(i,query){
   const yieldText=recyclingMatchText(i,query);
-  const copy=SEARCH_RESULT_COPY[lang] || SEARCH_RESULT_COPY.en;
+  const copy=searchResultCopy();
   return `<div class="recycle-source-card">
     <div class="recycle-source-main">
       <div class="recycle-source-name">${itemName(i)}</div>
@@ -142,7 +148,7 @@ drawItems=function(){
   const directIds=new Set(direct.map(i=>i.id));
   const recycling=items.filter(i=>!directIds.has(i.id)&&matchesRecyclingOutput(i,query));
   const total=direct.length+recycling.length;
-  const copy=SEARCH_RESULT_COPY[lang] || SEARCH_RESULT_COPY.en;
+  const copy=searchResultCopy();
 
   status.classList.remove('load-error');
   status.textContent=`${total} ${tr('matches')} · ${items.length} ${tr('records')}`;
