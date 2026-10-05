@@ -12,7 +12,9 @@ try{
   },locale);
   const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(String(e)));
   await installItemCatalogRoute(page,items);
-  await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',r=>r.fulfill({json:[]}));
+  const questURL='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/quests/workshop_test.json';
+  await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',r=>r.fulfill({json:[{type:'file',name:'workshop_test.json',download_url:questURL}]}));
+  await page.route(questURL,r=>r.fulfill({json:{id:'workshop_test',name:{de:'Werkstatt-Test',en:'Workshop test'},objectives:[],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]}}));
   await page.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>!!window.RFTPlanningUI&&document.querySelector('#dataStatusPersistent')?.dataset.state==='live');
   const open=async()=>{await page.locator('#planningTabGoals').click();await page.locator('[data-goal-category="workshop"]').click();await page.locator('.goal-station[data-goal-id="weapon_bench"]>summary').click()};
