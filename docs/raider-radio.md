@@ -3,7 +3,7 @@
 The launcher opens `#raiderRadio` through the existing hash navigation and Back button.
 The song list lives in `raider-radio.js`; array order controls display order.
 
-The Lion Montana album collection is inserted first. Ralf's “Against the Steel
+The Lion Montana album collection is inserted first. Jack Rodeo's “Against the Steel
 Titans” is the first entry in `songs`, so it appears second in the radio grid.
 The remaining Suno entries keep their original order and links.
 
@@ -15,7 +15,8 @@ is displayed above the title. External links open in a new tab with
 navigating away from the radio list. There is no app-provided download button.
 The browser ultimately controls which native controls it displays.
 
-Ralf explicitly permitted publication (Daniel's work order, 2026-10-06).
+Publication was explicitly permitted (Daniel's work order, 2026-10-06).
+Daniel requested the public artist name Jack Rodeo on 2026-10-06.
 Source: provided MP4, 179.700333 seconds, 1024 × 1024 H.264 video and AAC audio.
 The audio is an MP3 encoded at 96 kbit/s, with source metadata removed. The cover
 is the video frame at one second, encoded as WebP. Both are hosted as ordinary

@@ -12,7 +12,7 @@
 // Fan Creations hub, music and author-approved community stories.
 (()=>{
   const songs=[
-    {id:'against-the-steel-titans',artist:'Ralf',title:'Against the Steel Titans',cover:'assets/music/ralf/against-the-steel-titans-cover.webp',audioUrl:'assets/music/ralf/against-the-steel-titans.mp3'},
+    {id:'against-the-steel-titans',artist:'Jack Rodeo',title:'Against the Steel Titans',cover:'assets/music/ralf/against-the-steel-titans-cover.webp',audioUrl:'assets/music/ralf/against-the-steel-titans.mp3'},
     {id:'ugly',title:'Ugly',cover:'assets/music/ugly-cover.png',sunoUrl:'https://suno.com/s/vbkPccvrI66ij4gJ'},
     {id:'the-arcs-are-the-enemy',title:'The ARCs Are the Enemy',cover:'assets/music/the-arcs-are-the-enemy-cover.png',sunoUrl:'https://suno.com/s/trsx9nLKROxaw5fW'},
     {id:'loot-and-shoot',title:'Loot&Shoot',cover:'assets/music/loot-and-shoot-cover.png',sunoUrl:'https://suno.com/s/vkAaYpLp5LkJyuVz'},

@@ -65,7 +65,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   const ralf=page.locator('[data-song-id="against-the-steel-titans"]');
   assert.equal(await page.locator('#raiderRadioSongs > :nth-child(2)').getAttribute('data-song-id'),'against-the-steel-titans');
   assert.equal(await ralf.locator('h3').innerText(),'Against the Steel Titans');
-  assert.equal(await ralf.locator('.radio-artist').innerText(),'Ralf');
+  assert.equal(await ralf.locator('.radio-artist').innerText(),'Jack Rodeo');
   const player=ralf.locator('audio');
   assert.equal(await player.count(),1);
   assert.equal(await player.getAttribute('autoplay'),null);
@@ -131,7 +131,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
       await page.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
       await page.waitForFunction(code=>document.documentElement.lang===code&&document.querySelector('[data-app-target="raiderRadio"] b')?.textContent==='Fan Creations',code);
       assert.equal(await ralf.locator('h3').textContent(),'Against the Steel Titans');
-      assert.equal(await ralf.locator('.radio-artist').textContent(),'Ralf');
+      assert.equal(await ralf.locator('.radio-artist').textContent(),'Jack Rodeo');
       assert.equal(await player.getAttribute('src'),'assets/music/ralf/against-the-steel-titans.mp3');
     }
   }
@@ -141,7 +141,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.ok(audioRequests.length>0);
   assert.ok(audioRequests.every(url=>url===new URL('assets/music/ralf/against-the-steel-titans.mp3',BASE_URL).href));
   assert.deepEqual(errors,[]);
-  console.log(`PASS Raider Radio ${width}px ${surface} ${language}: collection first, original assets, albums/reload/back, Ralf second, audio load/play/pause/navigation, four preserved song URLs, layout, no runtime errors`);
+  console.log(`PASS Raider Radio ${width}px ${surface} ${language}: collection first, original assets, albums/reload/back, Jack Rodeo second, audio load/play/pause/navigation, four preserved song URLs, layout, no runtime errors`);
   await context.close();
 }
 }finally{await browser.close()}
