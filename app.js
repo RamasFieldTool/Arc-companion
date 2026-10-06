@@ -198,9 +198,12 @@ function card(i){
   const desc=itemDesc(i);
   return `<article class="card" data-item-id="${escapeHtml(i.id)}">
     <div class="card-head">
-      <div>
+      <div class="item-identity">
+        ${window.RFTItemImages?.thumbnail(i)||''}
+        <div class="item-title">
         <h3>${escapeHtml(itemName(i))}</h3>
         ${type?`<div class="item-type">${escapeHtml(type)}</div>`:''}
+        </div>
       </div>
       ${rarity?`<div class="rarity">${escapeHtml(rarity)}</div>`:''}
     </div>

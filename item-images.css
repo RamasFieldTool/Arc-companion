@@ -1,0 +1,5 @@
+.card-head .item-identity{display:flex;align-items:flex-start;gap:10px;flex:1;min-width:0}
+.item-identity .item-title{min-width:0;flex:1;overflow-wrap:anywhere}
+.item-identity h3{overflow-wrap:anywhere}
+.item-thumbnail{display:block;flex:0 0 48px;width:48px;height:48px;object-fit:contain;border-radius:8px;background:var(--ui-soft)}
+@media(min-width:820px){.item-thumbnail{flex-basis:64px;width:64px;height:64px}}
