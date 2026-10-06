@@ -3,19 +3,33 @@
 The launcher opens `#raiderRadio` through the existing hash navigation and Back button.
 The song list lives in `raider-radio.js`; array order controls display order.
 
-To add song 3:
+The Lion Montana album collection is inserted first. Ralf's “Against the Steel
+Titans” is the first entry in `songs`, so it appears second in the radio grid.
+The remaining Suno entries keep their original order and links.
 
-1. Add its approved, unchanged cover to `assets/music/`.
-2. Add one object to the `songs` array, with a unique `id`, the exact `title`,
-   a repository-relative `cover`, and the official `sunoUrl`.
-3. Increment the `raider-radio.js?v=1` cache version in `index.html`.
+Songs can use an official `sunoUrl` for an external link, or an approved
+repository-relative `audioUrl` for a native HTML5 audio player. Optional `artist`
+is displayed above the title. External links open in a new tab with
+`noopener noreferrer`. Native players use `preload="none"`, no autoplay, and
+`controlslist="nodownload noplaybackrate noremoteplayback"`; playback pauses when
+navigating away from the radio list. There is no app-provided download button.
+The browser ultimately controls which native controls it displays.
 
-No HTML card needs to be copied. Cards are generated with DOM APIs and textContent.
-Listen links open the official Suno pages in a new tab with `noopener noreferrer`.
-There is no player, iframe, direct audio URL, audio hosting or download control.
-Suno itself controls playback and any actions available on its website.
-Button labels support the existing English, German, French and Spanish UI.
-Song titles and the Raider Radio name stay unchanged.
+Ralf explicitly permitted publication (Daniel's work order, 2026-10-06).
+Source: provided MP4, 179.700333 seconds, 1024 × 1024 H.264 video and AAC audio.
+The audio is an MP3 encoded at 96 kbit/s, with source metadata removed. The cover
+is the video frame at one second, encoded as WebP. Both are hosted as ordinary
+binary files under `assets/music/ralf/`; no Base64 splitting is required.
+
+All radio explanation text supports DE/EN/FR/ES/IT. Titles and artist names stay
+unchanged. Bump both radio asset query versions in `index.html` when changing
+these scripts or styles.
+
+The radio browser regression checks 320/412/1280 px, light/black surfaces and all
+five languages, covers, title/artist/order, no automatic media requests, audio
+loading and play/pause, navigation pausing, original outgoing links and layout.
+External platform popup checks use fixtures and do not verify real platform
+availability or external playback. Physical devices require a separate check.
 
 ## Verification for the initial implementation
 

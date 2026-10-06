@@ -62,14 +62,34 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(await collection.count(),1);
   assert.equal(await page.locator('#raiderRadioSongs > :first-child').getAttribute('data-collection-id'),'lion-montana-radio-speranza-relay');
   assert.equal(await collection.locator('img').getAttribute('src'),'assets/music/lion-montana/radio-speranza-relay-logo.png');
-  const cards=page.locator('#raiderRadioSongs article.radio-song');assert.equal(await cards.count(),4);
+  const ralf=page.locator('[data-song-id="against-the-steel-titans"]');
+  assert.equal(await page.locator('#raiderRadioSongs > :nth-child(2)').getAttribute('data-song-id'),'against-the-steel-titans');
+  assert.equal(await ralf.locator('h3').innerText(),'Against the Steel Titans');
+  assert.equal(await ralf.locator('.radio-artist').innerText(),'Ralf');
+  const player=ralf.locator('audio');
+  assert.equal(await player.count(),1);
+  assert.equal(await player.getAttribute('autoplay'),null);
+  assert.equal(await player.getAttribute('preload'),'none');
+  assert.equal(await player.getAttribute('controlslist'),'nodownload noplaybackrate noremoteplayback');
+  assert.equal(await player.evaluate(a=>a.paused),true);
+  assert.deepEqual(audioRequests,[]);
+  await player.evaluate(a=>a.load());
+  await page.waitForFunction(()=>document.querySelector('.radio-player').readyState>=2);
+  assert.equal(await player.evaluate(a=>a.error),null);
+  assert.ok(await player.evaluate(a=>Math.abs(a.duration-179.7)<0.5));
+  await player.evaluate(a=>a.play());
+  await page.waitForFunction(()=>document.querySelector('.radio-player').currentTime>0);
+  await player.evaluate(a=>a.pause());
+  assert.equal(await player.evaluate(a=>a.paused),true);
+  assert.equal(await player.evaluate(a=>a.controls),true);
+  const cards=page.locator('#raiderRadioSongs article.radio-song:not([data-song-id="against-the-steel-titans"])');assert.equal(await cards.count(),4);
   assert.deepEqual(await cards.locator('h3').allTextContents(),['Ugly','The ARCs Are the Enemy','Loot&Shoot','What Was It For?']);
   assert.deepEqual(await cards.locator('a').evaluateAll(a=>a.map(x=>x.href)),expected);
   assert.deepEqual(await cards.locator('a').allTextContents(),[labels[language],labels[language],labels[language],labels[language]]);
   await page.waitForFunction(()=>[...document.querySelectorAll('#raiderRadioSongs .radio-song img')].every(i=>i.complete&&i.naturalWidth>0));
   assert.deepEqual(await cards.locator('img').evaluateAll(a=>a.map(x=>x.dataset.coverSource)),['assets/music/ugly-cover.png','assets/music/the-arcs-are-the-enemy-cover.png','assets/music/loot-and-shoot-cover.png','assets/music/what-was-it-for-cover']);
   assert.ok((await cards.locator('img').nth(3).getAttribute('src')).startsWith('data:image/webp;base64,'));
-  const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('#raiderRadioSongs .radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio audio,#raiderRadio iframe').length}));
+  const metrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cardOverflow:[...document.querySelectorAll('#raiderRadioSongs .radio-song')].some(c=>c.scrollWidth>c.clientWidth),download:document.querySelectorAll('#raiderRadio [download],#raiderRadio iframe').length}));
   assert.ok(metrics.overflow<=4,JSON.stringify(metrics));assert.equal(metrics.cardOverflow,false);assert.equal(metrics.download,0);
   if(width===412)assert.equal(await page.locator('#raiderRadioSongs').evaluate(el=>getComputedStyle(el).gridTemplateColumns.split(' ').length),2);
   assert.equal(await page.locator('#raiderRadioSongs h3').evaluateAll(a=>a.every(x=>x.scrollWidth<=x.clientWidth&&x.scrollHeight<=x.clientHeight)),true);
@@ -80,7 +100,9 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
       await popup.waitForLoadState('domcontentloaded');assert.equal(popup.url(),expected[i]);await popup.close();
     }
   }
+  await player.evaluate(a=>a.play());
   await collection.click();
+  assert.equal(await player.evaluate(a=>a.paused),true);
   await page.locator('.radio-album-view').waitFor({state:'visible'});
   assert.equal(await page.locator('.radio-album-view .radio-album').count(),2);
   assert.deepEqual(await page.locator('.radio-album h3').allTextContents(),['Radio Speranza Relay Vol. 1','Radio Speranza Relay Vol. 2']);
@@ -107,13 +129,18 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
       await page.locator('#arcLanguageButton').click();
       await page.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
       await page.waitForFunction(code=>document.documentElement.lang===code&&document.querySelector('[data-app-target="raiderRadio"] b')?.textContent==='Fan Creations',code);
+      assert.equal(await ralf.locator('h3').textContent(),'Against the Steel Titans');
+      assert.equal(await ralf.locator('.radio-artist').textContent(),'Ralf');
+      assert.equal(await player.getAttribute('src'),'assets/music/ralf/against-the-steel-titans.mp3');
     }
   }
   await page.locator('[data-app-target="itemsSection"]').click();await page.locator('#itemsSection').waitFor({state:'visible'});
   await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});
   await page.goto(BASE_URL+'#raiderRadio',{waitUntil:'domcontentloaded'});await page.locator('#raiderRadio').waitFor({state:'visible'});
-  assert.deepEqual(audioRequests,[]);assert.deepEqual(errors,[]);
-  console.log(`PASS Raider Radio ${width}px ${surface} ${language}: collection first, original assets, albums/reload/back, four preserved song URLs, layout, no audio/runtime errors`);
+  assert.ok(audioRequests.length>0);
+  assert.ok(audioRequests.every(url=>url===new URL('assets/music/ralf/against-the-steel-titans.mp3',BASE_URL).href));
+  assert.deepEqual(errors,[]);
+  console.log(`PASS Raider Radio ${width}px ${surface} ${language}: collection first, original assets, albums/reload/back, Ralf second, audio load/play/pause/navigation, four preserved song URLs, layout, no runtime errors`);
   await context.close();
 }
 }finally{await browser.close()}
