@@ -1,7 +1,7 @@
 # Itembilder – Quellenprüfung und Umsetzungsplan
 
 Stand: 06.10.2026. Ausgangs-main selbst remote geprüft: `df00159478d906df49bb75db82b7068fc59300e4`.
-Branch: `feature/item-images-review`. Keine App-Änderung, keine Bilddatei eingebaut, kein Merge.
+Branch: `feature/item-images-review`. Diese Quellenprüfung beschreibt den Stand vor dem Testeinbau (`1019ffbe3dc83625e32b4dc9f7beb5533b4b3d47`). Auf nachfolgenden ausdrücklichen Nutzerauftrag wurde die Bildanzeige ausschließlich im Testbranch eingebaut. Aktueller Implementierungs- und Prüfstand: [item-images-test-report.md](item-images-test-report.md). Keine Bilddateien im Repository und kein Merge.
 
 ## VERIFIZIERT
 
@@ -41,4 +41,4 @@ Geprüfte Suchbegriffe umfassten Embark fan content policy, content creator poli
 
 Die vorbereitete Anfrage in `item-images-permission-request.md` ist nicht versendet. Bereits vorhandene individuelle Freigaben oder Bedingungen aus dem Media Kit könnten die offene Frage beantworten; solche Unterlagen liegen in dieser Prüfung nicht vor.
 
-Der Einbau echter Spielbilder bleibt bis zur Klärung zurückgestellt. Die vorliegende Arbeit dokumentiert die Recherche und den konkreten Einbauplan, keine fertig implementierte Bildfunktion.
+Die Veröffentlichung der Bildanzeige bleibt bis zur Klärung zurückgestellt. Die vorliegende Quellenprüfung dokumentiert die ursprüngliche Recherche und Planung. Den später ausdrücklich beauftragten Testeinbau samt Ergebnissen beschreibt `item-images-test-report.md`. Die vorbereitete Anfrage wurde durch diesen Arbeitslauf nicht versendet; eine Nutzungsfreigabe liegt hier weiterhin nicht vor.
