@@ -102,8 +102,9 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   }
   await player.evaluate(a=>a.play());
   await collection.click();
-  assert.equal(await player.evaluate(a=>a.paused),true);
+  // hashchange is asynchronous: assert only after the album route is visible.
   await page.locator('.radio-album-view').waitFor({state:'visible'});
+  assert.equal(await player.evaluate(a=>a.paused),true);
   assert.equal(await page.locator('.radio-album-view .radio-album').count(),2);
   assert.deepEqual(await page.locator('.radio-album h3').allTextContents(),['Radio Speranza Relay Vol. 1','Radio Speranza Relay Vol. 2']);
   assert.deepEqual(await page.locator('.radio-album img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/lion-montana/radio-speranza-relay-vol-1.png','assets/music/lion-montana/radio-speranza-relay-vol-2.png']);
