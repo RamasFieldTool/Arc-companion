@@ -100,7 +100,9 @@ jobs:
       - name: Run item image metadata, error fallback and five-language layout regression
         env:
           BASE_URL: http://127.0.0.1:4173/
-        run: node tests/item-images.mjs
+        run: |
+          node tests/item-images.mjs
+          node tests/item-images-all-lists.mjs
       - name: Run backup, restore, migration and connection-loss tests
         env:
           BASE_URL: http://127.0.0.1:4173/

@@ -92,7 +92,7 @@
       return(!q||hay.includes(q))&&(filter==='all'||(filter==='learned')===learned.has(x.id));
     });
 
-    $('blueprintList').innerHTML=rows.map(x=>`<div class="blueprint-entry ${learned.has(x.id)?'is-learned':''}"><button class="blueprint-row ${learned.has(x.id)?'is-learned':''}" data-id="${x.id}" type="button"><span class="blueprint-check">${learned.has(x.id)?'✓':'○'}</span><span><b>${esc(primary(x))}</b><small>${esc(secondary(x))}</small></span></button>${info(x)}</div>`).join('')||`<p class="muted">${tr('none')}</p>`;
+    $('blueprintList').innerHTML=rows.map(x=>`<div class="blueprint-entry ${learned.has(x.id)?'is-learned':''}"><button class="blueprint-row ${learned.has(x.id)?'is-learned':''}" data-id="${x.id}" type="button"><span class="blueprint-check">${learned.has(x.id)?'✓':'○'}</span><span><b>${window.RFTItemImages.label(x.id.replaceAll('-','_')+'_blueprint',primary(x))}</b><small>${esc(secondary(x))}</small></span></button>${info(x)}</div>`).join('')||`<p class="muted">${tr('none')}</p>`;
 
     const validIds=new Set(data.map(x=>x.id));
     const n=[...learned].filter(id=>validIds.has(id)).length;
