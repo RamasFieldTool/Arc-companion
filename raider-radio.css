@@ -214,3 +214,6 @@ html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-wordma
 .radio-about{padding:6px 16px}
 .radio-about[open]{padding-bottom:16px}
 .radio-about summary:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}
+
+/* Native playback controls fit compact cards and remain touch-sized. */
+#raiderRadio .radio-player{display:block;box-sizing:border-box;width:calc(100% - 24px);min-width:0;height:54px;flex-shrink:0;margin:auto 12px 12px}

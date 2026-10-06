@@ -12,6 +12,7 @@
 // Fan Creations hub, music and author-approved community stories.
 (()=>{
   const songs=[
+    {id:'against-the-steel-titans',artist:'Jack Rodeo',title:'Against the Steel Titans',cover:'assets/music/ralf/against-the-steel-titans-cover.webp',audioUrl:'assets/music/ralf/against-the-steel-titans.mp3'},
     {id:'ugly',title:'Ugly',cover:'assets/music/ugly-cover.png',sunoUrl:'https://suno.com/s/vbkPccvrI66ij4gJ'},
     {id:'the-arcs-are-the-enemy',title:'The ARCs Are the Enemy',cover:'assets/music/the-arcs-are-the-enemy-cover.png',sunoUrl:'https://suno.com/s/trsx9nLKROxaw5fW'},
     {id:'loot-and-shoot',title:'Loot&Shoot',cover:'assets/music/loot-and-shoot-cover.png',sunoUrl:'https://suno.com/s/vkAaYpLp5LkJyuVz'},
@@ -44,35 +45,35 @@
       radioTitle:'Raider Radio',radioDesc:'Songs, inspiriert von ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Geschichten aus der Community.',
       back:'← Zurück zu Fan Creations',storiesEmptyTitle:'Noch keine Story veröffentlicht',storiesEmpty:'Hier erscheinen Community-Geschichten, sobald sie für Ramas Field Tool bereit sind.',
       aboutTitle:'Was ist Raider Radio?',about:'Raider Radio zeigt Musik aus und rund um die ARC-Raiders-Community: eigene Songs von Ramas Field Tool und Musik anderer Community-Künstler. Dies ist kein offizieller ARC-Raiders-Soundtrack.',
-      how:'Zum Anhören öffnet sich die jeweilige Originalplattform in einem neuen Tab. Ramas Field Tool speichert oder hostet keine Audiodateien und bietet keine Downloads an.',listen:'▶ Auf Suno anhören'
+      how:'Externe Beiträge öffnen zum Anhören ihre Originalplattform in einem neuen Tab. Einzelne ausdrücklich freigegebene Community-Songs sind direkt in Raider Radio abspielbar. Ramas Field Tool bietet keine Download-Funktion an.',listen:'▶ Auf Suno anhören'
     },
     en:{
       hubTitle:'Fan Creations',hubIntro:'Creative work from the ARC Raiders community.',tileStatus:'Music, stories & community creations',
       radioTitle:'Raider Radio',radioDesc:'Songs inspired by ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Stories from the community.',
       back:'← Back to Fan Creations',storiesEmptyTitle:'No story published yet',storiesEmpty:'Community stories will appear here once they are ready for Ramas Field Tool.',
       aboutTitle:'What is Raider Radio?',about:'Raider Radio features music from and around the ARC Raiders community: songs by Ramas Field Tool and music by other community artists. This is not an official ARC Raiders soundtrack.',
-      how:'To listen, the original platform opens in a new tab. Ramas Field Tool does not store or host audio files and does not offer downloads.',listen:'▶ Listen on Suno'
+      how:'External contributions open their original platform in a new tab. Selected community songs published with explicit permission can be played directly in Raider Radio. Ramas Field Tool does not offer a download function.',listen:'▶ Listen on Suno'
     },
     fr:{
       hubTitle:'Fan Creations',hubIntro:'Des créations de la communauté ARC Raiders et autour de celle-ci.',tileStatus:'Musique, histoires et créations communautaires',
       radioTitle:'Raider Radio',radioDesc:'Des morceaux inspirés d’ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Des histoires de la communauté.',
       back:'← Retour à Fan Creations',storiesEmptyTitle:'Aucune histoire publiée pour le moment',storiesEmpty:'Les histoires de la communauté apparaîtront ici lorsqu’elles seront prêtes pour Ramas Field Tool.',
       aboutTitle:'Qu’est-ce que Raider Radio ?',about:'Raider Radio présente de la musique issue de la communauté ARC Raiders et inspirée par celle-ci : des morceaux de Ramas Field Tool et d’autres artistes de la communauté. Il ne s’agit pas d’une bande-son officielle d’ARC Raiders.',
-      how:'Pour écouter, la plateforme d’origine s’ouvre dans un nouvel onglet. Ramas Field Tool ne stocke ni n’héberge de fichiers audio et ne propose aucun téléchargement.',listen:'▶ Écouter sur Suno'
+      how:'Les contributions externes ouvrent leur plateforme d’origine dans un nouvel onglet. Certains morceaux de la communauté, publiés avec une autorisation explicite, peuvent être écoutés directement dans Raider Radio. Ramas Field Tool ne propose aucune fonction de téléchargement.',listen:'▶ Écouter sur Suno'
     },
     es:{
       hubTitle:'Fan Creations',hubIntro:'Creaciones de la comunidad de ARC Raiders y de su entorno.',tileStatus:'Música, historias y creaciones de la comunidad',
       radioTitle:'Raider Radio',radioDesc:'Canciones inspiradas en ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Historias de la comunidad.',
       back:'← Volver a Fan Creations',storiesEmptyTitle:'Todavía no hay historias publicadas',storiesEmpty:'Las historias de la comunidad aparecerán aquí cuando estén listas para Ramas Field Tool.',
       aboutTitle:'¿Qué es Raider Radio?',about:'Raider Radio presenta música de la comunidad de ARC Raiders y de su entorno: canciones de Ramas Field Tool y música de otros artistas de la comunidad. No es una banda sonora oficial de ARC Raiders.',
-      how:'Para escuchar, la plataforma original se abre en una nueva pestaña. Ramas Field Tool no almacena ni aloja archivos de audio y no ofrece descargas.',listen:'▶ Escuchar en Suno'
+      how:'Las contribuciones externas abren su plataforma original en una nueva pestaña. Algunas canciones de la comunidad, publicadas con permiso explícito, se pueden escuchar directamente en Raider Radio. Ramas Field Tool no ofrece una función de descarga.',listen:'▶ Escuchar en Suno'
     },
     it:{
       hubTitle:'Fan Creations',hubIntro:'Opere creative della community di ARC Raiders.',tileStatus:'Musica, racconti e creazioni della community',
       radioTitle:'Raider Radio',radioDesc:'Brani ispirati ad ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Racconti della community.',
       back:'← Torna a Fan Creations',storiesEmptyTitle:'Nessun racconto ancora pubblicato',storiesEmpty:'Qui appariranno i racconti della community quando saranno pronti per Ramas Field Tool.',
       aboutTitle:'Che cos’è Raider Radio?',about:'Raider Radio propone musica della community di ARC Raiders e ispirata al suo mondo: brani di Ramas Field Tool e musica di altri artisti della community. Non è una colonna sonora ufficiale di ARC Raiders.',
-      how:'Per ascoltare, la piattaforma originale si apre in una nuova scheda. Ramas Field Tool non memorizza né ospita file audio e non offre download.',listen:'▶ Ascolta su Suno'
+      how:'I contributi esterni aprono la piattaforma originale in una nuova scheda. Alcuni brani della community, pubblicati con autorizzazione esplicita, possono essere ascoltati direttamente in Raider Radio. Ramas Field Tool non offre una funzione di download.',listen:'▶ Ascolta su Suno'
     }
   };
 
@@ -328,6 +329,8 @@
   section.append(hub,radioView,albumView,storiesView,storyView);
 
   const links=[];
+  const players=[];
+  function pausePlayers(){players.forEach(player=>player.pause());}
   songs.forEach(song=>{
     const card=document.createElement('article');
     card.className='radio-song';
@@ -351,14 +354,30 @@
     }
     const title=document.createElement('h3');
     title.textContent=song.title;
-    const link=document.createElement('a');
-    link.className='radio-listen';
-    link.href=song.sunoUrl;
-    link.target='_blank';
-    link.rel='noopener noreferrer';
-    card.append(cover,title,link);
+    card.append(cover);
+    if(song.artist)card.append(makeText('p','radio-artist',song.artist));
+    card.append(title);
+    if(song.audioUrl){
+      const player=document.createElement('audio');
+      player.className='radio-player';
+      player.src=song.audioUrl;
+      player.controls=true;
+      player.preload='none';
+      player.setAttribute('controlslist','nodownload noplaybackrate noremoteplayback');
+      player.disableRemotePlayback=true;
+      player.setAttribute('aria-label',song.artist+' – '+song.title);
+      players.push(player);
+      card.append(player);
+    }else{
+      const link=document.createElement('a');
+      link.className='radio-listen';
+      link.href=song.sunoUrl;
+      link.target='_blank';
+      link.rel='noopener noreferrer';
+      card.append(link);
+      links.push({link,title:song.title});
+    }
     radioGrid.append(card);
-    links.push({link,title:song.title});
   });
 
   function showHub(){
@@ -389,6 +408,7 @@
 
   function syncRoute(){
     const parts=location.hash.slice(1).split('/');
+    if(parts[0]!=='raiderRadio'||parts[1]!=='radio'||parts[2])pausePlayers();
     if(parts[0]!=='raiderRadio'){showHub();return;}
     if(parts[1]==='stories'){
       const story=stories.find(entry=>encodeURIComponent(entry.id)===parts[2]);
@@ -474,6 +494,7 @@
   new MutationObserver(()=>{
     const isActive=section.classList.contains('launcher-active');
     if(isActive&&!wasActive)syncRoute();
+    if(!isActive&&wasActive)pausePlayers();
     wasActive=isActive;
   }).observe(section,{attributes:true,attributeFilter:['class']});
 })();
