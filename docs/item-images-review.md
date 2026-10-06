@@ -1,5 +1,7 @@
 # Itembilder – Quellenprüfung und Umsetzungsplan
 
+Aktualisierung 06.10.2026: Der Nutzer hat „Erlaubnis erteilt. Merge“ mitgeteilt und die Veröffentlichung/Merge freigegeben. Die folgenden Angaben zum offenen Freigabestand sind historische Prüfstände. Originalunterlagen oder konkrete Drittanbieter-Bedingungen wurden in diesem Lauf nicht separat gelesen. Release-Stand: [item-images-release.md](item-images-release.md).
+
 Stand: 06.10.2026. Ausgangs-main selbst remote geprüft: `df00159478d906df49bb75db82b7068fc59300e4`.
 Branch: `feature/item-images-review`. Diese Quellenprüfung beschreibt den Stand vor dem Testeinbau (`1019ffbe3dc83625e32b4dc9f7beb5533b4b3d47`). Auf nachfolgenden ausdrücklichen Nutzerauftrag wurde die Bildanzeige ausschließlich im Testbranch eingebaut. Aktueller Implementierungs- und Prüfstand: [item-images-test-report.md](item-images-test-report.md). Keine Bilddateien im Repository und kein Merge.
 

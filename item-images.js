@@ -1,4 +1,4 @@
-// Test-branch integration only. Image publication permission remains unresolved.
+// Optional thumbnails from explicit catalog image metadata; no inferred image URLs.
 (()=>{
   const failed=new Set();
   function source(item){

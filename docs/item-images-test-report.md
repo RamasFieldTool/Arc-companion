@@ -1,5 +1,7 @@
 # Itembilder – Testbranch und Prüfbericht
 
+Aktualisierung 06.10.2026: Der Nutzer hat „Erlaubnis erteilt. Merge“ mitgeteilt und die Veröffentlichung/Merge freigegeben. Die folgenden Angaben zum offenen Freigabestand sind historische Prüfstände. Originalunterlagen oder konkrete Drittanbieter-Bedingungen wurden in diesem Lauf nicht separat gelesen. Release-Stand: [item-images-release.md](item-images-release.md).
+
 Stand: 06.10.2026. Auftrag: ausdrücklicher Testeinbau trotz noch ausstehender Nutzungsfreigabe. Keine Veröffentlichung, kein Merge, keine durch diesen Arbeitslauf versendete Anfrage.
 
 Getesteter Implementierungscommit: `63bdc6f513e32bf9c9941b617d2b0534d23f0a52`.
