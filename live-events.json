@@ -6,118 +6,6 @@
       "mapDisplayName": "Riven Tides",
       "regions": {
         "europe": {
-          "start": "2026-10-05T21:00:00.000Z",
-          "end": "2026-10-05T22:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-06T04:00:00.000Z",
-          "end": "2026-10-06T05:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-06T03:00:00.000Z",
-          "end": "2026-10-06T04:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-05T16:00:00.000Z",
-          "end": "2026-10-05T17:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-05T12:00:00.000Z",
-          "end": "2026-10-05T13:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/prospecting-probes.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Hurricane",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T21:00:00.000Z",
-          "end": "2026-10-05T22:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-06T04:00:00.000Z",
-          "end": "2026-10-06T05:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-06T03:00:00.000Z",
-          "end": "2026-10-06T04:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-05T16:00:00.000Z",
-          "end": "2026-10-05T17:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-05T12:00:00.000Z",
-          "end": "2026-10-05T13:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T21:00:00.000Z",
-          "end": "2026-10-05T22:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-06T04:00:00.000Z",
-          "end": "2026-10-06T05:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-06T03:00:00.000Z",
-          "end": "2026-10-06T04:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-05T16:00:00.000Z",
-          "end": "2026-10-05T17:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-05T12:00:00.000Z",
-          "end": "2026-10-05T13:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-10-05T21:00:00.000Z",
-          "end": "2026-10-05T22:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-10-06T04:00:00.000Z",
-          "end": "2026-10-06T05:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-10-06T03:00:00.000Z",
-          "end": "2026-10-06T04:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-10-05T16:00:00.000Z",
-          "end": "2026-10-05T17:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-10-05T12:00:00.000Z",
-          "end": "2026-10-05T13:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Prospecting Probes",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
           "start": "2026-10-05T22:00:00.000Z",
           "end": "2026-10-05T23:00:00.000Z"
         },
@@ -4397,5 +4285,5 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-10-06T04:46:08Z"
+  "syncedAt": "2026-10-06T05:07:56Z"
 }
