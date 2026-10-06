@@ -18,6 +18,9 @@ console.log('PASS metadata association and invalid-source rejection');
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
 items.find(x=>x.id==='metal_parts').imageFilename=url;
 const wires=items.find(x=>x.id==='wires');
+// Stress a pictured header with the existing long translated type/rarity.
+items.find(x=>x.id==='metal_parts').type=wires.type;
+items.find(x=>x.id==='metal_parts').rarity=wires.rarity;
 wires.imageFilename='https://cdn.arctracker.io/items/v2/wires.png';
 wires.recyclesInto={metal_parts:2};
 // Controlled synthetic image: proves UI behavior without shipping game imagery.
