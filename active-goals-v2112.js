@@ -58,7 +58,7 @@
   function materials(level){
     return `<ul class="workshop-materials">${(level.requirements||[]).map(req=>{
       const item=itemById(req.itemId);
-      return `<li><span>${escapeHtml(item?itemName(item):req.itemId)}</span><b>${escapeHtml(req.quantity)} ×</b></li>`;
+      return `<li><span>${window.RFTItemImages.label(req.itemId,item?itemName(item):req.itemId)}</span><b>${escapeHtml(req.quantity)} ×</b></li>`;
     }).join('')}</ul>`;
   }
   window.RFTWorkshopDisplay={materials,feedback};

@@ -50,14 +50,14 @@ for(const locale of ['de','en','fr','es','it'])for(const width of [360,1280]){
  assert.equal(Math.round((await image.boundingBox()).width),width<820?48:64);
  const recycle=page.locator('.recycle-source-full article.card[data-item-id="wires"]');
  await recycle.scrollIntoViewIfNeeded();
- await expect.poll(()=>wireRequests).toBeGreaterThan(0);await expect(recycle.locator('.item-thumbnail')).toHaveCount(0);
+ await expect.poll(()=>wireRequests).toBeGreaterThan(0);await expect(recycle.locator('.card-head .item-thumbnail')).toHaveCount(0);
  await expect(recycle.locator('h3')).not.toBeEmpty();
  // A missing image must not remove the item, its facts or planning controls.
  await expect(recycle.locator('.facts')).toBeVisible();
  await expect(recycle.locator('.need')).toBeVisible();
  const previousRequests=wireRequests;
  await page.locator('#q').fill('wire');await page.locator('#q').fill('metal');
- await expect(page.locator('.recycle-source-full article.card[data-item-id="wires"] .item-thumbnail')).toHaveCount(0);
+ await expect(page.locator('.recycle-source-full article.card[data-item-id="wires"] .card-head .item-thumbnail')).toHaveCount(0);
  assert.equal(wireRequests,previousRequests,'Failed images retried on redraw');
  for(const surface of ['light','black'])for(const accent of ['orange','amber','green','cyan']){
   await page.evaluate(({surface,accent})=>{document.documentElement.dataset.surface=surface;document.documentElement.dataset.theme=surface==='light'?'light':'dark';document.documentElement.dataset.accent=accent},{surface,accent});

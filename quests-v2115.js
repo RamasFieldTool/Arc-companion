@@ -21,7 +21,7 @@ function questCardV2115(x){
         <div class="quest-title-row"><h3>${escapeHtml(questName(x))}</h3><span class="quest-status-chip">${escapeHtml(tr(st))}</span></div>
         ${x.trader?`<div class="quest-trader">${escapeHtml(tr('trader'))}: ${escapeHtml(x.trader)}</div>`:''}
         <div class="quest-material-line ${required?'has-required':''}">
-          <b>${escapeHtml(qx('requiredShort'))}</b><span>${escapeHtml(required||qx('noMaterial'))}</span>
+          <b>${escapeHtml(qx('requiredShort'))}</b><span>${required?questItemsHtml(x.requiredItemIds):escapeHtml(qx('noMaterial'))}</span>
           ${st==='active'&&required?`<small>${escapeHtml(qx('affectsNeed'))}</small>`:''}
         </div>
       </div>
@@ -36,8 +36,8 @@ function questCardV2115(x){
       <div class="quest-details-body">
         ${objectives.length?`<div class="quest-section"><b>${escapeHtml(tr('objectives'))}</b><ul>${objectives.map(o=>`<li>${escapeHtml(o)}</li>`).join('')}</ul></div>`:''}
         <div class="quest-grid">
-          ${granted?`<div class="quest-mini"><b>${escapeHtml(tr('granted'))}</b><span>${escapeHtml(granted)}</span></div>`:''}
-          <div class="quest-mini"><b>${escapeHtml(tr('rewards'))}</b><span>${escapeHtml(rewards||tr('noRewards'))}</span></div>
+          ${granted?`<div class="quest-mini"><b>${escapeHtml(tr('granted'))}</b><span>${questItemsHtml(x.grantedItemIds)}</span></div>`:''}
+          <div class="quest-mini"><b>${escapeHtml(tr('rewards'))}</b><span>${rewards?questItemsHtml(x.rewardItemIds):escapeHtml(tr('noRewards'))}</span></div>
         </div>
       </div>
     </details>

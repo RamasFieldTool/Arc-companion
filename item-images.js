@@ -11,15 +11,19 @@
       return failed.has(url.href)?'':url.href;
     }catch{return ''}
   }
-  function thumbnail(item){
+  function thumbnail(item,compact=false){
     const url=source(item);
     if(!url)return '';
-    return `<img class="item-thumbnail" src="${url}" alt="" width="48" height="48" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
+    return `<img class="item-thumbnail${compact?' item-thumbnail--compact':''}" src="${url}" alt="" width="48" height="48" loading="lazy" decoding="async" referrerpolicy="no-referrer">`;
   }
   document.addEventListener('error',event=>{
     const image=event.target;
     if(!(image instanceof HTMLImageElement)||!image.classList.contains('item-thumbnail'))return;
     failed.add(image.src);image.remove();
   },true);
-  window.RFTItemImages={source,thumbnail};
+  const escape=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const byId=id=>typeof window.itemById==='function'?window.itemById(id):null;
+  const thumbnailById=id=>thumbnail(byId(id),true);
+  const label=(id,name)=>`<span class="item-inline" data-item-label="${escape(id)}">${thumbnailById(id)}<span>${escape(name)}</span></span>`;
+  window.RFTItemImages={source,thumbnail,thumbnailById,label};
 })();

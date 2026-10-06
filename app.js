@@ -213,7 +213,7 @@ function card(i){
       <div class="fact"><span>${tr('stack')}</span><b>${formatNum(itemStack(i))}</b></div>
     </div>
     ${desc?`<div class="desc"><b>${escapeHtml(tr('use'))}:</b> ${escapeHtml(desc)}</div>`:''}
-    <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${escapeHtml(recyclingText(i))}</div>
+    <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${recyclingHtml(i)}</div>
     ${goalDecision(i)}
   </article>`;
 }
@@ -244,6 +244,19 @@ function questItemsText(arr){
     const i=itemById(r.itemId);
     return `${r.quantity}× ${i?itemName(i):r.itemId.replaceAll('_',' ')}`;
   }).join(' · ');
+}
+
+function questItemsHtml(arr){
+  return (Array.isArray(arr)?arr:[]).map(row=>{
+    const item=itemById(row.itemId);
+    return window.RFTItemImages.label(row.itemId,`${row.quantity}× ${item?itemName(item):row.itemId.replaceAll('_',' ')}`);
+  }).join(' · ');
+}
+function recyclingHtml(item){
+  if(item.recyclesInto&&typeof item.recyclesInto==='object'&&Object.keys(item.recyclesInto).length){
+    return Object.entries(item.recyclesInto).map(([id,quantity])=>window.RFTItemImages.label(id,`${quantity}× ${itemById(id)?itemName(itemById(id)):id.replaceAll('_',' ')}`)).join(' · ');
+  }
+  return escapeHtml(recyclingText(item));
 }
 
 function setQuestState(id,state){
@@ -286,9 +299,9 @@ function questCard(x){
     </div>
     ${objectives.length?`<div class="quest-section"><b>${tr('objectives')}</b><ul>${objectives.map(o=>`<li>${escapeHtml(o)}</li>`).join('')}</ul></div>`:''}
     <div class="quest-grid">
-      <div class="quest-mini ${required?'has-required':''}"><b>${tr('required')}</b><span>${escapeHtml(required||tr('noRequired'))}</span></div>
-      ${granted?`<div class="quest-mini"><b>${tr('granted')}</b><span>${escapeHtml(granted)}</span></div>`:''}
-      <div class="quest-mini"><b>${tr('rewards')}</b><span>${escapeHtml(rewards||tr('noRewards'))}</span></div>
+      <div class="quest-mini ${required?'has-required':''}"><b>${tr('required')}</b><span>${required?questItemsHtml(x.requiredItemIds):escapeHtml(tr('noRequired'))}</span></div>
+      ${granted?`<div class="quest-mini"><b>${tr('granted')}</b><span>${questItemsHtml(x.grantedItemIds)}</span></div>`:''}
+      <div class="quest-mini"><b>${tr('rewards')}</b><span>${rewards?questItemsHtml(x.rewardItemIds):escapeHtml(tr('noRewards'))}</span></div>
     </div>
   </article>`;
 }
