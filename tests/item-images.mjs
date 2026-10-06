@@ -10,8 +10,10 @@ vm.runInNewContext(script,sandbox);
 const source=sandbox.window.RFTItemImages.source;
 const url='https://cdn.arctracker.io/items/v2/metal_parts.png';
 assert.equal(source({id:'metal_parts',imageFilename:url}),url);
+assert.equal(source({id:'rascal_i',imageFilename:'https://cdn.arctracker.io/items/v2/rascal.png'}),'https://cdn.arctracker.io/items/v2/rascal.png');
+assert.equal(source({id:'expired_pasta',imageFilename:'https://cdn.arctracker.io/items/expired_pasta.png'}),'https://cdn.arctracker.io/items/expired_pasta.png');
 for(const item of [null,{}, {id:123,imageFilename:url},{id:'metal_parts'},
- {id:'wires',imageFilename:url},{id:'metal_parts',imageFilename:'javascript:alert(1)'},
+ {id:'metal_parts',imageFilename:'javascript:alert(1)'},
  ...['http://cdn.arctracker.io/items/v2/metal_parts.png','https://evil.example/items/v2/metal_parts.png',url+'?x=1',url+'#x',url.replace('cdn.','user@cdn.'),url.replace('.io/','.io:8080/'),url.replace('.png','.svg')].map(imageFilename=>({id:'metal_parts',imageFilename}))])assert.equal(source(item),'',JSON.stringify(item));
 console.log('PASS metadata association and invalid-source rejection');
 

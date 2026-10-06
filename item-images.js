@@ -6,7 +6,8 @@
     try{
       const url=new URL(item.imageFilename);
       if(url.protocol!=='https:'||url.hostname!=='cdn.arctracker.io'||url.port||url.username||url.password||url.search||url.hash)return '';
-      if(!['png','webp','jpg'].some(extension=>url.pathname===`/items/v2/${item.id}.${extension}`))return '';
+      // Catalog variants may share artwork; trust the explicit URL, never guess it from ID.
+      if(!/^\/items\/(?:v2\/)?[a-z0-9_-]+\.(?:png|webp|jpg)$/i.test(url.pathname))return '';
       return failed.has(url.href)?'':url.href;
     }catch{return ''}
   }
