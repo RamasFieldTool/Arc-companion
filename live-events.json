@@ -4339,7 +4339,119 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Husk Graveyard",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-10-08T13:00:00.000Z",
+          "end": "2026-10-08T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-08T20:00:00.000Z",
+          "end": "2026-10-08T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-08T19:00:00.000Z",
+          "end": "2026-10-08T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-08T08:00:00.000Z",
+          "end": "2026-10-08T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-08T04:00:00.000Z",
+          "end": "2026-10-08T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/husk-graveyard.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-10-08T13:00:00.000Z",
+          "end": "2026-10-08T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-08T20:00:00.000Z",
+          "end": "2026-10-08T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-08T19:00:00.000Z",
+          "end": "2026-10-08T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-08T08:00:00.000Z",
+          "end": "2026-10-08T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-08T04:00:00.000Z",
+          "end": "2026-10-08T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Hidden Bunker",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-10-08T13:00:00.000Z",
+          "end": "2026-10-08T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-08T20:00:00.000Z",
+          "end": "2026-10-08T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-08T19:00:00.000Z",
+          "end": "2026-10-08T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-08T08:00:00.000Z",
+          "end": "2026-10-08T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-08T04:00:00.000Z",
+          "end": "2026-10-08T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/hidden-bunker.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-10-08T13:00:00.000Z",
+          "end": "2026-10-08T14:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-10-08T20:00:00.000Z",
+          "end": "2026-10-08T21:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-10-08T19:00:00.000Z",
+          "end": "2026-10-08T20:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-10-08T08:00:00.000Z",
+          "end": "2026-10-08T09:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-10-08T04:00:00.000Z",
+          "end": "2026-10-08T05:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
     }
   ],
-  "syncedAt": "2026-10-07T03:14:55Z"
+  "syncedAt": "2026-10-07T03:34:00Z"
 }
