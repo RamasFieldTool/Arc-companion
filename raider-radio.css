@@ -217,3 +217,8 @@ html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-wordma
 
 /* Native playback controls fit compact cards and remain touch-sized. */
 #raiderRadio .radio-player{display:block;box-sizing:border-box;width:calc(100% - 24px);min-width:0;height:54px;flex-shrink:0;margin:auto 12px 12px}
+
+/* Veräppelt: preserve the supplied portrait cover without cropping or overlays. */
+#raiderRadio [data-story-theme="tower-bluff"] img{aspect-ratio:1229/1536;object-fit:contain}
+#raiderRadio [data-story-theme="tower-bluff"] .fan-story-hero::after{display:none}
+#raiderRadio [data-story-theme="tower-bluff"] .fan-story-hero-copy{position:relative;background:linear-gradient(135deg,#302821,#181717);border-top:2px solid var(--story-ember)}
