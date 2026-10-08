@@ -223,6 +223,7 @@
   storiesBack.type='button';
   storiesBack.className='fan-view-back';
   const storiesHeading=document.createElement('h2');
+  storiesHeading.className='stories-wordmark';
   const storiesGrid=document.createElement('div');
   storiesGrid.className='fan-stories-grid';
   storiesView.append(storiesBack,storiesHeading,storiesGrid);

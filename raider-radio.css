@@ -235,3 +235,7 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-card .f
 #raiderRadio .fan-story-card .fan-story-read::after{content:'›';font-size:28px;line-height:1}
 #raiderRadio .fan-story-card:focus-within{outline:3px solid var(--story-ember);outline-offset:3px}
 #raiderRadio .fan-story-card:hover{border-color:var(--story-ember)}
+
+@font-face{font-family:'Raider Stories Hand';src:url('assets/fonts/caveat/raider-stories.woff') format('woff');font-style:normal;font-weight:600;font-display:swap}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .stories-wordmark{font-family:'Raider Stories Hand',cursive!important;font-size:clamp(36px,9vw,48px)!important;font-weight:600!important;font-style:normal!important;text-transform:none!important;letter-spacing:0!important;line-height:1.25;margin:16px 0;color:var(--accent)!important}
+#raiderRadio .stories-wordmark:focus{outline:none!important}
