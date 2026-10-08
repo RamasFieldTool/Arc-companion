@@ -77,6 +77,7 @@ function recyclingMatchText(i,query){
 
 // Avoid German legacy fallback strings leaking into English mode.
 itemDesc=function(i){
+  if(i?.rftConfirmedUpdate)return text(i.description);
   if(i?.description){
     if(lang==='en') return i.description.en || '';
     return i.description.de || i.description.en || '';
@@ -86,6 +87,7 @@ itemDesc=function(i){
 };
 
 recyclingText=function(i){
+  if(i?.recyclingPending)return text(i.description);
   const rec=i?.recyclesInto;
   if(rec && typeof rec==='object' && Object.keys(rec).length){
     return Object.entries(rec).map(([id,n])=>{

@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+const context={window:{},structuredClone};vm.runInNewContext(await readFile(new URL('../catalog-update-2.js',import.meta.url),'utf8'),context);
+const correct=context.window.RFTCatalogUpdate.correct;
+const old={id:'anvil_i',rarity:'Uncommon',modSlots:{special:['anvil_splitter'],muzzle:['silencer_i']},recipe:{metal_parts:3},vendors:[{trader:'Tian Wen'},{trader:'Other'}]};
+const before=JSON.stringify(old),fixed=correct(old);assert.equal(fixed.rarity,'Rare');assert.equal(fixed.modSlots.special,undefined);assert.equal(fixed.modSlots.muzzle[0],'silencer_i');assert.equal(fixed.vendors.length,1);assert.equal(JSON.stringify(old),before);assert.equal(fixed.id,old.id);assert.equal(fixed.recipe.metal_parts,3);
+const split=correct({id:'anvil_splitter',recyclesInto:{processor:1,mod_components:1}});assert.equal(split.recyclesInto,undefined);assert.ok(split.recyclingPending);for(const locale of ['de','en','fr','es','it'])assert.ok(split.description[locale]);
+const future=correct({id:'anvil_splitter',recyclesInto:{amplified_fragments:7}});assert.equal(future.recyclesInto.amplified_fragments,7);assert.ok(!future.recyclingPending);
+assert.equal(correct({id:'snap_hook',effects:{Range:{value:'20m'}}}).effects.Range.value,'18m');
+assert.equal(correct({id:'heavy_shield',movementSpeedModifier:-15,effects:{'15% Reduced Movement Speed':{value:''}}}).movementSpeedModifier,-10);
+assert.equal(JSON.stringify(correct({id:'metal_parts',value:0})),JSON.stringify({id:'metal_parts',value:0}));
+assert.equal(JSON.stringify(correct(fixed)),JSON.stringify(fixed));
+console.log('PASS confirmed corrections, five-language copy, future fragment preservation, source immutability, stable IDs/recipes, idempotence');
