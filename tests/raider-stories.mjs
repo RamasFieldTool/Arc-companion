@@ -103,8 +103,10 @@ try{
   for(const width of [360,430])for(const surface of ['light','dark','black']){
     const context=await browser.newContext({viewport:{width,height:900},isMobile:true,hasTouch:true});
     await context.addInitScript(surface=>{
-      localStorage.setItem('arcLang','de');
-      localStorage.setItem('arcUiLanguage','de');
+      if(!localStorage.getItem('arcUiLanguage')){
+        localStorage.setItem('arcLang','de');
+        localStorage.setItem('arcUiLanguage','de');
+      }
       localStorage.setItem('arcLanguageOnboardingPending','0');
       localStorage.setItem('arcPaletteSurface',surface);
     },surface);
@@ -117,7 +119,13 @@ try{
     for(const language of ['de','en','fr','es','it']){
       const expected=bluffSource.translations[language];
       console.log(`Veräppelt language check ${width}px ${surface}: ${language}`);
-      await page.evaluate(lang=>window.arcSetLanguage(lang),language);
+      await page.locator('#appBack').tap();await visible(page,'#appLauncher');
+      await page.locator('#arcLanguageButton').tap();
+      await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();
+      await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
+      await page.locator('[data-app-target="raiderRadio"]').tap();
+      await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
+      await page.locator('[data-story-id="veraeppelt"] .fan-story-read').tap();await visible(page,'.fan-story-detail');
       try{
         await page.waitForFunction(({lang,title})=>document.querySelector('.fan-story-body')?.lang===lang&&document.querySelector('.fan-story-title')?.textContent===title,{lang:language,title:expected.title});
       }catch(error){
