@@ -116,8 +116,14 @@ try{
     await visible(page,'.fan-story-detail');
     for(const language of ['de','en','fr','es','it']){
       const expected=bluffSource.translations[language];
+      console.log(`Veräppelt language check ${width}px ${surface}: ${language}`);
       await page.evaluate(lang=>window.arcSetLanguage(lang),language);
-      await page.waitForFunction(({lang,title})=>document.querySelector('.fan-story-body')?.lang===lang&&document.querySelector('.fan-story-title')?.textContent===title,{lang:language,title:expected.title});
+      try{
+        await page.waitForFunction(({lang,title})=>document.querySelector('.fan-story-body')?.lang===lang&&document.querySelector('.fan-story-title')?.textContent===title,{lang:language,title:expected.title});
+      }catch(error){
+        console.error(await page.evaluate(()=>({hash:location.hash,lang:document.documentElement.lang,title:document.querySelector('.fan-story-title')?.textContent,bodyLang:document.querySelector('.fan-story-body')?.lang})));
+        throw error;
+      }
       assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
       assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
       const cover=page.locator('.fan-story-hero>img');

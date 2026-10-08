@@ -324,6 +324,7 @@
       }catch{/* Invalid author links are omitted. */}
     }
     storyDetail.append(hero,body,credit);
+    window.RFTApplyStoryLanguage?.();
   }
 
   section.append(hub,radioView,albumView,storiesView,storyView);
