@@ -1,0 +1,5034 @@
+{
+  "schema": "rft-full-item-audit",
+  "capturedAt": "2026-10-08T23:10:16.291378+00:00",
+  "rftCommit": "c097bd124f3fdd8208f1556a4db7fb0c9e8c0953",
+  "snapshot": {
+    "sha256": "ef2e7d808ae84714afcc5f2a6c1053c5037633491a465da901751dc1daacfbe2",
+    "generatedAt": "2026-09-24T15:55:47.768Z",
+    "source": "RaidTheory/arcraiders-data"
+  },
+  "upstreamCommit": "2a4abebb2486a633070f4e260058bcd5ad4511d6",
+  "limits": [
+    "All snapshot rows processed; no individual in-game verification of 581 items",
+    "Missing translations reported without inventing them",
+    "Matching old upstream does not establish 2.0 freshness",
+    "compatibleWith may contain weapon-family IDs; not treated as exact item reference",
+    "No image URL availability or rights validation",
+    "No browser, backup, or full Quality Gate run"
+  ],
+  "summary": {
+    "records": 581,
+    "uniqueIds": 581,
+    "declaredCount": 581,
+    "duplicateIds": [],
+    "findingCounts": {
+      "currency_reference": 88,
+      "missing_locale": 69,
+      "missing_value": 22,
+      "alternate_repair_schema": 2
+    },
+    "recordsWithFindings": 109,
+    "differentFromPinnedUpstream": 0,
+    "idsNotInPinnedUpstream": [],
+    "upstreamIdsNotInSnapshot": []
+  },
+  "items": [
+    {
+      "id": "acoustic_guitar",
+      "name": "Acoustic Guitar",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 70
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "adrenaline_shot",
+      "name": "Adrenaline Shot",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 900
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "advanced_arc_powercell",
+      "name": "Advanced ARC Powercell",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "advanced_electrical_components",
+      "name": "Advanced Electrical Components",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "advanced_mechanical_components",
+      "name": "Advanced Mechanical Components",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "agave",
+      "name": "Agave",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "agave_juice",
+      "name": "Agave Juice",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "air_freshener",
+      "name": "Air Freshener",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "alarm_clock",
+      "name": "Alarm Clock",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "alien_duck",
+      "name": "Alien Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ancient_fort_security_code",
+      "name": "Ancient Fort Security Code",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "angled_grip_i",
+      "name": "Angled Grip I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "angled_grip_ii",
+      "name": "Angled Grip II",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "angled_grip_ii_blueprint",
+      "name": "Angled Grip II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "angled_grip_iii",
+      "name": "Angled Grip III",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 15000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "angled_grip_iii_blueprint",
+      "name": "Angled Grip III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "antiseptic",
+      "name": "Antiseptic",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "anvil_blueprint",
+      "name": "Anvil Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "anvil_i",
+      "name": "Anvil I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 15000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "anvil_ii",
+      "name": "Anvil II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "anvil_iii",
+      "name": "Anvil III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "anvil_iv",
+      "name": "Anvil IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "anvil_splitter",
+      "name": "Anvil Splitter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "aphelion",
+      "name": "Aphelion",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "aphelion_blueprint",
+      "name": "Aphelion Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "apricot",
+      "name": "Apricot",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_alloy",
+      "name": "ARC Alloy",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_circuitry",
+      "name": "ARC Circuitry",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_coolant",
+      "name": "ARC Coolant",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_flex_rubber",
+      "name": "ARC Flex Rubber",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_motion_core",
+      "name": "ARC Motion Core",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_performance_steel",
+      "name": "ARC Performance Steel",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_powercell",
+      "name": "ARC Powercell",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_synthetic_resin",
+      "name": "ARC Synthetic Resin",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arc_thermo_lining",
+      "name": "ARC Thermo Lining",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arpeggio_i",
+      "name": "Arpeggio I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arpeggio_ii",
+      "name": "Arpeggio II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arpeggio_iii",
+      "name": "Arpeggio III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "arpeggio_iv",
+      "name": "Arpeggio IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "assessor_matrix",
+      "name": "Assessor Matrix",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "assorted_seeds",
+      "name": "Assorted Seeds",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bandage",
+      "name": "Bandage",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 750
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "barricade_kit",
+      "name": "Barricade Kit",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "barricade_kit_blueprint",
+      "name": "Barricade Kit Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bastion_cell",
+      "name": "Bastion Cell",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "battery",
+      "name": "Battery",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bettina_blueprint",
+      "name": "Bettina Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bettina_i",
+      "name": "Bettina I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bettina_ii",
+      "name": "Bettina II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bettina_iii",
+      "name": "Bettina III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bettina_iv",
+      "name": "Bettina IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bicycle_pump",
+      "name": "Bicycle Pump",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "binoculars",
+      "name": "Binoculars",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 20
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blaze_grenade",
+      "name": "Blaze Grenade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blaze_grenade_blueprint",
+      "name": "Blaze Grenade Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blaze_grenade_trap",
+      "name": "Blaze Grenade Trap",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bloated_tuna_can",
+      "name": "Bloated Tuna Can",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blue_gate_cellar_key",
+      "name": "Blue Gate Cellar Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blue_gate_communication_tower_key",
+      "name": "Blue Gate Communication Tower Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blue_gate_confiscation_room_key",
+      "name": "Blue Gate Confiscation Room Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blue_gate_village_key",
+      "name": "Blue Gate Village Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blue_light_stick",
+      "name": "Blue Light Stick",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 450
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 10
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "blue_light_stick_blueprint",
+      "name": "Blue Light Stick Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bobcat_blueprint",
+      "name": "Bobcat Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bobcat_i",
+      "name": "Bobcat I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bobcat_ii",
+      "name": "Bobcat II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bobcat_iii",
+      "name": "Bobcat III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bobcat_iv",
+      "name": "Bobcat IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "bombardier_cell",
+      "name": "Bombardier Cell",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "breathtaking_snow_globe",
+      "name": "Breathtaking Snow Globe",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "broken_flashlight",
+      "name": "Broken Flashlight",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "broken_guidance_system",
+      "name": "Broken Guidance System",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "broken_handheld_radio",
+      "name": "Broken Handheld Radio",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "broken_taser",
+      "name": "Broken Taser",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "buried_city_hospital_key",
+      "name": "Buried City Hospital Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "buried_city_jkv_employee_access_card",
+      "name": "Buried City JKV Employee Access Card",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "buried_city_residential_master_key",
+      "name": "Buried City Residential Master Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "buried_city_town_hall_key",
+      "name": "Buried City Town Hall Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burletta_blueprint",
+      "name": "Burletta Blueprint",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burletta_i",
+      "name": "Burletta I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 8700
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burletta_ii",
+      "name": "Burletta II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burletta_iii",
+      "name": "Burletta III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burletta_iv",
+      "name": "Burletta IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burned_arc_circuitry",
+      "name": "Burned Arc Circuitry",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "burnt_out_candles",
+      "name": "Burnt-Out Candles",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "camera_lens",
+      "name": "Camera Lens",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "candle_holder",
+      "name": "Candle Holder",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "candleberries",
+      "name": "Candleberries",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "canister",
+      "name": "Canister",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "canto_blueprint",
+      "name": "Canto Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "canto_i",
+      "name": "Canto I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "canto_ii",
+      "name": "Canto II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "canto_iii",
+      "name": "Canto III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "canto_iv",
+      "name": "Canto IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "cat_bed",
+      "name": "Cat Bed",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "celeste_journal",
+      "name": "Celeste's Journal",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "chemicals",
+      "name": "Chemicals",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "coffee_pot",
+      "name": "Coffee Pot",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "colorful_shoes_green",
+      "name": "Colorful Shoes (Green)",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "colorful_shoes_red",
+      "name": "Colorful Shoes (Red)",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "colorful_shoes_silver",
+      "name": "Colorful Shoes (Silver)",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "combat_mk1",
+      "name": "Combat Mk. 1",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "combat_mk2",
+      "name": "Combat Mk. 2",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        },
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "combat_mk3_aggressive",
+      "name": "Combat Mk. 3 (Aggressive)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "combat_mk3_aggressive_blueprint",
+      "name": "Combat Mk. 3 (Aggressive) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "combat_mk3_flanking",
+      "name": "Combat Mk. 3 (Flanking)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "combat_mk3_flanking_blueprint",
+      "name": "Combat Mk. 3 (Flanking) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "comet_igniter",
+      "name": "Comet Igniter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "compensator_i",
+      "name": "Compensator I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "compensator_ii",
+      "name": "Compensator II",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "compensator_ii_blueprint",
+      "name": "Compensator II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "compensator_iii",
+      "name": "Compensator III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "compensator_iii_blueprint",
+      "name": "Compensator III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "complex_gun_parts",
+      "name": "Complex Gun Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "complex_gun_parts_blueprint",
+      "name": "Complex Gun Parts Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "coolant",
+      "name": "Coolant",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "cooling_coil",
+      "name": "Cooling Coil",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "cooling_fan",
+      "name": "Cooling Fan",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "cracked_bioscanner",
+      "name": "Cracked Bioscanner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "crash_mat",
+      "name": "Crash Mat",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "crash_mat_blueprint",
+      "name": "Crash Mat Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "crude_explosives",
+      "name": "Crude Explosives",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "crumpled_plastic_bottle",
+      "name": "Crumpled Plastic Bottle",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dam_control_tower_key",
+      "name": "Dam Control Tower Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dam_controlled_access_zone_key",
+      "name": "Dam Controlled Access Zone Key",
+      "findings": [
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dam_staff_room_key",
+      "name": "Dam Staff Room Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dam_surveillance_key",
+      "name": "Dam Surveillance Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dam_testing_annex_key",
+      "name": "Dam Testing Annex Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_arc_motion_core",
+      "name": "Damaged ARC Motion Core",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_arc_powercell",
+      "name": "Damaged ARC Powercell",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_fireball_burner",
+      "name": "Damaged Fireball Burner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_heat_sink",
+      "name": "Damaged Heat Sink",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_hornet_driver",
+      "name": "Damaged Hornet Driver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_rocketeer_driver",
+      "name": "Damaged Rocketeer Driver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_snitch_scanner",
+      "name": "Damaged Snitch Scanner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_tick_pod",
+      "name": "Damaged Tick Pod",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "damaged_wasp_driver",
+      "name": "Damaged Wasp Driver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dart_board",
+      "name": "Dart Board",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "deadline",
+      "name": "Deadline",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 18000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "deadline_blueprint",
+      "name": "Deadline Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "defibrillator",
+      "name": "Defibrillator",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 3000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "defibrillator_blueprint",
+      "name": "Defibrillator Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "deflated_football",
+      "name": "Deflated Football",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "degraded_arc_rubber",
+      "name": "Degraded ARC Rubber",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "diving_goggles",
+      "name": "Diving Goggles",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dockmasters_detector",
+      "name": "Dockmaster's Detector",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dodgers_note",
+      "name": "Dodger's Note",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dog_collar",
+      "name": "Dog Collar",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dolabra",
+      "name": "Dolabra",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dolabra_blueprint",
+      "name": "Dolabra Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "doodly_duck",
+      "name": "Doodly Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "door_blocker",
+      "name": "Door Blocker",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 810
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dried_out_arc_resin",
+      "name": "Dried-Out ARC Resin",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "duct_tape",
+      "name": "Duct Tape",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "durable_cloth",
+      "name": "Durable Cloth",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "dusty_film_reel",
+      "name": "Dusty Film Reel",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "electrical_components",
+      "name": "Electrical Components",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "elephant_obelisk",
+      "name": "Elephant Obelisk",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "empty_wine_bottle",
+      "name": "Empty Wine Bottle",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "energy_clip",
+      "name": "Energy Clip",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 3000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "equalizer",
+      "name": "Equalizer",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "equalizer_blueprint",
+      "name": "Equalizer Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "equatorial_sundial",
+      "name": "Equatorial Sundial",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "espresso_machine_parts",
+      "name": "Espresso Machine Parts",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "esr_analyzer",
+      "name": "ESR Analyzer",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "exodus_modules",
+      "name": "Exodus Modules",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "experimental_seed_sample",
+      "name": "Experimental Seed Sample",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "expired_pasta",
+      "name": "Expired Pasta",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "expired_respirator",
+      "name": "Expired Respirator",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "expired_security_code",
+      "name": "Expired Security Code",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "explosive_compound",
+      "name": "Explosive Compound",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "explosive_mine",
+      "name": "Explosive Mine",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "explosive_mine_blueprint",
+      "name": "Explosive Mine Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_barrel_i",
+      "name": "Extended Barrel I",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        },
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_barrel_ii",
+      "name": "Extended Barrel II",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        },
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_barrel_ii_blueprint",
+      "name": "Extended Barrel II Blueprint",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_barrel_iii",
+      "name": "Extended Barrel III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_barrel_iii_blueprint",
+      "name": "Extended Barrel III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_light_mag_i",
+      "name": "Extended Light Mag I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_light_mag_ii",
+      "name": "Extended Light Mag II",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        },
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_light_mag_ii_blueprint",
+      "name": "Extended Light Mag II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_light_mag_iii",
+      "name": "Extended Light Mag III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_light_mag_iii_blueprint",
+      "name": "Extended Light Mag III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_medium_mag_i",
+      "name": "Extended Medium Mag I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_medium_mag_ii",
+      "name": "Extended Medium Mag II",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_medium_mag_ii_blueprint",
+      "name": "Extended Medium Mag II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_medium_mag_iii",
+      "name": "Extended Medium Mag III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_medium_mag_iii_blueprint",
+      "name": "Extended Medium Mag III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_shotgun_mag_i",
+      "name": "Extended Shotgun Mag I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_shotgun_mag_ii",
+      "name": "Extended Shotgun Mag II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_shotgun_mag_ii_blueprint",
+      "name": "Extended Shotgun Mag II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_shotgun_mag_iii",
+      "name": "Extended Shotgun Mag III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "extended_shotgun_mag_iii_blueprint",
+      "name": "Extended Shotgun Mag III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fabric",
+      "name": "Fabric",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "faded_photograph",
+      "name": "Faded Photograph",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "familiar_duck",
+      "name": "Familiar Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ferro_i",
+      "name": "Ferro I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1425
+        },
+        {
+          "path": "/repairMaterials",
+          "kind": "alternate_repair_schema",
+          "value": {
+            "durability_increase": 50,
+            "materials": null
+          }
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ferro_ii",
+      "name": "Ferro II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ferro_iii",
+      "name": "Ferro III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ferro_iv",
+      "name": "Ferro IV",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 8700
+        },
+        {
+          "path": "/repairMaterials",
+          "kind": "alternate_repair_schema",
+          "value": {
+            "durability_increase": 50,
+            "materials": null
+          }
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fertilizer",
+      "name": "Fertilizer",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "film_reel",
+      "name": "Film Reel",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fine_wristwatch",
+      "name": "Fine Wristwatch",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fireball_burner",
+      "name": "Fireball Burner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "firecracker",
+      "name": "Firecracker",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 20
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "firefly_burner",
+      "name": "Firefly Burner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fireworks_box",
+      "name": "Fireworks Box",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 60
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fireworks_box_blueprint",
+      "name": "Fireworks Box Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "first_wave_compass",
+      "name": "First Wave Compass",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "first_wave_rations",
+      "name": "First Wave Rations",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "first_wave_tape",
+      "name": "First Wave Tape",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "flame_spray",
+      "name": "Flame Spray",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "flashy_duck",
+      "name": "Flashy Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "flow_controller",
+      "name": "Flow Controller",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "flushing_terminal_key",
+      "name": "Flushing Terminal Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fossilized_lightning",
+      "name": "Fossilized Lightning",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "free_loadout_augment",
+      "name": "Free Loadout Augment",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "frequency_modulation_box",
+      "name": "Frequency Modulation Box",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fried_motherboard",
+      "name": "Fried Motherboard",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "fruit_mix",
+      "name": "Fruit Mix",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "frying_pan",
+      "name": "Frying Pan",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "garlic_press",
+      "name": "Garlic Press",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "gas_grenade",
+      "name": "Gas Grenade",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 810
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "gas_grenade_trap",
+      "name": "Gas Grenade Trap",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "gas_mine",
+      "name": "Gas Mine",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 810
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "gas_mine_blueprint",
+      "name": "Gas Mine Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "geiger_counter",
+      "name": "Geiger Counter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "gentle_duck",
+      "name": "Gentle Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "glitched_arc_circuitry",
+      "name": "Glitched ARC Circuitry",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "glitched_arc_light_ring",
+      "name": "Glitched ARC Light Ring",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "glitched_arc_phased_array",
+      "name": "Glitched ARC Phased Array",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "glitched_arc_power_converter",
+      "name": "Glitched ARC Power Converter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "glitched_arc_transmitter",
+      "name": "Glitched ARC Transmitter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "great_mullein",
+      "name": "Great Mullein",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "green_light_stick",
+      "name": "Green Light Stick",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 450
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 10
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "green_light_stick_blueprint",
+      "name": "Green Light Stick Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hairpin_i",
+      "name": "Hairpin I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1350
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hairpin_ii",
+      "name": "Hairpin II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hairpin_iii",
+      "name": "Hairpin III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hairpin_iv",
+      "name": "Hairpin IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "headphones",
+      "name": "Headphones",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "heavy_ammo",
+      "name": "Heavy Ammo",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 900
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "heavy_fuze_grenade",
+      "name": "Heavy Fuze Grenade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "heavy_gun_parts",
+      "name": "Heavy Gun Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "heavy_gun_parts_blueprint",
+      "name": "Heavy Gun Parts Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "heavy_shield",
+      "name": "Heavy Shield",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 16500
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "herbal_bandage",
+      "name": "Herbal Bandage",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 2700
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hidden_bunker_key",
+      "name": "Hidden Bunker Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "horizontal_grip",
+      "name": "Horizontal Grip",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hornet_driver",
+      "name": "Hornet Driver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "household_cleaner",
+      "name": "Household Cleaner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hullcracker_blueprint",
+      "name": "Hullcracker Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hullcracker_i",
+      "name": "Hullcracker I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 30000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hullcracker_ii",
+      "name": "Hullcracker II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hullcracker_iii",
+      "name": "Hullcracker III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "hullcracker_iv",
+      "name": "Hullcracker IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "humidifier",
+      "name": "Humidifier",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ice_cream_scooper",
+      "name": "Ice Cream Scooper",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "il_toro_blueprint",
+      "name": "Il Toro Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "il_toro_i",
+      "name": "Il Toro I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 15000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "il_toro_ii",
+      "name": "Il Toro II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "il_toro_iii",
+      "name": "Il Toro III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "il_toro_iv",
+      "name": "Il Toro IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "impure_arc_coolant",
+      "name": "Impure ARC Coolant",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "industrial_battery",
+      "name": "Industrial Battery",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "industrial_charger",
+      "name": "Industrial Charger",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "industrial_magnet",
+      "name": "Industrial Magnet",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ion_sputter",
+      "name": "Ion Sputter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "jolt_mine",
+      "name": "Jolt Mine",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 2550
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "jolt_mine_blueprint",
+      "name": "Jolt Mine Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "jupiter_blueprint",
+      "name": "Jupiter Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "kettle_i",
+      "name": "Kettle I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 2520
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "kettle_ii",
+      "name": "Kettle II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "kettle_iii",
+      "name": "Kettle III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "kettle_iv",
+      "name": "Kettle IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "kinetic_converter",
+      "name": "Kinetic Converter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "laboratory_reagents",
+      "name": "Laboratory Reagents",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lances_mixtape_5th_edition",
+      "name": "Lance's Mixtape (5th Edition)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "launcher_ammo",
+      "name": "Launcher Ammo",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 4500
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "leaper_pulse_unit",
+      "name": "Leaper Pulse Unit",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "leviathans_crown_ship_model",
+      "name": "\"Leviathan's Crown\" Ship Model",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "library_book",
+      "name": "Book",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lidar_scanner",
+      "name": "Lidar Scanner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "light_ammo",
+      "name": "Light Ammo",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 900
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "light_bulb",
+      "name": "Light Bulb",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "light_gun_parts",
+      "name": "Light Gun Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "light_gun_parts_blueprint",
+      "name": "Light Gun Parts Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "light_impact_grenade",
+      "name": "Light Impact Grenade",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 810
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "light_shield",
+      "name": "Light Shield",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lightweight_stock",
+      "name": "Lightweight Stock",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lightweight_stock_blueprint",
+      "name": "Lightweight Stock Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lil_smoke_grenade",
+      "name": "Li'l Smoke Grenade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk1",
+      "name": "Looting Mk. 1",
+      "findings": [
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk2",
+      "name": "Looting Mk. 2",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk3_cautious",
+      "name": "Looting Mk. 3 (Cautious)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk3_safekeeper",
+      "name": "Looting Mk. 3 (Safekeeper)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk3_safekeeper_blueprint",
+      "name": "Looting Mk. 3 (Safekeeper) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk3_survivor",
+      "name": "Looting Mk. 3 (Survivor)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "looting_mk3_survivor_blueprint",
+      "name": "Looting Mk. 3 (Survivor) Blueprint",
+      "findings": [
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lure_grenade",
+      "name": "Lure Grenade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lure_grenade_blueprint",
+      "name": "Lure Grenade Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "lure_grenade_trap",
+      "name": "Lure Grenade Trap",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "magnet",
+      "name": "Magnet",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "magnetic_accelerator",
+      "name": "Magnetic Accelerator",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "magnetron",
+      "name": "Magnetron",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "major_aivas_mementos",
+      "name": "Major Aiva's Mementos",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "major_aivas_patch",
+      "name": "Major Aiva's Patch",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "marano_market_business_card",
+      "name": "Marano Market Business Card",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "matriarch_reactor",
+      "name": "Matriarch Reactor",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "mechanical_components",
+      "name": "Mechanical Components",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "medium_ammo",
+      "name": "Medium Ammo",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 900
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "medium_gun_parts",
+      "name": "Medium Gun Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "medium_gun_parts_blueprint",
+      "name": "Medium Gun Parts Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "medium_shield",
+      "name": "Medium Shield",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "metal_brackets",
+      "name": "Metal Brackets",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "metal_parts",
+      "name": "Metal Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "microscope",
+      "name": "Microscope",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "mini_centrifuge",
+      "name": "Mini Centrifuge",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "mod_components",
+      "name": "Mod Components",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "moisture_meter",
+      "name": "Moisture Meter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "moss",
+      "name": "Moss",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "motor",
+      "name": "Motor",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "mushroom",
+      "name": "Mushroom",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "music_album",
+      "name": "Music Album",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "music_box",
+      "name": "Music Box",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "muzzle_brake_i",
+      "name": "Muzzle Brake I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "muzzle_brake_ii",
+      "name": "Muzzle Brake II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "muzzle_brake_ii_blueprint",
+      "name": "Muzzle Brake II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "muzzle_brake_iii",
+      "name": "Muzzle Brake III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "muzzle_brake_iii_blueprint",
+      "name": "Muzzle Brake III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "noisemaker",
+      "name": "Noisemaker",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "number_plate",
+      "name": "Number Plate",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "nutrient_meter",
+      "name": "Nutrient Meter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "official_shutdown_documentation",
+      "name": "Official Shutdown Documentation",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "oil",
+      "name": "Oil",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "old_world_books",
+      "name": "Old World Books",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "olives",
+      "name": "Olives",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "osprey_blueprint",
+      "name": "Osprey Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "osprey_i",
+      "name": "Osprey I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "osprey_ii",
+      "name": "Osprey II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "osprey_iii",
+      "name": "Osprey III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "osprey_iv",
+      "name": "Osprey IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "padded_stock",
+      "name": "Padded Stock",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 15000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "padded_stock_blueprint",
+      "name": "Padded Stock Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "painted_box",
+      "name": "Painted Box",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "patrol_car_key",
+      "name": "Patrol Car Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "photoelectric_cloak",
+      "name": "Photoelectric Cloak",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "pilgrims_peak_security_code",
+      "name": "Pilgrim's Peak Security Code",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "plastic_parts",
+      "name": "Plastic Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "playing_cards",
+      "name": "Playing Cards",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "polluted_air_filter",
+      "name": "Polluted Air Filter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "pop_trigger",
+      "name": "Pop Trigger",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "portable_tv",
+      "name": "Portable TV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "possibly_toxic_plant",
+      "name": "Possibly Toxic Plant",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "poster_of_natural_wonders",
+      "name": "Poster of Natural Wonders",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "pottery",
+      "name": "Pottery",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "power_bank",
+      "name": "Power Bank",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "power_cable",
+      "name": "Power Cable",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "power_rod",
+      "name": "Power Rod",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "powered_descender",
+      "name": "Powered Descender",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "powered_descender_blueprint",
+      "name": "Powered Descender Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "precision_gimbal",
+      "name": "Precision Gimbal",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "prickly_pear",
+      "name": "Prickly Pear",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "processor",
+      "name": "Processor",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "project_heartwood_blueprints",
+      "name": "Project Heartwood Blueprints",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "projector",
+      "name": "Projector",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "pulse_mine",
+      "name": "Pulse Mine",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1410
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "pulse_mine_blueprint",
+      "name": "Pulse Mine Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "queen_reactor",
+      "name": "Queen Reactor",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "radio",
+      "name": "Radio",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "radio_relay",
+      "name": "Radio Relay",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "raider_flag",
+      "name": "Raider Flag",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "raider_hatch_key",
+      "name": "Raider Hatch Key",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "raiders_refuge_security_code",
+      "name": "Raider's Refuge Security Code",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rascal_blueprint",
+      "name": "Rascal Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rascal_i",
+      "name": "Rascal I",
+      "findings": [
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rascal_ii",
+      "name": "Rascal II",
+      "findings": [
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rascal_iii",
+      "name": "Rascal III",
+      "findings": [
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rascal_iv",
+      "name": "Rascal IV",
+      "findings": [
+        {
+          "path": "/stackSize",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rattler_i",
+      "name": "Rattler I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rattler_ii",
+      "name": "Rattler II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rattler_iii",
+      "name": "Rattler III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rattler_iv",
+      "name": "Rattler IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "recorder",
+      "name": "Recorder",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 3000
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 50
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "red_coral_jewelry",
+      "name": "Red Coral Jewelry",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "red_light_stick",
+      "name": "Red Light Stick",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 450
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 10
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "red_light_stick_blueprint",
+      "name": "Red Light Stick Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "reinforced_reception_security_code",
+      "name": "Reinforced Reception Security Code",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "remote_control",
+      "name": "Remote Control",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "remote_raider_flare",
+      "name": "Remote Raider Flare",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 810
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "remote_raider_flare_blueprint",
+      "name": "Remote Raider Flare Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "renegade_i",
+      "name": "Renegade I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 21000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "renegade_ii",
+      "name": "Renegade II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "renegade_iii",
+      "name": "Renegade III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "renegade_iv",
+      "name": "Renegade IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "resin",
+      "name": "Resin",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ripped_safety_vest",
+      "name": "Ripped Safety Vest",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_classified_records_keycard",
+      "name": "Riven Tides Classified Records Keycard",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_crane_house_keycard",
+      "name": "Riven Tides Crane House Keycard",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_102",
+      "name": "Riven Tides Hotel Keycard No. 102",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_107",
+      "name": "Riven Tides Hotel Keycard No. 107",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_113",
+      "name": "Riven Tides Hotel Keycard No. 113",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_205",
+      "name": "Riven Tides Hotel Keycard No. 205",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_208",
+      "name": "Riven Tides Hotel Keycard No. 208",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_311",
+      "name": "Riven Tides Hotel Keycard No. 311",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_hotel_keycard_no_404",
+      "name": "Riven Tides Hotel Keycard No. 404",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "riven_tides_secure_storage_keycard",
+      "name": "Riven Tides Secure Storage Keycard",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rocket_thruster",
+      "name": "Rocket Thruster",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rocketeer_driver",
+      "name": "Rocketeer Driver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "roots",
+      "name": "Roots",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rosary",
+      "name": "Rosary",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rotary_encoder",
+      "name": "Rotary Encoder",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rubber_duck",
+      "name": "Rubber Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rubber_pad",
+      "name": "Rubber Pad",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rubber_parts",
+      "name": "Rubber Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_accordion",
+      "name": "Ruined Accordion",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_augment",
+      "name": "Ruined Augment",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_baton",
+      "name": "Ruined Baton",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_handcuffs",
+      "name": "Ruined Handcuffs",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_parachute",
+      "name": "Ruined Parachute",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_riot_shield",
+      "name": "Ruined Riot Shield",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "ruined_tactical_vest",
+      "name": "Ruined Tactical Vest",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rusted_bolts",
+      "name": "Rusted Bolts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rusted_gear",
+      "name": "Rusted Gear",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rusted_shut_medical_kit",
+      "name": "Rusted Shut Medical Kit",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rusted_tools",
+      "name": "Rusted Tools",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "rusty_arc_steel",
+      "name": "Rusty ARC Steel",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "sample_cleaner",
+      "name": "Sample Cleaner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "scout_patrol_note",
+      "name": "Scout Patrol Note",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "secret_meeting_info",
+      "name": "Secret Meeting Info",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "seed_vault_box_key",
+      "name": "Seed Vault Box Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "seeker_grenade",
+      "name": "Seeker Grenade",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "seeker_grenade_blueprint",
+      "name": "Seeker Grenade Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "sensors",
+      "name": "Sensors",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "sentinel_firing_core",
+      "name": "Sentinel Firing Core",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "sextant",
+      "name": "Sextant",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shaker",
+      "name": "Shaker",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 40
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shield_recharger",
+      "name": "Shield Recharger",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1560
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_ammo",
+      "name": "Shotgun Ammo",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 900
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_choke_i",
+      "name": "Shotgun Choke I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_choke_ii",
+      "name": "Shotgun Choke II",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_choke_ii_blueprint",
+      "name": "Shotgun Choke II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_choke_iii",
+      "name": "Shotgun Choke III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_choke_iii_blueprint",
+      "name": "Shotgun Choke III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_silencer",
+      "name": "Shotgun Silencer",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shotgun_silencer_blueprint",
+      "name": "Shotgun Silencer Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "showstopper",
+      "name": "Showstopper",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "showstopper_blueprint",
+      "name": "Showstopper Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shrapnel_grenade",
+      "name": "Shrapnel Grenade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "shredder_gyro",
+      "name": "Shredder Gyro",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "signal_amplifier",
+      "name": "Signal Amplifier",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "silencer_i",
+      "name": "Silencer I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        },
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "silencer_i_blueprint",
+      "name": "Silencer I Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "silencer_ii",
+      "name": "Silencer II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "silencer_ii_blueprint",
+      "name": "Silencer II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "silencer_iii",
+      "name": "Silencer III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "silver_teaspoon_set",
+      "name": "Silver Teaspoon Set",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "simple_gun_parts",
+      "name": "Simple Gun Parts",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "sirena_dorata_ship_model",
+      "name": "\"Sirena Dorata\" Ship Model",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "smoke_grenade",
+      "name": "Smoke Grenade",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 3000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "smoke_grenade_blueprint",
+      "name": "Smoke Grenade Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "smoke_grenade_trap",
+      "name": "Smoke Grenade Trap",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "snap_blast_grenade",
+      "name": "Snap Blast Grenade",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 2400
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "snap_hook",
+      "name": "Snap Hook",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "snap_hook_blueprint",
+      "name": "Snap Hook Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "snitch_scanner",
+      "name": "Snitch Scanner",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "snowball",
+      "name": "Snowball",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spaceport_container_storage_key",
+      "name": "Spaceport Container Storage Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spaceport_control_tower_key",
+      "name": "Spaceport Control Tower Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spaceport_trench_tower_key",
+      "name": "Spaceport Trench Tower Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spaceport_warehouse_key",
+      "name": "Spaceport Warehouse Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "speaker_component",
+      "name": "Speaker Component",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spectrometer",
+      "name": "Spectrometer",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spectrum_analyzer",
+      "name": "Spectrum Analyzer",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spotter_relay",
+      "name": "Spotter Relay",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "spring_cushion",
+      "name": "Spring Cushion",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stable_stock_i",
+      "name": "Stable Stock I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stable_stock_ii",
+      "name": "Stable Stock II",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        },
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stable_stock_ii_blueprint",
+      "name": "Stable Stock II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stable_stock_iii",
+      "name": "Stable Stock III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stable_stock_iii_blueprint",
+      "name": "Stable Stock III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stack_of_movie_tapes",
+      "name": "Stack of Movie Tapes",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "statuette",
+      "name": "Statuette",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "steel_spring",
+      "name": "Steel Spring",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stella_montis_archives_key",
+      "name": "Stella Montis Archives Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stella_montis_assembly_admin_key",
+      "name": "Stella Montis Assembly Admin Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stella_montis_medical_storage_key",
+      "name": "Stella Montis Medical Storage Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stella_montis_security_checkpoint_key",
+      "name": "Stella Montis Security Checkpoint Key",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "sterilized_bandage",
+      "name": "Sterilized Bandage",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 40
+        },
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stitcher_i",
+      "name": "Stitcher I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 2400
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stitcher_ii",
+      "name": "Stitcher II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stitcher_iii",
+      "name": "Stitcher III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "stitcher_iv",
+      "name": "Stitcher IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "surge_coil",
+      "name": "Surge Coil",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "surge_coil_blueprint",
+      "name": "Surge Coil Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "surge_shield_recharger",
+      "name": "Surge Shield Recharger",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/creds",
+          "kind": "currency_reference",
+          "value": 40
+        },
+        {
+          "path": "/vendors/1/cost/coins",
+          "kind": "currency_reference",
+          "value": 3600
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "surveyor_vault",
+      "name": "Surveyor Vault",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "synthesized_fuel",
+      "name": "Synthesized Fuel",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "syringe",
+      "name": "Syringe",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk1",
+      "name": "Tactical Mk. 1",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk2",
+      "name": "Tactical Mk. 2",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 6000
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 100
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_defensive",
+      "name": "Tactical Mk. 3 (Defensive)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_defensive_blueprint",
+      "name": "Tactical Mk. 3 (Defensive) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_healing",
+      "name": "Tactical Mk. 3 (Healing)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_healing_blueprint",
+      "name": "Tactical Mk. 3 (Healing) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_revival",
+      "name": "Tactical Mk. 3 (Revival)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_revival_blueprint",
+      "name": "Tactical Mk. 3 (Revival) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_smoke",
+      "name": "Tactical Mk. 3 (Smoke)",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tactical_mk3_smoke_blueprint",
+      "name": "Tactical Mk. 3 (Smoke) Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tagging_grenade",
+      "name": "Tagging Grenade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tagging_grenade_blueprint",
+      "name": "Tagging Grenade Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tattered_arc_lining",
+      "name": "Tattered Arc Lining",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tattered_clothes",
+      "name": "Tattered Clothes",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "telemetry_transceiver",
+      "name": "Telemetry Transceiver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tellurion",
+      "name": "Tellurion",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tempest_blueprint",
+      "name": "Tempest Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tempest_i",
+      "name": "Tempest I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tempest_ii",
+      "name": "Tempest II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tempest_iii",
+      "name": "Tempest III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tempest_iv",
+      "name": "Tempest IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "thermostat",
+      "name": "Thermostat",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tick_pod",
+      "name": "Tick Pod",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "toaster",
+      "name": "Toaster",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torn_blanket",
+      "name": "Torn Blanket",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torn_book",
+      "name": "Torn Book",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torrente_blueprint",
+      "name": "Torrente Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torrente_i",
+      "name": "Torrente I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torrente_ii",
+      "name": "Torrente II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torrente_iii",
+      "name": "Torrente III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "torrente_iv",
+      "name": "Torrente IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "trailblazer",
+      "name": "Trailblazer",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 6600
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "trailblazer_blueprint",
+      "name": "Trailblazer Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "train_model",
+      "name": "Train Model",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "trigger_nade",
+      "name": "Trigger 'Nade",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "trigger_nade_blueprint",
+      "name": "Trigger Nade Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "tropical_duck",
+      "name": "Tropical Duck",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "turbine_compressor",
+      "name": "Turbine Compressor",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "turbo_pump",
+      "name": "Turbo Pump",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "twilight_compass_ship_model",
+      "name": "\"Twilight Compass\" Ship Model",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "unusable_weapon",
+      "name": "Unusable Weapon",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vaporizer_regulator",
+      "name": "Vaporizer Regulator",
+      "findings": [
+        {
+          "path": "/description/de",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/en",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/fr",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/es",
+          "kind": "missing_locale"
+        },
+        {
+          "path": "/description/it",
+          "kind": "missing_locale"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vase",
+      "name": "Vase",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "velocity_ship_model",
+      "name": "\"Velocity\" Ship Model",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "venator_blueprint",
+      "name": "Venator Blueprint",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "venator_i",
+      "name": "Venator I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "venator_ii",
+      "name": "Venator II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "venator_iii",
+      "name": "Venator III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "venator_iv",
+      "name": "Venator IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vertical_grip_i",
+      "name": "Vertical Grip I",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 1920
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vertical_grip_ii",
+      "name": "Vertical Grip II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vertical_grip_ii_blueprint",
+      "name": "Vertical Grip II Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vertical_grip_iii",
+      "name": "Vertical Grip III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vertical_grip_iii_blueprint",
+      "name": "Vertical Grip III Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "very_comfortable_pillow",
+      "name": "Very Comfortable Pillow",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vintage_steering_wheel",
+      "name": "Vintage Steering Wheel",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vita_shot",
+      "name": "Vita Shot",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vita_shot_blueprint",
+      "name": "Vita Shot Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vita_spray",
+      "name": "Vita Spray",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vita_spray_blueprint",
+      "name": "Vita Spray Blueprint",
+      "findings": [
+        {
+          "path": "/weightKg",
+          "kind": "missing_value"
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "volcanic_rock",
+      "name": "Volcanic Rock",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "voltage_converter",
+      "name": "Voltage Converter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vulcano_blueprint",
+      "name": "Vulcano Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vulcano_i",
+      "name": "Vulcano I",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vulcano_ii",
+      "name": "Vulcano II",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vulcano_iii",
+      "name": "Vulcano III",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "vulcano_iv",
+      "name": "Vulcano IV",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "wasp_driver",
+      "name": "Wasp Driver",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "water_filter",
+      "name": "Water Filter",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "water_pump",
+      "name": "Water Pump",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "white_flag",
+      "name": "White Flag",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "white_flag_blueprint",
+      "name": "White Flag Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "wind_sprite_ship_model",
+      "name": "\"Wind Sprite\" Ship Model",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "wires",
+      "name": "Wires",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "wolfpack",
+      "name": "Wolfpack",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "wolfpack_blueprint",
+      "name": "Wolfpack Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "yellow_light_stick",
+      "name": "Yellow Light Stick",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 450
+        },
+        {
+          "path": "/vendors/1/cost/creds",
+          "kind": "currency_reference",
+          "value": 10
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "yellow_light_stick_blueprint",
+      "name": "Yellow Light Stick Blueprint",
+      "findings": [],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    },
+    {
+      "id": "zipline",
+      "name": "Zipline",
+      "findings": [
+        {
+          "path": "/vendors/0/cost/coins",
+          "kind": "currency_reference",
+          "value": 3000
+        }
+      ],
+      "upstreamChangedFields": [],
+      "gameTruth": "not_individually_verified"
+    }
+  ]
+}
+
