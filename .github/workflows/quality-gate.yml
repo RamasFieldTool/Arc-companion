@@ -24,6 +24,7 @@ jobs:
       - name: Validate JSON, assets, cache-busters, backup guards and version
         run: |
           node tests/data-integrity.mjs
+          node tests/catalog-update-2.mjs
           node tests/planning-core.mjs
           node tests/item-find-locations.mjs
 
@@ -53,6 +54,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run confirmed 2.0 catalog corrections
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/catalog-update-2-browser.mjs
       - name: Run item find-location browser regression
         env:
           BASE_URL: http://127.0.0.1:4173/

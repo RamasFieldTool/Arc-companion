@@ -181,6 +181,7 @@ function goalDecision(i){
 }
 
 function recyclingText(i){
+  if(i.recyclingPending)return text(i.description);
   const rec=i.recyclesInto;
   if(rec && typeof rec==='object' && Object.keys(rec).length){
     return Object.entries(rec).map(([id,n])=>{
@@ -450,6 +451,8 @@ async function boot(){
       return;
     }
   }
+
+  items=items.map(window.RFTCatalogUpdate.correct);
 
   try{
     questStatus.textContent=tr('questLoading');
