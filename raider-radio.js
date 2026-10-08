@@ -223,6 +223,7 @@
   storiesBack.type='button';
   storiesBack.className='fan-view-back';
   const storiesHeading=document.createElement('h2');
+  storiesHeading.className='stories-wordmark';
   const storiesGrid=document.createElement('div');
   storiesGrid.className='fan-stories-grid';
   storiesView.append(storiesBack,storiesHeading,storiesGrid);
@@ -244,7 +245,7 @@
     node.textContent=text;
     return node;
   }
-  function themeFor(story){return ['dark-ambush','rust-legend','forest-tragicomedy'].includes(story.theme)?story.theme:'default';}
+  function themeFor(story){return ['dark-ambush','rust-legend','forest-tragicomedy','tower-bluff'].includes(story.theme)?story.theme:'default';}
   function makeImage(story,lazy=false){
     const image=document.createElement('img');
     image.src=story.image;
@@ -256,7 +257,7 @@
     return image;
   }
   const storyLinks=[];
-  stories.forEach(story=>{
+  [...stories].reverse().forEach((story,index)=>{
     const card=document.createElement('article');
     card.className='fan-story-card';
     card.dataset.storyId=story.id;
@@ -265,6 +266,7 @@
     const cardCopy=document.createElement('div');
     cardCopy.className='fan-story-card-copy';
     const title=makeText('h3','fan-story-card-title',story.title);
+    if(index===0)cardCopy.append(makeText('span','fan-story-new','Neu'));
     const author=makeText('p','fan-story-author',story.author);
     const summary=makeText('p','fan-story-summary',story.summary);
     title.lang=summary.lang=story.language;
@@ -324,6 +326,7 @@
       }catch{/* Invalid author links are omitted. */}
     }
     storyDetail.append(hero,body,credit);
+    window.RFTApplyStoryLanguage?.();
   }
 
   section.append(hub,radioView,albumView,storiesView,storyView);
@@ -448,6 +451,8 @@
     if(status&&status.textContent!==lang.tileStatus)status.textContent=lang.tileStatus;
   }
   function syncLanguage(){
+    const newest=storiesGrid.querySelector('.fan-story-new');
+    if(newest)newest.textContent=({de:'Neu',en:'New',fr:'Nouveau',es:'Nuevo',it:'Nuovo'})[document.documentElement.lang]||'New';
     const lang=copy[document.documentElement.lang]||copy.en;
     const musicLang=collectionCopy[document.documentElement.lang]||collectionCopy.en;
     albumBack.textContent=musicLang.back;

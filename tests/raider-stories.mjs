@@ -29,6 +29,15 @@ for(const lang of ['de','en','fr','es']){
 }
 
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
+const bluffSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='veraeppelt');
+assert.equal(bluffSource.author,'Zoe Bristow');
+assert.equal(createHash('sha256').update(bluffSource.content).digest('hex'),'0dbc80ffde9cac5c0f9ca4214d02c910b928dfead4a6d71078d0bad328b3de0b');
+assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/veraeppelt-zoe-bristow.jpg',import.meta.url))).digest('hex'),'3a1db039d6cee1e2ba64ab16f54bd07b24d24430c2ad48f6683a0fae94d3fabd');
+for(const lang of ['de','en','fr','es','it']){
+  assert.ok(bluffSource.translations[lang].title);
+  assert.ok(bluffSource.translations[lang].content.length>6000);
+  assert.equal(bluffSource.translations[lang].content.split('\n').length,43);
+}
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
 const originalHash='7ab9b61aa40f645f6304258baaffdc878cafd7c55eef508d200cd1d67607ea39';
 const imageHash='028adc01c3ac543acc0850b0bb91fb9e21505dc610be963190549bd35e8aef14';
@@ -91,6 +100,56 @@ async function checkLayout(page,expectedInk='rgb(238, 231, 220)'){
 await mkdir(new URL('../test-artifacts/stories/',import.meta.url),{recursive:true});
 const browser=await chromium.launch({headless:true});
 try{
+  for(const width of [360,430])for(const surface of ['light','dark','black']){
+    const context=await browser.newContext({viewport:{width,height:900},isMobile:true,hasTouch:true});
+    await context.addInitScript(surface=>{
+      if(!localStorage.getItem('arcUiLanguage')){
+        localStorage.setItem('arcLang','de');
+        localStorage.setItem('arcUiLanguage','de');
+      }
+      localStorage.setItem('arcLanguageOnboardingPending','0');
+      localStorage.setItem('arcPaletteSurface',surface);
+    },surface);
+    const page=await context.newPage(),errors=[];
+    page.on('pageerror',error=>errors.push(String(error)));
+    await installRoutes(page);
+    await page.goto(BASE_URL+'#raiderRadio/stories/veraeppelt',{waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>['live','partial','fallback'].includes(document.getElementById('dataStatusPersistent')?.dataset.state)&&typeof window.arcSetLanguage==='function');
+    await visible(page,'.fan-story-detail');
+    for(const language of ['de','en','fr','es','it']){
+      const expected=bluffSource.translations[language];
+      console.log(`Veräppelt language check ${width}px ${surface}: ${language}`);
+      await page.locator('#appBack').tap();await visible(page,'#appLauncher');
+      await page.locator('#arcLanguageButton').tap();
+      await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).tap();
+      await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
+      await page.locator('[data-app-target="raiderRadio"]').tap();
+      await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
+      await page.locator('[data-story-id="veraeppelt"] .fan-story-read').tap();await visible(page,'.fan-story-detail');
+      try{
+        await page.waitForFunction(({lang,title})=>document.querySelector('.fan-story-body')?.lang===lang&&document.querySelector('.fan-story-title')?.textContent===title,{lang:language,title:expected.title});
+      }catch(error){
+        console.error(await page.evaluate(()=>({hash:location.hash,lang:document.documentElement.lang,title:document.querySelector('.fan-story-title')?.textContent,bodyLang:document.querySelector('.fan-story-body')?.lang})));
+        throw error;
+      }
+      assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),expected.content);
+      assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
+      const cover=page.locator('.fan-story-hero>img');
+      await page.waitForFunction(()=>document.querySelector('.fan-story-hero>img')?.naturalWidth===1229);
+      assert.equal(await cover.evaluate(img=>img.naturalHeight),1536);
+      const ratio=await cover.evaluate(img=>{const r=img.getBoundingClientRect();return r.width/r.height});
+      assert.ok(Math.abs(ratio-1229/1536)<0.01,'Portrait cover must retain its aspect ratio');
+      await checkLayout(page);
+      if(width===360&&surface==='dark'&&language==='de')await page.screenshot({path:new URL('../test-artifacts/stories/veraeppelt-de-dark-360.png',import.meta.url).pathname,fullPage:true});
+    }
+    await page.reload({waitUntil:'domcontentloaded'});
+    await page.waitForFunction(()=>document.querySelector('.fan-story-body')?.lang==='it');
+    await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
+    assert.equal(await page.locator('[data-story-id="veraeppelt"] .fan-story-card-title').textContent(),bluffSource.translations.it.title);
+    assert.deepEqual(errors,[]);
+    console.log(`PASS Veräppelt ${width}px ${surface}: five languages, full prose, portrait cover, reload and back navigation`);
+    await context.close();
+  }
   for(const width of [360,390,430])for(const surface of ['light','dark','black'])for(const language of ['de','en','fr','es']){
     const context=await browser.newContext({viewport:{width,height:900},isMobile:true,hasTouch:true});
     await context.addInitScript(({language,surface})=>{
@@ -110,8 +169,17 @@ try{
     await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),3);
-    await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
+    assert.equal(await page.locator('.fan-story-card').count(),4);
+    assert.equal(await page.locator('.fan-story-card').first().getAttribute('data-story-id'),'veraeppelt');
+    assert.equal(await page.locator('.fan-story-new').textContent(),({de:'Neu',en:'New',fr:'Nouveau',es:'Nuevo'})[language]);
+    const listMetrics=await page.locator('.fan-stories-grid').evaluate(grid=>{
+      const cards=[...grid.querySelectorAll('.fan-story-card')];
+      return {height:grid.getBoundingClientRect().height,covers:cards.map(card=>card.querySelector('img').getBoundingClientRect().width),links:cards.map(card=>{const r=card.getBoundingClientRect(),a=card.querySelector('.fan-story-read').getBoundingClientRect();return {row:r.width,link:a.width,height:r.height,linkHeight:a.height}})};
+    });
+    assert.ok(listMetrics.height<650,JSON.stringify(listMetrics));
+    assert.ok(listMetrics.covers.every(width=>width<=65),JSON.stringify(listMetrics));
+    assert.ok(listMetrics.links.every(r=>Math.abs(r.row-r.link)<=3&&Math.abs(r.height-r.linkHeight)<=3),'Whole story row must be clickable');
+    await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-card-title').textContent(),storyExpected[language].title);
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-summary').textContent(),storyExpected[language].summary);
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-read').textContent(),labels[language][0]);
@@ -128,7 +196,7 @@ try{
     await checkText(page,language);await checkLayout(page);
     if(width===390&&language==='de')await page.screenshot({path:new URL(`../test-artifacts/stories/${surface}-390.png`,import.meta.url).pathname,fullPage:true});
     await page.goBack();await visible(page,'.fan-stories-grid');
-    await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
+    await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
     await page.goForward();await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
@@ -179,7 +247,7 @@ try{
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
     await page.waitForFunction(()=>typeof window.arcSetLanguage==='function');
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),3);
+    assert.equal(await page.locator('.fan-story-card').count(),4);
     const cardExpected=zoeSource.translations[await page.evaluate(()=>document.documentElement.lang)];
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-card-title').textContent(),cardExpected.title);
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-summary').textContent(),cardExpected.summary);
@@ -233,7 +301,7 @@ try{
       await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
       await page.locator('[data-app-target="raiderRadio"]').tap();
       await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
-      assert.equal(await page.locator('.fan-story-card').count(),3);
+      assert.equal(await page.locator('.fan-story-card').count(),4);
       for(const story of storyContext.window.RFTCommunityStories){
         const expected=story.translations[language];
         assert.ok(expected?.content.length>1500,`${story.id} ${language}: full translation missing`);
@@ -264,7 +332,7 @@ try{
       }
     }
     assert.deepEqual(errors,[]);
-    console.log(`PASS Italian all three stories ${width}px ${surface}: real selector IT–DE–IT–EN–IT, complete prose, cards, credits, reload, mobile layout and runtime`);
+    console.log(`PASS Italian all four stories ${width}px ${surface}: real selector IT–DE–IT–EN–IT, complete prose, cards, credits, reload, mobile layout and runtime`);
     await context.close();
   }
 }finally{await browser.close();}
