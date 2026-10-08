@@ -9,6 +9,9 @@ try{for(const locale of ['de','en','fr','es','it'])for(const width of [360,1280]
  await installItemCatalogRoute(page,fixtures);await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',r=>r.fulfill({json:[]}));
  await page.goto(process.env.BASE_URL||'http://127.0.0.1:4175/');
  await page.waitForFunction(()=>typeof itemById==='function'&&itemById('anvil_i')?.rarity==='Rare');
+ await page.locator('[data-app-target="itemsSection"]').click();await page.locator('#q').fill('Anvil Splitter');
+ await page.locator('[data-item-id="anvil_splitter"]').first().waitFor({state:'visible'});
+ const rendered=await page.locator('[data-item-id="anvil_splitter"]').first().innerText();assert.ok(rendered.includes('Amplified Fragments'));assert.ok(!rendered.includes('1× processor'));
  const check=await page.evaluate(()=>({rarity:itemById('anvil_i').rarity,recycle:recyclingText(itemById('anvil_splitter')),desc:itemDesc(itemById('snap_hook')),owned:localStorage.getItem('arcOwned'),expected:text(itemById('anvil_splitter').description),width:document.documentElement.scrollWidth,viewport:document.documentElement.clientWidth}));
  assert.equal(check.rarity,'Rare');assert.equal(check.recycle,check.expected);assert.ok(check.desc.includes('18'));assert.equal(check.owned,'{"anvil_splitter":2}');assert.ok(check.width<=check.viewport+2);
  await page.reload();await page.waitForFunction(()=>typeof itemById==='function'&&itemById('anvil_i')?.rarity==='Rare');assert.equal(await page.evaluate(()=>localStorage.getItem('arcOwned')),'{"anvil_splitter":2}');assert.deepEqual(errors,[]);
