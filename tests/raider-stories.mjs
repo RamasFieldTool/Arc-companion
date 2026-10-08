@@ -196,7 +196,7 @@ try{
     await checkText(page,language);await checkLayout(page);
     if(width===390&&language==='de')await page.screenshot({path:new URL(`../test-artifacts/stories/${surface}-390.png`,import.meta.url).pathname,fullPage:true});
     await page.goBack();await visible(page,'.fan-stories-grid');
-    await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
+    await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
     await page.goForward();await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');await checkText(page,language);
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
