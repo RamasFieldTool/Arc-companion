@@ -222,3 +222,16 @@ html:is([data-surface="dark"],[data-surface="black"]) #raiderRadio .radio-wordma
 #raiderRadio [data-story-theme="tower-bluff"] img{aspect-ratio:1229/1536;object-fit:contain}
 #raiderRadio [data-story-theme="tower-bluff"] .fan-story-hero::after{display:none}
 #raiderRadio [data-story-theme="tower-bluff"] .fan-story-hero-copy{position:relative;background:linear-gradient(135deg,#302821,#181717);border-top:2px solid var(--story-ember)}
+
+/* Compact story index: full-row link, original cover thumbnail, newest first. */
+#raiderRadio .fan-stories-grid{grid-template-columns:minmax(0,1fr);gap:10px;max-width:780px;margin:18px auto 0}
+#raiderRadio .fan-story-card{position:relative;display:grid;grid-template-columns:64px minmax(0,1fr);align-items:center;min-height:100px;border-radius:12px;padding:10px;box-sizing:border-box}
+#raiderRadio .fan-story-card img{width:64px;height:80px;aspect-ratio:auto;object-fit:contain;border-radius:6px;background:#100f0e}
+#raiderRadio .fan-story-card-copy{min-width:0;padding:4px 36px 4px 14px}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-card-title{font-size:19px;line-height:1.3;margin:0 0 5px}
+#raiderRadio .fan-story-card .fan-story-summary{display:none}
+#raiderRadio .fan-story-new{display:inline-block;margin-bottom:5px;padding:2px 7px;border-radius:5px;background:#dfaa7a;color:#181717;font-size:11px;font-weight:700;line-height:1.4}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-story-card .fan-story-read{position:absolute;inset:0;display:flex;justify-content:flex-end;align-items:center;min-height:44px;margin:0;padding:12px 14px;border:0;border-radius:12px;background:transparent!important;font-size:0;color:var(--story-ink)!important}
+#raiderRadio .fan-story-card .fan-story-read::after{content:'›';font-size:28px;line-height:1}
+#raiderRadio .fan-story-card:focus-within{outline:3px solid var(--story-ember);outline-offset:3px}
+#raiderRadio .fan-story-card:hover{border-color:var(--story-ember)}

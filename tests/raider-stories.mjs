@@ -170,7 +170,16 @@ try{
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
     assert.equal(await page.locator('.fan-story-card').count(),4);
-    await page.waitForFunction(({language,title})=>document.querySelector('.fan-story-card-title')?.lang===language&&document.querySelector('.fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
+    assert.equal(await page.locator('.fan-story-card').first().getAttribute('data-story-id'),'veraeppelt');
+    assert.equal(await page.locator('.fan-story-new').textContent(),({de:'Neu',en:'New',fr:'Nouveau',es:'Nuevo'})[language]);
+    const listMetrics=await page.locator('.fan-stories-grid').evaluate(grid=>{
+      const cards=[...grid.querySelectorAll('.fan-story-card')];
+      return {height:grid.getBoundingClientRect().height,covers:cards.map(card=>card.querySelector('img').getBoundingClientRect().width),links:cards.map(card=>{const r=card.getBoundingClientRect(),a=card.querySelector('.fan-story-read').getBoundingClientRect();return {row:r.width,link:a.width,height:r.height,linkHeight:a.height}})};
+    });
+    assert.ok(listMetrics.height<650,JSON.stringify(listMetrics));
+    assert.ok(listMetrics.covers.every(width=>width<=65),JSON.stringify(listMetrics));
+    assert.ok(listMetrics.links.every(r=>Math.abs(r.row-r.link)<=3&&Math.abs(r.height-r.linkHeight)<=3),'Whole story row must be clickable');
+    await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-card-title').textContent(),storyExpected[language].title);
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-summary').textContent(),storyExpected[language].summary);
     assert.equal(await page.locator('.fan-story-card[data-story-id="versteckspiel"] .fan-story-read').textContent(),labels[language][0]);
