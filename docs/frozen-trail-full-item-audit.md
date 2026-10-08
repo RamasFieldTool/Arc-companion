@@ -11,7 +11,7 @@ Keine ungültigen gelieferten Grundwerte oder Mengen und keine unaufgelösten Re
 Itemnamen für DE/EN/FR/ES/IT vollständig.
 22 fehlende Gewichts-/Stackfelder (14 Gewicht, 8 Stack).
 69 leere/fehlende Beschreibungs-Sprachfelder: DE14, EN13, FR14, ES14, IT14. Mehrere Meldungen können dasselbe Item betreffen.
-88 Zahlungsreferenzen auf coins: Währungsreferenzen, keine fehlenden Spielitems.
+88 Zahlungsreferenzen auf coins oder creds: Währungsreferenzen, keine fehlenden Spielitems.
 Zwei alternative repairMaterials-Schemas bei ferro_i und ferro_iv enthalten durability_increase und materials:null. Keine Reparaturmaterialien daraus erfinden.
 
 ## Abgleich mit Release
