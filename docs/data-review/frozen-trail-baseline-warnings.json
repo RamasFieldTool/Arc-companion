@@ -1,0 +1,1914 @@
+{
+  "notice": "Existing review hints, not confirmed RFT defects; payment references may be currencies.",
+  "count": 318,
+  "warnings": [
+    {
+      "group": "snapshotItems",
+      "id": "acoustic_guitar",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "adrenaline_shot",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "angled_grip_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "angled_grip_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "angled_grip_iii",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "anvil_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "bandage",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "barricade_kit",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "binoculars",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "blue_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "blue_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "burletta_blueprint",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "burletta_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "colorful_shoes_green",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "colorful_shoes_red",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "colorful_shoes_silver",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "combat_mk1",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "combat_mk2",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "combat_mk2",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "compensator_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "compensator_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "dam_controlled_access_zone_key",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "deadline",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "defibrillator",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "door_blocker",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "elephant_obelisk",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "energy_clip",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "equatorial_sundial",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_barrel_i",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_barrel_i",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_barrel_ii",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_barrel_ii",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_light_mag_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_light_mag_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_light_mag_ii",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_medium_mag_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_medium_mag_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "extended_shotgun_mag_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "ferro_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "ferro_iv",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "firecracker",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "fireworks_box",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "gas_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "gas_mine",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "green_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "green_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "hairpin_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "heavy_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "heavy_shield",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "herbal_bandage",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "hullcracker_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "il_toro_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "jolt_mine",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "kettle_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "launcher_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "light_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "light_impact_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "light_shield",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "looting_mk1",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "looting_mk2",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "looting_mk2",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "looting_mk3_survivor_blueprint",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "medium_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "medium_shield",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "muzzle_brake_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "noisemaker",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "padded_stock",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "pulse_mine",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "raider_hatch_key",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "rascal_i",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "rascal_ii",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "rascal_iii",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "rascal_iv",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "recorder",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "recorder",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "red_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "red_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "remote_raider_flare",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "renegade_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "seeker_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "sextant",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "shaker",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "shield_recharger",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "shotgun_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "shotgun_choke_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "shotgun_choke_ii",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "silencer_i",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "silencer_i",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "smoke_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "snap_blast_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "stable_stock_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "stable_stock_ii",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "sterilized_bandage",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "sterilized_bandage",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "stitcher_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "surge_shield_recharger",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "surge_shield_recharger",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "tactical_mk1",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "tactical_mk2",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "tactical_mk2",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "tellurion",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "trailblazer",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "train_model",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "venator_blueprint",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "vertical_grip_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "vintage_steering_wheel",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "vita_spray_blueprint",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "yellow_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "yellow_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "snapshotItems",
+      "id": "zipline",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "acoustic_guitar",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "adrenaline_shot",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "angled_grip_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "angled_grip_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "angled_grip_iii",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "anvil_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "bandage",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "barricade_kit",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "binoculars",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "blue_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "blue_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "burletta_blueprint",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "burletta_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "colorful_shoes_green",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "colorful_shoes_red",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "colorful_shoes_silver",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "combat_mk1",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "combat_mk2",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "combat_mk2",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "compensator_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "compensator_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "dam_controlled_access_zone_key",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "deadline",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "defibrillator",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "door_blocker",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "elephant_obelisk",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "energy_clip",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "equatorial_sundial",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_barrel_i",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_barrel_i",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_barrel_ii",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_barrel_ii",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_light_mag_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_light_mag_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_light_mag_ii",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_medium_mag_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_medium_mag_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "extended_shotgun_mag_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "ferro_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "ferro_iv",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "firecracker",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "fireworks_box",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "gas_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "gas_mine",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "green_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "green_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "hairpin_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "heavy_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "heavy_shield",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "herbal_bandage",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "hullcracker_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "il_toro_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "jolt_mine",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "kettle_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "launcher_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "light_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "light_impact_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "light_shield",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "looting_mk1",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "looting_mk2",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "looting_mk2",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "looting_mk3_survivor_blueprint",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "medium_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "medium_shield",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "muzzle_brake_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "noisemaker",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "padded_stock",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "pulse_mine",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "raider_hatch_key",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "rascal_i",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "rascal_ii",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "rascal_iii",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "rascal_iv",
+      "path": "/stackSize",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "recorder",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "recorder",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "red_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "red_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "remote_raider_flare",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "renegade_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "seeker_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "sextant",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "shaker",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "shield_recharger",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "shotgun_ammo",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "shotgun_choke_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "shotgun_choke_ii",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "silencer_i",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "silencer_i",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "smoke_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "snap_blast_grenade",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "stable_stock_ii",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "stable_stock_ii",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "sterilized_bandage",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "sterilized_bandage",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "stitcher_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "surge_shield_recharger",
+      "path": "/vendors/0/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "surge_shield_recharger",
+      "path": "/vendors/1/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "tactical_mk1",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "tactical_mk2",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "tactical_mk2",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "tellurion",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "trailblazer",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "train_model",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "venator_blueprint",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "vertical_grip_i",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "vintage_steering_wheel",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "vita_spray_blueprint",
+      "path": "/weightKg",
+      "message": "missing/null data field"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "yellow_light_stick",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "yellow_light_stick",
+      "path": "/vendors/1/cost/creds",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamItems",
+      "id": "zipline",
+      "path": "/vendors/0/cost/coins",
+      "message": "noncatalog payment reference"
+    },
+    {
+      "group": "upstreamProjects",
+      "id": "trophy_display_project",
+      "path": "/phases/0/requirementItemIds/2/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamProjects",
+      "id": "trophy_display_project",
+      "path": "/phases/1/requirementItemIds/2/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamProjects",
+      "id": "trophy_display_project",
+      "path": "/phases/2/requirementItemIds/2/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamProjects",
+      "id": "trophy_display_project",
+      "path": "/phases/3/requirementItemIds/2/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamProjects",
+      "id": "trophy_display_project",
+      "path": "/phases/4/requirementItemIds/2/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamQuests",
+      "id": "a_dead_end",
+      "path": "/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "upstreamQuests",
+      "id": "a_rising_tide",
+      "path": "/rewardItemIds/2/itemId",
+      "message": "noncatalog item/currency reference: extended_barrel"
+    },
+    {
+      "group": "upstreamQuests",
+      "id": "bombing_run",
+      "path": "/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamQuests",
+      "id": "settled_in_full",
+      "path": "/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: raider_tokens"
+    },
+    {
+      "group": "upstreamQuests",
+      "id": "the_root_of_the_matter",
+      "path": "/rewardItemIds/0/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/27/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/28/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/29/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/30/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/31/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/32/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/33/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/34/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/35/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/36/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/37/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/38/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/39/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/40/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/41/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/42/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/43/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/44/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/45/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/46/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/47/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/48/cost/itemId",
+      "message": "noncatalog item/currency reference: creds"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/49/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/50/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/51/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/52/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/53/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/54/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/55/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/56/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/57/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/58/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/59/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/60/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/61/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/62/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/63/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/64/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/65/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/66/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/67/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/68/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/69/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/70/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/71/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/72/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/73/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/74/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/75/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/76/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/77/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/78/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/79/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/80/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/81/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/82/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/83/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/84/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/85/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/86/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/87/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/88/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/89/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/90/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/91/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/92/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/93/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/94/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/95/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/96/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/97/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/98/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/100/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/101/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/102/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/103/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/104/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/105/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/106/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/107/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/108/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/109/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/110/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/111/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/112/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/113/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/114/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    },
+    {
+      "group": "documents",
+      "id": "root",
+      "path": "/upstreamTrades/115/cost/itemId",
+      "message": "noncatalog item/currency reference: coins"
+    }
+  ]
+}
