@@ -54,6 +54,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run Frozen Trail information regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/frozen-trail-info-browser.mjs
       - name: Run confirmed 2.0 catalog corrections
         env:
           BASE_URL: http://127.0.0.1:4173/
