@@ -28,6 +28,7 @@
   };
 
   const RULES={
+    arcFrozenTrailIdentities:{type:'json',valid:value=>safeKeys(value)&&Object.entries(value).every(([key,id])=>['planks','sheet_metal','mini_pump','battered_paperback','bantam_i','stiletto_ii','stiletto_iv'].includes(key)&&typeof id==='string'&&/^[a-z0-9_-]{1,180}$/i.test(id)&&!['__proto__','constructor','prototype'].includes(id))&&new Set(Object.values(value)).size===Object.keys(value).length},
     arcUiLanguage:{type:'string',valid:value=>['de','en','fr','es','it'].includes(value)},
     arcPlanningMigrationV1:{type:'string',valid:value=>value==='1'},
     arcPlanningPersonal:{type:'json',valid:value=>safeKeys(value)&&Object.entries(value).every(([id,goal])=>isRecord(goal)&&Object.keys(goal).every(key=>['itemId','target','status','source'].includes(key))&&goal.itemId===id&&Number.isSafeInteger(goal.target)&&goal.target>0&&goal.target<=999999&&['active','paused','done'].includes(goal.status)&&(goal.source===undefined||goal.source==='legacy-raid'))},

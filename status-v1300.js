@@ -1,5 +1,5 @@
 // V14.00.10 – persistent user-facing loading/live/partial/fallback status.
-const APP_VERSION='14.00.10';
+const APP_VERSION='14.00.11';
 const STATUS_COPY={
   de:{
     loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
