@@ -65,6 +65,8 @@
     }
   };
 
+  const UPDATE_INFO={"de": {"title": "FROZEN TRAIL – NEUE INFOS", "source": "Quelle öffnen", "items": [["STILETTO – COMMUNITY-STAND", "Wiki-Prüfstand: 09.10.2026. Genannt werden 7 kg und Magazingrößen 10/12/14/16. Die Seite wurde am 08.10. bearbeitet und ist noch unvollständig. Diese Zahlen wurden nicht im Spiel bestätigt; sie werden nicht für Planung oder Rezepte verwendet.", "https://arcraiders.wiki/wiki/Stiletto"], ["BANTAM – VORLÄUFIGE ANGABEN", "Wiki-Prüfstand: 09.10.2026. Genannt werden 3 kg und 8 Schuss. Der gelesene Seitenstand stammt vom 07.10., vor dem Update. Keine bestätigten aktuellen Spielwerte; noch keine geprüften Rezepte oder Materialkosten.", "https://arcraiders.wiki/wiki/Bantam"]]}, "en": {"title": "FROZEN TRAIL – NEW INFORMATION", "source": "Open source", "items": [["STILETTO – COMMUNITY DATA", "Wiki checked on 9 October 2026: lists 7 kg and magazine sizes 10/12/14/16. The page was edited on 8 October and remains incomplete. These numbers have not been verified in-game and are not used for planning or recipes.", "https://arcraiders.wiki/wiki/Stiletto"], ["BANTAM – PRELIMINARY DATA", "Wiki checked on 9 October 2026: lists 3 kg and 8 rounds. The retrieved page dates from 7 October, before the update. These are not confirmed current game values; recipes and material costs remain unverified.", "https://arcraiders.wiki/wiki/Bantam"]]}, "fr": {"title": "FROZEN TRAIL – NOUVELLES INFORMATIONS", "source": "Consulter la source", "items": [["STILETTO – DONNÉES COMMUNAUTAIRES", "Wiki consulté le 9 octobre 2026 : 7 kg et chargeurs de 10/12/14/16 coups. Page modifiée le 8 octobre, encore incomplète. Chiffres non vérifiés en jeu, non utilisés pour la planification ou les recettes.", "https://arcraiders.wiki/wiki/Stiletto"], ["BANTAM – DONNÉES PROVISOIRES", "Wiki consulté le 9 octobre 2026 : 3 kg et 8 coups. Version lue du 7 octobre, avant la mise à jour. Valeurs actuelles non confirmées ; recettes et coûts en matériaux encore à vérifier.", "https://arcraiders.wiki/wiki/Bantam"]]}, "es": {"title": "FROZEN TRAIL – NUEVA INFORMACIÓN", "source": "Abrir fuente", "items": [["STILETTO – DATOS DE LA COMUNIDAD", "Wiki consultada el 9 de octubre de 2026: 7 kg y cargadores de 10/12/14/16 disparos. Página editada el 8 de octubre, aún incompleta. Cifras sin verificar en el juego; no se usan para planificación ni recetas.", "https://arcraiders.wiki/wiki/Stiletto"], ["BANTAM – DATOS PROVISIONALES", "Wiki consultada el 9 de octubre de 2026: 3 kg y 8 disparos. La versión leída es del 7 de octubre, anterior a la actualización. Valores actuales sin confirmar; recetas y costes de materiales aún sin verificar.", "https://arcraiders.wiki/wiki/Bantam"]]}, "it": {"title": "FROZEN TRAIL – NUOVE INFORMAZIONI", "source": "Apri la fonte", "items": [["STILETTO – DATI DELLA COMMUNITY", "Wiki consultata il 9 ottobre 2026: 7 kg e caricatori da 10/12/14/16 colpi. Pagina modificata l’8 ottobre, ancora incompleta. Valori non verificati nel gioco, non usati per pianificazione o ricette.", "https://arcraiders.wiki/wiki/Stiletto"], ["BANTAM – DATI PROVVISORI", "Wiki consultata il 9 ottobre 2026: 3 kg e 8 colpi. Versione letta del 7 ottobre, precedente all’aggiornamento. Valori attuali non confermati; ricette e costi dei materiali ancora da verificare.", "https://arcraiders.wiki/wiki/Bantam"]]}};
+
   const drawer=document.getElementById('tipsDrawer');
   const categories=document.getElementById('tipsCategories');
   const closeButton=document.getElementById('tipsClose');
@@ -82,7 +84,9 @@
     document.getElementById('tipsSubtitle').textContent=copy.subtitle;
     document.getElementById('tipsIntro').textContent=copy.intro;
     closeButton.textContent=copy.close;
-    categories.innerHTML=copy.categories.map((category,categoryIndex)=>`
+    const update=UPDATE_INFO[window.RFTDataLabels?.language()||currentLanguage()]||UPDATE_INFO.en;
+    const listed=[...copy.categories,update];
+    categories.innerHTML=listed.map((category,categoryIndex)=>`
       <details class="tips-category">
         <summary>
           <span class="tips-category-name">${escapeHtml(category.title)}<small>${category.items.length} ${copy.count}</small></span>
@@ -91,8 +95,8 @@
         <ol class="tips-list">
           ${category.items.map((item,itemIndex)=>`
             <li class="tip-item">
-              <span class="tip-number">${String(copy.categories.slice(0,categoryIndex).reduce((total,entry)=>total+entry.items.length,0)+itemIndex+1).padStart(2,'0')} //</span>
-              <div class="tip-copy"><h4>${escapeHtml(item[0])}</h4><p>${escapeHtml(item[1])}</p></div>
+              <span class="tip-number">${String(listed.slice(0,categoryIndex).reduce((total,entry)=>total+entry.items.length,0)+itemIndex+1).padStart(2,'0')} //</span>
+              <div class="tip-copy"><h4>${escapeHtml(item[0])}</h4><p>${escapeHtml(item[1])}</p>${item[2]?`<a href="${escapeHtml(item[2])}" target="_blank" rel="noopener noreferrer">${escapeHtml(update.source)}</a>`:""}</div>
             </li>`).join('')}
         </ol>
       </details>`).join('');
