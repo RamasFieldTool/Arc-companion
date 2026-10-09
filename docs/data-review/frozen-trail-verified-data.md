@@ -29,7 +29,7 @@ Published screenshots visually inspected: Research Station I; Outpost expansion 
 
 ## Preservation and deliberate exclusions
 
-Additive catalog extension after existing 2.0 correction layer. All existing item and goal IDs and upstream records remain unchanged. New snake_case IDs are RFT internal IDs, not claimed API IDs. Equivalent English names already supplied by upstream are reused rather than duplicated; goal references resolve to those existing IDs. Future upstream IDs differing from the local IDs may require a separately reviewed migration for stock previously saved under local IDs. No automatic migration or deletion implemented.
+Additive catalog extension after existing 2.0 correction layer. All existing item and goal IDs and upstream records remain unchanged. New snake_case IDs are RFT internal IDs, not claimed API IDs. Equivalent English names already supplied by upstream are reused rather than duplicated. Each item identity is pinned in arcFrozenTrailIdentities and included in validated backups. Later upstream ID changes reuse the pinned ID; incoming catalog cost/recycling, goal and quest item references are remapped. Stock, personal goals, raid progress and history are never rewritten. A simultaneous change of both upstream ID and English name cannot be inferred safely and remains outside automatic matching. No automatic stock migration or deletion implemented.
 
 Research II–IV: one community table only, excluded. Anvil recipes: incomplete/conflicting source tables, excluded. Weapon crafting, upgrades, recycling, unsupported drop locations, new map markers, new images and a general sources[] model excluded. No inferred image filenames supplied.
 
@@ -38,3 +38,7 @@ Research II–IV: one community table only, excluded. Anvil recipes: incomplete/
 Initial isolated-server browser attempt failed with connection refused (test infrastructure, not app failure). Server and browser now run in the same execution network namespace. First connected attempt failed a test assertion that counted both the item card and nested image metadata; narrowed to .card. These failures are not passed full runs.
 
 Executed tests and exact commit will be added after the completed runs. Until then the full Quality Gate is NOT verified.
+
+## Identity hardening before authorized merge
+
+New tests cover local → changed upstream ID → fallback, upstream-first → fallback → second upstream ID, newer upstream metadata, recipe/recycling/quest references, identity persistence through backup/restore, rejection of duplicate backup identity IDs, and storage failure without modifying user stock/goals. Actual execution results are recorded in the PR validation summary.

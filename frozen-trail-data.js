@@ -1,5 +1,5 @@
 // Additive, partial release data. These are RFT internal IDs, not confirmed API IDs.
-// Never migrate stored IDs or replace newer upstream item records.
+// Pin identities across upstream/fallback changes; never rewrite saved stock or goals.
 (()=>{
   const languages=['de','en','fr','es','it'];
   const names=en=>Object.fromEntries(languages.map(lang=>[lang,en]));
@@ -22,21 +22,50 @@
     {id:'rft_outpost_materials',de:'Outpost – nur Materialphase',en:'Outpost – material phase only',fr:'Outpost – phase matériaux uniquement',es:'Outpost – solo fase de materiales',it:'Outpost – solo fase materiali',type:'hideout',rftEvidence:{checkedAt:'2026-10-09',status:'corroborated-community',source:'https://arcraiders.wiki/wiki/Outpost'},levels:[{level:1,requirements:[{itemId:'planks',quantity:3},{itemId:'sheet_metal',quantity:5},{itemId:'arc_alloy',quantity:10},{itemId:'advanced_electrical_components',quantity:3}]}]},
     {id:'rft_research_station',de:'Research Station – nur Stufe I',en:'Research Station – level I only',fr:'Research Station – niveau I uniquement',es:'Research Station – solo nivel I',it:'Research Station – solo livello I',type:'hideout',rftEvidence:provenance,levels:[{level:1,requirements:[{itemId:'planks',quantity:35},{itemId:'battered_paperback',quantity:5},{itemId:'mini_pump',quantity:3}]}]}
   ];
-  function extend(catalog,goals){
-    const next=[...catalog],ids=new Map();
-    for(const addition of additions){
-      const existing=next.find(item=>item.id===addition.id||String(item.name?.en||item.en||item.name||'').toLowerCase()===addition.name.en.toLowerCase());
-      ids.set(addition.id,existing?.id||addition.id);
-      if(!existing)next.push(structuredClone(addition));
+  const IDENTITY_KEY='arcFrozenTrailIdentities';
+  const safeId=id=>typeof id==='string'&&/^[a-z0-9_-]{1,180}$/i.test(id)&&!['__proto__','constructor','prototype'].includes(id);
+  const read=key=>{try{return JSON.parse(window.localStorage?.getItem(key)||'{}')}catch{return {}}};
+  let aliases=new Map();
+  const resolve=id=>aliases.get(id)||id;
+  function references(records){
+    const maps=new Set(['recipe','recyclesInto','salvagesInto','repairCost','upgradeCost','cost']);
+    function visit(value,field){
+      if(Array.isArray(value))return value.map(entry=>visit(entry));
+      if(!value||typeof value!=='object')return value;
+      const result={};
+      for(const [key,valueEntry] of Object.entries(value)){
+        const nextKey=maps.has(field)?resolve(key):key;
+        const nextValue=['itemId','upgradesTo'].includes(key)&&typeof valueEntry==='string'?resolve(valueEntry):visit(valueEntry,key);
+        if(Object.hasOwn(result,nextKey)){
+          if(typeof result[nextKey]!=='number'||typeof nextValue!=='number')throw new Error('Conflicting item references');
+          result[nextKey]+=nextValue;
+        }else result[nextKey]=nextValue;
+      }
+      return result;
     }
-    const nextGoals=[...goals];
-    for(const definition of goalDefinitions){
-      if(nextGoals.some(goal=>goal.id===definition.id))continue;
-      const goal=structuredClone(definition);
-      for(const level of goal.levels)for(const req of level.requirements)req.itemId=ids.get(req.itemId)||req.itemId;
-      nextGoals.push(goal);
-    }
-    return {items:next,goals:nextGoals};
+    return records.map(record=>visit(record));
   }
-  window.RFTFrozenTrailData={extend};
+  function extend(catalog,goals){
+    const saved=read(IDENTITY_KEY),pins={},next=[],newAliases=new Map();
+    const owned=read('arcOwned'),personal=read('arcPlanningPersonal'),raid=read('arcNextRaid');
+    const referenced=id=>[owned,personal,raid].some(record=>record&&Object.hasOwn(record,id));
+    const remaining=new Set(catalog);
+    for(const addition of additions){
+      const matches=catalog.filter(item=>item.id===addition.id||String(item.name?.en||item.en||item.name||'').toLowerCase()===addition.name.en.toLowerCase());
+      const existing=matches.find(item=>item.id!==addition.id)||matches[0];
+      const pinned=safeId(saved?.[addition.id])?saved[addition.id]:referenced(addition.id)?addition.id:existing?.id||addition.id;
+      if(!safeId(pinned)||Object.values(pins).includes(pinned))throw new Error('Invalid item identity');
+      if(catalog.some(item=>item.id===pinned&&!matches.includes(item)))throw new Error('Conflicting item identity');
+      pins[addition.id]=pinned;newAliases.set(addition.id,pinned);
+      for(const match of matches){newAliases.set(match.id,pinned);remaining.delete(match);}
+      next.push({...structuredClone(existing||addition),id:pinned});
+    }
+    next.unshift(...remaining);
+    if(window.localStorage&&JSON.stringify(saved)!==JSON.stringify(pins))window.localStorage.setItem(IDENTITY_KEY,JSON.stringify(pins));
+    aliases=newAliases;
+    const nextGoals=[...goals];
+    for(const definition of goalDefinitions)if(!nextGoals.some(goal=>goal.id===definition.id))nextGoals.push(structuredClone(definition));
+    return {items:references(next),goals:references(nextGoals)};
+  }
+  window.RFTFrozenTrailData={extend,references,resolve};
 })();

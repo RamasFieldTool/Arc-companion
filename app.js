@@ -465,6 +465,7 @@ async function boot(){
     questLoadError=true;
   }
 
+  quests=window.RFTFrozenTrailData.references(quests);
   applyLanguage();
   if(usingFallback){
     status.textContent=tr('loadError');
