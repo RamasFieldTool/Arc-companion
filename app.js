@@ -453,6 +453,7 @@ async function boot(){
   }
 
   items=items.map(window.RFTCatalogUpdate.correct);
+  ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
 
   try{
     questStatus.textContent=tr('questLoading');
