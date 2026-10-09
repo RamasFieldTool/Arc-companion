@@ -10,7 +10,7 @@ try{for(const locale of Object.keys(titles))for(const width of [360,1280]){
  await page.goto(process.env.BASE_URL||'http://127.0.0.1:4176/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(title=>document.querySelector('#tipsCategories')?.textContent.includes(title),titles[locale]);
  await page.locator('[data-app-target="tipsDrawer"]').click();const update=page.locator('#tipsCategories .tips-category').last();await update.locator('summary').click();
- assert.equal(await update.locator('a').count(),2);assert.equal(await update.locator('a').first().getAttribute('href'),'https://arcraiders.wiki/wiki/Stiletto');assert.ok((await update.innerText()).includes('10/12/14/16'));assert.ok(await update.isVisible());
+ assert.equal(await update.locator('a').count(),3);assert.equal(await update.locator('a').first().getAttribute('href'),'https://arcraiders.wiki/wiki/Stiletto');assert.ok((await update.innerText()).includes('10/12/14/16'));assert.ok(await update.isVisible());assert.ok((await update.innerText()).includes('18'));assert.equal(await update.locator('a').last().getAttribute('href'),'https://arcraiders.wiki/wiki/Outpost');
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));assert.equal(await page.evaluate(()=>localStorage.getItem('arcOwned')),'{"metal_parts":3}');assert.deepEqual(errors,[]);
  console.log('PASS',locale,width,'localized provenance, visible accordion, links, no overflow, stock unchanged');await context.close();
 }}finally{await browser.close();}
