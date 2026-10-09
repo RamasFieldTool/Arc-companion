@@ -25,6 +25,7 @@ jobs:
         run: |
           node tests/data-integrity.mjs
           node tests/catalog-update-2.mjs
+          node tests/frozen-trail-data.mjs
           node tests/planning-core.mjs
           node tests/item-find-locations.mjs
 
@@ -54,6 +55,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run verified partial Frozen Trail data regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/frozen-trail-data-browser.mjs
       - name: Run Frozen Trail information regression
         env:
           BASE_URL: http://127.0.0.1:4173/
