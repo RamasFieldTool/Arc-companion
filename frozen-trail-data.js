@@ -87,7 +87,10 @@
       if(catalog.some(item=>item.id===pinned&&!matches.includes(item)))throw new Error('Conflicting item identity');
       pins[addition.id]=pinned;newAliases.set(addition.id,pinned);
       for(const match of matches){newAliases.set(match.id,pinned);remaining.delete(match);}
-      next.push({...structuredClone(existing||addition),id:pinned});
+      const item=structuredClone(existing||addition);
+      // Fill missing camera recipes only; never replace a recipe from upstream.
+      if(existing&&['basic_camera','advanced_camera'].includes(addition.id)&&!item.recipe){item.recipe=structuredClone(addition.recipe);item.rftEvidence=addition.rftEvidence;}
+      next.push({...item,id:pinned});
     }
     next.unshift(...remaining);
     if(window.localStorage&&JSON.stringify(saved)!==JSON.stringify(pins))window.localStorage.setItem(IDENTITY_KEY,JSON.stringify(pins));
