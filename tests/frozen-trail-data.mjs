@@ -56,3 +56,18 @@ vm.runInNewContext(await readFile(new URL('../frozen-trail-data.js',import.meta.
 values.delete('arcFrozenTrailIdentities');assert.throws(()=>failing.window.RFTFrozenTrailData.extend(sourceItems,sourceGoals),/storage unavailable/);
 assert.deepEqual([values.get('arcOwned'),values.get('arcPlanningPersonal')],storedBefore);
 console.log('PASS identity storage failure leaves saved stock/goals untouched');
+
+const smith=result.goals.find(g=>g.id==='weapon_bench');
+assert.equal(smith.levels.length,4);
+assert.deepEqual(JSON.parse(JSON.stringify(smith.levels.slice(0,3))),sourceGoals.find(g=>g.id==='weapon_bench').levels);
+assert.deepEqual(JSON.parse(JSON.stringify(smith.levels[3].requirements)),[{itemId:'radial_press',quantity:3},{itemId:'magnetic_accelerator',quantity:3},{itemId:'emperor_modulator',quantity:1}]);
+const grapple=result.items.find(i=>i.id==='grappling_hook');
+assert.deepEqual(JSON.parse(JSON.stringify(grapple.recipe)),{rope:2,cable_stripper:1,mechanical_components:1});
+for(const key of ['weightKg','value','stackSize','recyclesInto'])assert.equal(grapple[key],undefined);
+const suppliedSmith=structuredClone(sourceGoals);suppliedSmith.find(g=>g.id==='weapon_bench').levels.push({level:4,requirements:[{itemId:'future',quantity:2}]});
+assert.equal(extend(sourceItems,suppliedSmith).goals.find(g=>g.id==='weapon_bench').levels[3].requirements[0].itemId,'future');
+const mapped=extend([...sourceItems,{id:'api-rope',name:{en:'Rope'}},{id:'api-hook',name:{en:'Grappling Hook'},recipe:{'api-rope':2}}],sourceGoals);
+assert.equal(mapped.items.filter(i=>i.name?.en==='Grappling Hook').length,1);
+assert.equal(mapped.items.find(i=>i.id==='api-hook').recipe['api-rope'],2);
+assert.equal(mapped.goals.find(g=>g.id==='rft_grappling_hook_craft').levels[0].requirements[0].itemId,'api-rope');
+console.log('PASS verified follow-up: existing station levels preserved, IV added once, newer upstream IV retained, crafting quantities and IDs, unknown values omitted');
