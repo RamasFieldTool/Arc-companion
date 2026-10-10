@@ -26,8 +26,15 @@
     id:en.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'_'),
     name:names(en),description:officialEquipmentDescription,rftEvidence:officialEquipmentEvidence
   }));
+  // Published guide recipes; retain upstream records when already present.
+  const cameraRecipeEvidence={checkedAt:'2026-10-10',status:'published-guide',source:'https://beebom.com/arc-raiders-camera-guide/'};
+  const cameraRecipes=[
+    {id:'basic_camera',name:names('Basic Camera'),recipe:{plastic_parts:8,wire:1},description:Object.fromEntries(languages.map(lang=>[lang,'Workbench: 8 Plastic Parts + 1 Wire. Published guide; not independently checked in-game.'])),rftEvidence:cameraRecipeEvidence},
+    {id:'advanced_camera',name:names('Advanced Camera'),recipe:{camera_lens:1,calculator:1,electrical_components:1},description:Object.fromEntries(languages.map(lang=>[lang,'Utility Station I, blueprint required: 1 Camera Lens + 1 Calculator + 1 Electrical Components. Published guide; not independently checked in-game.'])),rftEvidence:cameraRecipeEvidence}
+  ];
   const additions=[
-    ...officialEquipment,
+    ...officialEquipment.filter(item=>!['basic_camera','advanced_camera'].includes(item.id)),
+    ...cameraRecipes,
     {id:'grappling_hook',name:names('Grappling Hook'),type:'Quick Use',rarity:'Uncommon',recipe:{rope:2,cable_stripper:1,mechanical_components:1},description:grappleDescription,rftEvidence:grappleEvidence},
     ...['rope','cable_stripper','mechanical_components'].map(id=>({id,name:names({rope:'Rope',cable_stripper:'Cable Stripper',mechanical_components:'Mechanical Components'}[id]),rftEvidence:grappleEvidence})),
     ...['radial_press','magnetic_accelerator','emperor_modulator'].map(id=>({id,name:names({radial_press:'Radial Press',magnetic_accelerator:'Magnetic Accelerator',emperor_modulator:'Emperor Modulator'}[id]),rftEvidence:gunsmithEvidence})),
