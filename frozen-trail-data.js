@@ -42,6 +42,17 @@
     {id:'sheet_metal',name:names('Sheet Metal'),type:'Basic Material',rarity:'Common',weightKg:0.1,stackSize:50,value:100,description:material,rftEvidence:{checkedAt:'2026-10-09',status:'community-table',source:'https://arcraiders.wiki/wiki/Sheet_Metal'}},
     {id:'mini_pump',name:names('Mini Pump'),rftEvidence:provenance},
     {id:'battered_paperback',name:names('Battered Paperback'),rftEvidence:provenance},
+    // User-provided in-game inspection and recycling confirmation, 2026-10-10.
+    {id:'bantam_iii',name:names('Bantam III'),type:'Hand Cannon',rarity:'Uncommon',weightKg:3,value:4165,
+      magazineSize:8,maxDurability:120,ammoType:'Heavy Ammo',fireMode:'Double-Action Trigger',arcArmorPenetration:'Strong',
+      recyclesInto:{simple_gun_parts:3,mechanical_components:3},
+      description:{
+        de:'Spielscreen bestätigt: Schwere Munition, Magazin 8, Double-Action-Abzug, starke ARC-Panzerungsdurchdringung. Stufe III: 29,4 % weniger Nachladezeit, 12,5 % erhöhte Streuungserholungszeit, 16,2 % weniger Streuung pro Schuss. Recycling: 3 Einfache Waffenteile + 3 Mechanische Komponenten. 63/120 war der Zustand der gezeigten Waffe, nicht der Maximalwert.',
+        en:'In-game screenshot: Heavy Ammo, magazine 8, double-action trigger, strong ARC armor penetration. Level III: 29.4% reduced reload time, 12.5% increased spread recovery time, 16.2% reduced spread per shot. Recycles to 3 Simple Gun Parts + 3 Mechanical Components. 63/120 was the pictured weapon condition, not its maximum.',
+        fr:'Capture du jeu : munitions lourdes, chargeur 8, double action, forte pénétration ARC. Niveau III : rechargement -29,4 %, récupération de dispersion +12,5 %, dispersion par tir -16,2 %. Recyclage : 3 pièces d’armes simples et 3 composants mécaniques.',
+        es:'Captura del juego: munición pesada, cargador 8, doble acción, penetración ARC fuerte. Nivel III: recarga -29,4 %, recuperación de dispersión +12,5 %, dispersión por disparo -16,2 %. Reciclaje: 3 piezas de arma simples y 3 componentes mecánicos.',
+        it:'Schermata di gioco: munizioni pesanti, caricatore 8, doppia azione, penetrazione ARC elevata. Livello III: ricarica -29,4%, recupero dispersione +12,5%, dispersione per colpo -16,2%. Riciclo: 3 parti arma semplici e 3 componenti meccanici.'
+      },rftEvidence:{checkedAt:'2026-10-10',status:'user-in-game-screenshot-and-confirmation',source:'user-provided-game-screenshots'}},
     {id:'bantam_i',name:names('Bantam I'),type:'Hand Cannon',rarity:'Uncommon',weightKg:3,value:3800,description:weaponDescription('Heavy Ammo · Magazine: 8'),rftEvidence:{...provenance,source:'https://beebom.com/how-to-get-bantam-in-arc-raiders/'}},
     {id:'stiletto_ii',name:names('Stiletto II'),type:'Battle Rifle',rarity:'Uncommon',weightKg:7,description:weaponDescription('Light Ammo · Magazine: 12'),rftEvidence:{...provenance,source:'https://beebom.com/how-to-get-stiletto-in-arc-raiders/'}},
     {id:'stiletto_iv',name:names('Stiletto IV'),type:'Battle Rifle',rarity:'Uncommon',description:weaponDescription('Cassio: 8 Candleberries · 2 Cable Stripper · 2 Mini Pump (2026-10-09)'),rftEvidence:{...provenance,source:'https://beebom.com/how-to-get-stiletto-in-arc-raiders/'}}
