@@ -10,6 +10,17 @@ function questCardV2115(x){
   const rawState=getQuestState(x.id);
   const st=['open','active','done'].includes(rawState)?rawState:'open';
   const objectives=(x.objectives||[]).map(o=>text(o)).filter(Boolean);
+  // Frozen Trail 2.0 changed the photo interaction for these five existing quests.
+  // This is a display-only hint: never change upstream objectives, quest IDs or saved progress.
+  const cameraQuests=new Set(['the league','reduced to rubble','life of a pharmacist','battening down','groundbreaking']);
+  const questIdentity=String(x.name?.en||x.en||x.id||'').toLowerCase().replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();
+  const cameraHint=cameraQuests.has(questIdentity)?({
+    de:'Frozen Trail 2.0: Für diese Quest werden jetzt Fotos mit einer Kamera benötigt. Prüfe die aktuellen Ziele im Spiel.',
+    en:'Frozen Trail 2.0: This quest now requires camera photos. Check the current in-game objectives.',
+    fr:'Frozen Trail 2.0 : cette quête demande désormais des photos avec un appareil photo. Vérifiez les objectifs dans le jeu.',
+    es:'Frozen Trail 2.0: esta misión ahora requiere fotos con una cámara. Comprueba los objetivos en el juego.',
+    it:'Frozen Trail 2.0: questa missione ora richiede foto con una fotocamera. Controlla gli obiettivi nel gioco.'
+  }[window.RFTDataLabels?.language()||lang]||'This quest now requires camera photos.'):'';
   const required=questItemsText(x.requiredItemIds);
   const rewards=questItemsText(x.rewardItemIds);
   const granted=questItemsText(x.grantedItemIds);
@@ -34,6 +45,7 @@ function questCardV2115(x){
     <details class="quest-details">
       <summary><span>${escapeHtml(qx('details'))}</span><small>${objectives.length} ${escapeHtml(tr('objectives').toLowerCase())}${reqCount?` · ${reqCount} ${escapeHtml(qx('requiredShort').toLowerCase())}`:''}</small></summary>
       <div class="quest-details-body">
+        ${cameraHint?`<div class="quest-section"><b>Frozen Trail 2.0</b><p>${escapeHtml(cameraHint)}</p></div>`:''}
         ${objectives.length?`<div class="quest-section"><b>${escapeHtml(tr('objectives'))}</b><ul>${objectives.map(o=>`<li>${escapeHtml(o)}</li>`).join('')}</ul></div>`:''}
         <div class="quest-grid">
           ${granted?`<div class="quest-mini"><b>${escapeHtml(tr('granted'))}</b><span>${questItemsHtml(x.grantedItemIds)}</span></div>`:''}
