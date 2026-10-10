@@ -12,7 +12,22 @@
   const grappleEvidence={checkedAt:'2026-10-10',status:'published-game-screenshot',source:'https://beebom.com/arc-raiders-grappling-hook-guide/'};
   const gunsmithEvidence={checkedAt:'2026-10-10',status:'published-game-screenshot',source:'https://gameshorizon.com/guides/how-to-unlock-upgrade-amplified-weapons-in-arc-raiders-frozen-trail/'};
   const grappleDescription={de:'Herstellung: Utility Station I, Blueprint erforderlich. 2 Rope · 1 Cable Stripper · 1 Mechanical Components. Blueprint bei Pass-Stufe 12 abgebildet. Veröffentlichte Spielscreens geprüft am 10.10.2026; nicht selbst im Spiel getestet. Unbekannte Werte bleiben offen.',en:'Crafting: Utility Station I, blueprint required. 2 Rope · 1 Cable Stripper · 1 Mechanical Components. Blueprint shown at pass level 12. Published game screenshots checked on 2026-10-10; not personally tested in-game. Unknown values remain open.',fr:'Fabrication : Utility Station I, plan requis. 2 Rope · 1 Cable Stripper · 1 Mechanical Components. Plan visible au niveau 12 du pass. Captures publiées vérifiées le 10/10/2026 ; non testé personnellement en jeu. Valeurs inconnues non renseignées.',es:'Fabricación: Utility Station I, plano necesario. 2 Rope · 1 Cable Stripper · 1 Mechanical Components. Plano visible en el nivel 12 del pase. Capturas publicadas revisadas el 10/10/2026; sin prueba personal en el juego. Valores desconocidos pendientes.',it:'Creazione: Utility Station I, progetto richiesto. 2 Rope · 1 Cable Stripper · 1 Mechanical Components. Progetto visibile al livello 12 del pass. Schermate pubblicate verificate il 10/10/2026; nessuna prova personale nel gioco. Valori sconosciuti non compilati.'};
+  // Official 2.0 patch notes confirm these item names, but not their numeric
+  // crafting/recycling/trader values. Do not fabricate fields or overwrite upstream.
+  const officialEquipmentEvidence={checkedAt:'2026-10-10',status:'official-patch-notes',source:'https://arcraiders.com/news/frozen-trail-2-0-update'};
+  const officialEquipmentDescription={
+    de:'Neuer Gegenstand aus Frozen Trail 2.0. Herstellungs-, Upgrade- und Recyclingmengen sind hier noch nicht verifiziert.',
+    en:'New item from Frozen Trail 2.0. Crafting, upgrade and recycling quantities are not yet verified here.',
+    fr:'Nouvel objet de Frozen Trail 2.0. Quantités de fabrication, amélioration et recyclage non vérifiées ici.',
+    es:'Nuevo objeto de Frozen Trail 2.0. Cantidades de fabricación, mejora y reciclaje aún no verificadas aquí.',
+    it:'Nuovo oggetto di Frozen Trail 2.0. Quantità di creazione, potenziamento e riciclo non ancora verificate qui.'
+  };
+  const officialEquipment=['Basic Camera','Advanced Camera','Tether Launcher','Yank Grenade','Mountaineer’s Detector','Banjo','Harmonica'].map(en=>({
+    id:en.toLowerCase().replace(/[’']/g,'').replace(/[^a-z0-9]+/g,'_'),
+    name:names(en),description:officialEquipmentDescription,rftEvidence:officialEquipmentEvidence
+  }));
   const additions=[
+    ...officialEquipment,
     {id:'grappling_hook',name:names('Grappling Hook'),type:'Quick Use',rarity:'Uncommon',recipe:{rope:2,cable_stripper:1,mechanical_components:1},description:grappleDescription,rftEvidence:grappleEvidence},
     ...['rope','cable_stripper','mechanical_components'].map(id=>({id,name:names({rope:'Rope',cable_stripper:'Cable Stripper',mechanical_components:'Mechanical Components'}[id]),rftEvidence:grappleEvidence})),
     ...['radial_press','magnetic_accelerator','emperor_modulator'].map(id=>({id,name:names({radial_press:'Radial Press',magnetic_accelerator:'Magnetic Accelerator',emperor_modulator:'Emperor Modulator'}[id]),rftEvidence:gunsmithEvidence})),
