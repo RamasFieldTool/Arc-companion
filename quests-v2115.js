@@ -13,7 +13,7 @@ function questCardV2115(x){
   // Frozen Trail 2.0 changed the photo interaction for these five existing quests.
   // This is a display-only hint: never change upstream objectives, quest IDs or saved progress.
   const cameraQuests=new Set(['the league','reduced to rubble','life of a pharmacist','battening down','groundbreaking']);
-  const questIdentity=String(x.name?.en||x.en||x.id||'').toLowerCase().replace(/[_-]+/g,' ').replace(/\\s+/g,' ').trim();
+  const questIdentity=String(x.name?.en||x.en||x.id||'').toLowerCase().replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim();
   const cameraHint=cameraQuests.has(questIdentity)?({
     de:'Frozen Trail 2.0: Für diese Quest werden jetzt Fotos mit einer Kamera benötigt. Prüfe die aktuellen Ziele im Spiel.',
     en:'Frozen Trail 2.0: This quest now requires camera photos. Check the current in-game objectives.',
