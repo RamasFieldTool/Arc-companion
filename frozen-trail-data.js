@@ -45,7 +45,8 @@
     // User-provided in-game inspection and recycling confirmation, 2026-10-10.
     {id:'bantam_iii',name:names('Bantam III'),type:'Hand Cannon',rarity:'Uncommon',weightKg:3,value:4165,
       magazineSize:8,maxDurability:120,ammoType:'Heavy Ammo',fireMode:'Double-Action Trigger',arcArmorPenetration:'Strong',
-      recyclesInto:{simple_gun_parts:3,mechanical_components:3},
+      // Material name for Simple Gun Parts is confirmed, but its canonical catalog ID is not.
+      // Keep both recycling amounts in descriptions until IDs are verified; do not invent references.
       description:{
         de:'Spielscreen bestätigt: Schwere Munition, Magazin 8, Double-Action-Abzug, starke ARC-Panzerungsdurchdringung. Stufe III: 29,4 % weniger Nachladezeit, 12,5 % erhöhte Streuungserholungszeit, 16,2 % weniger Streuung pro Schuss. Recycling: 3 Einfache Waffenteile + 3 Mechanische Komponenten. 63/120 war der Zustand der gezeigten Waffe, nicht der Maximalwert.',
         en:'In-game screenshot: Heavy Ammo, magazine 8, double-action trigger, strong ARC armor penetration. Level III: 29.4% reduced reload time, 12.5% increased spread recovery time, 16.2% reduced spread per shot. Recycles to 3 Simple Gun Parts + 3 Mechanical Components. 63/120 was the pictured weapon condition, not its maximum.',
