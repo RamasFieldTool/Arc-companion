@@ -24,12 +24,19 @@ try{for(const locale of ['de','en','fr','es','it'])for(const width of [360,1280]
  await page.locator('[data-app-target="itemsSection"]').click();await page.locator('#q').fill('Bantam');
  const card=page.locator('[data-item-id="bantam_i"]').first();await expect(card).toBeVisible();await expect(card).toContainText('Magazine: 8');
  assert.equal(await page.locator('#out .card[data-item-id="bantam_i"]').count(),1);
+ await page.locator('#q').fill('Grappling Hook');const grapple=page.locator('#out .card[data-item-id="grappling_hook"]');await expect(grapple).toHaveCount(1);await expect(grapple).toBeVisible();await expect(grapple).toContainText('Utility Station I');await expect(grapple).toContainText('2 Rope');
+
  await page.locator('#appBack').click();await page.locator('[data-app-target="planningSection"]').click();
  const open=async()=>{await page.locator('#planningTabGoals').click();await page.locator('[data-goal-category="workshop"]').click()};await open();
  for(const id of ['rft_outpost_materials','rft_research_station']){
   await page.locator(`.goal-station[data-goal-id="${id}"]>summary`).click();
   const checkbox=page.locator(`input[data-key="${id}:1"]`);await expect(checkbox).not.toBeChecked();await expect(checkbox.locator('..').locator('.workshop-materials')).toContainText('Planks');await checkbox.check();
  }
+ await page.locator('.goal-station[data-goal-id="weapon_bench"]>summary').click();
+ const smith4=page.locator('input[data-key="weapon_bench:4"]');await expect(smith4).not.toBeChecked();await expect(smith4.locator('..').locator('.workshop-materials')).toContainText('Radial Press');await smith4.check();
+ await page.locator('.goal-station[data-goal-id="rft_grappling_hook_craft"]>summary').click();const craft=page.locator('input[data-key="rft_grappling_hook_craft:1"]');await expect(craft.locator('..').locator('.workshop-materials')).toContainText('Rope');await craft.check();
+ const newRows=await page.evaluate(()=>RFTPlanning.rows({all:true}));assert.equal(newRows.find(r=>r.itemId==='radial_press').required,3);assert.equal(newRows.find(r=>r.itemId==='emperor_modulator').required,1);assert.equal(newRows.find(r=>r.itemId==='rope').required,2);assert.equal(newRows.filter(r=>r.itemId==='rope').length,1);
+ await craft.uncheck();assert.equal(await page.evaluate(()=>RFTPlanning.rows({all:true}).some(r=>r.itemId==='rope')),false);await craft.check();
  const row=await page.evaluate(()=>RFTPlanning.rows({all:true}).find(r=>r.itemId==='planks'));assert.equal(row.required,40);assert.equal(row.owned,5);assert.equal(row.missing,35);
  assert.equal(await page.evaluate(()=>RFTPlanning.rows({all:true}).filter(r=>r.itemId==='planks').length),1);
  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth+2));
