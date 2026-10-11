@@ -35,6 +35,11 @@
   const additions=[
     ...officialEquipment.filter(item=>!['basic_camera','advanced_camera'].includes(item.id)),
     ...cameraRecipes,
+    // Official 2.0 resources. Quantities, value, recycling and translations are unverified.
+    ...[
+      {id:'stencil_parts',en:'Stencil Parts',usage:'Used to apply weapon stencils'},
+      {id:'amplified_fragments',en:'Amplified Fragments',usage:'Used to repair amplified weapons'}
+    ].map(({id,en,usage})=>({id,name:names(en),description:Object.fromEntries(languages.map(lang=>[lang,usage+'. Crafting and recycling amounts not yet verified.'])),rftEvidence:officialEquipmentEvidence})),
     {id:'grappling_hook',name:names('Grappling Hook'),type:'Quick Use',rarity:'Uncommon',recipe:{rope:2,cable_stripper:1,mechanical_components:1},description:grappleDescription,rftEvidence:grappleEvidence},
     ...['rope','cable_stripper','mechanical_components'].map(id=>({id,name:names({rope:'Rope',cable_stripper:'Cable Stripper',mechanical_components:'Mechanical Components'}[id]),rftEvidence:grappleEvidence})),
     ...['radial_press','magnetic_accelerator','emperor_modulator'].map(id=>({id,name:names({radial_press:'Radial Press',magnetic_accelerator:'Magnetic Accelerator',emperor_modulator:'Emperor Modulator'}[id]),rftEvidence:gunsmithEvidence})),
