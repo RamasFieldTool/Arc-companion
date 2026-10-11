@@ -1,0 +1,48 @@
+{
+  "version": "0.1-review",
+  "map": "pendola-pass",
+  "label": {
+    "de": "Pendola Pass",
+    "en": "Pendola Pass",
+    "fr": "Pendola Pass",
+    "es": "Pendola Pass",
+    "it": "Pendola Pass"
+  },
+  "verificationStatus": "user-screenshot-reference-awaiting-approved-map-image",
+  "lastReviewed": "2026-10-11",
+  "mapImage": null,
+  "mapImageSource": "User-supplied in-game screenshot, not yet stored as a repository asset",
+  "notes": {
+    "de": "Screenshot zeigt Nördliche Gleise, Dorf Almatera, Frachtterminal und Südlicher Pass. Vier Abstiegssymbole sichtbar. Keine verifizierten Raider-Spawns, Waffenkisten oder exakten Koordinaten. Karte erst nach Übernahme der Originalbilddatei aktivieren.",
+    "en": "User screenshot shows Northern Tracks, Almatera Village, Cargo Terminal and Southern Pass. Four descent icons visible. No verified Raider spawns, weapon cases or exact coordinates. Activate only after the original image has been added."
+  },
+  "points": [],
+  "layers": {
+    "raiderSpawns": {
+      "status": "not-verified",
+      "points": []
+    },
+    "weaponCases": {
+      "status": "not-verified",
+      "points": []
+    }
+  },
+  "landmarks": [
+    {
+      "id": "northern-tracks",
+      "de": "Nördliche Gleise"
+    },
+    {
+      "id": "almatera-village",
+      "de": "Dorf Almatera"
+    },
+    {
+      "id": "cargo-terminal",
+      "de": "Frachtterminal"
+    },
+    {
+      "id": "southern-pass",
+      "de": "Südlicher Pass"
+    }
+  ]
+}
