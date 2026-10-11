@@ -13,8 +13,8 @@
   "mapImage": null,
   "mapImageSource": "User-supplied in-game screenshot, not yet stored as a repository asset",
   "notes": {
-    "de": "Screenshot zeigt Nördliche Gleise, Dorf Almatera, Frachtterminal und Südlicher Pass. Vier Abstiegssymbole sichtbar. Keine verifizierten Raider-Spawns, Waffenkisten oder exakten Koordinaten. Karte erst nach Übernahme der Originalbilddatei aktivieren.",
-    "en": "User screenshot shows Northern Tracks, Almatera Village, Cargo Terminal and Southern Pass. Four descent icons visible. No verified Raider spawns, weapon cases or exact coordinates. Activate only after the original image has been added."
+    "de": "Drei überlappende, vom Nutzer bereitgestellte Zoom-Screenshots: 16 benannte Orte visuell erfasst. Keine präzisen Kartenkoordinaten, Marker-Typen oder Spawn-Positionen verifiziert. Screenshot-Bildbasis noch nicht ins Repository integriert.",
+    "en": "Three overlapping user-provided zoom screenshots: 16 labeled locations transcribed. Exact map coordinates, icon meanings and spawn locations remain unverified. Image base not yet integrated."
   },
   "points": [],
   "layers": {
@@ -29,20 +29,84 @@
   },
   "landmarks": [
     {
-      "id": "northern-tracks",
-      "de": "Nördliche Gleise"
+      "id": "researcher-quarters",
+      "de": "Forscherunterkünfte",
+      "region": "north"
     },
     {
-      "id": "almatera-village",
-      "de": "Dorf Almatera"
+      "id": "operations-tower",
+      "de": "Einsatzturm",
+      "region": "north"
     },
     {
-      "id": "cargo-terminal",
-      "de": "Frachtterminal"
+      "id": "space-telescope",
+      "de": "Weltraumteleskop",
+      "region": "north"
     },
     {
-      "id": "southern-pass",
-      "de": "Südlicher Pass"
+      "id": "cielo-sereno-observatory",
+      "de": "Cielo Sereno-Observatorium",
+      "region": "north"
+    },
+    {
+      "id": "frozen-river",
+      "de": "Überfrorener Fluss",
+      "region": "north-to-south"
+    },
+    {
+      "id": "almatera-station",
+      "de": "Almatera-Station",
+      "region": "central"
+    },
+    {
+      "id": "military-supermarket",
+      "de": "Militärsupermarkt",
+      "region": "central"
+    },
+    {
+      "id": "railway-junction",
+      "de": "Bahnknotenpunkt",
+      "region": "central"
+    },
+    {
+      "id": "weather-station",
+      "de": "Wetterstation",
+      "region": "central"
+    },
+    {
+      "id": "controlled-reception",
+      "de": "Kontrollierte Empfangsanlage",
+      "region": "central"
+    },
+    {
+      "id": "station",
+      "de": "Bahnhof",
+      "region": "central-to-south"
+    },
+    {
+      "id": "transit-tunnel",
+      "de": "Transittunnel",
+      "region": "south"
+    },
+    {
+      "id": "loading-platforms",
+      "de": "Ladeplattformen",
+      "region": "south"
+    },
+    {
+      "id": "rest-stop",
+      "de": "Raststätte",
+      "region": "south"
+    },
+    {
+      "id": "substation",
+      "de": "Umspannwerk",
+      "region": "south"
+    },
+    {
+      "id": "old-town",
+      "de": "Altstadt",
+      "region": "south"
     }
   ]
 }
