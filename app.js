@@ -128,10 +128,26 @@ function toggleGoal(k,checked){
   drawSummary(); drawItems();
 }
 
+// Independent Outpost milestone checklist: never treat active material goals as completed tasks.
+const OUTPOST_TASK_KEY='arcOutpostBuildTasksV1';
+const OUTPOST_TASKS=[
+  ['photo','Farmhaus auf Blue Gate fotografieren','Photograph the farmhouse on Blue Gate'],
+  ['materials','Baumaterialien abgegeben','Handed in construction materials'],
+  ['flying','800 Schaden an fliegenden ARC verursacht','Dealt 800 damage to flying ARC'],
+  ['bully','300 Schaden an einem Bully verursacht','Dealt 300 damage to a Bully']
+];
+function outpostTasks(){try{const x=JSON.parse(localStorage.getItem(OUTPOST_TASK_KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}catch{return {}}}
+function outpostChecklist(){
+ const state=outpostTasks(),done=OUTPOST_TASKS.filter(([id])=>state[id]).length;
+ return `<fieldset class="outpost-checklist" style="margin-top:12px;border:1px solid var(--ui-line,#666);border-radius:10px;padding:12px"><legend>${lang==='de'?'Baufortschritt':'Construction progress'} · ${done}/4</legend>
+ ${OUTPOST_TASKS.map(([id,de,en])=>`<label style="display:flex;gap:10px;align-items:flex-start;margin:8px 0"><input type="checkbox" data-outpost-task="${id}" ${state[id]?'checked':''}><span>${escapeHtml(lang==='de'?de:en)}</span></label>`).join('')}
+ <small>${lang==='de'?'Materialbedarf über die bestehende Zielauswahl aktivieren. Häkchen markieren erledigte Aufgaben.':'Activate material requirements in existing goals. Checkboxes mark completed tasks.'}</small></fieldset>`;
+}
 function drawGoals(){
   goalsEl.innerHTML=goals.map(g=>`
     <div class="goalbox">
       <div class="goalhead">${escapeHtml(goalName(g))}</div>
+      ${g.id==='rft_outpost_materials'?outpostChecklist():''}
       <div class="levelrow">
         ${g.levels.map(l=>`
           <label class="levelbtn">
@@ -140,7 +156,11 @@ function drawGoals(){
           </label>`).join('')}
       </div>
     </div>`).join('');
-  goalsEl.querySelectorAll('input[type=checkbox]').forEach(el=>{
+  goalsEl.querySelectorAll('[data-outpost-task]').forEach(el=>el.addEventListener('change',()=>{
+    const next={...outpostTasks(),[el.dataset.outpostTask]:el.checked};
+    try{localStorage.setItem(OUTPOST_TASK_KEY,JSON.stringify(next));drawGoals()}catch{el.checked=!el.checked}
+  }));
+  goalsEl.querySelectorAll('input[data-key][type=checkbox]').forEach(el=>{
     el.addEventListener('change',e=>toggleGoal(e.target.dataset.key,e.target.checked));
   });
 }
