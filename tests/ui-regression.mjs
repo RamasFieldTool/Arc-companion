@@ -35,7 +35,7 @@ function assertHome(m,label){
   const overflow=m.document.scrollWidth-m.document.clientWidth;if(overflow>4)throw new Error(`${label}: horizontal overflow ${overflow}px`);
   if(!m.masthead||m.masthead.width<100||m.masthead.height<40)throw new Error(`${label}: masthead collapsed`);
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
-  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','raiderRadio'];
+  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','outpostSection','raiderRadio'];
   const actual=m.tiles.map(tile=>tile.target);
   if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
