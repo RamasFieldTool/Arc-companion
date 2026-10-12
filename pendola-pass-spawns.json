@@ -1,5 +1,5 @@
 {
-  "version": "0.2-geographic-draft",
+  "version": "0.3-registered-manual-trace",
   "map": "pendola-pass",
   "label": {
     "de": "Pendola Pass",
@@ -8,13 +8,13 @@
     "es": "Pendola Pass",
     "it": "Pendola Pass"
   },
-  "verificationStatus": "schematic-screenshot-reconstruction-not-geographically-verified",
+  "verificationStatus": "reference-images-registered-manual-geometry-approximate",
   "lastReviewed": "2026-10-12",
-  "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=pendola-draft-1",
-  "mapImageSource": "Ramas Field Tool – original schematic drawing; screenshot references; approximate geography",
+  "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=pendola-registered-2",
+  "mapImageSource": "Ramas Field Tool – original drawing; registered screenshot references; manually traced approximate outlines",
   "notes": {
-    "de": "Eigene schematische Kartenzeichnung. Positionen angenähert; Randbereiche und Details unvollständig. Keine bestätigten Spielmarker.",
-    "en": "Original schematic map drawing. Approximate positions; incomplete edges and details. No confirmed gameplay markers."
+    "de": "Eigene Zeichnung aus räumlich abgeglichenen Screenshots. Sichtbare Umrisse nachgezeichnet; verdeckte Details ausgelassen. Bildabgleich geprüft, Spielgeografie nicht vermessen. Keine bestätigten Spielmarker.",
+    "en": "Original drawing from spatially registered screenshots. Visible outlines traced; obscured details omitted. Image alignment checked, game-world geography not surveyed. No confirmed gameplay markers."
   },
   "points": [],
   "layers": {
