@@ -16,10 +16,12 @@ await p.waitForFunction(()=>typeof mapCatalog!=='undefined'&&mapCatalog?.maps?.l
 await p.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live');
 await p.locator('[data-app-target="spawnPanel"]').click();
 await p.locator('#spawnMapSelect').selectOption('pendola-pass');
-await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass'&&document.querySelector('#spawnMapImage').src.includes('pendola-pass')&&document.querySelector('#spawnMapImage').naturalWidth===3072);
+await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass'&&document.querySelector('#spawnMapImage').src.includes('pendola-pass')&&document.querySelector('#spawnMapImage').naturalWidth===1536);
 await p.waitForTimeout(600);
-if(await p.locator('#spawnBadge').textContent()!=='KARTENENTWURF')throw Error('Missing draft status');
+if(await p.locator('#spawnBadge').textContent()!=='ORIGINALKARTE')throw Error('Missing draft status');
 if(await p.locator('#spawnCanvas button:visible').count())throw Error('Unexpected gameplay markers');
+for(const view of ['north','middle','south','overview']){await p.locator('#pendolaReferenceSelect').selectOption(view);await p.waitForFunction(view=>document.getElementById('spawnMapImage').getAttribute('src').includes('original-'+view)&&document.getElementById('spawnMapImage').complete&&document.getElementById('spawnMapImage').naturalHeight===1152,view)}
+const styles=await p.locator('#spawnMapImage').evaluate(x=>({fit:getComputedStyle(x).objectFit,filter:getComputedStyle(x).filter}));if(styles.fit!=='contain'||styles.filter!=='none')throw Error('Original photo cropped or filtered');
 await p.locator('#spawnExpand').click();await p.locator('#spawnZoomIn').click();await p.locator('#spawnZoomIn').click();
 const before=await p.locator('#spawnCanvas').getAttribute('style');const box=await p.locator('#spawnViewport').boundingBox();
 await p.mouse.move(box.x+box.width/2,box.y+box.height/2);await p.mouse.down();await p.mouse.move(box.x+box.width/2+45,box.y+box.height/2+40,{steps:8});await p.mouse.up();
