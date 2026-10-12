@@ -36,7 +36,7 @@ if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not r
 if(await p.evaluate(()=>localStorage.getItem('pendolaSafetyProbe'))!=='unchanged')throw Error('Storage changed');
 await p.reload();await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass');
 for(const [code,title] of [['en','Pendola Pass – work in progress'],['fr','Pendola Pass – en construction'],['es','Pendola Pass – en desarrollo'],['it','Pendola Pass – in sviluppo'],['de','Pendola Pass – im Ausbau']]){
- await p.locator('#appBack').click();await p.locator('#arcLanguageButton').click();await p.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
+ console.log('Checking draft language',code);await p.locator('#appBack').click();await p.locator('#arcLanguageButton').click();await p.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
  await p.locator('[data-app-target="spawnPanel"]').click();
  await p.waitForFunction(([code,title])=>document.documentElement.dataset.uiLanguage===code&&document.querySelector('#pendolaDraftNotice strong')?.textContent===title,[code,title]);
  await p.waitForTimeout(350);if(await p.locator('#pendolaDraftNotice strong').textContent()!==title)throw Error('Draft translation was overwritten');

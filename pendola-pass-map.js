@@ -13,7 +13,7 @@
   function set(id,text){const n=document.getElementById(id);if(n&&n.textContent!==text)n.textContent=text}
   function apply(){
     const active=viewport?.dataset.map==='pendola-pass'&&document.getElementById('spawnMapSelect')?.value==='pendola-pass';
-    const l=(window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2);
+    const l=(document.documentElement.dataset.uiLanguage||window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2);
     const c=copy[l]||copy.en;
     if(!active)return;
     set('spawnBadge',c.badge);set('spawnLegendText',c.unavailable);set('spawnImageCredit',c.source);
@@ -34,6 +34,7 @@
   if(viewport)new MutationObserver(schedule).observe(viewport,{attributes:true,attributeFilter:['data-map']});
   // Avoid watching the entire panel: legacy extensions and language overlays
   // also own nodes here. A separate draft notice keeps these writes isolated.
+  new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['data-ui-language']});
   window.addEventListener('arc-language-change',schedule);
   document.getElementById('spawnMapImage')?.addEventListener('load',schedule);
   schedule();
