@@ -138,6 +138,7 @@ jobs:
             test-artifacts/ui/
             test-artifacts/stories/
             test-artifacts/radio/
+            test-artifacts/pendola/
           if-no-files-found: warn
           retention-days: 14
       - name: Show server log on failure

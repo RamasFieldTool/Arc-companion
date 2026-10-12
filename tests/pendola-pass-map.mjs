@@ -13,6 +13,7 @@ const p=await context.newPage();const errors=[];p.on('pageerror',e=>errors.push(
 await installItemCatalogRoute(p,fixture,'live');
 await p.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
 await p.waitForFunction(()=>typeof mapCatalog!=='undefined'&&mapCatalog?.maps?.length);
+await p.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live');
 await p.locator('[data-app-target="spawnPanel"]').click();
 await p.locator('#spawnMapSelect').selectOption('pendola-pass');
 await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass'&&document.querySelector('#spawnMapImage').src.includes('pendola-pass')&&document.querySelector('#spawnMapImage').naturalWidth===3072);
@@ -26,8 +27,10 @@ const after=await p.locator('#spawnCanvas').getAttribute('style');if(after===bef
 await p.screenshot({path:`test-artifacts/pendola/${mobile?'mobile':'desktop'}.png`});
 await p.locator('#spawnReset').click();if(!(await p.locator('#spawnCanvas').getAttribute('style')).includes('scale(1)'))throw Error('Reset failed');
 await p.locator('#spawnCloseExpanded').click();
+console.log('After close',JSON.stringify(await p.evaluate(()=>({hash:location.hash,body:document.body.className,stage:document.getElementById('spawnMapStage').className,panel:document.getElementById('spawnPanel').className,select:getComputedStyle(document.getElementById('spawnMapSelect')).display}))));
+await p.locator('#spawnMapSelect').waitFor({state:'visible',timeout:5000});
 for(const map of ['spaceport','buried-city','dam-battlegrounds','the-blue-gate','stella-montis-upper','stella-montis-lower','riven-tides','pendola-pass']){
-await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);
+console.log('Switching',map);await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);
 const src=await p.locator('#spawnMapImage').getAttribute('src');if(map!=='pendola-pass'&&src.includes('pendola'))throw Error('Map stuck on Pendola');
 if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not return');
 }
