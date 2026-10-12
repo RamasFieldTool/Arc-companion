@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-10-12",
+  "status": "community-data-not-in-game-verified",
+  "expansionSource": "https://arcraidershub.com/guides/amplified-weapons-guide",
+  "researchSource": "https://arctracker.io/research",
+  "expansions": [
+    {
+      "from": 1,
+      "to": 2,
+      "materials": "3 Steel Cable · 20 Sheet Metal · 3 Cable Stripper"
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "materials": "3 Epoxy Bucket · 35 Planks · 3 Hand Drill"
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "materials": "40 Sheet Metal · 3 Laser Level · 3 Insulation Roll"
+    }
+  ],
+  "designResearch": [
+    {
+      "name": "Barstool Design",
+      "level": 1,
+      "points": 500,
+      "materials": "15 Metal Parts"
+    },
+    {
+      "name": "Battered Bureau Chair Design",
+      "level": 1,
+      "points": 500,
+      "materials": "3 Mechanical Components"
+    },
+    {
+      "name": "Battered Diner Chair Design",
+      "level": 1,
+      "points": 500,
+      "materials": "15 Metal Parts"
+    },
+    {
+      "name": "Battered Faculty Table Design",
+      "level": 1,
+      "points": 500,
+      "materials": "2 Metal Brackets"
+    },
+    {
+      "name": "Battered Bureau Sofa Design",
+      "level": 2,
+      "points": 1000,
+      "materials": "1 Very Comfortable Pillow"
+    },
+    {
+      "name": "Battered Lab Cabinet Design",
+      "level": 2,
+      "points": 1000,
+      "materials": "3 Mechanical Components"
+    },
+    {
+      "name": "Chambers Nightstand Design",
+      "level": 3,
+      "points": 1500,
+      "materials": "1 Radial Press"
+    },
+    {
+      "name": "Diner Shelf Design",
+      "level": 3,
+      "points": 1500,
+      "materials": "1 Laser Level"
+    }
+  ],
+  "weaponRecipes": [
+    {
+      "name": "Bantam I",
+      "materials": "4 Mechanical Components · 4 Simple Gun Parts",
+      "station": "Gunsmith I",
+      "source": "https://arcraiders.wiki/wiki/Bantam"
+    },
+    {
+      "name": "Stiletto I",
+      "materials": "4 Mechanical Components · 4 Simple Gun Parts",
+      "station": "Gunsmith I",
+      "source": "https://arcraiders.wiki/wiki/Stiletto"
+    },
+    {
+      "name": "Anvil I",
+      "materials": "2 Advanced Mechanical Components · 3 Heavy Gun Parts · 3 Hand Drill",
+      "station": null,
+      "source": "https://arcraiders.wiki/wiki/Anvil",
+      "secondSource": "https://metaforge.app/arc-raiders/database/item/anvil-i"
+    }
+  ]
+}
