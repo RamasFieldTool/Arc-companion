@@ -8,6 +8,8 @@
     it:{badge:'BOZZA DELLA MAPPA',title:'Pendola Pass – in sviluppo',body:'Disegno schematico originale basato su quattro schermate. Posizioni approssimative; bordi e piccoli dettagli incompleti. Nessun indicatore confermato di spawn, bottino o estrazione.',unavailable:'Nessun indicatore confermato',source:'Mappa base: Ramas Field Tool · disegno originale · schermate di riferimento',names:'Nomi dei luoghi dalle schermate tedesche',alt:'Pendola Pass – disegno schematico originale, bozza geografica'}
   };
   const viewport=document.getElementById('spawnViewport');
+  const info=document.querySelector('#spawnPanel .spawn-map-info');
+  const originalInfoDisplay=info?.style.display||'';
   function set(id,text){const n=document.getElementById(id);if(n&&n.textContent!==text)n.textContent=text}
   function apply(){
     const active=viewport?.dataset.map==='pendola-pass'&&document.getElementById('spawnMapSelect')?.value==='pendola-pass';
@@ -28,7 +30,7 @@
     names.hidden=false;const heading=names.querySelector('summary');if(heading.textContent!==c.names)heading.textContent=c.names;
     const text=(typeof spawnData!=='undefined'?spawnData?.landmarks:[])?.map(p=>p.de).join(' · ')||'';const body=names.querySelector('p');if(body.textContent!==text)body.textContent=text;
   }
-  function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;const notice=document.getElementById('pendolaDraftNotice');if(notice)notice.hidden=!active;apply()},0)}
+  function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';if(info)info.style.display=active?'none':originalInfoDisplay;const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;const notice=document.getElementById('pendolaDraftNotice');if(notice)notice.hidden=!active;apply()},0)}
   if(viewport)new MutationObserver(schedule).observe(viewport,{attributes:true,attributeFilter:['data-map']});
   // Avoid watching the entire panel: legacy extensions and language overlays
   // also own nodes here. A separate draft notice keeps these writes isolated.

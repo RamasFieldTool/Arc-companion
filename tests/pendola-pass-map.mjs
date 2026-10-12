@@ -27,17 +27,22 @@ const after=await p.locator('#spawnCanvas').getAttribute('style');if(after===bef
 await p.screenshot({path:`test-artifacts/pendola/${mobile?'mobile':'desktop'}.png`});
 await p.locator('#spawnReset').click();if(!(await p.locator('#spawnCanvas').getAttribute('style')).includes('scale(1)'))throw Error('Reset failed');
 await p.locator('#spawnCloseExpanded').click();
-console.log('After close',JSON.stringify(await p.evaluate(()=>({hash:location.hash,body:document.body.className,stage:document.getElementById('spawnMapStage').className,panel:document.getElementById('spawnPanel').className,select:getComputedStyle(document.getElementById('spawnMapSelect')).display,disabled:document.getElementById('spawnMapSelect').disabled,rect:document.getElementById('spawnMapSelect').getBoundingClientRect().toJSON(),options:[...document.getElementById('spawnMapSelect').options].map(x=>x.value)}))));
 await p.locator('#spawnMapSelect').waitFor({state:'visible',timeout:5000});
 for(const map of ['spaceport','buried-city','dam-battlegrounds','the-blue-gate','stella-montis-upper','stella-montis-lower','riven-tides','pendola-pass']){
-console.log('Switching',map);await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);
+await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);
 const src=await p.locator('#spawnMapImage').getAttribute('src');if(map!=='pendola-pass'&&src.includes('pendola'))throw Error('Map stuck on Pendola');
 if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not return');
 }
 if(await p.evaluate(()=>localStorage.getItem('pendolaSafetyProbe'))!=='unchanged')throw Error('Storage changed');
 await p.reload();await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass');
+for(const [code,title] of [['en','Pendola Pass – work in progress'],['fr','Pendola Pass – en construction'],['es','Pendola Pass – en desarrollo'],['it','Pendola Pass – in sviluppo'],['de','Pendola Pass – im Ausbau']]){
+ await p.locator('#arcLanguageButton').click();await p.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
+ await p.waitForFunction(([code,title])=>document.documentElement.dataset.uiLanguage===code&&document.querySelector('#pendolaDraftNotice strong')?.textContent===title,[code,title]);
+ await p.waitForTimeout(350);if(await p.locator('#pendolaDraftNotice strong').textContent()!==title)throw Error('Draft translation was overwritten');
+}
+await p.screenshot({path:`test-artifacts/pendola/${mobile?'mobile':'desktop'}-panel.png`});
 if(errors.length)throw Error(errors.join('\n'));
-console.log(`${mobile?'Android emulation':'Desktop'} PASS: load, selection, no markers, zoom, pan, reset, all map switches, persisted selection, storage probe, no page errors`);
+console.log(`${mobile?'Android emulation':'Desktop'} PASS: load, selection, no markers, zoom, pan, reset, all map switches, persisted selection, five draft translations, storage probe, no page errors`);
 await context.close();
 }
 await browser.close();
