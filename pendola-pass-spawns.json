@@ -1,5 +1,5 @@
 {
-  "version": "0.5-original-reference-photos",
+  "version": "0.6-illustrated-reconstruction",
   "map": "pendola-pass",
   "label": {
     "de": "Pendola Pass",
@@ -8,13 +8,13 @@
     "es": "Pendola Pass",
     "it": "Pendola Pass"
   },
-  "verificationStatus": "original-user-reference-photos-not-surveyed",
+  "verificationStatus": "approximate-reconstruction-not-geographically-verified",
   "lastReviewed": "2026-10-12",
-  "mapImage": "assets/maps/pendola-pass-original-overview.jpg?v=original-1",
-  "mapImageSource": "User-provided photograph of the original ARC Raiders in-game map; built-in icons are part of the photograph",
+  "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=illustration-1",
+  "mapImageSource": "AI-assisted independent illustration using four user-provided map photographs as references; geographic accuracy not verified",
   "notes": {
-    "de": "Originale Spielkarte auf den vom Nutzer bereitgestellten Fotos. Übersicht und drei Zoomausschnitte. Symbole sind bereits im Foto enthalten; keine separat bestätigten Marker. Ausschnitte, Perspektive und Fotoqualität bleiben begrenzt.",
-    "en": "Original in-game map in user-provided photographs. Overview and three zoom references. Icons are embedded in the photos; no separately confirmed markers. Framing, perspective and photo quality remain limited."
+    "de": "Eigene, KI-gestützte Illustration anhand der vier Referenzfotos. Gelände, Gebäude und Verkehrswege sind angenähert; geografische Genauigkeit nicht verifiziert. Keine bestätigten Spielmarker.",
+    "en": "Independent AI-assisted illustration based on four reference photographs. Terrain, buildings and routes are approximate; geographic accuracy is not verified. No confirmed gameplay markers."
   },
   "points": [],
   "layers": {
@@ -115,24 +115,6 @@
       "id": "old-town",
       "de": "Altstadt",
       "region": "south"
-    }
-  ],
-  "referenceViews": [
-    {
-      "id": "overview",
-      "image": "assets/maps/pendola-pass-original-overview.jpg?v=original-1"
-    },
-    {
-      "id": "north",
-      "image": "assets/maps/pendola-pass-original-north.jpg?v=original-1"
-    },
-    {
-      "id": "middle",
-      "image": "assets/maps/pendola-pass-original-middle.jpg?v=original-1"
-    },
-    {
-      "id": "south",
-      "image": "assets/maps/pendola-pass-original-south.jpg?v=original-1"
     }
   ]
 }
