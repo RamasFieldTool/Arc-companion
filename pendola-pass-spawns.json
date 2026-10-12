@@ -1,5 +1,5 @@
 {
-  "version": "0.1-review",
+  "version": "0.2-geographic-draft",
   "map": "pendola-pass",
   "label": {
     "de": "Pendola Pass",
@@ -8,13 +8,13 @@
     "es": "Pendola Pass",
     "it": "Pendola Pass"
   },
-  "verificationStatus": "user-screenshot-reference-awaiting-approved-map-image",
-  "lastReviewed": "2026-10-11",
-  "mapImage": null,
-  "mapImageSource": "User-supplied in-game screenshot, not yet stored as a repository asset",
+  "verificationStatus": "schematic-screenshot-reconstruction-not-geographically-verified",
+  "lastReviewed": "2026-10-12",
+  "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=pendola-draft-1",
+  "mapImageSource": "Ramas Field Tool – original schematic drawing; screenshot references; approximate geography",
   "notes": {
-    "de": "Drei überlappende, vom Nutzer bereitgestellte Zoom-Screenshots: 16 benannte Orte visuell erfasst. Keine präzisen Kartenkoordinaten, Marker-Typen oder Spawn-Positionen verifiziert. Screenshot-Bildbasis noch nicht ins Repository integriert.",
-    "en": "Three overlapping user-provided zoom screenshots: 16 labeled locations transcribed. Exact map coordinates, icon meanings and spawn locations remain unverified. Image base not yet integrated."
+    "de": "Eigene schematische Kartenzeichnung. Positionen angenähert; Randbereiche und Details unvollständig. Keine bestätigten Spielmarker.",
+    "en": "Original schematic map drawing. Approximate positions; incomplete edges and details. No confirmed gameplay markers."
   },
   "points": [],
   "layers": {
@@ -23,6 +23,14 @@
       "points": []
     },
     "weaponCases": {
+      "status": "not-verified",
+      "points": []
+    },
+    "loot": {
+      "status": "not-verified",
+      "points": []
+    },
+    "extractions": {
       "status": "not-verified",
       "points": []
     }
