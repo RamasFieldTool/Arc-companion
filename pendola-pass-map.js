@@ -98,10 +98,11 @@
     notice.hidden=false;const title=notice.querySelector('strong'),message=notice.querySelector('p');if(title.textContent!==c.title)title.textContent=c.title;if(message.textContent!==c.body)message.textContent=c.body;
     let picker=document.getElementById('pendolaViewPicker');
     if(!picker){picker=document.createElement('label');picker.id='pendolaViewPicker';picker.innerHTML='<span></span><select id="pendolaReferenceSelect"></select>';notice.after(picker);picker.querySelector('select').addEventListener('change',event=>{currentView=event.target.value;if(typeof resetSpawnView==='function')resetSpawnView();apply()})}
-    picker.hidden=false;const pickerLabel=picker.querySelector('span');pickerLabel.textContent=c.view;
+    picker.hidden=false;const pickerLabel=picker.querySelector('span');if(pickerLabel.textContent!==c.view)pickerLabel.textContent=c.view;
     const views=typeof spawnData!=='undefined'?spawnData?.referenceViews||[]:[];
     const select=picker.querySelector('select');select.setAttribute('aria-label',c.view);
-    select.replaceChildren(...views.map((view,i)=>{const option=document.createElement('option');option.value=view.id;option.textContent=c.views[i]||view.id;return option}));select.value=currentView;
+    const signature=JSON.stringify(views.map((view,i)=>[view.id,c.views[i]||view.id]));
+    if(select.dataset.signature!==signature){select.replaceChildren(...views.map((view,i)=>{const option=document.createElement('option');option.value=view.id;option.textContent=c.views[i]||view.id;return option}));select.dataset.signature=signature}select.value=currentView;
     const selected=views.find(view=>view.id===currentView)||views[0];const image=document.getElementById('spawnMapImage');
     if(image){image.alt=c.alt+' · '+(c.views[views.indexOf(selected)]||'');if(selected&&image.getAttribute('src')!==selected.image)image.src=selected.image;}
 
