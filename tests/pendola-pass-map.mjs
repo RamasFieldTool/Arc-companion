@@ -27,7 +27,7 @@ const after=await p.locator('#spawnCanvas').getAttribute('style');if(after===bef
 await p.screenshot({path:`test-artifacts/pendola/${mobile?'mobile':'desktop'}.png`});
 await p.locator('#spawnReset').click();if(!(await p.locator('#spawnCanvas').getAttribute('style')).includes('scale(1)'))throw Error('Reset failed');
 await p.locator('#spawnCloseExpanded').click();
-console.log('After close',JSON.stringify(await p.evaluate(()=>({hash:location.hash,body:document.body.className,stage:document.getElementById('spawnMapStage').className,panel:document.getElementById('spawnPanel').className,select:getComputedStyle(document.getElementById('spawnMapSelect')).display}))));
+console.log('After close',JSON.stringify(await p.evaluate(()=>({hash:location.hash,body:document.body.className,stage:document.getElementById('spawnMapStage').className,panel:document.getElementById('spawnPanel').className,select:getComputedStyle(document.getElementById('spawnMapSelect')).display,disabled:document.getElementById('spawnMapSelect').disabled,rect:document.getElementById('spawnMapSelect').getBoundingClientRect().toJSON(),options:[...document.getElementById('spawnMapSelect').options].map(x=>x.value)}))));
 await p.locator('#spawnMapSelect').waitFor({state:'visible',timeout:5000});
 for(const map of ['spaceport','buried-city','dam-battlegrounds','the-blue-gate','stella-montis-upper','stella-montis-lower','riven-tides','pendola-pass']){
 console.log('Switching',map);await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);

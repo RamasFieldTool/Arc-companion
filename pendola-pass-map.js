@@ -10,11 +10,13 @@
   const viewport=document.getElementById('spawnViewport');
   function set(id,text){const n=document.getElementById(id);if(n&&n.textContent!==text)n.textContent=text}
   function apply(){
-    const active=viewport?.dataset.map==='pendola-pass';
+    const active=viewport?.dataset.map==='pendola-pass'&&document.getElementById('spawnMapSelect')?.value==='pendola-pass';
     const l=(window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2);
     const c=copy[l]||copy.en;
     if(!active)return;
-    set('spawnBadge',c.badge);set('spawnIntro',c.body);set('spawnPendingTitle',c.title);set('spawnPendingBody',c.body);set('spawnLegendText',c.unavailable);set('spawnImageCredit',c.source);
+    set('spawnBadge',c.badge);set('spawnLegendText',c.unavailable);set('spawnImageCredit',c.source);
+    let notice=document.getElementById('pendolaDraftNotice');if(!notice){notice=document.createElement('div');notice.id='pendolaDraftNotice';notice.className='spawn-note';notice.setAttribute('role','note');notice.innerHTML='<strong></strong><p></p>';document.querySelector('.spawn-map-instructions')?.before(notice)}
+    notice.hidden=false;const title=notice.querySelector('strong'),message=notice.querySelector('p');if(title.textContent!==c.title)title.textContent=c.title;if(message.textContent!==c.body)message.textContent=c.body;
     document.getElementById('spawnMapImage')?.setAttribute('alt',c.alt);
     // Other map extensions own these buttons outside Pendola Pass.
     for(const id of ['layerRaiders','layerWeaponCases']){
@@ -26,11 +28,10 @@
     names.hidden=false;const heading=names.querySelector('summary');if(heading.textContent!==c.names)heading.textContent=c.names;
     const text=(typeof spawnData!=='undefined'?spawnData?.landmarks:[])?.map(p=>p.de).join(' · ')||'';const body=names.querySelector('p');if(body.textContent!==text)body.textContent=text;
   }
-  function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;apply()},0)}
+  function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;const notice=document.getElementById('pendolaDraftNotice');if(notice)notice.hidden=!active;apply()},0)}
   if(viewport)new MutationObserver(schedule).observe(viewport,{attributes:true,attributeFilter:['data-map']});
-  // Legacy extensions can refresh labels after the image finishes loading.
-  const panel=document.getElementById('spawnPanel');
-  if(panel)new MutationObserver(()=>{if(viewport?.dataset.map==='pendola-pass')apply()}).observe(panel,{childList:true,subtree:true});
+  // Avoid watching the entire panel: legacy extensions and language overlays
+  // also own nodes here. A separate draft notice keeps these writes isolated.
   window.addEventListener('arc-language-change',schedule);
   document.getElementById('spawnMapImage')?.addEventListener('load',schedule);
   schedule();
