@@ -1,5 +1,5 @@
 {
-  "version": "0.3-registered-manual-trace",
+  "version": "0.4-targeted-geographic-audit",
   "coordinateSystem": "User overview screenshot image plane; not game-world coordinates",
   "registrationMethod": "SIFT descriptors, 0.68 nearest-neighbour ratio, RANSAC homography at 4px threshold; Gaussian 3x3 preprocessing",
   "status": "reference-alignment-checked; manual geometry approximate; no gameplay markers",
@@ -1108,60 +1108,52 @@
     },
     {
       "id": "central-viaduct",
-      "frame": "overview",
+      "frame": "middle",
       "kind": "transport-deck",
       "vertices": [
         [
-          450,
-          523
+          0,
+          480
         ],
         [
-          568,
-          509
+          350,
+          495
         ],
         [
-          659,
-          528
+          414,
+          514
+        ],
+        [
+          524,
+          547
+        ],
+        [
+          722,
+          600
         ],
         [
           741,
-          548
+          620
         ],
         [
-          824,
-          572
+          524,
+          569
         ],
         [
-          873,
-          592
+          408,
+          537
         ],
         [
-          855,
-          609
+          351,
+          525
         ],
         [
-          782,
-          585
-        ],
-        [
-          701,
-          565
-        ],
-        [
-          624,
-          548
-        ],
-        [
-          564,
-          538
-        ],
-        [
-          460,
-          552
+          0,
+          521
         ]
       ],
       "confidence": "manual-visible-outline",
-      "note": "Visible broad transport surface. Road versus rail classification remains unresolved; no fictitious rail connections added."
+      "note": "Corrected using native middle reference: prior southern edge enclosed snow/ground below the visible deck. Road/rail classification unresolved."
     },
     {
       "id": "southwest-corridor",
@@ -1595,9 +1587,9 @@
       "note": "Visible outline manually digitized; small details and obscured sections omitted."
     },
     {
-      "id": "observatory-south-roof",
+      "id": "observatory-south-structure-band",
       "frame": "north",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           1089,
@@ -1616,38 +1608,58 @@
           909
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark band inside observatory compound; roof versus shadow/platform unverified. Dashed outline instead of a definite filled roof."
     },
     {
-      "id": "observatory-east-roof",
+      "id": "observatory-east-facility-outline",
       "frame": "north",
-      "kind": "building",
+      "kind": "facility-outline",
       "vertices": [
         [
-          1303,
-          815
+          1312,
+          819
         ],
         [
-          1370,
-          811
+          1347,
+          817
         ],
         [
-          1371,
-          884
+          1366,
+          832
         ],
         [
-          1306,
-          886
+          1366,
+          864
+        ],
+        [
+          1351,
+          882
+        ],
+        [
+          1326,
+          883
+        ],
+        [
+          1310,
+          864
+        ],
+        [
+          1307,
+          835
+        ],
+        [
+          1312,
+          819
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Rounded facility outline, previously drawn as a rectangular roof. Roof versus platform not verified."
     },
     {
       "id": "telescope-visible-pad-upper",
       "frame": "north",
-      "kind": "building",
+      "kind": "facility-outline",
       "vertices": [
         [
           1184,
@@ -1674,41 +1686,37 @@
           478
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible facility margin, roof/pad classification unverified. Drawn as uncertain outline, not a confirmed building."
     },
     {
       "id": "telescope-visible-pad-lower",
       "frame": "north",
-      "kind": "building",
+      "kind": "facility-outline",
       "vertices": [
         [
           1116,
           572
         ],
         [
-          1152,
-          577
-        ],
-        [
-          1178,
-          575
-        ],
-        [
-          1172,
-          591
+          1127,
+          594
         ],
         [
           1147,
           601
         ],
         [
-          1127,
-          594
+          1172,
+          591
+        ],
+        [
+          1178,
+          575
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "partial-visible-outline",
+      "note": "Only the visible lower arc is drawn; the name badge obscures the rest. No inferred closing edge or building fill."
     },
     {
       "id": "yard-track-1",
@@ -1836,9 +1844,9 @@
       "note": "Visible outline manually digitized; small details and obscured sections omitted."
     },
     {
-      "id": "loading-roof-1",
+      "id": "loading-structure-band-1",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           773,
@@ -1857,13 +1865,13 @@
           330
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-2",
+      "id": "loading-structure-band-2",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           790,
@@ -1882,13 +1890,13 @@
           373
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-3",
+      "id": "loading-structure-band-3",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           809,
@@ -1907,13 +1915,13 @@
           418
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-4",
+      "id": "loading-structure-band-4",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           821,
@@ -1932,13 +1940,13 @@
           465
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-5",
+      "id": "loading-structure-band-5",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           828,
@@ -1957,13 +1965,13 @@
           511
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-6",
+      "id": "loading-structure-band-6",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           832,
@@ -1982,13 +1990,13 @@
           558
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-7",
+      "id": "loading-structure-band-7",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           838,
@@ -2007,13 +2015,13 @@
           602
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
-      "id": "loading-roof-8",
+      "id": "loading-structure-band-8",
       "frame": "south",
-      "kind": "building",
+      "kind": "structure-band",
       "vertices": [
         [
           844,
@@ -2032,8 +2040,8 @@
           638
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible outline manually digitized; small details and obscured sections omitted."
+      "confidence": "classification-unverified",
+      "note": "Visible dark structural/shadow band in loading platforms. Roof footprint versus cast shadow cannot be separated reliably; dashed outline does not assert a roof perimeter."
     },
     {
       "id": "southwest-roof-1",
@@ -2368,35 +2376,6 @@
       "note": "Visible outline manually digitized; small details and obscured sections omitted."
     },
     {
-      "id": "central-bridge-road",
-      "frame": "middle",
-      "kind": "transport-line",
-      "vertices": [
-        [
-          480,
-          531
-        ],
-        [
-          550,
-          548
-        ],
-        [
-          624,
-          575
-        ],
-        [
-          698,
-          601
-        ],
-        [
-          732,
-          615
-        ]
-      ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible transport route; road versus rail cannot be confidently distinguished in these references."
-    },
-    {
       "id": "market-west-road",
       "frame": "middle",
       "kind": "road",
@@ -2581,8 +2560,8 @@
           720
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible/partly obscured channel segment traced approximately. Rendered width is symbolic, not measured."
+      "confidence": "approximate-course",
+      "note": "Channel context from reference labels; approximate traced course and symbolic width. Dashed rendering explicitly indicates that the centreline is not geographically verified."
     },
     {
       "id": "frozen-channel-middle",
@@ -2662,8 +2641,8 @@
           1148
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible/partly obscured channel segment traced approximately. Rendered width is symbolic, not measured."
+      "confidence": "approximate-course",
+      "note": "Channel context from reference labels; approximate traced course and symbolic width. Dashed rendering explicitly indicates that the centreline is not geographically verified."
     },
     {
       "id": "frozen-channel-south",
@@ -2715,8 +2694,8 @@
           1006
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible/partly obscured channel segment traced approximately. Rendered width is symbolic, not measured."
+      "confidence": "approximate-course",
+      "note": "Channel context from reference labels; approximate traced course and symbolic width. Dashed rendering explicitly indicates that the centreline is not geographically verified."
     },
     {
       "id": "eastern-stream",
@@ -2772,8 +2751,8 @@
           415
         ]
       ],
-      "confidence": "manual-visible-outline",
-      "note": "Visible/partly obscured channel segment traced approximately. Rendered width is symbolic, not measured."
+      "confidence": "approximate-course",
+      "note": "Channel context from reference labels; approximate traced course and symbolic width. Dashed rendering explicitly indicates that the centreline is not geographically verified."
     },
     {
       "id": "southern-west-trees",
@@ -3110,6 +3089,7 @@
     "No invented individual trees, rock positions or altitude contours.",
     "Obscured small buildings omitted.",
     "Outer playable map boundary unknown; no invented border.",
-    "Old town building footprints largely obscured/cropped: name retained, guessed roofs removed."
+    "Old town building footprints largely obscured/cropped: name retained, guessed roofs removed.",
+    "No solid roof claims for loading/observatory bands where shadows and facility surfaces cannot be separated; no inferred closed lower telescope pad."
   ]
 }

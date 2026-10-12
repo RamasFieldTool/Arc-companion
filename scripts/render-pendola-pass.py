@@ -21,6 +21,15 @@ def project(frame,p):
 def screen(p):return ((OX+p[0]*SCALE)*S,(OY+p[1]*SCALE)*S)
 def points(frame,vertices):return [screen(project(frame,p)) for p in vertices]
 def path(p,color,width):d.line(p,fill=color,width=max(1,int(width*S)),joint='curve')
+def dashed(p,color,width=1.4,dash=9,gap=5):
+    phase=0.0;period=(dash+gap)*S
+    for a,b in zip(p,p[1:]):
+        dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy);offset=0.0
+        if length<1e-8:continue
+        while offset<length:
+            pos=phase%period;step=min(length-offset,(dash*S-pos) if pos<dash*S else (period-pos))
+            if pos<dash*S:path([(a[0]+dx*offset/length,a[1]+dy*offset/length),(a[0]+dx*(offset+step)/length,a[1]+dy*(offset+step)/length)],color,width)
+            offset+=step;phase+=step
 # Known image coverage, not an invented playable perimeter. The southern reference
 # reaches below the overview only in its central/eastern observed strip.
 coverage=Image.new('L',im.size);cd=ImageDraw.Draw(coverage)
@@ -42,7 +51,7 @@ for f in data['features']:
         if not(0<=x<=frame['imageSize'][0] and 0<=y<=frame['usableMaxY']):raise ValueError('Outside usable reference: '+f['id'])
 # Broad terrain/stands are area traces. Hatching is a drawing convention, not
 # individual tree/rock positions, altitude contours or additional game data.
-for kind in ['terrain','forest','water','transport-deck','transport-line','road','rail','compound','building']:
+for kind in ['terrain','forest','water','transport-deck','transport-line','road','rail','compound','building','structure-band','facility-outline']:
  for f in data['features']:
     if f['kind']!=kind:continue
     p=points(f['frame'],f['vertices'])
@@ -50,7 +59,7 @@ for kind in ['terrain','forest','water','transport-deck','transport-line','road'
         d.polygon(p,fill='#a6b7bd');path(p,'#cbd7d8',2);path(p[1:-1],'#718e99',2)
     elif kind=='forest':hatch_polygon(p,'#c9d6d1','#a7bdb4',10);path(p+[p[0]],'#b0c2b9',1)
     elif kind=='water':
-        path(p,'#719cab',11);path(p,'#c5e1e5',7);path(p,'#e7f2f0',1)
+        dashed(p,'#719cab',7,14,7);dashed(p,'#c5e1e5',4,14,7)
     elif kind=='transport-deck':
         d.polygon(p,fill='#708891');path(p+[p[0]],'#445f69',1.5);path(p[:max(2,len(p)//2)],'#a6bac0',2)
     elif kind=='transport-line':path(p,'#617e87',8);path(p,'#a3b9bd',3)
@@ -63,6 +72,8 @@ for kind in ['terrain','forest','water','transport-deck','transport-line','road'
                 q=j/length;x=a[0]+q*dx;y=a[1]+q*dy
                 path([(x-dy/length*3*S,y+dx/length*3*S),(x+dy/length*3*S,y-dx/length*3*S)],'#5e7980',1)
     elif kind=='compound':path(p,'#f5eee0',4);path(p,'#8b9990',1)
+    elif kind=='structure-band':dashed(p+[p[0]],'#ad7e35',2.2,7,4)
+    elif kind=='facility-outline':dashed(p,'#ad7e35',2.2,7,4)
     elif kind=='building':
         d.polygon(p,fill='#617984');path(p+[p[0]],'#2c4c58',1.2);path(p[:2],'#ececda',2)
 # Reapply coverage: nothing inferred outside the photographed reference extent.
@@ -104,13 +115,15 @@ d.text((40*S,24*S),'PENDOLA PASS',font=ImageFont.truetype(bold,34*S),fill='#f0d5
 d.text((40*S,77*S),'RAMAS FIELD TOOL · EIGENE KARTENZEICHNUNG',font=ImageFont.truetype(font,16*S),fill='#e8eeee')
 d.text((40*S,105*S),'REFERENZEN RÄUMLICH ABGEGLICHEN · SICHTBARE UMRISSE NACHGEZEICHNET',font=ImageFont.truetype(font,12*S),fill='#b9cccf')
 d.rectangle((0,1350*S,WIDTH*S,HEIGHT*S),fill='#203840')
-legend=[('Verkehrstrasse · Art teils unklar','#708891'),('Gleise im Terminal','#345961'),('Sichtbare Straßen','#f3f0db'),('Überfrorener Fluss','#c5e1e5')]
+legend=[('Verkehrstrasse · Art teils unklar','#708891'),('Gleise im Terminal','#345961'),('Sichtbare Straßen','#f3f0db'),('Flusslauf · angenähert','#c5e1e5'),('Anlagenkanten · Dach/Schatten unklar','#ad7e35'),('Kleine Umrisse · weiterhin angenähert','#617984')]
 for i,(t,c) in enumerate(legend):
     x=40+(i%2)*710;y=1372+(i//2)*31
-    d.line((x*S,(y+8)*S,(x+37)*S,(y+8)*S),fill=c,width=5*S)
+    sample=[(x*S,(y+8)*S),((x+37)*S,(y+8)*S)]
+    if t.startswith(('Flusslauf','Anlagenkanten')):dashed(sample,c,3,7,4)
+    else:d.line(sample,fill=c,width=5*S)
     d.text(((x+50)*S,y*S),t,font=ImageFont.truetype(font,16*S),fill='#e3eae7')
-d.text((40*S,1452*S),'ENTWURF · Keine bestätigten Spielmarker · Keine Höhen- oder Maßstabsangaben',font=ImageFont.truetype(font,16*S),fill='#ecd5a4')
-d.text((40*S,1480*S),'Kleine, verdeckte Details ausgelassen · Grauer Rand: außerhalb der Bildreferenz',font=ImageFont.truetype(font,15*S),fill='#d1dedf')
-d.text((40*S,1508*S),'Bildabgleich geprüft; Umrisse manuell angenähert. Keine Vermessung der Spielwelt.',font=ImageFont.truetype(font,13*S),fill='#b9cccf')
+d.text((40*S,1470*S),'ENTWURF · Keine bestätigten Spielmarker · Keine Höhen- oder Maßstabsangaben',font=ImageFont.truetype(font,16*S),fill='#ecd5a4')
+d.text((40*S,1496*S),'Gestrichelte Kanten und Flusslinien: unsicher · Grauer Rand: keine Bildreferenz',font=ImageFont.truetype(font,13*S),fill='#d1dedf')
+d.text((40*S,1518*S),'Bildabgleich geprüft; Umrisse manuell angenähert. Keine Vermessung der Spielwelt.',font=ImageFont.truetype(font,11*S),fill='#b9cccf')
 im.save(ROOT/'assets/maps/pendola-pass-rft-base.jpg',quality=94,subsampling=0)
 print(f"Rendered {len(data['features'])} traced features and {len(occupied)} non-overlapping labels; {im.size}.")

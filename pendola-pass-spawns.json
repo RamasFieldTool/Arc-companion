@@ -1,5 +1,5 @@
 {
-  "version": "0.3-registered-manual-trace",
+  "version": "0.4-targeted-geographic-audit",
   "map": "pendola-pass",
   "label": {
     "de": "Pendola Pass",
@@ -10,7 +10,7 @@
   },
   "verificationStatus": "reference-images-registered-manual-geometry-approximate",
   "lastReviewed": "2026-10-12",
-  "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=pendola-registered-2",
+  "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=pendola-audited-3",
   "mapImageSource": "Ramas Field Tool – original drawing; registered screenshot references; manually traced approximate outlines",
   "notes": {
     "de": "Eigene Zeichnung aus räumlich abgeglichenen Screenshots. Sichtbare Umrisse nachgezeichnet; verdeckte Details ausgelassen. Bildabgleich geprüft, Spielgeografie nicht vermessen. Keine bestätigten Spielmarker.",
