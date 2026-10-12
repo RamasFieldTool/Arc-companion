@@ -4,7 +4,7 @@ The user approved this independent AI-assisted illustration on 2026-10-12. Four 
 
 ## Accuracy and limits
 
-This is an artistic approximation, not a surveyed or geographically verified reconstruction. Individual buildings, routes, terrain and southern coverage may differ from the original. No exact scale, perimeter or coordinates are asserted. There are no labels positioned on the illustration; the 16 existing reference names remain in the expandable list without coordinates. No spawn, loot, weapon-case or extraction positions have been invented; all marker arrays remain empty.
+This is an artistic approximation, not a surveyed or geographically verified reconstruction. Individual buildings, routes, terrain and southern coverage may differ from the original. No exact scale, perimeter or coordinates are asserted. Four main areas and 13 identifiable landmark names have approximate SVG overlays. Smaller names appear when zoomed. Raststätte, Altstadt and Umspannwerk cannot be reliably matched in the generated southern terrain and remain in the list only. All positions are manual visual approximations. Spawn, loot and weapon-case arrays remain empty. Four visible extraction symbols are transferred approximately from overview pixels (819,398), (535,650), (770,614), (880,886). These are reference-derived positions, not in-game verified coordinates. No extraction names, conditions or availability are asserted.
 
 ## Integration
 

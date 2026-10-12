@@ -1,5 +1,5 @@
 {
-  "version": "0.6-illustrated-reconstruction",
+  "version": "0.7-reference-overlays",
   "map": "pendola-pass",
   "label": {
     "de": "Pendola Pass",
@@ -13,8 +13,8 @@
   "mapImage": "assets/maps/pendola-pass-rft-base.jpg?v=illustration-1",
   "mapImageSource": "AI-assisted independent illustration using four user-provided map photographs as references; geographic accuracy not verified",
   "notes": {
-    "de": "Eigene, KI-gestützte Illustration anhand der vier Referenzfotos. Gelände, Gebäude und Verkehrswege sind angenähert; geografische Genauigkeit nicht verifiziert. Keine bestätigten Spielmarker.",
-    "en": "Independent AI-assisted illustration based on four reference photographs. Terrain, buildings and routes are approximate; geographic accuracy is not verified. No confirmed gameplay markers."
+    "de": "Eigene, KI-gestützte Illustration anhand der vier Referenzfotos. Gelände, Gebäude und Verkehrswege sind angenähert; geografische Genauigkeit nicht verifiziert. Keine bestätigten Spielmarker. Vier Extraktionssymbole aus den Referenzen sind angenähert übertragen; kein Abgleich im Spiel.",
+    "en": "Independent AI-assisted illustration based on four reference photographs. Terrain, buildings and routes are approximate; geographic accuracy is not verified. No confirmed gameplay markers. Four extraction symbols from the references are approximately transferred; not checked in game."
   },
   "points": [],
   "layers": {
@@ -31,90 +31,199 @@
       "points": []
     },
     "extractions": {
-      "status": "not-verified",
-      "points": []
+      "status": "reference-symbols-approximate-visual-transfer",
+      "points": [
+        {
+          "id": "reference-extraction-1",
+          "x": 56.5,
+          "y": 35.5,
+          "referenceOverviewPixels": [
+            819,
+            398
+          ],
+          "positionStatus": "approximate-visual-transfer",
+          "source": "user-provided-original-map-photos"
+        },
+        {
+          "id": "reference-extraction-2",
+          "x": 36.5,
+          "y": 59.5,
+          "referenceOverviewPixels": [
+            535,
+            650
+          ],
+          "positionStatus": "approximate-visual-transfer",
+          "source": "user-provided-original-map-photos"
+        },
+        {
+          "id": "reference-extraction-3",
+          "x": 48.5,
+          "y": 54,
+          "referenceOverviewPixels": [
+            770,
+            614
+          ],
+          "positionStatus": "approximate-visual-transfer",
+          "source": "user-provided-original-map-photos"
+        },
+        {
+          "id": "reference-extraction-4",
+          "x": 60,
+          "y": 80,
+          "referenceOverviewPixels": [
+            880,
+            886
+          ],
+          "positionStatus": "approximate-visual-transfer",
+          "source": "user-provided-original-map-photos"
+        }
+      ]
     }
   },
   "landmarks": [
     {
       "id": "researcher-quarters",
       "de": "Forscherunterkünfte",
-      "region": "north"
+      "region": "north",
+      "x": 46,
+      "y": 9,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "operations-tower",
       "de": "Einsatzturm",
-      "region": "north"
+      "region": "north",
+      "x": 40,
+      "y": 28,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "space-telescope",
       "de": "Weltraumteleskop",
-      "region": "north"
+      "region": "north",
+      "x": 72,
+      "y": 25,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "cielo-sereno-observatory",
       "de": "Cielo Sereno-Observatorium",
-      "region": "north"
+      "region": "north",
+      "x": 75,
+      "y": 42,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "frozen-river",
       "de": "Überfrorener Fluss",
-      "region": "north-to-south"
+      "region": "north-to-south",
+      "x": 51,
+      "y": 75,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "almatera-station",
       "de": "Almatera-Station",
-      "region": "central"
+      "region": "central",
+      "x": 40,
+      "y": 46,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "military-supermarket",
       "de": "Militärsupermarkt",
-      "region": "central"
+      "region": "central",
+      "x": 46,
+      "y": 63,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "railway-junction",
       "de": "Bahnknotenpunkt",
-      "region": "central"
+      "region": "central",
+      "x": 54,
+      "y": 44,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "weather-station",
       "de": "Wetterstation",
-      "region": "central"
+      "region": "central",
+      "x": 78,
+      "y": 53,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "controlled-reception",
       "de": "Kontrollierte Empfangsanlage",
-      "region": "central"
+      "region": "central",
+      "x": 60,
+      "y": 66,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "station",
       "de": "Bahnhof",
-      "region": "central-to-south"
+      "region": "central-to-south",
+      "x": 61,
+      "y": 73,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "transit-tunnel",
       "de": "Transittunnel",
-      "region": "south"
+      "region": "south",
+      "x": 30,
+      "y": 74,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "loading-platforms",
       "de": "Ladeplattformen",
-      "region": "south"
+      "region": "south",
+      "x": 68,
+      "y": 89,
+      "positionStatus": "approximate-visual-transfer"
     },
     {
       "id": "rest-stop",
       "de": "Raststätte",
-      "region": "south"
+      "region": "south",
+      "positionStatus": "not-reliably-identifiable-in-illustration"
     },
     {
       "id": "substation",
       "de": "Umspannwerk",
-      "region": "south"
+      "region": "south",
+      "positionStatus": "not-reliably-identifiable-in-illustration"
     },
     {
       "id": "old-town",
       "de": "Altstadt",
-      "region": "south"
+      "region": "south",
+      "positionStatus": "not-reliably-identifiable-in-illustration"
+    }
+  ],
+  "areaLabels": [
+    {
+      "de": "Nördliche Gleise",
+      "x": 54,
+      "y": 24
+    },
+    {
+      "de": "Dorf Almatera",
+      "x": 25,
+      "y": 61
+    },
+    {
+      "de": "Frachtterminal",
+      "x": 64,
+      "y": 76
+    },
+    {
+      "de": "Südlicher Pass",
+      "x": 58,
+      "y": 96
     }
   ]
 }
