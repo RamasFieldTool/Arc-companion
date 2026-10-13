@@ -34,7 +34,7 @@ Es gibt noch **keinen** belegten vollständigen 2.0-Waffenkatalog, aus dem sich 
 ## Punkt 2: Vollständige Waffen-Bestandsaufnahme aus dem alten Snapshot
 Quelle: `catalog-data/items-full-snapshot.json`, Git-Blob `bdfd07f475b2375a3d3f6ff695e745d4364658b1`, 581 Items, vor Frozen Trail 2.0.
 
-- 70 Waffeneinträge, 19 Waffenfamilien (17 Familien mit I–IV, zwei Einzelwaffen).
+- 75 Waffeneinträge, 21 Waffenfamilien (18 Familien mit I–IV, drei Einzelwaffen).
 - Keine Bantam- oder Stiletto-Einträge im alten Snapshot; sie werden über `frozen-trail-data.js` additiv ergänzt (vier bestehende + vier aus PR #149).
 - Diese Bestandsaufnahme beweist **nicht**, dass der dynamisch geladene aktuelle Live-Katalog dieselben Waffen enthält.
 
