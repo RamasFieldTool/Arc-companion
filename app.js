@@ -73,7 +73,12 @@ const typeDE={
 
 function tr(k){return T[lang][k]}
 function text(obj){if(typeof obj==='string')return obj;const ui=window.RFTDataLabels?.language()||lang;return obj?.[ui]||obj?.en||obj?.de||''}
-function itemName(i){return i?.name?text(i.name):(lang==='de'?(i?.de||i?.en):(i?.en||i?.de))||i?.id||''}
+function itemName(i){
+  const original=i?.name?text(i.name):(lang==='de'?(i?.de||i?.en):(i?.en||i?.de))||i?.id||'';
+  // Keep stable IDs and saved player data unchanged; correct legacy German display only.
+  if(lang==='de'&&/^anvil_(i|ii|iii|iv)$/.test(i?.id||''))return original.replace(/^Amboss\b/i,'Anvil');
+  return original;
+}
 function itemDesc(i){return i?.description?text(i.description):(i?.use||'')}
 function itemWeight(i){return i?.weightKg ?? i?.weight ?? null}
 function itemStack(i){return i?.stackSize ?? i?.stack ?? null}
