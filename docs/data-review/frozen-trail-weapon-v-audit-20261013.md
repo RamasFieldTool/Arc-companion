@@ -4,7 +4,7 @@ Stand: 13.10.2026. Nur Analyse, keine produktiven Waffenwerte.
 
 ## Begriffe auseinanderhalten
 - **Waffenstufe**: römische Nummer I, II, III, IV oder gegebenenfalls V im angezeigten Spielnamen.
-- **Amplified**: Update-System für ausgewählte Waffen; **nicht automatisch** mit der Bezeichnung `V` gleichsetzen. Der genaue Zusammenhang muss pro Waffe anhand eines Spielscreens, offizieller Patchnotes oder zuverlässiger Primärdaten geklärt werden.
+- **Amplified**: Update-System für ausgewählte Waffen; **fünfte Qualitätsstufe**, ausdrücklich durch Embark bestätigt. Die Amplification-Module MK I–V sind dagegen nach Waffen-Seltenheit gestaffelt und keine weiteren Waffenstufen.
 - **Einträge**: Zwei Waffen mit vier bestätigten Stufen ergeben acht Einträge, nicht acht Stufen pro Waffe.
 
 ## Prüfung je Waffenfamilie
@@ -12,7 +12,7 @@ Stand: 13.10.2026. Nur Analyse, keine produktiven Waffenwerte.
 |---|---|---|---|---|---|
 | Bantam | I–IV im Testbranch #149 | offen | offen | Primärbeleg fehlt | kein V-Eintrag |
 | Stiletto | I–IV im Testbranch #149 | offen | offen | Primärbeleg fehlt | kein V-Eintrag |
-| Anvil | I–IV im Katalog | offen | offen | offizieller Rarity-Fix für I–IV, kein V-Beleg | keine Änderung |
+| Anvil | I–IV im Katalog | ja, Amplified | ja | Embark-Patchnotes bestätigen Amplified Anvil / Anvil Splitter | noch keine numerischen Werte |
 | Alle übrigen Familien im 581er Snapshot | noch familienweise zu erfassen | offen | offen | September-Snapshot ist vor 2.0 | keine Änderung |
 
 ## Verifikation vor produktiver Aufnahme
@@ -67,3 +67,17 @@ Quelle: `catalog-data/items-full-snapshot.json`, Git-Blob `bdfd07f475b2375a3d3f6
 - Für keine Waffenfamilie wird allein aus dem September-Snapshot eine Stufe V abgeleitet.
 - Für Bantam und Stiletto liegen I–IV im additiven Katalog vor, jedoch teils nur als ausdrücklich unvollständige Datensätze.
 - Für die vollständige Prüfung werden aktuelle API-Daten oder direkte Spielbelege benötigt.
+
+## Sekundärabgleich 13.10.2026: Amplified-Waffen
+**Primärquelle:** https://arcraiders.com/news/frozen-trail-is-live (Outpost ermöglicht die fünfte Waffen-Qualitätsstufe), https://arcraiders.com/es/news/frozen-trail-2-0-update (Anvil Splitter als Amplified-Anvil-Upgrade).
+**Sekundärquellen:** https://www.getrankd.gg/games/arc-raiders/news/arc-raiders-amplified-weapons und https://arcraidershub.com/guides/amplified-weapons-guide (15 Waffen, nach 2.0-Daten; unabhängig im Spiel zu validieren).
+
+| Modul-Rarität | Waffenfamilien (sekundär) |
+|---|---|
+| MK I | Hairpin, Kettle, Rattler |
+| MK II | Burletta, Il Toro |
+| MK III | Anvil, Canto, Osprey, Rascal, Renegade |
+| MK IV | Bettina, Hullcracker |
+| MK V | Aphelion, Equalizer, Jupiter |
+
+**Wichtig:** MK I–V sind Amplification-Modulklassen nach Seltenheit, keine Stufen VI–X. Die Amplification selbst ist die fünfte Qualitätsstufe. Die Liste enthält 15 Familien; Rascal, Hullcracker und Aphelion waren nicht in der vorliegenden 581er Waffenklassifikation erfasst und müssen mit dem Live-Katalog separat abgeglichen werden. Bantam und Stiletto werden in Sekundärquellen ausdrücklich als noch nicht amplifizierbar geführt. Keine ungeprüften Waffen-IDs oder Rezepte anlegen.
