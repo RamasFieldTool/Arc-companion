@@ -16,12 +16,15 @@ for(const width of [360,1280]){
   if(code!=='de'){await page.locator('#appBack').click();await page.locator('#arcLanguageButton').click();await page.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click()}
   await page.locator('[data-app-target="outpostSection"]').click();
   await page.waitForFunction(title=>document.querySelector('#outpostExpansionReference summary')?.textContent===title,title);
-  for(const [id,count] of [['outpostExpansionReference',3],['outpostDesignResearchReference',8],['outpostWeaponRecipeReference',3]]){
+  for(const [id,count] of [['outpostExpansionReference',3],['outpostDesignResearchReference',8],['outpostWeaponRecipeReference',3],['outpostGadgetRecipeReference',2],['outpostFurnitureCraftReference',4]]){
    await page.locator('#'+id).evaluate(n=>{n.open=true});
    if(await page.locator('#'+id+' li').count()!==count)throw Error('Incorrect row count '+id);
   }
   if(!(await page.locator('#outpostDesignResearchReference').textContent()).includes('Barstool Design · Research Station 1 · 500'))throw Error('Research data absent');
   if(!(await page.locator('#outpostWeaponRecipeReference').textContent()).includes('MetaForge I'))throw Error('Anvil conflict absent');
+  if(!(await page.locator('#outpostGadgetRecipeReference').textContent()).includes('2 Steel Cable · 1 Advanced Electrical Components · 1 Calculator · Utility Station II'))throw Error('Gadget recipe missing');
+  if(!(await page.locator('#outpostFurnitureCraftReference').textContent()).includes('Barstool: 4 Fabric · 8 Sheet Metal'))throw Error('Furniture craft mixed with research');
+  if(!(await page.locator('#outpostDesignResearchReference').textContent()).includes('15 Metal Parts'))throw Error('Research changed');
   if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2))throw Error('Page overflow');
   if(await page.evaluate(()=>localStorage.getItem('outpostReferenceSafety'))!=='unchanged')throw Error('Storage probe changed');
   await page.screenshot({path:`test-artifacts/outpost-reference/${code}-${width}.png`,fullPage:true});
