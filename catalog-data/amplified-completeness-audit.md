@@ -117,3 +117,85 @@ Independent cross-checks: official Embark Frozen Trail notes, arcraiders.wiki Am
 2. Per-node material counts and before/after weapon stats, including alternative paths and irreversible branches.
 3. Independent verification of whether Equalizer Anti-Shield is selectable in the current build, and of Grenade/Rounds and Straight Bolt/Ergonomic Bolt naming.
 4. First-party evidence for each of the eleven non-listed weapons before claiming that a fifth-tier version is impossible.
+
+## Per-node evidence and screenshot request matrix — 2026-10-13
+
+**Interpretation:** every row is a reported upgrade *node*, not a confirmed independently craftable weapon. `NICHT VERIFIZIERT` means no directly checked in-game node screenshot with complete material quantities, resulting stats and path. `WIDERSPRÜCHLICH` means sources conflict. All upgrade costs below remain null until individually evidenced. The separate Amplification Module cost and the one-time research are not interchangeable with node materials.
+
+| Weapon (Mk) | Reported node | Node status | Materials | Before/after stats | Missing screenshot |
+|---|---|---|---|---|---|
+| hairpin (I) | Incendiary Rounds | NICHT VERIFIZIERT | unknown | unknown | hairpin upgrade tree + Incendiary Rounds hover tooltip + confirm materials + before/after stats |
+| hairpin (I) | Tracker Rounds | NICHT VERIFIZIERT | unknown | unknown | hairpin upgrade tree + Tracker Rounds hover tooltip + confirm materials + before/after stats |
+| hairpin (I) | Semi-Auto | NICHT VERIFIZIERT | unknown | unknown | hairpin upgrade tree + Semi-Auto hover tooltip + confirm materials + before/after stats |
+| hairpin (I) | Sprint Shooting | NICHT VERIFIZIERT | unknown | unknown | hairpin upgrade tree + Sprint Shooting hover tooltip + confirm materials + before/after stats |
+| kettle (I) | X Rounds | NICHT VERIFIZIERT | unknown | unknown | kettle upgrade tree + X Rounds hover tooltip + confirm materials + before/after stats |
+| kettle (I) | Full-Auto | NICHT VERIFIZIERT | unknown | unknown | kettle upgrade tree + Full-Auto hover tooltip + confirm materials + before/after stats |
+| kettle (I) | Anti-Shield | NICHT VERIFIZIERT | unknown | unknown | kettle upgrade tree + Anti-Shield hover tooltip + confirm materials + before/after stats |
+| rattler (I) | Incendiary Rounds | NICHT VERIFIZIERT | unknown | unknown | rattler upgrade tree + Incendiary Rounds hover tooltip + confirm materials + before/after stats |
+| rattler (I) | Drum Mag | NICHT VERIFIZIERT | unknown | unknown | rattler upgrade tree + Drum Mag hover tooltip + confirm materials + before/after stats |
+| rattler (I) | More Reload | NICHT VERIFIZIERT | unknown | unknown | rattler upgrade tree + More Reload hover tooltip + confirm materials + before/after stats |
+| burletta (II) | Burst-Fire | NICHT VERIFIZIERT | unknown | unknown | burletta upgrade tree + Burst-Fire hover tooltip + confirm materials + before/after stats |
+| burletta (II) | Full-Auto | NICHT VERIFIZIERT | unknown | unknown | burletta upgrade tree + Full-Auto hover tooltip + confirm materials + before/after stats |
+| burletta (II) | Increased Burst | NICHT VERIFIZIERT | unknown | unknown | burletta upgrade tree + Increased Burst hover tooltip + confirm materials + before/after stats |
+| burletta (II) | Sprint Shooting | NICHT VERIFIZIERT | unknown | unknown | burletta upgrade tree + Sprint Shooting hover tooltip + confirm materials + before/after stats |
+| il_toro (II) | Slug Rounds | NICHT VERIFIZIERT | unknown | unknown | il_toro upgrade tree + Slug Rounds hover tooltip + confirm materials + before/after stats |
+| il_toro (II) | More Reload | NICHT VERIFIZIERT | unknown | unknown | il_toro upgrade tree + More Reload hover tooltip + confirm materials + before/after stats |
+| anvil (III) | X Rounds | NICHT VERIFIZIERT | unknown | unknown | anvil upgrade tree + X Rounds hover tooltip + confirm materials + before/after stats |
+| anvil (III) | Anvil Splitter | NICHT VERIFIZIERT | unknown | unknown | anvil upgrade tree + Anvil Splitter hover tooltip + confirm materials + before/after stats |
+| canto (III) | Incendiary Rounds | NICHT VERIFIZIERT | unknown | unknown | canto upgrade tree + Incendiary Rounds hover tooltip + confirm materials + before/after stats |
+| canto (III) | Sprint Shooting | NICHT VERIFIZIERT | unknown | unknown | canto upgrade tree + Sprint Shooting hover tooltip + confirm materials + before/after stats |
+| canto (III) | Carbine Conversion | NICHT VERIFIZIERT | unknown | unknown | canto upgrade tree + Carbine Conversion hover tooltip + confirm materials + before/after stats |
+| osprey (III) | Anti Weak Point | NICHT VERIFIZIERT | unknown | unknown | osprey upgrade tree + Anti Weak Point hover tooltip + confirm materials + before/after stats |
+| osprey (III) | Tracker Rounds | NICHT VERIFIZIERT | unknown | unknown | osprey upgrade tree + Tracker Rounds hover tooltip + confirm materials + before/after stats |
+| osprey (III) | Straight Bolt | NICHT VERIFIZIERT | unknown | unknown | osprey upgrade tree + Straight Bolt hover tooltip + confirm materials + before/after stats |
+| rascal (III) | Incendiary Grenade | WIDERSPRÜCHLICH | unknown | unknown | rascal upgrade tree + Incendiary Grenade hover tooltip + confirm materials + before/after stats |
+| rascal (III) | High Velocity | NICHT VERIFIZIERT | unknown | unknown | rascal upgrade tree + High Velocity hover tooltip + confirm materials + before/after stats |
+| rascal (III) | Sprint Shooting | NICHT VERIFIZIERT | unknown | unknown | rascal upgrade tree + Sprint Shooting hover tooltip + confirm materials + before/after stats |
+| renegade (III) | More Reload | NICHT VERIFIZIERT | unknown | unknown | renegade upgrade tree + More Reload hover tooltip + confirm materials + before/after stats |
+| renegade (III) | Scoped | NICHT VERIFIZIERT | unknown | unknown | renegade upgrade tree + Scoped hover tooltip + confirm materials + before/after stats |
+| bettina (IV) | X Rounds | NICHT VERIFIZIERT | unknown | unknown | bettina upgrade tree + X Rounds hover tooltip + confirm materials + before/after stats |
+| bettina (IV) | Semi-Auto | NICHT VERIFIZIERT | unknown | unknown | bettina upgrade tree + Semi-Auto hover tooltip + confirm materials + before/after stats |
+| bettina (IV) | Bigger Mag | NICHT VERIFIZIERT | unknown | unknown | bettina upgrade tree + Bigger Mag hover tooltip + confirm materials + before/after stats |
+| hullcracker (IV) | Incendiary Grenade | WIDERSPRÜCHLICH | unknown | unknown | hullcracker upgrade tree + Incendiary Grenade hover tooltip + confirm materials + before/after stats |
+| hullcracker (IV) | Mag Reload | NICHT VERIFIZIERT | unknown | unknown | hullcracker upgrade tree + Mag Reload hover tooltip + confirm materials + before/after stats |
+| aphelion (V) | Incendiary Rounds | NICHT VERIFIZIERT | unknown | unknown | aphelion upgrade tree + Incendiary Rounds hover tooltip + confirm materials + before/after stats |
+| aphelion (V) | Charged Burst | NICHT VERIFIZIERT | unknown | unknown | aphelion upgrade tree + Charged Burst hover tooltip + confirm materials + before/after stats |
+| aphelion (V) | Bigger Mag | NICHT VERIFIZIERT | unknown | unknown | aphelion upgrade tree + Bigger Mag hover tooltip + confirm materials + before/after stats |
+| aphelion (V) | Increased Burst | NICHT VERIFIZIERT | unknown | unknown | aphelion upgrade tree + Increased Burst hover tooltip + confirm materials + before/after stats |
+| equalizer (V) | Anti Weak Point | NICHT VERIFIZIERT | unknown | unknown | equalizer upgrade tree + Anti Weak Point hover tooltip + confirm materials + before/after stats |
+| equalizer (V) | Anti Shield | WIDERSPRÜCHLICH | unknown | unknown | equalizer upgrade tree + Anti Shield hover tooltip + confirm materials + before/after stats |
+| equalizer (V) | Ramping Damage | NICHT VERIFIZIERT | unknown | unknown | equalizer upgrade tree + Ramping Damage hover tooltip + confirm materials + before/after stats |
+| equalizer (V) | Bigger Mag | NICHT VERIFIZIERT | unknown | unknown | equalizer upgrade tree + Bigger Mag hover tooltip + confirm materials + before/after stats |
+| jupiter (V) | Bigger Mag | NICHT VERIFIZIERT | unknown | unknown | jupiter upgrade tree + Bigger Mag hover tooltip + confirm materials + before/after stats |
+| jupiter (V) | Scoped | NICHT VERIFIZIERT | unknown | unknown | jupiter upgrade tree + Scoped hover tooltip + confirm materials + before/after stats |
+| jupiter (V) | Straight Bolt | NICHT VERIFIZIERT | unknown | unknown | jupiter upgrade tree + Straight Bolt hover tooltip + confirm materials + before/after stats |
+
+### Repair cost evidence (separate from crafting)
+
+Source: https://nettoge.com/arc-raiders-amplified-weapons/ (Japanese community guide, updated Oct 13); independent player cross-check: https://www.reddit.com/r/ArcRaiders/comments/1x3nqt8/i_completed_13_weapon_amplification_heres_my/ . Figures are reported per repair action, not upgrade crafting. **TEILWEISE VERIFIZIERT** pending full in-game repair screenshots. Maximum is the guide's maximum branch configuration, not a cost of every node or combination.
+
+| Family | No extra node | Reported maximum branch repair | Status |
+|---|---:|---:|---|
+| kettle | 7 | 27 | TEILWEISE VERIFIZIERT |
+| rattler | 7 | 35 | TEILWEISE VERIFIZIERT |
+| hairpin | 7 | 27 | TEILWEISE VERIFIZIERT |
+| il_toro | 10 | 30 | TEILWEISE VERIFIZIERT |
+| burletta | 10 | 41 | TEILWEISE VERIFIZIERT |
+| anvil | 13 | 23 | TEILWEISE VERIFIZIERT |
+| renegade | 13 | 33 | TEILWEISE VERIFIZIERT |
+| canto | 13 | 31 | TEILWEISE VERIFIZIERT |
+| osprey | 13 | 34 | TEILWEISE VERIFIZIERT |
+| rascal | 13 | 41 | TEILWEISE VERIFIZIERT |
+| bettina | 17 | 35 | TEILWEISE VERIFIZIERT |
+| hullcracker | 17 | 35 | TEILWEISE VERIFIZIERT |
+| aphelion | 22 | 61 | TEILWEISE VERIFIZIERT |
+| equalizer | 22 | 54 | TEILWEISE VERIFIZIERT |
+| jupiter | 22 | 47 | TEILWEISE VERIFIZIERT |
+
+### First-hand 13-amplification report limitations
+
+The poster does **not** enumerate 13 named guns or 13 complete crafting recipes. Their exact example is Equalizer with **Beam Amp + Extended Mag**, 54 fragments to repair. These labels may correspond to the existing catalog's Ramping Damage / Bigger Mag, but that mapping is **NOT verified** and must not silently replace the names. The player's five base repair costs agree with the Japanese guide. Screenshot image in the Reddit post needs independent visual inspection; no direct confirmation of all 13 individual items is available. Original screenshot requests: (1) Equalizer tree showing both labels; (2) repair confirmation for Equalizer 54; (3) full inventory of 13 completed researches; (4) per-weapon base and max-branch repair panels for all 15 families.
+
+### Primary-source confirmation of launch family count
+
+Embark's official Steam announcement https://steamcommunity.com/app/1808500 states amplification rolls out to **15 weapons** and more are planned. This independently confirms the **count**, not every name in the community-derived 15-family list.
