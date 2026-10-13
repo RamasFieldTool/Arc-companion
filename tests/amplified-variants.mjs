@@ -82,6 +82,16 @@ test('repair costs cover 15 families and never masquerade as crafting recipes',(
   assert.equal(repairs.playerReport.specificExample.weapon,'equalizer');
   assert.match(repairs.source,/^https:\/\//);
 });
+test('ARC Tracker configuration evidence is distinct from crafting verification',()=>{
+  const evidence=data.configurationDatabaseEvidence;
+  assert.equal(evidence.verification,'partially-verified-database-records-not-in-game-crafting-proof');
+  assert.equal(evidence.gameVersion,'2.00');
+  assert.match(evidence.source,/^https:\/\/arctracker\.io\/items$/);
+  assert.ok(evidence.findings.some(x=>x.includes('Anti-Shield + Full-Auto')));
+  assert.ok(evidence.findings.some(x=>x.includes('Ergonomic Bolt')));
+  assert.ok(evidence.caution.includes('Do not treat'));
+  assert.equal(evidence.exampleRecords.find(x=>x.family==='equalizer').repairFragmentsFor50Percent,42);
+});
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
     const source=fs.readFileSync(path,'utf8');
