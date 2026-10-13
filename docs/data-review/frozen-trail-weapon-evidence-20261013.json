@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-10-13",
+  "scope": "Frozen Trail 2.0 new weapons",
+  "status": "community-source-cross-check-not-ingame-verified",
+  "source": "https://arcraiders.wiki/wiki/Mechanical_Components",
+  "sourceSupplement": "https://arcraiders.wiki/wiki/Light_Gun_Parts",
+  "weapons": [
+    {
+      "family": "Bantam",
+      "ids": [
+        "bantam_i",
+        "bantam_ii",
+        "bantam_iii",
+        "bantam_iv"
+      ],
+      "baseCraft": {
+        "result": "bantam_i",
+        "materials": {
+          "simple_gun_parts": 4,
+          "mechanical_components": 4
+        },
+        "station": "Gunsmith 1",
+        "requires": "Bantam Blueprint"
+      },
+      "upgrades": [
+        {
+          "from": "bantam_i",
+          "to": "bantam_ii",
+          "materials": {
+            "mechanical_components": 3,
+            "simple_gun_parts": 1
+          }
+        },
+        {
+          "from": "bantam_ii",
+          "to": "bantam_iii",
+          "materials": {
+            "mechanical_components": 3,
+            "simple_gun_parts": 1
+          }
+        },
+        {
+          "from": "bantam_iii",
+          "to": "bantam_iv",
+          "materials": {
+            "mechanical_components": 4,
+            "heavy_gun_parts": 1
+          }
+        }
+      ]
+    },
+    {
+      "family": "Stiletto",
+      "ids": [
+        "stiletto_i",
+        "stiletto_ii",
+        "stiletto_iii",
+        "stiletto_iv"
+      ],
+      "baseCraft": {
+        "result": "stiletto_i",
+        "materials": {
+          "simple_gun_parts": 4,
+          "mechanical_components": 4
+        },
+        "station": "unconfirmed",
+        "requires": "Stiletto Blueprint"
+      },
+      "upgrades": [
+        {
+          "from": "stiletto_i",
+          "to": "stiletto_ii",
+          "materials": {
+            "mechanical_components": 3,
+            "simple_gun_parts": 1
+          }
+        },
+        {
+          "from": "stiletto_ii",
+          "to": "stiletto_iii",
+          "materials": {
+            "mechanical_components": 3,
+            "simple_gun_parts": 1
+          }
+        },
+        {
+          "from": "stiletto_iii",
+          "to": "stiletto_iv",
+          "materials": {
+            "mechanical_components": 4,
+            "light_gun_parts": 1
+          }
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Wiki data may be incomplete or outdated; do not auto-apply without validation",
+    "Weapon levels I-IV are separate from Amplified quality",
+    "Canonical IDs in RFT must be checked against live API and saved aliases before integration"
+  ]
+}
