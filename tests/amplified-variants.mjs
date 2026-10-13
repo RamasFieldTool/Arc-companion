@@ -47,6 +47,25 @@ test('Amplification module classes cover each family exactly once and trees rema
   }
   assert.ok(data.researchNotes.every(note=>typeof note==='string'&&note.length>30));
 });
+test('evidence ledger contains exact quantities only with attributable sources',()=>{
+  const ledger=data.evidenceLedger;
+  assert.equal(ledger.specificRequirements.length,3);
+  assert.equal(ledger.specificStats.length,2);
+  for(const entry of [...ledger.specificRequirements,...ledger.specificStats]){
+    assert.match(entry.source,/^https:\/\//);
+    assert.ok(entry.evidence.length>12);
+  }
+  for(const entry of ledger.specificRequirements){
+    for(const material of entry.materials){
+      assert.ok(Number.isInteger(material.quantity)&&material.quantity>0);
+      assert.ok(material.name.length>2);
+    }
+  }
+  const required=new Map([['aphelion|Increased Burst','Charged Burst'],['bettina|X Rounds','Semi-Auto'],['burletta|Increased Burst','Burst-Fire'],['hairpin|Sprint Shooting','Semi-Auto'],['rattler|Drum Mag','More Reload']]);
+  for(const edge of data.upgradeTree.prerequisites){
+    assert.equal(edge.requires,required.get(edge.family+'|'+edge.upgrade));
+  }
+});
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
     const source=fs.readFileSync(path,'utf8');
