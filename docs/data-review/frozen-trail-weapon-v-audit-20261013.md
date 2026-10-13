@@ -80,4 +80,33 @@ Quelle: `catalog-data/items-full-snapshot.json`, Git-Blob `bdfd07f475b2375a3d3f6
 | MK IV | Bettina, Hullcracker |
 | MK V | Aphelion, Equalizer, Jupiter |
 
-**Wichtig:** MK I–V sind Amplification-Modulklassen nach Seltenheit, keine Stufen VI–X. Die Amplification selbst ist die fünfte Qualitätsstufe. Die Liste enthält 15 Familien; Rascal, Hullcracker und Aphelion waren nicht in der vorliegenden 581er Waffenklassifikation erfasst und müssen mit dem Live-Katalog separat abgeglichen werden. Bantam und Stiletto werden in Sekundärquellen ausdrücklich als noch nicht amplifizierbar geführt. Keine ungeprüften Waffen-IDs oder Rezepte anlegen.
+**Wichtig:** MK I–V sind Amplification-Modulklassen nach Seltenheit, keine Stufen VI–X. Die Amplification selbst ist die fünfte Qualitätsstufe. Die Liste enthält 15 Familien; Rascal, Hullcracker und Aphelion sind im 581er Snapshot enthalten; die frühere Klassifikation übersah den Typ `Special`. Bantam und Stiletto werden in Sekundärquellen ausdrücklich als noch nicht amplifizierbar geführt. Keine ungeprüften Waffen-IDs oder Rezepte anlegen.
+
+## Abgleich aller 15 Amplified-Familien gegen Snapshot (13.10.2026)
+Die 581er Datei enthält **alle 15** Basisfamilien. Dabei zählen `Special`-Items als Waffen, auch wenn der Feldtyp nicht Rifle/SMG/etc. heißt.
+
+| Familie | Vorhandene IDs | Snapshot-Kategorie | Amplification-Modul (Sekundärquelle) |
+|---|---|---|---|
+| Hairpin | hairpin_i–hairpin_iv | Pistol | MK I |
+| Kettle | kettle_i–kettle_iv | Assault Rifle | MK I |
+| Rattler | rattler_i–rattler_iv | Assault Rifle | MK I |
+| Burletta | burletta_i–burletta_iv | Pistol | MK II |
+| Il Toro | il_toro_i–il_toro_iv | Shotgun | MK II |
+| Anvil | anvil_i–anvil_iv | Hand Cannon | MK III |
+| Canto | canto_i–canto_iv | SMG | MK III |
+| Osprey | osprey_i–osprey_iv | Sniper Rifle | MK III |
+| Rascal | rascal_i–rascal_iv | Special | MK III |
+| Renegade | renegade_i–renegade_iv | Battle Rifle | MK III |
+| Bettina | bettina_i–bettina_iv | Assault Rifle | MK IV |
+| Hullcracker | hullcracker_i–hullcracker_iv | Special | MK IV |
+| Aphelion | aphelion | Special | MK V |
+| Equalizer | equalizer | LMG | MK V |
+| Jupiter | jupiter | Sniper Rifle | MK V |
+
+Snapshot-IDs sind nachweislich vorhanden, **aber keine bestätigten neuen Amplified-Item-IDs**. Für eine UI-Darstellung sollte man Amplification zunächst als separaten Upgrade-Zweig zur bestehenden Waffenfamilie modellieren und keine `_v`-Einträge erfinden.
+
+Primärquelle: https://id.embark.games/arc-raiders/support/faq/282-2-0-frozen-trail-update (Amplified Weapons, Anvil Splitter).
+Sekundärquelle für 15 Familien und Module: https://www.keengamer.com/articles/guides/arc-raiders-all-15-amplified-weapons-how-to-unlock/ .
+
+### Korrektur der alten Bestandszählung
+Die erste 75er Zählung schloss `Special`-Waffen aus. Sie ist **keine vollständige Waffenanzahl**. Der vollständige Waffenbestand erfordert eine explizite Klassifikation der `Special`-Gegenstände und der nicht numerisch gestuften Waffen. Bis dahin die Zahl 75 nicht als Gesamtzahl verwenden.
