@@ -25,3 +25,45 @@ Stand: 13.10.2026. Nur Analyse, keine produktiven Waffenwerte.
 
 ## Aktuelle Grenze
 Es gibt noch **keinen** belegten vollständigen 2.0-Waffenkatalog, aus dem sich alle V-Stufen sicher ableiten lassen. Die Aussage „alle Waffen haben Stufe V“ ist nicht belegt. Keine Spekulation in `main`.
+
+## Punkt 1: Veröffentlichungsprüfung (13.10.2026)
+- PR #149: GitHub-Merge bestätigt, Commit `2986566534b78358af8d0c2c09f52dcab39b50c8`.
+- Direkter Abruf `https://ramasfieldtool.github.io/Arc-companion/frozen-trail-data.js` und `index.html` über Webzugriff fehlgeschlagen; Container-Netzwerk hat DNS-Auflösungsfehler.
+- **Live-Auslieferung / sichtbare UI: NICHT VERIFIZIERT.** Ein erfolgreicher GitHub-Merge ist kein Nachweis für erfolgreiche Pages-Veröffentlichung.
+
+## Punkt 2: Vollständige Waffen-Bestandsaufnahme aus dem alten Snapshot
+Quelle: `catalog-data/items-full-snapshot.json`, Git-Blob `bdfd07f475b2375a3d3f6ff695e745d4364658b1`, 581 Items, vor Frozen Trail 2.0.
+
+- 70 Waffeneinträge, 19 Waffenfamilien (17 Familien mit I–IV, zwei Einzelwaffen).
+- Keine Bantam- oder Stiletto-Einträge im alten Snapshot; sie werden über `frozen-trail-data.js` additiv ergänzt (vier bestehende + vier aus PR #149).
+- Diese Bestandsaufnahme beweist **nicht**, dass der dynamisch geladene aktuelle Live-Katalog dieselben Waffen enthält.
+
+| Waffenfamilie | Einträge | Im Snapshot vorhandene Namen | Status |
+|---|---:|---|---|
+| Anvil | 4 | Anvil I, Anvil II, Anvil III, Anvil IV | I–IV im alten Snapshot |
+| Arpeggio | 4 | Arpeggio I, Arpeggio II, Arpeggio III, Arpeggio IV | I–IV im alten Snapshot |
+| Bettina | 4 | Bettina I, Bettina II, Bettina III, Bettina IV | I–IV im alten Snapshot |
+| Bobcat | 4 | Bobcat I, Bobcat II, Bobcat III, Bobcat IV | I–IV im alten Snapshot |
+| Burletta | 4 | Burletta I, Burletta II, Burletta III, Burletta IV | I–IV im alten Snapshot |
+| Canto | 4 | Canto I, Canto II, Canto III, Canto IV | I–IV im alten Snapshot |
+| Dolabra | 1 | Dolabra | Einzelwaffe im alten Snapshot |
+| Equalizer | 1 | Equalizer | Einzelwaffe im alten Snapshot |
+| Ferro | 4 | Ferro I, Ferro II, Ferro III, Ferro IV | I–IV im alten Snapshot |
+| Hairpin | 4 | Hairpin I, Hairpin II, Hairpin III, Hairpin IV | I–IV im alten Snapshot |
+| Il Toro | 4 | Il Toro I, Il Toro II, Il Toro III, Il Toro IV | I–IV im alten Snapshot |
+| Jupiter | 1 | Jupiter | Einzelwaffe im alten Snapshot |
+| Kettle | 4 | Kettle I, Kettle II, Kettle III, Kettle IV | I–IV im alten Snapshot |
+| Osprey | 4 | Osprey I, Osprey II, Osprey III, Osprey IV | I–IV im alten Snapshot |
+| Rattler | 4 | Rattler I, Rattler II, Rattler III, Rattler IV | I–IV im alten Snapshot |
+| Renegade | 4 | Renegade I, Renegade II, Renegade III, Renegade IV | I–IV im alten Snapshot |
+| Stitcher | 4 | Stitcher I, Stitcher II, Stitcher III, Stitcher IV | I–IV im alten Snapshot |
+| Tempest | 4 | Tempest I, Tempest II, Tempest III, Tempest IV | I–IV im alten Snapshot |
+| Torrente | 4 | Torrente I, Torrente II, Torrente III, Torrente IV | I–IV im alten Snapshot |
+| Venator | 4 | Venator I, Venator II, Venator III, Venator IV | I–IV im alten Snapshot |
+| Vulcano | 4 | Vulcano I, Vulcano II, Vulcano III, Vulcano IV | I–IV im alten Snapshot |
+
+### Weitere Audit-Lücken
+- Aktuelle Upstream-Liste nach Frozen Trail 2.0 konnte noch nicht vollständig gegen den alten Snapshot verglichen werden.
+- Für keine Waffenfamilie wird allein aus dem September-Snapshot eine Stufe V abgeleitet.
+- Für Bantam und Stiletto liegen I–IV im additiven Katalog vor, jedoch teils nur als ausdrücklich unvollständige Datensätze.
+- Für die vollständige Prüfung werden aktuelle API-Daten oder direkte Spielbelege benötigt.
