@@ -22,7 +22,7 @@ try{
    await page.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>document.querySelectorAll('#outpostAmplifiedWeapons details').length===15);
    assert.ok((await page.locator('#outpostAmplifiedWeapons').innerText()).includes('Amplified'));
-   await page.locator('[data-app-target="outpostDrawer"]').click();
+   await page.locator('[data-app-target="outpostSection"]').click();
    await page.locator('#outpostAmplifiedWeapons input[type=search]').waitFor({state:'visible'});
    const search=page.locator('#outpostAmplifiedWeapons input[type=search]');
    await search.fill('Splitter');
