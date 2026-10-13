@@ -227,3 +227,26 @@ Embark's official Steam announcement https://steamcommunity.com/app/1808500 stat
 **Important:** ARC Tracker's Equalizer Anti-Weak Point + Bigger Mag record https://arctracker.io/items/equalizer_amplified_anti_weak_point_bigger_mag reports **42 Amplified Fragments to repair 50% durability**. This is a different repair scope from earlier 54-fragment player report (Equalizer with two other labels) and must not be treated as a contradiction until the repair percentage and exact configuration match.
 
 **Next verification:** enumerate and count all unique ARC Tracker variant IDs, inspect item-level upgrade-tree links and compare every variant against game screenshots; current index has been read but a complete machine-verified extraction/count is not yet available. The full screenshot proof and per-node material matrix remain incomplete.
+
+## Targeted item-tree verification — 2026-10-13
+
+**Actual evidence inspected:** rendered text of ARC Tracker's public game-version 2.00 item pages (NOT visual inspection of screenshots/videos). References:
+- https://arctracker.io/da/items/hullcracker_amplified
+- https://arctracker.io/pt-BR/items/hullcracker_iv
+- https://arctracker.io/items/kettle_iv
+- https://arctracker.io/items/jupiter
+- https://arctracker.io/items
+
+### Newly attributable material lists (all TEILWEISE VERIFIZIERT, database not original screenshot)
+
+| Family | Operation | Starting item | Cost | Unlock |
+|---|---|---|---|---|
+| Hullcracker | Incendiary Rounds node | Amplified Hullcracker | 3 Fossilized Lightning | Compact Combustion Charges research |
+| Hullcracker | Mag Reload node | Amplified Hullcracker | 3 Propellant Valve Assembly | No additional research displayed |
+| Hullcracker | Base amplification | Hullcracker IV | 1 Amplification Module Mk. IV | Gunsmith level 4 |
+| Kettle | Base amplification | Kettle IV | 1 Amplification Module Mk. I | Gunsmith level 4 |
+| Jupiter | Base amplification | Jupiter | 1 Amplification Module Mk. V | Gunsmith level 4 |
+
+**Important naming conflict:** the item tree calls Hullcracker's node **Incendiary Rounds**, whereas current catalog option is **Incendiary Grenade**. The catalog option is retained as disputed until an in-game menu confirms the official label; the verified database text is recorded separately. Database pages can expose node-specific costs without confirming a full research unlock chain, stats delta, or craftability in current live client.
+
+**Current verification limitations:** exact costs for all other nodes remain unknown, as do complete before/after values, full unlocks, repair costs of each specific combined configuration, and all current in-game screenshots. No video frames were inspected in this pass. The source item index confirms multiple combined records but not their unique real-world crafted existence.
