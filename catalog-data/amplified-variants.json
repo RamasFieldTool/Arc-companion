@@ -1300,5 +1300,100 @@
     },
     "verification": "database-index-observed-not-original-gameplay",
     "note": "89 database item records are not 89 proven crafted variants; index may change."
+  },
+  "arcTrackerRecordAudit": {
+    "indexUrl": "https://arctracker.io/items",
+    "expectedRecordsFromPriorIndexCount": 89,
+    "method": "Direct public page text extraction through web reader; no browser rendering or screenshot inspection. Runtime outbound DNS unavailable.",
+    "coverage": "partial",
+    "records": [
+      {
+        "id": "anvil_amplified",
+        "url": "https://arctracker.io/items/anvil_amplified",
+        "family": "anvil",
+        "name": "Amplified Anvil",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "gameVersion": "2.00",
+          "weightKg": 5,
+          "sellValue": 20800,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2.5,
+          "falloffRangeMeters": [
+            180,
+            200
+          ],
+          "increasedFireRatePercent": 75,
+          "reducedDispersionRecoveryTimePercent": 18.75
+        },
+        "missing": [
+          "full node recipes",
+          "unlock tree",
+          "research",
+          "per-variant repair",
+          "original game menu"
+        ]
+      },
+      {
+        "id": "hairpin_amplified",
+        "url": "https://arctracker.io/items/hairpin_amplified",
+        "family": "hairpin",
+        "name": "Amplified Hairpin",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "gameVersion": "2.00",
+          "weightKg": 3,
+          "sellValue": 11200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2.5,
+          "falloffRangeMeters": [
+            130,
+            150
+          ],
+          "increasedFireRatePercent": 30,
+          "reducedReloadTimePercent": 40
+        },
+        "missing": [
+          "full node recipes",
+          "unlock tree",
+          "research",
+          "per-variant repair",
+          "original game menu"
+        ]
+      },
+      {
+        "id": "burletta_amplified_burst",
+        "url": "https://arctracker.io/items/burletta_amplified_burst",
+        "family": "burletta",
+        "name": "Amplified Burletta · Burst Fire",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "gameVersion": "2.00",
+          "weightKg": 4,
+          "sellValue": 16000,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2.5,
+          "falloffRangeMeters": [
+            130,
+            150
+          ],
+          "firingMode": "3-Round Burst",
+          "reducedReloadTimePercent": 50
+        },
+        "missing": [
+          "full node recipes",
+          "unlock tree",
+          "research",
+          "per-variant repair",
+          "original game menu"
+        ]
+      }
+    ],
+    "unopenedRecords": 86,
+    "unopenedStatus": "NOCH NICHT GEPRÜFT",
+    "note": "This ledger counts ONLY pages individually opened in this pass; previous indexed family counts are not equivalent to 89 individually opened pages. Do not invent unobserved record IDs or URLs."
   }
 }
