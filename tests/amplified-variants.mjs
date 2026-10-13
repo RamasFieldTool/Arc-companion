@@ -92,6 +92,20 @@ test('ARC Tracker configuration evidence is distinct from crafting verification'
   assert.ok(evidence.caution.includes('Do not treat'));
   assert.equal(evidence.exampleRecords.find(x=>x.family==='equalizer').repairFragmentsFor50Percent,42);
 });
+test('database-backed node costs and amplification recipes retain provenance',()=>{
+  assert.equal(data.databaseNodeEvidence.length,2);
+  assert.equal(data.databaseBaseUpgradeEvidence.length,3);
+  for(const e of [...data.databaseNodeEvidence,...data.databaseBaseUpgradeEvidence]){
+    assert.match(e.source,/^https:\/\/arctracker\.io\//);
+    assert.equal(e.status,'TEILWEISE VERIFIZIERT');
+    assert.ok(data.families.some(f=>f.id===e.family));
+    assert.ok(e.materials.every(m=>Number.isInteger(m.quantity)&&m.quantity>0));
+  }
+  for(const e of data.databaseNodeEvidence){
+    assert.ok(data.families.find(f=>f.id===e.family).researchedUpgradeOptions.some(o=>o.name===e.node||e.node==='Incendiary Rounds'&&o.name==='Incendiary Grenade'));
+    assert.ok(e.evidenceType.includes('not-direct-game-screenshot'));
+  }
+});
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
     const source=fs.readFileSync(path,'utf8');
