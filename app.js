@@ -214,6 +214,9 @@ function recyclingText(i){
 }
 
 function card(i){
+  const amplified=window.RFTAmplified?.byId?.[i.id];
+  const amplifiedLabel=lang==='de'?'Amplified: 5. Qualitätsstufe':'Amplified: 5th quality tier';
+  const amplifiedNote=lang==='de'?'Modulklasse nach Seltenheit; Kosten und Werte noch nicht bestätigt.':'Module class by rarity; costs and stats not yet confirmed.';
   const type=typeName(i.type);
   const rarity=rarityName(i.rarity||'');
   const desc=itemDesc(i);
@@ -233,6 +236,7 @@ function card(i){
       <div class="fact"><span>${tr('weight')}</span><b>${itemWeight(i)==null?'—':formatNum(itemWeight(i))+' kg'}</b></div>
       <div class="fact"><span>${tr('stack')}</span><b>${formatNum(itemStack(i))}</b></div>
     </div>
+    ${amplified?`<div class="amplified-search-note"><strong>${escapeHtml(amplifiedLabel)}</strong> · MK ${escapeHtml(amplified.moduleMark)}<small>${escapeHtml(amplifiedNote)}</small></div>`:''}
     ${desc?`<div class="desc"><b>${escapeHtml(tr('use'))}:</b> ${escapeHtml(desc)}</div>`:''}
     <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${recyclingHtml(i)}</div>
     ${goalDecision(i)}
