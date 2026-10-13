@@ -541,7 +541,8 @@
     "Upgrade options are community-reported compatibility references, not confirmed distinct inventory items or combinations. No recipe, cost, prerequisite or mutually exclusive path inferred.",
     "2026-10-13 cross-check: Kettle Anti-Shield, Il Toro More Reload, Aphelion Bigger Mag and Increased Burst added as unverified community options. Equalizer Anti Shield and Rascal/Hullcracker Incendiary Grenade flagged as disputed pending primary-source validation.",
     "2026-10-13 full weapon inventory audit: 26 weapons on ARC Raiders Wiki, 15 community-listed Amplified; other 11 remain explicit unconfirmed/launch-unsupported, not silently omitted.",
-    "Community game-file guide provides preliminary tree dependencies and exclusions; source is not an official game-data export. Verify in-game before presenting as certain."
+    "Community game-file guide provides preliminary tree dependencies and exclusions; source is not an official game-data export. Verify in-game before presenting as certain.",
+    "2026-10-13: Corrected four provisional prerequisite directions against guide's per-weapon table; added screenshot-anchored partial research costs and two weapon preview stat sets, without filling other unknown variant costs."
   ],
   "sources": [
     {
@@ -801,5 +802,120 @@
     "previousWeaponTier": "IV where upgradable; exceptions require in-game confirmation",
     "amplificationModule": "matches weapon rarity, Mk. I–V",
     "verification": "secondary-guide-and-wiki"
+  },
+  "evidenceLedger": {
+    "status": "partial-screenshot-and-community-wiki-verification",
+    "sourceTypes": [
+      "official-patch-notes",
+      "community-wiki",
+      "community-guide-with-linked-in-game-screenshots"
+    ],
+    "specificRequirements": [
+      {
+        "id": "gunsmith-iv",
+        "materials": [
+          {
+            "name": "Radial Press",
+            "quantity": 3
+          },
+          {
+            "name": "Magnetic Accelerator",
+            "quantity": 3
+          },
+          {
+            "name": "Emperor Modulator",
+            "quantity": 1
+          }
+        ],
+        "requires": "Outpost IV",
+        "source": "https://arcraidershub.com/guides/amplified-weapons-guide",
+        "evidence": "in-game Gunsmith III upgrade screenshot"
+      },
+      {
+        "id": "anvil-x-rounds-research",
+        "materials": [
+          {
+            "name": "Research Points",
+            "quantity": 5000
+          },
+          {
+            "name": "Rocketeer Driver",
+            "quantity": 5
+          }
+        ],
+        "tasks": [
+          {
+            "target": "Firefly",
+            "damage": 1000
+          },
+          {
+            "target": "Hornet",
+            "damage": 1000
+          },
+          {
+            "target": "Fireball",
+            "damage": 1000
+          },
+          {
+            "target": "Surveyor",
+            "damage": 1000
+          }
+        ],
+        "taskWeapon": "Light Impact Grenade",
+        "source": "https://arcraidershub.com/guides/amplified-weapons-guide",
+        "evidence": "in-game research screenshots"
+      },
+      {
+        "id": "anvil-x-rounds-weapon-upgrade",
+        "materials": [
+          {
+            "name": "Fossilized Lightning",
+            "quantity": 3
+          }
+        ],
+        "requires": "Anvil Amplified and Embedded Blast Engineering research",
+        "source": "https://arcraidershub.com/guides/amplified-weapons-guide",
+        "evidence": "reported in-game Anvil upgrade cost, verify screenshot"
+      }
+    ],
+    "specificStats": [
+      {
+        "id": "anvil-amplify-preview",
+        "before": {
+          "damage": 40,
+          "range": 50.2,
+          "maxDurability": 130
+        },
+        "after": {
+          "damage": 48,
+          "range": 44.6,
+          "maxDurability": 200
+        },
+        "source": "https://arcraidershub.com/guides/amplified-weapons-guide",
+        "evidence": "in-game screenshot of Anvil upgrade preview"
+      },
+      {
+        "id": "osprey-amplify-preview",
+        "modifiers": [
+          {
+            "stat": "boltActionTime",
+            "percent": -60
+          },
+          {
+            "stat": "reloadTime",
+            "percent": -37.5
+          }
+        ],
+        "source": "https://arcraidershub.com/guides/amplified-weapons-guide",
+        "evidence": "in-game Osprey preview screenshot"
+      }
+    ],
+    "warnings": [
+      "Anvil X-Rounds damage versus ARC armor differs between wiki (33%) and secondary guide (35%).",
+      "Anvil X-Rounds headshot reduction differs between wiki (10%) and secondary guide (30%).",
+      "Anvil X-Rounds horizontal recoil differs between wiki (30%) and secondary guide (20%).",
+      "Equalizer Anti Shield appears in wiki but not game-file community guide.",
+      "Straight Bolt is also referred to as Ergonomic Bolt."
+    ]
   }
 }
