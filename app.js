@@ -217,6 +217,9 @@ function card(i){
   const amplified=window.RFTAmplified?.byId?.[i.id];
   const amplifiedLabel=lang==='de'?'Amplified: 5. Qualitätsstufe':'Amplified: 5th quality tier';
   const amplifiedNote=lang==='de'?'Modulklasse nach Seltenheit; Kosten und Werte noch nicht bestätigt.':'Module class by rarity; costs and stats not yet confirmed.';
+  const amplifiedOptions=amplified?.researchedUpgradeOptions||[];
+  const optionHeading=lang==='de'?'Upgrade-Optionen (Community, unbestätigt)':'Upgrade options (community, unverified)';
+  const optionHtml=amplifiedOptions.length?`<div class="amplified-search-note"><strong>${escapeHtml(optionHeading)}</strong><ul>${amplifiedOptions.map(option=>`<li>${escapeHtml(option.name)}</li>`).join('')}</ul></div>`:'';
   const type=typeName(i.type);
   const rarity=rarityName(i.rarity||'');
   const desc=itemDesc(i);
@@ -237,11 +240,14 @@ function card(i){
       <div class="fact"><span>${tr('stack')}</span><b>${formatNum(itemStack(i))}</b></div>
     </div>
     ${amplified?`<div class="amplified-search-note"><strong>${escapeHtml(amplifiedLabel)}</strong> · MK ${escapeHtml(amplified.moduleMark)}<small>${escapeHtml(amplifiedNote)}</small></div>`:''}
+    ${optionHtml}
     ${desc?`<div class="desc"><b>${escapeHtml(tr('use'))}:</b> ${escapeHtml(desc)}</div>`:''}
     <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${recyclingHtml(i)}</div>
     ${goalDecision(i)}
   </article>`;
 }
+
+window.addEventListener('rft-amplified-data-ready',()=>{if(typeof drawItems==='function')drawItems()});
 
 function drawItems(){
   const x=norm(q.value.trim());
