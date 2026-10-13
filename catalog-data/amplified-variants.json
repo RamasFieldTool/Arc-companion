@@ -544,7 +544,8 @@
     "Community game-file guide provides preliminary tree dependencies and exclusions; source is not an official game-data export. Verify in-game before presenting as certain.",
     "2026-10-13: Corrected four provisional prerequisite directions against guide's per-weapon table; added screenshot-anchored partial research costs and two weapon preview stat sets, without filling other unknown variant costs.",
     "2026-10-13: Japanese 15-family repair table and Reddit first-hand 13-research player report cross-checked; base repair figures agree by rarity, Equalizer 54 example agrees with maximum; no per-variant repair costs inferred.",
-    "2026-10-13 ARC Tracker game-version 2.00 item index independently exposes many combined Amplified weapon configurations, and contradicts some option labels. Avoid asserting the existing 45 nodes are 45 distinct variants."
+    "2026-10-13 ARC Tracker game-version 2.00 item index independently exposes many combined Amplified weapon configurations, and contradicts some option labels. Avoid asserting the existing 45 nodes are 45 distinct variants.",
+    "2026-10-13: ARC Tracker publicly renders individual Hullcracker node recipes and prerequisite, and explicit Kettle/Hullcracker/Jupiter amplification inputs. These are database-backed partial verification, not visually checked in-game screenshots."
   ],
   "sources": [
     {
@@ -1073,5 +1074,78 @@
       }
     ],
     "caution": "Do not treat item database listing as evidence of exact per-node materials, unlock steps, or actual player-crafted inventory. Reconcile contradictions with in-game menus."
-  }
+  },
+  "databaseNodeEvidence": [
+    {
+      "family": "hullcracker",
+      "node": "Incendiary Rounds",
+      "requiredResearch": "Compact Combustion Charges",
+      "materials": [
+        {
+          "name": "Fossilized Lightning",
+          "quantity": 3
+        }
+      ],
+      "source": "https://arctracker.io/da/items/hullcracker_amplified",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "hullcracker",
+      "node": "Mag Reload",
+      "materials": [
+        {
+          "name": "Propellant Valve Assembly",
+          "quantity": 3
+        }
+      ],
+      "source": "https://arctracker.io/da/items/hullcracker_amplified",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    }
+  ],
+  "databaseBaseUpgradeEvidence": [
+    {
+      "family": "hullcracker",
+      "from": "Hullcracker IV",
+      "to": "Amplified Hullcracker",
+      "gunsmithLevel": 4,
+      "materials": [
+        {
+          "name": "Amplification Module MK. IV",
+          "quantity": 1
+        }
+      ],
+      "source": "https://arctracker.io/pt-BR/items/hullcracker_iv",
+      "status": "TEILWEISE VERIFIZIERT"
+    },
+    {
+      "family": "kettle",
+      "from": "Kettle IV",
+      "to": "Amplified Kettle",
+      "gunsmithLevel": 4,
+      "materials": [
+        {
+          "name": "Amplification Module MK. I",
+          "quantity": 1
+        }
+      ],
+      "source": "https://arctracker.io/items/kettle_iv",
+      "status": "TEILWEISE VERIFIZIERT"
+    },
+    {
+      "family": "jupiter",
+      "from": "Jupiter",
+      "to": "Amplified Jupiter",
+      "gunsmithLevel": 4,
+      "materials": [
+        {
+          "name": "Amplification Module MK. V",
+          "quantity": 1
+        }
+      ],
+      "source": "https://arctracker.io/items/jupiter",
+      "status": "TEILWEISE VERIFIZIERT"
+    }
+  ]
 }
