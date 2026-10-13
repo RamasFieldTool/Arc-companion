@@ -62,6 +62,18 @@
         es:'Captura del juego: munición pesada, cargador 8, doble acción, penetración ARC fuerte. Nivel III: recarga -29,4 %, recuperación de dispersión +12,5 %, dispersión por disparo -16,2 %. Reciclaje: 3 piezas de arma simples y 3 componentes mecánicos.',
         it:'Schermata di gioco: munizioni pesanti, caricatore 8, doppia azione, penetrazione ARC elevata. Livello III: ricarica -29,4%, recupero dispersione +12,5%, dispersione per colpo -16,2%. Riciclo: 3 parti arma semplici e 3 componenti meccanici.'
       },rftEvidence:{checkedAt:'2026-10-10',status:'user-in-game-screenshot-and-confirmation',source:'user-provided-game-screenshots'}},
+    // Verified tier existence, but numeric stats and recipes are deliberately omitted.
+    // These additive placeholders are not claims that current upstream catalog lacks the items.
+    ...[
+      {id:'bantam_ii',en:'Bantam II',type:'Hand Cannon'},
+      {id:'bantam_iv',en:'Bantam IV',type:'Hand Cannon'},
+      {id:'stiletto_i',en:'Stiletto I',type:'Battle Rifle'},
+      {id:'stiletto_iii',en:'Stiletto III',type:'Battle Rifle'}
+    ].map(({id,en,type})=>({
+      id,name:names(en),type,
+      description:Object.fromEntries(languages.map(lang=>[lang,'Frozen Trail 2.0 weapon tier. Crafting, upgrades, recycling and numeric weapon stats have not been verified.'])),
+      rftEvidence:{checkedAt:'2026-10-13',status:'tier-existence-confirmed-values-unverified',source:'https://arcraiders.wiki/wiki/Category:Pages_using_Template:Weapon_upgrades'}
+    })),
     {id:'bantam_i',name:names('Bantam I'),type:'Hand Cannon',rarity:'Uncommon',weightKg:3,value:3800,description:weaponDescription('Heavy Ammo · Magazine: 8'),rftEvidence:{...provenance,source:'https://beebom.com/how-to-get-bantam-in-arc-raiders/'}},
     {id:'stiletto_ii',name:names('Stiletto II'),type:'Battle Rifle',rarity:'Uncommon',weightKg:7,description:weaponDescription('Light Ammo · Magazine: 12'),rftEvidence:{...provenance,source:'https://beebom.com/how-to-get-stiletto-in-arc-raiders/'}},
     {id:'stiletto_iv',name:names('Stiletto IV'),type:'Battle Rifle',rarity:'Uncommon',description:weaponDescription('Cassio: 8 Candleberries · 2 Cable Stripper · 2 Mini Pump (2026-10-09)'),rftEvidence:{...provenance,source:'https://beebom.com/how-to-get-stiletto-in-arc-raiders/'}}
