@@ -543,7 +543,8 @@
     "2026-10-13 full weapon inventory audit: 26 weapons on ARC Raiders Wiki, 15 community-listed Amplified; other 11 remain explicit unconfirmed/launch-unsupported, not silently omitted.",
     "Community game-file guide provides preliminary tree dependencies and exclusions; source is not an official game-data export. Verify in-game before presenting as certain.",
     "2026-10-13: Corrected four provisional prerequisite directions against guide's per-weapon table; added screenshot-anchored partial research costs and two weapon preview stat sets, without filling other unknown variant costs.",
-    "2026-10-13: Japanese 15-family repair table and Reddit first-hand 13-research player report cross-checked; base repair figures agree by rarity, Equalizer 54 example agrees with maximum; no per-variant repair costs inferred."
+    "2026-10-13: Japanese 15-family repair table and Reddit first-hand 13-research player report cross-checked; base repair figures agree by rarity, Equalizer 54 example agrees with maximum; no per-variant repair costs inferred.",
+    "2026-10-13 ARC Tracker game-version 2.00 item index independently exposes many combined Amplified weapon configurations, and contradicts some option labels. Avoid asserting the existing 45 nodes are 45 distinct variants."
   ],
   "sources": [
     {
@@ -1042,5 +1043,35 @@
       "Maximum branch values must not be assigned to every variant.",
       "The player's Beam Amp / Extended Mag labels need reconciliation with Ramping Damage / Bigger Mag labels."
     ]
+  },
+  "configurationDatabaseEvidence": {
+    "source": "https://arctracker.io/items",
+    "sourceType": "community-game-item-database",
+    "gameVersion": "2.00",
+    "verification": "partially-verified-database-records-not-in-game-crafting-proof",
+    "findings": [
+      "All 15 families have named Amplified base records and many multi-perk configuration records in ARC Tracker item index.",
+      "Equalizer index has base, Ramping Damage, Anti-Weak Point, Bigger Mag, Ramping Damage + Bigger Mag, Anti-Weak Point + Bigger Mag; no Anti Shield variant shown in indexed Equalizer records.",
+      "Hullcracker and Rascal item records use Incendiary Rounds; conflicts with earlier Incendiary Grenade label.",
+      "Jupiter and Osprey records use Ergonomic Bolt; conflicts with prior Straight Bolt naming.",
+      "Kettle database includes Anti-Shield + Full-Auto, so blanket mutual exclusion between Anti-Shield and Full-Auto would be incorrect.",
+      "Some configurations have three or four simultaneous perks; 45 nodes cannot be equated to variant count."
+    ],
+    "exampleRecords": [
+      {
+        "family": "equalizer",
+        "name": "Amplified Equalizer · Anti-Weak Point + Bigger Mag",
+        "url": "https://arctracker.io/items/equalizer_amplified_anti_weak_point_bigger_mag",
+        "repairFragmentsFor50Percent": 42,
+        "verification": "database-page-direct"
+      },
+      {
+        "family": "aphelion",
+        "name": "Amplified Aphelion · Bigger Mag + Charged Burst + Increased Burst + Incendiary Rounds",
+        "url": "https://arctracker.io/items",
+        "verification": "database-index"
+      }
+    ],
+    "caution": "Do not treat item database listing as evidence of exact per-node materials, unlock steps, or actual player-crafted inventory. Reconcile contradictions with in-game menus."
   }
 }
