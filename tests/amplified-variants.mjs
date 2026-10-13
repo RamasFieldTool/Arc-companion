@@ -93,7 +93,7 @@ test('ARC Tracker configuration evidence is distinct from crafting verification'
   assert.equal(evidence.exampleRecords.find(x=>x.family==='equalizer').repairFragmentsFor50Percent,42);
 });
 test('database-backed node costs and amplification recipes retain provenance',()=>{
-  assert.equal(data.databaseNodeEvidence.length,2);
+  assert.equal(data.databaseNodeEvidence.length,11);
   assert.equal(data.databaseBaseUpgradeEvidence.length,3);
   for(const e of [...data.databaseNodeEvidence,...data.databaseBaseUpgradeEvidence]){
     assert.match(e.source,/^https:\/\/arctracker\.io\//);
@@ -105,6 +105,16 @@ test('database-backed node costs and amplification recipes retain provenance',()
     assert.ok(data.families.find(f=>f.id===e.family).researchedUpgradeOptions.some(o=>o.name===e.node||e.node==='Incendiary Rounds'&&o.name==='Incendiary Grenade'));
     assert.ok(e.evidenceType.includes('not-direct-game-screenshot'));
   }
+});
+test('ARC Tracker index has 89 named configuration records in 15 families',()=>{
+ const audit=data.arcTrackerIndexAudit;
+ assert.equal(Object.keys(audit.countsByFamily).length,15);
+ assert.equal(Object.values(audit.countsByFamily).reduce((a,b)=>a+b,0),89);
+ assert.equal(audit.amplifiedBaseForms,15);
+ assert.equal(audit.additionalNamedConfigurations,74);
+ assert.equal(audit.count,89);
+ for(const f of data.families) assert.ok(audit.countsByFamily[f.id]>=1);
+ assert.equal(new Set(data.databaseNodeEvidence.map(e=>e.family+'|'+e.node)).size,11);
 });
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
