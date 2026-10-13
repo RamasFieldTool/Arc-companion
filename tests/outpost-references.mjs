@@ -7,7 +7,7 @@ const browser=await chromium.launch({headless:true});
 try{
 for(const width of [360,1280]){
  const context=await browser.newContext({viewport:{width,height:900}});
- await context.addInitScript(()=>{localStorage.setItem('arcLang','de');localStorage.setItem('arcUiLanguage','de');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('outpostReferenceSafety','unchanged')});
+ await context.addInitScript(()=>{localStorage.setItem('arcLang','de');localStorage.setItem('arcUiLanguage','de');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('outpostReferenceSafety','unchanged');localStorage.setItem('arcOwned','{"metal_parts":7}');localStorage.setItem('arcPlanningMigrationV1','1')});
  const page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(String(e)));
  await installItemCatalogRoute(page,fixture,'live');
  await page.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
@@ -22,6 +22,19 @@ for(const width of [360,1280]){
   }
   if(!(await page.locator('#outpostDesignResearchReference').textContent()).includes('Barstool Design · Research Station 1 · 500'))throw Error('Research data absent');
   if(!(await page.locator('#outpostWeaponRecipeReference').textContent()).includes('MetaForge I'))throw Error('Anvil conflict absent');
+  await page.waitForSelector('#outpostCatalogList details',{state:'attached'});
+  if(await page.locator('#outpostCatalogList details').count()!==100)throw Error('Full catalog incomplete');
+  await page.locator('#outpostCatalogSearch').fill('barstool');
+  if(await page.locator('#outpostCatalogList details').count()!==1)throw Error('Catalog search failed');
+  await page.locator('#outpostCatalogList details').evaluate(n=>{n.open=true});
+  if(!(await page.locator('#outpostCatalogList .outpost-craft').textContent()).includes('4 '))throw Error('Craft cost missing');
+  if(!(await page.locator('#outpostCatalogList .outpost-research').textContent()).includes('500'))throw Error('Research cost missing');
+  await page.locator('#outpostCatalogSearch').fill('');
+  await page.locator('#outpostCatalogCategory').selectOption('Wardrobe');
+  if(await page.locator('#outpostCatalogList details').count()!==5)throw Error('Category filter failed');
+  await page.locator('#outpostCatalogCategory').selectOption('');
+  await page.waitForFunction(()=>typeof itemById==='function'&&itemById('pressure_regulator'));
+  if(await page.evaluate(()=>localStorage.getItem('arcOwned'))!=='{"metal_parts":7}')throw Error('Stock changed');
   if(!(await page.locator('#outpostGadgetRecipeReference').textContent()).includes('2 Steel Cable · 1 Advanced Electrical Components · 1 Calculator · Utility Station II'))throw Error('Gadget recipe missing');
   if(!(await page.locator('#outpostFurnitureCraftReference').textContent()).includes('Barstool: 4 Fabric · 8 Sheet Metal'))throw Error('Furniture craft mixed with research');
   if(!(await page.locator('#outpostDesignResearchReference').textContent()).includes('15 Metal Parts'))throw Error('Research changed');

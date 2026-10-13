@@ -71,3 +71,14 @@ assert.equal(mapped.items.filter(i=>i.name?.en==='Grappling Hook').length,1);
 assert.equal(mapped.items.find(i=>i.id==='api-hook').recipe['api-rope'],2);
 assert.equal(mapped.goals.find(g=>g.id==='rft_grappling_hook_craft').levels[0].requirements[0].itemId,'api-rope');
 console.log('PASS verified follow-up: existing station levels preserved, IV added once, newer upstream IV retained, crafting quantities and IDs, unknown values omitted');
+
+// New material records preserve upstream identities/values and saved quantities.
+const names=['Pressure Regulator','Propellant Valve Assembly','Fluted Rotor Core','Pneumatic Actuator','Steel Cable','Epoxy Bucket','Hand Drill','Laser Level','Insulation Roll','Skulker Driver'];
+for(const name of names){const rows=result.items.filter(x=>x.name?.en===name);assert.equal(rows.length,1,name);assert.equal(rows[0].recipe,undefined);assert.equal(rows[0].recyclesInto,undefined)}
+const modern={id:'future-pressure',name:{en:'Pressure Regulator'},value:9876};
+const preserved=extend([modern],[]).items.find(x=>x.name?.en==='Pressure Regulator');assert.equal(preserved.id,modern.id);assert.equal(preserved.value,9876);
+const catalog=JSON.parse(await readFile(new URL('../outpost-catalog.json',import.meta.url),'utf8'));
+assert.equal(catalog.furniture.length,100);assert.equal(new Set(catalog.furniture.map(x=>x.id)).size,100);assert.equal(catalog.furniture.filter(x=>x.research).length,52);
+for(const row of catalog.furniture){for(const lang of ['de','en','fr','es','it'])assert.ok(row.name[lang]);for(const material of row.craft)assert.ok(material.quantity>0)}
+const bar=catalog.furniture.find(x=>x.id==='barstool');assert.equal(bar.research.points,500);assert.equal(bar.craft.find(x=>x.name.en==='Fabric').quantity,4);assert.equal(bar.craft.find(x=>x.name.en==='Sheet Metal').quantity,8);
+console.log('PASS 100 furniture, 52 linked research records, distinct craft costs, material deduplication and upstream preservation');
