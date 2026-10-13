@@ -66,6 +66,22 @@ test('evidence ledger contains exact quantities only with attributable sources',
     assert.equal(edge.requires,required.get(edge.family+'|'+edge.upgrade));
   }
 });
+test('repair costs cover 15 families and never masquerade as crafting recipes',()=>{
+  const repairs=data.repairCostEvidence;
+  assert.equal(repairs.families.length,15);
+  assert.equal(new Set(repairs.families.map(x=>x.id)).size,15);
+  const moduleBase={I:7,II:10,III:13,IV:17,V:22};
+  for(const item of repairs.families){
+    const family=data.families.find(f=>f.id===item.id);
+    assert.ok(family);
+    assert.equal(item.baseNoAdditionalNode,moduleBase[family.moduleMark]);
+    assert.ok(item.reportedMaximumWithBranches>=item.baseNoAdditionalNode);
+    assert.equal(item.status,'TEILWEISE VERIFIZIERT');
+  }
+  assert.equal(repairs.playerReport.specificExample.repairFragments,54);
+  assert.equal(repairs.playerReport.specificExample.weapon,'equalizer');
+  assert.match(repairs.source,/^https:\/\//);
+});
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
     const source=fs.readFileSync(path,'utf8');
