@@ -542,7 +542,8 @@
     "2026-10-13 cross-check: Kettle Anti-Shield, Il Toro More Reload, Aphelion Bigger Mag and Increased Burst added as unverified community options. Equalizer Anti Shield and Rascal/Hullcracker Incendiary Grenade flagged as disputed pending primary-source validation.",
     "2026-10-13 full weapon inventory audit: 26 weapons on ARC Raiders Wiki, 15 community-listed Amplified; other 11 remain explicit unconfirmed/launch-unsupported, not silently omitted.",
     "Community game-file guide provides preliminary tree dependencies and exclusions; source is not an official game-data export. Verify in-game before presenting as certain.",
-    "2026-10-13: Corrected four provisional prerequisite directions against guide's per-weapon table; added screenshot-anchored partial research costs and two weapon preview stat sets, without filling other unknown variant costs."
+    "2026-10-13: Corrected four provisional prerequisite directions against guide's per-weapon table; added screenshot-anchored partial research costs and two weapon preview stat sets, without filling other unknown variant costs.",
+    "2026-10-13: Japanese 15-family repair table and Reddit first-hand 13-research player report cross-checked; base repair figures agree by rarity, Equalizer 54 example agrees with maximum; no per-variant repair costs inferred."
   ],
   "sources": [
     {
@@ -916,6 +917,130 @@
       "Anvil X-Rounds horizontal recoil differs between wiki (30%) and secondary guide (20%).",
       "Equalizer Anti Shield appears in wiki but not game-file community guide.",
       "Straight Bolt is also referred to as Ergonomic Bolt."
+    ]
+  },
+  "repairCostEvidence": {
+    "unit": "Amplified Fragments per repair",
+    "scope": "base-no-additional-node and reported maximum branch combination; not individual-node cost",
+    "verification": "partially-verified-secondary-table-with-player-cross-check",
+    "source": "https://nettoge.com/arc-raiders-amplified-weapons/",
+    "families": [
+      {
+        "id": "kettle",
+        "baseNoAdditionalNode": 7,
+        "reportedMaximumWithBranches": 27,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "rattler",
+        "baseNoAdditionalNode": 7,
+        "reportedMaximumWithBranches": 35,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "hairpin",
+        "baseNoAdditionalNode": 7,
+        "reportedMaximumWithBranches": 27,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "il_toro",
+        "baseNoAdditionalNode": 10,
+        "reportedMaximumWithBranches": 30,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "burletta",
+        "baseNoAdditionalNode": 10,
+        "reportedMaximumWithBranches": 41,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "anvil",
+        "baseNoAdditionalNode": 13,
+        "reportedMaximumWithBranches": 23,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "renegade",
+        "baseNoAdditionalNode": 13,
+        "reportedMaximumWithBranches": 33,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "canto",
+        "baseNoAdditionalNode": 13,
+        "reportedMaximumWithBranches": 31,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "osprey",
+        "baseNoAdditionalNode": 13,
+        "reportedMaximumWithBranches": 34,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "rascal",
+        "baseNoAdditionalNode": 13,
+        "reportedMaximumWithBranches": 41,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "bettina",
+        "baseNoAdditionalNode": 17,
+        "reportedMaximumWithBranches": 35,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "hullcracker",
+        "baseNoAdditionalNode": 17,
+        "reportedMaximumWithBranches": 35,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "aphelion",
+        "baseNoAdditionalNode": 22,
+        "reportedMaximumWithBranches": 61,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "equalizer",
+        "baseNoAdditionalNode": 22,
+        "reportedMaximumWithBranches": 54,
+        "status": "TEILWEISE VERIFIZIERT"
+      },
+      {
+        "id": "jupiter",
+        "baseNoAdditionalNode": 22,
+        "reportedMaximumWithBranches": 47,
+        "status": "TEILWEISE VERIFIZIERT"
+      }
+    ],
+    "playerReport": {
+      "source": "https://www.reddit.com/r/ArcRaiders/comments/1x3nqt8/i_completed_13_weapon_amplification_heres_my/",
+      "claim": "13 amplification researches completed, not 13 individually named weapons or 13 crafted variants",
+      "baseByRarity": {
+        "common": 7,
+        "uncommon": 10,
+        "rare": 13,
+        "epic": 17,
+        "legendary": 22
+      },
+      "specificExample": {
+        "weapon": "equalizer",
+        "upgrades": [
+          "Beam Amp",
+          "Extended Mag"
+        ],
+        "repairFragments": 54
+      },
+      "status": "TEILWEISE VERIFIZIERT",
+      "screenshot": "post has image link, no full 13-weapon inventory proven"
+    },
+    "notes": [
+      "Repair amounts are NOT initial module or node crafting costs.",
+      "Maximum branch values must not be assigned to every variant.",
+      "The player's Beam Amp / Extended Mag labels need reconciliation with Ramping Damage / Bigger Mag labels."
     ]
   }
 }
