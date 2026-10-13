@@ -250,3 +250,43 @@ Embark's official Steam announcement https://steamcommunity.com/app/1808500 stat
 **Important naming conflict:** the item tree calls Hullcracker's node **Incendiary Rounds**, whereas current catalog option is **Incendiary Grenade**. The catalog option is retained as disputed until an in-game menu confirms the official label; the verified database text is recorded separately. Database pages can expose node-specific costs without confirming a full research unlock chain, stats delta, or craftability in current live client.
 
 **Current verification limitations:** exact costs for all other nodes remain unknown, as do complete before/after values, full unlocks, repair costs of each specific combined configuration, and all current in-game screenshots. No video frames were inspected in this pass. The source item index confirms multiple combined records but not their unique real-world crafted existence.
+
+## Systematic ARC Tracker index and recipe audit — 2026-10-13
+
+The publicly indexed ARC Tracker game-version 2.00 item listing https://arctracker.io/items exposes **89 named Amplified item records across 15 families**: 15 base Amplified records and 74 additional named perk configurations. Counts: Hairpin 5; Kettle 5; Rattler 6; Burletta 8; Il Toro 4; Anvil 3; Canto 6; Osprey 6; Rascal 8; Renegade 4; Bettina 4; Hullcracker 4; Aphelion 12; Equalizer 6; Jupiter 8. This is an observed index count, **not a count of individually crafted in-game variants**. The 45 previously reported options count upgrade nodes, not item configurations.
+
+### Additional node recipes from individual item-tree pages
+
+All rows **TEILWEISE VERIFIZIERT**: source database tree text inspected, not original game-menu footage. Blank research = *not shown*, not proof none exists.
+
+| Family | Node | Materials | Research shown | Direct source |
+|---|---|---|---|---|
+| Hairpin | Incendiary Rounds | 3 Fossilized Lightning | Thermite-Tipped Rounds | https://arctracker.io/items/hairpin_amplified |
+| Hairpin | Semi-Auto | 3 Pneumatic Actuator | Trigger Reset Systems | https://arctracker.io/items/hairpin_amplified |
+| Hairpin | Tracker Rounds | 1 Matriarch Reactor | Not shown | https://arctracker.io/items/hairpin_amplified |
+| Burletta | Increased Burst | 2 Pressure Regulator | Extended Burst Cycles | https://arctracker.io/items/burletta_amplified_burst |
+| Burletta | Sprint Shooting | 4 Fluted Rotor Core | Mobile-Fire Grip Fittings | https://arctracker.io/items/burletta_amplified_burst |
+| Burletta | Burst-Fire | 2 Queen Reactor | Burst Assembly Recovery | https://arctracker.io/items/burletta_amplified_sprint_shooting |
+| Burletta | Full-Auto | 3 Pneumatic Actuator | Not shown | https://arctracker.io/items/burletta_amplified_sprint_shooting |
+| Bettina | X Rounds | 3 Fossilized Lightning | Embedded Blast Engineering | https://arctracker.io/items/bettina_amplified_semi_auto |
+| Canto | Incendiary Rounds | 3 Fossilized Lightning | Thermite-Tipped Rounds | https://arctracker.io/items/canto_amplified_sprint_shooting |
+
+Earlier database-backed Hullcracker Incendiary Rounds (3 Fossilized Lightning) and Mag Reload (3 Propellant Valve Assembly) remain separately recorded: **11 distinct database-sourced node recipes total**. All other node costs remain missing in the current audit. **No independent game screenshot was visually inspected.**
+
+### Key explicit configuration and edge evidence
+
+- Burletta Burst Fire → Increased Burst, 2 Pressure Regulator; Burst Fire → Sprint Shooting, 4 Fluted Rotor Core; Sprint Shooting → Burst Fire, 2 Queen Reactor; Sprint Shooting → Full-Auto, 3 Pneumatic Actuator. These are database-displayed *upgrade connections*, not merely combinations inferred from labels.
+- Bettina Semi-Auto → X-Rounds, 3 Fossilized Lightning.
+- Canto Sprint Shooting → Incendiary Rounds, 3 Fossilized Lightning.
+- Hairpin base → Incendiary Rounds, Semi-Auto, Tracker Rounds, each with its own explicit cost.
+- Index shows Kettle Anti-Shield + Full-Auto, Equalizer without Anti Shield, Hullcracker Incendiary Rounds, and Jupiter/Osprey Ergonomic Bolt. Naming and branch conflicts need in-game verification.
+
+### Original screenshot priority
+
+1. All remaining 34 node material panels (45 historical options minus 11 database-sourced recipes), including full cost, research requirement and predecessor path.
+2. Equalizer complete current in-game tree: Beam Amp vs Ramping Damage; Extended Mag vs Bigger Mag; Anti Shield existence.
+3. Hullcracker and Rascal: Incendiary Rounds vs Incendiary Grenade.
+4. Osprey and Jupiter: Ergonomic Bolt vs Straight Bolt.
+5. Each of the 89 database configurations: inventory/crafting menu if independently confirming actual player availability, and per-configuration repair cost and stat comparison.
+
+**Scope note:** A complete per-record crawl of all 89 pages and the corresponding tier I–IV weapon and research item pages was not completed in this pass; do not describe the database as exhaustively mined. No public API or access restriction bypass was attempted.
