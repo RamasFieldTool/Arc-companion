@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 const data=JSON.parse(await readFile(new URL('../catalog-data/amplified-weapons-audit.json',import.meta.url),'utf8'));
-const snapshot=JSON.parse(await readFile(new URL('../catalog-data/items-full-snapshot.json',import.meta.url),'utf8'));
-const ids=new Set(snapshot.items.map(x=>x.id));
+const base=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
+const ids=new Set(base.map(x=>x.id));
+// items.json is the committed baseline; full historical snapshot is not checked into this repository.
 assert.equal(data.families.length,15);
 assert.equal(new Set(data.families.map(x=>x.family)).size,15);
 for(const row of data.families){
