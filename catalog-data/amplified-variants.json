@@ -1,0 +1,192 @@
+{
+  "schema": "rft.amplified.variant-reference",
+  "version": 1,
+  "source": "catalog-data/amplified-weapons-audit.json",
+  "status": "candidate-families-paths-not-fully-verified",
+  "families": [
+    {
+      "id": "hairpin",
+      "moduleMark": "I",
+      "baseItemIds": [
+        "hairpin_i",
+        "hairpin_ii",
+        "hairpin_iii",
+        "hairpin_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "kettle",
+      "moduleMark": "I",
+      "baseItemIds": [
+        "kettle_i",
+        "kettle_ii",
+        "kettle_iii",
+        "kettle_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "rattler",
+      "moduleMark": "I",
+      "baseItemIds": [
+        "rattler_i",
+        "rattler_ii",
+        "rattler_iii",
+        "rattler_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "burletta",
+      "moduleMark": "II",
+      "baseItemIds": [
+        "burletta_i",
+        "burletta_ii",
+        "burletta_iii",
+        "burletta_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "il_toro",
+      "moduleMark": "II",
+      "baseItemIds": [
+        "il_toro_i",
+        "il_toro_ii",
+        "il_toro_iii",
+        "il_toro_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "anvil",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "anvil_i",
+        "anvil_ii",
+        "anvil_iii",
+        "anvil_iv"
+      ],
+      "variants": [
+        {
+          "id": "anvil_amplified_x_rounds",
+          "name": "Anvil Amplified – X-Rounds",
+          "upgradeMaterials": null,
+          "sourceStatus": "secondary-source-needs-in-game-check"
+        },
+        {
+          "id": "anvil_amplified_splitter",
+          "name": "Anvil Amplified – Splitter",
+          "upgradeMaterials": null,
+          "sourceStatus": "secondary-source-needs-in-game-check"
+        }
+      ],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "canto",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "canto_i",
+        "canto_ii",
+        "canto_iii",
+        "canto_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "osprey",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "osprey_i",
+        "osprey_ii",
+        "osprey_iii",
+        "osprey_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "rascal",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "rascal_i",
+        "rascal_ii",
+        "rascal_iii",
+        "rascal_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "renegade",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "renegade_i",
+        "renegade_ii",
+        "renegade_iii",
+        "renegade_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "bettina",
+      "moduleMark": "IV",
+      "baseItemIds": [
+        "bettina_i",
+        "bettina_ii",
+        "bettina_iii",
+        "bettina_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "hullcracker",
+      "moduleMark": "IV",
+      "baseItemIds": [
+        "hullcracker_i",
+        "hullcracker_ii",
+        "hullcracker_iii",
+        "hullcracker_iv"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "aphelion",
+      "moduleMark": "V",
+      "baseItemIds": [
+        "aphelion"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "equalizer",
+      "moduleMark": "V",
+      "baseItemIds": [
+        "equalizer"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    },
+    {
+      "id": "jupiter",
+      "moduleMark": "V",
+      "baseItemIds": [
+        "jupiter"
+      ],
+      "variants": [],
+      "upgradeMaterials": null
+    }
+  ]
+}
