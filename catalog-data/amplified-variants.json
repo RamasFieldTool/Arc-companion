@@ -14,7 +14,37 @@
         "hairpin_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Incendiary Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Tracker Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Semi-Auto",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Sprint Shooting",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "kettle",
@@ -26,7 +56,23 @@
         "kettle_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "X Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Full-Auto",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "rattler",
@@ -38,7 +84,30 @@
         "rattler_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Incendiary Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Drum Mag",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "More Reload",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "burletta",
@@ -50,7 +119,37 @@
         "burletta_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Burst-Fire",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Full-Auto",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Increased Burst",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Sprint Shooting",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "il_toro",
@@ -62,7 +161,16 @@
         "il_toro_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Slug Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "anvil",
@@ -87,7 +195,23 @@
           "sourceStatus": "secondary-source-needs-in-game-check"
         }
       ],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "X Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Anvil Splitter",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "canto",
@@ -99,7 +223,30 @@
         "canto_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Incendiary Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Sprint Shooting",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Carbine Conversion",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "osprey",
@@ -111,7 +258,30 @@
         "osprey_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Anti Weak Point",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Tracker Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Straight Bolt",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "rascal",
@@ -123,7 +293,30 @@
         "rascal_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Incendiary Grenade",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "High Velocity",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Sprint Shooting",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "renegade",
@@ -135,7 +328,23 @@
         "renegade_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "More Reload",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Scoped",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "bettina",
@@ -147,7 +356,30 @@
         "bettina_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "X Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Semi-Auto",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Bigger Mag",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "hullcracker",
@@ -159,7 +391,23 @@
         "hullcracker_iv"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Incendiary Grenade",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Mag Reload",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "aphelion",
@@ -168,7 +416,23 @@
         "aphelion"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Incendiary Rounds",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Charged Burst",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "equalizer",
@@ -177,7 +441,37 @@
         "equalizer"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Anti Weak Point",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Anti Shield",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Ramping Damage",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Bigger Mag",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
     },
     {
       "id": "jupiter",
@@ -186,7 +480,41 @@
         "jupiter"
       ],
       "variants": [],
-      "upgradeMaterials": null
+      "upgradeMaterials": null,
+      "researchedUpgradeOptions": [
+        {
+          "name": "Bigger Mag",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Scoped",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        },
+        {
+          "name": "Straight Bolt",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
+        }
+      ]
+    }
+  ],
+  "researchNotes": "Upgrade options are community-reported compatibility references, not confirmed distinct inventory items or combinations. No recipe, cost or mutually exclusive path inferred.",
+  "sources": [
+    {
+      "url": "https://arcraiders.wiki/wiki/Amplification",
+      "role": "community-upgrade-compatibility"
+    },
+    {
+      "url": "https://arcraiders.com/news/frozen-trail-2-0-update",
+      "role": "official-feature-and-anvil-splitter"
     }
   ]
 }
