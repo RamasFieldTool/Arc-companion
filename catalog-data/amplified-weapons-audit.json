@@ -1,0 +1,238 @@
+{
+  "schema": "rft.amplified-weapons.audit",
+  "version": 1,
+  "checkedAt": "2026-10-13",
+  "status": "secondary-source-eligibility-unverified-recipes",
+  "notes": {
+    "de": "Amplified ist die fünfte Qualitätsstufe. MK I–V bezeichnet die Modulklasse nach Waffen-Seltenheit, nicht fünf weitere Waffenstufen.",
+    "en": "Amplified is the fifth quality tier. MK I–V identifies module classes by weapon rarity, not five additional weapon tiers."
+  },
+  "sources": [
+    {
+      "url": "https://arcraiders.com/news/frozen-trail-2-0-update",
+      "role": "official-update"
+    },
+    {
+      "url": "https://arcraiders.wiki/wiki/Category:Pages_using_Template:Weapon_upgrades",
+      "role": "community-reference"
+    }
+  ],
+  "families": [
+    {
+      "family": "hairpin",
+      "moduleMark": "I",
+      "baseItemIds": [
+        "hairpin_i",
+        "hairpin_ii",
+        "hairpin_iii",
+        "hairpin_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "kettle",
+      "moduleMark": "I",
+      "baseItemIds": [
+        "kettle_i",
+        "kettle_ii",
+        "kettle_iii",
+        "kettle_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "rattler",
+      "moduleMark": "I",
+      "baseItemIds": [
+        "rattler_i",
+        "rattler_ii",
+        "rattler_iii",
+        "rattler_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "burletta",
+      "moduleMark": "II",
+      "baseItemIds": [
+        "burletta_i",
+        "burletta_ii",
+        "burletta_iii",
+        "burletta_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "il_toro",
+      "moduleMark": "II",
+      "baseItemIds": [
+        "il_toro_i",
+        "il_toro_ii",
+        "il_toro_iii",
+        "il_toro_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "anvil",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "anvil_i",
+        "anvil_ii",
+        "anvil_iii",
+        "anvil_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "canto",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "canto_i",
+        "canto_ii",
+        "canto_iii",
+        "canto_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "osprey",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "osprey_i",
+        "osprey_ii",
+        "osprey_iii",
+        "osprey_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "rascal",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "rascal_i",
+        "rascal_ii",
+        "rascal_iii",
+        "rascal_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "renegade",
+      "moduleMark": "III",
+      "baseItemIds": [
+        "renegade_i",
+        "renegade_ii",
+        "renegade_iii",
+        "renegade_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "bettina",
+      "moduleMark": "IV",
+      "baseItemIds": [
+        "bettina_i",
+        "bettina_ii",
+        "bettina_iii",
+        "bettina_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "hullcracker",
+      "moduleMark": "IV",
+      "baseItemIds": [
+        "hullcracker_i",
+        "hullcracker_ii",
+        "hullcracker_iii",
+        "hullcracker_iv"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "aphelion",
+      "moduleMark": "V",
+      "baseItemIds": [
+        "aphelion"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "equalizer",
+      "moduleMark": "V",
+      "baseItemIds": [
+        "equalizer"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    },
+    {
+      "family": "jupiter",
+      "moduleMark": "V",
+      "baseItemIds": [
+        "jupiter"
+      ],
+      "amplifiedItemId": null,
+      "crafting": null,
+      "upgradeCost": null,
+      "weaponStats": null,
+      "verification": "requires-in-game-confirmation"
+    }
+  ]
+}
