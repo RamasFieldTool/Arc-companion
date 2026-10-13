@@ -82,3 +82,44 @@ assert.equal(catalog.furniture.length,100);assert.equal(new Set(catalog.furnitur
 for(const row of catalog.furniture){for(const lang of ['de','en','fr','es','it'])assert.ok(row.name[lang]);for(const material of row.craft)assert.ok(material.quantity>0)}
 const bar=catalog.furniture.find(x=>x.id==='barstool');assert.equal(bar.research.points,500);assert.equal(bar.craft.find(x=>x.name.en==='Fabric').quantity,4);assert.equal(bar.craft.find(x=>x.name.en==='Sheet Metal').quantity,8);
 console.log('PASS 100 furniture, 52 linked research records, distinct craft costs, material deduplication and upstream preservation');
+
+
+// Frozen Trail 2.0 weapon-tier placeholders: all tiers, no invented numeric data.
+const weaponIds=['bantam_i','bantam_ii','bantam_iii','bantam_iv','stiletto_i','stiletto_ii','stiletto_iii','stiletto_iv'];
+for(const id of weaponIds){
+  const item=result.items.find(i=>i.id===id);
+  assert.ok(item, 'missing weapon tier '+id);
+  assert.equal(result.items.filter(i=>i.id===id).length,1,'duplicate weapon tier '+id);
+}
+for(const id of ['bantam_ii','bantam_iv','stiletto_i','stiletto_iii']){
+  const item=result.items.find(i=>i.id===id);
+  for(const key of ['recipe','recyclesInto','salvagesInto','upgradeCost','value','rarity','weightKg','damage'])
+    assert.equal(item[key],undefined,'unverified field '+id+'.'+key);
+  for(const lang of ['de','en','fr','es','it']) assert.ok(item.description[lang],id+' '+lang);
+}
+const altCatalog=weaponIds.map(id=>({id:'api_'+id,name:{en:id.replace('_',' ').replace(/\\b\\w/g,m=>m.toUpperCase())},value:1234}));
+const withCanonicalNames=altCatalog.map(x=>({...x,name:{en:x.id.slice(4).split('_').map((s,i)=>i===0?s[0].toUpperCase()+s.slice(1):s.toUpperCase()).join(' ')}}));
+const altResult=extend(withCanonicalNames,sourceGoals);
+for(const id of weaponIds){
+  const name=id.split('_').map((s,i)=>i===0?s[0].toUpperCase()+s.slice(1):s.toUpperCase()).join(' ');
+  const rows=altResult.items.filter(i=>i.name?.en===name);
+  assert.equal(rows.length,1,'canonical-name deduplication '+id);
+  assert.equal(rows[0].id,'api_'+id,'canonical id '+id);
+  assert.equal(rows[0].value,1234,'preserve upstream value '+id);
+}
+const savedWeaponData=new Map([
+  ['arcOwned',JSON.stringify({bantam_ii:2,stiletto_iii:1})],
+  ['arcPlanningPersonal',JSON.stringify({bantam_ii:{target:4}})],
+  ['arcNextRaid',JSON.stringify({stiletto_iii:{target:2}})]
+]);
+const weaponContext={window:{localStorage:{getItem:k=>savedWeaponData.get(k)??null,setItem:(k,v)=>savedWeaponData.set(k,v)}},structuredClone};
+vm.runInNewContext(await readFile(new URL('../frozen-trail-data.js',import.meta.url),'utf8'),weaponContext);
+const savedOriginal=Object.fromEntries(savedWeaponData);
+const pinnedWeapon=weaponContext.window.RFTFrozenTrailData.extend(withCanonicalNames,sourceGoals);
+assert.equal(pinnedWeapon.items.find(i=>i.name?.en==='Bantam II').id,'bantam_ii');
+assert.equal(pinnedWeapon.items.find(i=>i.name?.en==='Stiletto III').id,'stiletto_iii');
+for(const [key,val] of Object.entries(savedOriginal)) assert.equal(savedWeaponData.get(key),val,'saved data changed: '+key);
+const afterFallback=weaponContext.window.RFTFrozenTrailData.extend(sourceItems,sourceGoals);
+assert.equal(new Set(afterFallback.items.map(i=>i.id)).size,afterFallback.items.length);
+for(const [key,val] of Object.entries(savedOriginal)) assert.equal(savedWeaponData.get(key),val,'saved data changed after fallback: '+key);
+console.log('PASS Frozen Trail eight weapon tiers: missing values remain absent, upstream deduplication, saved stock and goals preserved');
