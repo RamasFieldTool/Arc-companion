@@ -43,3 +43,21 @@ Keine erfundenen Felder oder pauschalen Waffenstufen. Keine PvE-Test-/Trials-Inh
 
 ## Nächster Schritt
 Basis-Itemquelle(n) identifizieren; dann pro Item und Waffenstufe Spalten für `id, name, rarity, type, recipe, upgrade, recycle, salvage, bench, acquisition, localization, provenance` auslesen und gegen Frozen-Trail-Ergänzungen abgleichen. Erst danach quantitative Lückenstatistik veröffentlichen.
+
+## Zusätzlicher Repository-Abgleich (13.10.2026)
+- `app.js` lädt den Live-Katalog zuerst über eine externe API und verwendet bei Fehlern `items.json` als Fallback. Ein vollständiger Audit des tatsächlich geladenen Live-Katalogs ist daher **nicht** mit einem Audit der lokalen JSON-Datei gleichzusetzen.
+- `items.json` enthält **51 Fallback-Items**. Diese Anzahl beschreibt **nicht** die Gesamtzahl der Waffen oder Items im Live-Tool.
+- `goals.json` enthält **8 Zielgruppen**; dies sind Ausbau-/Planungsziele, keine Item-Gesamtmenge.
+- `outpost-reference-data.json` enthält **3 exemplarische Waffenrezepte** (Bantam I, Stiletto I, Anvil I), **2 Gadgetrezepte**, **8 Design-Forschungsbeispiele** und **4 Möbel-Herstellungsbeispiele**. Diese Auswahl ist nicht der vollständige Outpost-Katalog.
+- Das Anvil-I-Rezept hat dort ausdrücklich `station: null`; die Werkbankstufe wurde bewusst nicht geraten.
+- **Bantam III ist in den exemplarischen Waffenrezepten nicht enthalten**. Daraus folgt **nicht**, dass sie im Live-Datenbestand fehlt.
+- GitHub-Dateisuche lieferte für die Begriffe `bantam`, `stiletto`, `items.json` keine Treffer. Das ist **kein Negativbeweis**; die Dateien wurden direkt gelesen.
+
+### Technische Grenze für Vollständigkeit
+Für einen echten Feld-für-Feld-Audit müssen API-Daten inklusive Pagination zum selben Zeitpunkt abgerufen oder ein eingefrorener Snapshot bereitgestellt werden. Nur die 51 lokalen Fallback-Items zu prüfen würde die Live-Daten unzulässig verkürzen.
+
+### Sofortige nächste Prüfpunkte
+1. Externen API-Endpunkt und Pagination aus `app.js` vollständig dokumentieren.
+2. Den tatsächlich geladenen API-Katalog (falls erreichbar) als getrennten Snapshot analysieren.
+3. Stufen I–IV je Waffenfamilie gegen denselben Datenstand vergleichen; Amplified getrennt.
+4. Fehlende Felder und Konflikte in einer maschinenlesbaren Tabelle dokumentieren.
