@@ -79,3 +79,28 @@ Für einen echten Feld-für-Feld-Audit müssen API-Daten inklusive Pagination zu
 1. Snapshot als verifizierte Pre-Update-Baseline nutzen; nicht die 51-Item-Fallbackdatei.
 2. Neu hinzugefügte Waffen (z. B. Bantam, Stiletto) separat gegen Post-Update-Belege prüfen.
 3. Unterschiede zur Live-API nur dann als `hinzugefügt/geändert/entfernt` melden, wenn ein vollständiger Post-Update-Snapshot mit gesichertem Zeitpunkt vorliegt.
+
+## Fünf-Punkte-Recherche / erneute Prüfung am 13.10.2026
+
+### 1. Aktuelle RaidTheory-Daten
+Direkter GitHub-Dateizugriff auf `RaidTheory/arcraiders-data`/`main` gelang für `items/anvil_i.json` bis `anvil_iv.json` und `items/snap_hook.json`. Diese Dateien weisen `updatedAt` im Februar/März 2026 auf und sind für 2.0 **nicht aktuell**. Beispielsweise wird `anvil_i` weiterhin als `Uncommon` geführt, obwohl die offiziellen 2.0-Patchnotes die Anvil-Seltenheit auf Rare anheben. Ein vollständiger aktueller Dateibaum war über die verfügbaren GitHub-Werkzeuge nicht abrufbar. Einzelne 404 für `bantam_i`, `stiletto_i`, `tether_launcher`, `yank_grenade`, `steel_cable` beweisen keine globale Nichtexistenz, nur das Fehlen unter genau diesen Dateipfaden. **RaidTheory/main darf nicht blind als Post-Update-Snapshot verwendet werden.**
+
+### 2. Mahcks-API
+API-Endpunkt aus `app.js`: `https://arcdata.mahcks.com/v1/items?full=true&offset=0&limit=45`. Direkter HTTP-Zugriff aus der Arbeitsumgebung war wegen DNS-Auflösung nicht möglich; keine Aussage über den tatsächlichen Livebetrieb. Die App hat bereits einen mehrstufigen Fallback in `catalog-resilience-v2120.js` (Mahcks -> verifizierter 581er GitHub-Snapshot -> RaidTheory -> 51 lokale Items). Der 581er Snapshot ist ein **September-Stand**, kein 2.0-Abbild. **Keine automatischen Korrekturen auf Grundlage der alten API-/GitHub-Daten.**
+
+### 3. Waffenstufen I–IV
+Der September-Snapshot enthält `anvil_i` bis `anvil_iv`. Der derzeitige lokale Frozen-Trail-Ergänzungscode nennt `bantam_i`, `bantam_iii`, `stiletto_ii`, `stiletto_iv`, aber keine expliziten Ergänzungen `bantam_ii`, `bantam_iv`, `stiletto_i`, `stiletto_iii`. Dies sind **Lücken im lokalen Ergänzungscode**, nicht automatisch Lücken im gesamten Laufzeitkatalog: die Live-API könnte sie liefern. Die bereits vorhandenen Angaben zu Bantam III basieren auf einem Spielscreen und sollten ohne gesicherte Item-IDs nicht in Recycling-Referenzen umgewandelt werden. Der fünfte Amplified-Qualitätsgrad ist **nicht** pauschal als reguläre Stufe V aller Waffen zu behandeln.
+
+### 4. Materialien / Recycling
+Snapshot: `recyclesInto` bei 359/581, `salvagesInto` bei 353/581. Bei neuen Frozen-Trail-Materialien sind mehrere Recycling- und Rezeptangaben ausdrücklich noch unbestätigt; fehlende Angaben bleiben `unbekannt`, nicht `0`. Beispiel: `snap_hook` in altem RaidTheory/main enthält noch alte `recyclesInto`-Referenzen und `updatedAt` vom Februar. Offizielle Patchnotes sind für Gameplay-Änderungen höher zu gewichten als alte Community-JSON-Dateien.
+
+### 5. Außenposten
+`outpost-catalog.json` auf main enthält 100 Möbel, 100 eindeutige IDs, 14 Möbelkategorien, für alle 100 `design` und `craft`, für 52 einen `research`-Eintrag und für 48 `research:null`. **Null ist kein Beweis, dass kein Forschungsschritt existiert.** Der Katalog trägt selbst `status: community-generated-data-not-in-game-verified`. Die neue strukturelle Prüfroutine `tools/audit_outpost_catalog.py` prüft IDs, fünf Übersetzungssprachen, Rezeptmengen und Forschungsstruktur; eine erfolgreiche Prüfung würde nur die Datenstruktur, nicht die Spielrichtigkeit belegen.
+
+### Neue offizielle Belege
+- https://arcraiders.com/news/frozen-trail-2-0-update (08.10.2026): neue Waffen Bantam/Stiletto, neue Werkzeuge, 100 Designs, Amplified, Anvil-Balance.
+- https://arcraiders.com/news/collector-set-dlc (08.10.2026): exklusives Retro Sofa, Banjo-Blueprint im Collector DLC.
+- https://arcraiders.wiki/wiki/Update:2.0 (sekundäre Wiedergabe offizieller Patchnotes).
+
+### Ergebnis und nächster Datenengpass
+**Kein vollständiger Post-Update-Katalog beschafft.** Deshalb gibt es weiterhin keine belastbare Gesamtzahl neu hinzugefügter/geänderter Itemdatensätze. Die fünf Arbeitspunkte wurden anhand erreichbarer Quellen geprüft, aber der eigentliche Vollabgleich ist blockiert. Vor einem Merge: aktuelles vollständiges API-Export oder eine belegte neue Version des RaidTheory-Datensatzes beschaffen, Diff-Tool ausführen, kritische Felder gegen Primärquellen prüfen, dann UI-/Regressionstests. Weder main noch Nutzerspeicher wurden verändert.
