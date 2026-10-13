@@ -4,14 +4,14 @@ import vm from 'node:vm';
 import test from 'node:test';
 
 const data=JSON.parse(fs.readFileSync('catalog-data/amplified-variants.json','utf8'));
-test('Amplified reference has 15 distinct families and 41 documented options',()=>{
+test('Amplified reference has 15 distinct families and 45 documented options',()=>{
   assert.equal(data.families.length,15);
   assert.equal(new Set(data.families.map(f=>f.id)).size,15);
-  assert.equal(data.families.reduce((sum,f)=>sum+(f.researchedUpgradeOptions||[]).length,0),41);
+  assert.equal(data.families.reduce((sum,f)=>sum+(f.researchedUpgradeOptions||[]).length,0),45);
   for(const family of data.families){
     assert.match(family.moduleMark,/^(I|II|III|IV|V)$/);
     for(const option of family.researchedUpgradeOptions||[]){
-      assert.equal(option.verification,'community-reference-unverified-in-game');
+      assert.ok(['community-reference-unverified-in-game','disputed-community-reference-needs-recheck','disputed-label-needs-in-game-check'].includes(option.verification));
       assert.equal(option.upgradeMaterials,null);
       assert.equal(option.upgradeCost,null);
     }
