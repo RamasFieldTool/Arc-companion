@@ -116,6 +116,20 @@ test('ARC Tracker index has 89 named configuration records in 15 families',()=>{
  for(const f of data.families) assert.ok(audit.countsByFamily[f.id]>=1);
  assert.equal(new Set(data.databaseNodeEvidence.map(e=>e.family+'|'+e.node)).size,11);
 });
+test('direct record audit never confuses index coverage with opened pages',()=>{
+ const a=data.arcTrackerRecordAudit;
+ assert.equal(a.expectedRecordsFromPriorIndexCount,89);
+ assert.equal(a.records.length+a.unopenedRecords,89);
+ assert.equal(new Set(a.records.map(x=>x.id)).size,a.records.length);
+ for(const r of a.records){
+   assert.equal(r.technicalStatus,'TEILWEISE AUSGEWERTET');
+   assert.equal(r.contentVerification,'TEILWEISE VERIFIZIERT');
+   assert.equal(r.url,'https://arctracker.io/items/'+r.id);
+   assert.ok(r.missing.length>0);
+   assert.ok(data.families.some(f=>f.id===r.family));
+ }
+ assert.equal(a.unopenedStatus,'NOCH NICHT GEPRÜFT');
+});
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
     const source=fs.readFileSync(path,'utf8');
