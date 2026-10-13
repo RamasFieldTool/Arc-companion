@@ -1390,10 +1390,616 @@
           "per-variant repair",
           "original game menu"
         ]
+      },
+      {
+        "id": "anvil_amplified_projectile_splitter",
+        "url": "https://arctracker.io/items/anvil_amplified_projectile_splitter",
+        "family": "anvil",
+        "name": "Amplified anvil · Anvil Splitter",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "anvil_amplified_x_rounds",
+        "url": "https://arctracker.io/items/anvil_amplified_x_rounds",
+        "family": "anvil",
+        "name": "Amplified anvil · X-Rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag",
+        "url": "https://arctracker.io/items/aphelion_amplified_bigger_mag",
+        "family": "aphelion",
+        "name": "Amplified aphelion · bigger mag",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst",
+        "url": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst",
+        "family": "aphelion",
+        "name": "Amplified aphelion · bigger mag charged burst",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "url": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "family": "aphelion",
+        "name": "Amplified aphelion · bigger mag charged burst incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+        "url": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+        "family": "aphelion",
+        "name": "Amplified aphelion · bigger mag charged burst increased burst",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+        "url": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+        "family": "aphelion",
+        "name": "Amplified aphelion · bigger mag charged burst increased burst incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_incendiary_rounds",
+        "url": "https://arctracker.io/items/aphelion_amplified_bigger_mag_incendiary_rounds",
+        "family": "aphelion",
+        "name": "Amplified aphelion · bigger mag incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_charged_burst",
+        "url": "https://arctracker.io/items/aphelion_amplified_charged_burst",
+        "family": "aphelion",
+        "name": "Amplified aphelion · charged burst",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_charged_burst_incendiary_rounds",
+        "url": "https://arctracker.io/items/aphelion_amplified_charged_burst_incendiary_rounds",
+        "family": "aphelion",
+        "name": "Amplified aphelion · charged burst incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_charged_burst_increased_burst",
+        "url": "https://arctracker.io/items/aphelion_amplified_charged_burst_increased_burst",
+        "family": "aphelion",
+        "name": "Amplified aphelion · charged burst increased burst",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+        "url": "https://arctracker.io/items/aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+        "family": "aphelion",
+        "name": "Amplified aphelion · charged burst increased burst incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "aphelion_amplified_incendiary_rounds",
+        "url": "https://arctracker.io/items/aphelion_amplified_incendiary_rounds",
+        "family": "aphelion",
+        "name": "Amplified aphelion · incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "bettina_amplified_bigger_mag",
+        "url": "https://arctracker.io/items/bettina_amplified_bigger_mag",
+        "family": "bettina",
+        "name": "Amplified bettina · bigger mag",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "bettina_amplified_semi_auto",
+        "url": "https://arctracker.io/items/bettina_amplified_semi_auto",
+        "family": "bettina",
+        "name": "Amplified bettina · semi auto",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "bettina_amplified_semi_auto_x_rounds",
+        "url": "https://arctracker.io/items/bettina_amplified_semi_auto_x_rounds",
+        "family": "bettina",
+        "name": "Amplified bettina · semi auto x rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "burletta_amplified_burst_increased_burst",
+        "url": "https://arctracker.io/items/burletta_amplified_burst_increased_burst",
+        "family": "burletta",
+        "name": "Amplified burletta · burst increased burst",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "burletta_amplified_burst_increased_burst_sprint_shooting",
+        "url": "https://arctracker.io/items/burletta_amplified_burst_increased_burst_sprint_shooting",
+        "family": "burletta",
+        "name": "Amplified burletta · burst increased burst sprint shooting",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "burletta_amplified_burst_sprint_shooting",
+        "url": "https://arctracker.io/items/burletta_amplified_burst_sprint_shooting",
+        "family": "burletta",
+        "name": "Amplified burletta · burst sprint shooting",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "burletta_amplified_full_auto",
+        "url": "https://arctracker.io/items/burletta_amplified_full_auto",
+        "family": "burletta",
+        "name": "Amplified burletta · full auto",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "burletta_amplified_full_auto_sprint_shooting",
+        "url": "https://arctracker.io/items/burletta_amplified_full_auto_sprint_shooting",
+        "family": "burletta",
+        "name": "Amplified burletta · full auto sprint shooting",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "burletta_amplified_sprint_shooting",
+        "url": "https://arctracker.io/items/burletta_amplified_sprint_shooting",
+        "family": "burletta",
+        "name": "Amplified burletta · sprint shooting",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "canto_amplified_carbine",
+        "url": "https://arctracker.io/items/canto_amplified_carbine",
+        "family": "canto",
+        "name": "Amplified canto · carbine",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "canto_amplified_incendiary_rounds",
+        "url": "https://arctracker.io/items/canto_amplified_incendiary_rounds",
+        "family": "canto",
+        "name": "Amplified canto · incendiary rounds",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "canto_amplified_incendiary_rounds_carbine",
+        "url": "https://arctracker.io/items/canto_amplified_incendiary_rounds_carbine",
+        "family": "canto",
+        "name": "Amplified canto · incendiary rounds carbine",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "canto_amplified_incendiary_rounds_sprint_shooting",
+        "url": "https://arctracker.io/items/canto_amplified_incendiary_rounds_sprint_shooting",
+        "family": "canto",
+        "name": "Amplified canto · incendiary rounds sprint shooting",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "canto_amplified_sprint_shooting",
+        "url": "https://arctracker.io/items/canto_amplified_sprint_shooting",
+        "family": "canto",
+        "name": "Amplified canto · sprint shooting",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "equalizer_amplified_anti_weak_point",
+        "url": "https://arctracker.io/items/equalizer_amplified_anti_weak_point",
+        "family": "equalizer",
+        "name": "Amplified equalizer · anti weak point",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "equalizer_amplified_anti_weak_point_bigger_mag",
+        "url": "https://arctracker.io/items/equalizer_amplified_anti_weak_point_bigger_mag",
+        "family": "equalizer",
+        "name": "Amplified equalizer · anti weak point bigger mag",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "itemPageOpened": true
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "rattler_amplified",
+        "url": "https://arctracker.io/items/rattler_amplified",
+        "family": "rattler",
+        "name": "Amplified rattler",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.01",
+          "weightKg": 6,
+          "sellValue": 11200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2,
+          "falloffRangeMeters": [
+            150,
+            170
+          ],
+          "firingMode": "Fully-Automatic"
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
+      },
+      {
+        "id": "jupiter_amplified",
+        "url": "https://arctracker.io/items/jupiter_amplified",
+        "family": "jupiter",
+        "name": "Amplified jupiter",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "sourceGameVersion": "2.00",
+          "weightKg": 9,
+          "sellValue": 35200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2,
+          "falloffRangeMeters": [
+            180,
+            200
+          ],
+          "firingMode": "Bolt-Action",
+          "chargeSeconds": 0.75
+        },
+        "missing": [
+          "upgrade crafting materials",
+          "research requirements",
+          "complete unlock connections",
+          "repair costs",
+          "original game confirmation"
+        ]
       }
     ],
-    "unopenedRecords": 86,
+    "unopenedRecords": 55,
     "unopenedStatus": "NOCH NICHT GEPRÜFT",
-    "note": "This ledger counts ONLY pages individually opened in this pass; previous indexed family counts are not equivalent to 89 individually opened pages. Do not invent unobserved record IDs or URLs."
+    "note": "Per-page open counted only when ARC Tracker returned a named page; 3 previous + 30 new named pages, not all 89. Dynamic recipe panels inaccessible through text reader."
   }
 }
