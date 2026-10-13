@@ -539,7 +539,9 @@
   ],
   "researchNotes": [
     "Upgrade options are community-reported compatibility references, not confirmed distinct inventory items or combinations. No recipe, cost, prerequisite or mutually exclusive path inferred.",
-    "2026-10-13 cross-check: Kettle Anti-Shield, Il Toro More Reload, Aphelion Bigger Mag and Increased Burst added as unverified community options. Equalizer Anti Shield and Rascal/Hullcracker Incendiary Grenade flagged as disputed pending primary-source validation."
+    "2026-10-13 cross-check: Kettle Anti-Shield, Il Toro More Reload, Aphelion Bigger Mag and Increased Burst added as unverified community options. Equalizer Anti Shield and Rascal/Hullcracker Incendiary Grenade flagged as disputed pending primary-source validation.",
+    "2026-10-13 full weapon inventory audit: 26 weapons on ARC Raiders Wiki, 15 community-listed Amplified; other 11 remain explicit unconfirmed/launch-unsupported, not silently omitted.",
+    "Community game-file guide provides preliminary tree dependencies and exclusions; source is not an official game-data export. Verify in-game before presenting as certain."
   ],
   "sources": [
     {
@@ -599,9 +601,205 @@
     }
   ],
   "upgradeTree": {
-    "status": "incomplete-needs-primary-verification",
-    "prerequisites": [],
-    "mutualExclusions": [],
-    "note": "Do not infer upgrade edges or costs from option membership alone."
+    "status": "community-sourced-provisional-not-primary-verified",
+    "source": "https://arcraidershub.com/guides/amplified-weapons-guide",
+    "prerequisites": [
+      {
+        "family": "aphelion",
+        "upgrade": "Increased Burst",
+        "requires": "Charged Burst",
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "bettina",
+        "upgrade": "X Rounds",
+        "requires": "Semi-Auto",
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "burletta",
+        "upgrade": "Increased Burst",
+        "requires": "Burst-Fire",
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "hairpin",
+        "upgrade": "Sprint Shooting",
+        "requires": "Semi-Auto",
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "rattler",
+        "upgrade": "Drum Mag",
+        "requires": "More Reload",
+        "verification": "community-guide-game-file-claim"
+      }
+    ],
+    "mutualExclusions": [
+      {
+        "family": "anvil",
+        "options": [
+          "X Rounds",
+          "Anvil Splitter"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "bettina",
+        "options": [
+          "Bigger Mag",
+          "Semi-Auto"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "burletta",
+        "options": [
+          "Burst-Fire",
+          "Full-Auto"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "canto",
+        "options": [
+          "Carbine Conversion",
+          "Sprint Shooting"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "equalizer",
+        "options": [
+          "Anti Weak Point",
+          "Ramping Damage"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "hairpin",
+        "options": [
+          "Semi-Auto",
+          "Tracker Rounds"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "hairpin",
+        "options": [
+          "Semi-Auto",
+          "Incendiary Rounds"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "hairpin",
+        "options": [
+          "Tracker Rounds",
+          "Incendiary Rounds"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "kettle",
+        "options": [
+          "X Rounds",
+          "Anti-Shield"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "kettle",
+        "options": [
+          "X Rounds",
+          "Full-Auto"
+        ],
+        "verification": "community-guide-game-file-claim"
+      },
+      {
+        "family": "osprey",
+        "options": [
+          "Anti Weak Point",
+          "Tracker Rounds"
+        ],
+        "verification": "community-guide-game-file-claim"
+      }
+    ],
+    "note": "Tree relationships reported by third-party guide; unverified against complete current in-game trees. Do not use for inventory deduction or crafting."
+  },
+  "weaponCoverage": {
+    "asOf": "2026-10-13",
+    "source": "https://arcraiders.wiki/wiki/Weapons",
+    "totalKnownWeapons": 26,
+    "amplifiableCount": 15,
+    "notListedForAmplification": [
+      {
+        "id": "arpeggio",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "tempest",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "ferro",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "stiletto",
+        "status": "reported-not-amplifiable-at-launch",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "stitcher",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "bobcat",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "vulcano",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "dolabra",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "venator",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "bantam",
+        "status": "reported-not-amplifiable-at-launch",
+        "absenceIsNotProof": true
+      },
+      {
+        "id": "torrente",
+        "status": "not-listed-in-current-amplification-sources",
+        "absenceIsNotProof": true
+      }
+    ],
+    "sources": [
+      "https://arcraiders.wiki/wiki/Weapons",
+      "https://arcraidershub.com/guides/amplified-weapons-guide"
+    ]
+  },
+  "requirements": {
+    "outpost": "unlocked",
+    "gunsmithLevel": 4,
+    "researchStationLevel": 4,
+    "previousWeaponTier": "IV where upgradable; exceptions require in-game confirmation",
+    "amplificationModule": "matches weapon rarity, Mk. I–V",
+    "verification": "secondary-guide-and-wiki"
   }
 }
