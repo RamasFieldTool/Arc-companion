@@ -199,3 +199,31 @@ The poster does **not** enumerate 13 named guns or 13 complete crafting recipes.
 ### Primary-source confirmation of launch family count
 
 Embark's official Steam announcement https://steamcommunity.com/app/1808500 states amplification rolls out to **15 weapons** and more are planned. This independently confirms the **count**, not every name in the community-derived 15-family list.
+
+## Independent configuration database discovery (2026-10-13)
+
+**New source:** https://arctracker.io/items (ARC Tracker, game version 2.00 item index). This is a distinct item database rather than another rephrasing of the same 15-family guide. It lists *named combined configurations* across all 15 families, including multi-perk branches, but their mere existence as database records is not proof that a player has crafted them or that each has a unique recipe.
+
+### Family-by-family configuration review and required original proof
+
+| Family | ARC Tracker indexed configurations or key finding | Priority original screenshot |
+|---|---|---|
+| Anvil | Base; Splitter; X-Rounds | Full branch tooltip and each branch material cost |
+| Aphelion | Base; Bigger Mag; Charged Burst; Increased Burst; Incendiary Rounds; several combined configurations up to four perks | Full four-node path, costs and all resulting stats |
+| Bettina | Base; Bigger Mag; Semi-Auto; Semi-Auto + X-Rounds | Semi-Auto → X-Rounds and exclusive Bigger Mag |
+| Burletta | Base; Burst Fire; Increased Burst; Full-Auto; Sprint Shooting and combinations | Both branch screenshots and Sprint Shooting combination |
+| Canto | Base; Carbine Conversion; Sprint Shooting; Incendiary Rounds and combinations | Both mutually exclusive routes with Incendiary Rounds |
+| Equalizer | Base; Anti-Weak Point; Bigger Mag; Ramping Damage; two combinations with Bigger Mag. **No Anti Shield record visible** | Complete current tree to resolve Anti Shield and Beam Amp / Extended Mag aliases |
+| Hairpin | Base; Incendiary Rounds; Semi-Auto; Semi-Auto + Sprint Shooting; Tracker Rounds | Three-way exclusion and prerequisite tooltip |
+| Hullcracker | Base; **Incendiary Rounds**; Mag Reload; combined configuration | Confirm in-game name vs earlier Incendiary Grenade |
+| Il Toro | Base; More Reload; Slug Rounds; combined configuration | Both independent nodes and combined cost |
+| Jupiter | Base; Bigger Mag; Scoped; **Ergonomic Bolt**; several combinations | Confirm Ergonomic Bolt vs Straight Bolt, stats and costs |
+| Kettle | Base; Anti-Shield; Full-Auto; **Anti-Shield + Full-Auto**; X-Rounds | Confirm anti-shield/full-auto compatibility and X-Rounds exclusion |
+| Osprey | Base; Anti-Weak Point; Tracker Rounds; **Ergonomic Bolt** and combinations | Confirm bolt naming and exclusive branch paths |
+| Rascal | Base; High Velocity; Sprint Shooting; **Incendiary Rounds** and combinations | Confirm Incendiary Rounds vs Incendiary Grenade |
+| Rattler | Base; More Reload; Drum Mag; Incendiary Rounds and combinations | Drum Mag requires More Reload; confirm individual costs |
+| Renegade | Base; More Reload; Scoped; combined configuration | Both node costs, unlock and stats |
+
+**Important:** ARC Tracker's Equalizer Anti-Weak Point + Bigger Mag record https://arctracker.io/items/equalizer_amplified_anti_weak_point_bigger_mag reports **42 Amplified Fragments to repair 50% durability**. This is a different repair scope from earlier 54-fragment player report (Equalizer with two other labels) and must not be treated as a contradiction until the repair percentage and exact configuration match.
+
+**Next verification:** enumerate and count all unique ARC Tracker variant IDs, inspect item-level upgrade-tree links and compare every variant against game screenshots; current index has been read but a complete machine-verified extraction/count is not yet available. The full screenshot proof and per-node material matrix remain incomplete.
