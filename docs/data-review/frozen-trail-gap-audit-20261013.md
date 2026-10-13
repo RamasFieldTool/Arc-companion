@@ -123,3 +123,15 @@ Snapshot: `recyclesInto` bei 359/581, `salvagesInto` bei 353/581. Bei neuen Froz
 - Die offiziellen 2.0-Patchnotes nennen die Reparaturoption des Tether Launchers ausdrücklich als bekanntes Problem. Keine spekulativen Reparaturrezepte eintragen.
 
 **Resultat:** Zweite Quelle für vollständige Waffenstufen/Upgrade-Abhängigkeiten gefunden, aber kein vollständiger maschinenlesbarer 2.0-Katalog. Nur Evidenzdateien im Audit-Branch verändert, keine produktiven Daten und kein Merge.
+
+## Gezielte Nachprüfung nach PR #148 (13.10.2026)
+- **Offiziell gesichert:** Embark bestätigt Anvil von Uncommon auf Rare und Entfall des Splitter-Modslots. `catalog-update-2.js` auf main setzt beides bereits um; kein zweiter Patch nötig. Quelle https://id.embark.games/arc-raiders/support/faq/282-2-0-frozen-trail-update.
+- **Bantam Blueprint:** ARC Raiders Wiki (Seitenstand 10.10.2026) nennt 3.000 Research Points + 8 Hornet Driver an Research Station 1 und 4 Simple Gun Parts + 4 Mechanical Components für Bantam I. https://arcraiders.wiki/wiki/Bantam_Blueprint. **Sekundärquelle; noch kein bestätigter Spielscreen.**
+- **Stiletto Blueprint:** Wiki nennt 3.000 Research Points + 15 Wasp Driver an Research Station 1 und 4 Mechanical Components + 4 Simple Gun Parts für Stiletto I. https://arcraiders.wiki/wiki/Stiletto_Blueprint. **Sekundärquelle; noch kein bestätigter Spielscreen.**
+- **Upgrade Stiletto III→IV:** 4 Mechanical Components + 1 Light Gun Parts auf https://arcraiders.wiki/wiki/Light_Gun_Parts und https://arcraiders.wiki/wiki/Mechanical_Components, also wiki-intern querbestätigt, aber nicht unabhängig im Spiel verifiziert.
+- **Upgrade Bantam III→IV:** 4 Mechanical Components + 1 Heavy Gun Parts auf https://arcraiders.wiki/wiki/Heavy_Gun_Parts; dieselbe Einschränkung.
+- **Recycling Stiletto I–IV:** Community-Sandbox `User:Ni/sandbox` enthält eine Tabelle, ist keine freigegebene kanonische Quelle. Nicht übernehmen.
+- **Recycling Bantam III:** Widerspruch zu projektintern dokumentiertem Spielscreen weiter offen; keine Änderung.
+- **Händler:** https://arcraiders.wiki/wiki/Cassio zeigt zeitabhängige Angebote; diese dürfen nicht als dauerhafte Verfügbarkeit in die App übertragen werden.
+
+**Merge-Grenze:** PR #148 wurde gesondert aus main erstellt und enthält nur die bestätigte Baseline und read-only Werkzeuge. Der Audit-Branch mit diesen unsicheren Befunden wurde **nicht** gemergt.
