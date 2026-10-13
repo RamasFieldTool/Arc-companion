@@ -1996,10 +1996,69 @@
           "repair costs",
           "original game confirmation"
         ]
+      },
+      {
+        "id": "equalizer_amplified",
+        "url": "https://arctracker.io/items/equalizer_amplified",
+        "family": "equalizer",
+        "name": "Amplified Equalizer",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "gameVersion": "2.01",
+          "weightKg": 14,
+          "sellValue": 35200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2,
+          "falloffRangeMeters": [
+            100,
+            200
+          ],
+          "firingMode": "Fully-Automatic",
+          "spinUpSeconds": 1,
+          "arcArmorPenetration": "Very Strong"
+        },
+        "missing": [
+          "dynamic upgrade tree",
+          "per-node crafting materials",
+          "research",
+          "repair cost",
+          "original game screenshot"
+        ]
       }
     ],
-    "unopenedRecords": 55,
+    "unopenedRecords": 54,
     "unopenedStatus": "NOCH NICHT GEPRÜFT",
-    "note": "Per-page open counted only when ARC Tracker returned a named page; 3 previous + 30 new named pages, not all 89. Dynamic recipe panels inaccessible through text reader."
+    "note": "35 individual accessible pages opened. Seven additional candidate URLs were attempted but reader returned inaccessible; they are NOT counted as opened or as confirmed dataset IDs. 54 indexed records remain unopened.",
+    "accessAttempts": [
+      {
+        "url": "https://arctracker.io/items/equalizer_amplified_bigger_mag",
+        "outcome": "URL not accessible via web reader"
+      },
+      {
+        "url": "https://arctracker.io/items/equalizer_amplified_ramping_damage",
+        "outcome": "URL not accessible via web reader"
+      },
+      {
+        "url": "https://arctracker.io/items/equalizer_amplified_ramping_damage_bigger_mag",
+        "outcome": "URL not accessible via web reader"
+      },
+      {
+        "url": "https://arctracker.io/items/hairpin_amplified_incendiary_rounds",
+        "outcome": "URL not accessible via web reader"
+      },
+      {
+        "url": "https://arctracker.io/items/hairpin_amplified_semi_auto",
+        "outcome": "URL not accessible via web reader"
+      },
+      {
+        "url": "https://arctracker.io/items/hairpin_amplified_semi_auto_sprint_shooting",
+        "outcome": "URL not accessible via web reader"
+      },
+      {
+        "url": "https://arctracker.io/items/hairpin_amplified_tracker_rounds",
+        "outcome": "URL not accessible via web reader"
+      }
+    ]
   }
 }
