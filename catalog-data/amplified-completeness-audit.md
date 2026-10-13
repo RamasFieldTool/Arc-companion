@@ -290,3 +290,17 @@ Earlier database-backed Hullcracker Incendiary Rounds (3 Fossilized Lightning) a
 5. Each of the 89 database configurations: inventory/crafting menu if independently confirming actual player availability, and per-configuration repair cost and stat comparison.
 
 **Scope note:** A complete per-record crawl of all 89 pages and the corresponding tier I–IV weapon and research item pages was not completed in this pass; do not describe the database as exhaustively mined. No public API or access restriction bypass was attempted.
+
+## Per-record direct page inspection (2026-10-13, current pass)
+
+**Scope limitation:** The ARC Tracker index currently displays 970 overall items and pagination/partial rendering to the public text reader. Container network DNS for arctracker.io fails. Only the following **three** individual Amplified pages were actually opened through the available web reader in this pass. Prior evidence and the index-derived 89 count are **not** proof that 89 pages were opened. The other **86 records remain NOCH NICHT GEPRÜFT in this direct-page pass**. Do not fabricate their IDs, URLs, statuses or full recipe evidence.
+
+| Record ID | Direct URL | Technical status | Database-observed properties | Missing |
+|---|---|---|---|---|
+| anvil_amplified | https://arctracker.io/items/anvil_amplified | TEILWEISE AUSGEWERTET | 5 kg; sell 20,800; bullet speed 350 m/s; crit 2.5x; falloff 180–200 m; increased fire rate 75%; reduced dispersion recovery 18.75% | all node recipe tooltips, unlock path, repair menu, original game footage |
+| hairpin_amplified | https://arctracker.io/items/hairpin_amplified | TEILWEISE AUSGEWERTET | 3 kg; sell 11,200; bullet speed 350 m/s; crit 2.5x; falloff 130–150 m; increased fire rate 30%; reduced reload time 40% | all node recipe tooltips, unlock path, repair menu, original game footage |
+| burletta_amplified_burst | https://arctracker.io/items/burletta_amplified_burst | TEILWEISE AUSGEWERTET | 4 kg; sell 16,000; bullet speed 350 m/s; crit 2.5x; falloff 130–150 m; firing mode 3-round burst; reduced reload time 50% | full recipe tooltips, unlock path, repair menu, original game footage |
+
+**Do not interpret** game-version-2.00 item-page attributes as independently verified current in-game effects. The public text reader exposes item stats but often does not expose dynamic crafting/upgrade panels. The technical and factual verification statuses remain separate.
+
+**Remaining tasks before claiming a full 89-page audit:** enumerate exact 89 unique item URLs; visit every URL; record opened/failed statuses and available properties; follow all item-tree/research links; compare IDs across locale variants; obtain original game screenshots for conflicts; run tests for the resulting commit. This milestone was not completed in the current pass.
