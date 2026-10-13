@@ -24,9 +24,27 @@ test('Amplification module classes cover each family exactly once and trees rema
   assert.equal(assigned.length,15);
   assert.equal(new Set(assigned.map(x=>x.id)).size,15);
   for(const {id,mark} of assigned)assert.equal(data.families.find(f=>f.id===id)?.moduleMark,mark);
-  assert.equal(data.upgradeTree.status,'incomplete-needs-primary-verification');
-  assert.deepEqual(data.upgradeTree.prerequisites,[]);
-  assert.deepEqual(data.upgradeTree.mutualExclusions,[]);
+  assert.equal(data.upgradeTree.status,'community-sourced-provisional-not-primary-verified');
+  assert.equal(data.weaponCoverage.totalKnownWeapons,26);
+  assert.equal(data.weaponCoverage.amplifiableCount,15);
+  assert.equal(data.weaponCoverage.notListedForAmplification.length,11);
+  const names=new Set(data.families.map(f=>f.id));
+  for(const missing of data.weaponCoverage.notListedForAmplification){
+    assert.ok(!names.has(missing.id));
+    assert.equal(missing.absenceIsNotProof,true);
+  }
+  for(const edge of data.upgradeTree.prerequisites){
+    const family=data.families.find(f=>f.id===edge.family);
+    assert.ok(family);
+    assert.ok([edge.upgrade,edge.requires].every(n=>family.researchedUpgradeOptions.some(o=>o.name===n)));
+    assert.equal(edge.verification,'community-guide-game-file-claim');
+  }
+  for(const edge of data.upgradeTree.mutualExclusions){
+    const family=data.families.find(f=>f.id===edge.family);
+    assert.ok(family);
+    assert.ok(edge.options.every(n=>family.researchedUpgradeOptions.some(o=>o.name===n)));
+    assert.equal(edge.verification,'community-guide-game-file-claim');
+  }
   assert.ok(data.researchNotes.every(note=>typeof note==='string'&&note.length>30));
 });
 test('Amplified read-only scripts do not modify player storage',()=>{
