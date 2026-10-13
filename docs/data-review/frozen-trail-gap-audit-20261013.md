@@ -61,3 +61,21 @@ Für einen echten Feld-für-Feld-Audit müssen API-Daten inklusive Pagination zu
 2. Den tatsächlich geladenen API-Katalog (falls erreichbar) als getrennten Snapshot analysieren.
 3. Stufen I–IV je Waffenfamilie gegen denselben Datenstand vergleichen; Amplified getrennt.
 4. Fehlende Felder und Konflikte in einer maschinenlesbaren Tabelle dokumentieren.
+
+## Verifizierter Pre-Update-Snapshot (13.10.2026 ausgelesen)
+**Datei:** Branch `catalog-data`, `items-full-snapshot.json`; Blob SHA `bdfd07f475b2375a3d3f6ff695e745d4364658b1`. `fetch_file` lieferte für die große Datei einen leeren Textkörper; `fetch_blob` lieferte den vollständigen Inhalt (2.399.515 Zeichen). Der GitHub-Blob wurde als JSON geparst.
+
+- Schema `ramas-field-tool-item-snapshot`, Formatversion 1; `generatedAt: 2026-09-24T15:55:47.768Z`; Quelle `RaidTheory/arcraiders-data`; `count: 581`.
+- **581 tatsächliche Datensätze, 581 eindeutige IDs, 0 fehlende IDs**; gespeicherte Anzahl stimmt exakt.
+- Vollständig belegte Kernfelder im Snapshot: `id`, `name`, `type`, `rarity`, `value` (je 581).
+- `description`: 575/581; `weightKg`: 567/581; `stackSize`: 573/581.
+- `recyclesInto`: 359/581; `salvagesInto`: 353/581. Das Fehlen eines Felds bedeutet **nicht** automatisch, dass ein Item recyclingfähig sein müsste.
+- `repairCost`: 99/581; `repairDurability`: 100/581; `vendors`: 102/581. Nicht für alle Itemtypen anwendbar.
+- Der Snapshot enthält `anvil_i` bis `anvil_iv`, aber **keine Bantam- oder Stiletto-IDs**. Beide wurden nach dem Snapshot ergänzt und dürfen daher nicht als fehlende alte Daten klassifiziert werden.
+- Die Snapshot-Objekte besitzen keine Top-Level-Felder namens `weight`, `stack`, `recycle` oder `crafting`; tatsächliche Felder sind u. a. `weightKg`, `stackSize`, `recyclesInto`, `salvagesInto`. Audit-Parser muss dieses Schema respektieren.
+- **Keine Vollständigkeitsbehauptung für Frozen Trail:** Der Snapshot ist vor dem Update erstellt worden und die aktuellen Mahcks-API-Daten wurden noch nicht als Vergleichssnapshot eingelesen.
+
+### Korrigierte Priorisierung
+1. Snapshot als verifizierte Pre-Update-Baseline nutzen; nicht die 51-Item-Fallbackdatei.
+2. Neu hinzugefügte Waffen (z. B. Bantam, Stiletto) separat gegen Post-Update-Belege prüfen.
+3. Unterschiede zur Live-API nur dann als `hinzugefügt/geändert/entfernt` melden, wenn ein vollständiger Post-Update-Snapshot mit gesichertem Zeitpunkt vorliegt.
