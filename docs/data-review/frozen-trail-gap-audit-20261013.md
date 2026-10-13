@@ -104,3 +104,10 @@ Snapshot: `recyclesInto` bei 359/581, `salvagesInto` bei 353/581. Bei neuen Froz
 
 ### Ergebnis und nächster Datenengpass
 **Kein vollständiger Post-Update-Katalog beschafft.** Deshalb gibt es weiterhin keine belastbare Gesamtzahl neu hinzugefügter/geänderter Itemdatensätze. Die fünf Arbeitspunkte wurden anhand erreichbarer Quellen geprüft, aber der eigentliche Vollabgleich ist blockiert. Vor einem Merge: aktuelles vollständiges API-Export oder eine belegte neue Version des RaidTheory-Datensatzes beschaffen, Diff-Tool ausführen, kritische Felder gegen Primärquellen prüfen, dann UI-/Regressionstests. Weder main noch Nutzerspeicher wurden verändert.
+
+## 13.10.2026 – Live-Katalog-Export erneut versucht
+- Direkter Abruf `https://arcdata.mahcks.com/v1/items?full=true&offset=0&limit=45` aus der Arbeitsumgebung erneut versucht; Fehler: DNS-Auflösung für `arcdata.mahcks.com` nicht möglich. Das ist **kein** Beweis, dass die API für Nutzer ausgefallen ist.
+- Auch direkter Zugriff auf `api.github.com` und `github.com` aus der Container-Umgebung war durch DNS blockiert. GitHub-Connector liefert einzelne Repository-Dateien, aber keine komplette externe Live-API-Antwort.
+- `tools/export_mahcks_catalog.py` hinzugefügt: Nur-Lese-Export mit strenger Prüfung aller Seiten, eindeutiger IDs, konsistenter `total`-Zahl und Abbruch bei unvollständigen Ergebnissen. Erst nach erfolgreichem vollständigem Export wird die Ausgabedatei geschrieben. **Hier noch nicht erfolgreich ausgeführt**, da Netzwerk-DNS blockiert.
+- Anschlussbefehl bei verfügbarem Netzwerk: `python3 tools/export_mahcks_catalog.py current-items.json && python3 tools/audit_frozen_trail_catalog.py old-items.json current-items.json > diff.json`. `old-items.json` muss vorher die unveränderte verifizierte September-Snapshotdatei sein.
+- Weder `main` noch Item-IDs, Spielerinventar oder UI wurden verändert.
