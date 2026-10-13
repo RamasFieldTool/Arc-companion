@@ -90,5 +90,42 @@
       "source": "https://arcraiders.wiki/wiki/Anvil",
       "secondSource": "https://metaforge.app/arc-raiders/database/item/anvil-i"
     }
-  ]
+  ],
+  "gadgetCheckedAt": "2026-10-13",
+  "furnitureCheckedAt": "2026-10-13",
+  "gadgetRecipes": [
+    {
+      "name": "Tether Launcher",
+      "materials": "2 Steel Cable · 1 Advanced Electrical Components · 1 Calculator",
+      "station": "Utility Station II",
+      "source": "https://arcraiders.wiki/wiki/Tether_Launcher",
+      "secondSource": "https://metaforge.app/arc-raiders/database/item/tether-launcher"
+    },
+    {
+      "name": "Yank Grenade",
+      "materials": "1 Rope · 1 Crude Explosives",
+      "station": "Explosives Station II",
+      "source": "https://arcraiders.wiki/wiki/Yank_Grenade",
+      "secondSource": "https://metaforge.app/arc-raiders/database/item/yank-grenade"
+    }
+  ],
+  "furnitureCraft": [
+    {
+      "name": "Barstool",
+      "materials": "4 Fabric · 8 Sheet Metal"
+    },
+    {
+      "name": "Battered Bureau Sofa",
+      "materials": "1 Spring Cushion · 10 Planks"
+    },
+    {
+      "name": "Diner Shelf",
+      "materials": "5 Plastic Parts · 30 Planks"
+    },
+    {
+      "name": "Chambers Nightstand",
+      "materials": "2 Chemicals · 10 Planks"
+    }
+  ],
+  "furnitureSource": "https://arcraiders.wiki/wiki/Furniture"
 }
