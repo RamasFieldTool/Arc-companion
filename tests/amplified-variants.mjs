@@ -17,6 +17,18 @@ test('Amplified reference has 15 distinct families and 45 documented options',()
     }
   }
 });
+test('Amplification module classes cover each family exactly once and trees remain explicitly unverified',()=>{
+  assert.equal(data.moduleClasses.length,5);
+  assert.deepEqual(data.moduleClasses.map(m=>m.mark),['I','II','III','IV','V']);
+  const assigned=data.moduleClasses.flatMap(m=>m.familyIds.map(id=>({id,mark:m.mark})));
+  assert.equal(assigned.length,15);
+  assert.equal(new Set(assigned.map(x=>x.id)).size,15);
+  for(const {id,mark} of assigned)assert.equal(data.families.find(f=>f.id===id)?.moduleMark,mark);
+  assert.equal(data.upgradeTree.status,'incomplete-needs-primary-verification');
+  assert.deepEqual(data.upgradeTree.prerequisites,[]);
+  assert.deepEqual(data.upgradeTree.mutualExclusions,[]);
+  assert.ok(data.researchNotes.every(note=>typeof note==='string'&&note.length>30));
+});
 test('Amplified read-only scripts do not modify player storage',()=>{
   for(const path of ['amplified-search.js','outpost-amplified.js']){
     const source=fs.readFileSync(path,'utf8');
