@@ -27,6 +27,7 @@ jobs:
           node tests/catalog-update-2.mjs
           node tests/frozen-trail-data.mjs
           node tests/amplified-weapons-audit.mjs
+          node tests/amplified-variants.mjs
           node tests/planning-core.mjs
           node tests/item-find-locations.mjs
 
