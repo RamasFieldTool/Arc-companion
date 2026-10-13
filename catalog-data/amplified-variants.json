@@ -1102,6 +1102,132 @@
       "source": "https://arctracker.io/da/items/hullcracker_amplified",
       "status": "TEILWEISE VERIFIZIERT",
       "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "hairpin",
+      "node": "Incendiary Rounds",
+      "materials": [
+        {
+          "name": "Fossilized Lightning",
+          "quantity": 3
+        }
+      ],
+      "requiredResearch": "Thermite-Tipped Rounds",
+      "source": "https://arctracker.io/items/hairpin_amplified",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "hairpin",
+      "node": "Semi-Auto",
+      "materials": [
+        {
+          "name": "Pneumatic Actuator",
+          "quantity": 3
+        }
+      ],
+      "requiredResearch": "Trigger Reset Systems",
+      "source": "https://arctracker.io/items/hairpin_amplified",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "hairpin",
+      "node": "Tracker Rounds",
+      "materials": [
+        {
+          "name": "Matriarch Reactor",
+          "quantity": 1
+        }
+      ],
+      "requiredResearch": null,
+      "source": "https://arctracker.io/items/hairpin_amplified",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "burletta",
+      "node": "Increased Burst",
+      "materials": [
+        {
+          "name": "Pressure Regulator",
+          "quantity": 2
+        }
+      ],
+      "requiredResearch": "Extended Burst Cycles",
+      "source": "https://arctracker.io/items/burletta_amplified_burst",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "burletta",
+      "node": "Sprint Shooting",
+      "materials": [
+        {
+          "name": "Fluted Rotor Core",
+          "quantity": 4
+        }
+      ],
+      "requiredResearch": "Mobile-Fire Grip Fittings",
+      "source": "https://arctracker.io/items/burletta_amplified_burst",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "burletta",
+      "node": "Burst-Fire",
+      "materials": [
+        {
+          "name": "Queen Reactor",
+          "quantity": 2
+        }
+      ],
+      "requiredResearch": "Burst Assembly Recovery",
+      "source": "https://arctracker.io/items/burletta_amplified_sprint_shooting",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "burletta",
+      "node": "Full-Auto",
+      "materials": [
+        {
+          "name": "Pneumatic Actuator",
+          "quantity": 3
+        }
+      ],
+      "requiredResearch": null,
+      "source": "https://arctracker.io/items/burletta_amplified_sprint_shooting",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "bettina",
+      "node": "X Rounds",
+      "materials": [
+        {
+          "name": "Fossilized Lightning",
+          "quantity": 3
+        }
+      ],
+      "requiredResearch": "Embedded Blast Engineering",
+      "source": "https://arctracker.io/items/bettina_amplified_semi_auto",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
+    },
+    {
+      "family": "canto",
+      "node": "Incendiary Rounds",
+      "materials": [
+        {
+          "name": "Fossilized Lightning",
+          "quantity": 3
+        }
+      ],
+      "requiredResearch": "Thermite-Tipped Rounds",
+      "source": "https://arctracker.io/items/canto_amplified_sprint_shooting",
+      "status": "TEILWEISE VERIFIZIERT",
+      "evidenceType": "public-game-version-2.00-item-upgrade-tree-not-direct-game-screenshot"
     }
   ],
   "databaseBaseUpgradeEvidence": [
@@ -1147,5 +1273,32 @@
       "source": "https://arctracker.io/items/jupiter",
       "status": "TEILWEISE VERIFIZIERT"
     }
-  ]
+  ],
+  "arcTrackerIndexAudit": {
+    "source": "https://arctracker.io/items",
+    "gameVersion": "2.00",
+    "observedAt": "2026-10-13",
+    "count": 89,
+    "amplifiedBaseForms": 15,
+    "additionalNamedConfigurations": 74,
+    "countsByFamily": {
+      "hairpin": 5,
+      "kettle": 5,
+      "rattler": 6,
+      "burletta": 8,
+      "il_toro": 4,
+      "anvil": 3,
+      "canto": 6,
+      "osprey": 6,
+      "rascal": 8,
+      "renegade": 4,
+      "bettina": 4,
+      "hullcracker": 4,
+      "aphelion": 12,
+      "equalizer": 6,
+      "jupiter": 8
+    },
+    "verification": "database-index-observed-not-original-gameplay",
+    "note": "89 database item records are not 89 proven crafted variants; index may change."
+  }
 }
