@@ -4,4 +4,6 @@ const families=[{"family":"hairpin","moduleMark":"I","baseItemIds":["hairpin_i",
 const byId=Object.create(null);
 for(const family of families){for(const id of family.baseItemIds){if(byId[id])throw Error('Duplicate Amplified base ID: '+id);byId[id]=family;}}
 window.RFTAmplified=Object.freeze({byId, families});
+// Share the Outpost reference data with item search; no inventory or goal mutations.
+fetch('catalog-data/amplified-variants.json?v=2').then(response=>{if(!response.ok)throw Error('Amplified reference unavailable');return response.json()}).then(data=>{if(!Array.isArray(data.families))return;for(const entry of data.families){const family=families.find(item=>item.family===entry.id);if(!family)continue;family.researchedUpgradeOptions=Array.isArray(entry.researchedUpgradeOptions)?entry.researchedUpgradeOptions:[];family.variants=Array.isArray(entry.variants)?entry.variants:[];}window.dispatchEvent(new Event('rft-amplified-data-ready'));}).catch(()=>{});
 })();
