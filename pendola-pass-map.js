@@ -71,7 +71,7 @@
   function renderLocations(overlay,notice,l){
     const c=markerCopy[l]||markerCopy.en,ns='http://www.w3.org/2000/svg';
     let controls=document.getElementById('pendolaLocationControls');
-    if(!controls){controls=document.createElement('div');controls.id='pendolaLocationControls';controls.innerHTML='<p></p><div class="pendola-layer-buttons"></div><div class="pendola-selection" hidden></div><details><summary></summary><ul></ul></details>';notice.after(controls)}
+    if(!controls){controls=document.createElement('div');controls.id='pendolaLocationControls';controls.innerHTML='<p></p><div class="pendola-layer-buttons"></div><div class="pendola-selection" hidden></div><details><summary></summary><ul></ul></details>';document.querySelector('#spawnPanel .map-layer-controls')?.appendChild(controls)}
     controls.hidden=false;controls.querySelector('p').textContent=locationError?c[8]:c[3];
     const points=locationPoints(),inside=points.filter(p=>p.x>=0&&p.x<=100&&p.y>=0&&p.y<=100),outside=points.filter(p=>!inside.includes(p));
     const buttons=controls.querySelector('.pendola-layer-buttons');buttons.replaceChildren();
@@ -108,7 +108,7 @@
     let overlay=document.getElementById('pendolaOverlay');
     const data=typeof spawnData!=='undefined'?spawnData:null;
     if(data?.map==='pendola-pass'){
-      if(!overlay){overlay=document.createElementNS('http://www.w3.org/2000/svg','svg');overlay.id='pendolaOverlay';overlay.setAttribute('viewBox','0 0 1448 1086');overlay.setAttribute('preserveAspectRatio','xMidYMid meet');overlay.setAttribute('role','img');document.getElementById('spawnCanvas')?.appendChild(overlay)}
+      if(!overlay){overlay=document.createElementNS('http://www.w3.org/2000/svg','svg');overlay.id='pendolaOverlay';overlay.setAttribute('viewBox','0 0 1448 1086');overlay.setAttribute('preserveAspectRatio','xMidYMid meet');overlay.setAttribute('role','group');document.getElementById('spawnCanvas')?.appendChild(overlay)}
       overlay.hidden=false;overlay.style.display='';overlay.setAttribute('aria-label',c.unavailable);
       const signature=JSON.stringify([data.areaLabels,data.landmarks,data.layers.extractions,c.unavailable]);
       if(overlay.dataset.signature!==signature){
