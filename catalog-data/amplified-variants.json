@@ -2238,5 +2238,2253 @@
     ],
     "newAmplifiedRecipes": 0,
     "conclusion": "Repository contains useful historical weapon and item JSON, but direct Amplified JSON paths missing and Frozen Trail 2.0 coverage not confirmed; cannot equate older upgradeCost with Amplified nodes."
+  },
+  "testIntegration": {
+    "source": "https://arctracker.io/api/items",
+    "version": "1791948888742",
+    "generatedAt": "2026-10-14T03:34:48.742Z",
+    "sourceSha256": "68f10c62b3f53686a98a9617ea82a3c22b3514f019ec233e899b8bdc1bca6a6c",
+    "status": "api-documented-not-game-confirmed",
+    "counts": {
+      "sourceConfigurations": 89,
+      "sourceConnections": 108,
+      "sourceRecipes": 44,
+      "integratedNodes": 40,
+      "referenceConfigurations": 76,
+      "referenceConnections": 84,
+      "researchProjects": 13
+    },
+    "nodes": [
+      {
+        "id": "hairpin:incendiaryrounds",
+        "familyId": "hairpin",
+        "name": "Incendiary Rounds",
+        "apiName": "Incendiary Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "thermite_tipped_rounds"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/hairpin_amplified"
+      },
+      {
+        "id": "hairpin:trackerrounds",
+        "familyId": "hairpin",
+        "name": "Tracker Rounds",
+        "apiName": "Tracker Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "matriarch_reactor",
+            "quantity": 1
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/hairpin_amplified"
+      },
+      {
+        "id": "hairpin:semiauto",
+        "familyId": "hairpin",
+        "name": "Semi-Auto",
+        "apiName": "Semi-Auto",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pneumatic_actuator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "trigger_reset_systems"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/hairpin_amplified"
+      },
+      {
+        "id": "hairpin:sprintshooting",
+        "familyId": "hairpin",
+        "name": "Sprint Shooting",
+        "apiName": "Sprint Shooting",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "mobile_fire_grip_fittings"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/hairpin_amplified_semi_auto"
+      },
+      {
+        "id": "kettle:xrounds",
+        "familyId": "kettle",
+        "name": "X Rounds",
+        "apiName": "X-Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "embedded_blast_engineering"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/kettle_amplified"
+      },
+      {
+        "id": "kettle:fullauto",
+        "familyId": "kettle",
+        "name": "Full-Auto",
+        "apiName": "Full-Auto",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pneumatic_actuator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/kettle_amplified"
+      },
+      {
+        "id": "kettle:antishield",
+        "familyId": "kettle",
+        "name": "Anti-Shield",
+        "apiName": "Anti-Shield",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "assessor_matrix",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "shield_stress_testing"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/kettle_amplified"
+      },
+      {
+        "id": "rattler:incendiaryrounds",
+        "familyId": "rattler",
+        "name": "Incendiary Rounds",
+        "apiName": "Incendiary Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "thermite_tipped_rounds"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/rattler_amplified"
+      },
+      {
+        "id": "rattler:drummag",
+        "familyId": "rattler",
+        "name": "Drum Mag",
+        "apiName": "Drum Mag",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 4
+          }
+        ],
+        "researchIds": [
+          "magazine_geometry_101"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/rattler_amplified_more_reload"
+      },
+      {
+        "id": "rattler:morereload",
+        "familyId": "rattler",
+        "name": "More Reload",
+        "apiName": "More Reload",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "propellant_valve_assembly",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/rattler_amplified"
+      },
+      {
+        "id": "burletta:burstfire",
+        "familyId": "burletta",
+        "name": "Burst-Fire",
+        "apiName": "Burst Fire",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "queen_reactor",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "burst_assembly_recovery"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/burletta_amplified"
+      },
+      {
+        "id": "burletta:fullauto",
+        "familyId": "burletta",
+        "name": "Full-Auto",
+        "apiName": "Full-Auto",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pneumatic_actuator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/burletta_amplified"
+      },
+      {
+        "id": "burletta:increasedburst",
+        "familyId": "burletta",
+        "name": "Increased Burst",
+        "apiName": "Increased Burst",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "extended_burst_cycles"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/burletta_amplified_burst"
+      },
+      {
+        "id": "burletta:sprintshooting",
+        "familyId": "burletta",
+        "name": "Sprint Shooting",
+        "apiName": "Sprint Shooting",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 4
+          }
+        ],
+        "researchIds": [
+          "mobile_fire_grip_fittings"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/burletta_amplified"
+      },
+      {
+        "id": "il_toro:slugrounds",
+        "familyId": "il_toro",
+        "name": "Slug Rounds",
+        "apiName": "Slug Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "turbine_compressor",
+            "quantity": 4
+          }
+        ],
+        "researchIds": [
+          "solid_core_casting_tech"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/il_toro_amplified"
+      },
+      {
+        "id": "il_toro:morereload",
+        "familyId": "il_toro",
+        "name": "More Reload",
+        "apiName": "More Reload",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "propellant_valve_assembly",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/il_toro_amplified"
+      },
+      {
+        "id": "anvil:xrounds",
+        "familyId": "anvil",
+        "name": "X Rounds",
+        "apiName": "X-Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "embedded_blast_engineering"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/anvil_amplified"
+      },
+      {
+        "id": "anvil:anvilsplitter",
+        "familyId": "anvil",
+        "name": "Anvil Splitter",
+        "apiName": "Anvil Splitter",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "turbine_compressor",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/anvil_amplified"
+      },
+      {
+        "id": "canto:incendiaryrounds",
+        "familyId": "canto",
+        "name": "Incendiary Rounds",
+        "apiName": "Incendiary Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "thermite_tipped_rounds"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/canto_amplified"
+      },
+      {
+        "id": "canto:sprintshooting",
+        "familyId": "canto",
+        "name": "Sprint Shooting",
+        "apiName": "Sprint Shooting",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 4
+          }
+        ],
+        "researchIds": [
+          "mobile_fire_grip_fittings"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/canto_amplified"
+      },
+      {
+        "id": "canto:carbineconversion",
+        "familyId": "canto",
+        "name": "Carbine Conversion",
+        "apiName": "Carbine Conversion",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "propellant_valve_assembly",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/canto_amplified"
+      },
+      {
+        "id": "osprey:antiweakpoint",
+        "familyId": "osprey",
+        "name": "Anti Weak Point",
+        "apiName": "Anti-Weak Point",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "assessor_matrix",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "targeted_component_trial"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "id": "osprey:trackerrounds",
+        "familyId": "osprey",
+        "name": "Tracker Rounds",
+        "apiName": "Tracker Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "matriarch_reactor",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "id": "rascal:highvelocity",
+        "familyId": "rascal",
+        "name": "High Velocity",
+        "apiName": "High Velocity",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pneumatic_actuator",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "id": "rascal:sprintshooting",
+        "familyId": "rascal",
+        "name": "Sprint Shooting",
+        "apiName": "Sprint Shooting",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "mobile_fire_grip_fittings"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "id": "renegade:morereload",
+        "familyId": "renegade",
+        "name": "More Reload",
+        "apiName": "More Reload",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "propellant_valve_assembly",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/renegade_amplified"
+      },
+      {
+        "id": "renegade:scoped",
+        "familyId": "renegade",
+        "name": "Scoped",
+        "apiName": "Scoped",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 4
+          }
+        ],
+        "researchIds": [
+          "top_mounted_optics_retrofittings"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/renegade_amplified"
+      },
+      {
+        "id": "bettina:xrounds",
+        "familyId": "bettina",
+        "name": "X Rounds",
+        "apiName": "X-Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "embedded_blast_engineering"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/bettina_amplified_semi_auto"
+      },
+      {
+        "id": "bettina:semiauto",
+        "familyId": "bettina",
+        "name": "Semi-Auto",
+        "apiName": "Semi-Auto",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pneumatic_actuator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "trigger_reset_systems"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/bettina_amplified"
+      },
+      {
+        "id": "bettina:biggermag",
+        "familyId": "bettina",
+        "name": "Bigger Mag",
+        "apiName": "Bigger Mag",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/bettina_amplified"
+      },
+      {
+        "id": "hullcracker:magreload",
+        "familyId": "hullcracker",
+        "name": "Mag Reload",
+        "apiName": "Mag Reload",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "propellant_valve_assembly",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/hullcracker_amplified"
+      },
+      {
+        "id": "aphelion:incendiaryrounds",
+        "familyId": "aphelion",
+        "name": "Incendiary Rounds",
+        "apiName": "Incendiary Rounds",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "thermite_tipped_rounds"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/aphelion_amplified"
+      },
+      {
+        "id": "aphelion:chargedburst",
+        "familyId": "aphelion",
+        "name": "Charged Burst",
+        "apiName": "Charged Burst",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "queen_reactor",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "high_voltage_exposure"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/aphelion_amplified"
+      },
+      {
+        "id": "aphelion:biggermag",
+        "familyId": "aphelion",
+        "name": "Bigger Mag",
+        "apiName": "Bigger Mag",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/aphelion_amplified"
+      },
+      {
+        "id": "aphelion:increasedburst",
+        "familyId": "aphelion",
+        "name": "Increased Burst",
+        "apiName": "Increased Burst",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "extended_burst_cycles"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst"
+      },
+      {
+        "id": "equalizer:antiweakpoint",
+        "familyId": "equalizer",
+        "name": "Anti Weak Point",
+        "apiName": "Anti-Weak Point",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "assessor_matrix",
+            "quantity": 2
+          }
+        ],
+        "researchIds": [
+          "targeted_component_trial"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/equalizer_amplified"
+      },
+      {
+        "id": "equalizer:rampingdamage",
+        "familyId": "equalizer",
+        "name": "Ramping Damage",
+        "apiName": "Ramping Damage",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "queen_reactor",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "beam_resonance_tech"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/equalizer_amplified"
+      },
+      {
+        "id": "equalizer:biggermag",
+        "familyId": "equalizer",
+        "name": "Bigger Mag",
+        "apiName": "Bigger Mag",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/equalizer_amplified"
+      },
+      {
+        "id": "jupiter:biggermag",
+        "familyId": "jupiter",
+        "name": "Bigger Mag",
+        "apiName": "Bigger Mag",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "pressure_regulator",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [],
+        "researchReferenceStatus": "not-listed-not-proven-unnecessary",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "id": "jupiter:scoped",
+        "familyId": "jupiter",
+        "name": "Scoped",
+        "apiName": "Scoped",
+        "status": "api-documented-not-game-confirmed",
+        "evidenceClass": "C",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "top_mounted_optics_retrofittings"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      }
+    ],
+    "configurations": [
+      {
+        "id": "anvil_amplified",
+        "familyId": "anvil",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/anvil_amplified"
+      },
+      {
+        "id": "anvil_amplified_projectile_splitter",
+        "familyId": "anvil",
+        "nodeIds": [
+          "anvil:anvilsplitter"
+        ],
+        "source": "https://arctracker.io/items/anvil_amplified_projectile_splitter"
+      },
+      {
+        "id": "anvil_amplified_x_rounds",
+        "familyId": "anvil",
+        "nodeIds": [
+          "anvil:xrounds"
+        ],
+        "source": "https://arctracker.io/items/anvil_amplified_x_rounds"
+      },
+      {
+        "id": "aphelion_amplified",
+        "familyId": "aphelion",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/aphelion_amplified"
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:biggermag"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag"
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:biggermag",
+          "aphelion:chargedburst"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst"
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:biggermag",
+          "aphelion:chargedburst",
+          "aphelion:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds"
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:biggermag",
+          "aphelion:chargedburst",
+          "aphelion:increasedburst"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst_increased_burst"
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:biggermag",
+          "aphelion:chargedburst",
+          "aphelion:incendiaryrounds",
+          "aphelion:increasedburst"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds"
+      },
+      {
+        "id": "aphelion_amplified_bigger_mag_incendiary_rounds",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:biggermag",
+          "aphelion:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_bigger_mag_incendiary_rounds"
+      },
+      {
+        "id": "aphelion_amplified_charged_burst",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:chargedburst"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_charged_burst"
+      },
+      {
+        "id": "aphelion_amplified_charged_burst_incendiary_rounds",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:chargedburst",
+          "aphelion:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_charged_burst_incendiary_rounds"
+      },
+      {
+        "id": "aphelion_amplified_charged_burst_increased_burst",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:chargedburst",
+          "aphelion:increasedburst"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_charged_burst_increased_burst"
+      },
+      {
+        "id": "aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:chargedburst",
+          "aphelion:incendiaryrounds",
+          "aphelion:increasedburst"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_charged_burst_increased_burst_incendiary_rounds"
+      },
+      {
+        "id": "aphelion_amplified_incendiary_rounds",
+        "familyId": "aphelion",
+        "nodeIds": [
+          "aphelion:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/aphelion_amplified_incendiary_rounds"
+      },
+      {
+        "id": "bettina_amplified",
+        "familyId": "bettina",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/bettina_amplified"
+      },
+      {
+        "id": "bettina_amplified_bigger_mag",
+        "familyId": "bettina",
+        "nodeIds": [
+          "bettina:biggermag"
+        ],
+        "source": "https://arctracker.io/items/bettina_amplified_bigger_mag"
+      },
+      {
+        "id": "bettina_amplified_semi_auto",
+        "familyId": "bettina",
+        "nodeIds": [
+          "bettina:semiauto"
+        ],
+        "source": "https://arctracker.io/items/bettina_amplified_semi_auto"
+      },
+      {
+        "id": "bettina_amplified_semi_auto_x_rounds",
+        "familyId": "bettina",
+        "nodeIds": [
+          "bettina:semiauto",
+          "bettina:xrounds"
+        ],
+        "source": "https://arctracker.io/items/bettina_amplified_semi_auto_x_rounds"
+      },
+      {
+        "id": "burletta_amplified",
+        "familyId": "burletta",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/burletta_amplified"
+      },
+      {
+        "id": "burletta_amplified_burst",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:burstfire"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_burst"
+      },
+      {
+        "id": "burletta_amplified_burst_increased_burst",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:burstfire",
+          "burletta:increasedburst"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_burst_increased_burst"
+      },
+      {
+        "id": "burletta_amplified_burst_increased_burst_sprint_shooting",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:burstfire",
+          "burletta:increasedburst",
+          "burletta:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_burst_increased_burst_sprint_shooting"
+      },
+      {
+        "id": "burletta_amplified_burst_sprint_shooting",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:burstfire",
+          "burletta:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_burst_sprint_shooting"
+      },
+      {
+        "id": "burletta_amplified_full_auto",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:fullauto"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_full_auto"
+      },
+      {
+        "id": "burletta_amplified_full_auto_sprint_shooting",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:fullauto",
+          "burletta:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_full_auto_sprint_shooting"
+      },
+      {
+        "id": "burletta_amplified_sprint_shooting",
+        "familyId": "burletta",
+        "nodeIds": [
+          "burletta:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/burletta_amplified_sprint_shooting"
+      },
+      {
+        "id": "canto_amplified",
+        "familyId": "canto",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/canto_amplified"
+      },
+      {
+        "id": "canto_amplified_carbine",
+        "familyId": "canto",
+        "nodeIds": [
+          "canto:carbineconversion"
+        ],
+        "source": "https://arctracker.io/items/canto_amplified_carbine"
+      },
+      {
+        "id": "canto_amplified_incendiary_rounds",
+        "familyId": "canto",
+        "nodeIds": [
+          "canto:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/canto_amplified_incendiary_rounds"
+      },
+      {
+        "id": "canto_amplified_incendiary_rounds_carbine",
+        "familyId": "canto",
+        "nodeIds": [
+          "canto:carbineconversion",
+          "canto:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/canto_amplified_incendiary_rounds_carbine"
+      },
+      {
+        "id": "canto_amplified_incendiary_rounds_sprint_shooting",
+        "familyId": "canto",
+        "nodeIds": [
+          "canto:incendiaryrounds",
+          "canto:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/canto_amplified_incendiary_rounds_sprint_shooting"
+      },
+      {
+        "id": "canto_amplified_sprint_shooting",
+        "familyId": "canto",
+        "nodeIds": [
+          "canto:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/canto_amplified_sprint_shooting"
+      },
+      {
+        "id": "equalizer_amplified",
+        "familyId": "equalizer",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/equalizer_amplified"
+      },
+      {
+        "id": "equalizer_amplified_anti_weak_point",
+        "familyId": "equalizer",
+        "nodeIds": [
+          "equalizer:antiweakpoint"
+        ],
+        "source": "https://arctracker.io/items/equalizer_amplified_anti_weak_point"
+      },
+      {
+        "id": "equalizer_amplified_anti_weak_point_bigger_mag",
+        "familyId": "equalizer",
+        "nodeIds": [
+          "equalizer:antiweakpoint",
+          "equalizer:biggermag"
+        ],
+        "source": "https://arctracker.io/items/equalizer_amplified_anti_weak_point_bigger_mag"
+      },
+      {
+        "id": "equalizer_amplified_bigger_mag",
+        "familyId": "equalizer",
+        "nodeIds": [
+          "equalizer:biggermag"
+        ],
+        "source": "https://arctracker.io/items/equalizer_amplified_bigger_mag"
+      },
+      {
+        "id": "equalizer_amplified_ramping_damage",
+        "familyId": "equalizer",
+        "nodeIds": [
+          "equalizer:rampingdamage"
+        ],
+        "source": "https://arctracker.io/items/equalizer_amplified_ramping_damage"
+      },
+      {
+        "id": "equalizer_amplified_ramping_damage_bigger_mag",
+        "familyId": "equalizer",
+        "nodeIds": [
+          "equalizer:biggermag",
+          "equalizer:rampingdamage"
+        ],
+        "source": "https://arctracker.io/items/equalizer_amplified_ramping_damage_bigger_mag"
+      },
+      {
+        "id": "hairpin_amplified",
+        "familyId": "hairpin",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/hairpin_amplified"
+      },
+      {
+        "id": "hairpin_amplified_incendiary_rounds",
+        "familyId": "hairpin",
+        "nodeIds": [
+          "hairpin:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/hairpin_amplified_incendiary_rounds"
+      },
+      {
+        "id": "hairpin_amplified_semi_auto",
+        "familyId": "hairpin",
+        "nodeIds": [
+          "hairpin:semiauto"
+        ],
+        "source": "https://arctracker.io/items/hairpin_amplified_semi_auto"
+      },
+      {
+        "id": "hairpin_amplified_semi_auto_sprint_shooting",
+        "familyId": "hairpin",
+        "nodeIds": [
+          "hairpin:semiauto",
+          "hairpin:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/hairpin_amplified_semi_auto_sprint_shooting"
+      },
+      {
+        "id": "hairpin_amplified_tracker_rounds",
+        "familyId": "hairpin",
+        "nodeIds": [
+          "hairpin:trackerrounds"
+        ],
+        "source": "https://arctracker.io/items/hairpin_amplified_tracker_rounds"
+      },
+      {
+        "id": "hullcracker_amplified",
+        "familyId": "hullcracker",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/hullcracker_amplified"
+      },
+      {
+        "id": "hullcracker_amplified_mag_reload",
+        "familyId": "hullcracker",
+        "nodeIds": [
+          "hullcracker:magreload"
+        ],
+        "source": "https://arctracker.io/items/hullcracker_amplified_mag_reload"
+      },
+      {
+        "id": "il_toro_amplified",
+        "familyId": "il_toro",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/il_toro_amplified"
+      },
+      {
+        "id": "il_toro_amplified_more_reload",
+        "familyId": "il_toro",
+        "nodeIds": [
+          "il_toro:morereload"
+        ],
+        "source": "https://arctracker.io/items/il_toro_amplified_more_reload"
+      },
+      {
+        "id": "il_toro_amplified_more_reload_slug_rounds",
+        "familyId": "il_toro",
+        "nodeIds": [
+          "il_toro:morereload",
+          "il_toro:slugrounds"
+        ],
+        "source": "https://arctracker.io/items/il_toro_amplified_more_reload_slug_rounds"
+      },
+      {
+        "id": "il_toro_amplified_slug_rounds",
+        "familyId": "il_toro",
+        "nodeIds": [
+          "il_toro:slugrounds"
+        ],
+        "source": "https://arctracker.io/items/il_toro_amplified_slug_rounds"
+      },
+      {
+        "id": "jupiter_amplified",
+        "familyId": "jupiter",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "id": "jupiter_amplified_bigger_mag",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:biggermag"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified_bigger_mag"
+      },
+      {
+        "id": "jupiter_amplified_bigger_mag_scoped",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:biggermag",
+          "jupiter:scoped"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified_bigger_mag_scoped"
+      },
+      {
+        "id": "jupiter_amplified_scoped",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:scoped"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified_scoped"
+      },
+      {
+        "id": "kettle_amplified",
+        "familyId": "kettle",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/kettle_amplified"
+      },
+      {
+        "id": "kettle_amplified_anti_shield",
+        "familyId": "kettle",
+        "nodeIds": [
+          "kettle:antishield"
+        ],
+        "source": "https://arctracker.io/items/kettle_amplified_anti_shield"
+      },
+      {
+        "id": "kettle_amplified_anti_shield_full_auto",
+        "familyId": "kettle",
+        "nodeIds": [
+          "kettle:antishield",
+          "kettle:fullauto"
+        ],
+        "source": "https://arctracker.io/items/kettle_amplified_anti_shield_full_auto"
+      },
+      {
+        "id": "kettle_amplified_full_auto",
+        "familyId": "kettle",
+        "nodeIds": [
+          "kettle:fullauto"
+        ],
+        "source": "https://arctracker.io/items/kettle_amplified_full_auto"
+      },
+      {
+        "id": "kettle_amplified_x_rounds",
+        "familyId": "kettle",
+        "nodeIds": [
+          "kettle:xrounds"
+        ],
+        "source": "https://arctracker.io/items/kettle_amplified_x_rounds"
+      },
+      {
+        "id": "osprey_amplified",
+        "familyId": "osprey",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "id": "osprey_amplified_anti_weak_point",
+        "familyId": "osprey",
+        "nodeIds": [
+          "osprey:antiweakpoint"
+        ],
+        "source": "https://arctracker.io/items/osprey_amplified_anti_weak_point"
+      },
+      {
+        "id": "osprey_amplified_tracker_rounds",
+        "familyId": "osprey",
+        "nodeIds": [
+          "osprey:trackerrounds"
+        ],
+        "source": "https://arctracker.io/items/osprey_amplified_tracker_rounds"
+      },
+      {
+        "id": "rascal_amplified",
+        "familyId": "rascal",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "id": "rascal_amplified_high_velocity",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:highvelocity"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified_high_velocity"
+      },
+      {
+        "id": "rascal_amplified_high_velocity_sprint_shooting",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:highvelocity",
+          "rascal:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified_high_velocity_sprint_shooting"
+      },
+      {
+        "id": "rascal_amplified_sprint_shooting",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:sprintshooting"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified_sprint_shooting"
+      },
+      {
+        "id": "rattler_amplified",
+        "familyId": "rattler",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/rattler_amplified"
+      },
+      {
+        "id": "rattler_amplified_incendiary_rounds",
+        "familyId": "rattler",
+        "nodeIds": [
+          "rattler:incendiaryrounds"
+        ],
+        "source": "https://arctracker.io/items/rattler_amplified_incendiary_rounds"
+      },
+      {
+        "id": "rattler_amplified_more_reload",
+        "familyId": "rattler",
+        "nodeIds": [
+          "rattler:morereload"
+        ],
+        "source": "https://arctracker.io/items/rattler_amplified_more_reload"
+      },
+      {
+        "id": "rattler_amplified_more_reload_drum_mag",
+        "familyId": "rattler",
+        "nodeIds": [
+          "rattler:drummag",
+          "rattler:morereload"
+        ],
+        "source": "https://arctracker.io/items/rattler_amplified_more_reload_drum_mag"
+      },
+      {
+        "id": "rattler_amplified_more_reload_drum_mag_incendiary_rounds",
+        "familyId": "rattler",
+        "nodeIds": [
+          "rattler:drummag",
+          "rattler:incendiaryrounds",
+          "rattler:morereload"
+        ],
+        "source": "https://arctracker.io/items/rattler_amplified_more_reload_drum_mag_incendiary_rounds"
+      },
+      {
+        "id": "rattler_amplified_more_reload_incendiary_rounds",
+        "familyId": "rattler",
+        "nodeIds": [
+          "rattler:incendiaryrounds",
+          "rattler:morereload"
+        ],
+        "source": "https://arctracker.io/items/rattler_amplified_more_reload_incendiary_rounds"
+      },
+      {
+        "id": "renegade_amplified",
+        "familyId": "renegade",
+        "nodeIds": [],
+        "source": "https://arctracker.io/items/renegade_amplified"
+      },
+      {
+        "id": "renegade_amplified_more_reload",
+        "familyId": "renegade",
+        "nodeIds": [
+          "renegade:morereload"
+        ],
+        "source": "https://arctracker.io/items/renegade_amplified_more_reload"
+      },
+      {
+        "id": "renegade_amplified_more_reload_scoped",
+        "familyId": "renegade",
+        "nodeIds": [
+          "renegade:morereload",
+          "renegade:scoped"
+        ],
+        "source": "https://arctracker.io/items/renegade_amplified_more_reload_scoped"
+      },
+      {
+        "id": "renegade_amplified_scoped",
+        "familyId": "renegade",
+        "nodeIds": [
+          "renegade:scoped"
+        ],
+        "source": "https://arctracker.io/items/renegade_amplified_scoped"
+      }
+    ],
+    "connections": [
+      {
+        "from": "anvil_amplified",
+        "to": "anvil_amplified_projectile_splitter",
+        "nodeId": "anvil:anvilsplitter"
+      },
+      {
+        "from": "anvil_amplified",
+        "to": "anvil_amplified_x_rounds",
+        "nodeId": "anvil:xrounds"
+      },
+      {
+        "from": "aphelion_amplified",
+        "to": "aphelion_amplified_bigger_mag",
+        "nodeId": "aphelion:biggermag"
+      },
+      {
+        "from": "aphelion_amplified",
+        "to": "aphelion_amplified_incendiary_rounds",
+        "nodeId": "aphelion:incendiaryrounds"
+      },
+      {
+        "from": "aphelion_amplified",
+        "to": "aphelion_amplified_charged_burst",
+        "nodeId": "aphelion:chargedburst"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag",
+        "to": "aphelion_amplified_bigger_mag_charged_burst",
+        "nodeId": "aphelion:chargedburst"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag",
+        "to": "aphelion_amplified_bigger_mag_incendiary_rounds",
+        "nodeId": "aphelion:incendiaryrounds"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag_charged_burst",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+        "nodeId": "aphelion:increasedburst"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag_charged_burst",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "nodeId": "aphelion:incendiaryrounds"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+        "nodeId": "aphelion:increasedburst"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+        "nodeId": "aphelion:incendiaryrounds"
+      },
+      {
+        "from": "aphelion_amplified_bigger_mag_incendiary_rounds",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "nodeId": "aphelion:chargedburst"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst",
+        "to": "aphelion_amplified_bigger_mag_charged_burst",
+        "nodeId": "aphelion:biggermag"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst",
+        "to": "aphelion_amplified_charged_burst_increased_burst",
+        "nodeId": "aphelion:increasedburst"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst",
+        "to": "aphelion_amplified_charged_burst_incendiary_rounds",
+        "nodeId": "aphelion:incendiaryrounds"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst_incendiary_rounds",
+        "to": "aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+        "nodeId": "aphelion:increasedburst"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst_incendiary_rounds",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+        "nodeId": "aphelion:biggermag"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst_increased_burst",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+        "nodeId": "aphelion:biggermag"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst_increased_burst",
+        "to": "aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+        "nodeId": "aphelion:incendiaryrounds"
+      },
+      {
+        "from": "aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+        "to": "aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+        "nodeId": "aphelion:biggermag"
+      },
+      {
+        "from": "aphelion_amplified_incendiary_rounds",
+        "to": "aphelion_amplified_charged_burst_incendiary_rounds",
+        "nodeId": "aphelion:chargedburst"
+      },
+      {
+        "from": "aphelion_amplified_incendiary_rounds",
+        "to": "aphelion_amplified_bigger_mag_incendiary_rounds",
+        "nodeId": "aphelion:biggermag"
+      },
+      {
+        "from": "bettina_amplified",
+        "to": "bettina_amplified_semi_auto",
+        "nodeId": "bettina:semiauto"
+      },
+      {
+        "from": "bettina_amplified",
+        "to": "bettina_amplified_bigger_mag",
+        "nodeId": "bettina:biggermag"
+      },
+      {
+        "from": "bettina_amplified_semi_auto",
+        "to": "bettina_amplified_semi_auto_x_rounds",
+        "nodeId": "bettina:xrounds"
+      },
+      {
+        "from": "burletta_amplified",
+        "to": "burletta_amplified_burst",
+        "nodeId": "burletta:burstfire"
+      },
+      {
+        "from": "burletta_amplified",
+        "to": "burletta_amplified_full_auto",
+        "nodeId": "burletta:fullauto"
+      },
+      {
+        "from": "burletta_amplified",
+        "to": "burletta_amplified_sprint_shooting",
+        "nodeId": "burletta:sprintshooting"
+      },
+      {
+        "from": "burletta_amplified_burst",
+        "to": "burletta_amplified_burst_increased_burst",
+        "nodeId": "burletta:increasedburst"
+      },
+      {
+        "from": "burletta_amplified_burst",
+        "to": "burletta_amplified_burst_sprint_shooting",
+        "nodeId": "burletta:sprintshooting"
+      },
+      {
+        "from": "burletta_amplified_burst_increased_burst",
+        "to": "burletta_amplified_burst_increased_burst_sprint_shooting",
+        "nodeId": "burletta:sprintshooting"
+      },
+      {
+        "from": "burletta_amplified_burst_sprint_shooting",
+        "to": "burletta_amplified_burst_increased_burst_sprint_shooting",
+        "nodeId": "burletta:increasedburst"
+      },
+      {
+        "from": "burletta_amplified_full_auto",
+        "to": "burletta_amplified_full_auto_sprint_shooting",
+        "nodeId": "burletta:sprintshooting"
+      },
+      {
+        "from": "burletta_amplified_sprint_shooting",
+        "to": "burletta_amplified_burst_sprint_shooting",
+        "nodeId": "burletta:burstfire"
+      },
+      {
+        "from": "burletta_amplified_sprint_shooting",
+        "to": "burletta_amplified_full_auto_sprint_shooting",
+        "nodeId": "burletta:fullauto"
+      },
+      {
+        "from": "canto_amplified",
+        "to": "canto_amplified_carbine",
+        "nodeId": "canto:carbineconversion"
+      },
+      {
+        "from": "canto_amplified",
+        "to": "canto_amplified_incendiary_rounds",
+        "nodeId": "canto:incendiaryrounds"
+      },
+      {
+        "from": "canto_amplified",
+        "to": "canto_amplified_sprint_shooting",
+        "nodeId": "canto:sprintshooting"
+      },
+      {
+        "from": "canto_amplified_carbine",
+        "to": "canto_amplified_incendiary_rounds_carbine",
+        "nodeId": "canto:incendiaryrounds"
+      },
+      {
+        "from": "canto_amplified_incendiary_rounds",
+        "to": "canto_amplified_incendiary_rounds_carbine",
+        "nodeId": "canto:carbineconversion"
+      },
+      {
+        "from": "canto_amplified_incendiary_rounds",
+        "to": "canto_amplified_incendiary_rounds_sprint_shooting",
+        "nodeId": "canto:sprintshooting"
+      },
+      {
+        "from": "canto_amplified_sprint_shooting",
+        "to": "canto_amplified_incendiary_rounds_sprint_shooting",
+        "nodeId": "canto:incendiaryrounds"
+      },
+      {
+        "from": "equalizer_amplified",
+        "to": "equalizer_amplified_ramping_damage",
+        "nodeId": "equalizer:rampingdamage"
+      },
+      {
+        "from": "equalizer_amplified",
+        "to": "equalizer_amplified_bigger_mag",
+        "nodeId": "equalizer:biggermag"
+      },
+      {
+        "from": "equalizer_amplified",
+        "to": "equalizer_amplified_anti_weak_point",
+        "nodeId": "equalizer:antiweakpoint"
+      },
+      {
+        "from": "equalizer_amplified_anti_weak_point",
+        "to": "equalizer_amplified_anti_weak_point_bigger_mag",
+        "nodeId": "equalizer:biggermag"
+      },
+      {
+        "from": "equalizer_amplified_bigger_mag",
+        "to": "equalizer_amplified_anti_weak_point_bigger_mag",
+        "nodeId": "equalizer:antiweakpoint"
+      },
+      {
+        "from": "equalizer_amplified_bigger_mag",
+        "to": "equalizer_amplified_ramping_damage_bigger_mag",
+        "nodeId": "equalizer:rampingdamage"
+      },
+      {
+        "from": "equalizer_amplified_ramping_damage",
+        "to": "equalizer_amplified_ramping_damage_bigger_mag",
+        "nodeId": "equalizer:biggermag"
+      },
+      {
+        "from": "hairpin_amplified",
+        "to": "hairpin_amplified_incendiary_rounds",
+        "nodeId": "hairpin:incendiaryrounds"
+      },
+      {
+        "from": "hairpin_amplified",
+        "to": "hairpin_amplified_semi_auto",
+        "nodeId": "hairpin:semiauto"
+      },
+      {
+        "from": "hairpin_amplified",
+        "to": "hairpin_amplified_tracker_rounds",
+        "nodeId": "hairpin:trackerrounds"
+      },
+      {
+        "from": "hairpin_amplified_semi_auto",
+        "to": "hairpin_amplified_semi_auto_sprint_shooting",
+        "nodeId": "hairpin:sprintshooting"
+      },
+      {
+        "from": "hullcracker_amplified",
+        "to": "hullcracker_amplified_mag_reload",
+        "nodeId": "hullcracker:magreload"
+      },
+      {
+        "from": "il_toro_amplified",
+        "to": "il_toro_amplified_more_reload",
+        "nodeId": "il_toro:morereload"
+      },
+      {
+        "from": "il_toro_amplified",
+        "to": "il_toro_amplified_slug_rounds",
+        "nodeId": "il_toro:slugrounds"
+      },
+      {
+        "from": "il_toro_amplified_more_reload",
+        "to": "il_toro_amplified_more_reload_slug_rounds",
+        "nodeId": "il_toro:slugrounds"
+      },
+      {
+        "from": "il_toro_amplified_slug_rounds",
+        "to": "il_toro_amplified_more_reload_slug_rounds",
+        "nodeId": "il_toro:morereload"
+      },
+      {
+        "from": "jupiter_amplified",
+        "to": "jupiter_amplified_bigger_mag",
+        "nodeId": "jupiter:biggermag"
+      },
+      {
+        "from": "jupiter_amplified",
+        "to": "jupiter_amplified_scoped",
+        "nodeId": "jupiter:scoped"
+      },
+      {
+        "from": "jupiter_amplified_bigger_mag",
+        "to": "jupiter_amplified_bigger_mag_scoped",
+        "nodeId": "jupiter:scoped"
+      },
+      {
+        "from": "jupiter_amplified_scoped",
+        "to": "jupiter_amplified_bigger_mag_scoped",
+        "nodeId": "jupiter:biggermag"
+      },
+      {
+        "from": "kettle_amplified",
+        "to": "kettle_amplified_full_auto",
+        "nodeId": "kettle:fullauto"
+      },
+      {
+        "from": "kettle_amplified",
+        "to": "kettle_amplified_x_rounds",
+        "nodeId": "kettle:xrounds"
+      },
+      {
+        "from": "kettle_amplified",
+        "to": "kettle_amplified_anti_shield",
+        "nodeId": "kettle:antishield"
+      },
+      {
+        "from": "kettle_amplified_anti_shield",
+        "to": "kettle_amplified_anti_shield_full_auto",
+        "nodeId": "kettle:fullauto"
+      },
+      {
+        "from": "kettle_amplified_full_auto",
+        "to": "kettle_amplified_anti_shield_full_auto",
+        "nodeId": "kettle:antishield"
+      },
+      {
+        "from": "osprey_amplified",
+        "to": "osprey_amplified_anti_weak_point",
+        "nodeId": "osprey:antiweakpoint"
+      },
+      {
+        "from": "osprey_amplified",
+        "to": "osprey_amplified_tracker_rounds",
+        "nodeId": "osprey:trackerrounds"
+      },
+      {
+        "from": "rascal_amplified",
+        "to": "rascal_amplified_high_velocity",
+        "nodeId": "rascal:highvelocity"
+      },
+      {
+        "from": "rascal_amplified",
+        "to": "rascal_amplified_sprint_shooting",
+        "nodeId": "rascal:sprintshooting"
+      },
+      {
+        "from": "rascal_amplified_high_velocity",
+        "to": "rascal_amplified_high_velocity_sprint_shooting",
+        "nodeId": "rascal:sprintshooting"
+      },
+      {
+        "from": "rascal_amplified_sprint_shooting",
+        "to": "rascal_amplified_high_velocity_sprint_shooting",
+        "nodeId": "rascal:highvelocity"
+      },
+      {
+        "from": "rattler_amplified",
+        "to": "rattler_amplified_incendiary_rounds",
+        "nodeId": "rattler:incendiaryrounds"
+      },
+      {
+        "from": "rattler_amplified",
+        "to": "rattler_amplified_more_reload",
+        "nodeId": "rattler:morereload"
+      },
+      {
+        "from": "rattler_amplified_incendiary_rounds",
+        "to": "rattler_amplified_more_reload_incendiary_rounds",
+        "nodeId": "rattler:morereload"
+      },
+      {
+        "from": "rattler_amplified_more_reload",
+        "to": "rattler_amplified_more_reload_incendiary_rounds",
+        "nodeId": "rattler:incendiaryrounds"
+      },
+      {
+        "from": "rattler_amplified_more_reload",
+        "to": "rattler_amplified_more_reload_drum_mag",
+        "nodeId": "rattler:drummag"
+      },
+      {
+        "from": "rattler_amplified_more_reload_drum_mag",
+        "to": "rattler_amplified_more_reload_drum_mag_incendiary_rounds",
+        "nodeId": "rattler:incendiaryrounds"
+      },
+      {
+        "from": "rattler_amplified_more_reload_incendiary_rounds",
+        "to": "rattler_amplified_more_reload_drum_mag_incendiary_rounds",
+        "nodeId": "rattler:drummag"
+      },
+      {
+        "from": "renegade_amplified",
+        "to": "renegade_amplified_scoped",
+        "nodeId": "renegade:scoped"
+      },
+      {
+        "from": "renegade_amplified",
+        "to": "renegade_amplified_more_reload",
+        "nodeId": "renegade:morereload"
+      },
+      {
+        "from": "renegade_amplified_more_reload",
+        "to": "renegade_amplified_more_reload_scoped",
+        "nodeId": "renegade:scoped"
+      },
+      {
+        "from": "renegade_amplified_scoped",
+        "to": "renegade_amplified_more_reload_scoped",
+        "nodeId": "renegade:morereload"
+      }
+    ],
+    "research": [
+      {
+        "id": "beam_resonance_tech",
+        "name": "Beam Resonance Tech",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "queen_reactor",
+            "quantity": 2
+          }
+        ],
+        "source": "https://arctracker.io/research/beam-resonance-tech",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "In einem Raid: 1.500 Schaden an Vaporizern mit einem Equalizer verursachen.",
+          "en": "In one raid: deal 1,500 damage to Vaporizers with an Equalizer.",
+          "fr": "En un raid : infliger 1 500 dégâts aux Vaporizers avec un Equalizer.",
+          "es": "En una incursión: inflige 1.500 de daño a Vaporizers con un Equalizer.",
+          "it": "In un raid: infliggi 1.500 danni ai Vaporizers con un Equalizer."
+        },
+        "taskSource": "https://arctracker.io/research/beam-resonance-tech",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "burst_assembly_recovery",
+        "name": "Burst Assembly Recovery",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "pop_trigger",
+            "quantity": 20
+          }
+        ],
+        "source": "https://arctracker.io/research/burst-assembly-recovery",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "3 Shredder mit dem Raider-Werkzeug zerstören.",
+          "en": "Destroy 3 Shredders with a Raider Tool.",
+          "fr": "Détruire 3 Shredders avec un outil de Raider.",
+          "es": "Destruye 3 Shredders con una herramienta de Raider.",
+          "it": "Distruggi 3 Shredders con uno strumento Raider."
+        },
+        "taskSource": "https://arctracker.io/research/burst-assembly-recovery",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "embedded_blast_engineering",
+        "name": "Embedded Blast Engineering",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "rocketeer_driver",
+            "quantity": 5
+          }
+        ],
+        "source": "https://arctracker.io/research/embedded-blast-engineering",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "Je 1.000 Schaden an Fireflies, Hornets, Fireballs und Surveyors mit Light Impact Grenades verursachen.",
+          "en": "Deal 1,000 damage each to Fireflies, Hornets, Fireballs and Surveyors using Light Impact Grenades.",
+          "fr": "Infliger 1 000 dégâts à chacun : Fireflies, Hornets, Fireballs et Surveyors, avec des Light Impact Grenades.",
+          "es": "Inflige 1.000 de daño a cada tipo: Fireflies, Hornets, Fireballs y Surveyors, con Light Impact Grenades.",
+          "it": "Infliggi 1.000 danni a ciascun tipo: Fireflies, Hornets, Fireballs e Surveyors, con Light Impact Grenades."
+        },
+        "taskSource": "https://arctracker.io/research/embedded-blast-engineering",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "extended_burst_cycles",
+        "name": "Extended Burst Cycles",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "comet_igniter",
+            "quantity": 10
+          }
+        ],
+        "source": "https://arctracker.io/research/extended-burst-cycles",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "10.000 Schaden mit einer Burst Burletta oder Charged Burst Aphelion verursachen.",
+          "en": "Deal 10,000 damage with a Burst Burletta or Charged Burst Aphelion.",
+          "fr": "Infliger 10 000 dégâts avec une Burst Burletta ou une Charged Burst Aphelion.",
+          "es": "Inflige 10.000 de daño con Burst Burletta o Charged Burst Aphelion.",
+          "it": "Infliggi 10.000 danni con Burst Burletta o Charged Burst Aphelion."
+        },
+        "taskSource": "https://arctracker.io/research/extended-burst-cycles",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "high_voltage_exposure",
+        "name": "High-Voltage Exposure",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "leaper_pulse_unit",
+            "quantity": 5
+          }
+        ],
+        "source": "https://arctracker.io/research/high-voltage-exposure",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "5 ARC-Turbinen zerstören.",
+          "en": "Destroy 5 ARC Turbines.",
+          "fr": "Détruire 5 turbines ARC.",
+          "es": "Destruye 5 turbinas ARC.",
+          "it": "Distruggi 5 turbine ARC."
+        },
+        "taskSource": "https://arctracker.io/research/high-voltage-exposure",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "magazine_geometry_101",
+        "name": "Magazine Geometry 101",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "bastion_cell",
+            "quantity": 5
+          }
+        ],
+        "source": "https://arctracker.io/research/magazine-geometry-101",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "15.000 Schaden an einem Bastion mit einer Rattler verursachen und 1 Bastion mit einer Rattler zerstören.",
+          "en": "Deal 15,000 damage to a Bastion with a Rattler and destroy 1 Bastion with a Rattler.",
+          "fr": "Infliger 15 000 dégâts à un Bastion avec une Rattler et détruire 1 Bastion avec une Rattler.",
+          "es": "Inflige 15.000 de daño a un Bastion con una Rattler y destruye 1 Bastion con una Rattler.",
+          "it": "Infliggi 15.000 danni a un Bastion con una Rattler e distruggi 1 Bastion con una Rattler."
+        },
+        "taskSource": "https://arctracker.io/research/magazine-geometry-101",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "mobile_fire_grip_fittings",
+        "name": "Mobile-Fire Grip Fittings",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "skulker_targeter",
+            "quantity": 20
+          }
+        ],
+        "source": "https://arctracker.io/research/mobile-fire-grip-fittings",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "In einem Raid auf Pendola Pass besuchen: Electrical Substation, Truck Stop, Old Town, Almatera Station, Researcher Lodgings, Deep-Space Telescope und Commissary Supermarket.",
+          "en": "In one raid on Pendola Pass, visit: Electrical Substation, Truck Stop, Old Town, Almatera Station, Researcher Lodgings, Deep-Space Telescope and Commissary Supermarket.",
+          "fr": "En un raid sur Pendola Pass, visiter : Electrical Substation, Truck Stop, Old Town, Almatera Station, Researcher Lodgings, Deep-Space Telescope et Commissary Supermarket.",
+          "es": "En una incursión en Pendola Pass, visita: Electrical Substation, Truck Stop, Old Town, Almatera Station, Researcher Lodgings, Deep-Space Telescope y Commissary Supermarket.",
+          "it": "In un raid su Pendola Pass, visita: Electrical Substation, Truck Stop, Old Town, Almatera Station, Researcher Lodgings, Deep-Space Telescope e Commissary Supermarket."
+        },
+        "taskSource": "https://arctracker.io/research/mobile-fire-grip-fittings",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "shield_stress_testing",
+        "name": "Shield Stress Testing",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "matriarch_reactor",
+            "quantity": 2
+          }
+        ],
+        "source": "https://arctracker.io/research/shield-stress-testing",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "700 Schaden an anderen Raidern verursachen.",
+          "en": "Deal 700 damage to encountered Raiders.",
+          "fr": "Infliger 700 dégâts aux Raiders rencontrés.",
+          "es": "Inflige 700 de daño a Raiders encontrados.",
+          "it": "Infliggi 700 danni ai Raiders incontrati."
+        },
+        "taskSource": "https://arctracker.io/research/shield-stress-testing",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "solid_core_casting_tech",
+        "name": "Solid-Core Casting Tech",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "tick_pod",
+            "quantity": 20
+          }
+        ],
+        "source": "https://arctracker.io/research/solid-core-casting-tech",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "50 fliegende ARC mit Schrotflinten zerstören.",
+          "en": "Destroy 50 flying ARC using shotguns.",
+          "fr": "Détruire 50 ARC volants avec des fusils à pompe.",
+          "es": "Destruye 50 ARC voladoras con escopetas.",
+          "it": "Distruggi 50 ARC volanti con fucili a pompa."
+        },
+        "taskSource": "https://arctracker.io/research/solid-core-casting-tech",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "targeted_component_trial",
+        "name": "Targeted Component Trial",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "fireball_burner",
+            "quantity": 20
+          }
+        ],
+        "source": "https://arctracker.io/research/targeted-component-trial",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "40 Triebwerke an fliegenden ARC zerstören.",
+          "en": "Destroy 40 thrusters on flying ARC enemies.",
+          "fr": "Détruire 40 propulseurs sur des ARC volants.",
+          "es": "Destruye 40 propulsores de enemigos ARC voladores.",
+          "it": "Distruggi 40 propulsori di nemici ARC volanti."
+        },
+        "taskSource": "https://arctracker.io/research/targeted-component-trial",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "thermite_tipped_rounds",
+        "name": "Thermite-Tipped Rounds",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "firefly_burner",
+            "quantity": 5
+          }
+        ],
+        "source": "https://arctracker.io/research/thermite-tipped-rounds",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "30 Fireballs mit Explosive Mines zerstören.",
+          "en": "Destroy 30 Fireballs with Explosive Mines.",
+          "fr": "Détruire 30 Fireballs avec des Explosive Mines.",
+          "es": "Destruye 30 Fireballs con Explosive Mines.",
+          "it": "Distruggi 30 Fireballs con Explosive Mines."
+        },
+        "taskSource": "https://arctracker.io/research/thermite-tipped-rounds",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "top_mounted_optics_retrofittings",
+        "name": "Top Mounted Optics Retrofittings",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "snitch_scanner",
+            "quantity": 14
+          }
+        ],
+        "source": "https://arctracker.io/research/top-mounted-optics-retrofittings",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "In einem Raid auf Blue Gate: Pilgrim’s Peak besuchen und 1.000 Schaden an ARC mit der Osprey verursachen.",
+          "en": "In one raid on Blue Gate: visit Pilgrim’s Peak and deal 1,000 damage to ARC enemies using the Osprey.",
+          "fr": "En un raid sur Blue Gate : visiter Pilgrim’s Peak et infliger 1 000 dégâts aux ARC avec l’Osprey.",
+          "es": "En una incursión en Blue Gate: visita Pilgrim’s Peak e inflige 1.000 de daño a ARC con la Osprey.",
+          "it": "In un raid su Blue Gate: visita Pilgrim’s Peak e infliggi 1.000 danni agli ARC con l’Osprey."
+        },
+        "taskSource": "https://arctracker.io/research/top-mounted-optics-retrofittings",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "trigger_reset_systems",
+        "name": "Trigger Reset Systems",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "vaporizer_regulator",
+            "quantity": 4
+          }
+        ],
+        "source": "https://arctracker.io/research/trigger-reset-systems",
+        "status": "api-documented-not-game-confirmed",
+        "tasks": {
+          "de": "5 Skulker mit dem Raider-Werkzeug zerstören.",
+          "en": "Destroy 5 Skulkers with a Raider Tool.",
+          "fr": "Détruire 5 Skulkers avec un outil de Raider.",
+          "es": "Destruye 5 Skulkers con una herramienta de Raider.",
+          "it": "Distruggi 5 Skulkers con uno strumento Raider."
+        },
+        "taskSource": "https://arctracker.io/research/trigger-reset-systems",
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      }
+    ],
+    "materials": {
+      "assessor_matrix": {
+        "de": "Prüfer-Matrix",
+        "en": "Assessor Matrix",
+        "fr": "Matrice d'Évaluateur",
+        "es": "Matriz de asesor",
+        "it": "Matrice Valutatore"
+      },
+      "bastion_cell": {
+        "de": "Bastionzelle",
+        "en": "Bastion Cell",
+        "fr": "Cellule de Bastion",
+        "es": "Célula de bastión",
+        "it": "Cella del Bastione"
+      },
+      "comet_igniter": {
+        "de": "Kometenzünder",
+        "en": "Comet Igniter",
+        "fr": "Allumeur de Comète",
+        "es": "Encendedor de cometa",
+        "it": "Accendicomete"
+      },
+      "fireball_burner": {
+        "de": "Feuerballbrenner",
+        "en": "Fireball Burner",
+        "fr": "Brûleur de Bolide",
+        "es": "Quemador de esferígneo",
+        "it": "Inceneritore Sfera infuocata"
+      },
+      "firefly_burner": {
+        "de": "Glühwürmchenbrenner",
+        "en": "Firefly Burner",
+        "fr": "Brûleur de Luciole",
+        "es": "Quemador de luciérnaga",
+        "it": "Inceneritore lucciola"
+      },
+      "fluted_rotor_core": {
+        "de": "Fluted Rotor Core",
+        "en": "Fluted Rotor Core",
+        "fr": "Fluted Rotor Core",
+        "es": "Fluted Rotor Core",
+        "it": "Fluted Rotor Core"
+      },
+      "fossilized_lightning": {
+        "de": "Fossilisierter Blitz",
+        "en": "Fossilized Lightning",
+        "fr": "Foudre fossilisée",
+        "es": "Fulgurita",
+        "it": "Fulmine fossilizzato"
+      },
+      "leaper_pulse_unit": {
+        "de": "Springer-Impulseinheit",
+        "en": "Leaper Pulse Unit",
+        "fr": "Unité à impulsion de Bondisseur",
+        "es": "Unidad de impulso de saltador",
+        "it": "Unità a impulso Leaper"
+      },
+      "matriarch_reactor": {
+        "de": "Matriarchin-Reaktor",
+        "en": "Matriarch Reactor",
+        "fr": "Réacteur de Matriarche",
+        "es": "Reactor de matriarca",
+        "it": "Reattore Matriarca"
+      },
+      "pneumatic_actuator": {
+        "de": "Pneumatic Actuator",
+        "en": "Pneumatic Actuator",
+        "fr": "Pneumatic Actuator",
+        "es": "Pneumatic Actuator",
+        "it": "Pneumatic Actuator"
+      },
+      "pop_trigger": {
+        "de": "Pop-Auslöser",
+        "en": "Pop Trigger",
+        "fr": "Détonateur de Pop",
+        "es": "Gatillo de tronador",
+        "it": "Detonatore di Pop"
+      },
+      "pressure_regulator": {
+        "de": "Pressure Regulator",
+        "en": "Pressure Regulator",
+        "fr": "Pressure Regulator",
+        "es": "Pressure Regulator",
+        "it": "Pressure Regulator"
+      },
+      "propellant_valve_assembly": {
+        "de": "Propellant Valve Assembly",
+        "en": "Propellant Valve Assembly",
+        "fr": "Propellant Valve Assembly",
+        "es": "Propellant Valve Assembly",
+        "it": "Propellant Valve Assembly"
+      },
+      "queen_reactor": {
+        "de": "Königin-Reaktor",
+        "en": "Queen Reactor",
+        "fr": "Réacteur de Reine",
+        "es": "Reactor de reina",
+        "it": "Reattore Regina"
+      },
+      "rocketeer_driver": {
+        "de": "Raketenkanoniertreiber",
+        "en": "Rocketeer Driver",
+        "fr": "Pilote d'Artificier",
+        "es": "Controlador de cohetero",
+        "it": "Driver di Lanciarazzi"
+      },
+      "skulker_targeter": {
+        "de": "Skulker-Zielgerät",
+        "en": "Skulker Targeter",
+        "fr": "Désignateur de Rôdeur",
+        "es": "Designador de merodeador",
+        "it": "Mirino Skulker"
+      },
+      "snitch_scanner": {
+        "de": "Spitzel-Scanner",
+        "en": "Snitch Scanner",
+        "fr": "Scanner de Mouchard",
+        "es": "Escáner de delator",
+        "it": "Scanner di spie"
+      },
+      "tick_pod": {
+        "de": "Zeckenkapsel",
+        "en": "Tick Pod",
+        "fr": "Nacelle de Tique",
+        "es": "Cápsula de garrapata",
+        "it": "Capsula di Pulce"
+      },
+      "turbine_compressor": {
+        "de": "Turbinenkompressor",
+        "en": "Turbine Compressor",
+        "fr": "Compresseur de Turbine",
+        "es": "Compresor de turbina",
+        "it": "Compressore Turbina"
+      },
+      "vaporizer_regulator": {
+        "de": "Verdampfer-Regulator",
+        "en": "Vaporizer Regulator",
+        "fr": "Régulateur de Vaporisateur",
+        "es": "Regulador de atomizador",
+        "it": "Regolatore Valutatore"
+      }
+    },
+    "unresolved": [
+      {
+        "familyId": "osprey",
+        "name": "Straight Bolt"
+      },
+      {
+        "familyId": "rascal",
+        "name": "Incendiary Grenade"
+      },
+      {
+        "familyId": "hullcracker",
+        "name": "Incendiary Grenade"
+      },
+      {
+        "familyId": "equalizer",
+        "name": "Anti Shield"
+      },
+      {
+        "familyId": "jupiter",
+        "name": "Straight Bolt"
+      }
+    ]
   }
 }

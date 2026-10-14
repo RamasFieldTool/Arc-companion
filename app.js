@@ -246,6 +246,7 @@ function card(i){
     </div>
     ${amplified?`<div class="amplified-search-note"><strong>${escapeHtml(amplifiedLabel)}</strong> · MK ${escapeHtml(amplified.moduleMark)}<small>${escapeHtml(amplifiedNote)}</small></div>`:''}
     ${optionHtml}
+    ${window.RFTAmplified?.materialUseHtml(i.id)||''}
     ${desc?`<div class="desc"><b>${escapeHtml(tr('use'))}:</b> ${escapeHtml(desc)}</div>`:''}
     <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${recyclingHtml(i)}</div>
     ${goalDecision(i)}
@@ -253,6 +254,7 @@ function card(i){
 }
 
 window.addEventListener('rft-amplified-data-ready',()=>{if(typeof drawItems==='function')drawItems()});
+window.addEventListener('arc-language-change',()=>{if(typeof drawItems==='function')drawItems()});
 
 function drawItems(){
   const x=norm(q.value.trim());

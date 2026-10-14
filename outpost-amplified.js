@@ -1,9 +1,48 @@
-// Read-only Amplified overview. No guessed recipes, inventory writes, or fabricated item records.
+// Read-only reference shared with material search. No inventory items or player-state writes.
 (()=>{'use strict';
-const strings={de:['Amplified-Waffen','Waffen oder Variante suchen','15 Waffenfamilien · Materialkosten nur nach Bestätigung','Ausgangswaffe','Modulklasse','Benötigte Upgrade-Items','Noch nicht bestätigt','Bekannte Varianten (vorläufig)','Weitere Upgrade-Pfade werden geprüft','Keine Treffer','Daten konnten nicht geladen werden'],en:['Amplified weapons','Search weapon or variant','15 weapon families · costs shown only when verified','Base weapon','Module class','Required upgrade items','Not yet confirmed','Known variants (provisional)','Additional upgrade paths under review','No matches','Unable to load data'],fr:['Armes Amplified','Rechercher une arme','15 familles · coûts en attente de confirmation','Arme de base','Classe du module','Matériaux nécessaires','Non confirmé','Variantes connues (provisoires)','Autres améliorations en cours de vérification','Aucun résultat','Chargement impossible'],es:['Armas Amplified','Buscar arma','15 familias · costes pendientes de confirmación','Arma base','Clase de módulo','Materiales necesarios','Sin confirmar','Variantes conocidas (provisionales)','Otras mejoras en revisión','Sin resultados','No se pudieron cargar los datos'],it:['Armi Amplified','Cerca arma','15 famiglie · costi da confermare','Arma base','Classe modulo','Materiali richiesti','Non confermato','Varianti note (provvisorie)','Altri percorsi in verifica','Nessun risultato','Impossibile caricare i dati']};
-const optionHeading={de:'Upgrade-Optionen (Community-Angaben, unbestätigt)',en:'Upgrade options (unverified community reports)',fr:'Options (communauté, non confirmées)',es:'Opciones (comunidad, sin confirmar)',it:'Opzioni (comunità, non confermate)'};
-let data,root,query='';const label=id=>id.replace(/_/g,' ').replace(/\b\w/g,x=>x.toUpperCase());const lang=()=>{const l=(document.documentElement.dataset.uiLanguage||window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2);return strings[l]?l:'en'};
-function render(){const anchor=document.getElementById('outpostFurnitureDesigns');if(!anchor)return;if(!root){root=document.createElement('section');root.id='outpostAmplifiedWeapons';root.className='outpost-amplified';anchor.before(root)}const currentLanguage=lang();if(root.dataset.renderedLanguage===currentLanguage&&root.dataset.dataReady===String(Boolean(data)))return;root.dataset.renderedLanguage=currentLanguage;root.dataset.dataReady=String(Boolean(data));const t=strings[currentLanguage];root.replaceChildren();const title=document.createElement('h3');title.textContent=t[0];root.append(title);const note=document.createElement('p');note.textContent=t[2];root.append(note);if(!data){const p=document.createElement('p');p.textContent=t[10];root.append(p);return}const search=document.createElement('input');search.type='search';search.placeholder=t[1];search.setAttribute('aria-label',t[1]);search.value=query;root.append(search);const list=document.createElement('div');root.append(list);function draw(){list.replaceChildren();let n=0;for(const family of data.families){const name=label(family.id);if(![name,...family.variants.map(v=>v.name),...(family.researchedUpgradeOptions||[]).map(v=>v.name)].some(x=>x.toLowerCase().includes(query.toLowerCase())))continue;n++;const details=document.createElement('details');const summary=document.createElement('summary');summary.textContent=name+' · MK '+family.moduleMark;details.append(summary);const p=document.createElement('p');p.textContent=t[3]+': '+family.baseItemIds.map(label).join(', ')+' · '+t[4]+': MK '+family.moduleMark;details.append(p);const materials=document.createElement('p');materials.textContent=t[5]+': '+t[6];details.append(materials);const sub=document.createElement('strong');sub.textContent=t[7];details.append(sub);if(family.variants.length){const ul=document.createElement('ul');for(const v of family.variants){const li=document.createElement('li');li.textContent=v.name+' · '+t[5]+': '+t[6];ul.append(li)}details.append(ul)}else{const pending=document.createElement('p');pending.textContent=t[8];details.append(pending)}if(family.researchedUpgradeOptions?.length){const heading=document.createElement('p');heading.textContent=optionHeading[lang()];details.append(heading);const options=document.createElement('ul');for(const option of family.researchedUpgradeOptions){const li=document.createElement('li');li.textContent=option.name+' · '+t[5]+': '+t[6];options.append(li)}details.append(options)}list.append(details)}if(!n){const p=document.createElement('p');p.textContent=t[9];list.append(p)}}search.addEventListener('input',()=>{query=search.value;draw()});draw()}
-const style=document.createElement('style');style.textContent='#outpostAmplifiedWeapons{margin:14px 0;padding:12px;border:1px solid var(--ui-line,#666);border-radius:10px}#outpostAmplifiedWeapons input{box-sizing:border-box;width:100%;min-height:44px;padding:8px;background:var(--ui-panel,#222);color:var(--ui-text,#fff);border:1px solid var(--ui-line,#666)}#outpostAmplifiedWeapons details{padding:10px 0;border-bottom:1px solid var(--ui-line,#666)}#outpostAmplifiedWeapons summary{cursor:pointer;font-weight:600}#outpostAmplifiedWeapons p{overflow-wrap:anywhere}';document.head.append(style);
-window.addEventListener('arc-language-change',render);new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['data-ui-language']});fetch('catalog-data/amplified-variants.json?v=2').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(x=>{data=x;render()}).catch(render);
+const shared=window.RFTAmplified;if(!shared)return;
+let root,query='';
+const el=(tag,text)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node};
+function render(){
+ const anchor=document.getElementById('outpostFurnitureDesigns');if(!anchor)return;
+ if(!root){root=el('section');root.id='outpostAmplifiedWeapons';root.className='outpost-amplified';anchor.before(root)}
+ const locale=shared.language(),data=shared.data,t=shared.labels[locale];
+ if(root.dataset.renderedLanguage===locale&&root.dataset.dataReady===String(Boolean(data))&&root.dataset.error===String(shared.error))return;
+ root.dataset.renderedLanguage=locale;root.dataset.dataReady=String(Boolean(data));root.dataset.error=String(shared.error);root.replaceChildren();
+ root.append(el('h3',t.title),el('p',t.note),el('p',t.evidence));
+ if(!data){root.append(el('p',shared.error?t.error:t.loading));return}
+ const integration=data.testIntegration,nodeById=new Map(integration.nodes.map(n=>[n.id,n])),configById=new Map(integration.configurations.map(c=>[c.id,c]));
+ const sourceLink=url=>{const a=el('a',t.source);a.href=url;a.target='_blank';a.rel='noopener noreferrer';return a};
+ const materialList=materials=>{const list=el('ul');for(const m of materials)list.append(el('li',m.quantity+'× '+shared.materialName(m.itemId,locale)));return list};
+ const configLabel=id=>{const c=configById.get(id);return c?.nodeIds.length?c.nodeIds.map(n=>nodeById.get(n).name).join(' + '):t.base};
+ const search=el('input');search.type='search';search.placeholder=t.search;search.setAttribute('aria-label',t.search);search.value=query;root.append(search);
+ const list=el('div');list.className='amplified-families';root.append(list);
+ function draw(){
+  list.replaceChildren();let count=0;
+  for(const family of data.families){
+   const name=shared.familyName(family.id),nodes=integration.nodes.filter(n=>n.familyId===family.id),unresolved=integration.unresolved.filter(n=>n.familyId===family.id);
+   if(![name,...nodes.map(n=>n.name),...unresolved.map(n=>n.name)].some(n=>n.toLowerCase().includes(query.toLowerCase())))continue;
+   count++;const panel=el('details');panel.className='amplified-family';panel.dataset.familyId=family.id;panel.append(el('summary',name+' · MK '+family.moduleMark));panel.append(el('p',t.module+': MK '+family.moduleMark));panel.append(el('h4',t.options));
+   for(const n of nodes){
+    const detail=el('details');detail.className='amplified-node';detail.dataset.nodeId=n.id;detail.append(el('summary',n.name));detail.append(el('p',t.evidence),el('h5',t.materials),materialList(n.materials));
+    detail.append(el('h5',t.research));
+    if(!n.researchIds.length)detail.append(el('p',t.unlisted));
+    for(const id of n.researchIds){
+     const r=integration.research.find(r=>r.id===id);if(!r)continue;
+     detail.append(el('p',r.name+' · '+t.station+' '+r.stationLevel),el('h5',t.step1),el('p',r.tasks[locale]||r.tasks.en),el('small',t.tasksNote),el('h5',t.step2),el('p',r.points.toLocaleString(locale)+' '+t.points),materialList(r.materials),sourceLink(r.source));
+    }
+    const paths=integration.connections.filter(e=>e.nodeId===n.id);
+    detail.append(el('h5',t.paths));const pathList=el('ul');
+    for(const path of paths)pathList.append(el('li',configLabel(path.from)+' → '+configLabel(path.to)));
+    detail.append(pathList,sourceLink(n.source));panel.append(detail);
+   }
+   for(const n of unresolved){const pending=el('p',n.name+' · '+t.unknown);pending.className='amplified-unresolved';panel.append(pending)}
+   list.append(panel);
+  }
+  if(!count)list.append(el('p',t.none));
+ }
+ search.addEventListener('input',()=>{query=search.value;draw()});draw();
+}
+const style=el('style');style.textContent='#outpostAmplifiedWeapons{margin:14px 0;padding:12px;border:1px solid var(--ui-line,#666);border-radius:10px;min-width:0}#outpostAmplifiedWeapons input{box-sizing:border-box;width:100%;min-height:44px;padding:8px;background:var(--ui-panel,#222);color:var(--ui-text,#fff);border:1px solid var(--ui-line,#666)}#outpostAmplifiedWeapons details{min-width:0;padding:6px 0;border-bottom:1px solid var(--ui-line,#666)}#outpostAmplifiedWeapons summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center;overflow-wrap:anywhere}#outpostAmplifiedWeapons .amplified-node{margin:6px 0 6px 8px;padding:8px;border:1px solid var(--ui-line,#666);border-radius:8px}#outpostAmplifiedWeapons p,#outpostAmplifiedWeapons li,#outpostAmplifiedWeapons small{overflow-wrap:anywhere}#outpostAmplifiedWeapons h5{font-size:inherit;margin:12px 0 6px}#outpostAmplifiedWeapons ul{padding-left:22px}#outpostAmplifiedWeapons a{display:inline-block;min-height:44px;padding:10px 4px;box-sizing:border-box;color:var(--ui-text,#fff);text-decoration:underline}.amplified-search-note summary{cursor:pointer;min-height:44px;overflow-wrap:anywhere}.amplified-search-note li{overflow-wrap:anywhere}';document.head.append(style);
+window.addEventListener('arc-language-change',render);window.addEventListener('rft-amplified-data-ready',render);new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['data-ui-language']});render();
 })();
