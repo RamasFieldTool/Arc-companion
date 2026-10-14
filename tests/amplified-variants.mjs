@@ -121,8 +121,8 @@ test('direct record audit never confuses index coverage with opened pages',()=>{
  assert.equal(a.expectedRecordsFromPriorIndexCount,89);
  assert.equal(a.records.length+a.unopenedRecords,89);
  assert.equal(new Set(a.records.map(x=>x.id)).size,a.records.length);
- assert.equal(a.records.length,35);
- assert.equal(a.unopenedRecords,54);
+ assert.equal(a.records.length,37);
+ assert.equal(a.unopenedRecords,52);
  for(const r of a.records){
    assert.equal(r.technicalStatus,'TEILWEISE AUSGEWERTET');
    assert.equal(r.contentVerification,'TEILWEISE VERIFIZIERT');
