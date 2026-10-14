@@ -47,6 +47,7 @@ try{
    assert.ok(recipe.includes('Beam Resonance Tech'));
    assert.ok(recipe.includes('1,500')||recipe.includes('1.500')||recipe.includes('1 500'));
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'mobile overflow');
+   await page.locator('#appBack').click();
    await page.locator('[data-app-target="itemsSection"]').click();
    await page.locator('#q').fill('Queen Reactor');
    const material=page.locator('.card[data-item-id="queen_reactor"]').first();
