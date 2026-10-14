@@ -1912,15 +1912,24 @@
         "technicalStatus": "TEILWEISE AUSGEWERTET",
         "contentVerification": "TEILWEISE VERIFIZIERT",
         "observed": {
-          "sourceGameVersion": "2.01",
-          "itemPageOpened": true
+          "gameVersion": "2.01",
+          "weightKg": 14,
+          "sellValue": 35200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2,
+          "falloffRangeMeters": [
+            100,
+            200
+          ],
+          "spinUpSeconds": 1,
+          "firingMode": "Fully-Automatic",
+          "arcArmorPenetration": "Moderate"
         },
         "missing": [
-          "upgrade crafting materials",
-          "research requirements",
-          "complete unlock connections",
+          "dynamic upgrade recipes",
+          "research unlocks",
           "repair costs",
-          "original game confirmation"
+          "game screenshot"
         ]
       },
       {
@@ -1931,15 +1940,24 @@
         "technicalStatus": "TEILWEISE AUSGEWERTET",
         "contentVerification": "TEILWEISE VERIFIZIERT",
         "observed": {
-          "sourceGameVersion": "2.01",
-          "itemPageOpened": true
+          "gameVersion": "2.01",
+          "weightKg": 14,
+          "sellValue": 35200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2,
+          "falloffRangeMeters": [
+            100,
+            200
+          ],
+          "spinUpSeconds": 1,
+          "firingMode": "Fully-Automatic",
+          "arcArmorPenetration": "Moderate"
         },
         "missing": [
-          "upgrade crafting materials",
-          "research requirements",
-          "complete unlock connections",
+          "dynamic upgrade recipes",
+          "research unlocks",
           "repair costs",
-          "original game confirmation"
+          "game screenshot"
         ]
       },
       {
@@ -2025,9 +2043,66 @@
           "repair cost",
           "original game screenshot"
         ]
+      },
+      {
+        "id": "bettina_amplified",
+        "url": "https://arctracker.io/items/bettina_amplified",
+        "family": "bettina",
+        "name": "Amplified Bettina",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "gameVersion": "2.01",
+          "weightKg": 11,
+          "sellValue": 27200,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2,
+          "falloffRangeMeters": [
+            180,
+            200
+          ],
+          "firingMode": "Fully-Automatic",
+          "increasedFireRatePercent": 15,
+          "reducedReloadTimePercent": 33.3,
+          "arcArmorPenetration": "Strong"
+        },
+        "missing": [
+          "dynamic upgrade recipes",
+          "research unlocks",
+          "repair costs",
+          "game screenshot"
+        ]
+      },
+      {
+        "id": "burletta_amplified",
+        "url": "https://arctracker.io/items/burletta_amplified",
+        "family": "burletta",
+        "name": "Amplified Burletta",
+        "technicalStatus": "TEILWEISE AUSGEWERTET",
+        "contentVerification": "TEILWEISE VERIFIZIERT",
+        "observed": {
+          "gameVersion": "2.01",
+          "weightKg": 4,
+          "sellValue": 16000,
+          "bulletSpeedMetersPerSecond": 350,
+          "criticalHitMultiplier": 2.5,
+          "falloffRangeMeters": [
+            130,
+            150
+          ],
+          "firingMode": "Semi-Automatic",
+          "reducedReloadTimePercent": 50,
+          "arcArmorPenetration": "Very Weak"
+        },
+        "missing": [
+          "dynamic upgrade recipes",
+          "research unlocks",
+          "repair costs",
+          "game screenshot"
+        ]
       }
     ],
-    "unopenedRecords": 54,
+    "unopenedRecords": 52,
     "unopenedStatus": "NOCH NICHT GEPRÜFT",
     "note": "35 individual accessible pages opened. Seven additional candidate URLs were attempted but reader returned inaccessible; they are NOT counted as opened or as confirmed dataset IDs. 54 indexed records remain unopened.",
     "accessAttempts": [
@@ -2059,6 +2134,20 @@
         "url": "https://arctracker.io/items/hairpin_amplified_tracker_rounds",
         "outcome": "URL not accessible via web reader"
       }
-    ]
+    ],
+    "accessAnalysis": {
+      "observed": "Index lists 970 items and links; public text extraction of detail pages exposes static item effects, but often no dynamic recipe panels. Seven direct URL attempts were not accessible through the reader.",
+      "hypothesesNotConfirmed": [
+        "client-side JavaScript rendering",
+        "data loaded separately",
+        "tool URL-access limitations"
+      ],
+      "nextAllowedPaths": [
+        "follow confirmed index links",
+        "try indexed locale variants",
+        "compare independent sources"
+      ],
+      "noBypass": true
+    }
   }
 }
