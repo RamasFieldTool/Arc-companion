@@ -27,6 +27,7 @@ jobs:
           node tests/catalog-update-2.mjs
           node tests/frozen-trail-data.mjs
           node tests/amplified-weapons-audit.mjs
+          node tests/amplified-variants.mjs
           node tests/planning-core.mjs
           node tests/item-find-locations.mjs
 
@@ -56,6 +57,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/quality-gate.mjs
+      - name: Run Amplified five-language responsive browser regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/amplified-variants-browser.mjs
       - name: Run Outpost reference table regression
         env:
           BASE_URL: http://127.0.0.1:4173/
