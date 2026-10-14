@@ -2,6 +2,18 @@ import {chromium} from 'playwright';
 import {mkdir} from 'node:fs/promises';
 import {installItemCatalogRoute} from './helpers/item-catalog.mjs';
 import {readFile} from 'node:fs/promises';
+const evidence=JSON.parse(await readFile(new URL('../catalog-data/pendola-pass-location-evidence.json',import.meta.url),'utf8'));
+const matrix=evidence.coordinateSystem.mappingToRftIllustration.matrix;
+const counts={cases:0,arcs:0,areas:0,outside:0};
+for(const layer of evidence.layers){
+ if(layer.records.length!==layer.count)throw Error('Evidence count mismatch');
+ for(const r of layer.records){const x=r[0]*matrix[0][0]+r[1]*matrix[1][0]+matrix[2][0],y=r[0]*matrix[0][1]+r[1]*matrix[1][1]+matrix[2][1];
+ if(!Number.isFinite(x)||!Number.isFinite(y))throw Error('Invalid transfer');
+ const group=layer.category.startsWith('weapon-case')?'cases':layer.category.startsWith('arc-spawn-areas')?'areas':'arcs';
+ if(x<0||x>100||y<0||y>100)counts.outside++;else counts[group]++;
+ }
+}
+if(JSON.stringify(counts)!==JSON.stringify({cases:58,arcs:30,areas:123,outside:7}))throw Error('Unexpected overlay counts');
 const fixture=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8')).slice(0,60);
 await mkdir('test-artifacts/pendola',{recursive:true});
 (async()=>{
@@ -21,7 +33,15 @@ await p.waitForTimeout(600);
 if(!(await p.locator('#pendolaLootSources').isVisible()))throw Error('Missing loot source preparation');
 if(await p.locator('#pendolaLootSources a').count()!==3)throw Error('Missing source links');
 if(await p.locator('#spawnBadge').textContent()!=='REKONSTRUKTION')throw Error('Missing draft status');
-if(await p.locator('#spawnCanvas button:visible').count())throw Error('Unexpected spawn/case markers');
+await p.waitForFunction(()=>document.querySelectorAll('#pendolaOverlay .pendola-loot-marker').length===88);
+if(await p.locator('#pendolaOverlay .pendola-cases').count()!==58)throw Error('Weapon case count');
+if(await p.locator('#pendolaOverlay .pendola-arcs').count()!==30)throw Error('ARC point count');
+await p.locator('[data-pendola-layer=cases]').click();if(await p.locator('.pendola-cases').count())throw Error('Case toggle');
+await p.locator('[data-pendola-layer=cases]').click();
+await p.locator('[data-pendola-layer=areas]').click();if(await p.locator('.pendola-areas').count()!==123)throw Error('ARC area count');
+await p.locator('[data-pendola-layer=areas]').click();
+await p.locator('#pendolaOverlay .pendola-cases').first().press('Enter');
+if(!await p.locator('.pendola-selection').isVisible())throw Error('Marker selection');
 if(await p.locator('#pendolaOverlay .pendola-extraction').count()!==4)throw Error('Missing reference extractions');
 if(await p.locator('#pendolaOverlay .pendola-area').count()!==4)throw Error('Missing area labels');
 if(await p.locator('#pendolaOverlay .pendola-place').count()!==13)throw Error('Missing identifiable landmarks');
@@ -40,6 +60,7 @@ for(const map of ['spaceport','buried-city','dam-battlegrounds','the-blue-gate',
 await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);
 const src=await p.locator('#spawnMapImage').getAttribute('src');if(map!=='pendola-pass'&&src.includes('pendola'))throw Error('Map stuck on Pendola');
 if(map!=='pendola-pass'&&await p.locator('#pendolaLootSources').isVisible())throw Error('Loot sources leaked');
+if(map!=='pendola-pass'&&await p.locator('#pendolaLocationControls').isVisible())throw Error('Location controls leaked');
 if(map!=='pendola-pass'&&await p.locator('#pendolaOverlay').isVisible())throw Error('Pendola overlay leaked to another map');
 if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not return');
 }
