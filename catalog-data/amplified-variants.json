@@ -2147,7 +2147,24 @@
         "try indexed locale variants",
         "compare independent sources"
       ],
-      "noBypass": true
+      "noBypass": true,
+      "confirmedEnvironmentFailure": "Direct Python requests to https://arctracker.io/items/bettina_amplified and https://arctracker.io/api/items failed DNS resolution in this runtime; even github.com direct requests failed, indicating environment DNS rather than proof of site blocking.",
+      "documentedPublicApi": {
+        "docs": "https://arctracker.io/developers/docs",
+        "endpoint": "https://arctracker.io/api/items",
+        "authentication": "none required per published documentation",
+        "advertisedFields": "multilingual item names, descriptions and effects",
+        "testedViaWebReader": "URL not accessible via this tool",
+        "testedViaPython": "DNS resolution failure",
+        "recipeUpgradeFields": "not documented; unknown"
+      },
+      "documentedMcp": {
+        "url": "https://mcp.arctracker.io/mcp",
+        "docs": "https://arctracker.io/developers/docs",
+        "requiresConnection": true,
+        "notConnectedOrInvoked": true
+      },
+      "reproducibleFullRecipeMethodEstablished": false
     }
   }
 }
