@@ -218,6 +218,20 @@ function recyclingText(i){
   return tr('noRecycle');
 }
 
+// One recipe presentation for every regular item, independent of release date or type.
+function itemRecipeHtml(i){
+  if(!i.recipe||typeof i.recipe!=='object'||Array.isArray(i.recipe))return '';
+  const materials=Object.entries(i.recipe).filter(([id,n])=>typeof id==='string'&&Number.isFinite(n)&&n>0);
+  if(!materials.length)return '';
+  const locale=window.RFTDataLabels?.language()||lang;
+  const labels={de:['Herstellung','Bauplan erforderlich','API-dokumentiert · noch nicht im Spiel bestätigt','Quelle'],en:['Crafting','Blueprint required','API-documented · not yet confirmed in-game','Source'],fr:['Fabrication','Plan requis','Documenté par l’API · non confirmé en jeu','Source'],es:['Fabricación','Plano necesario','Documentado por la API · sin confirmar en el juego','Fuente'],it:['Creazione','Progetto richiesto','Documentato dall’API · non confermato nel gioco','Fonte']}[locale]||['Crafting','Blueprint required','API-documented · not yet confirmed in-game','Source'];
+  const materialName=id=>{const target=itemById(id);return target?itemName(target):i.rftRecipeMaterialNames?.[id]?.[locale]||i.rftRecipeMaterialNames?.[id]?.en||id.replaceAll('_',' ')};
+  const bench=i.craftBench?String(i.craftBench==='weapon_bench'?'Gunsmith':i.craftBench).replaceAll('_',' '):'';
+  const evidence=i.rftRecipeEvidence;
+  const url=evidence?.source&&/^https:\/\//.test(evidence.source)?evidence.source:null;
+  return `<details class="item-recipe" data-item-recipe><summary>${escapeHtml(labels[0])}</summary>${bench?`<p>${escapeHtml(bench)}</p>`:''}${i.blueprintLocked===true?`<p>${escapeHtml(labels[1])}</p>`:''}<ul>${materials.map(([id,n])=>`<li>${formatNum(n)}× ${escapeHtml(materialName(id))}</li>`).join('')}</ul>${evidence?`<small>${escapeHtml(labels[2])}</small>`:''}${url?`<p><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(labels[3])}</a></p>`:''}</details>`;
+}
+
 function card(i){
   const amplified=window.RFTAmplified?.byId?.[i.id];
   const amplifiedLabel=lang==='de'?'Amplified: 5. Qualitätsstufe':'Amplified: 5th quality tier';
@@ -246,6 +260,7 @@ function card(i){
     </div>
     ${amplified?`<div class="amplified-search-note"><strong>${escapeHtml(amplifiedLabel)}</strong> · MK ${escapeHtml(amplified.moduleMark)}<small>${escapeHtml(amplifiedNote)}</small></div>`:''}
     ${optionHtml}
+    ${itemRecipeHtml(i)}
     ${window.RFTAmplified?.materialUseHtml(i.id)||''}
     ${desc?`<div class="desc"><b>${escapeHtml(tr('use'))}:</b> ${escapeHtml(desc)}</div>`:''}
     <div class="recycle"><b>${escapeHtml(tr('recycle'))}:</b> ${recyclingHtml(i)}</div>

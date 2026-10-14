@@ -18,7 +18,7 @@ assert.equal(future.items.filter(i=>i.name?.en==='Planks').length,1);
 assert.deepEqual(JSON.parse(JSON.stringify(future.items.find(i=>i.id===upstream.id))),upstream);
 assert.equal(future.goals[0].levels[0].requirements[0].itemId,upstream.id);
 assert.equal(future.goals[1].levels[0].requirements[0].itemId,upstream.id);
-for(const id of ['bantam_i','stiletto_ii','stiletto_iv']){
+for(const id of ['stiletto_ii','stiletto_iv']){
  const item=result.items.find(i=>i.id===id);assert.equal(item.recipe,undefined);assert.equal(item.recyclesInto,undefined);
  for(const lang of ['de','en','fr','es','it'])assert.ok(item.description[lang]);
 }
@@ -93,7 +93,7 @@ for(const id of weaponIds){
 }
 for(const id of ['bantam_ii','bantam_iv','stiletto_i','stiletto_iii']){
   const item=result.items.find(i=>i.id===id);
-  for(const key of ['recipe','recyclesInto','salvagesInto','upgradeCost','value','rarity','weightKg','damage'])
+  for(const key of ['recyclesInto','salvagesInto','upgradeCost','value','rarity','weightKg','damage'])
     assert.equal(item[key],undefined,'unverified field '+id+'.'+key);
   for(const lang of ['de','en','fr','es','it']) assert.ok(item.description[lang],id+' '+lang);
 }
@@ -123,3 +123,18 @@ const afterFallback=weaponContext.window.RFTFrozenTrailData.extend(sourceItems,s
 assert.equal(new Set(afterFallback.items.map(i=>i.id)).size,afterFallback.items.length);
 for(const [key,val] of Object.entries(savedOriginal)) assert.equal(savedWeaponData.get(key),val,'saved data changed after fallback: '+key);
 console.log('PASS Frozen Trail eight weapon tiers: missing values remain absent, upstream deduplication, saved stock and goals preserved');
+
+// Base weapons use standard recipe fields; higher-tier costs remain unfilled.
+for(const id of ['bantam_i','stiletto_i']){
+ const item=result.items.find(i=>i.id===id);
+ assert.deepEqual(JSON.parse(JSON.stringify(item.recipe)),{mechanical_components:4,simple_gun_parts:4});
+ assert.equal(item.blueprintLocked,true);assert.equal(item.craftBench,'weapon_bench');
+ assert.equal(item.rftRecipeEvidence.status,'api-documented-not-game-confirmed');
+}
+for(const id of ['bantam_ii','bantam_iv','stiletto_ii','stiletto_iii','stiletto_iv'])assert.equal(result.items.find(i=>i.id===id).recipe,undefined);
+const current={id:'api-anvil-i',name:{en:'Anvil I'},recipe:{future_material:8},value:4321};
+const source=JSON.stringify(current),kept=extend([current],[]).items.find(i=>i.id===current.id);
+assert.equal(JSON.stringify(current),source);assert.deepEqual(JSON.parse(JSON.stringify(kept.recipe)),current.recipe);assert.equal(kept.value,4321);
+const anvil=extend([{id:'anvil_i',name:{en:'Anvil I'}}],[]).items.find(i=>i.id==='anvil_i');
+assert.deepEqual(JSON.parse(JSON.stringify(anvil.recipe)),{advanced_mechanical_components:2,hand_drill:3,heavy_gun_parts:3});
+console.log('PASS standard weapon recipes: missing base recipes added with provenance, upstream recipes/IDs preserved, tier costs remain unknown');

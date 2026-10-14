@@ -106,6 +106,7 @@
     }
     return records.map(record=>visit(record));
   }
+  const weaponRecipeReferences={"bantam_i":{"name":"Bantam I","recipe":{"mechanical_components":4,"simple_gun_parts":4},"craftBench":"weapon_bench","blueprintLocked":true,"materialNames":{"mechanical_components":{"de":"Mechanische Komponenten","en":"Mechanical Components","fr":"Composants mécaniques","es":"Componentes mecánicos","it":"Componenti meccanici"},"simple_gun_parts":{"de":"Einfache Waffenteile","en":"Simple Gun Parts","fr":"Pièces de pistolet simples","es":"Piezas de arma básica","it":"Parti di pistole semplici"}},"evidence":{"source":"https://arctracker.io/items/bantam_i","apiSource":"https://arctracker.io/api/items","apiVersion":"1791948888742","status":"api-documented-not-game-confirmed"}},"stiletto_i":{"name":"Stiletto I","recipe":{"mechanical_components":4,"simple_gun_parts":4},"craftBench":"weapon_bench","blueprintLocked":true,"materialNames":{"mechanical_components":{"de":"Mechanische Komponenten","en":"Mechanical Components","fr":"Composants mécaniques","es":"Componentes mecánicos","it":"Componenti meccanici"},"simple_gun_parts":{"de":"Einfache Waffenteile","en":"Simple Gun Parts","fr":"Pièces de pistolet simples","es":"Piezas de arma básica","it":"Parti di pistole semplici"}},"evidence":{"source":"https://arctracker.io/items/stiletto_i","apiSource":"https://arctracker.io/api/items","apiVersion":"1791948888742","status":"api-documented-not-game-confirmed"}},"anvil_i":{"name":"Anvil I","recipe":{"advanced_mechanical_components":2,"hand_drill":3,"heavy_gun_parts":3},"craftBench":"weapon_bench","blueprintLocked":true,"materialNames":{"advanced_mechanical_components":{"de":"Fortschrittliche mechanische Komponenten","en":"Advanced Mechanical Components","fr":"Composants mécaniques avancés","es":"Componentes mecánicos avanzados","it":"Componenti meccanici avanzati"},"hand_drill":{"de":"Handbohrmaschine","en":"Hand Drill","fr":"Perceuse à main","es":"Taladro de mano","it":"Trapano manuale"},"heavy_gun_parts":{"de":"Teile für Waffe mit schwerer Munition","en":"Heavy Gun Parts","fr":"Pièces d'arme lourdes","es":"Piezas de arma pesada","it":"Parti di armi pesanti"}},"evidence":{"source":"https://arctracker.io/items/anvil_i","apiSource":"https://arctracker.io/api/items","apiVersion":"1791948888742","status":"api-documented-not-game-confirmed"}}};
   function extend(catalog,goals){
     const saved=read(IDENTITY_KEY),pins={},next=[],newAliases=new Map();
     const owned=read('arcOwned'),personal=read('arcPlanningPersonal'),raid=read('arcNextRaid');
@@ -124,7 +125,17 @@
       if(existing&&['basic_camera','advanced_camera'].includes(addition.id)&&!item.recipe){item.recipe=structuredClone(addition.recipe);item.rftEvidence=addition.rftEvidence;}
       next.push({...item,id:pinned});
     }
-    next.unshift(...remaining);
+    // Regular item recipes: fill missing data without replacing upstream records or IDs.
+    const regularItems=[...remaining].map(item=>structuredClone(item));
+    for(const item of next.concat(regularItems)){
+      const ref=weaponRecipeReferences[item.id]||Object.values(weaponRecipeReferences).find(r=>r.name===String(item.name?.en||item.en||''));
+      if(!ref)continue;
+      if(!item.recipe){item.recipe=structuredClone(ref.recipe);item.rftRecipeEvidence=ref.evidence;}
+      item.rftRecipeMaterialNames=ref.materialNames;
+      if(item.craftBench===undefined)item.craftBench=ref.craftBench;
+      if(item.blueprintLocked===undefined)item.blueprintLocked=ref.blueprintLocked;
+    }
+    next.unshift(...regularItems);
     if(window.localStorage&&JSON.stringify(saved)!==JSON.stringify(pins))window.localStorage.setItem(IDENTITY_KEY,JSON.stringify(pins));
     aliases=newAliases;
     const nextGoals=structuredClone(goals);
