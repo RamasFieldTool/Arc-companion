@@ -16,12 +16,12 @@ for(const width of [360,1280]){
   if(code!=='de'){await page.locator('#appBack').click();await page.locator('#arcLanguageButton').click();await page.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click()}
   await page.locator('[data-app-target="outpostSection"]').click();
   await page.waitForFunction(title=>document.querySelector('#outpostExpansionReference summary')?.textContent===title,title);
-  for(const [id,count] of [['outpostExpansionReference',3],['outpostDesignResearchReference',8],['outpostWeaponRecipeReference',3],['outpostGadgetRecipeReference',2],['outpostFurnitureCraftReference',4]]){
+  for(const [id,count] of [['outpostExpansionReference',3],['outpostDesignResearchReference',8],['outpostGadgetRecipeReference',2],['outpostFurnitureCraftReference',4]]){
    await page.locator('#'+id).evaluate(n=>{n.open=true});
    if(await page.locator('#'+id+' li').count()!==count)throw Error('Incorrect row count '+id);
   }
   if(!(await page.locator('#outpostDesignResearchReference').textContent()).includes('Barstool Design · Research Station 1 · 500'))throw Error('Research data absent');
-  if(!(await page.locator('#outpostWeaponRecipeReference').textContent()).includes('MetaForge I'))throw Error('Anvil conflict absent');
+  if(await page.locator('#outpostWeaponRecipeReference').count())throw Error('Weapon recipes still rendered in Outpost');
   await page.waitForSelector('#outpostCatalogList details',{state:'attached'});
   if(await page.locator('#outpostCatalogList details').count()!==100)throw Error('Full catalog incomplete');
   await page.locator('#outpostCatalogSearch').fill('barstool');
@@ -45,5 +45,5 @@ for(const width of [360,1280]){
  if(errors.length)throw Error(errors.join('\n'));
  await context.close();
 }
-console.log('PASS Outpost reference tables: five languages × two widths; expansion/research/weapon rows, source conflict, no overflow, storage probe, no page errors');
+console.log('PASS Outpost reference tables: five languages × two widths; expansion/research rows, no weapon recipe section, no overflow, storage probe, no page errors');
 }finally{await browser.close()}

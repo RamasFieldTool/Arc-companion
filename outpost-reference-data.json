@@ -70,27 +70,6 @@
       "materials": "1 Laser Level"
     }
   ],
-  "weaponRecipes": [
-    {
-      "name": "Bantam I",
-      "materials": "4 Mechanical Components · 4 Simple Gun Parts",
-      "station": "Gunsmith I",
-      "source": "https://arcraiders.wiki/wiki/Bantam"
-    },
-    {
-      "name": "Stiletto I",
-      "materials": "4 Mechanical Components · 4 Simple Gun Parts",
-      "station": "Gunsmith I",
-      "source": "https://arcraiders.wiki/wiki/Stiletto"
-    },
-    {
-      "name": "Anvil I",
-      "materials": "2 Advanced Mechanical Components · 3 Heavy Gun Parts · 3 Hand Drill",
-      "station": null,
-      "source": "https://arcraiders.wiki/wiki/Anvil",
-      "secondSource": "https://metaforge.app/arc-raiders/database/item/anvil-i"
-    }
-  ],
   "gadgetCheckedAt": "2026-10-13",
   "furnitureCheckedAt": "2026-10-13",
   "gadgetRecipes": [
