@@ -2166,5 +2166,77 @@
       },
       "reproducibleFullRecipeMethodEstablished": false
     }
+  },
+  "independentRepositoryAudit": {
+    "repository": "https://github.com/RaidTheory/arcraiders-data",
+    "owner": "RaidTheory",
+    "sourceDescription": "Community compiled game data; README says originally ARC Raiders Tech Test 2; powers arctracker.io",
+    "license": "MIT for repository code/data; game content copyright Embark Studios AB; attribution requested to both repo and arctracker.io",
+    "format": "JSON item files, per-item effects, recipes, upgradeCost, updatedAt, addedIn",
+    "currentFrozenTrailVersionConfirmed": false,
+    "sourceRevision": "2a4abebb2486a633070f4e260058bcd5ad4511d6 (GitHub indexed search revision; current default branch fetched separately)",
+    "amplifiedFilesChecked": [
+      {
+        "path": "items/anvil_amplified.json",
+        "result": "404 not found"
+      },
+      {
+        "path": "items/bettina_amplified.json",
+        "result": "404 not found"
+      }
+    ],
+    "legacyExamples": [
+      {
+        "id": "anvil_iv",
+        "updatedAt": "02/24/2026",
+        "upgradeCost": {
+          "heavy_gun_parts": 1,
+          "mechanical_components": 4
+        },
+        "caution": "Old IV upgradeCost; NOT Amplified upgrade recipe"
+      },
+      {
+        "id": "kettle_iv",
+        "updatedAt": "02/24/2026",
+        "upgradeCost": {
+          "mechanical_components": 3,
+          "simple_gun_parts": 1
+        },
+        "caution": "Old IV upgradeCost; NOT Amplified upgrade recipe"
+      },
+      {
+        "id": "rascal_iv",
+        "updatedAt": "05/19/2026",
+        "upgradeCost": {
+          "advanced_mechanical_components": 2,
+          "heavy_gun_parts": 2
+        },
+        "caution": "Old IV upgradeCost; NOT Amplified upgrade recipe"
+      },
+      {
+        "id": "canto_i",
+        "addedIn": "1.22",
+        "updatedAt": "03/31/2026",
+        "recipe": {
+          "advanced_mechanical_components": 2,
+          "magnet": 5,
+          "medium_gun_parts": 3
+        },
+        "caution": "Original weapon crafting, NOT Amplified recipe"
+      },
+      {
+        "id": "aphelion",
+        "addedIn": "1.2",
+        "updatedAt": "01/13/2026",
+        "recipe": {
+          "complex_gun_parts": 3,
+          "magnetic_accelerator": 3,
+          "matriarch_reactor": 1
+        },
+        "caution": "Original weapon crafting, NOT Amplified recipe"
+      }
+    ],
+    "newAmplifiedRecipes": 0,
+    "conclusion": "Repository contains useful historical weapon and item JSON, but direct Amplified JSON paths missing and Frozen Trail 2.0 coverage not confirmed; cannot equate older upgradeCost with Amplified nodes."
   }
 }
