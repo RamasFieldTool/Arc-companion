@@ -499,3 +499,7 @@ Screenshot types: **A** upgrade screen with weapon, selected node, all material 
 Totals: 45 distinct nodes; 0 fully game-menu-confirmed recipes; 11 with community-database material amounts; 34 with no documented node-material amounts. Anvil X-Rounds / Embedded Blast Engineering research resources previously confirmed in screenshots; B still useful for independently reproducible context. Fossilized Linings and Fossilized Lightning remain separate until actual item label shown. No production data modified.
 
 Community instructions: Send (A) a selected-node screen with all material costs, (B) both research pages and (C) the full weapon upgrade tree. Partial evidence is welcome. Prioritize Anvil, Bettina, Burletta, Canto, Equalizer, Hairpin, Kettle, Rattler; then the remaining seven families.
+
+### Matrix reconciliation: unmatched database record
+
+The source ledger contains **11** node material reports, but only **10** map to the 45 canonical family/node labels by exact normalized name. The unmatched report is hullcracker / Incendiary Rounds: 3× Fossilized Lightning (https://arctracker.io/da/items/hullcracker_amplified). The canonical list instead uses `Incendiary Grenade` for this family. **Do not merge these names without game UI evidence.** Therefore matrix counts: **10 partial known material records matched to nodes, 35 nodes without matched quantities, plus 1 unmatched/label-conflicted database recipe**; 0 fully confirmed. Earlier 11/34 totals counted the unmatched record as if mapped; this correction is deliberate.
