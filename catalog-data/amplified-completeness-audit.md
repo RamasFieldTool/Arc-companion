@@ -387,3 +387,59 @@ Latest commit returned by GitHub repository commit search: [`2a4abebb2486a633070
 **Research cost clarification:** The directly inspected 5,000 points and 5 Rocketeer Drivers are for **Embedded Blast Engineering research**, not the X-Rounds installation recipe. Source guide text says Anvil X-Rounds node requires 3 Fossilized Lightning, but no opened screenshot confirms that quantity; keep C. The second article https://allthings.how/arc-raiders-amplified-anvil-what-the-x-rounds-path-does/ instead combines '5 Rocketeer Drivers plus 3 Fossilized Linings and an Amplification Module Mk. III' in a research paragraph, without the 5,000 points. This conflates module/research/node costs and names Fossilized **Linings** rather than **Lightning**; treat as a **source conflict, not a verified recipe**. Distinguish the upgrade-module requirement from research resources and node recipe.
 
 **Recipe matrix policy:** Each node in the existing 45-node audit is classified separately: `visually-confirmed-complete` (A with all quantities), `database-only` (C), `partial` (some fields but not all), `unknown`, or `source-conflict`. No existing node has been newly promoted to visually-confirmed-complete by these six screenshots. The 11 existing community database recipes remain C pending direct in-game menu inspection. Preserve unknown quantities as unknown. No production game data changes.
+
+## Deduplicated 45-node recipe matrix — 2026-10-14
+
+**Scope:** 45 unique family/node pairs from `families[].researchedUpgradeOptions`. Research costs, module costs, node materials and repairs are separate. `–` means not documented, NOT proven absent. Community-reported nodes and paths remain provisional.
+
+| Family | Upgrade node | Node materials | Research / resources | Previous node (C) | Excludes (C) | Completeness / evidence | Source |
+|---|---|---|---|---|---|---|---|
+| hairpin | Incendiary Rounds | 3× Fossilized Lightning | Thermite-Tipped Rounds | – | Semi-Auto, Tracker Rounds | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/hairpin_amplified |
+| hairpin | Tracker Rounds | 1× Matriarch Reactor | unbekannt | – | Semi-Auto, Incendiary Rounds | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/hairpin_amplified |
+| hairpin | Semi-Auto | 3× Pneumatic Actuator | Trigger Reset Systems | – | Tracker Rounds, Incendiary Rounds | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/hairpin_amplified |
+| hairpin | Sprint Shooting | unbekannt | unbekannt | Semi-Auto | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| kettle | X Rounds | unbekannt | unbekannt | – | Anti-Shield, Full-Auto | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| kettle | Full-Auto | unbekannt | unbekannt | – | X Rounds | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| kettle | Anti-Shield | unbekannt | unbekannt | – | X Rounds | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| rattler | Incendiary Rounds | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| rattler | Drum Mag | unbekannt | unbekannt | More Reload | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| rattler | More Reload | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| burletta | Burst-Fire | 2× Queen Reactor | Burst Assembly Recovery | – | Full-Auto | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/burletta_amplified_sprint_shooting |
+| burletta | Full-Auto | 3× Pneumatic Actuator | unbekannt | – | Burst-Fire | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/burletta_amplified_sprint_shooting |
+| burletta | Increased Burst | 2× Pressure Regulator | Extended Burst Cycles | Burst-Fire | – | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/burletta_amplified_burst |
+| burletta | Sprint Shooting | 4× Fluted Rotor Core | Mobile-Fire Grip Fittings | – | – | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/burletta_amplified_burst |
+| il_toro | Slug Rounds | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| il_toro | More Reload | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| anvil | X Rounds | unbekannt | Embedded Blast Engineering (5.000 Forschungspunkte + 5 Rocketeer Drivers; Screenshot A) | – | Anvil Splitter | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| anvil | Anvil Splitter | unbekannt | unbekannt | – | X Rounds | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| canto | Incendiary Rounds | 3× Fossilized Lightning | Thermite-Tipped Rounds | – | – | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/canto_amplified_sprint_shooting |
+| canto | Sprint Shooting | unbekannt | unbekannt | – | Carbine Conversion | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| canto | Carbine Conversion | unbekannt | unbekannt | – | Sprint Shooting | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| osprey | Anti Weak Point | unbekannt | unbekannt | – | Tracker Rounds | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| osprey | Tracker Rounds | unbekannt | unbekannt | – | Anti Weak Point | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| osprey | Straight Bolt | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| rascal | Incendiary Grenade | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| rascal | High Velocity | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| rascal | Sprint Shooting | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| renegade | More Reload | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| renegade | Scoped | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| bettina | X Rounds | 3× Fossilized Lightning | Embedded Blast Engineering | Semi-Auto | – | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/items/bettina_amplified_semi_auto |
+| bettina | Semi-Auto | unbekannt | unbekannt | – | Bigger Mag | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| bettina | Bigger Mag | unbekannt | unbekannt | – | Semi-Auto | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| hullcracker | Incendiary Grenade | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| hullcracker | Mag Reload | 3× Propellant Valve Assembly | unbekannt | – | – | Knotenmaterial vollständig laut Datenbank (C); Voraussetzungen teilweise | https://arctracker.io/da/items/hullcracker_amplified |
+| aphelion | Incendiary Rounds | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| aphelion | Charged Burst | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| aphelion | Bigger Mag | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| aphelion | Increased Burst | unbekannt | unbekannt | Charged Burst | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| equalizer | Anti Weak Point | unbekannt | unbekannt | – | Ramping Damage | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| equalizer | Anti Shield | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| equalizer | Ramping Damage | unbekannt | unbekannt | – | Anti Weak Point | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| equalizer | Bigger Mag | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| jupiter | Bigger Mag | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| jupiter | Scoped | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+| jupiter | Straight Bolt | unbekannt | unbekannt | – | – | Knotenrezept unbekannt | https://arcraiders.wiki/wiki/Amplification |
+
+**Accounting:** 45 unique nodes, 11 with database-reported material sets (C), 34 without known node materials; 0 visually confirmed complete node recipes (A). Anvil X-Rounds research screenshots establish 5,000 research points and 5 Rocketeer Drivers (A) but not node installation materials. Conflict remains `Fossilized Linings` vs `Fossilized Lightning`; no silent normalization. Other unresolved labels: Hullcracker/Rascal `Incendiary Grenade` vs `Incendiary Rounds`; Equalizer `Anti Shield` vs `Ramping Damage`. Existing image URLs were retried using web page reader but returned internal error, so **0 new image files were visually inspected in this pass**. No video moments/timecodes inspected. No new recipe quantities added.
+
+**Player screenshot request:** For each node: (1) full weapon tree identifying family/node, paths and locked alternatives, (2) selected-node tooltip showing *all* materials and quantities, (3) research project Step 1/2 and Step 2/2 showing task and resource costs, (4) ascension module tooltip and bench level where relevant. Preserve game language and full context.
