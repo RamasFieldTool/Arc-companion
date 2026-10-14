@@ -49,6 +49,7 @@ if(await p.locator('#pendolaReferenceSelect').count())throw Error('Obsolete phot
 if(!(await p.locator('#spawnMapImage').getAttribute('src')).includes('pendola-pass-rft-base.jpg'))throw Error('Illustration not loaded');
 const styles=await p.locator('#spawnMapImage').evaluate(x=>({fit:getComputedStyle(x).objectFit,filter:getComputedStyle(x).filter}));if(styles.fit!=='contain'||styles.filter!=='none')throw Error('Illustration cropped or filtered');
 await p.locator('#spawnExpand').click();
+if(await p.locator('#spawnMapStage [data-pendola-layer=cases]').count()!==1)throw Error('Expanded controls not inside stage');
 if(!await p.locator('[data-pendola-layer=cases]').isVisible())throw Error('Expanded layer controls unavailable');
 await p.locator('#spawnZoomIn').click();await p.locator('#spawnZoomIn').click();
 const before=await p.locator('#spawnCanvas').getAttribute('style');const box=await p.locator('#spawnViewport').boundingBox();
