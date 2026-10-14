@@ -47,6 +47,13 @@
     "alt": "Pendola Pass – illustrazione approssimativa"
   }
 };
+  const lootCopy={
+    de:['Waffenkisten & ARC-Spawnpunkte – Quellen','Externe Karten zeigen mögliche Fundorte. Positionen sind noch nicht mit unserer angenäherten Karte abgeglichen oder im Spiel bestätigt. Markerzahlen unterscheiden sich zwischen den Quellen. Spieler-Startpunkte bleiben ungeklärt.'],
+    en:['Weapon cases & ARC spawns – sources','External maps show possible locations. Positions have not been matched to our approximate map or confirmed in game. Marker counts differ between sources. Player starting locations remain unresolved.'],
+    fr:['Caisses d’armes et apparitions ARC – sources','Les cartes externes indiquent des emplacements possibles. Les positions ne sont pas comparées à notre carte approximative ni confirmées en jeu. Le nombre de marqueurs varie selon la source. Les points de départ des joueurs restent inconnus.'],
+    es:['Cajas de armas y apariciones ARC – fuentes','Los mapas externos muestran ubicaciones posibles. Las posiciones no se han contrastado con nuestro mapa aproximado ni confirmado en el juego. Las cantidades varían entre fuentes. Los puntos de inicio de jugadores siguen sin confirmar.'],
+    it:['Casse di armi e spawn ARC – fonti','Le mappe esterne mostrano posizioni possibili. Non sono state confrontate con la nostra mappa approssimativa né confermate nel gioco. I conteggi variano tra le fonti. I punti iniziali dei giocatori restano da verificare.']
+  };
   const viewport=document.getElementById('spawnViewport');
   const style=document.createElement('style');style.textContent='#spawnViewport[data-map="pendola-pass"] .spawn-canvas img{object-fit:contain!important;filter:none!important}#pendolaOverlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:hidden}#pendolaOverlay[hidden]{display:none}.pendola-area{font:bold 25px sans-serif;fill:white;paint-order:stroke;stroke:#111b24;stroke-width:7px;stroke-linejoin:round}.pendola-place{font:600 15px sans-serif;fill:white;paint-order:stroke;stroke:#111b24;stroke-width:5px;stroke-linejoin:round}.pendola-place{display:none}.map-interactive .pendola-place{display:block}.pendola-extraction rect{fill:#16262f;stroke:#ffcd73;stroke-width:3}.pendola-extraction path{fill:none;stroke:#fff;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}';document.head.appendChild(style);
   const info=document.querySelector('#spawnPanel .spawn-map-info');
@@ -59,6 +66,11 @@
     if(!active)return;
     set('spawnBadge',c.badge);set('spawnLegendText',c.unavailable);set('spawnImageCredit',c.source);
     let notice=document.getElementById('pendolaDraftNotice');if(!notice){notice=document.createElement('div');notice.id='pendolaDraftNotice';notice.className='spawn-note';notice.setAttribute('role','note');notice.innerHTML='<strong></strong><p></p>';document.querySelector('.spawn-map-instructions')?.before(notice)}
+    let sources=document.getElementById('pendolaLootSources');
+    if(!sources){sources=document.createElement('details');sources.id='pendolaLootSources';sources.innerHTML='<summary></summary><p></p><ul><li><a href="https://metaforge.app/arc-raiders/map/pendola-pass" target="_blank" rel="noopener noreferrer">MetaForge</a></li><li><a href="https://arcraidershub.com/maps/pendola-pass" target="_blank" rel="noopener noreferrer">ARC Raiders Hub</a></li><li><a href="https://salvagelinegaming.nl/pendola-pass" target="_blank" rel="noopener noreferrer">Salvage Line</a></li></ul>';notice.after(sources)}
+    sources.hidden=false;const lc=lootCopy[l]||lootCopy.en;
+    if(sources.querySelector('summary').textContent!==lc[0])sources.querySelector('summary').textContent=lc[0];
+    if(sources.querySelector('p').textContent!==lc[1])sources.querySelector('p').textContent=lc[1];
     notice.hidden=false;const title=notice.querySelector('strong'),message=notice.querySelector('p');if(title.textContent!==c.title)title.textContent=c.title;if(message.textContent!==c.body)message.textContent=c.body;
     const image=document.getElementById('spawnMapImage');if(image)image.alt=c.alt;
 
@@ -89,7 +101,7 @@
     names.hidden=false;const heading=names.querySelector('summary');if(heading.textContent!==c.names)heading.textContent=c.names;
     const text=(typeof spawnData!=='undefined'?spawnData?.landmarks:[])?.map(p=>p.de).join(' · ')||'';const body=names.querySelector('p');if(body.textContent!==text)body.textContent=text;
   }
-  function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';if(info)info.style.display=active?'none':originalInfoDisplay;const overlay=document.getElementById('pendolaOverlay');if(overlay){overlay.hidden=!active;overlay.style.display=active?'':'none'}const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;const notice=document.getElementById('pendolaDraftNotice');if(notice)notice.hidden=!active;apply()},0)}
+  function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';if(info)info.style.display=active?'none':originalInfoDisplay;const overlay=document.getElementById('pendolaOverlay');if(overlay){overlay.hidden=!active;overlay.style.display=active?'':'none'}const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;const sources=document.getElementById('pendolaLootSources');if(sources)sources.hidden=!active;const notice=document.getElementById('pendolaDraftNotice');if(notice)notice.hidden=!active;apply()},0)}
   if(viewport)new MutationObserver(schedule).observe(viewport,{attributes:true,attributeFilter:['data-map']});
   // Avoid watching the entire panel: legacy extensions and language overlays
   // also own nodes here. A separate draft notice keeps these writes isolated.

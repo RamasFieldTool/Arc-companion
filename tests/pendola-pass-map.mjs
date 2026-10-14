@@ -18,6 +18,8 @@ await p.locator('[data-app-target="spawnPanel"]').click();
 await p.locator('#spawnMapSelect').selectOption('pendola-pass');
 await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass'&&document.querySelector('#spawnMapImage').src.includes('pendola-pass')&&document.querySelector('#spawnMapImage').naturalWidth===1448);
 await p.waitForTimeout(600);
+if(!(await p.locator('#pendolaLootSources').isVisible()))throw Error('Missing loot source preparation');
+if(await p.locator('#pendolaLootSources a').count()!==3)throw Error('Missing source links');
 if(await p.locator('#spawnBadge').textContent()!=='REKONSTRUKTION')throw Error('Missing draft status');
 if(await p.locator('#spawnCanvas button:visible').count())throw Error('Unexpected spawn/case markers');
 if(await p.locator('#pendolaOverlay .pendola-extraction').count()!==4)throw Error('Missing reference extractions');
@@ -37,6 +39,7 @@ await p.locator('#spawnMapSelect').waitFor({state:'visible',timeout:5000});
 for(const map of ['spaceport','buried-city','dam-battlegrounds','the-blue-gate','stella-montis-upper','stella-montis-lower','riven-tides','pendola-pass']){
 await p.locator('#spawnMapSelect').selectOption(map);await p.waitForTimeout(500);
 const src=await p.locator('#spawnMapImage').getAttribute('src');if(map!=='pendola-pass'&&src.includes('pendola'))throw Error('Map stuck on Pendola');
+if(map!=='pendola-pass'&&await p.locator('#pendolaLootSources').isVisible())throw Error('Loot sources leaked');
 if(map!=='pendola-pass'&&await p.locator('#pendolaOverlay').isVisible())throw Error('Pendola overlay leaked to another map');
 if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not return');
 }
