@@ -443,3 +443,59 @@ Latest commit returned by GitHub repository commit search: [`2a4abebb2486a633070
 **Accounting:** 45 unique nodes, 11 with database-reported material sets (C), 34 without known node materials; 0 visually confirmed complete node recipes (A). Anvil X-Rounds research screenshots establish 5,000 research points and 5 Rocketeer Drivers (A) but not node installation materials. Conflict remains `Fossilized Linings` vs `Fossilized Lightning`; no silent normalization. Other unresolved labels: Hullcracker/Rascal `Incendiary Grenade` vs `Incendiary Rounds`; Equalizer `Anti Shield` vs `Ramping Damage`. Existing image URLs were retried using web page reader but returned internal error, so **0 new image files were visually inspected in this pass**. No video moments/timecodes inspected. No new recipe quantities added.
 
 **Player screenshot request:** For each node: (1) full weapon tree identifying family/node, paths and locked alternatives, (2) selected-node tooltip showing *all* materials and quantities, (3) research project Step 1/2 and Step 2/2 showing task and resource costs, (4) ascension module tooltip and bench level where relevant. Preserve game language and full context.
+
+## Prioritized 45-node community screenshot gap list — 2026-10-14
+
+Screenshot types: **A** upgrade screen with weapon, selected node, all material quantities; **B** research station both steps (tasks + resource costs); **C** full tree with links, alternatives, locked nodes. These letters describe screenshot types, not evidence quality grades. Every row needs A+B+C for end-to-end verification; shared research can be photographed once. 'nicht belegt' does NOT mean no prerequisite. Research, module, node and repair costs must remain separate.
+
+| Family | Node | Node materials (C if known) | Research / resources | Previous node; exclusivity (C) | Conflict | Missing screenshots | Completeness |
+|---|---|---|---|---|---|---|---|
+| anvil | X Rounds | unbekannt | Embedded Blast Engineering: 5.000 Punkte + 5 Rocketeer Drivers (A) | nicht belegt; Ausschluss: Anvil Splitter | Fossilized Linings/Lightning | A+B+C | Unbekannt |
+| anvil | Anvil Splitter | unbekannt | unbekannt | nicht belegt; Ausschluss: X Rounds | keiner bekannt | A+B+C | Unbekannt |
+| bettina | X Rounds | 3× Fossilized Lightning | Embedded Blast Engineering | Semi-Auto; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| bettina | Semi-Auto | unbekannt | unbekannt | nicht belegt; Ausschluss: Bigger Mag | keiner bekannt | A+B+C | Unbekannt |
+| bettina | Bigger Mag | unbekannt | unbekannt | nicht belegt; Ausschluss: Semi-Auto | keiner bekannt | A+B+C | Unbekannt |
+| burletta | Burst-Fire | 2× Queen Reactor | Burst Assembly Recovery | nicht belegt; Ausschluss: Full-Auto | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| burletta | Full-Auto | 3× Pneumatic Actuator | unbekannt | nicht belegt; Ausschluss: Burst-Fire | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| burletta | Increased Burst | 2× Pressure Regulator | Extended Burst Cycles | Burst-Fire; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| burletta | Sprint Shooting | 4× Fluted Rotor Core | Mobile-Fire Grip Fittings | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| canto | Incendiary Rounds | 3× Fossilized Lightning | Thermite-Tipped Rounds | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| canto | Sprint Shooting | unbekannt | unbekannt | nicht belegt; Ausschluss: Carbine Conversion | keiner bekannt | A+B+C | Unbekannt |
+| canto | Carbine Conversion | unbekannt | unbekannt | nicht belegt; Ausschluss: Sprint Shooting | keiner bekannt | A+B+C | Unbekannt |
+| equalizer | Anti Weak Point | unbekannt | unbekannt | nicht belegt; Ausschluss: Ramping Damage | Equalizer-Konfigurationen | A+B+C | Unbekannt |
+| equalizer | Anti Shield | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | Equalizer-Konfigurationen | A+B+C | Unbekannt |
+| equalizer | Ramping Damage | unbekannt | unbekannt | nicht belegt; Ausschluss: Anti Weak Point | Equalizer-Konfigurationen | A+B+C | Unbekannt |
+| equalizer | Bigger Mag | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | Equalizer-Konfigurationen | A+B+C | Unbekannt |
+| hairpin | Incendiary Rounds | 3× Fossilized Lightning | Thermite-Tipped Rounds | nicht belegt; Ausschluss: Semi-Auto, Tracker Rounds | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| hairpin | Tracker Rounds | 1× Matriarch Reactor | unbekannt | nicht belegt; Ausschluss: Semi-Auto, Incendiary Rounds | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| hairpin | Semi-Auto | 3× Pneumatic Actuator | Trigger Reset Systems | nicht belegt; Ausschluss: Tracker Rounds, Incendiary Rounds | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| hairpin | Sprint Shooting | unbekannt | unbekannt | Semi-Auto; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| kettle | X Rounds | unbekannt | unbekannt | nicht belegt; Ausschluss: Anti-Shield, Full-Auto | keiner bekannt | A+B+C | Unbekannt |
+| kettle | Full-Auto | unbekannt | unbekannt | nicht belegt; Ausschluss: X Rounds | keiner bekannt | A+B+C | Unbekannt |
+| kettle | Anti-Shield | unbekannt | unbekannt | nicht belegt; Ausschluss: X Rounds | keiner bekannt | A+B+C | Unbekannt |
+| rattler | Incendiary Rounds | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| rattler | Drum Mag | unbekannt | unbekannt | More Reload; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| rattler | More Reload | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| aphelion | Incendiary Rounds | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| aphelion | Charged Burst | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| aphelion | Bigger Mag | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| aphelion | Increased Burst | unbekannt | unbekannt | Charged Burst; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| hullcracker | Incendiary Grenade | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | Incendiary Grenade/Rounds | A+B+C | Unbekannt |
+| hullcracker | Mag Reload | 3× Propellant Valve Assembly | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Teilweise (Datenbank C) |
+| il_toro | Slug Rounds | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| il_toro | More Reload | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| jupiter | Bigger Mag | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| jupiter | Scoped | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| jupiter | Straight Bolt | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| osprey | Anti Weak Point | unbekannt | unbekannt | nicht belegt; Ausschluss: Tracker Rounds | keiner bekannt | A+B+C | Unbekannt |
+| osprey | Tracker Rounds | unbekannt | unbekannt | nicht belegt; Ausschluss: Anti Weak Point | keiner bekannt | A+B+C | Unbekannt |
+| osprey | Straight Bolt | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| rascal | Incendiary Grenade | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | Incendiary Grenade/Rounds | A+B+C | Unbekannt |
+| rascal | High Velocity | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| rascal | Sprint Shooting | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| renegade | More Reload | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+| renegade | Scoped | unbekannt | unbekannt | nicht belegt; Ausschluss: nicht belegt | keiner bekannt | A+B+C | Unbekannt |
+
+Totals: 45 distinct nodes; 0 fully game-menu-confirmed recipes; 11 with community-database material amounts; 34 with no documented node-material amounts. Anvil X-Rounds / Embedded Blast Engineering research resources previously confirmed in screenshots; B still useful for independently reproducible context. Fossilized Linings and Fossilized Lightning remain separate until actual item label shown. No production data modified.
+
+Community instructions: Send (A) a selected-node screen with all material costs, (B) both research pages and (C) the full weapon upgrade tree. Partial evidence is welcome. Prioritize Anvil, Bettina, Burletta, Canto, Equalizer, Hairpin, Kettle, Rattler; then the remaining seven families.
