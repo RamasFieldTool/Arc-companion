@@ -34,6 +34,7 @@ if(!(await p.locator('#pendolaLootSources').isVisible()))throw Error('Missing lo
 if(await p.locator('#pendolaLootSources a').count()!==3)throw Error('Missing source links');
 if(await p.locator('#spawnBadge').textContent()!=='REKONSTRUKTION')throw Error('Missing draft status');
 await p.waitForFunction(()=>document.querySelectorAll('#pendolaOverlay .pendola-loot-marker').length===88);
+if(await p.locator('#layerRaiders').isVisible()||await p.locator('#layerWeaponCases').isVisible())throw Error('Legacy Pendola controls visible');
 if(await p.locator('#pendolaOverlay .pendola-cases').count()!==58)throw Error('Weapon case count');
 if(await p.locator('#pendolaOverlay .pendola-arcs').count()!==30)throw Error('ARC point count');
 await p.locator('[data-pendola-layer=cases]').click();if(await p.locator('.pendola-cases').count())throw Error('Case toggle');
