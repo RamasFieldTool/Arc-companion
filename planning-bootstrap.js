@@ -31,7 +31,7 @@
   document.querySelector('.quick-nav')?.addEventListener('click',event=>{const link=event.target.closest('a[href="#planningSection"]');if(!link)return;event.preventDefault();location.hash='planningSection';openPlanning()});
   document.getElementById('appBack')?.addEventListener('click',()=>{section.classList.remove('launcher-active');document.body.classList.remove('planning-open');setIntegratedVisible(false)},true);
   window.addEventListener('hashchange',()=>{if(location.hash==='#planningSection')openPlanning();else{section.classList.remove('launcher-active');document.body.classList.remove('planning-open');setIntegratedVisible(false)}});
-  window.RFTPlanningIntegratedSources={setVisible:setIntegratedVisible,openWorkshopGoal(id){pendingWorkshopGoal=id;if(location.hash==='#planningSection')openPlanning();else location.hash='planningSection'}};
+  window.RFTPlanningIntegratedSources={setVisible:setIntegratedVisible,openWorkshopGoal(id){pendingWorkshopGoal=id;if(location.hash==='#planningSection')openPlanning();else location.hash='planningSection'}};window.dispatchEvent(new Event('rft-planning-navigation-ready'));
   const core=document.createElement('script');core.src='planning-core.js?v=6';core.onload=()=>{const ui=document.createElement('script');ui.src='planning-ui.js?v=item-images-all-1';ui.onload=()=>{for(const id of ['planningTabMissing','planningTabGoals'])document.getElementById(id).disabled=false;const raid=document.createElement('script');raid.src='planning-raid.js?v=item-images-all-1';document.body.append(raid);if(pendingWorkshopGoal)requestAnimationFrame(applyWorkshopTarget)};document.body.append(ui)};document.body.append(core);
   if(location.hash==='#planningSection')openPlanning();
 })();

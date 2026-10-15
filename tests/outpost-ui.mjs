@@ -6,8 +6,9 @@ import {installItemCatalogRoute} from './helpers/item-catalog.mjs';
 const browser=await chromium.launch({headless:true});
 const fixture=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8')).slice(0,60);
 const labels={de:['Möbel','Ausbau','Forschung & Upgrades'],en:['Furniture','Expansion','Research & upgrades'],fr:['Meubles','Extension','Recherche et améliorations'],es:['Muebles','Ampliación','Investigación y mejoras'],it:['Mobili','Espansione','Ricerca e miglioramenti']};
-const widths=(process.env.OUTPOST_WIDTHS||'360,1280').split(',').map(Number);
-const phase=process.env.OUTPOST_PHASE||'1';
+const widths=(process.env.OUTPOST_WIDTHS||'320,360,412,430,1280').split(',').map(Number);
+const phase=process.env.OUTPOST_PHASE||'3';
+const catalog=JSON.parse(await readFile(new URL('../outpost-catalog.json',import.meta.url),'utf8'));
 await mkdir('test-artifacts/outpost-ui',{recursive:true});
 async function home(page){await page.locator('#appBack').click();}
 async function outpost(page){await page.locator('[data-app-target="outpostSection"]').click();}
@@ -35,6 +36,9 @@ try{
   assert.notEqual(await page.locator('#outpostCatalogCategory option[value="DisplayCase.Weapon"]').textContent(),'DisplayCase.Weapon');
   for(const surface of ['light','black']){
    await home(page);await page.locator('[data-app-target="paletteLab"]').click();await page.locator(`[data-palette-surface="${surface}"]`).click();await home(page);await outpost(page);await tab(page,'furniture');
+   await page.evaluate(()=>window.scrollTo(0,0));
+   if(language==='de')await page.screenshot({path:`test-artifacts/outpost-ui/phase-${phase}-${language}-${width}-${surface}-entry.png`});
+   assert.equal(await page.locator('#outpostSection>summary').isVisible(),false);
    const search=page.locator('#outpostCatalogSearch');
    await search.fill('  BARSTOOL  ');assert.equal(await page.locator('#outpostCatalogList details').count(),1);
    await page.locator('#outpostCatalogList summary').click();
@@ -50,6 +54,15 @@ try{
    await search.fill('');await page.locator('#outpostCatalogCategory').selectOption('Wardrobe');assert.equal(await page.locator('#outpostCatalogList details').count(),5);
    await search.fill('Alpine');assert.equal(await page.locator('#outpostCatalogList details').count(),1);
    await page.locator('#outpostCatalogCategory').selectOption('');await search.fill('');assert.equal(await page.locator('#outpostCatalogList details').count(),100);
+   if(Number(phase)>=3){
+    for(const item of catalog.furniture){
+     const costs=await page.locator(`[data-furniture="${item.id}"] .outpost-craft li`).evaluateAll(nodes=>nodes.map(n=>({name:n.querySelector('span').textContent,quantity:n.querySelector('b').textContent})));
+     assert.deepEqual(costs,item.craft.map(m=>({name:m.name[language]||m.name.en,quantity:m.quantity+' ×'})));
+     if(item.research){const costs=await page.locator(`[data-furniture="${item.id}"] .outpost-research li`).evaluateAll(nodes=>nodes.map(n=>({name:n.querySelector('span').textContent,quantity:n.querySelector('b').textContent})));assert.deepEqual(costs,item.research.materials.map(m=>({name:m.name[language]||m.name.en,quantity:m.quantity+' ×'})));}
+    }
+    const small=await page.locator('#outpostSection input,#outpostSection select,#outpostSection button,#outpostSection summary,#outpostSection a').evaluateAll(ns=>ns.filter(n=>{const r=n.getBoundingClientRect();return r.width&&r.height}).filter(n=>{const r=n.getBoundingClientRect();return r.height<44||r.width<44}).map(n=>({id:n.id,text:n.textContent,h:n.getBoundingClientRect().height})));
+    assert.deepEqual(small,[],'interactive target below 44×44');
+   }
    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false);
    await page.screenshot({path:`test-artifacts/outpost-ui/phase-${phase}-${language}-${width}-${surface}.png`});
   }
@@ -70,6 +83,17 @@ try{
    await tab(page,'build');await page.locator('#outpostExpansionReference summary').click();assert.equal(await page.locator('#outpostExpansionReference li').count(),3);
    await tab(page,'furniture');await page.locator('#outpostCatalogSearch').fill('barstool');await page.locator('#outpostCatalogList summary').click();
    await tab(page,'build');await tab(page,'furniture');assert.equal(await page.locator('#outpostCatalogList details').evaluate(n=>n.open),true);
+  }
+  if(Number(phase)>=3){
+   if(width<600){await page.locator('#outpostTab-build').tap();assert.equal(await page.locator('#outpostPanel-build').isVisible(),true);await page.locator('#outpostTab-furniture').tap();}
+   await page.locator('#outpostTab-furniture').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('#outpostTab-build').getAttribute('aria-selected'),'true');await page.keyboard.press('Home');assert.equal(await page.locator('#outpostPanel-furniture').isVisible(),true);
+   await page.locator('#outpostCatalogSearch').fill('');
+   const scale=await page.addStyleTag({content:'#outpostSection{font-size:32px!important}#outpostSection :is(p,li,summary,button,input,select,a,small){font-size:inherit!important}'});
+   await page.locator('#outpostCatalogSearch').fill('barstool');await page.locator('#outpostCatalogList summary').click();
+   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2),false,'simulated large type overflow');
+   const nav=await page.locator('#outpostTabs').boundingBox();if(nav.height>140)assert.equal(await page.locator('#outpostTabs').evaluate(n=>getComputedStyle(n).position),'static');
+   if(width<600)assert.ok((await page.locator('#outpostTab-research').boundingBox()).width>=150,'large text tabs must reflow instead of squeezing words');
+   await page.evaluate(()=>window.scrollTo(0,0));await page.screenshot({path:`test-artifacts/outpost-ui/phase-${phase}-${language}-${width}-large-type.png`,fullPage:true});await scale.evaluate(n=>n.remove());
   }
   assert.equal(await page.evaluate(()=>localStorage.getItem('arcOwned')),'{"metal_parts":7}');
   assert.equal(await page.evaluate(()=>localStorage.getItem('arcActiveGoals')),'{}');
