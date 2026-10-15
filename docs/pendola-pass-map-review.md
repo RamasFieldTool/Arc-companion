@@ -101,3 +101,9 @@ Exactly 21 records match category locations and subcategory player_spawn. All ha
 Source coordinate alignment: four matching extraction names (Reckless, Northern, Supermarket, Glacial Transceiver) paired against directly fetched https://static.allthings.how/game-maps/arc-raiders/pendola-pass/points/transceivers.json. Fitted affine mapping stored with all pairs; maximum residual below 0.03 source-map pixels. This validates consistency of the two source frames at these four points, not in-game accuracy. Then reuse the existing approximate source-to-RFT illustration mapping (up to 9.912 percentage-point landmark residual).
 
 14 player points fall inside the illustration, 7 fall outside and are listed rather than clamped. A separate green diamond player layer keeps them distinct from red ARC points and yellow cases. No weapon-case/ARC source records changed. Full new-head Quality Gate pending.
+
+## Standard map presentation — 2026-10-15
+
+User requires the same symbols and layout as the other maps. Replace the custom permanently visible toggle row and SVG dots/diamonds with the existing Spaceport/Buried City presentation: collapsed grouped “Show on map” picker, active count, indicator toggles, no active layers on entry, S-numbered spawn badges, W-numbered weapon-case badges, ARC short codes, and numbered amber extraction badges. Reuse existing CSS classes rather than duplicate their styles.
+
+An HTML overlay aligns to the visible contained bitmap using its natural dimensions; inverse zoom keeps marker sizes constant, matching Spaceport. Existing zoom/pan/fullscreen and the same layer-controls container are retained. Selection uses the standard closable detail panel inside the map stage. Warnings, out-of-bounds list and MetaForge attribution move to Data & Sources. No source coordinates, mapping transforms or evidence records changed.
