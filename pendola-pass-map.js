@@ -165,6 +165,30 @@
     names.hidden=false;const heading=names.querySelector('summary');if(heading.textContent!==c.names)heading.textContent=c.names;
     const text=(typeof spawnData!=='undefined'?spawnData?.landmarks:[])?.map(p=>p.de).join(' · ')||'';const body=names.querySelector('p');if(body.textContent!==text)body.textContent=text;
   }
+  // A gesture may begin on any marker, including its enlarged touch target.
+  // Keep taps for selection; suppress marker activation after a drag.
+  let panGesture=null,suppressPointerClickUntil=0;
+  const shell=document.getElementById('spawnViewport');
+  shell?.addEventListener('pointerdown',e=>{
+    if(shell.dataset.map!=='pendola-pass'||typeof spawnScale==='undefined'||spawnScale<=1.001||!e.isPrimary||e.button!==0)return;
+    e.stopImmediatePropagation();
+    panGesture={id:e.pointerId,startX:e.clientX,startY:e.clientY,x:spawnX,y:spawnY,dragged:false,marker:e.target.closest('.pendola-loot-marker')};
+    shell.setPointerCapture?.(e.pointerId);
+  },true);
+  shell?.addEventListener('pointermove',e=>{
+    const g=panGesture;if(!g||g.id!==e.pointerId)return;e.stopImmediatePropagation();
+    const dx=e.clientX-g.startX,dy=e.clientY-g.startY;
+    if(!g.dragged&&Math.hypot(dx,dy)<6)return;
+    g.dragged=true;spawnX=g.x+dx;spawnY=g.y+dy;clampSpawnPan();applySpawnTransform();shell.classList.add('dragging');
+  },true);
+  function finishPan(e){
+    const g=panGesture;if(!g||g.id!==e.pointerId)return;e.stopImmediatePropagation();panGesture=null;shell.classList.remove('dragging');
+    if(shell.hasPointerCapture?.(e.pointerId))shell.releasePointerCapture(e.pointerId);
+    suppressPointerClickUntil=performance.now()+500;
+    if(e.type==='pointerup'&&!g.dragged&&g.marker?.isConnected)g.marker.click();
+  }
+  shell?.addEventListener('pointerup',finishPan,true);shell?.addEventListener('pointercancel',finishPan,true);
+  shell?.addEventListener('click',e=>{if(e.isTrusted&&e.detail>0&&performance.now()<suppressPointerClickUntil){e.preventDefault();e.stopImmediatePropagation()}},true);
   function schedule(){setTimeout(()=>{const active=viewport?.dataset.map==='pendola-pass';if(info)info.style.display=active?'none':originalInfoDisplay;const overlay=document.getElementById('pendolaOverlay');if(overlay){overlay.hidden=!active;overlay.style.display=active?'':'none'}const names=document.getElementById('pendolaPlaceNames');if(names)names.hidden=!active;const sources=document.getElementById('pendolaLootSources');if(sources)sources.hidden=!active;for(const id of ['pendolaLocationControls','pendolaLayerPicker','pendolaLocationMarkers','pendolaLocationDetails']){const n=document.getElementById(id);if(n)n.hidden=!active||(id==='pendolaLocationDetails'&&!selectedLocation);}const notice=document.getElementById('pendolaDraftNotice');if(notice)notice.hidden=!active;apply()},0)}
   if(viewport)new ResizeObserver(alignLocationLayer).observe(viewport);
   const canvas=document.getElementById('spawnCanvas');if(canvas)new MutationObserver(alignLocationLayer).observe(canvas,{attributes:true,attributeFilter:['style']});

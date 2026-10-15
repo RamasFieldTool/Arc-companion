@@ -72,6 +72,21 @@ const before=await p.locator('#spawnCanvas').getAttribute('style');const box=awa
 // Drag blank viewport space rather than the enlarged marker hit targets.
 await p.mouse.move(box.x+12,box.y+12);await p.mouse.down();await p.mouse.move(box.x+57,box.y+52,{steps:8});await p.mouse.up();
 const after=await p.locator('#spawnCanvas').getAttribute('style');if(after===before)throw Error('Pan had no effect');
+// Start a real touch/mouse gesture on a visible marker, not just blank space.
+const marker=await p.locator('.pendola-cases').evaluateAll(nodes=>{const v=document.getElementById('spawnViewport').getBoundingClientRect();const n=nodes.find(n=>{const r=n.getBoundingClientRect();return r.x>v.x+30&&r.y>v.y+30&&r.right<v.right-70&&r.bottom<v.bottom-70});if(!n)return null;const r=n.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};});
+if(!marker)throw Error('No marker available for drag test');
+const markerBefore=await p.locator('#spawnCanvas').getAttribute('style');
+if(mobile){
+ const touch=await context.newCDPSession(p);
+ await touch.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:marker.x,y:marker.y}]});
+ await touch.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:marker.x+36,y:marker.y+28}]});
+ await touch.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ await touch.detach();
+}else{await p.mouse.move(marker.x,marker.y);await p.mouse.down();await p.mouse.move(marker.x+36,marker.y+28,{steps:8});await p.mouse.up();}
+if(await p.locator('#spawnCanvas').getAttribute('style')===markerBefore)throw Error('Dragging from marker had no effect');
+if(await p.locator('#pendolaLocationDetails').isVisible())throw Error('Drag opened marker details');
+if(mobile){const tap=await context.newCDPSession(p);await tap.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:marker.x+36,y:marker.y+28}]});await tap.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await tap.detach();}else await p.mouse.click(marker.x+36,marker.y+28);
+if(!await p.locator('#pendolaLocationDetails').isVisible())throw Error('Marker tap lost after drag');
 await p.screenshot({path:`test-artifacts/pendola/${mobile?'mobile':'desktop'}.png`});
 await p.locator('#spawnReset').click();if(!(await p.locator('#spawnCanvas').getAttribute('style')).includes('scale(1)'))throw Error('Reset failed');
 await p.locator('#spawnCloseExpanded').click();
