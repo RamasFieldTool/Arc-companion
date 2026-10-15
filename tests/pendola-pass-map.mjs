@@ -69,7 +69,8 @@ if(await p.locator('#spawnMapStage [data-pendola-layer=cases]').count()!==1)thro
 if(!await p.locator('[data-pendola-layer=cases]').isVisible())throw Error('Expanded layer controls unavailable');
 await p.locator('#spawnZoomIn').click();await p.locator('#spawnZoomIn').click();
 const before=await p.locator('#spawnCanvas').getAttribute('style');const box=await p.locator('#spawnViewport').boundingBox();
-await p.mouse.move(box.x+box.width/2,box.y+box.height/2);await p.mouse.down();await p.mouse.move(box.x+box.width/2+45,box.y+box.height/2+40,{steps:8});await p.mouse.up();
+// Drag blank viewport space rather than the enlarged marker hit targets.
+await p.mouse.move(box.x+12,box.y+12);await p.mouse.down();await p.mouse.move(box.x+57,box.y+52,{steps:8});await p.mouse.up();
 const after=await p.locator('#spawnCanvas').getAttribute('style');if(after===before)throw Error('Pan had no effect');
 await p.screenshot({path:`test-artifacts/pendola/${mobile?'mobile':'desktop'}.png`});
 await p.locator('#spawnReset').click();if(!(await p.locator('#spawnCanvas').getAttribute('style')).includes('scale(1)'))throw Error('Reset failed');
