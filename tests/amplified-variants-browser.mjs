@@ -23,6 +23,7 @@ try{
    await page.waitForFunction(()=>document.querySelectorAll('#outpostAmplifiedWeapons .amplified-family').length===15);
    assert.ok((await page.locator('#outpostAmplifiedWeapons').innerText()).includes('Amplified'));
    await page.locator('[data-app-target="outpostSection"]').click();
+   await page.locator('#outpostTab-research').click();
    await page.locator('#outpostAmplifiedWeapons input[type=search]').waitFor({state:'visible'});
    const search=page.locator('#outpostAmplifiedWeapons input[type=search]');
    await search.fill('Splitter');

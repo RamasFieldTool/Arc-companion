@@ -5,7 +5,7 @@ let root,query='';
 const el=(tag,text)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;return node};
 function render(){
  const anchor=document.getElementById('outpostFurnitureDesigns');if(!anchor)return;
- if(!root){root=el('section');root.id='outpostAmplifiedWeapons';root.className='outpost-amplified';anchor.before(root)}
+ if(!root){root=el('section');root.id='outpostAmplifiedWeapons';root.className='outpost-amplified';(document.getElementById('outpostAmplifiedHost')||anchor.parentElement).appendChild(root)}
  const locale=shared.language(),data=shared.data,t=shared.labels[locale];
  if(root.dataset.renderedLanguage===locale&&root.dataset.dataReady===String(Boolean(data))&&root.dataset.error===String(shared.error))return;
  root.dataset.renderedLanguage=locale;root.dataset.dataReady=String(Boolean(data));root.dataset.error=String(shared.error);root.replaceChildren();
