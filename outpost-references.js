@@ -6,7 +6,7 @@
  function render(){
   const l=(document.documentElement.dataset.uiLanguage||window.arcCurrentLanguage?.()||document.documentElement.lang||'de').slice(0,2),c=copy[l]||copy.en;
   const host=document.getElementById('outpostFurnitureDesigns');if(!host)return;
-  let root=document.getElementById('outpostReferenceTables');if(!root){root=document.createElement('div');root.id='outpostReferenceTables';host.before(root)}
+  let root=document.getElementById('outpostReferenceTables');if(!root){root=document.createElement('div');root.id='outpostReferenceTables';(document.getElementById('outpostReferencesHost')||host.parentElement).appendChild(root)}
   if(!data){if(!loading){loading=true;fetch('outpost-reference-data.json?v=standard-items-1').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(x=>{data=x;loading=false;render()}).catch(()=>{loading=false;root.textContent=c[9]})}return}
   if(root.dataset.language===l)return;root.dataset.language=l;root.replaceChildren();
   function section(id,title,note,rows,sources,statusCopy=c[3]){const d=document.createElement('details');d.id=id;d.className='rft-reference';const summary=document.createElement('summary');summary.textContent=title;const status=document.createElement('p');status.textContent=statusCopy;const text=document.createElement('p');text.textContent=note;const ul=document.createElement('ul');for(const row of rows){const li=document.createElement('li');li.textContent=row;ul.appendChild(li)}d.append(summary,status,text,ul);for(const url of sources){const a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=c[7]+' · '+new URL(url).hostname;d.appendChild(a)}root.appendChild(d)}

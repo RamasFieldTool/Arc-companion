@@ -61,6 +61,12 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/amplified-variants-browser.mjs
+      - name: Run Outpost UI and targeted planning regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: |
+          node tests/outpost-ui.mjs
+          node tests/outpost-navigation-ready.mjs
       - name: Run Outpost reference table regression
         env:
           BASE_URL: http://127.0.0.1:4173/
@@ -150,6 +156,7 @@ jobs:
             test-artifacts/radio/
             test-artifacts/pendola/
             test-artifacts/outpost-reference/
+            test-artifacts/outpost-ui/
           if-no-files-found: warn
           retention-days: 14
       - name: Show server log on failure
