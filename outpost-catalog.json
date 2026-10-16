@@ -4797,5 +4797,19 @@
         ]
       }
     }
-  ]
+  ],
+  "coverageEvidence": {
+    "status": "VERIFIZIERT",
+    "scope": "Launch design total and aggregate acquisition distribution only; individual identities, recipes, research and current-build completeness remain unconfirmed.",
+    "source": "https://arcraiders.com/news/frozen-trail-2-0-update",
+    "publishedAt": "2026-10-08",
+    "checkedAt": "2026-10-16",
+    "designCount": 100,
+    "distribution": {
+      "topside": 73,
+      "outpostExpansion": 22,
+      "frozenTrailPass": 4,
+      "dlc": 1
+    }
+  }
 }
