@@ -1,0 +1,928 @@
+{
+  "schema": "rft.outpost.targeted-followup.v1",
+  "checkedAt": "2026-10-16",
+  "parentCommit": "f3e58be73f2b0de2ab4bba330c03e3ea35b1041e",
+  "documentationOnly": true,
+  "scope": "Targeted supplement, not a replacement for the 400-reference audit. No new gameplay values imported.",
+  "sources": {
+    "wiki-furniture": {
+      "url": "https://arcraiders.wiki/w/index.php?title=Furniture&oldid=43358",
+      "kind": "community-wiki",
+      "retrieval": "success",
+      "scope": "Pinned furniture table; no original game-menu verification."
+    },
+    "arctracker-research": {
+      "url": "https://arctracker.io/research",
+      "kind": "community-database",
+      "retrieval": "success",
+      "scope": "Station-level grouped research; full list not proof of game completeness."
+    },
+    "action": {
+      "url": "https://arctracker.io/research/action-economy",
+      "kind": "community-database",
+      "retrieval": "success-after-following-index-link",
+      "scope": "Research label, station, points, resources, textual task; no game-menu inspection."
+    },
+    "combustion": {
+      "url": "https://arctracker.io/research/compact-combustion-charges",
+      "kind": "community-database",
+      "retrieval": "success",
+      "scope": "Research page labels perk Incendiary Grenades; linked item page labels it Rounds."
+    },
+    "meta-action": {
+      "url": "https://metaforge.app/arc-raiders/database/item/action-economy",
+      "kind": "community-database",
+      "retrieval": "success",
+      "scope": "Research requirements and seven named upgrade outputs; recipe rendering is generic and is not a station-build recipe."
+    },
+    "guide": {
+      "url": "https://arcraidershub.com/guides/amplified-weapons-guide",
+      "kind": "community-guide",
+      "retrieval": "success",
+      "scope": "Author calls Straight Bolt an internal name for Ergonomic Bolt; screenshots not visually accessible."
+    },
+    "scrappy-station": {
+      "url": "https://www.arcscrappy.com/en/stations/research_station",
+      "kind": "community-database",
+      "retrieval": "success-via-reader",
+      "scope": "I-IV requirements and room dependencies; direct HTTP request returned 403."
+    },
+    "scrappy-aviary": {
+      "url": "https://www.arcscrappy.com/en/items/battered_aviary_table",
+      "kind": "community-database",
+      "retrieval": "success-after-following-station-link",
+      "scope": "Research attached to furniture item, not explicitly its design ID."
+    },
+    "scrappy-provenance": {
+      "url": "https://github.com/RaidTheory/arcraiders-data",
+      "kind": "upstream-repository",
+      "retrieval": "success-via-data-source-link",
+      "scope": "ARC Scrappy links this source; repository README says it powers ARC Tracker. Do not count them as independently collected game evidence."
+    },
+    "buddy": {
+      "url": "https://raiderbuddy.com/cheat-sheet/designs",
+      "kind": "search-excerpt",
+      "retrieval": "indexed-excerpt-only",
+      "scope": "Supports existing cabinet research; independent origin not established."
+    },
+    "sofa-design": {
+      "url": "https://arctracker.io/items/printed_lab_sofa_design",
+      "kind": "search-excerpt",
+      "retrieval": "indexed-excerpt-only-direct-open-failed",
+      "scope": "Excerpt supports existing 15 Sheet Metal; not a complete page or screenshot."
+    },
+    "armchairs": {
+      "url": "https://wiki.arcraiderscommunity.com/wiki/Design_Index",
+      "kind": "search-excerpt",
+      "retrieval": "indexed-excerpt-only",
+      "scope": "Lists two Study Armchair designs with different rarity; no canonical ID-to-name mapping established."
+    },
+    "wide-cabinet": {
+      "url": "https://arctracker.io/items/battered_lab_cabinet_wide_design",
+      "kind": "community-database",
+      "retrieval": "success-after-following-research-index-link",
+      "scope": "Level 2, 1000 points, 3 Mechanical Components; disagrees with wiki material identity."
+    },
+    "equalizer": {
+      "url": "https://arctracker.io/items/equalizer_amplified",
+      "kind": "community-database",
+      "retrieval": "success",
+      "scope": "Page lists Bigger Mag, Anti-Weak Point, Ramping Damage. Absence of Anti Shield is not proof of its impossibility."
+    },
+    "outpost-wiki": {
+      "url": "https://arcraiders.wiki/wiki/Outpost",
+      "kind": "community-wiki",
+      "retrieval": "success",
+      "scope": "Station costs and expansion dependencies; no new direct game evidence."
+    },
+    "official21": {
+      "url": "https://arcraiders.com/news/store-update-2-1-0",
+      "kind": "official-patch-notes",
+      "retrieval": "success",
+      "scope": "Already documented Targeter correction; no new disputed furniture quantities."
+    },
+    "buddy-sheetmetal": {
+      "url": "https://raiderbuddy.com/items/sheet-metal",
+      "kind": "community-database",
+      "retrieval": "success",
+      "scope": "Relevant item quantities are in Recycled from; not evidence of furniture crafting costs."
+    }
+  },
+  "independentGameCollectionEstablished": false,
+  "furniture": [
+    {
+      "id": "chambers_lamp",
+      "status": "WIDERSPRÜCHLICH",
+      "sources": [
+        "wiki-furniture",
+        "buddy-sheetmetal"
+      ],
+      "finding": "Wiki says 1 versus existing 10 Sheet Metal. RaiderBuddy quantities occur in recycling, so they do not independently confirm crafting. No current game screenshot.",
+      "decision": "Keep existing craft values."
+    },
+    {
+      "id": "printed_lab_sofa",
+      "status": "WIDERSPRÜCHLICH",
+      "sources": [
+        "wiki-furniture",
+        "sofa-design"
+      ],
+      "finding": "Design recipe excerpt supports existing 15 Sheet Metal; wiki says 5. Recycling values are not crafting proof.",
+      "decision": "Keep existing craft values."
+    },
+    {
+      "id": "study-armchair-identities",
+      "ids": [
+        "study_armchair",
+        "study_armchair_outpostfurniture_res_sofa_01_y150_a"
+      ],
+      "status": "WIDERSPRÜCHLICH",
+      "sources": [
+        "wiki-furniture",
+        "armchairs"
+      ],
+      "finding": "Another community index also uses Study Armchair twice. A unique Sturdy Armchair mapping is not established.",
+      "decision": "Do not rename or change IDs."
+    },
+    {
+      "id": "battered_lab_cabinet_wide",
+      "status": "WIDERSPRÜCHLICH",
+      "sources": [
+        "wiki-furniture",
+        "wide-cabinet",
+        "buddy"
+      ],
+      "finding": "Current design page supports existing Mechanical Components; wiki says Metal Brackets.",
+      "decision": "Keep existing research materials."
+    },
+    {
+      "id": "battered_aviary_table",
+      "status": "TEILWEISE VERIFIZIERT",
+      "sources": [
+        "wiki-furniture",
+        "scrappy-aviary",
+        "scrappy-station",
+        "scrappy-provenance"
+      ],
+      "candidate": {
+        "stationLevel": 3,
+        "points": 1500,
+        "materials": {
+          "laser_level": 1
+        }
+      },
+      "finding": "Research source attaches to furniture item. Design-versus-furniture reward mapping and original game validity remain unconfirmed. Source lineage overlaps ARC Tracker.",
+      "decision": "Candidate stays documentation-only; do not equate furniture research with design unlock."
+    }
+  ],
+  "nodes": [
+    {
+      "auditId": "node:osprey:straightbolt",
+      "historicalName": "osprey / Straight Bolt",
+      "status": "TEILWEISE VERIFIZIERT",
+      "sourceLabel": "Ergonomic Bolt",
+      "sources": [
+        "action",
+        "meta-action",
+        "guide"
+      ],
+      "finding": "Straight Bolt ID / Ergonomic Bolt source label mapped; not proven current-game-valid.",
+      "runtimeImported": false,
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT"
+    },
+    {
+      "auditId": "node:rascal:incendiarygrenade",
+      "historicalName": "rascal / Incendiary Grenade",
+      "status": "WIDERSPRÜCHLICH",
+      "sourceLabel": null,
+      "sources": [
+        "combustion",
+        "guide"
+      ],
+      "finding": "Research calls the perk Grenades; fetched Hullcracker item pages use Rounds. Do not silently alias.",
+      "runtimeImported": false,
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT"
+    },
+    {
+      "auditId": "node:hullcracker:incendiarygrenade",
+      "historicalName": "hullcracker / Incendiary Grenade",
+      "status": "WIDERSPRÜCHLICH",
+      "sourceLabel": null,
+      "sources": [
+        "combustion",
+        "guide"
+      ],
+      "finding": "Research calls the perk Grenades; fetched Hullcracker item pages use Rounds. Do not silently alias.",
+      "runtimeImported": false,
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT"
+    },
+    {
+      "auditId": "node:equalizer:antishield",
+      "historicalName": "equalizer / Anti Shield",
+      "status": "WIDERSPRÜCHLICH",
+      "sourceLabel": null,
+      "sources": [
+        "equalizer"
+      ],
+      "finding": "No Anti Shield on fetched Equalizer page; absence does not prove removal or impossibility.",
+      "runtimeImported": false,
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT"
+    },
+    {
+      "auditId": "node:jupiter:straightbolt",
+      "historicalName": "jupiter / Straight Bolt",
+      "status": "TEILWEISE VERIFIZIERT",
+      "sourceLabel": "Ergonomic Bolt",
+      "sources": [
+        "action",
+        "meta-action",
+        "guide"
+      ],
+      "finding": "Straight Bolt ID / Ergonomic Bolt source label mapped; not proven current-game-valid.",
+      "runtimeImported": false,
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT"
+    }
+  ],
+  "configurations": [
+    {
+      "id": "hullcracker_amplified_incendiary_rounds",
+      "auditId": "configuration:hullcracker_amplified_incendiary_rounds",
+      "databaseGroup": "incendiary",
+      "currentPage": {
+        "url": "https://arctracker.io/items/hullcracker_amplified_incendiary_rounds",
+        "retrieval": "success",
+        "observedTitle": "Amplified Hullcracker · Incendiary Rounds"
+      },
+      "interpretation": "Incendiary research/item label conflict remains; no safe game-menu equivalence confirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "hullcracker_amplified_incendiary_rounds_mag_reload",
+      "auditId": "configuration:hullcracker_amplified_incendiary_rounds_mag_reload",
+      "databaseGroup": "incendiary",
+      "currentPage": {
+        "url": "https://arctracker.io/items/hullcracker_amplified_incendiary_rounds_mag_reload",
+        "retrieval": "success",
+        "observedTitle": "Amplified Hullcracker · Incendiary Rounds + Mag Reload"
+      },
+      "interpretation": "Incendiary research/item label conflict remains; no safe game-menu equivalence confirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "auditId": "configuration:jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://metaforge.app/arc-raiders/database/item/amplified-jupiter-bigger-mag-scoped-straight-bolt",
+        "retrieval": "success",
+        "observedTitle": "Amplified Jupiter (Bigger Mag, Scoped, Ergonomic Bolt)"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_bigger_mag_straight_bolt",
+      "auditId": "configuration:jupiter_amplified_bigger_mag_straight_bolt",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://metaforge.app/arc-raiders/database/item/amplified-jupiter-bigger-mag-straight-bolt",
+        "retrieval": "success",
+        "observedTitle": "Amplified Jupiter (Bigger Mag, Ergonomic Bolt)"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_scoped_straight_bolt",
+      "auditId": "configuration:jupiter_amplified_scoped_straight_bolt",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://arctracker.io/items/jupiter_amplified_scoped_straight_bolt",
+        "retrieval": "success",
+        "observedTitle": "Amplified Jupiter · Scoped + Ergonomic Bolt"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_straight_bolt",
+      "auditId": "configuration:jupiter_amplified_straight_bolt",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://metaforge.app/arc-raiders/database/item/amplified-jupiter-straight-bolt",
+        "retrieval": "success",
+        "observedTitle": "Amplified Jupiter (Ergonomic Bolt)"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_straight_bolt",
+      "auditId": "configuration:osprey_amplified_straight_bolt",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://arctracker.io/items/osprey_amplified_straight_bolt",
+        "retrieval": "success",
+        "observedTitle": "Amplified Osprey · Ergonomic Bolt"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_straight_bolt_anti_weak_point",
+      "auditId": "configuration:osprey_amplified_straight_bolt_anti_weak_point",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://arctracker.io/items/osprey_amplified_straight_bolt_anti_weak_point",
+        "retrieval": "success",
+        "observedTitle": "Amplified Osprey · Ergonomic Bolt + Anti-Weak Point"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_tracker_rounds_straight_bolt",
+      "auditId": "configuration:osprey_amplified_tracker_rounds_straight_bolt",
+      "databaseGroup": "bolt",
+      "currentPage": {
+        "url": "https://metaforge.app/arc-raiders/database/item/amplified-osprey-tracker-rounds-straight-bolt",
+        "retrieval": "success",
+        "observedTitle": "Amplified Osprey (Tracker Rounds, Ergonomic Bolt)"
+      },
+      "interpretation": "Source label mapping documented; current-game identity and values remain unconfirmed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_high_velocity_incendiary_rounds",
+      "auditId": "configuration:rascal_amplified_high_velocity_incendiary_rounds",
+      "databaseGroup": "incendiary",
+      "currentPage": {
+        "url": "https://arctracker.io/items/rascal_amplified_high_velocity_incendiary_rounds",
+        "retrieval": "failed",
+        "observedTitle": null
+      },
+      "interpretation": "Incendiary research/item label conflict remains; no safe game-menu equivalence confirmed.",
+      "status": "WIDERSPRÜCHLICH",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "auditId": "configuration:rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "databaseGroup": "incendiary",
+      "currentPage": {
+        "url": "https://arctracker.io/items/rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+        "retrieval": "failed",
+        "observedTitle": null
+      },
+      "interpretation": "Incendiary research/item label conflict remains; no safe game-menu equivalence confirmed.",
+      "status": "WIDERSPRÜCHLICH",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_incendiary_rounds",
+      "auditId": "configuration:rascal_amplified_incendiary_rounds",
+      "databaseGroup": "incendiary",
+      "currentPage": {
+        "url": "https://arctracker.io/items/rascal_amplified_incendiary_rounds",
+        "retrieval": "failed",
+        "observedTitle": null
+      },
+      "interpretation": "Incendiary research/item label conflict remains; no safe game-menu equivalence confirmed.",
+      "status": "WIDERSPRÜCHLICH",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_sprint_shooting_incendiary_rounds",
+      "auditId": "configuration:rascal_amplified_sprint_shooting_incendiary_rounds",
+      "databaseGroup": "incendiary",
+      "currentPage": {
+        "url": "https://arctracker.io/items/rascal_amplified_sprint_shooting_incendiary_rounds",
+        "retrieval": "failed",
+        "observedTitle": null
+      },
+      "interpretation": "Incendiary research/item label conflict remains; no safe game-menu equivalence confirmed.",
+      "status": "WIDERSPRÜCHLICH",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    }
+  ],
+  "connections": [
+    {
+      "id": "hullcracker_amplified>hullcracker_amplified_incendiary_rounds",
+      "auditId": "edge:hullcracker_amplified>hullcracker_amplified_incendiary_rounds",
+      "from": "hullcracker_amplified",
+      "to": "hullcracker_amplified_incendiary_rounds",
+      "archivedCost": {
+        "fossilized_lightning": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "hullcracker_amplified_incendiary_rounds>hullcracker_amplified_incendiary_rounds_mag_reload",
+      "auditId": "edge:hullcracker_amplified_incendiary_rounds>hullcracker_amplified_incendiary_rounds_mag_reload",
+      "from": "hullcracker_amplified_incendiary_rounds",
+      "to": "hullcracker_amplified_incendiary_rounds_mag_reload",
+      "archivedCost": {
+        "propellant_valve_assembly": 3
+      },
+      "sourceRechecked": true,
+      "source": "https://arctracker.io/items/hullcracker_amplified_incendiary_rounds",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "hullcracker_amplified_mag_reload>hullcracker_amplified_incendiary_rounds_mag_reload",
+      "auditId": "edge:hullcracker_amplified_mag_reload>hullcracker_amplified_incendiary_rounds_mag_reload",
+      "from": "hullcracker_amplified_mag_reload",
+      "to": "hullcracker_amplified_incendiary_rounds_mag_reload",
+      "archivedCost": {
+        "fossilized_lightning": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified>jupiter_amplified_straight_bolt",
+      "auditId": "edge:jupiter_amplified>jupiter_amplified_straight_bolt",
+      "from": "jupiter_amplified",
+      "to": "jupiter_amplified_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_bigger_mag>jupiter_amplified_bigger_mag_straight_bolt",
+      "auditId": "edge:jupiter_amplified_bigger_mag>jupiter_amplified_bigger_mag_straight_bolt",
+      "from": "jupiter_amplified_bigger_mag",
+      "to": "jupiter_amplified_bigger_mag_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_bigger_mag_scoped>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "auditId": "edge:jupiter_amplified_bigger_mag_scoped>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "from": "jupiter_amplified_bigger_mag_scoped",
+      "to": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_bigger_mag_straight_bolt>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "auditId": "edge:jupiter_amplified_bigger_mag_straight_bolt>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "from": "jupiter_amplified_bigger_mag_straight_bolt",
+      "to": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": true,
+      "source": "https://metaforge.app/arc-raiders/database/item/amplified-jupiter-bigger-mag-straight-bolt",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_scoped>jupiter_amplified_scoped_straight_bolt",
+      "auditId": "edge:jupiter_amplified_scoped>jupiter_amplified_scoped_straight_bolt",
+      "from": "jupiter_amplified_scoped",
+      "to": "jupiter_amplified_scoped_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_scoped_straight_bolt>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "auditId": "edge:jupiter_amplified_scoped_straight_bolt>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "from": "jupiter_amplified_scoped_straight_bolt",
+      "to": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "archivedCost": {
+        "pressure_regulator": 3
+      },
+      "sourceRechecked": true,
+      "source": "https://arctracker.io/items/jupiter_amplified_scoped_straight_bolt",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_straight_bolt>jupiter_amplified_scoped_straight_bolt",
+      "auditId": "edge:jupiter_amplified_straight_bolt>jupiter_amplified_scoped_straight_bolt",
+      "from": "jupiter_amplified_straight_bolt",
+      "to": "jupiter_amplified_scoped_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": true,
+      "source": "https://metaforge.app/arc-raiders/database/item/amplified-jupiter-straight-bolt",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "jupiter_amplified_straight_bolt>jupiter_amplified_bigger_mag_straight_bolt",
+      "auditId": "edge:jupiter_amplified_straight_bolt>jupiter_amplified_bigger_mag_straight_bolt",
+      "from": "jupiter_amplified_straight_bolt",
+      "to": "jupiter_amplified_bigger_mag_straight_bolt",
+      "archivedCost": {
+        "pressure_regulator": 3
+      },
+      "sourceRechecked": true,
+      "source": "https://metaforge.app/arc-raiders/database/item/amplified-jupiter-straight-bolt",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified>osprey_amplified_straight_bolt",
+      "auditId": "edge:osprey_amplified>osprey_amplified_straight_bolt",
+      "from": "osprey_amplified",
+      "to": "osprey_amplified_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_anti_weak_point>osprey_amplified_straight_bolt_anti_weak_point",
+      "auditId": "edge:osprey_amplified_anti_weak_point>osprey_amplified_straight_bolt_anti_weak_point",
+      "from": "osprey_amplified_anti_weak_point",
+      "to": "osprey_amplified_straight_bolt_anti_weak_point",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_straight_bolt>osprey_amplified_straight_bolt_anti_weak_point",
+      "auditId": "edge:osprey_amplified_straight_bolt>osprey_amplified_straight_bolt_anti_weak_point",
+      "from": "osprey_amplified_straight_bolt",
+      "to": "osprey_amplified_straight_bolt_anti_weak_point",
+      "archivedCost": {
+        "assessor_matrix": 2
+      },
+      "sourceRechecked": true,
+      "source": "https://arctracker.io/items/osprey_amplified_straight_bolt",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_straight_bolt>osprey_amplified_tracker_rounds_straight_bolt",
+      "auditId": "edge:osprey_amplified_straight_bolt>osprey_amplified_tracker_rounds_straight_bolt",
+      "from": "osprey_amplified_straight_bolt",
+      "to": "osprey_amplified_tracker_rounds_straight_bolt",
+      "archivedCost": {
+        "matriarch_reactor": 2
+      },
+      "sourceRechecked": true,
+      "source": "https://arctracker.io/items/osprey_amplified_straight_bolt",
+      "recheckScope": "Explicit directional output and cost agree at database level.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "osprey_amplified_tracker_rounds>osprey_amplified_tracker_rounds_straight_bolt",
+      "auditId": "edge:osprey_amplified_tracker_rounds>osprey_amplified_tracker_rounds_straight_bolt",
+      "from": "osprey_amplified_tracker_rounds",
+      "to": "osprey_amplified_tracker_rounds_straight_bolt",
+      "archivedCost": {
+        "fluted_rotor_core": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified>rascal_amplified_incendiary_rounds",
+      "auditId": "edge:rascal_amplified>rascal_amplified_incendiary_rounds",
+      "from": "rascal_amplified",
+      "to": "rascal_amplified_incendiary_rounds",
+      "archivedCost": {
+        "fossilized_lightning": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_high_velocity>rascal_amplified_high_velocity_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_high_velocity>rascal_amplified_high_velocity_incendiary_rounds",
+      "from": "rascal_amplified_high_velocity",
+      "to": "rascal_amplified_high_velocity_incendiary_rounds",
+      "archivedCost": {
+        "fossilized_lightning": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_high_velocity_incendiary_rounds>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_high_velocity_incendiary_rounds>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "from": "rascal_amplified_high_velocity_incendiary_rounds",
+      "to": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "archivedCost": {
+        "fluted_rotor_core": 2
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_high_velocity_sprint_shooting>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_high_velocity_sprint_shooting>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "from": "rascal_amplified_high_velocity_sprint_shooting",
+      "to": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "archivedCost": {
+        "fossilized_lightning": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_incendiary_rounds>rascal_amplified_sprint_shooting_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_incendiary_rounds>rascal_amplified_sprint_shooting_incendiary_rounds",
+      "from": "rascal_amplified_incendiary_rounds",
+      "to": "rascal_amplified_sprint_shooting_incendiary_rounds",
+      "archivedCost": {
+        "fluted_rotor_core": 2
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_incendiary_rounds>rascal_amplified_high_velocity_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_incendiary_rounds>rascal_amplified_high_velocity_incendiary_rounds",
+      "from": "rascal_amplified_incendiary_rounds",
+      "to": "rascal_amplified_high_velocity_incendiary_rounds",
+      "archivedCost": {
+        "pneumatic_actuator": 2
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_sprint_shooting>rascal_amplified_sprint_shooting_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_sprint_shooting>rascal_amplified_sprint_shooting_incendiary_rounds",
+      "from": "rascal_amplified_sprint_shooting",
+      "to": "rascal_amplified_sprint_shooting_incendiary_rounds",
+      "archivedCost": {
+        "fossilized_lightning": 3
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    },
+    {
+      "id": "rascal_amplified_sprint_shooting_incendiary_rounds>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "auditId": "edge:rascal_amplified_sprint_shooting_incendiary_rounds>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "from": "rascal_amplified_sprint_shooting_incendiary_rounds",
+      "to": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "archivedCost": {
+        "pneumatic_actuator": 2
+      },
+      "sourceRechecked": false,
+      "source": "catalog-data/amplified-completeness-audit.md",
+      "recheckScope": "Archived edge inspected; no new complete directional/cost evidence claimed.",
+      "status": "TEILWEISE VERIFIZIERT",
+      "currentGameExistence": "NICHT VERIFIZIERT",
+      "obsolete": "NICHT VERIFIZIERT",
+      "runtimeImported": false
+    }
+  ],
+  "research": [
+    {
+      "id": "action_economy",
+      "sources": [
+        "action",
+        "meta-action"
+      ],
+      "status": "TEILWEISE VERIFIZIERT",
+      "documented": {
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": {
+          "sentinel_firing_core": 8
+        },
+        "task": "Deal 1000 damage with a Hairpin in one raid"
+      },
+      "limitations": "Detail page explicitly says in one raid; overview excerpt lacks qualifier. Loadout and current-game evidence not inspected.",
+      "runtimeImported": false
+    },
+    {
+      "id": "compact_combustion_charges",
+      "sources": [
+        "combustion",
+        "arctracker-research"
+      ],
+      "status": "TEILWEISE VERIFIZIERT",
+      "documented": {
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": {
+          "bombardier_cell": 5
+        },
+        "task": "Deal 3000 damage with Blaze Grenades"
+      },
+      "limitations": "No game-menu/loadout inspection. Incendiary naming conflict persists.",
+      "runtimeImported": false
+    }
+  ],
+  "stationReview": {
+    "levels": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "sources": [
+      "scrappy-station",
+      "outpost-wiki"
+    ],
+    "result": "Existing material requirements agree with community pages; original game not verified. Room count must not be silently equated with level semantics.",
+    "runtimeImported": false
+  },
+  "expansionReview": {
+    "steps": [
+      "1>2",
+      "2>3",
+      "3>4"
+    ],
+    "sources": [
+      "guide"
+    ],
+    "result": "Existing guide still documents the stored costs; images could not be visually inspected, so no verification promotion.",
+    "runtimeImported": false
+  },
+  "acquisitionReview": {
+    "sources": [
+      "buddy",
+      "armchairs"
+    ],
+    "result": "No individually game-verified variants or acquisition mappings obtained. Aggregate official distribution is not an item-level mapping.",
+    "runtimeImported": false
+  },
+  "accessFailures": [
+    {
+      "url": "https://arctracker.io/api/items",
+      "result": "HTTP 403; archived export is not a new current export."
+    },
+    {
+      "url": "https://arcraidershub.com/images/guides/outpost/research-station-1-cost.webp",
+      "result": "HTTP 403; captions not treated as visually inspected screenshots."
+    },
+    {
+      "url": "https://www.arcscrappy.com/en/stations/research_station",
+      "result": "Direct HTTP 403; reader succeeded."
+    },
+    {
+      "url": "https://arcraiders.wiki/wiki/Amplified_Weapons",
+      "result": "Reader failed."
+    }
+  ],
+  "technical": {
+    "auditGenerator": "Passed in isolated temporary directory; all 400 rows and category/comparison counts identical. Only fetched HTML byte hash changed. Committed original audit retained.",
+    "localBrowser": "Launch failed: Chromium headless shell 1234 missing. No local browser test claimed."
+  }
+}

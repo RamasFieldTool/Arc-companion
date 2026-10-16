@@ -4181,7 +4181,17 @@
           "it": "In un raid su Pendola Pass, visita: Electrical Substation, Truck Stop, Old Town, Almatera Station, Researcher Lodgings, Deep-Space Telescope e Commissary Supermarket."
         },
         "taskSource": "https://arctracker.io/research/mobile-fire-grip-fittings",
-        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+        "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented.",
+        "fieldEvidence": {
+          "materials.itemId": {
+            "status": "VERIFIZIERT",
+            "value": "skulker_targeter",
+            "source": "https://arcraiders.com/news/store-update-2-1-0",
+            "publishedAt": "2026-10-13",
+            "checkedAt": "2026-10-16",
+            "scope": "Official patch notes confirm Targeters instead of Drivers. No quantity, points or task verification."
+          }
+        }
       },
       {
         "id": "shield_stress_testing",
