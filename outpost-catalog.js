@@ -25,5 +25,5 @@
   listRows();
  }
  new MutationObserver(()=>{if(root?.dataset.language!==language())render()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-ui-language']});window.addEventListener('arc-language-change',()=>{if(root?.dataset.language!==language())render()});
- fetch('outpost-catalog.json?v=catalog-1').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(x=>{data=x;render()}).catch(()=>render());
+ fetch('outpost-catalog.json?v=screenshot-labels-20261016').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}).then(x=>{data=x;render()}).catch(()=>render());
 })();
