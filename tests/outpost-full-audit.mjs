@@ -29,3 +29,28 @@ assert.equal(Object.values(catalog.coverageEvidence.distribution).reduce((a,b)=>
 assert.equal(catalog.status,'community-generated-data-not-in-game-verified');
 assert.deepEqual(audit.wikiComparison.counts,{agrees:96,conflict:2,'not-compared':2});
 console.log('PASS full Outpost audit: 400 unique evidence records, source freshness, all archived edge endpoints, UI subset coverage and field-level verification limits');
+
+const followup=read('catalog-data/outpost-targeted-followup-20261016.json');
+assert.equal(followup.documentationOnly,true);
+const archivedConfigs=audit.rows.filter(r=>r.area==='amplified-configuration'&&!r.uiIntegrated).map(r=>r.present.id).sort();
+assert.deepEqual(followup.configurations.map(r=>r.id).sort(),archivedConfigs);
+const archivedEdges=audit.rows.filter(r=>r.area==='amplified-edge'&&!r.uiIntegrated).map(r=>r.id.slice(5)).sort();
+assert.deepEqual(followup.connections.map(r=>r.id).sort(),archivedEdges);
+const unresolvedNodes=audit.rows.filter(r=>r.area==='amplified-node'&&r.status==='WIDERSPRÜCHLICH').map(r=>r.id).sort();
+assert.deepEqual(followup.nodes.map(r=>r.auditId).sort(),unresolvedNodes);
+for(const row of [...followup.configurations,...followup.connections,...followup.nodes,...followup.research]){
+ assert.equal(row.runtimeImported,false);
+ if('currentGameExistence' in row)assert.equal(row.currentGameExistence,'NICHT VERIFIZIERT');
+ for(const key of row.sources||[])assert.ok(followup.sources[key],'missing followup source: '+key);
+}
+for(const edge of followup.connections){
+ const original=audit.rows.find(r=>r.id===edge.auditId);
+ assert.deepEqual(edge.archivedCost,original.present.cost);
+ assert.equal(edge.from+'>'+edge.to,edge.id);
+}
+assert.equal(new Set(followup.configurations.map(r=>r.id)).size,13);
+assert.equal(new Set(followup.connections.map(r=>r.id)).size,24);
+assert.equal(followup.furniture.length,5);
+assert.equal(followup.connections.filter(r=>r.sourceRechecked).length,7);
+assert.equal(followup.configurations.filter(r=>r.currentPage.retrieval==='success').length,9);
+console.log('PASS targeted follow-up: exact five unresolved nodes, 13 excluded configurations and 24 excluded edges covered without promoting game verification');
