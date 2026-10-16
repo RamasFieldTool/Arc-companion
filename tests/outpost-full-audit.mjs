@@ -4,15 +4,39 @@ import crypto from 'node:crypto';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const audit=read('catalog-data/outpost-full-audit-20261016.json');
 const catalog=read('outpost-catalog.json');
+// Preserve the dated audit as a historical baseline. Only explicitly evidenced
+// German label corrections may differ; quantities, IDs and research stay frozen.
+const screenshotEvidence=read('catalog-data/outpost-screenshot-verification-20261016.json');
+const auditedCatalog=structuredClone(catalog);
+assert.equal(screenshotEvidence.baselineCatalogSha256,audit.inputSha256['outpost-catalog.json']);
+assert.equal(screenshotEvidence.records.length,27);
+assert.equal(new Set(screenshotEvidence.records.map(r=>r.id)).size,27);
+for(const record of screenshotEvidence.records){
+ const item=catalog.furniture.find(x=>x.id===record.id);
+ assert.ok(item,'unmapped screenshot '+record.id);
+ assert.equal(item.name.de,record.gameNameDe);
+ assert.deepEqual(item.craft.map(m=>({materialEn:m.name.en,quantity:m.quantity})),record.observedCraft);
+ assert.equal(record.recordStatus,'TEILWEISE VERIFIZIERT');
+ assert.equal(record.gameVersion,null);
+ assert.equal(crypto.createHash('sha256').update(fs.readFileSync(record.evidencePath)).digest('hex'),record.sha256);
+ for(const change of record.changes){
+  assert.ok(JSON.stringify(change.path)==='["name","de"]'||/^\["craft",\d+,"name","de"\]$/.test(JSON.stringify(change.path)),'non-label override');
+  let node=auditedCatalog.furniture.find(x=>x.id===record.id);
+  for(const part of change.path.slice(0,-1))node=node[part];
+  const key=change.path.at(-1);assert.equal(node[key],change.after);node[key]=change.before;
+ }
+}
+assert.equal(screenshotEvidence.recipeQuantityChanges,0);
+assert.equal(screenshotEvidence.fullyGameVerifiedRecords,0);
 const amplified=read('catalog-data/amplified-variants.json');
 assert.equal(audit.rows.length,400);
 assert.equal(new Set(audit.rows.map(r=>r.id)).size,400);
-for(const [path,hash] of Object.entries(audit.inputSha256))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path)).digest('hex'),hash,'stale audit: '+path);
+for(const [path,hash] of Object.entries(audit.inputSha256))assert.equal(crypto.createHash('sha256').update((path==='outpost-catalog.json'?JSON.stringify(auditedCatalog,null,2)+'\n':fs.readFileSync(path))).digest('hex'),hash,'stale audit: '+path);
 for(const row of audit.rows){
  assert.ok(['VERIFIZIERT','TEILWEISE VERIFIZIERT','NICHT VERIFIZIERT','WIDERSPRÜCHLICH','FEHLGESCHLAGEN'].includes(row.status));
  assert.ok(row.missing.length&&row.requiredEvidence&&row.verificationScope&&row.sources.length);
 }
-for(const item of catalog.furniture)assert.deepEqual(audit.rows.find(r=>r.id==='furniture:'+item.id).present,item);
+for(const item of auditedCatalog.furniture)assert.deepEqual(audit.rows.find(r=>r.id==='furniture:'+item.id).present,item);
 const configs=new Set(audit.rows.filter(r=>r.area==='amplified-configuration').map(r=>r.present.id));
 for(const row of audit.rows.filter(r=>r.area==='amplified-edge')){
  assert.ok(configs.has(row.id.slice(5).split('>')[0]));assert.ok(configs.has(row.present.to));
