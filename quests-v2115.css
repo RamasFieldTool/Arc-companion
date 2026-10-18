@@ -24,4 +24,10 @@
 .quest-details-body{padding-top:2px}
 .quest-details .quest-section{margin-top:8px}
 .quest-details .quest-grid{margin-top:7px}
+.quest-status{line-height:1.45;overflow-wrap:anywhere}
+.quest-result-count{font-size:12px;color:var(--ui-muted)}
+.quest-status[data-state="snapshot"],.quest-status[data-state="partial"]{padding:9px 10px;border:1px solid color-mix(in srgb,var(--amber) 55%,transparent);border-radius:9px;background:color-mix(in srgb,var(--amber) 10%,transparent)}
+.quest-status[data-state="error"]{color:var(--red,#ff8c79)}
+.quest-retry{justify-self:start;min-height:40px;padding:8px 12px;border:1px solid var(--amber);border-radius:9px;background:var(--ui-soft);color:var(--ui-text);font:700 13px system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
+.quest-retry:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
 @media(min-width:720px){.quest-card-head{grid-template-columns:minmax(0,1fr) 280px;align-items:start}.quest-state{margin-top:0}}
