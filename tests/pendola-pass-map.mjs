@@ -23,12 +23,15 @@ const browser=await chromium.launch({headless:true});
 for(const mobile of [false,true]){
 const context=await browser.newContext(mobile?{viewport:{width:412,height:915},isMobile:true,hasTouch:true}:{viewport:{width:1280,height:900}});
 await context.addInitScript(()=>{localStorage.setItem('arcLang','de');localStorage.setItem('arcUiLanguage','de');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('pendolaSafetyProbe','unchanged')});
-const p=await context.newPage();const errors=[];p.on('pageerror',e=>errors.push(String(e)));
+const p=await context.newPage();const errors=[],mapAssetRequests=[];p.on('pageerror',e=>errors.push(String(e)));p.on('request',r=>{if(/\/(?:maps\.json|raider-spawns\.json|spaceport-approved-base\.jpg)$/.test(new URL(r.url()).pathname))mapAssetRequests.push(r.url())});
 await installItemCatalogRoute(p,fixture,'live');
 await p.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
-await p.waitForFunction(()=>typeof mapCatalog!=='undefined'&&mapCatalog?.maps?.length);
 await p.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live');
+if(mapAssetRequests.length)throw Error('Map catalog or spawn data loaded before opening the map view');
 await p.locator('[data-app-target="spawnPanel"]').click();
+await p.waitForFunction(()=>typeof mapCatalog!=='undefined'&&mapCatalog?.maps?.length);
+if(!mapAssetRequests.some(url=>url.includes('maps.json')))throw Error('Map catalog was not loaded when opening the map view');
+await p.waitForSelector('#spawnMapSelect option[value="pendola-pass"]');
 await p.locator('#spawnMapSelect').selectOption('pendola-pass');
 await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass'&&document.querySelector('#spawnMapImage').src.includes('pendola-pass')&&document.querySelector('#spawnMapImage').naturalWidth===1448);
 await p.waitForTimeout(600);
@@ -100,7 +103,7 @@ if(map!=='pendola-pass'&&await p.locator('#pendolaOverlay').isVisible())throw Er
 if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not return');
 }
 if(await p.evaluate(()=>localStorage.getItem('pendolaSafetyProbe'))!=='unchanged')throw Error('Storage changed');
-await p.reload();await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass');
+const requestsBeforeReload=mapAssetRequests.length;await p.reload();if(mapAssetRequests.length!==requestsBeforeReload)throw Error('Map data loaded during reload before opening the map view');await p.locator('[data-app-target="spawnPanel"]').click();await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass');
 for(const [code,title] of [['en','Pendola Pass – work in progress'],['fr','Pendola Pass – en construction'],['es','Pendola Pass – en desarrollo'],['it','Pendola Pass – in sviluppo'],['de','Pendola Pass – im Ausbau']]){
  console.log('Checking draft language',code);await p.locator('#appBack').click();await p.locator('#arcLanguageButton').click();await p.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
  await p.locator('[data-app-target="spawnPanel"]').click();
