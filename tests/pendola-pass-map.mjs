@@ -31,7 +31,7 @@ if(mapAssetRequests.length)throw Error('Map catalog or spawn data loaded before 
 await p.locator('[data-app-target="spawnPanel"]').click();
 await p.waitForFunction(()=>typeof mapCatalog!=='undefined'&&mapCatalog?.maps?.length);
 if(!mapAssetRequests.some(url=>url.includes('maps.json')))throw Error('Map catalog was not loaded when opening the map view');
-await p.waitForSelector('#spawnMapSelect option[value="pendola-pass"]');
+await p.waitForFunction(()=>Array.from(document.querySelector('#spawnMapSelect')?.options||[]).some(option=>option.value==='pendola-pass'));
 await p.locator('#spawnMapSelect').selectOption('pendola-pass');
 await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass'&&document.querySelector('#spawnMapImage').src.includes('pendola-pass')&&document.querySelector('#spawnMapImage').naturalWidth===1448);
 await p.waitForTimeout(600);
