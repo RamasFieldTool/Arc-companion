@@ -103,7 +103,7 @@ if(map!=='pendola-pass'&&await p.locator('#pendolaOverlay').isVisible())throw Er
 if(map==='pendola-pass'&&!src.includes('pendola'))throw Error('Pendola did not return');
 }
 if(await p.evaluate(()=>localStorage.getItem('pendolaSafetyProbe'))!=='unchanged')throw Error('Storage changed');
-const requestsBeforeReload=mapAssetRequests.length;await p.reload();if(mapAssetRequests.length!==requestsBeforeReload)throw Error('Map data loaded during reload before opening the map view');await p.locator('[data-app-target="spawnPanel"]').click();await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass');
+await p.locator('#appBack').click();mapAssetRequests.length=0;await p.reload();if(mapAssetRequests.length)throw Error('Map data loaded during reload before opening the map view');await p.locator('[data-app-target="spawnPanel"]').click();await p.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='pendola-pass');
 for(const [code,title] of [['en','Pendola Pass – work in progress'],['fr','Pendola Pass – en construction'],['es','Pendola Pass – en desarrollo'],['it','Pendola Pass – in sviluppo'],['de','Pendola Pass – im Ausbau']]){
  console.log('Checking draft language',code);await p.locator('#appBack').click();await p.locator('#arcLanguageButton').click();await p.locator(`#arcLanguageMenu [data-arc-language="${code}"]`).click();
  await p.locator('[data-app-target="spawnPanel"]').click();
