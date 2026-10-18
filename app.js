@@ -9,10 +9,12 @@ const questDrawer=document.querySelector('#questDrawer');
 const questQ=document.querySelector('#questQ');
 const questsList=document.querySelector('#questsList');
 const questStatus=document.querySelector('#questStatus');
+const questResultCount=document.querySelector('#questResultCount');
 const questSummary=document.querySelector('#questSummary');
 const questToggleLabel=document.querySelector('#questToggleLabel');
 
 let items=[],goals=[],quests=[],usingFallback=false,questLoadError=false;
+let questLoadState='loading',questLoadCounts={loaded:0,total:0},questLoadGeneration=0;
 let questFilter='all';
 let lang=localStorage.getItem('arcLang')||'de';
 
@@ -375,7 +377,6 @@ function drawQuests(){
   });
   if(!questDrawer.open) return;
   if(questLoadError){
-    questStatus.textContent=tr('questLoadError');
     questStatus.classList.add('load-error');
     questsList.innerHTML='';
     return;
@@ -391,25 +392,81 @@ function drawQuests(){
     ].map(norm).join(' ');
     return hay.includes(needle);
   });
-  questStatus.classList.remove('load-error');
-  questStatus.textContent=`${filtered.length} ${tr('shown')} · ${quests.length} ${tr('questsLoaded')}`;
+  if(questResultCount){
+    const locale=window.RFTDataLabels?.language()||localStorage.getItem('arcUiLanguage')||lang;
+    const labels={
+      de:(shown,total)=>`${shown} angezeigt · ${total} Quests geladen`,
+      en:(shown,total)=>`${shown} shown · ${total} quests loaded`,
+      fr:(shown,total)=>`${shown} affichées · ${total} quêtes chargées`,
+      es:(shown,total)=>`${shown} mostradas · ${total} misiones cargadas`,
+      it:(shown,total)=>`${shown} mostrate · ${total} missioni caricate`
+    };
+    questResultCount.textContent=(labels[locale]||labels.en)(filtered.length,quests.length);
+  }
   questsList.innerHTML=filtered.length?filtered.map(questCard).join(''):`<div class="empty">${tr('noHit')}</div>`;
   questsList.querySelectorAll('.quest-state button').forEach(btn=>{
     btn.addEventListener('click',()=>setQuestState(btn.dataset.qid,btn.dataset.state));
   });
 }
 
+const QUEST_STATUS_COPY={
+  de:{loading:'Questdaten werden geladen …',live:'Questdaten vollständig aus der Live-Quelle geladen.',snapshot:'Lokaler Quest-Snapshot aktiv: 100 Quests aus RaidTheory, Stand des Quest-Verzeichnisses 29.05.2026. Vollständig gegenüber der öffentlichen Quelle, aber nicht im Spiel bestätigt und möglicherweise veraltet.',partial:'Questdaten nur teilweise verfügbar: {loaded} von {total} Live-Dateien geladen. Der vollständige lokale Snapshot ist nicht verfügbar.',error:'Questdaten konnten nicht geladen werden. Deine gespeicherten Questzustände bleiben erhalten.',retry:'Erneut versuchen'},
+  en:{loading:'Loading quest data …',live:'Quest data loaded from the live source.',snapshot:'Local quest snapshot active: 100 quests from RaidTheory; quest directory last changed 29 May 2026. Complete against the public source, but not confirmed in-game and may be outdated.',partial:'Quest data is only partially available: {loaded} of {total} live files loaded. The complete local snapshot is unavailable.',error:'Quest data could not be loaded. Your saved quest states are preserved.',retry:'Try again'},
+  fr:{loading:'Chargement des données de quêtes …',live:'Données des quêtes chargées depuis la source en direct.',snapshot:'Snapshot local actif : 100 quêtes de RaidTheory ; le dossier des quêtes a été modifié le 29 mai 2026. Complet par rapport à la source publique, non confirmé en jeu et potentiellement obsolète.',partial:'Données de quêtes partielles : {loaded} fichiers sur {total} chargés. Le snapshot local complet est indisponible.',error:'Impossible de charger les quêtes. Votre progression enregistrée est conservée.',retry:'Réessayer'},
+  es:{loading:'Cargando datos de misiones …',live:'Datos de misiones cargados desde la fuente en directo.',snapshot:'Snapshot local activo: 100 misiones de RaidTheory; la carpeta de misiones se modificó por última vez el 29 de mayo de 2026. Completo según la fuente pública, no confirmado en el juego y posiblemente desactualizado.',partial:'Datos de misiones parciales: se cargaron {loaded} de {total} archivos en directo. El snapshot local completo no está disponible.',error:'No se pudieron cargar las misiones. Se conserva tu progreso guardado.',retry:'Reintentar'},
+  it:{loading:'Caricamento dati missioni …',live:'Dati missioni caricati dalla fonte online.',snapshot:'Snapshot locale attivo: 100 missioni di RaidTheory; la cartella delle missioni è stata aggiornata il 29 maggio 2026. Completo rispetto alla fonte pubblica, non confermato nel gioco e potenzialmente obsoleto.',partial:'Dati missioni parziali: caricati {loaded} file su {total}. Lo snapshot locale completo non è disponibile.',error:'Impossibile caricare le missioni. I progressi salvati vengono conservati.',retry:'Riprova'}
+};
+function questStatusText(){
+  const locale=window.RFTDataLabels?.language()||localStorage.getItem('arcUiLanguage')||lang;
+  const copy=QUEST_STATUS_COPY[locale]||QUEST_STATUS_COPY.en;
+  if(questLoadState==='partial')return copy.partial.replace('{loaded}',questLoadCounts.loaded).replace('{total}',questLoadCounts.total);
+  return copy[questLoadState]||copy.loading;
+}
+function renderQuestSourceStatus(){
+  if(!questStatus)return;
+  questStatus.textContent=questStatusText();
+  questStatus.dataset.state=questLoadState;
+  questStatus.classList.toggle('load-error',questLoadState==='error');
+  questStatus.classList.toggle('load-partial',questLoadState==='partial'||questLoadState==='snapshot');
+  const retry=document.getElementById('questRetry');
+  if(retry){
+    const locale=window.RFTDataLabels?.language()||localStorage.getItem('arcUiLanguage')||lang;
+    retry.textContent=(QUEST_STATUS_COPY[locale]||QUEST_STATUS_COPY.en).retry;
+    retry.hidden=!['snapshot','partial','error'].includes(questLoadState);
+  }
+}
+
+async function loadQuestSnapshot(){
+  const response=await fetch('catalog-data/quests-full-snapshot.json?v=quest-snapshot-20261018',{cache:'no-store'});
+  if(!response.ok)throw new Error(`Local quest snapshot ${response.status}`);
+  const snapshot=await response.json();
+  if(snapshot?.schema!=='ramas-field-tool-quest-snapshot'||snapshot?.formatVersion!==1||snapshot?.completeAtCapture!==true||!Array.isArray(snapshot.quests)||snapshot.count!==snapshot.quests.length)throw new Error('Invalid local quest snapshot metadata');
+  const ids=snapshot.quests.map(quest=>quest?.id);
+  if(ids.some(id=>typeof id!=='string'||!id)||new Set(ids).size!==ids.length)throw new Error('Invalid or duplicate IDs in local quest snapshot');
+  if(!window.crypto?.subtle)throw new Error('Quest snapshot integrity check is unavailable');
+  const bytes=new TextEncoder().encode(JSON.stringify(snapshot.quests));
+  const digest=await window.crypto.subtle.digest('SHA-256',bytes);
+  const actual=[...new Uint8Array(digest)].map(value=>value.toString(16).padStart(2,'0')).join('');
+  if(actual!==snapshot.contentSha256)throw new Error('Local quest snapshot checksum mismatch');
+  return snapshot.quests;
+}
+
 async function loadQuests(){
   // Primary source: RaidTheory directly on GitHub. This avoids the Mahcks
   // pagination failure that prevented the quest tracker from starting.
   const dirUrl='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main';
-  const dirResponse=await fetch(dirUrl,{cache:'no-store'});
-  if(!dirResponse.ok) throw new Error(`RaidTheory quest index ${dirResponse.status}`);
-  const files=await dirResponse.json();
-  if(!Array.isArray(files)||!files.length) throw new Error('Invalid RaidTheory quest index');
+  const controller=new AbortController();
+  const timeout=setTimeout(()=>controller.abort(),20000);
+  let dirResponse;
+  try{dirResponse=await fetch(dirUrl,{cache:'no-store',signal:controller.signal})}
+  catch(error){clearTimeout(timeout);throw error}
+  if(!dirResponse.ok){clearTimeout(timeout);throw new Error(`RaidTheory quest index ${dirResponse.status}`)}
+  let files;
+  try{files=await dirResponse.json()}catch(error){clearTimeout(timeout);throw error}
+  if(!Array.isArray(files)||!files.length){clearTimeout(timeout);throw new Error('Invalid RaidTheory quest index')}
 
   const questFiles=files.filter(f=>f?.type==='file'&&f?.name?.endsWith('.json')&&f?.download_url);
-  if(!questFiles.length) throw new Error('No quest files found');
+  if(!questFiles.length){clearTimeout(timeout);throw new Error('No quest files found')}
 
   // Fetch in small batches. Individual file failures are isolated so one
   // transient GitHub/raw-file error cannot wipe the complete quest tracker.
@@ -419,7 +476,7 @@ async function loadQuests(){
   for(let i=0;i<questFiles.length;i+=batchSize){
     const batch=questFiles.slice(i,i+batchSize);
     const results=await Promise.allSettled(batch.map(async f=>{
-      const r=await fetch(f.download_url,{cache:'no-store'});
+      const r=await fetch(f.download_url,{cache:'no-store',signal:controller.signal});
       if(!r.ok) throw new Error(`Quest file ${f.name}: ${r.status}`);
       const data=await r.json();
       if(!data?.id) throw new Error(`Quest file ${f.name}: missing id`);
@@ -433,11 +490,38 @@ async function loadQuests(){
   }
 
   const unique=[...new Map(loaded.map(x=>[x.id,x])).values()];
+  clearTimeout(timeout);
   if(!unique.length) throw new Error('No quest files could be loaded');
   if(failed.length || unique.length!==questFiles.length){
-    console.warn(`Quest snapshot partial: ${unique.length}/${questFiles.length} loaded`,failed);
+    console.warn(`Quest source partial: ${unique.length}/${questFiles.length} loaded`,failed);
+    try{return {quests:await loadQuestSnapshot(),state:'snapshot',loaded:unique.length,total:questFiles.length}}
+    catch(snapshotError){console.warn('Complete quest snapshot unavailable',snapshotError);return {quests:unique,state:'partial',loaded:unique.length,total:questFiles.length}}
   }
-  return unique;
+  return {quests:unique,state:'live',loaded:unique.length,total:questFiles.length};
+}
+
+async function refreshQuests(){
+  const generation=++questLoadGeneration;
+  questLoadState='loading';questLoadCounts={loaded:0,total:0};renderQuestSourceStatus();drawQuestHeader();
+  try{
+    let result;
+    try{result=await loadQuests()}
+    catch(remoteError){
+      console.warn(remoteError);
+      result={quests:await loadQuestSnapshot(),state:'snapshot',loaded:0,total:0};
+    }
+    if(generation!==questLoadGeneration)return;
+    quests=result.quests;
+    questLoadError=false;
+    questLoadState=result.state;
+    questLoadCounts={loaded:result.loaded,total:result.total};
+  }catch(error){
+    if(generation!==questLoadGeneration)return;
+    console.error(error);
+    quests=[];questLoadError=true;questLoadState='error';questLoadCounts={loaded:0,total:0};
+  }
+  quests=window.RFTFrozenTrailData.references(quests);
+  renderQuestSourceStatus();drawQuestHeader();drawQuests();drawSummary();drawItems();
 }
 
 function applyLanguage(){
@@ -449,7 +533,7 @@ function applyLanguage(){
   deBtn.classList.toggle('active',lang==='de');
   enBtn.classList.toggle('active',lang==='en');
   localStorage.setItem('arcLang',lang);
-  drawGoals();drawQuestHeader();drawQuests();drawSummary();drawItems();
+  drawGoals();drawQuestHeader();renderQuestSourceStatus();drawQuests();drawSummary();drawItems();
 }
 
 deBtn.addEventListener('click',()=>{lang='de';applyLanguage()});
@@ -486,6 +570,8 @@ async function loadFullCatalog(){
 }
 
 async function boot(){
+  // Quest retrieval must never gate the search catalog or existing planning UI.
+  void refreshQuests();
   try{
     goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
     status.textContent=lang==='de'?'Katalog wird geladen …':'Loading catalog …';
@@ -507,17 +593,6 @@ async function boot(){
   items=items.map(window.RFTCatalogUpdate.correct);
   ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
 
-  try{
-    questStatus.textContent=tr('questLoading');
-    quests=await loadQuests();
-    questLoadError=false;
-  }catch(err){
-    console.error(err);
-    quests=[];
-    questLoadError=true;
-  }
-
-  quests=window.RFTFrozenTrailData.references(quests);
   applyLanguage();
   if(usingFallback){
     status.textContent=tr('loadError');
@@ -526,4 +601,6 @@ async function boot(){
 }
 boot();
 
-window.addEventListener('arc-language-change',()=>{drawGoals();drawQuestHeader();drawQuests();drawSummary();drawItems()});
+document.getElementById('questRetry')?.addEventListener('click',()=>void refreshQuests());
+
+window.addEventListener('arc-language-change',()=>{drawGoals();drawQuestHeader();renderQuestSourceStatus();drawQuests();drawSummary();drawItems()});
