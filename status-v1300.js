@@ -1,5 +1,5 @@
-// V14.00.10 – persistent user-facing loading/live/partial/fallback status.
-const APP_VERSION='14.00.11';
+// V14.00.12 – persistent user-facing loading/live/partial/fallback status.
+const APP_VERSION='14.00.12';
 const STATUS_COPY={
   de:{
     loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
@@ -114,6 +114,7 @@ function currentDataState(){
   if(usingFallback)return 'fallback';
   if(questLoadState==='snapshot'||questLoadState==='partial')return 'partial';
   if(window.__arcCatalogMeta?.partial===true)return 'partial';
+  if(window.__arcCatalogMeta?.source==='snapshot')return 'fallback';
   if(questLoadError)return 'partial';
   return 'live';
 }
