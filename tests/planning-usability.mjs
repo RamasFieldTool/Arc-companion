@@ -84,5 +84,26 @@ try{
   await personal(page,item.id,2);await page.locator('#planningTabMissing').click();await page.locator('#planningRaidFinished').waitFor({state:'visible'});
   await setStock(page,item.id,2);await page.locator('#planningTabMissing').click();await page.locator('#planningRaidFinished').waitFor({state:'hidden'});
   console.log('PASS raid-find action is hidden without missing requirements and returns when an active goal needs materials');
+  await home(page);
+  await page.locator('[data-app-target="nextRaidDrawer"]').click();
+  await page.locator('.raid-goal-manager-copy strong').waitFor({state:'visible'});
+  const raidLocaleCopy={
+    de:{goals:'RAID-ZIELE',free:'FREIE ITEMS',workshop:'WERKBANK',itemSearch:'ITEM SUCHEN'},
+    en:{goals:'RAID GOALS',free:'FREE ITEMS',workshop:'WORKSHOP',itemSearch:'ITEM SEARCH'},
+    fr:{goals:'OBJECTIFS DE RAID',free:'OBJETS LIBRES',workshop:'ATELIER',itemSearch:'RECHERCHER UN OBJET'},
+    es:{goals:'OBJETIVOS DE INCURSIÓN',free:'OBJETOS LIBRES',workshop:'TALLER',itemSearch:'BUSCAR OBJETO'},
+    it:{goals:'OBIETTIVI RAID',free:'OGGETTI LIBERI',workshop:'OFFICINA',itemSearch:'CERCA OGGETTO'}
+  };
+  for(const [locale,expected] of Object.entries(raidLocaleCopy)){
+    await page.evaluate(language=>{localStorage.setItem('arcUiLanguage',language);document.documentElement.dataset.uiLanguage=language;window.dispatchEvent(new CustomEvent('arc-language-change',{detail:{language}}))},locale);
+    const copy=await page.evaluate(()=>({
+      goals:document.querySelector('.raid-goal-manager-copy strong')?.textContent,
+      free:document.querySelector('.raid-free-manager-copy strong')?.textContent,
+      workshop:document.querySelector('.raid-goal-manager-section h4')?.textContent,
+      itemSearch:document.querySelector('.raid-free-search span')?.textContent
+    }));
+    for(const key of Object.keys(expected))if(copy[key]!==expected[key])throw new Error(`My Next Raid ${locale}: expected ${key} "${expected[key]}", got "${copy[key]}"`);
+  }
+  console.log('PASS My Next Raid manager and free-item search labels in de/en/fr/es/it');
   if(errors.length)throw new Error(errors.join(' | '));await context.close();console.log('PASS browser-emulated 360/412/desktop layouts in dark and light without horizontal overflow');
 }finally{await browser.close()}
