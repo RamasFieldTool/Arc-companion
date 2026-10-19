@@ -49,7 +49,7 @@ Die App bietet drei Darstellungen: **DARK**, **LIGHT** und **BLACK**. Die Auswah
 ### 8. Datenstatus: LIVE oder BASISDATENSATZ
 Der Status oben rechts zeigt, ob der vollständige Item-Katalog geladen wurde oder die App auf einen Fallback zurückgreift:
 
-- **DATEN // LIVE** / **DATA // LIVE**: Der vollständige Item-Katalog wurde aus der Live-Datenquelle geladen.
+- **DATEN // LIVE** / **DATA // LIVE**: Der vollständige Item-Katalog konnte geladen werden. Je nach Erreichbarkeit kann dafür neben Mahcks auch eine Ersatzquelle verwendet worden sein.
 - **DATEN // BASISDATENSATZ** / **DATA // BASE DATASET**: Der vollständige Live-Katalog konnte nicht geladen werden; die App verwendet den lokalen `items.json`-Datensatz.
 
 Der Status bezieht sich auf den Item-Katalog und bedeutet nicht, dass ARC Companion Live-Daten direkt aus einem laufenden Spiel erhält.
