@@ -35,6 +35,8 @@
     let completed=[];try{const next={...owned};for(const [id,amount]of updates)next[id]=(Number(next[id])||0)+amount;completed=window.RFTPlanning.commitStock(next)}catch{notice.textContent=c()[8];return}
     clearDrafts();close();if(typeof drawSummary==='function')drawSummary();if(typeof drawItems==='function')drawItems();window.dispatchEvent(new Event('planning-changed'));document.getElementById('planningStatus').textContent=[c()[6],window.RFTPlanningUI.completedMessage(completed)].filter(Boolean).join(' ');
   });
-  document.getElementById('planningTabGoals').addEventListener('click',()=>{button.hidden=true;close()});document.getElementById('planningTabMissing').addEventListener('click',()=>button.hidden=false);
-  window.addEventListener('arc-language-change',labels);labels();
+  const syncAvailability=()=>{const rows=window.RFTPlanning?.rows?.()||[];const available=rows.length>0;button.hidden=!available;if(!available)close()};
+  const missingRoot=document.getElementById('planningMissing');if(missingRoot)new MutationObserver(syncAvailability).observe(missingRoot,{childList:true,subtree:true});
+  document.getElementById('planningTabGoals').addEventListener('click',()=>{button.hidden=true;close()});document.getElementById('planningTabMissing').addEventListener('click',syncAvailability);
+  window.addEventListener('planning-changed',syncAvailability);window.addEventListener('arc-language-change',labels);labels();syncAvailability();
 })();
