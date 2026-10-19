@@ -328,7 +328,7 @@ try{
             while(performance.now()<deadline){
               await new Promise(resolve=>requestAnimationFrame(resolve));
               const body=document.querySelector('.fan-story-body');
-              const prose=body?[...body.children].map(node=>node.textContent).join('\\n\\n'):'';
+              const prose=body?[...body.children].map(node=>node.textContent).join('\n\n'):'';
               if(document.documentElement.lang==='it'&&body?.lang==='it'&&prose===content){
                 stableSince??=performance.now();
                 if(performance.now()-stableSince>=600)return prose;
