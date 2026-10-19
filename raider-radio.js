@@ -41,35 +41,40 @@
 
   const copy={
     de:{
-      hubTitle:'Fan Creations',hubIntro:'Kreative Werke aus der ARC-Raiders-Community.',tileStatus:'Musik, Storys & Community-Kreationen',
+      hubTitle:'Fan Creations',hubIntro:'Kreative Werke aus der ARC-Raiders-Community.',tileStatus:'Musik, Storys & Wettbewerbsbilder',
+      contestsTitle:'Wettbewerbsbilder',contestsDesc:'Gewinnerbilder aus Community-Wettbewerben',contestsHeading:'Community-Wettbewerbe',contestCardTitle:'Gewinnerbild',contestDateLabel:'Wettbewerbszeitraum',contestGroupLabel:'Facebook-Gruppe',contestPrompt:'Neues Gruppenbild gesucht!',contestAlt:'Das Gewinnerbild des ARC-Raiders-Wettbewerbs mit zwei Raidern bei Sonnenuntergang; auf ihren Rucksäcken steht PvE und PvP.',
       radioTitle:'Raider Radio',radioDesc:'Songs, inspiriert von ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Geschichten aus der Community.',
       back:'← Zurück zu Fan Creations',storiesEmptyTitle:'Noch keine Story veröffentlicht',storiesEmpty:'Hier erscheinen Community-Geschichten, sobald sie für Ramas Field Tool bereit sind.',
       aboutTitle:'Was ist Raider Radio?',about:'Raider Radio zeigt Musik aus und rund um die ARC-Raiders-Community: eigene Songs von Ramas Field Tool und Musik anderer Community-Künstler. Dies ist kein offizieller ARC-Raiders-Soundtrack.',
       how:'Externe Beiträge öffnen zum Anhören ihre Originalplattform in einem neuen Tab. Einzelne ausdrücklich freigegebene Community-Songs sind direkt in Raider Radio abspielbar. Ramas Field Tool bietet keine Download-Funktion an.',listen:'▶ Auf Suno anhören'
     },
     en:{
-      hubTitle:'Fan Creations',hubIntro:'Creative work from the ARC Raiders community.',tileStatus:'Music, stories & community creations',
+      hubTitle:'Fan Creations',hubIntro:'Creative work from the ARC Raiders community.',tileStatus:'Music, stories & contest images',
+      contestsTitle:'Contest gallery',contestsDesc:'Winning images from community contests',contestsHeading:'Community contests',contestCardTitle:'Winning image',contestDateLabel:'Contest dates',contestGroupLabel:'Facebook group',contestPrompt:'New group image wanted!',contestAlt:'Winning image from an ARC Raiders contest: two raiders at sunset, with PvE and PvP on their backpacks.',
       radioTitle:'Raider Radio',radioDesc:'Songs inspired by ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Stories from the community.',
       back:'← Back to Fan Creations',storiesEmptyTitle:'No story published yet',storiesEmpty:'Community stories will appear here once they are ready for Ramas Field Tool.',
       aboutTitle:'What is Raider Radio?',about:'Raider Radio features music from and around the ARC Raiders community: songs by Ramas Field Tool and music by other community artists. This is not an official ARC Raiders soundtrack.',
       how:'External contributions open their original platform in a new tab. Selected community songs published with explicit permission can be played directly in Raider Radio. Ramas Field Tool does not offer a download function.',listen:'▶ Listen on Suno'
     },
     fr:{
-      hubTitle:'Fan Creations',hubIntro:'Des créations de la communauté ARC Raiders et autour de celle-ci.',tileStatus:'Musique, histoires et créations communautaires',
+      hubTitle:'Fan Creations',hubIntro:'Des créations de la communauté ARC Raiders et autour de celle-ci.',tileStatus:'Musique, histoires et concours',
+      contestsTitle:'Galerie des concours',contestsDesc:'Images gagnantes des concours communautaires',contestsHeading:'Concours communautaires',contestCardTitle:'Image gagnante',contestDateLabel:'Période du concours',contestGroupLabel:'Groupe Facebook',contestPrompt:'Concours : nouvelle image de groupe !',contestAlt:'Image gagnante d’un concours ARC Raiders : deux Raiders au coucher du soleil, avec PvE et PvP sur leurs sacs.',
       radioTitle:'Raider Radio',radioDesc:'Des morceaux inspirés d’ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Des histoires de la communauté.',
       back:'← Retour à Fan Creations',storiesEmptyTitle:'Aucune histoire publiée pour le moment',storiesEmpty:'Les histoires de la communauté apparaîtront ici lorsqu’elles seront prêtes pour Ramas Field Tool.',
       aboutTitle:'Qu’est-ce que Raider Radio ?',about:'Raider Radio présente de la musique issue de la communauté ARC Raiders et inspirée par celle-ci : des morceaux de Ramas Field Tool et d’autres artistes de la communauté. Il ne s’agit pas d’une bande-son officielle d’ARC Raiders.',
       how:'Les contributions externes ouvrent leur plateforme d’origine dans un nouvel onglet. Certains morceaux de la communauté, publiés avec une autorisation explicite, peuvent être écoutés directement dans Raider Radio. Ramas Field Tool ne propose aucune fonction de téléchargement.',listen:'▶ Écouter sur Suno'
     },
     es:{
-      hubTitle:'Fan Creations',hubIntro:'Creaciones de la comunidad de ARC Raiders y de su entorno.',tileStatus:'Música, historias y creaciones de la comunidad',
+      hubTitle:'Fan Creations',hubIntro:'Creaciones de la comunidad de ARC Raiders y de su entorno.',tileStatus:'Música, historias y concursos',
+      contestsTitle:'Galería de concursos',contestsDesc:'Imágenes ganadoras de concursos comunitarios',contestsHeading:'Concursos de la comunidad',contestCardTitle:'Imagen ganadora',contestDateLabel:'Fechas del concurso',contestGroupLabel:'Grupo de Facebook',contestPrompt:'¡Se busca una nueva imagen de grupo!',contestAlt:'Imagen ganadora de un concurso de ARC Raiders: dos Raiders al atardecer, con PvE y PvP en sus mochilas.',
       radioTitle:'Raider Radio',radioDesc:'Canciones inspiradas en ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Historias de la comunidad.',
       back:'← Volver a Fan Creations',storiesEmptyTitle:'Todavía no hay historias publicadas',storiesEmpty:'Las historias de la comunidad aparecerán aquí cuando estén listas para Ramas Field Tool.',
       aboutTitle:'¿Qué es Raider Radio?',about:'Raider Radio presenta música de la comunidad de ARC Raiders y de su entorno: canciones de Ramas Field Tool y música de otros artistas de la comunidad. No es una banda sonora oficial de ARC Raiders.',
       how:'Las contribuciones externas abren su plataforma original en una nueva pestaña. Algunas canciones de la comunidad, publicadas con permiso explícito, se pueden escuchar directamente en Raider Radio. Ramas Field Tool no ofrece una función de descarga.',listen:'▶ Escuchar en Suno'
     },
     it:{
-      hubTitle:'Fan Creations',hubIntro:'Opere creative della community di ARC Raiders.',tileStatus:'Musica, racconti e creazioni della community',
+      hubTitle:'Fan Creations',hubIntro:'Opere creative della community di ARC Raiders.',tileStatus:'Musica, racconti e concorsi',
+      contestsTitle:'Galleria dei concorsi',contestsDesc:'Immagini vincitrici dei concorsi della community',contestsHeading:'Concorsi della community',contestCardTitle:'Immagine vincitrice',contestDateLabel:'Periodo del concorso',contestGroupLabel:'Gruppo Facebook',contestPrompt:'Concorso: cercasi una nuova immagine di gruppo!',contestAlt:'Immagine vincitrice di un concorso ARC Raiders: due Raider al tramonto, con PvE e PvP sugli zaini.',
       radioTitle:'Raider Radio',radioDesc:'Brani ispirati ad ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Racconti della community.',
       back:'← Torna a Fan Creations',storiesEmptyTitle:'Nessun racconto ancora pubblicato',storiesEmpty:'Qui appariranno i racconti della community quando saranno pronti per Ramas Field Tool.',
       aboutTitle:'Che cos’è Raider Radio?',about:'Raider Radio propone musica della community di ARC Raiders e ispirata al suo mondo: brani di Ramas Field Tool e musica di altri artisti della community. Non è una colonna sonora ufficiale di ARC Raiders.',
@@ -139,7 +144,17 @@
 
   const radioCategory=makeCategory('radio','radio');
   const storiesCategory=makeCategory('stories','stories');
+  const contestsCategory=makeCategory('contests','art');
   hub.append(header,categoryGrid);
+
+  const contests=[{
+    id:'new-group-image',
+    image:'assets/fan-creations/contest-winner-group-image.jpg',
+    periodByLanguage:{
+      de:'18.–26. September',en:'18–26 September',fr:'18–26 septembre',es:'18–26 de septiembre',it:'18–26 settembre'
+    },
+    group:'ARC Raiders - Die Ü30-Rentner'
+  }];
 
   const radioView=document.createElement('div');
   radioView.className='fan-view';
@@ -227,6 +242,50 @@
   const storiesGrid=document.createElement('div');
   storiesGrid.className='fan-stories-grid';
   storiesView.append(storiesBack,storiesHeading,storiesGrid);
+
+  const contestsView=document.createElement('div');
+  contestsView.className='fan-view fan-contests-view';
+  contestsView.hidden=true;
+  const contestsBack=document.createElement('button');
+  contestsBack.type='button';
+  contestsBack.className='fan-view-back fan-contests-back';
+  const contestsHeading=document.createElement('h2');
+  contestsHeading.className='stories-wordmark';
+  const contestsGrid=document.createElement('div');
+  contestsGrid.className='fan-contests-grid';
+  contestsView.append(contestsBack,contestsHeading,contestsGrid);
+  const contestCards=[];
+  contests.forEach(entry=>{
+    const card=document.createElement('article');
+    card.className='fan-contest-card';
+    card.dataset.contestId=entry.id;
+    const image=document.createElement('img');
+    image.src=entry.image;
+    image.alt='';
+    image.width=1536;
+    image.height=864;
+    image.loading='lazy';
+    image.decoding='async';
+    const body=document.createElement('div');
+    body.className='fan-contest-card-copy';
+    const heading=makeText('h3','fan-contest-card-title','');
+    const prompt=makeText('p','fan-contest-prompt','');
+    const metadata=document.createElement('dl');
+    metadata.className='fan-contest-meta';
+    const dateRow=document.createElement('div');
+    const dateLabel=makeText('dt','', '');
+    const dateValue=makeText('dd','fan-contest-date',entry.periodByLanguage.de);
+    dateRow.append(dateLabel,dateValue);
+    const groupRow=document.createElement('div');
+    const groupLabel=makeText('dt','', '');
+    const groupValue=makeText('dd','fan-contest-group',entry.group);
+    groupRow.append(groupLabel,groupValue);
+    metadata.append(dateRow,groupRow);
+    body.append(heading,prompt,metadata);
+    card.append(image,body);
+    contestsGrid.append(card);
+    contestCards.push({entry,image,heading,prompt,dateLabel,dateValue,groupLabel,groupValue});
+  });
 
   const storyView=document.createElement('div');
   storyView.className='fan-view fan-story-view';
@@ -329,7 +388,7 @@
     window.RFTApplyStoryLanguage?.();
   }
 
-  section.append(hub,radioView,albumView,storiesView,storyView);
+  section.append(hub,radioView,albumView,storiesView,contestsView,storyView);
 
   const links=[];
   const players=[];
@@ -387,6 +446,7 @@
     hub.hidden=false;
     radioView.hidden=true;
     storiesView.hidden=true;
+    contestsView.hidden=true;
     storyView.hidden=true;
     albumView.hidden=true;
     currentStoryId=null;
@@ -396,9 +456,10 @@
     hub.hidden=true;
     radioView.hidden=view!=='radio';
     storiesView.hidden=view!=='stories';
+    contestsView.hidden=view!=='contests';
     storyView.hidden=true;
     albumView.hidden=true;
-    const target=view==='radio'?radioHeading:storiesHeading;
+    const target=view==='radio'?radioHeading:view==='contests'?contestsHeading:storiesHeading;
     target.focus?.({preventScroll:true});
   }
 
@@ -408,12 +469,15 @@
   });
   radioBack.addEventListener('click',()=>{location.hash='raiderRadio';});
   storiesBack.addEventListener('click',()=>{location.hash='raiderRadio';});
+  contestsBack.addEventListener('click',()=>{location.hash='raiderRadio';});
 
   function syncRoute(){
     const parts=location.hash.slice(1).split('/');
     if(parts[0]!=='raiderRadio'||parts[1]!=='radio'||parts[2])pausePlayers();
     if(parts[0]!=='raiderRadio'){showHub();return;}
-    if(parts[1]==='stories'){
+    if(parts[1]==='contests'){
+      showView('contests');
+    }else if(parts[1]==='stories'){
       const story=stories.find(entry=>encodeURIComponent(entry.id)===parts[2]);
       if(story){
         renderStory(story);
@@ -432,7 +496,7 @@
     // The app router runs after this listener; focus the visible heading afterwards.
     requestAnimationFrame(()=>{
       if(!section.classList.contains('launcher-active'))return;
-      const heading=!albumView.hidden?albumHeading:storyView.hidden?(hub.hidden?(radioView.hidden?storiesHeading:radioHeading):hubTitle):storyDetail.querySelector('h2');
+      const heading=!albumView.hidden?albumHeading:!contestsView.hidden?contestsHeading:storyView.hidden?(hub.hidden?(radioView.hidden?storiesHeading:radioHeading):hubTitle):storyDetail.querySelector('h2');
       heading.tabIndex=-1;
       heading.focus({preventScroll:true});
     });
@@ -465,6 +529,19 @@
     syncLauncherLanguage(lang);
     hubTitle.textContent=lang.hubTitle;
     hubIntro.textContent=lang.hubIntro;
+    contestsCategory.title.textContent=lang.contestsTitle;
+    contestsCategory.desc.textContent=lang.contestsDesc;
+    contestsBack.textContent=lang.back;
+    contestsHeading.textContent=lang.contestsHeading;
+    contestCards.forEach(({entry,image,heading,prompt,dateLabel,dateValue,groupLabel,groupValue})=>{
+      heading.textContent=lang.contestCardTitle;
+      prompt.textContent=lang.contestPrompt;
+      image.alt=lang.contestAlt;
+      dateLabel.textContent=lang.contestDateLabel;
+      dateValue.textContent=entry.periodByLanguage[document.documentElement.lang]||entry.periodByLanguage.en;
+      groupLabel.textContent=lang.contestGroupLabel;
+      groupValue.textContent=entry.group;
+    });
     radioCategory.title.textContent=lang.radioTitle;
     radioCategory.desc.textContent=lang.radioDesc;
     storiesCategory.title.textContent=lang.storiesTitle;

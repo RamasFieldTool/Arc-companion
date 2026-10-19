@@ -261,3 +261,21 @@ html[data-accent] body.palette-enabled.view-open #raiderRadio .stories-wordmark{
 @media(max-width:430px){
   #raiderRadio .fan-story-view:has(>.fan-story-detail[data-story-theme="forest-tragicomedy"]){padding:42px 10px 18px;border-radius:18px}
 }
+
+/* Community contest gallery follows the same card rhythm as Raider Stories. */
+#raiderRadio .fan-contests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px;margin-top:20px}
+#raiderRadio .fan-contest-card{
+  --contest-bg:#181717;--contest-ink:#eee7dc;--contest-muted:#c8bcb0;--contest-line:#634231;
+  min-width:0;background:var(--contest-bg);color:var(--contest-ink);border:1px solid var(--contest-line);border-radius:18px;overflow:hidden;
+}
+#raiderRadio .fan-contest-card>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#100f0e}
+#raiderRadio .fan-contest-card-copy{padding:22px}
+html[data-accent] body.palette-enabled.view-open #raiderRadio .fan-contest-card-title{
+  margin:0 0 9px;color:var(--contest-ink)!important;font-family:Georgia,serif;font-size:27px;line-height:1.2;text-transform:none;overflow-wrap:anywhere
+}
+#raiderRadio .fan-contest-prompt{margin:0;color:var(--contest-muted);font-size:16px;line-height:1.6;overflow-wrap:anywhere}
+#raiderRadio .fan-contest-meta{display:grid;gap:14px;margin:20px 0 0}
+#raiderRadio .fan-contest-meta>div{min-width:0}
+#raiderRadio .fan-contest-meta dt{margin:0 0 3px;color:var(--contest-muted);font-size:13px;line-height:1.4}
+#raiderRadio .fan-contest-meta dd{margin:0;color:var(--contest-ink);font-size:16px;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:380px){#raiderRadio .fan-contest-card-copy{padding:16px}}
