@@ -44,6 +44,7 @@ try{
   await card.locator('[data-goal-editor] a').click();await page.locator('#planningTabGoals').waitFor({state:'visible'});await personal(page,item.id,10);await personal(page,other.id,100);await page.locator('#planningTabMissing').click();
   const row=page.locator(`[data-plan-item="${item.id}"]`);const text=await row.innerText();for(const n of ['15','2','13'])if(!text.includes(n))throw new Error(`Combined need row incorrect: ${text}`);
   const direct=await page.evaluate(id=>({planning:window.RFTPlanning.requirementMap()[id].total,search:requirementMap()[id].total}),item.id);if(direct.planning!==15||direct.search!==15)throw new Error('Views disagree');
+  const locateName=item.name?.en||item.en||item.id;await row.locator('[data-find-location]').click();await page.locator('#itemsSection').waitFor({state:'visible'});if(await page.locator('#q').inputValue()!==locateName)throw new Error('Planning find-location action did not prefill the item search');if(!(await page.locator(`#out .card[data-item-id="${item.id}"]`).count()))throw new Error('Planning find-location action did not show its item card');await plan(page);console.log('PASS missing-item shortcut opens the matching item search');
   console.log('PASS search creates current goal, explicit target changes and shared 15/2/13 requirement');
 
   await row.locator('[data-find]').fill('');await row.locator('[data-find]').pressSequentially('15');await page.locator(`[data-plan-item="${other.id}"] [data-stock]`).fill('1');await page.locator(`[data-plan-item="${other.id}"] [data-stock]`).press('Tab');
