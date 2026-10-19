@@ -81,6 +81,8 @@
     if(match)return currentUi==='fr'?`${match[1]} affichés · progression enregistrée sur cet appareil`:`${match[1]} mostrados · progreso guardado en este dispositivo`;
     match=trimmed.match(/^(\d+) active(?: · next in (.+))?$/i);
     if(match)return currentUi==='fr'?`${match[1]} actif${match[2]?` · prochain dans ${match[2]}`:''}`:`${match[1]} activo${match[2]?` · siguiente en ${match[2]}`:''}`;
+    match=trimmed.match(/^(\d+) findings applied\.$/);
+    if(match)return currentUi==='fr'?`${match[1]} trouvailles appliquées`:`${match[1]} hallazgos aplicados`;
     match=trimmed.match(/^Next event in (.+)$/i);
     if(match)return currentUi==='fr'?`Prochain événement dans ${match[1]}`:`Siguiente evento en ${match[1]}`;
     return value;
