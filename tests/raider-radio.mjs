@@ -50,6 +50,23 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(await tile.locator('b').innerText(),'Fan Creations');
   await tile.click();
   await page.locator('#raiderRadio').waitFor({state:'visible'});
+  const winner=page.locator('#raiderRadio .fan-winner-feature');
+  const winnerCopy={
+    de:['Gewinnerbild des Wettbewerbs','Neues Gruppenbild gesucht!','Zwei ARC Raiders reichen sich bei Sonnenuntergang die Hand. Auf den Rucksäcken steht PvE und PvP.'],
+    en:['Latest contest winner','New group image wanted!','Two ARC Raiders shake hands at sunset. Their backpacks read PvE and PvP.'],
+    fr:['Dernière image gagnante','Concours : nouvelle image de groupe !','Deux Raiders ARC se serrent la main au coucher du soleil. Leurs sacs affichent PvE et PvP.'],
+    es:['Imagen ganadora más reciente','Concurso: ¡se busca una nueva imagen de grupo!','Dos Raiders de ARC se dan la mano al atardecer. Sus mochilas muestran PvE y PvP.'],
+    it:['Ultima immagine vincitrice','Concorso: cercasi una nuova immagine di gruppo!','Due Raider di ARC si stringono la mano al tramonto. Gli zaini riportano PvE e PvP.']
+  }[language];
+  assert.deepEqual(await winner.locator('h3,p').allTextContents(),winnerCopy.slice(0,2));
+  assert.equal(await winner.locator('img').getAttribute('alt'),winnerCopy[2]);
+  assert.equal(await winner.locator('img').getAttribute('src'),'assets/fan-creations/contest-winner-group-image.jpg');
+  await winner.locator('img').evaluate(img=>img.decode());
+  assert.deepEqual(await winner.locator('img').evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1536,864]);
+  assert.equal((await winner.innerText()).includes('Martin Haluška'),false);
+  const winnerLayout=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,card:document.querySelector('.fan-winner-feature').scrollWidth,cardClient:document.querySelector('.fan-winner-feature').clientWidth,image:document.querySelector('.fan-winner-feature img').getBoundingClientRect().width}));
+  assert.ok(winnerLayout.document-winnerLayout.viewport<=4,JSON.stringify(winnerLayout));
+  assert.ok(winnerLayout.image<=winnerLayout.cardClient,JSON.stringify(winnerLayout));
   await page.locator('[data-fan-view="radio"]').click();
   const about=page.locator('.radio-about');
   assert.equal(await about.getAttribute('open'),null);

@@ -42,6 +42,7 @@
   const copy={
     de:{
       hubTitle:'Fan Creations',hubIntro:'Kreative Werke aus der ARC-Raiders-Community.',tileStatus:'Musik, Storys & Community-Kreationen',
+      winnerTitle:'Gewinnerbild des Wettbewerbs',winnerContest:'Neues Gruppenbild gesucht!',winnerAlt:'Zwei ARC Raiders reichen sich bei Sonnenuntergang die Hand. Auf den Rucksäcken steht PvE und PvP.',
       radioTitle:'Raider Radio',radioDesc:'Songs, inspiriert von ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Geschichten aus der Community.',
       back:'← Zurück zu Fan Creations',storiesEmptyTitle:'Noch keine Story veröffentlicht',storiesEmpty:'Hier erscheinen Community-Geschichten, sobald sie für Ramas Field Tool bereit sind.',
       aboutTitle:'Was ist Raider Radio?',about:'Raider Radio zeigt Musik aus und rund um die ARC-Raiders-Community: eigene Songs von Ramas Field Tool und Musik anderer Community-Künstler. Dies ist kein offizieller ARC-Raiders-Soundtrack.',
@@ -49,6 +50,7 @@
     },
     en:{
       hubTitle:'Fan Creations',hubIntro:'Creative work from the ARC Raiders community.',tileStatus:'Music, stories & community creations',
+      winnerTitle:'Latest contest winner',winnerContest:'New group image wanted!',winnerAlt:'Two ARC Raiders shake hands at sunset. Their backpacks read PvE and PvP.',
       radioTitle:'Raider Radio',radioDesc:'Songs inspired by ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Stories from the community.',
       back:'← Back to Fan Creations',storiesEmptyTitle:'No story published yet',storiesEmpty:'Community stories will appear here once they are ready for Ramas Field Tool.',
       aboutTitle:'What is Raider Radio?',about:'Raider Radio features music from and around the ARC Raiders community: songs by Ramas Field Tool and music by other community artists. This is not an official ARC Raiders soundtrack.',
@@ -56,6 +58,7 @@
     },
     fr:{
       hubTitle:'Fan Creations',hubIntro:'Des créations de la communauté ARC Raiders et autour de celle-ci.',tileStatus:'Musique, histoires et créations communautaires',
+      winnerTitle:'Dernière image gagnante',winnerContest:'Concours : nouvelle image de groupe !',winnerAlt:'Deux Raiders ARC se serrent la main au coucher du soleil. Leurs sacs affichent PvE et PvP.',
       radioTitle:'Raider Radio',radioDesc:'Des morceaux inspirés d’ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Des histoires de la communauté.',
       back:'← Retour à Fan Creations',storiesEmptyTitle:'Aucune histoire publiée pour le moment',storiesEmpty:'Les histoires de la communauté apparaîtront ici lorsqu’elles seront prêtes pour Ramas Field Tool.',
       aboutTitle:'Qu’est-ce que Raider Radio ?',about:'Raider Radio présente de la musique issue de la communauté ARC Raiders et inspirée par celle-ci : des morceaux de Ramas Field Tool et d’autres artistes de la communauté. Il ne s’agit pas d’une bande-son officielle d’ARC Raiders.',
@@ -63,6 +66,7 @@
     },
     es:{
       hubTitle:'Fan Creations',hubIntro:'Creaciones de la comunidad de ARC Raiders y de su entorno.',tileStatus:'Música, historias y creaciones de la comunidad',
+      winnerTitle:'Imagen ganadora más reciente',winnerContest:'Concurso: ¡se busca una nueva imagen de grupo!',winnerAlt:'Dos Raiders de ARC se dan la mano al atardecer. Sus mochilas muestran PvE y PvP.',
       radioTitle:'Raider Radio',radioDesc:'Canciones inspiradas en ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Historias de la comunidad.',
       back:'← Volver a Fan Creations',storiesEmptyTitle:'Todavía no hay historias publicadas',storiesEmpty:'Las historias de la comunidad aparecerán aquí cuando estén listas para Ramas Field Tool.',
       aboutTitle:'¿Qué es Raider Radio?',about:'Raider Radio presenta música de la comunidad de ARC Raiders y de su entorno: canciones de Ramas Field Tool y música de otros artistas de la comunidad. No es una banda sonora oficial de ARC Raiders.',
@@ -70,6 +74,7 @@
     },
     it:{
       hubTitle:'Fan Creations',hubIntro:'Opere creative della community di ARC Raiders.',tileStatus:'Musica, racconti e creazioni della community',
+      winnerTitle:'Ultima immagine vincitrice',winnerContest:'Concorso: cercasi una nuova immagine di gruppo!',winnerAlt:'Due Raider di ARC si stringono la mano al tramonto. Gli zaini riportano PvE e PvP.',
       radioTitle:'Raider Radio',radioDesc:'Brani ispirati ad ARC Raiders.',storiesTitle:'Raider Stories',storiesDesc:'Racconti della community.',
       back:'← Torna a Fan Creations',storiesEmptyTitle:'Nessun racconto ancora pubblicato',storiesEmpty:'Qui appariranno i racconti della community quando saranno pronti per Ramas Field Tool.',
       aboutTitle:'Che cos’è Raider Radio?',about:'Raider Radio propone musica della community di ARC Raiders e ispirata al suo mondo: brani di Ramas Field Tool e musica di altri artisti della community. Non è una colonna sonora ufficiale di ARC Raiders.',
@@ -139,7 +144,22 @@
 
   const radioCategory=makeCategory('radio','radio');
   const storiesCategory=makeCategory('stories','stories');
-  hub.append(header,categoryGrid);
+  const winnerFeature=document.createElement('section');
+  winnerFeature.className='fan-winner-feature';
+  winnerFeature.setAttribute('aria-labelledby','fanWinnerTitle');
+  const winnerHeading=document.createElement('h3');
+  winnerHeading.id='fanWinnerTitle';
+  const winnerContest=document.createElement('p');
+  winnerContest.className='fan-winner-contest';
+  const winnerImage=document.createElement('img');
+  winnerImage.src='assets/fan-creations/contest-winner-group-image.jpg';
+  winnerImage.alt='';
+  winnerImage.width=1536;
+  winnerImage.height=864;
+  winnerImage.loading='lazy';
+  winnerImage.decoding='async';
+  winnerFeature.append(winnerHeading,winnerContest,winnerImage);
+  hub.append(header,categoryGrid,winnerFeature);
 
   const radioView=document.createElement('div');
   radioView.className='fan-view';
@@ -465,6 +485,9 @@
     syncLauncherLanguage(lang);
     hubTitle.textContent=lang.hubTitle;
     hubIntro.textContent=lang.hubIntro;
+    winnerHeading.textContent=lang.winnerTitle;
+    winnerContest.textContent=lang.winnerContest;
+    winnerImage.alt=lang.winnerAlt;
     radioCategory.title.textContent=lang.radioTitle;
     radioCategory.desc.textContent=lang.radioDesc;
     storiesCategory.title.textContent=lang.storiesTitle;
