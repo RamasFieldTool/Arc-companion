@@ -1,0 +1,664 @@
+{
+  "checkedAt": "2026-10-17",
+  "source": "https://arctracker.io/api/items",
+  "sourceGeneratedAt": "2026-10-16T22:23:14.802Z",
+  "sourceSha256": "102a858c57413cf008e1fc1db9450a988d650ace346509cf1faa264315207478",
+  "comparisonScope": "Configuration IDs, directional upgrade edge IDs and edge material quantities only; not whole payload equality or in-game verification.",
+  "archivedConfigurationCount": 89,
+  "currentConfigurationCount": 89,
+  "archivedEdgeCount": 108,
+  "currentEdgeCount": 108,
+  "addedEdges": [],
+  "removedEdges": [],
+  "changedEdgeCosts": [],
+  "currentEdges": [
+    {
+      "edge": "anvil_amplified>anvil_amplified_projectile_splitter",
+      "cost": {
+        "turbine_compressor": 3
+      }
+    },
+    {
+      "edge": "anvil_amplified>anvil_amplified_x_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified>aphelion_amplified_bigger_mag",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified>aphelion_amplified_charged_burst",
+      "cost": {
+        "queen_reactor": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified>aphelion_amplified_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag>aphelion_amplified_bigger_mag_charged_burst",
+      "cost": {
+        "queen_reactor": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag>aphelion_amplified_bigger_mag_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag_charged_burst>aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag_charged_burst>aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+      "cost": {
+        "pressure_regulator": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds>aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+      "cost": {
+        "pressure_regulator": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag_charged_burst_increased_burst>aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_bigger_mag_incendiary_rounds>aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+      "cost": {
+        "queen_reactor": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst>aphelion_amplified_bigger_mag_charged_burst",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst>aphelion_amplified_charged_burst_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst>aphelion_amplified_charged_burst_increased_burst",
+      "cost": {
+        "pressure_regulator": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst_incendiary_rounds>aphelion_amplified_bigger_mag_charged_burst_incendiary_rounds",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst_incendiary_rounds>aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+      "cost": {
+        "pressure_regulator": 2
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst_increased_burst>aphelion_amplified_bigger_mag_charged_burst_increased_burst",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst_increased_burst>aphelion_amplified_charged_burst_increased_burst_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_charged_burst_increased_burst_incendiary_rounds>aphelion_amplified_bigger_mag_charged_burst_increased_burst_incendiary_rounds",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_incendiary_rounds>aphelion_amplified_bigger_mag_incendiary_rounds",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "aphelion_amplified_incendiary_rounds>aphelion_amplified_charged_burst_incendiary_rounds",
+      "cost": {
+        "queen_reactor": 2
+      }
+    },
+    {
+      "edge": "bettina_amplified>bettina_amplified_bigger_mag",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "bettina_amplified>bettina_amplified_semi_auto",
+      "cost": {
+        "pneumatic_actuator": 3
+      }
+    },
+    {
+      "edge": "bettina_amplified_semi_auto>bettina_amplified_semi_auto_x_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "burletta_amplified>burletta_amplified_burst",
+      "cost": {
+        "queen_reactor": 2
+      }
+    },
+    {
+      "edge": "burletta_amplified>burletta_amplified_full_auto",
+      "cost": {
+        "pneumatic_actuator": 3
+      }
+    },
+    {
+      "edge": "burletta_amplified>burletta_amplified_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "burletta_amplified_burst>burletta_amplified_burst_increased_burst",
+      "cost": {
+        "pressure_regulator": 2
+      }
+    },
+    {
+      "edge": "burletta_amplified_burst>burletta_amplified_burst_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "burletta_amplified_burst_increased_burst>burletta_amplified_burst_increased_burst_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "burletta_amplified_burst_sprint_shooting>burletta_amplified_burst_increased_burst_sprint_shooting",
+      "cost": {
+        "pressure_regulator": 2
+      }
+    },
+    {
+      "edge": "burletta_amplified_full_auto>burletta_amplified_full_auto_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "burletta_amplified_sprint_shooting>burletta_amplified_burst_sprint_shooting",
+      "cost": {
+        "queen_reactor": 2
+      }
+    },
+    {
+      "edge": "burletta_amplified_sprint_shooting>burletta_amplified_full_auto_sprint_shooting",
+      "cost": {
+        "pneumatic_actuator": 3
+      }
+    },
+    {
+      "edge": "canto_amplified>canto_amplified_carbine",
+      "cost": {
+        "propellant_valve_assembly": 3
+      }
+    },
+    {
+      "edge": "canto_amplified>canto_amplified_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "canto_amplified>canto_amplified_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "canto_amplified_carbine>canto_amplified_incendiary_rounds_carbine",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "canto_amplified_incendiary_rounds>canto_amplified_incendiary_rounds_carbine",
+      "cost": {
+        "propellant_valve_assembly": 3
+      }
+    },
+    {
+      "edge": "canto_amplified_incendiary_rounds>canto_amplified_incendiary_rounds_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "canto_amplified_sprint_shooting>canto_amplified_incendiary_rounds_sprint_shooting",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "equalizer_amplified>equalizer_amplified_anti_weak_point",
+      "cost": {
+        "assessor_matrix": 2
+      }
+    },
+    {
+      "edge": "equalizer_amplified>equalizer_amplified_bigger_mag",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "equalizer_amplified>equalizer_amplified_ramping_damage",
+      "cost": {
+        "queen_reactor": 3
+      }
+    },
+    {
+      "edge": "equalizer_amplified_anti_weak_point>equalizer_amplified_anti_weak_point_bigger_mag",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "equalizer_amplified_bigger_mag>equalizer_amplified_anti_weak_point_bigger_mag",
+      "cost": {
+        "assessor_matrix": 2
+      }
+    },
+    {
+      "edge": "equalizer_amplified_bigger_mag>equalizer_amplified_ramping_damage_bigger_mag",
+      "cost": {
+        "queen_reactor": 3
+      }
+    },
+    {
+      "edge": "equalizer_amplified_ramping_damage>equalizer_amplified_ramping_damage_bigger_mag",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "hairpin_amplified>hairpin_amplified_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "hairpin_amplified>hairpin_amplified_semi_auto",
+      "cost": {
+        "pneumatic_actuator": 3
+      }
+    },
+    {
+      "edge": "hairpin_amplified>hairpin_amplified_tracker_rounds",
+      "cost": {
+        "matriarch_reactor": 1
+      }
+    },
+    {
+      "edge": "hairpin_amplified_semi_auto>hairpin_amplified_semi_auto_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "hullcracker_amplified>hullcracker_amplified_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "hullcracker_amplified>hullcracker_amplified_mag_reload",
+      "cost": {
+        "propellant_valve_assembly": 3
+      }
+    },
+    {
+      "edge": "hullcracker_amplified_incendiary_rounds>hullcracker_amplified_incendiary_rounds_mag_reload",
+      "cost": {
+        "propellant_valve_assembly": 3
+      }
+    },
+    {
+      "edge": "hullcracker_amplified_mag_reload>hullcracker_amplified_incendiary_rounds_mag_reload",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "il_toro_amplified>il_toro_amplified_more_reload",
+      "cost": {
+        "propellant_valve_assembly": 2
+      }
+    },
+    {
+      "edge": "il_toro_amplified>il_toro_amplified_slug_rounds",
+      "cost": {
+        "turbine_compressor": 4
+      }
+    },
+    {
+      "edge": "il_toro_amplified_more_reload>il_toro_amplified_more_reload_slug_rounds",
+      "cost": {
+        "turbine_compressor": 4
+      }
+    },
+    {
+      "edge": "il_toro_amplified_slug_rounds>il_toro_amplified_more_reload_slug_rounds",
+      "cost": {
+        "propellant_valve_assembly": 2
+      }
+    },
+    {
+      "edge": "jupiter_amplified>jupiter_amplified_bigger_mag",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified>jupiter_amplified_scoped",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified>jupiter_amplified_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_bigger_mag>jupiter_amplified_bigger_mag_scoped",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_bigger_mag>jupiter_amplified_bigger_mag_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_bigger_mag_scoped>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_bigger_mag_straight_bolt>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_scoped>jupiter_amplified_bigger_mag_scoped",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_scoped>jupiter_amplified_scoped_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_scoped_straight_bolt>jupiter_amplified_bigger_mag_scoped_straight_bolt",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_straight_bolt>jupiter_amplified_bigger_mag_straight_bolt",
+      "cost": {
+        "pressure_regulator": 3
+      }
+    },
+    {
+      "edge": "jupiter_amplified_straight_bolt>jupiter_amplified_scoped_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "kettle_amplified>kettle_amplified_anti_shield",
+      "cost": {
+        "assessor_matrix": 3
+      }
+    },
+    {
+      "edge": "kettle_amplified>kettle_amplified_full_auto",
+      "cost": {
+        "pneumatic_actuator": 3
+      }
+    },
+    {
+      "edge": "kettle_amplified>kettle_amplified_x_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "kettle_amplified_anti_shield>kettle_amplified_anti_shield_full_auto",
+      "cost": {
+        "pneumatic_actuator": 3
+      }
+    },
+    {
+      "edge": "kettle_amplified_full_auto>kettle_amplified_anti_shield_full_auto",
+      "cost": {
+        "assessor_matrix": 3
+      }
+    },
+    {
+      "edge": "osprey_amplified>osprey_amplified_anti_weak_point",
+      "cost": {
+        "assessor_matrix": 2
+      }
+    },
+    {
+      "edge": "osprey_amplified>osprey_amplified_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "osprey_amplified>osprey_amplified_tracker_rounds",
+      "cost": {
+        "matriarch_reactor": 2
+      }
+    },
+    {
+      "edge": "osprey_amplified_anti_weak_point>osprey_amplified_straight_bolt_anti_weak_point",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "osprey_amplified_straight_bolt>osprey_amplified_straight_bolt_anti_weak_point",
+      "cost": {
+        "assessor_matrix": 2
+      }
+    },
+    {
+      "edge": "osprey_amplified_straight_bolt>osprey_amplified_tracker_rounds_straight_bolt",
+      "cost": {
+        "matriarch_reactor": 2
+      }
+    },
+    {
+      "edge": "osprey_amplified_tracker_rounds>osprey_amplified_tracker_rounds_straight_bolt",
+      "cost": {
+        "fluted_rotor_core": 3
+      }
+    },
+    {
+      "edge": "rascal_amplified>rascal_amplified_high_velocity",
+      "cost": {
+        "pneumatic_actuator": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified>rascal_amplified_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rascal_amplified>rascal_amplified_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified_high_velocity>rascal_amplified_high_velocity_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rascal_amplified_high_velocity>rascal_amplified_high_velocity_sprint_shooting",
+      "cost": {
+        "fluted_rotor_core": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified_high_velocity_incendiary_rounds>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "cost": {
+        "fluted_rotor_core": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified_high_velocity_sprint_shooting>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rascal_amplified_incendiary_rounds>rascal_amplified_high_velocity_incendiary_rounds",
+      "cost": {
+        "pneumatic_actuator": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified_incendiary_rounds>rascal_amplified_sprint_shooting_incendiary_rounds",
+      "cost": {
+        "fluted_rotor_core": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified_sprint_shooting>rascal_amplified_high_velocity_sprint_shooting",
+      "cost": {
+        "pneumatic_actuator": 2
+      }
+    },
+    {
+      "edge": "rascal_amplified_sprint_shooting>rascal_amplified_sprint_shooting_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rascal_amplified_sprint_shooting_incendiary_rounds>rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+      "cost": {
+        "pneumatic_actuator": 2
+      }
+    },
+    {
+      "edge": "rattler_amplified>rattler_amplified_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rattler_amplified>rattler_amplified_more_reload",
+      "cost": {
+        "propellant_valve_assembly": 2
+      }
+    },
+    {
+      "edge": "rattler_amplified_incendiary_rounds>rattler_amplified_more_reload_incendiary_rounds",
+      "cost": {
+        "propellant_valve_assembly": 2
+      }
+    },
+    {
+      "edge": "rattler_amplified_more_reload>rattler_amplified_more_reload_drum_mag",
+      "cost": {
+        "pressure_regulator": 4
+      }
+    },
+    {
+      "edge": "rattler_amplified_more_reload>rattler_amplified_more_reload_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rattler_amplified_more_reload_drum_mag>rattler_amplified_more_reload_drum_mag_incendiary_rounds",
+      "cost": {
+        "fossilized_lightning": 3
+      }
+    },
+    {
+      "edge": "rattler_amplified_more_reload_incendiary_rounds>rattler_amplified_more_reload_drum_mag_incendiary_rounds",
+      "cost": {
+        "pressure_regulator": 4
+      }
+    },
+    {
+      "edge": "renegade_amplified>renegade_amplified_more_reload",
+      "cost": {
+        "propellant_valve_assembly": 2
+      }
+    },
+    {
+      "edge": "renegade_amplified>renegade_amplified_scoped",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "renegade_amplified_more_reload>renegade_amplified_more_reload_scoped",
+      "cost": {
+        "fluted_rotor_core": 4
+      }
+    },
+    {
+      "edge": "renegade_amplified_scoped>renegade_amplified_more_reload_scoped",
+      "cost": {
+        "propellant_valve_assembly": 2
+      }
+    }
+  ]
+}

@@ -13,6 +13,13 @@
 .levelbtn.is-active .level-label{color:var(--cream)}
 .goal-extra{grid-column:2;display:block;font-size:11px;line-height:1.15;color:var(--ui-muted)}
 .goal-extra span{color:var(--amber);font-weight:700}
+.workshop-materials{grid-column:1 / -1;list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;font-size:13px;line-height:1.4;color:var(--ui-text)}
+.workshop-materials li{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.workshop-materials span{min-width:0;overflow-wrap:anywhere}
+.workshop-materials b{flex:none;font-variant-numeric:tabular-nums}
+.workshop-feedback{font-size:13px;line-height:1.5;margin:8px 0;color:var(--ui-text)}
+.workshop-feedback:empty{display:none}
+.levelrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
 .goal-cost-row{border-left-color:var(--amber)}
 .goal-cost-total{
   min-width:76px;padding:8px 9px;text-align:center;font-size:18px;line-height:1;
@@ -21,7 +28,7 @@
 html[data-theme="light"] .levelbtn.is-active{background:linear-gradient(90deg,rgba(241,91,42,.14),#e7dec7)}
 html[data-theme="light"] .levelbtn.is-active .level-label{color:#24251f}
 @media(max-width:420px){
-  .levelrow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+  .levelrow{display:grid;grid-template-columns:1fr;gap:7px}
   .levelbtn{min-width:0;width:100%;padding:9px 8px}
   .goal-extra{font-size:10px}
   .goal-cost-total{min-width:68px;font-size:17px;padding:8px 6px}

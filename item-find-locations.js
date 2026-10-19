@@ -25,7 +25,7 @@
   }
   function markup(item){
     const d=dataFor(item),isOpen=opened.has(item.id)?' open':'';
-    return `<details class="find-locations" data-find-id="${esc(item.id)}"${isOpen}><summary>${esc(txt('title'))}</summary><div class="find-locations-body">${d.areas.length?`<div><b>${esc(txt('areas'))}:</b> ${esc(d.areas.join(' · '))}</div>`:''}${d.arc.length?`<div><b>${esc(txt('arc'))}:</b> ${d.arc.map(b=>esc(b.name||b.id)).join(' · ')}</div>`:''}${d.maps.length?`<div><b>${esc(txt('maps'))}:</b> ${d.maps.map(mapName).map(esc).join(' · ')}</div>`:''}${!d.areas.length&&!d.arc.length?`<div>${esc(txt('none'))}</div>`:''}<small>${esc(txt('note'))} ${esc(txt('source'))}: <a href="${SOURCE}" target="_blank" rel="noopener noreferrer">RaidTheory / ARC Tracker</a></small></div></details>`;
+    return `<details class="find-locations" data-find-id="${esc(item.id)}"${isOpen}><summary>${esc(txt('title'))}</summary><div class="find-locations-body">${d.areas.length?`<div><b>${esc(txt('areas'))}:</b> ${d.areas.map(area=>esc(window.RFTDataLabels?.value(area,'area')||area)).join(' · ')}</div>`:''}${d.arc.length?`<div><b>${esc(txt('arc'))}:</b> ${d.arc.map(b=>esc(b.name||b.id)).join(' · ')}</div>`:''}${d.maps.length?`<div><b>${esc(txt('maps'))}:</b> ${d.maps.map(mapName).map(esc).join(' · ')}</div>`:''}${!d.areas.length&&!d.arc.length?`<div>${esc(txt('none'))}</div>`:''}<small>${esc(txt('note'))} ${esc(txt('source'))}: <a href="${SOURCE}" target="_blank" rel="noopener noreferrer">RaidTheory / ARC Tracker</a></small></div></details>`;
   }
   function enhance(){
     const cards=[...document.querySelectorAll('#out .card')];

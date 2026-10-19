@@ -35,7 +35,7 @@ function assertHome(m,label){
   const overflow=m.document.scrollWidth-m.document.clientWidth;if(overflow>4)throw new Error(`${label}: horizontal overflow ${overflow}px`);
   if(!m.masthead||m.masthead.width<100||m.masthead.height<40)throw new Error(`${label}: masthead collapsed`);
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
-  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','raiderRadio'];
+  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','outpostSection','raiderRadio'];
   const actual=m.tiles.map(tile=>tile.target);
   if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}
@@ -50,6 +50,11 @@ async function openTarget(page,target){
 }
 
 await mkdir(OUTPUT,{recursive:true});
+// Bound the entire visual run and print progress even when Playwright is waiting.
+const watchdog=setTimeout(()=>{console.error('UI REGRESSION TIMEOUT: exceeded 8 minutes');process.exitCode=1;process.kill(process.pid,'SIGTERM');},8*60*1000);
+watchdog.unref();
+const progress=label=>console.log('[ui-regression] '+new Date().toISOString()+' '+label);
+progress('launching browser');
 const browser=await chromium.launch({headless:true});
 const configs=[
   {name:'android-small',width:360,height:800,isMobile:true,hasTouch:true,views:['itemsSection']},
@@ -59,6 +64,7 @@ const configs=[
 const report=[];
 try{
   for(const cfg of configs){
+    progress('starting '+cfg.name);
     const context=await browser.newContext({viewport:{width:cfg.width,height:cfg.height},screen:{width:cfg.width,height:cfg.height},isMobile:cfg.isMobile,hasTouch:cfg.hasTouch,userAgent:cfg.isMobile?'Mozilla/5.0 (Linux; Android 16; RamasFieldToolVisualTest) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36':undefined});
     await context.addInitScript(()=>{
       localStorage.setItem('arcLang','en');
@@ -68,12 +74,14 @@ try{
     const page=await context.newPage(),pageErrors=[],consoleErrors=[];
     page.on('pageerror',e=>pageErrors.push(String(e)));page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text())});
     await installRoutes(page);await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});await waitReady(page);
+    progress(cfg.name+' home ready');
     const home=await metrics(page);assertHome(home,cfg.name);await page.screenshot({path:shot(`${cfg.name}-home.png`),fullPage:true});
     const opened=[];
-    for(const target of cfg.views){await openTarget(page,target);await page.screenshot({path:shot(`${cfg.name}-${target}.png`),fullPage:true});opened.push(target);await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}
+    for(const target of cfg.views){progress(cfg.name+' opening '+target);await openTarget(page,target);await page.screenshot({path:shot(`${cfg.name}-${target}.png`),fullPage:true});opened.push(target);await page.locator('#appBack').click();await page.locator('#appLauncher').waitFor({state:'visible'});}
     await openTarget(page,'planningSection');
     const longItem=fixtureItems.slice().sort((a,b)=>String(b.name?.en||b.en||b.id).length-String(a.name?.en||a.en||a.id).length)[0];
     for(const theme of ['dark','light']){
+      progress(cfg.name+' theme '+theme);
       await page.evaluate(theme=>{localStorage.setItem('arcTheme',theme);localStorage.setItem('arcPaletteSurface',theme)},theme);
       await page.reload({waitUntil:'domcontentloaded'});await waitReady(page);
       await page.locator('#planningTabGoals').click();
@@ -125,7 +133,8 @@ try{
       report.push({planning:cfg.name,theme,layout});
     }
     if(pageErrors.length)throw new Error(`${cfg.name}: uncaught browser errors: ${pageErrors.join(' | ')}`);if(consoleErrors.length)throw new Error(`${cfg.name}: console errors: ${consoleErrors.join(' | ')}`);
+    progress(cfg.name+' finished');
     report.push({config:cfg,home,opened});console.log(`PASS ${cfg.name}: responsive layout and ${cfg.views.length} opened view(s)`);await context.close();
   }
   await writeFile(new URL('layout-report.json',OUTPUT),JSON.stringify(report,null,2));console.log('All responsive UI regression checks passed; screenshots captured.');
-}finally{await browser.close();}
+}finally{clearTimeout(watchdog);await browser.close();}

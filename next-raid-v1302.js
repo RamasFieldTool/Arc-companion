@@ -175,7 +175,7 @@
           <input type="checkbox" data-raid-action="done" data-id="${safeId}" ${entry.done?'checked':''} aria-label="${escapeHtml(entry.done?c.uncheckLabel:c.checkLabel)}: ${escapeHtml(name)}">
           <span aria-hidden="true">✓</span>
         </label>
-        <div class="next-raid-item-copy"><strong>${escapeHtml(name)}</strong><small>${escapeHtml(sourceLabel(id,entry))} · ${entry.done?c.doneState:c.openState}</small>${progress}<small class="next-raid-check-caption">${escapeHtml(entry.done?c.uncheckLabel:c.checkLabel)}</small></div>
+        <div class="next-raid-item-copy"><strong>${window.RFTItemImages.label(id,name)}</strong><small>${escapeHtml(sourceLabel(id,entry))} · ${entry.done?c.doneState:c.openState}</small>${progress}<small class="next-raid-check-caption">${escapeHtml(entry.done?c.uncheckLabel:c.checkLabel)}</small></div>
         <label class="next-raid-target"><span>${escapeHtml(c.quantity)}</span><input type="number" min="${personal?'1':entry.done?'0':'1'}" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${target}" data-raid-action="target" data-id="${safeId}" aria-label="${escapeHtml(c.quantity)}: ${escapeHtml(name)}"></label>
         <button class="next-raid-remove" type="button" data-raid-action="remove" data-id="${safeId}" aria-label="${escapeHtml(c.remove)}: ${escapeHtml(name)}">×</button>
       </article>`;
@@ -336,7 +336,7 @@
       const id=escapeHtml(row.id);
       const name=escapeHtml(displayName(row.id));
       return `<article class="next-raid-found-row" data-found-id="${id}">
-        <div class="next-raid-found-copy"><strong>${name}</strong><small>${postRowMeta(row,c)}</small></div>
+        <div class="next-raid-found-copy"><strong>${window.RFTItemImages.label(row.id,displayName(row.id))}</strong><small>${postRowMeta(row,c)}</small></div>
         <div class="next-raid-found-control" role="group" aria-label="${escapeHtml(c.found)}: ${name}">
           <button type="button" data-found-step="-1" data-id="${id}" aria-label="${escapeHtml(c.minus)}: ${name}">−</button>
           <label><span>${escapeHtml(c.found)}</span><input type="number" min="0" max="${MAX_COUNT}" step="1" inputmode="numeric" value="${hasOwn(pending,row.id)?pending[row.id]:0}" data-found-input data-id="${id}" aria-label="${escapeHtml(c.found)}: ${name}"></label>

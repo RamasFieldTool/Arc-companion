@@ -331,6 +331,7 @@
             return `<label class="levelbtn${isActive?' is-active':''}">
               <input type="checkbox" data-key="${goalKey}" ${isActive?'checked':''}>
               <span class="level-label">${tr('level')} ${level.level}</span>
+              ${window.RFTWorkshopDisplay?.materials(level)||''}
               ${extraCost(level)}
             </label>`;
           }).join('')}
@@ -342,6 +343,7 @@
       input.addEventListener('change',event=>toggleGoal(event.target.dataset.key,event.target.checked));
     });
     refreshGoalSummary();
+    window.RFTWorkshopDisplay?.feedback();
     renderRaidGoalManager();
   };
 

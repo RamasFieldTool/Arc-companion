@@ -56,10 +56,11 @@ async function openBackup(page){
 async function importBackup(page,path){
   let confirmed=false;
   page.once('dialog',async dialog=>{confirmed=true;await dialog.accept();});
+  const reloaded=page.waitForNavigation({waitUntil:'domcontentloaded'});
   await page.locator('#backupFile').setInputFiles(path);
-  await page.waitForTimeout(1200);
-  await page.waitForLoadState('domcontentloaded');
+  await reloaded;
   await waitReady(page);
+  await page.waitForFunction(()=>!!window.RFTPlanningUI);
   if(!confirmed)throw new Error('Backup confirmation was not shown');
 }
 

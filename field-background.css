@@ -1,0 +1,17 @@
+/* Field Manual: page background only. Component surfaces stay unchanged. */
+:root{
+  --rft-page-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%236b6253' opacity='.065' filter='url(%23grain)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg,#76664b05 0 1px,transparent 1px 4px),
+    radial-gradient(ellipse at 15% 0%,#fffdf7,transparent 75%),#f4f1e9;
+}
+html[data-surface="black"]{
+  --rft-page-background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%236b6253' opacity='.065' filter='url(%23grain)' d='M0 0h180v180H0z'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(0deg,#ffffff04 0 1px,transparent 1px 4px),
+    repeating-linear-gradient(90deg,#ffffff04 0 1px,transparent 1px 64px),
+    repeating-linear-gradient(0deg,#ffffff04 0 1px,transparent 1px 64px),#15191c;
+}
+/* Inline launcher surface sync uses the same variable; main must not mask it. */
+html[data-surface] body.palette-enabled.launcher-mode main,
+html[data-surface] body.palette-enabled.launcher-mode.view-open main{
+  background:transparent!important;
+}

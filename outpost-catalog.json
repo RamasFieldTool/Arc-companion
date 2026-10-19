@@ -1,0 +1,4815 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-13",
+  "gameVersion": "2.0",
+  "sourceCommit": "14501fbbccc12b93b019767706f6549ae729c59a",
+  "source": "https://github.com/baschny/arcraiders-raider-tools/tree/14501fbbccc12b93b019767706f6549ae729c59a/public/data/game",
+  "license": "MIT; game content belongs to Embark Studios",
+  "status": "community-generated-data-not-in-game-verified",
+  "furniture": [
+    {
+      "id": "alpine_wardrobe",
+      "name": {
+        "de": "Alpiner Kleiderschrank",
+        "en": "Alpine Wardrobe",
+        "fr": "Garde-robe alpine",
+        "es": "Armario alpino",
+        "it": "Guardaroba alpino"
+      },
+      "category": "Wardrobe",
+      "design": {
+        "de": "Alpiner Kleiderschrank-Entwurf",
+        "en": "Alpine Wardrobe Design",
+        "fr": "Design de garde-robe alpine",
+        "es": "Diseño de Armario Alpino",
+        "it": "Design del Guardaroba alpino"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 30
+        },
+        {
+          "name": {
+            "de": "Metallhalterung",
+            "en": "Metal Brackets",
+            "fr": "Supports métalliques",
+            "es": "Soportes metálicos",
+            "it": "Staffe in metallo"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "archive_floor_lamp",
+      "name": {
+        "de": "Archiv-Stehlampe",
+        "en": "Archive Floor Lamp",
+        "fr": "Lampadaire d'archives",
+        "es": "Lámpara de pie del archivo",
+        "it": "Lampada da terra dell'archivio"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Archiv-Stehlampe Entwurf",
+        "en": "Archive Floor Lamp Design",
+        "fr": "Design du Lampadaire d'archives",
+        "es": "Diseño de lámpara de pie Archivar",
+        "it": "Design Lampada da terra dell'archivio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "bar_table",
+      "name": {
+        "de": "Bar-Tisch",
+        "en": "Bar Table",
+        "fr": "Table de bar",
+        "es": "Mesa de bar",
+        "it": "Tavolo da bar"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Bar-Tisch-Entwurf",
+        "en": "Bar Table Design",
+        "fr": "Design de Table de bar",
+        "es": "Diseño de mesa de bar",
+        "it": "Design Tavolo da bar"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 14
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "barstool",
+      "name": {
+        "de": "Barhocker",
+        "en": "Barstool",
+        "fr": "Tabouret de bar",
+        "es": "Taburete de bar",
+        "it": "Sgabello da bar"
+      },
+      "category": "Stool",
+      "design": {
+        "de": "Barhocker-Entwurf",
+        "en": "Barstool Design",
+        "fr": "Design de tabouret de bar",
+        "es": "Diseño de taburete de bar",
+        "it": "Design Sgabello da bar"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_aviary_table",
+      "name": {
+        "de": "Ramponierter Volierentisch",
+        "en": "Battered Aviary Table",
+        "fr": "Table de volière abîmée",
+        "es": "Mesa maltrecha del aviario",
+        "it": "Tavolo della voliera rovinato"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Ramponierter Volierentisch-Entwurf",
+        "en": "Battered Aviary Table Design",
+        "fr": "Design de Table de volière abîmée",
+        "es": "Diseño de mesa maltrecha del aviario",
+        "it": "Tavolo della voliera rovinato Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "battered_bureau_chair",
+      "name": {
+        "de": "Ramponierter Bürostuhl",
+        "en": "Battered Bureau Chair",
+        "fr": "Chaise de bureau abîmée",
+        "es": "Silla de buró maltrecha",
+        "it": "Sedia da ufficio rovinata"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Entwurf: Ramponierter Bürostuhl",
+        "en": "Battered Bureau Chair Design",
+        "fr": "Design de Chaise de bureau abîmée",
+        "es": "Diseño de silla de escritorio maltrecha",
+        "it": "Sedia da ufficio rovinata Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_bureau_sofa",
+      "name": {
+        "de": "Ramponiertes Bürosofa",
+        "en": "Battered Bureau Sofa",
+        "fr": "Canapé de bureau abîmé",
+        "es": "Sofá de buró maltrecho",
+        "it": "Divano da ufficio rovinato"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Ramponiertes Bürosofa",
+        "en": "Battered Bureau Sofa Design",
+        "fr": "Design de Canapé de bureau abîmé",
+        "es": "Diseño de sofá de oficina maltrecho",
+        "it": "Design del Divano da ufficio rovinato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Sprungfederkissen",
+            "en": "Spring Cushion",
+            "fr": "Coussin à ressorts",
+            "es": "Cojín de muelles",
+            "it": "Cuscino a molle"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Ultragemütliches Kissen",
+              "en": "Very Comfortable Pillow",
+              "fr": "Oreiller très confortable",
+              "es": "Almohada extracómoda",
+              "it": "Cuscino molto comodo"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_den_bed",
+      "name": {
+        "de": "Ramponiertes Raider-Bett",
+        "en": "Battered Den Bed",
+        "fr": "Lit de Raider abîmé",
+        "es": "Cama maltrecha de la guarida de Raiders",
+        "it": "Letto rovinato del covo Raider"
+      },
+      "category": "Bed",
+      "design": {
+        "de": "Entwurf: Ramponiertes Raider-Bett",
+        "en": "Battered Den Bed Design",
+        "fr": "Design du Lit de Raider abîmé",
+        "es": "Diseño de cama maltrecha para guarida",
+        "it": "Letto rovinato del covo Raider Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 2
+        },
+        {
+          "name": {
+            "de": "Zerrissene Decke",
+            "en": "Torn Blanket",
+            "fr": "Couverture déchirée",
+            "es": "Manta rasgada",
+            "it": "Coperta strappata"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "battered_den_shelf",
+      "name": {
+        "de": "Ramponiertes Raider-Regal",
+        "en": "Battered Den Shelf",
+        "fr": "Étagère de Raider abîmée",
+        "es": "Estantería maltrecha de la guarida de Raiders",
+        "it": "Mensola rovinata del covo Raider"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Entwurf: Ramponiertes Raider-Regal",
+        "en": "Battered Den Shelf Design",
+        "fr": "Design d'Étagère de Raider abîmée",
+        "es": "Diseño de estantería maltrecha de la guarida",
+        "it": "Design Mensola rovinata del covo Raider"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "battered_diner_chair",
+      "name": {
+        "de": "Ramponierter Diner-Stuhl",
+        "en": "Battered Diner Chair",
+        "fr": "Chaise de diner abîmée",
+        "es": "Silla maltrecha de diner",
+        "it": "Sedia rovinata del diner"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Ramponierter Diner-Stuhl-Entwurf",
+        "en": "Battered Diner Chair Design",
+        "fr": "Design de Chaise de diner abîmée",
+        "es": "Diseño de silla de cafetería maltrecha",
+        "it": "Design: Sedia rovinata del diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_faculty_table",
+      "name": {
+        "de": "Ramponierter Fakultätstisch",
+        "en": "Battered Faculty Table",
+        "fr": "Table de la faculté abîmée",
+        "es": "Mesa maltrecha de la facultad",
+        "it": "Tavolo rovinato della facoltà"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Entwurf: Ramponierter Fakultätstisch",
+        "en": "Battered Faculty Table Design",
+        "fr": "Design de la Table de la faculté abîmée",
+        "es": "Diseño de mesa maltrecha de la facultad",
+        "it": "Design Tavolo rovinato della facoltà"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallhalterung",
+              "en": "Metal Brackets",
+              "fr": "Supports métalliques",
+              "es": "Soportes metálicos",
+              "it": "Staffe in metallo"
+            },
+            "quantity": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_lab_cabinet",
+      "name": {
+        "de": "Ramponierter Laborschrank",
+        "en": "Battered Lab Cabinet",
+        "fr": "Armoire de laboratoire abîmée",
+        "es": "Armario de laboratorio maltrecho",
+        "it": "Armadietto del laboratorio rovinato"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Ramponierter Laborschrank",
+        "en": "Battered Lab Cabinet Design",
+        "fr": "Design de l'Armoire de laboratoire abîmée",
+        "es": "Diseño de armario de laboratorio maltrecho",
+        "it": "Armadietto del laboratorio rovinato Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_lab_cabinet_wide",
+      "name": {
+        "de": "Ramponierter Laborschrank (breit)",
+        "en": "Battered Lab Cabinet (Wide)",
+        "fr": "Armoire de laboratoire abîmée (large)",
+        "es": "Armario de laboratorio maltrecho (ancho)",
+        "it": "Armadio del laboratorio rovinato (largo)"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Ramponierter Laborschrank (breit) Entwurf",
+        "en": "Battered Lab Cabinet (Wide) Design",
+        "fr": "Armoire de laboratoire abîmée (large) Design",
+        "es": "Diseño de armario de laboratorio deteriorado (ancho)",
+        "it": "Armadio del laboratorio rovinato (largo) Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_lab_chair",
+      "name": {
+        "de": "Ramponierter Laborstuhl",
+        "en": "Battered Lab Chair",
+        "fr": "Chaise de laboratoire abîmée",
+        "es": "Silla de laboratorio maltrecha",
+        "it": "Sedia da laboratorio rovinata"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Entwurf: Ramponierter Laborstuhl",
+        "en": "Battered Lab Chair Design",
+        "fr": "Design de Chaise de laboratoire abîmée",
+        "es": "Diseño de silla de laboratorio maltrecha",
+        "it": "Design Sedia da laboratorio rovinata"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Stahlfeder",
+            "en": "Steel Spring",
+            "fr": "Ressort en acier",
+            "es": "Muelle de acero",
+            "it": "Molla in acciaio"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_shelf",
+      "name": {
+        "de": "Ramponiertes Regal",
+        "en": "Battered Shelf",
+        "fr": "Étagère abîmée",
+        "es": "Estantería maltrecha",
+        "it": "Mensola rovinata"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Entwurf: Ramponiertes Regal",
+        "en": "Battered Shelf Design",
+        "fr": "Design : Étagère abîmée",
+        "es": "Diseño de estantería maltrecha",
+        "it": "Design Mensola rovinata"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Verrostete Bolzen",
+              "en": "Rusted Bolts",
+              "fr": "Boulons rouillés",
+              "es": "Tornillos oxidados",
+              "it": "Bulloni arrugginiti"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "battered_stash",
+      "name": {
+        "de": "Ramponiertes Lager",
+        "en": "Battered Stash",
+        "fr": "Réserve abîmée",
+        "es": "Alijo maltrecho",
+        "it": "Deposito rovinato"
+      },
+      "category": "Stash",
+      "design": {
+        "de": "Entwurf: Ramponiertes Lager",
+        "en": "Battered Stash Design",
+        "fr": "Design : Réserve abîmée",
+        "es": "Diseño de alijo maltrecho",
+        "it": "Design Deposito rovinato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "battered_weapon_rack",
+      "name": {
+        "de": "Ramponiertes Waffen-Display",
+        "en": "Battered Weapon Rack",
+        "fr": "Râtelier d'armes abîmé",
+        "es": "Soporte de armas maltrecho",
+        "it": "Espositore per armi rovinato"
+      },
+      "category": "DisplayCase.Weapon",
+      "design": {
+        "de": "Entwurf: Ramponiertes Waffen-Display",
+        "en": "Battered Weapon Rack Design",
+        "fr": "Design du Râtelier d'armes abîmé",
+        "es": "Proyecto de soporte de armas maltrecho",
+        "it": "Espositore per armi rovinato Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "blue_lab_cabinet",
+      "name": {
+        "de": "Blauer Laborschrank",
+        "en": "Blue Lab Cabinet",
+        "fr": "Armoire de laboratoire bleue",
+        "es": "Armario de laboratorio azul",
+        "it": "Armadio blu del laboratorio"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Blauer Laborschrank",
+        "en": "Blue Lab Cabinet Design",
+        "fr": "Design de l'Armoire de laboratoire bleue",
+        "es": "Diseño del armario de laboratorio azul",
+        "it": "Design Armadio blu del laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Verrostete Bolzen",
+              "en": "Rusted Bolts",
+              "fr": "Boulons rouillés",
+              "es": "Tornillos oxidados",
+              "it": "Bulloni arrugginiti"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "bureau_ceiling_lamp",
+      "name": {
+        "de": "Büro-Deckenlampe",
+        "en": "Bureau Ceiling Lamp",
+        "fr": "Plafonnier du bureau",
+        "es": "Lámpara de techo del buró",
+        "it": "Plafoniera da ufficio"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Büro-Deckenlampe-Entwurf",
+        "en": "Bureau Ceiling Lamp Design",
+        "fr": "Design : Plafonnier du bureau",
+        "es": "Diseño de lámpara de techo del despacho",
+        "it": "Plafoniera da ufficio Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Kaputte Taschenlampe",
+              "en": "Broken Flashlight",
+              "fr": "Torche cassée",
+              "es": "Linterna rota",
+              "it": "Torcia rotta"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "cafeteria_table",
+      "name": {
+        "de": "Cafeteria-Tisch",
+        "en": "Cafeteria Table",
+        "fr": "Table de la cafétéria",
+        "es": "Mesa de la cafetería",
+        "it": "Tavolo della mensa"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Cafeteria-Tisch-Entwurf",
+        "en": "Cafeteria Table Design",
+        "fr": "Design de table de la cafétéria",
+        "es": "Diseño de mesa de la cafetería",
+        "it": "Design del Tavolo della mensa"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Gummiteile",
+            "en": "Rubber Parts",
+            "fr": "Pièces en caoutchouc",
+            "es": "Piezas de goma",
+            "it": "Componenti di gomma"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallhalterung",
+              "en": "Metal Brackets",
+              "fr": "Supports métalliques",
+              "es": "Soportes metálicos",
+              "it": "Staffe in metallo"
+            },
+            "quantity": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "chambers_lamp",
+      "name": {
+        "de": "Kammerlampe",
+        "en": "Chambers Lamp",
+        "fr": "Lampe de chambre",
+        "es": "Lámpara Chambers",
+        "it": "Lampada delle camere"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Kammerlampe-Entwurf",
+        "en": "Chambers Lamp Design",
+        "fr": "Design de Lampe de chambre",
+        "es": "Diseño de la Lámpara Chambers",
+        "it": "Design Lampada delle camere"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Kaputte Taschenlampe",
+              "en": "Broken Flashlight",
+              "fr": "Torche cassée",
+              "es": "Linterna rota",
+              "it": "Torcia rotta"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "chambers_nightstand",
+      "name": {
+        "de": "Kammer-Nachttisch",
+        "en": "Chambers Nightstand",
+        "fr": "Chevet de chambre",
+        "es": "Mesita de noche Chambers",
+        "it": "Comodino delle camere"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Kammer-Nachttisch-Entwurf",
+        "en": "Chambers Nightstand Design",
+        "fr": "Design de Chevet de chambre",
+        "es": "Diseño de mesita de noche Chambers",
+        "it": "Design del Comodino delle camere"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Radialpresse",
+              "en": "Radial Press",
+              "fr": "Presse radiale",
+              "es": "Prensa radial",
+              "it": "Pressa radiale"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "chambers_shelf",
+      "name": {
+        "de": "Kammerregal",
+        "en": "Chambers Shelf",
+        "fr": "Étagère de chambre",
+        "es": "Estantería Chambers",
+        "it": "Mensola delle camere"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Kammerregal-Entwurf",
+        "en": "Chambers Shelf Design",
+        "fr": "Design de l'Étagère de chambre",
+        "es": "Diseño de estanterías para recámaras",
+        "it": "Design Mensola delle camere"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "chandelier",
+      "name": {
+        "de": "Kronleuchter",
+        "en": "Chandelier",
+        "fr": "Lustre",
+        "es": "Araña",
+        "it": "Lampadario"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Kronleuchterentwurf",
+        "en": "Chandelier Design",
+        "fr": "Design de lustre",
+        "es": "Diseño de candelabro",
+        "it": "Design del Lampadario"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Kerzenhalter",
+            "en": "Candle Holder",
+            "fr": "Bougeoir",
+            "es": "Candelero",
+            "it": "Portacandele"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "clinic_medical_cabinet",
+      "name": {
+        "de": "Klinik-Medizinschrank",
+        "en": "Clinic Medical Cabinet",
+        "fr": "Armoire médicale de la clinique",
+        "es": "Armario médico de la clínica",
+        "it": "Armadietto medico della clinica"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Klinik-Medizinschrank",
+        "en": "Clinic Medical Cabinet Design",
+        "fr": "Design d'Armoire médicale de la clinique",
+        "es": "Diseño del armario médico de la clínica",
+        "it": "Design dell'Armadietto medico della clinica"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 19
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Bretter",
+              "en": "Planks",
+              "fr": "Planches",
+              "es": "Tablones",
+              "it": "Tavole"
+            },
+            "quantity": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "console_chest",
+      "name": {
+        "de": "Konsolentruhe",
+        "en": "Console Chest",
+        "fr": "Coffre de console",
+        "es": "Cofre de consola",
+        "it": "Cassa della console"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Konsolentruhe-Entwurf",
+        "en": "Console Chest Design",
+        "fr": "Design du Coffre de console",
+        "es": "Diseño de cofre de consola",
+        "it": "Design della Cassa della console"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "diner_ceiling_lamp",
+      "name": {
+        "de": "Diner-Deckenlampe",
+        "en": "Diner Ceiling Lamp",
+        "fr": "Plafonnier du diner",
+        "es": "Lámpara de techo del diner",
+        "it": "Plafoniera del diner"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Diner-Deckenlampe Entwurf",
+        "en": "Diner Ceiling Lamp Design",
+        "fr": "Design du Plafonnier du diner",
+        "es": "Diseño de lámpara de techo estilo diner",
+        "it": "Design della Plafoniera del diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Kaputter Taser",
+              "en": "Broken Taser",
+              "fr": "Taser cassé",
+              "es": "Táser roto",
+              "it": "Taser rotto"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "diner_cupboard",
+      "name": {
+        "de": "Diner-Schrank",
+        "en": "Diner Cupboard",
+        "fr": "Placard de diner",
+        "es": "Armario del diner",
+        "it": "Credenza del diner"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Diner-Schrank-Entwurf",
+        "en": "Diner Cupboard Design",
+        "fr": "Design du Placard de diner",
+        "es": "Diseño de armario de cafetería",
+        "it": "Design della Credenza del diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Metallhalterung",
+            "en": "Metal Brackets",
+            "fr": "Supports métalliques",
+            "es": "Soportes metálicos",
+            "it": "Staffe in metallo"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Bretter",
+              "en": "Planks",
+              "fr": "Planches",
+              "es": "Tablones",
+              "it": "Tavole"
+            },
+            "quantity": 40
+          }
+        ]
+      }
+    },
+    {
+      "id": "diner_shelf",
+      "name": {
+        "de": "Diner-Regal",
+        "en": "Diner Shelf",
+        "fr": "Étagère de diner",
+        "es": "Estantería del diner",
+        "it": "Mensola del diner"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Diner-Regal",
+        "en": "Diner Shelf Design",
+        "fr": "Design d'Étagère de diner",
+        "es": "Diseño de estantería de la cafetería",
+        "it": "Design Mensola del diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 30
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Laser-Wasserwaage",
+              "en": "Laser Level",
+              "fr": "Niveau laser",
+              "es": "Nivel láser",
+              "it": "Livella laser"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "diner_sofa",
+      "name": {
+        "de": "Dinersofa",
+        "en": "Diner Sofa",
+        "fr": "Canapé de diner",
+        "es": "Sofá estilo diner",
+        "it": "Divano stile diner"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Dinersofa-Entwurf",
+        "en": "Diner Sofa Design",
+        "fr": "Design du Canapé de diner",
+        "es": "Diseño de sofá Diner",
+        "it": "Design Divano stile diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Sprungfederkissen",
+            "en": "Spring Cushion",
+            "fr": "Coussin à ressorts",
+            "es": "Cojín de muelles",
+            "it": "Cuscino a molle"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "diner_stool",
+      "name": {
+        "de": "Dinerhocker",
+        "en": "Diner Stool",
+        "fr": "Tabouret de diner",
+        "es": "Taburete de diner",
+        "it": "Sgabello da diner"
+      },
+      "category": "Stool",
+      "design": {
+        "de": "Dinerhocker-Entwurf",
+        "en": "Diner Stool Design",
+        "fr": "Design de Tabouret de diner",
+        "es": "Diseño de taburete de cafetería",
+        "it": "Design dello Sgabello da diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "diner_table",
+      "name": {
+        "de": "Diner-Tisch",
+        "en": "Diner Table",
+        "fr": "Table de diner",
+        "es": "Mesa del diner",
+        "it": "Tavolo del diner"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Diner-Tisch-Entwurf",
+        "en": "Diner Table Design",
+        "fr": "Design de Table de diner",
+        "es": "Diseño de mesa de cafetería",
+        "it": "Design del Tavolo del diner"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Radialpresse",
+            "en": "Radial Press",
+            "fr": "Presse radiale",
+            "es": "Prensa radial",
+            "it": "Pressa radiale"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 2000,
+        "materials": [
+          {
+            "name": {
+              "de": "Statuette",
+              "en": "Statuette",
+              "fr": "Statuette",
+              "es": "Estatuilla",
+              "it": "Statuetta"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "draped_debris_a",
+      "name": {
+        "de": "Verhüllte Trümmer A",
+        "en": "Draped Debris A",
+        "fr": "Débris drapés A",
+        "es": "Escombros cubiertos A",
+        "it": "Detriti drappeggiati A"
+      },
+      "category": "Junk",
+      "design": {
+        "de": "Verhüllte Trümmer A Entwurf",
+        "en": "Draped Debris A Design",
+        "fr": "Débris drapés A Design",
+        "es": "Diseño: Escombros cubiertos",
+        "it": "Design Detriti drappeggiati A"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "draped_debris_b",
+      "name": {
+        "de": "Verhüllte Trümmer B",
+        "en": "Draped Debris B",
+        "fr": "Débris drapés B",
+        "es": "Escombros cubiertos B",
+        "it": "Detriti drappeggiati B"
+      },
+      "category": "Junk",
+      "design": {
+        "de": "Verhüllte Trümmer B Entwurf",
+        "en": "Draped Debris B Design",
+        "fr": "Débris drapés B Design",
+        "es": "Diseño de Escombros cubiertos B",
+        "it": "Detriti drappeggiati B Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "draped_debris_c",
+      "name": {
+        "de": "Verhüllte Trümmer C",
+        "en": "Draped Debris C",
+        "fr": "Débris drapés C",
+        "es": "Escombros cubiertos C",
+        "it": "Detriti drappeggiati C"
+      },
+      "category": "Junk",
+      "design": {
+        "de": "Verhüllte Trümmer C Entwurf",
+        "en": "Draped Debris C Design",
+        "fr": "Design Débris drapés C",
+        "es": "Diseño de Escombros cubiertos C",
+        "it": "Design Detriti drappeggiati C"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "draped_debris_e",
+      "name": {
+        "de": "Verhüllte Trümmer E",
+        "en": "Draped Debris E",
+        "fr": "Débris drapés E",
+        "es": "Escombros cubiertos E",
+        "it": "Detriti drappeggiati E"
+      },
+      "category": "Junk",
+      "design": {
+        "de": "Verhüllte Trümmer E Entwurf",
+        "en": "Draped Debris E Design",
+        "fr": "Débris drapés E Design",
+        "es": "Diseño de Escombros Revestidos E",
+        "it": "Detriti drappeggiati E Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "draped_debris_f",
+      "name": {
+        "de": "Verhüllte Trümmer F",
+        "en": "Draped Debris F",
+        "fr": "Débris drapés F",
+        "es": "Escombros cubiertos F",
+        "it": "Detriti drappeggiati F"
+      },
+      "category": "Junk",
+      "design": {
+        "de": "Entwurf: Verhüllte Trümmer F",
+        "en": "Draped Debris F Design",
+        "fr": "Design Débris drapés F",
+        "es": "Diseño de Escombros cubiertos F",
+        "it": "Detriti drappeggiati F Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "draped_debris_g",
+      "name": {
+        "de": "Verhüllte Trümmer G",
+        "en": "Draped Debris G",
+        "fr": "Débris drapés G",
+        "es": "Escombros cubiertos G",
+        "it": "Detriti drappeggiati G"
+      },
+      "category": "Junk",
+      "design": {
+        "de": "Verhüllte Trümmer G Entwurf",
+        "en": "Draped Debris G Design",
+        "fr": "Débris drapés G Design",
+        "es": "Diseño de escombros drapeados G",
+        "it": "Detriti drappeggiati G Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "faculty_closet",
+      "name": {
+        "de": "Fakultätsschrank",
+        "en": "Faculty Closet",
+        "fr": "Placard de la faculté",
+        "es": "Armario de la facultad",
+        "it": "Guardaroba della facoltà"
+      },
+      "category": "Wardrobe",
+      "design": {
+        "de": "Entwurf: Fakultätsschrank",
+        "en": "Faculty Closet Design",
+        "fr": "Design du Placard de la faculté",
+        "es": "Diseño de armario del profesorado",
+        "it": "Design del Guardaroba della facoltà"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 25
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Verrostete Bolzen",
+              "en": "Rusted Bolts",
+              "fr": "Boulons rouillés",
+              "es": "Tornillos oxidados",
+              "it": "Bulloni arrugginiti"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "faculty_dresser",
+      "name": {
+        "de": "Fakultätskommode",
+        "en": "Faculty Dresser",
+        "fr": "Commode de la faculté",
+        "es": "Cómoda de la facultad",
+        "it": "Cassettiera della facoltà"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Fakultätskommode-Entwurf",
+        "en": "Faculty Dresser Design",
+        "fr": "Design de la commode de la faculté",
+        "es": "Diseño de cómoda de la facultad",
+        "it": "Design della cassettiera della facoltà"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 25
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Kabelschäler",
+              "en": "Cable Stripper",
+              "fr": "Dénudeur de câbles",
+              "es": "Pelacables",
+              "it": "Spella-filo"
+            },
+            "quantity": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "floor_lamp",
+      "name": {
+        "de": "Stehlampe",
+        "en": "Floor Lamp",
+        "fr": "Lampadaire",
+        "es": "Lámpara de pie",
+        "it": "Lampada da terra"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Stehlampenentwurf",
+        "en": "Floor Lamp Design",
+        "fr": "Design de lampadaire",
+        "es": "Diseño de Lámpara de pie",
+        "it": "Design della lampada da terra"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "geometric_fabric_chair",
+      "name": {
+        "de": "Geometrischer Stoffstuhl",
+        "en": "Geometric Fabric Chair",
+        "fr": "Chaise en tissu géométrique",
+        "es": "Silla de tela geométrica",
+        "it": "Sedia in stoffa geometrica"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Geometrischer Stoffstuhl-Entwurf",
+        "en": "Geometric Fabric Chair Design",
+        "fr": "Design de chaise en tissu géométrique",
+        "es": "Diseño de silla geométrica de tela",
+        "it": "Design della sedia in stoffa geometrica"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "glass_ceiling_lamp",
+      "name": {
+        "de": "Glas-Deckenlampe",
+        "en": "Glass Ceiling Lamp",
+        "fr": "Plafonnier en verre",
+        "es": "Lámpara de techo de cristal",
+        "it": "Plafoniera in vetro"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Glas-Deckenlampe Entwurf",
+        "en": "Glass Ceiling Lamp Design",
+        "fr": "Design du Plafonnier en verre",
+        "es": "Diseño de lámpara de techo de cristal",
+        "it": "Design Plafoniera in vetro"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "green_geometric_chair",
+      "name": {
+        "de": "Grüner geometrischer Stuhl",
+        "en": "Green Geometric Chair",
+        "fr": "Chaise géométrique verte",
+        "es": "Silla geométrica verde",
+        "it": "Sedia geometrica verde"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Grüner geometrischer Stuhlentwurf",
+        "en": "Green Geometric Chair Design",
+        "fr": "Design de chaise géométrique verte",
+        "es": "Diseño de silla geométrica verde",
+        "it": "Design della sedia geometrica verde"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "green_geometric_sofa",
+      "name": {
+        "de": "Grünes geometrisches Sofa",
+        "en": "Green Geometric Sofa",
+        "fr": "Canapé géométrique vert",
+        "es": "Sofá geométrico verde",
+        "it": "Divano geometrico verde"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Grünes geometrisches Sofa",
+        "en": "Green Geometric Sofa Design",
+        "fr": "Design de canapé géométrique vert",
+        "es": "Diseño de sofá geométrico verde",
+        "it": "Design del divano geometrico verde"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "green_lab_sofa",
+      "name": {
+        "de": "Grünes Laborsofa",
+        "en": "Green Lab Sofa",
+        "fr": "Canapé vert de laboratoire",
+        "es": "Sofá verde de laboratorio",
+        "it": "Divano verde da laboratorio"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Grünes Laborsofa-Entwurf",
+        "en": "Green Lab Sofa Design",
+        "fr": "Design du Canapé vert de laboratoire",
+        "es": "Diseño de sofá del Laboratorio Verde",
+        "it": "Design del Divano verde da laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 12
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "holly_bush",
+      "name": {
+        "de": "Stechpalmenstrauch",
+        "en": "Holly Bush",
+        "fr": "Buisson de houx",
+        "es": "Arbusto de acebo",
+        "it": "Cespuglio di agrifoglio"
+      },
+      "category": "Vegetation",
+      "design": {
+        "de": "Stechpalmenstrauch-Entwurf",
+        "en": "Holly Bush Design",
+        "fr": "Design de Buisson de houx",
+        "es": "Diseño de arbusto de acebo",
+        "it": "Design del Cespuglio di agrifoglio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Verschiedenes Saatgut",
+            "en": "Assorted Seeds",
+            "fr": "Mélange de graines",
+            "es": "Semillas variadas",
+            "it": "Semi assortiti"
+          },
+          "quantity": 30
+        },
+        {
+          "name": {
+            "de": "Dünger",
+            "en": "Fertilizer",
+            "fr": "Engrais",
+            "es": "Fertilizante",
+            "it": "Fertilizzante"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 2000,
+        "materials": [
+          {
+            "name": {
+              "de": "Kerzenbeeren",
+              "en": "Candleberries",
+              "fr": "Baies‑bougies",
+              "es": "Bayas de cera",
+              "it": "Baccandele"
+            },
+            "quantity": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "hotel_chair",
+      "name": {
+        "de": "Hotelstuhl",
+        "en": "Hotel Chair",
+        "fr": "Chaise d'hôtel",
+        "es": "Silla de hotel",
+        "it": "Sedia dell'hotel"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Hotelstuhl-Entwurf",
+        "en": "Hotel Chair Design",
+        "fr": "Design de Chaise d'hôtel",
+        "es": "Diseño de silla de hotel",
+        "it": "Design della Sedia dell'hotel"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Sprungfederkissen",
+              "en": "Spring Cushion",
+              "fr": "Coussin à ressorts",
+              "es": "Cojín de muelles",
+              "it": "Cuscino a molle"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "lab_ceiling_light",
+      "name": {
+        "de": "Labor-Deckenleuchte",
+        "en": "Lab Ceiling Light",
+        "fr": "Plafonnier du laboratoire",
+        "es": "Lámpara de techo del laboratorio",
+        "it": "Plafoniera del laboratorio"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Labor-Deckenleuchte-Entwurf",
+        "en": "Lab Ceiling Light Design",
+        "fr": "Design du Plafonnier du laboratoire",
+        "es": "Diseño de lámpara de techo de laboratorio",
+        "it": "Design della Plafoniera del laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Kaputte Taschenlampe",
+              "en": "Broken Flashlight",
+              "fr": "Torche cassée",
+              "es": "Linterna rota",
+              "it": "Torcia rotta"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "lab_stool",
+      "name": {
+        "de": "Laborhocker",
+        "en": "Lab Stool",
+        "fr": "Tabouret de laboratoire",
+        "es": "Taburete de laboratorio",
+        "it": "Sgabello del laboratorio"
+      },
+      "category": "Stool",
+      "design": {
+        "de": "Entwurf: Laborhocker",
+        "en": "Lab Stool Design",
+        "fr": "Schéma de tabouret de laboratoire",
+        "es": "Diseño de taburete de laboratorio",
+        "it": "Design Sgabello del laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "multicolored_geometric_sofa",
+      "name": {
+        "de": "Mehrfarbiges geometrisches Sofa",
+        "en": "Multicolored Geometric Sofa",
+        "fr": "Canapé géométrique multicolore",
+        "es": "Sofá geométrico multicolor",
+        "it": "Divano geometrico multicolore"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Mehrfarbiges geometrisches Sofa",
+        "en": "Multicolored Geometric Sofa Design",
+        "fr": "Design du Canapé géométrique multicolore",
+        "es": "Diseño de sofá geométrico multicolor",
+        "it": "Design Divano geometrico multicolore"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "ornate_den_bed",
+      "name": {
+        "de": "Verziertes Raider-Bett",
+        "en": "Ornate Den Bed",
+        "fr": "Lit de Raider orné",
+        "es": "Cama ornamentada de la guarida de Raiders",
+        "it": "Letto ornato del covo Raider"
+      },
+      "category": "Bed",
+      "design": {
+        "de": "Entwurf: Verziertes Raider-Bett",
+        "en": "Ornate Den Bed Design",
+        "fr": "Design de Lit de Raider orné",
+        "es": "Diseño de cama ornamentada de la Guarida",
+        "it": "Design Letto ornato del covo Raider"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Ultragemütliches Kissen",
+            "en": "Very Comfortable Pillow",
+            "fr": "Oreiller très confortable",
+            "es": "Almohada extracómoda",
+            "it": "Cuscino molto comodo"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "ornate_den_shelf",
+      "name": {
+        "de": "Verziertes Raider-Regal",
+        "en": "Ornate Den Shelf",
+        "fr": "Étagère de Raider ornée",
+        "es": "Estantería ornamentada de la guarida de Raiders",
+        "it": "Mensola ornata del covo Raider"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Verziertes Raider-Regal-Entwurf",
+        "en": "Ornate Den Shelf Design",
+        "fr": "Design de l'Étagère de Raider ornée",
+        "es": "Diseño de estantería ornamentada para la Guarida de Raiders",
+        "it": "Mensola ornata del covo Raider Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 25
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "ornate_stash",
+      "name": {
+        "de": "Verziertes Lager",
+        "en": "Ornate Stash",
+        "fr": "Réserve ornée",
+        "es": "Alijo ornamentado",
+        "it": "Deposito ornato"
+      },
+      "category": "Stash",
+      "design": {
+        "de": "Entwurf: Verziertes Lager",
+        "en": "Ornate Stash Design",
+        "fr": "Design de Réserve ornée",
+        "es": "Diseño de Alijo ornamentado",
+        "it": "Design del Deposito ornato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Ionenzerstäuber",
+            "en": "Ion Sputter",
+            "fr": "Éclateur ionique",
+            "es": "Pulverizador de iones",
+            "it": "Sputter ionico"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "ornate_wardrobe",
+      "name": {
+        "de": "Verzierter Kleiderschrank",
+        "en": "Ornate Wardrobe",
+        "fr": "Garde-robe ornée",
+        "es": "Armario ornamentado",
+        "it": "Guardaroba ornato"
+      },
+      "category": "Wardrobe",
+      "design": {
+        "de": "Verzierter Kleiderschrank-Entwurf",
+        "en": "Ornate Wardrobe Design",
+        "fr": "Design de Garde-robe ornée",
+        "es": "Diseño de Armario Ornamentado",
+        "it": "Design del Guardaroba ornato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 50
+        },
+        {
+          "name": {
+            "de": "Metallhalterung",
+            "en": "Metal Brackets",
+            "fr": "Supports métalliques",
+            "es": "Soportes metálicos",
+            "it": "Staffe in metallo"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "polished_den_bed",
+      "name": {
+        "de": "Poliertes Raider-Bett",
+        "en": "Polished Den Bed",
+        "fr": "Lit de Raider poli",
+        "es": "Cama pulida de la guarida de Raiders",
+        "it": "Letto lucidato del covo Raider"
+      },
+      "category": "Bed",
+      "design": {
+        "de": "Poliertes Raider-Bett-Entwurf",
+        "en": "Polished Den Bed Design",
+        "fr": "Design du Lit de Raider poli",
+        "es": "Diseño de cama pulida de la Guarida",
+        "it": "Design del Letto lucidato del covo Raider"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Zerrissene Decke",
+            "en": "Torn Blanket",
+            "fr": "Couverture déchirée",
+            "es": "Manta rasgada",
+            "it": "Coperta strappata"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "polished_den_shelf",
+      "name": {
+        "de": "Poliertes Raider-Regal",
+        "en": "Polished Den Shelf",
+        "fr": "Étagère de Raider polie",
+        "es": "Estantería pulida de la guarida de Raiders",
+        "it": "Mensola lucidata del covo Raider"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Entwurf: Poliertes Raider-Regal",
+        "en": "Polished Den Shelf Design",
+        "fr": "Design d'Étagère de Raider polie",
+        "es": "Diseño de Estantería Pulida de la Guarida",
+        "it": "Design Mensola lucidata del covo Raider"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "polished_diner_chair",
+      "name": {
+        "de": "Polierter Diner-Stuhl",
+        "en": "Polished Diner Chair",
+        "fr": "Chaise de diner polie",
+        "es": "Silla de diner pulida",
+        "it": "Sedia da diner lucidata"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Polierter Diner-Stuhl-Entwurf",
+        "en": "Polished Diner Chair Design",
+        "fr": "Design de Chaise de diner polie",
+        "es": "Diseño de silla de cafetería pulida",
+        "it": "Design della Sedia da diner lucidata"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "polished_faculty_chair",
+      "name": {
+        "de": "Polierter Fakultätsstuhl",
+        "en": "Polished Faculty Chair",
+        "fr": "Chaise de la faculté polie",
+        "es": "Silla pulida de la facultad",
+        "it": "Sedia lucidata della facoltà"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Polierter Fakultätsstuhl-Entwurf",
+        "en": "Polished Faculty Chair Design",
+        "fr": "Design : Chaise de la faculté polie",
+        "es": "Diseño de silla pulida de la facultad",
+        "it": "Sedia lucidata della facoltà Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 9
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Bretter",
+              "en": "Planks",
+              "fr": "Planches",
+              "es": "Tablones",
+              "it": "Tavole"
+            },
+            "quantity": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "polished_faculty_table",
+      "name": {
+        "de": "Polierter Fakultätstisch",
+        "en": "Polished Faculty Table",
+        "fr": "Table de la faculté polie",
+        "es": "Mesa pulida de la facultad",
+        "it": "Tavolo lucidato della facoltà"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Polierter Fakultätstisch-Entwurf",
+        "en": "Polished Faculty Table Design",
+        "fr": "Design de la Table de la faculté polie",
+        "es": "Diseño de Mesa Pulida de la Facultad",
+        "it": "Design del Tavolo lucidato della facoltà"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 30
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Laser-Wasserwaage",
+              "en": "Laser Level",
+              "fr": "Niveau laser",
+              "es": "Nivel láser",
+              "it": "Livella laser"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "polished_round_sofa",
+      "name": {
+        "de": "Poliertes rundes Sofa",
+        "en": "Polished Round Sofa",
+        "fr": "Canapé rond poli",
+        "es": "Sofá redondo pulido",
+        "it": "Divano rotondo lucidato"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Poliertes rundes Sofa",
+        "en": "Polished Round Sofa Design",
+        "fr": "Design de Canapé rond poli",
+        "es": "Diseño de sofá redondo pulido",
+        "it": "Design del divano rotondo lucidato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Sprungfederkissen",
+            "en": "Spring Cushion",
+            "fr": "Coussin à ressorts",
+            "es": "Cojín de muelles",
+            "it": "Cuscino a molle"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Ultragemütliches Kissen",
+              "en": "Very Comfortable Pillow",
+              "fr": "Oreiller très confortable",
+              "es": "Almohada extracómoda",
+              "it": "Cuscino molto comodo"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "polished_stash",
+      "name": {
+        "de": "Poliertes Lager",
+        "en": "Polished Stash",
+        "fr": "Réserve polie",
+        "es": "Alijo pulido",
+        "it": "Deposito lucidato"
+      },
+      "category": "Stash",
+      "design": {
+        "de": "Entwurf: Poliertes Lager",
+        "en": "Polished Stash Design",
+        "fr": "Design de Réserve polie",
+        "es": "Diseño pulido del alijo",
+        "it": "Design Deposito lucidato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Durchflussregler",
+            "en": "Flow Controller",
+            "fr": "Contrôleur de flux",
+            "es": "Regulador de flujo",
+            "it": "Regolatore di flusso "
+          },
+          "quantity": 1
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "polished_study_sofa",
+      "name": {
+        "de": "Poliertes Arbeitszimmersofa",
+        "en": "Polished Study Sofa",
+        "fr": "Canapé d'étude poli",
+        "es": "Sofá de estudio pulido",
+        "it": "Divano da studio lucidato"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Poliertes Arbeitszimmersofa",
+        "en": "Polished Study Sofa Design",
+        "fr": "Design du Canapé d'étude poli",
+        "es": "Diseño de sofá pulido para estudio",
+        "it": "Design del Divano da studio lucidato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 10
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "polished_wardrobe",
+      "name": {
+        "de": "Polierter Kleiderschrank",
+        "en": "Polished Wardrobe",
+        "fr": "Garde-robe polie",
+        "es": "Armario pulido",
+        "it": "Guardaroba lucidato"
+      },
+      "category": "Wardrobe",
+      "design": {
+        "de": "Entwurf: Polierter Kleiderschrank",
+        "en": "Polished Wardrobe Design",
+        "fr": "Design de Garde-robe polie",
+        "es": "Diseño de armario pulido",
+        "it": "Design Guardaroba lucidato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 30
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "polished_weapon_rack",
+      "name": {
+        "de": "Polierter Waffenständer",
+        "en": "Polished Weapon Rack",
+        "fr": "Râtelier d'armes poli",
+        "es": "Soporte de armas pulido",
+        "it": "Espositore per armi lucidato"
+      },
+      "category": "DisplayCase.Weapon",
+      "design": {
+        "de": "Entwurf: Polierter Waffenständer",
+        "en": "Polished Weapon Rack Design",
+        "fr": "Design de Râtelier d'armes poli",
+        "es": "Diseño de soporte de armas pulido",
+        "it": "Design Espositore per armi lucidato"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 10
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "printed_fabric_chair",
+      "name": {
+        "de": "Bedruckter Stoffstuhl",
+        "en": "Printed Fabric Chair",
+        "fr": "Chaise en tissu imprimé",
+        "es": "Silla de tela estampada",
+        "it": "Sedia in stoffa stampata"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Bedruckter Stoffstuhl-Entwurf",
+        "en": "Printed Fabric Chair Design",
+        "fr": "Design de chaise en tissu imprimé",
+        "es": "Diseño de silla de tela estampada",
+        "it": "Design della sedia in stoffa stampata"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "printed_lab_sofa",
+      "name": {
+        "de": "Gedrucktes Laborsofa",
+        "en": "Printed Lab Sofa",
+        "fr": "Canapé de laboratoire imprimé",
+        "es": "Sofá impreso de laboratorio",
+        "it": "Divano stampato in laboratorio"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Gedrucktes Laborsofa",
+        "en": "Printed Lab Sofa Design",
+        "fr": "Design de Canapé de laboratoire imprimé",
+        "es": "Diseño impreso de sofá de laboratorio",
+        "it": "Design del Divano stampato in laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "red_study_sofa",
+      "name": {
+        "de": "Rotes Arbeitszimmersofa",
+        "en": "Red Study Sofa",
+        "fr": "Canapé d'étude rouge",
+        "es": "Sofá de estudio rojo",
+        "it": "Divano da studio rosso"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Rotes Arbeitszimmersofa-Entwurf",
+        "en": "Red Study Sofa Design",
+        "fr": "Design du Canapé d'étude rouge",
+        "es": "Diseño de sofá rojo para estudio",
+        "it": "Design Divano da studio rosso"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Sprungfederkissen",
+            "en": "Spring Cushion",
+            "fr": "Coussin à ressorts",
+            "es": "Cojín de muelles",
+            "it": "Cuscino a molle"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Ultragemütliches Kissen",
+              "en": "Very Comfortable Pillow",
+              "fr": "Oreiller très confortable",
+              "es": "Almohada extracómoda",
+              "it": "Cuscino molto comodo"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "restaurant_table",
+      "name": {
+        "de": "Restaurant-Tisch",
+        "en": "Restaurant Table",
+        "fr": "Table de restaurant",
+        "es": "Mesa de restaurante",
+        "it": "Tavolo del ristorante"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Restaurant-Tisch-Entwurf",
+        "en": "Restaurant Table Design",
+        "fr": "Design de table de restaurant",
+        "es": "Diseño de mesa de restaurante",
+        "it": "Design del Tavolo del ristorante"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 30
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Laser-Wasserwaage",
+              "en": "Laser Level",
+              "fr": "Niveau laser",
+              "es": "Nivel láser",
+              "it": "Livella laser"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "security_chair",
+      "name": {
+        "de": "Sicherheitsstuhl",
+        "en": "Security Chair",
+        "fr": "Chaise de sécurité",
+        "es": "Silla de seguridad",
+        "it": "Sedia di sicurezza"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Entwurf: Sicherheitsstuhl",
+        "en": "Security Chair Design",
+        "fr": "Design de Chaise de sécurité",
+        "es": "Diseño de silla de seguridad",
+        "it": "Design Sedia di sicurezza"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "small_lab_cabinet",
+      "name": {
+        "de": "Kleiner Labor-Schrank",
+        "en": "Small Lab Cabinet",
+        "fr": "Petite armoire de laboratoire",
+        "es": "Pequeño armario de laboratorio",
+        "it": "Piccolo armadietto da laboratorio"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Kleiner Laborschrank",
+        "en": "Small Lab Cabinet Design",
+        "fr": "Petite armoire de laboratoire Design",
+        "es": "Diseño de armario de laboratorio pequeño",
+        "it": "Design del Piccolo armadietto da laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Gummiteile",
+            "en": "Rubber Parts",
+            "fr": "Pièces en caoutchouc",
+            "es": "Piezas de goma",
+            "it": "Componenti di gomma"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "solid_green_chair",
+      "name": {
+        "de": "Einfarbiger grüner Stuhl",
+        "en": "Solid Green Chair",
+        "fr": "Chaise verte unie",
+        "es": "Silla verde sólida",
+        "it": "Sedia verde tinta unita"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Einfarbiger grüner Stuhlentwurf",
+        "en": "Solid Green Chair Design",
+        "fr": "Design de chaise verte unie",
+        "es": "Diseño de silla de color verde sólido",
+        "it": "Design della Sedia verde tinta unita"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "study_armchair",
+      "name": {
+        "de": "Arbeitszimmersessel",
+        "en": "Study Armchair",
+        "fr": "Fauteuil d'étude",
+        "es": "Sillón de estudio",
+        "it": "Poltrona da studio"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Arbeitszimmersessel-Entwurf",
+        "en": "Study Armchair Design",
+        "fr": "Design du Fauteuil d'étude",
+        "es": "Estudiar diseño de sillón",
+        "it": "Design Poltrona da studio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 25
+        },
+        {
+          "name": {
+            "de": "Ultragemütliches Kissen",
+            "en": "Very Comfortable Pillow",
+            "fr": "Oreiller très confortable",
+            "es": "Almohada extracómoda",
+            "it": "Cuscino molto comodo"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "study_armchair_outpostfurniture_res_sofa_01_y150_a",
+      "name": {
+        "de": "Arbeitszimmersessel",
+        "en": "Study Armchair",
+        "fr": "Fauteuil d'étude",
+        "es": "Sillón de estudio",
+        "it": "Poltrona da studio"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Arbeitszimmersessel-Entwurf",
+        "en": "Study Armchair Design",
+        "fr": "Design de fauteuil d'étude",
+        "es": "Diseño de sillón de estudio",
+        "it": "Design della Poltrona da studio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Strapazierfähiges Stoffstück",
+            "en": "Durable Cloth",
+            "fr": "Tissu résistant",
+            "es": "Tela resistente",
+            "it": "Tessuto durevole"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Ultragemütliches Kissen",
+              "en": "Very Comfortable Pillow",
+              "fr": "Oreiller très confortable",
+              "es": "Almohada extracómoda",
+              "it": "Cuscino molto comodo"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "study_ceiling_lamp",
+      "name": {
+        "de": "Arbeitszimmer-Deckenlampe",
+        "en": "Study Ceiling Lamp",
+        "fr": "Plafonnier d'étude",
+        "es": "Lámpara de techo de estudio",
+        "it": "Plafoniera dello studio"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Entwurf: Arbeitszimmer-Deckenlampe",
+        "en": "Study Ceiling Lamp Design",
+        "fr": "Plafonnier d'étude Design",
+        "es": "Diseño de lámpara de techo para el estudio",
+        "it": "Plafoniera dello studio Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Glühbirne",
+            "en": "Light Bulb",
+            "fr": "Ampoule",
+            "es": "Bombilla",
+            "it": "Lampadina"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Kaputter Taser",
+              "en": "Broken Taser",
+              "fr": "Taser cassé",
+              "es": "Táser roto",
+              "it": "Taser rotto"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "study_piano",
+      "name": {
+        "de": "Arbeitszimmerklavier",
+        "en": "Study Piano",
+        "fr": "Piano d'étude",
+        "es": "Piano de estudio",
+        "it": "Pianoforte da studio"
+      },
+      "category": "MusicalInstrument",
+      "design": {
+        "de": "Entwurf: Arbeitszimmerklavier",
+        "en": "Study Piano Design",
+        "fr": "Design du Piano d'étude",
+        "es": "Estudiar diseño del Piano",
+        "it": "Design Pianoforte da studio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 50
+        },
+        {
+          "name": {
+            "de": "Fortschrittliche mechanische Komponenten",
+            "en": "Advanced Mechanical Components",
+            "fr": "Composants mécaniques avancés",
+            "es": "Componentes mecánicos avanzados",
+            "it": "Componenti meccanici avanzati"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "study_tv_stand",
+      "name": {
+        "de": "Arbeitszimmer-Fernsehständer",
+        "en": "Study TV Stand",
+        "fr": "Meuble TV d'étude",
+        "es": "Soporte de televisión del estudio",
+        "it": "Supporto TV dello studio"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Arbeitszimmer-Fernsehständer",
+        "en": "Study TV Stand Design",
+        "fr": "Design du Meuble TV d'étude",
+        "es": "Estudiar diseño de mueble para televisión",
+        "it": "Design del Supporto TV dello studio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Gummiteile",
+            "en": "Rubber Parts",
+            "fr": "Pièces en caoutchouc",
+            "es": "Piezas de goma",
+            "it": "Componenti di gomma"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallhalterung",
+              "en": "Metal Brackets",
+              "fr": "Supports métalliques",
+              "es": "Soportes metálicos",
+              "it": "Staffe in metallo"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_aviary_table",
+      "name": {
+        "de": "Robuster Volierentisch",
+        "en": "Sturdy Aviary Table",
+        "fr": "Table de volière robuste",
+        "es": "Mesa aviar robusta",
+        "it": "Tavolo aviario resistente"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Entwurf: Robuster Volierentisch",
+        "en": "Sturdy Aviary Table Design",
+        "fr": "Design de la Table de volière robuste",
+        "es": "Diseño de mesa aviar robusta",
+        "it": "Design del Tavolo aviario resistente"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Radialpresse",
+            "en": "Radial Press",
+            "fr": "Presse radiale",
+            "es": "Prensa radial",
+            "it": "Pressa radiale"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "sturdy_bureau_chair",
+      "name": {
+        "de": "Robuster Bürostuhl",
+        "en": "Sturdy Bureau Chair",
+        "fr": "Chaise de bureau robuste",
+        "es": "Silla de buró robusta",
+        "it": "Sedia da ufficio resistente"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Robuster Bürostuhl-Entwurf",
+        "en": "Sturdy Bureau Chair Design",
+        "fr": "Design de chaise de bureau robuste",
+        "es": "Diseño de silla de escritorio robusta",
+        "it": "Design della Sedia da ufficio resistente"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 10
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_bureau_sofa",
+      "name": {
+        "de": "Robustes Bürosofa",
+        "en": "Sturdy Bureau Sofa",
+        "fr": "Canapé de bureau robuste",
+        "es": "Sofá robusto de buró",
+        "it": "Divano da ufficio resistente"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Robustes Bürosofa",
+        "en": "Sturdy Bureau Sofa Design",
+        "fr": "Design de Canapé de bureau robuste",
+        "es": "Diseño del sofá buró robusto",
+        "it": "Design del divano da ufficio resistente"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Sheet Metal",
+              "en": "Sheet Metal",
+              "fr": "Sheet Metal",
+              "es": "Sheet Metal",
+              "it": "Sheet Metal"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_den_bed",
+      "name": {
+        "de": "Robustes Raider-Bett",
+        "en": "Sturdy Den Bed",
+        "fr": "Lit de Raider robuste",
+        "es": "Cama robusta de la guarida de Raiders",
+        "it": "Letto resistente del covo Raider"
+      },
+      "category": "Bed",
+      "design": {
+        "de": "Entwurf: Robustes Raider-Bett",
+        "en": "Sturdy Den Bed Design",
+        "fr": "Design du Lit de Raider robuste",
+        "es": "Diseño de cama robusta para la guarida",
+        "it": "Design Letto resistente del covo Raider"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Zerrissene Decke",
+            "en": "Torn Blanket",
+            "fr": "Couverture déchirée",
+            "es": "Manta rasgada",
+            "it": "Coperta strappata"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "sturdy_den_shelf",
+      "name": {
+        "de": "Robustes Raider-Regal",
+        "en": "Sturdy Den Shelf",
+        "fr": "Étagère de Raider robuste",
+        "es": "Estantería robusta de la guarida de Raiders",
+        "it": "Mensola resistente del covo Raider"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Entwurf: Robustes Raider-Regal",
+        "en": "Sturdy Den Shelf Design",
+        "fr": "Design de l'Étagère de Raider robuste",
+        "es": "Diseño de estantería robusta para la guarida",
+        "it": "Design della Mensola resistente del covo Raider"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 10
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "sturdy_faculty_chair",
+      "name": {
+        "de": "Robuster Fakultätsstuhl",
+        "en": "Sturdy Faculty Chair",
+        "fr": "Chaise de la faculté robuste",
+        "es": "Silla robusta de la facultad",
+        "it": "Sedia resistente della facoltà"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Entwurf: Robuster Fakultätsstuhl",
+        "en": "Sturdy Faculty Chair Design",
+        "fr": "Chaise de la faculté robuste Design",
+        "es": "Diseño de silla robusta de la facultad",
+        "it": "Sedia resistente della facoltà Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Chemikalien",
+            "en": "Chemicals",
+            "fr": "Produits chimiques",
+            "es": "Producto químico",
+            "it": "Sostanze chimiche"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 1500,
+        "materials": [
+          {
+            "name": {
+              "de": "Radialpresse",
+              "en": "Radial Press",
+              "fr": "Presse radiale",
+              "es": "Prensa radial",
+              "it": "Pressa radiale"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_faculty_table",
+      "name": {
+        "de": "Robuster Fakultätstisch",
+        "en": "Sturdy Faculty Table",
+        "fr": "Table de la faculté robuste",
+        "es": "Mesa robusta de la facultad",
+        "it": "Tavolo resistente della facoltà"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Entwurf: Robuster Fakultätstisch",
+        "en": "Sturdy Faculty Table Design",
+        "fr": "Design de la Table de la faculté robuste",
+        "es": "Diseño de mesa de la facultad robusta",
+        "it": "Design del Tavolo resistente della facoltà"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 18
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 5
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_lab_cabinet",
+      "name": {
+        "de": "Robuster Laborschrank",
+        "en": "Sturdy Lab Cabinet",
+        "fr": "Armoire de laboratoire robuste",
+        "es": "Armario de laboratorio robusto",
+        "it": "Armadietto da laboratorio resistente"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Robuster Laborschrank",
+        "en": "Sturdy Lab Cabinet Design",
+        "fr": "Design d'Armoire de laboratoire robuste",
+        "es": "Diseño de armario de laboratorio robusto",
+        "it": "Design Armadietto da laboratorio resistente"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallhalterung",
+              "en": "Metal Brackets",
+              "fr": "Supports métalliques",
+              "es": "Soportes metálicos",
+              "it": "Staffe in metallo"
+            },
+            "quantity": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_lab_cabinet_wide",
+      "name": {
+        "de": "Robuster Laborschrank (breit)",
+        "en": "Sturdy Lab Cabinet (Wide)",
+        "fr": "Armoire de laboratoire robuste (large)",
+        "es": "Armario de laboratorio robusto (ancho)",
+        "it": "Armadio del laboratorio resistente (largo)"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Robuster Laborschrank (breit) Entwurf",
+        "en": "Sturdy Lab Cabinet (Wide) Design",
+        "fr": "Armoire de laboratoire robuste (large) Design",
+        "es": "Diseño de Armario de Laboratorio Robusto (Ancho)",
+        "it": "Armadio del laboratorio resistente (largo) Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallhalterung",
+              "en": "Metal Brackets",
+              "fr": "Supports métalliques",
+              "es": "Soportes metálicos",
+              "it": "Staffe in metallo"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_lab_chair",
+      "name": {
+        "de": "Robuster Laborstuhl",
+        "en": "Sturdy Lab Chair",
+        "fr": "Chaise de laboratoire robuste",
+        "es": "Silla de laboratorio robusta",
+        "it": "Sedia resistente da laboratorio"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Entwurf: Robuster Laborstuhl",
+        "en": "Sturdy Lab Chair Design",
+        "fr": "Design de Chaise de laboratoire robuste",
+        "es": "Diseño de silla de laboratorio robusta",
+        "it": "Design Sedia resistente da laboratorio"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Stoff",
+            "en": "Fabric",
+            "fr": "Tissu",
+            "es": "Tela",
+            "it": "Stoffa"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_shelf",
+      "name": {
+        "de": "Robustes Regal",
+        "en": "Sturdy Shelf",
+        "fr": "Étagère robuste",
+        "es": "Estantería robusta",
+        "it": "Mensola resistente"
+      },
+      "category": "Shelves",
+      "design": {
+        "de": "Entwurf: Robustes Regal",
+        "en": "Sturdy Shelf Design",
+        "fr": "Design d'Étagère robuste",
+        "es": "Diseño de estantería robusta",
+        "it": "Design Mensola resistente"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 25
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Verrostete Bolzen",
+              "en": "Rusted Bolts",
+              "fr": "Boulons rouillés",
+              "es": "Tornillos oxidados",
+              "it": "Bulloni arrugginiti"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "sturdy_stash",
+      "name": {
+        "de": "Robustes Lager",
+        "en": "Sturdy Stash",
+        "fr": "Réserve robuste",
+        "es": "Alijo robusto",
+        "it": "Deposito resistente"
+      },
+      "category": "Stash",
+      "design": {
+        "de": "Entwurf: Robustes Lager",
+        "en": "Sturdy Stash Design",
+        "fr": "Design de la Réserve robuste",
+        "es": "Diseño de alijo resistente",
+        "it": "Design Deposito resistente"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 15
+        },
+        {
+          "name": {
+            "de": "Spannungswandler",
+            "en": "Voltage Converter",
+            "fr": "Transformateur de tension",
+            "es": "Convertidor de voltaje",
+            "it": "Convertitore di tensione"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "sturdy_wardrobe",
+      "name": {
+        "de": "Robuster Kleiderschrank",
+        "en": "Sturdy Wardrobe",
+        "fr": "Garde-robe robuste",
+        "es": "Armario robusto",
+        "it": "Guardaroba resistente"
+      },
+      "category": "Wardrobe",
+      "design": {
+        "de": "Entwurf: Robuster Kleiderschrank",
+        "en": "Sturdy Wardrobe Design",
+        "fr": "Design de Garde-robe robuste",
+        "es": "Diseño de Armario robusto",
+        "it": "Guardaroba resistente Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 8
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "sturdy_weapon_rack",
+      "name": {
+        "de": "Robuster Waffenständer",
+        "en": "Sturdy Weapon Rack",
+        "fr": "Râtelier d'armes robuste",
+        "es": "Soporte robusto para armas",
+        "it": "Espositore per armi resistente"
+      },
+      "category": "DisplayCase.Weapon",
+      "design": {
+        "de": "Entwurf: Robuster Waffenständer",
+        "en": "Sturdy Weapon Rack Design",
+        "fr": "Design du Râtelier d'armes robuste",
+        "es": "Diseño de soporte robusto para armas",
+        "it": "Espositore per armi resistente Design"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 10
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "tufted_sofa",
+      "name": {
+        "de": "Sofa mit Knopfheftung",
+        "en": "Tufted Sofa",
+        "fr": "Canapé capitonné",
+        "es": "Sofá capitoné",
+        "it": "Divano capitoné"
+      },
+      "category": "Sofa",
+      "design": {
+        "de": "Entwurf: Sofa mit Knopfheftung",
+        "en": "Tufted Sofa Design",
+        "fr": "Design de Canapé capitonné",
+        "es": "Diseño de sofá capitoné",
+        "it": "Design del Divano capitoné"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Sprungfederkissen",
+            "en": "Spring Cushion",
+            "fr": "Coussin à ressorts",
+            "es": "Cojín de muelles",
+            "it": "Cuscino a molle"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 3,
+        "points": 2000,
+        "materials": [
+          {
+            "name": {
+              "de": "Ultragemütliches Kissen",
+              "en": "Very Comfortable Pillow",
+              "fr": "Oreiller très confortable",
+              "es": "Almohada extracómoda",
+              "it": "Cuscino molto comodo"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "venetian_dresser",
+      "name": {
+        "de": "Venezianische Kommode",
+        "en": "Venetian Dresser",
+        "fr": "Commode vénitienne",
+        "es": "Cómoda Veneciana",
+        "it": "Comò veneziano"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Venezianische Kommode",
+        "en": "Venetian Dresser Design",
+        "fr": "Design de la Commode vénitienne",
+        "es": "Diseño de cómoda veneciana",
+        "it": "Design Comò veneziano"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 25
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "warehouse_chair",
+      "name": {
+        "de": "Lagerhausstuhl",
+        "en": "Warehouse Chair",
+        "fr": "Chaise d'entrepôt",
+        "es": "Silla de almacén",
+        "it": "Sedia del magazzino"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Lagerhausstuhl-Entwurf",
+        "en": "Warehouse Chair Design",
+        "fr": "Design de chaise d'entrepôt",
+        "es": "Diseño de silla del almacén",
+        "it": "Design della Sedia del magazzino"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Metallteile",
+              "en": "Metal Parts",
+              "fr": "Pièces métalliques",
+              "es": "Piezas metálicas",
+              "it": "Componenti metallici"
+            },
+            "quantity": 15
+          }
+        ]
+      }
+    },
+    {
+      "id": "warehouse_desk",
+      "name": {
+        "de": "Lagerhaus-Schreibtisch",
+        "en": "Warehouse Desk",
+        "fr": "Bureau d'entrepôt",
+        "es": "Escritorio del almacén",
+        "it": "Scrivania del magazzino"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Lagerhaus-Schreibtisch-Entwurf",
+        "en": "Warehouse Desk Design",
+        "fr": "Design de bureau d'entrepôt",
+        "es": "Diseño de escritorio de almacén",
+        "it": "Design della Scrivania del magazzino"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Gummiteile",
+            "en": "Rubber Parts",
+            "fr": "Pièces en caoutchouc",
+            "es": "Piezas de goma",
+            "it": "Componenti di gomma"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": null
+    },
+    {
+      "id": "warehouse_dresser",
+      "name": {
+        "de": "Lagerhaus-Kommode",
+        "en": "Warehouse Dresser",
+        "fr": "Commode d'entrepôt",
+        "es": "Cómoda del almacén",
+        "it": "Cassettiera del magazzino"
+      },
+      "category": "Cabinet",
+      "design": {
+        "de": "Entwurf: Lagerhaus-Kommode",
+        "en": "Warehouse Dresser Design",
+        "fr": "Design de la Commode d'entrepôt",
+        "es": "Diseño de cómoda del almacén",
+        "it": "Design Cassettiera del magazzino"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 4
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Sheet Metal",
+              "en": "Sheet Metal",
+              "fr": "Sheet Metal",
+              "es": "Sheet Metal",
+              "it": "Sheet Metal"
+            },
+            "quantity": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": "weather_station_chair",
+      "name": {
+        "de": "Wetterstationsstuhl",
+        "en": "Weather Station Chair",
+        "fr": "Chaise de la station météo",
+        "es": "Silla de la estación meteorológica",
+        "it": "Sedia della stazione meteorologica"
+      },
+      "category": "Chair",
+      "design": {
+        "de": "Wetterstationsstuhl-Entwurf",
+        "en": "Weather Station Chair Design",
+        "fr": "Design de la chaise de la station météo",
+        "es": "Diseño de la silla de la estación meteorológica",
+        "it": "Design Sedia della stazione meteorologica"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 6
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 2
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Mechanische Komponenten",
+              "en": "Mechanical Components",
+              "fr": "Composants mécaniques",
+              "es": "Componentes mecánicos",
+              "it": "Componenti meccanici"
+            },
+            "quantity": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "weather_station_table",
+      "name": {
+        "de": "Wetterstationstisch",
+        "en": "Weather Station Table",
+        "fr": "Table de la station météo",
+        "es": "Mesa de la estación meteorológica",
+        "it": "Tavolo della stazione meteorologica"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Wetterstationstisch-Entwurf",
+        "en": "Weather Station Table Design",
+        "fr": "Design de la Table de la station météo",
+        "es": "Diseño de mesa de la estación meteorológica",
+        "it": "Design del Tavolo della stazione meteorologica"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Sheet Metal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 18
+        },
+        {
+          "name": {
+            "de": "Plastikteile",
+            "en": "Plastic Parts",
+            "fr": "Composants plastiques",
+            "es": "Piezas de plástico",
+            "it": "Componenti plastici"
+          },
+          "quantity": 5
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Sheet Metal",
+              "en": "Sheet Metal",
+              "fr": "Sheet Metal",
+              "es": "Sheet Metal",
+              "it": "Sheet Metal"
+            },
+            "quantity": 30
+          }
+        ]
+      }
+    },
+    {
+      "id": "winter_table",
+      "name": {
+        "de": "Wintertisch",
+        "en": "Winter Table",
+        "fr": "Table hivernale",
+        "es": "Mesa de invierno",
+        "it": "Tavolo invernale"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Wintertisch-Entwurf",
+        "en": "Winter Table Design",
+        "fr": "Design de la Table hivernale",
+        "es": "Diseño de mesa invernal",
+        "it": "Design Tavolo invernale"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "Bretter",
+            "en": "Planks",
+            "fr": "Planches",
+            "es": "Tablones",
+            "it": "Tavole"
+          },
+          "quantity": 20
+        },
+        {
+          "name": {
+            "de": "Metallhalterung",
+            "en": "Metal Brackets",
+            "fr": "Supports métalliques",
+            "es": "Soportes metálicos",
+            "it": "Staffe in metallo"
+          },
+          "quantity": 1
+        }
+      ],
+      "research": {
+        "level": 2,
+        "points": 1000,
+        "materials": [
+          {
+            "name": {
+              "de": "Bretter",
+              "en": "Planks",
+              "fr": "Planches",
+              "es": "Tablones",
+              "it": "Tavole"
+            },
+            "quantity": 40
+          }
+        ]
+      }
+    },
+    {
+      "id": "work_light",
+      "name": {
+        "de": "Arbeitslampe",
+        "en": "Work Light",
+        "fr": "Lampe de travail",
+        "es": "Lámpara de trabajo",
+        "it": "Lampada da lavoro"
+      },
+      "category": "Lamp",
+      "design": {
+        "de": "Arbeitslampen-Entwurf",
+        "en": "Work Light Design",
+        "fr": "Design de Lampe de travail",
+        "es": "Diseño de Lámpara de trabajo",
+        "it": "Design Lampada da lavoro"
+      },
+      "craft": [
+        {
+          "name": {
+            "de": "SheetMetal",
+            "en": "Sheet Metal",
+            "fr": "Sheet Metal",
+            "es": "Sheet Metal",
+            "it": "Sheet Metal"
+          },
+          "quantity": 5
+        },
+        {
+          "name": {
+            "de": "Roter Leuchtstab",
+            "en": "Red Light Stick",
+            "fr": "Bâton lumineux rouge",
+            "es": "Barra luminosa roja",
+            "it": "Lightstick rosso"
+          },
+          "quantity": 3
+        }
+      ],
+      "research": {
+        "level": 1,
+        "points": 500,
+        "materials": [
+          {
+            "name": {
+              "de": "Elektrische Komponenten",
+              "en": "Electrical Components",
+              "fr": "Composants électriques",
+              "es": "Componentes eléctricos",
+              "it": "Componenti elettrici"
+            },
+            "quantity": 3
+          }
+        ]
+      }
+    }
+  ],
+  "coverageEvidence": {
+    "status": "VERIFIZIERT",
+    "scope": "Launch design total and aggregate acquisition distribution only; individual identities, recipes, research and current-build completeness remain unconfirmed.",
+    "source": "https://arcraiders.com/news/frozen-trail-2-0-update",
+    "publishedAt": "2026-10-08",
+    "checkedAt": "2026-10-16",
+    "designCount": 100,
+    "distribution": {
+      "topside": 73,
+      "outpostExpansion": 22,
+      "frozenTrailPass": 4,
+      "dlc": 1
+    }
+  }
+}

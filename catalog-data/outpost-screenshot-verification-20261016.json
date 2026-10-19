@@ -1,0 +1,1339 @@
+{
+  "schema": 1,
+  "receivedAt": "2026-10-16",
+  "baseCommit": "2635958150777e8b1b09618bff63b3f48852f407",
+  "baselineCatalogSha256": "6e16fa46517e752854c90f73c33dd7f45a3625c41d272d3114cb8adc19818098",
+  "scope": "User supplied photographs of German game menus; property-level confirmation only. Capture date, build and platform not established. No claim of independent second sources.",
+  "fullyGameVerifiedRecords": 0,
+  "recipeQuantityChanges": 0,
+  "records": [
+    {
+      "id": "study_tv_stand",
+      "gameNameDe": "Arbeitszimmer-Fernsehständer",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/study_tv_stand.jpg",
+      "originalFilename": "image-1792185716951.jpg",
+      "sha256": "a310b7d37e336a4c243154d82e594e0e0aa5f8b3cc027f6323cf2352f5337569",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 10
+        },
+        {
+          "materialEn": "Rubber Parts",
+          "quantity": 2
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "chambers_nightstand",
+      "gameNameDe": "Kammer-Nachttisch",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/chambers_nightstand.jpg",
+      "originalFilename": "image-1792185465896.jpg",
+      "sha256": "404eeb6c2f9879d6f5e89bf40210ed329bd93ae442d14febbde92e978277547b",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 10
+        },
+        {
+          "materialEn": "Chemicals",
+          "quantity": 2
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "battered_bureau_chair",
+      "gameNameDe": "Ramponierter Bürostuhl",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/battered_bureau_chair.jpg",
+      "originalFilename": "image-1792185480064.jpg",
+      "sha256": "b73f0615cd3dc94716f8222c03e3c0b9a74687bee2e365152cee043a10780640",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 8
+        },
+        {
+          "materialEn": "Fabric",
+          "quantity": 4
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "battered_diner_chair",
+      "gameNameDe": "Ramponierter Diner-Stuhl",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/battered_diner_chair.jpg",
+      "originalFilename": "image-1792185491181.jpg",
+      "sha256": "276ac1a8f52f32655584cc88b2bd8c564f25eb2a9b08a5e725f241b5d917bf77",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 5
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 3
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "warehouse_chair",
+      "gameNameDe": "Lagerhausstuhl",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/warehouse_chair.jpg",
+      "originalFilename": "image-1792185503569.jpg",
+      "sha256": "91af4c65e7d52abaebac79727c5de59fa9cbf04a8d746710dfd6eebdb20c2212",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 5
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 5
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "lab_stool",
+      "gameNameDe": "Laborhocker",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/lab_stool.jpg",
+      "originalFilename": "image-1792185517352.jpg",
+      "sha256": "a98b1f63ee4f4b6ae0fb17d615decd90de13c9a3e08b41849c9eec402ecdbbca",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 5
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 3
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "small_lab_cabinet",
+      "gameNameDe": "Kleiner Labor-Schrank",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/small_lab_cabinet.jpg",
+      "originalFilename": "image-1792185527991.jpg",
+      "sha256": "cb5c36aa9a9c0ee9d78a4ce1f71b8f77a96c80013afcb871451baf045bcb59be",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 8
+        },
+        {
+          "materialEn": "Rubber Parts",
+          "quantity": 4
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "name",
+            "de"
+          ],
+          "before": "Kleiner Laborschrank",
+          "after": "Kleiner Labor-Schrank"
+        },
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "hotel_chair",
+      "gameNameDe": "Hotelstuhl",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/hotel_chair.jpg",
+      "originalFilename": "image-1792186078306.jpg",
+      "sha256": "ba8893d878f14cbfb6652d7c9f52087779e80732c3c11b9f1b0b6ea4152ae7b3",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 15
+        },
+        {
+          "materialEn": "Durable Cloth",
+          "quantity": 5
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "ornate_stash",
+      "gameNameDe": "Verziertes Lager",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/ornate_stash.jpg",
+      "originalFilename": "image-1792185571370.jpg",
+      "sha256": "2d3fb1acd5397a454ff453c542fbe1acfccdcdbb7950e9a655eb898a9d6936eb",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 20
+        },
+        {
+          "materialEn": "Ion Sputter",
+          "quantity": 3
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "draped_debris_b",
+      "gameNameDe": "Verhüllte Trümmer B",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/draped_debris_b.jpg",
+      "originalFilename": "image-1792185584046.jpg",
+      "sha256": "f08fda9b360ecf5f77f88c4f95a8d3e5c2f3ab30501f95ad4fa9902046afbde7",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 5
+        },
+        {
+          "materialEn": "Fabric",
+          "quantity": 5
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "polished_wardrobe",
+      "gameNameDe": "Polierter Kleiderschrank",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/polished_wardrobe.jpg",
+      "originalFilename": "image-1792185618686.jpg",
+      "sha256": "353c34cda746551223f686e6635d7e892e9c03bdccd03eec41dedf0173d38424",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 30
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 5
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "polished_stash",
+      "gameNameDe": "Poliertes Lager",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/polished_stash.jpg",
+      "originalFilename": "image-1792185633979.jpg",
+      "sha256": "b3a1721f337f921551875ca38156687c998f99a4a9f4827a3d6a3e61e8d31785",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 15
+        },
+        {
+          "materialEn": "Flow Controller",
+          "quantity": 1
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "sturdy_aviary_table",
+      "gameNameDe": "Robuster Volierentisch",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/sturdy_aviary_table.jpg",
+      "originalFilename": "image-1792185651414.jpg",
+      "sha256": "69d6098ba5552d2940fe824b9870d4c01a64f6011d8e474dc0585c1bae56feba",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 20
+        },
+        {
+          "materialEn": "Radial Press",
+          "quantity": 1
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "battered_stash",
+      "gameNameDe": "Ramponiertes Lager",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/battered_stash.jpg",
+      "originalFilename": "image-1792185663500.jpg",
+      "sha256": "e31fcd72004d250a618530e5f4244f43056a1a596c8a306f942db8eda3fda519",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 10
+        },
+        {
+          "materialEn": "Chemicals",
+          "quantity": 3
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "battered_faculty_table",
+      "gameNameDe": "Ramponierter Fakultätstisch",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/battered_faculty_table.jpg",
+      "originalFilename": "image-1792185675725.jpg",
+      "sha256": "e8a2f3c72327a262a5f72f606371c9f2005bd4a9635ae7ca86a0844bbeda5bf8",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 15
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 5
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "work_light",
+      "gameNameDe": "Arbeitslampe",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/work_light.jpg",
+      "originalFilename": "image-1792185732654.jpg",
+      "sha256": "e8b75a7c9ad8d87c078ae1e8e432807f7eb8cdc09e13c312d09e2ebba8580dd8",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 5
+        },
+        {
+          "materialEn": "Red Light Stick",
+          "quantity": 3
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "ornate_wardrobe",
+      "gameNameDe": "Verzierter Kleiderschrank",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/ornate_wardrobe.jpg",
+      "originalFilename": "image-1792185746251.jpg",
+      "sha256": "68646820d9e15f9f9dc11c5cfe6e6ba49bb29a56405aff876f97c39d0ed62af9",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 50
+        },
+        {
+          "materialEn": "Metal Brackets",
+          "quantity": 2
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "study_armchair",
+      "gameNameDe": "Arbeitszimmersessel",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/study_armchair.jpg",
+      "originalFilename": "image-1792185765582.jpg",
+      "sha256": "9674b4357b123522c6c47f519e1a542e3dfaf776e90a61d1ed9f43f60b3b65c7",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 25
+        },
+        {
+          "materialEn": "Very Comfortable Pillow",
+          "quantity": 3
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      },
+      "identityLimit": "Recipe and German name support this baseline ID; second armchair identity, rarity and English Study/Sturdy naming remain unresolved."
+    },
+    {
+      "id": "sturdy_stash",
+      "gameNameDe": "Robustes Lager",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/sturdy_stash.jpg",
+      "originalFilename": "image-1792185777086.jpg",
+      "sha256": "ec22cb15b6204b9af2e1b434591323810d20a1115f42beff2cfa90952f24e387",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 15
+        },
+        {
+          "materialEn": "Voltage Converter",
+          "quantity": 3
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "sturdy_wardrobe",
+      "gameNameDe": "Robuster Kleiderschrank",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/sturdy_wardrobe.jpg",
+      "originalFilename": "image-1792185795177.jpg",
+      "sha256": "fc46cd055b378b7bffeb456dadeca8c8ceeb0fe382926575ea5215f3e4725c77",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 8
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 4
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "polished_weapon_rack",
+      "gameNameDe": "Polierter Waffenständer",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/polished_weapon_rack.jpg",
+      "originalFilename": "image-1792185848284.jpg",
+      "sha256": "21dbc7e5af29aab43913123ab69b5cfec869d22ce213073d69c7b5cd87e0afe7",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 20
+        },
+        {
+          "materialEn": "Plastic Parts",
+          "quantity": 10
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "battered_weapon_rack",
+      "gameNameDe": "Ramponiertes Waffen-Display",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/battered_weapon_rack.jpg",
+      "originalFilename": "image-1792185859755.jpg",
+      "sha256": "2b71a31a08e9957509172624e06ab4a7a0f4b2cffd60566b7a9e716582fc7a9b",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 10
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "polished_den_shelf",
+      "gameNameDe": "Poliertes Raider-Regal",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/polished_den_shelf.jpg",
+      "originalFilename": "image-1792185872081.jpg",
+      "sha256": "041efde096a549620c6eec9c828af9f9bbc2455ef9e45ee095b609fbf358d279",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 20
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "battered_den_shelf",
+      "gameNameDe": "Ramponiertes Raider-Regal",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/battered_den_shelf.jpg",
+      "originalFilename": "image-1792185885652.jpg",
+      "sha256": "a9e8a33940f1221870b8368a9420f6991c861fd3cbc8c41a37d93531d939d332",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 5
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "chambers_shelf",
+      "gameNameDe": "Kammerregal",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/chambers_shelf.jpg",
+      "originalFilename": "image-1792185897522.jpg",
+      "sha256": "f845075394b5ff3e7370675818cf44018661058b9a5e1d00b5972dfacf3f2576",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 10
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "sturdy_weapon_rack",
+      "gameNameDe": "Robuster Waffenständer",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/sturdy_weapon_rack.jpg",
+      "originalFilename": "image-1792185909552.jpg",
+      "sha256": "8e8dc569fb742f36581dc78eeb5b71756a94552eb4eb1a00b23bb7dfb5d1ca5e",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Sheet Metal",
+          "quantity": 10
+        }
+      ],
+      "changes": [
+        {
+          "path": [
+            "craft",
+            0,
+            "name",
+            "de"
+          ],
+          "before": "Sheet Metal",
+          "after": "SheetMetal"
+        }
+      ],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    },
+    {
+      "id": "ornate_den_shelf",
+      "gameNameDe": "Verziertes Raider-Regal",
+      "evidencePath": "docs/data-review/evidence/outpost-20261016/ornate_den_shelf.jpg",
+      "originalFilename": "image-1792185924798.jpg",
+      "sha256": "a67315638291b46f14320108d6c90f20940200dafc13d9027492e59c50d0ed5f",
+      "menu": "furniture purchase preview",
+      "recordStatus": "TEILWEISE VERIFIZIERT",
+      "verifiedProperties": [
+        "name.de",
+        "craft material identities and quantities in photographed preview"
+      ],
+      "gameVersion": null,
+      "captureDate": null,
+      "platform": null,
+      "recipeQuantityChanges": false,
+      "observedCraft": [
+        {
+          "materialEn": "Planks",
+          "quantity": 25
+        }
+      ],
+      "changes": [],
+      "fieldEvidence": {
+        "name.de": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.materials": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        },
+        "craft.quantities": {
+          "status": "VERIFIZIERT",
+          "scope": "Directly legible in the supplied German purchase-preview photograph; capture date and game build unknown."
+        }
+      }
+    }
+  ]
+}

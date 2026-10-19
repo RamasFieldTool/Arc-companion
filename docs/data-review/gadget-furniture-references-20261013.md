@@ -1,0 +1,8 @@
+# Gadget and furniture crafting references — 13 October 2026
+Read-only extension of the existing Outpost source tables. Tether Launcher: 2 Steel Cable, 1 Advanced Electrical Components, 1 Calculator, Utility Station II, blueprint. Yank Grenade: 1 Rope, 1 Crude Explosives, Explosives Station II, blueprint. Wiki and MetaForge match, but independent data origin not established. Recycling excluded: Tether Launcher wiki lists Rope/Cable Stripper while MetaForge lists Mechanical Components/Steel Cable.
+
+Four furniture crafting candidates from wiki: Barstool 4 Fabric + 8 Sheet Metal; Battered Bureau Sofa 1 Spring Cushion + 10 Planks; Diner Shelf 5 Plastic Parts + 30 Planks; Chambers Nightstand 2 Chemicals + 10 Planks. Kept separate from design research costs, require a learned design, not added to material calculations. No actual gameplay verification. Sources linked in JSON/UI. Five languages; verified English game names retained. Earlier review dates retained for existing rows, new rows dated 13 October.
+
+Sources read: https://arcraiders.wiki/wiki/Tether_Launcher ; https://metaforge.app/arc-raiders/database/item/tether-launcher ; https://arcraiders.wiki/wiki/Yank_Grenade ; https://metaforge.app/arc-raiders/database/item/yank-grenade ; https://arcraiders.wiki/wiki/Furniture .
+
+No inventory, goal, identity, recipe-calculation, backup or map changes. No PvE/Trials. Expanded existing focused browser test for new row counts and crafting/research distinction. Local checks and exact-head CI results recorded in PR after execution. Real Android hardware and live in-game values not tested. No merge without authorization.

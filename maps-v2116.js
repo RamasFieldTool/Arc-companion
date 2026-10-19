@@ -63,13 +63,13 @@
     document.head.appendChild(style);
   }
   const script=document.createElement('script');
-  script.src='spaceport-v2.js?v=community-review-5';
+  script.src='spaceport-v2.js?v=source-audit-1';
   script.defer=true;
   script.dataset.spaceportV2Loader='true';
   script.addEventListener('load',()=>{
     if(!document.querySelector('script[data-spaceport-map-image-fix]')){
       const imageFix=document.createElement('script');
-      imageFix.src='spaceport-map-image-fix.js?v=approved-base-1';
+      imageFix.src='spaceport-map-image-fix.js?v=lazy-map-open-1';
       imageFix.defer=true;
       imageFix.dataset.spaceportMapImageFix='true';
       document.head.appendChild(imageFix);

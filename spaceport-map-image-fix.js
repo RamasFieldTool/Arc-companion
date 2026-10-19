@@ -3,11 +3,13 @@
   const APPROVED_SPACEPORT_MAP='assets/maps/spaceport-approved-base.jpg?v=2';
   const image=document.getElementById('spawnMapImage');
   const select=document.getElementById('spawnMapSelect');
-  if(!image||!select)return;
+  const panel=document.getElementById('spawnPanel');
+  if(!image||!select||!panel)return;
 
   function isSpaceport(){return select.value==='spaceport'}
+  function isMapActive(){return panel.classList.contains('launcher-active')}
   function applyApprovedMap(){
-    if(!isSpaceport())return;
+    if(!isSpaceport()||!isMapActive())return;
     if(image.getAttribute('src')!==APPROVED_SPACEPORT_MAP){
       image.setAttribute('src',APPROVED_SPACEPORT_MAP);
     }
@@ -16,13 +18,14 @@
 
   select.addEventListener('change',()=>setTimeout(applyApprovedMap,180));
   const observer=new MutationObserver(()=>{
-    if(isSpaceport()&&image.getAttribute('src')!==APPROVED_SPACEPORT_MAP){
+    if(isSpaceport()&&isMapActive()&&image.getAttribute('src')!==APPROVED_SPACEPORT_MAP){
       queueMicrotask(applyApprovedMap);
     }
   });
   observer.observe(image,{attributes:true,attributeFilter:['src']});
+  new MutationObserver(applyApprovedMap).observe(panel,{attributes:true,attributeFilter:['class']});
   image.addEventListener('error',()=>{
-    if(isSpaceport()&&image.getAttribute('src')!==APPROVED_SPACEPORT_MAP)applyApprovedMap();
+    if(isSpaceport()&&isMapActive()&&image.getAttribute('src')!==APPROVED_SPACEPORT_MAP)applyApprovedMap();
   });
   applyApprovedMap();
   setTimeout(applyApprovedMap,250);
