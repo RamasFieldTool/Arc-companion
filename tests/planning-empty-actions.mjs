@@ -2,11 +2,11 @@ import { chromium } from 'playwright';
 
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const copy={
-  de:{collection:'Sammelziel anlegen',workshop:'Werkstatt auswählen',quests:'Quest ansehen'},
-  en:{collection:'Add collection goal',workshop:'Choose workshop level',quests:'View quests'},
-  fr:{collection:'Ajouter un objectif',workshop:'Choisir un niveau d’atelier',quests:'Voir les quêtes'},
-  es:{collection:'Añadir objetivo de colección',workshop:'Elegir nivel de taller',quests:'Ver misiones'},
-  it:{collection:'Aggiungi obiettivo di raccolta',workshop:'Scegli livello del banco',quests:'Vedi missioni'}
+  de:{personal:'Sammelziel anlegen',workshop:'Werkstatt auswählen',quests:'Quest ansehen'},
+  en:{personal:'Add collection goal',workshop:'Choose workshop level',quests:'View quests'},
+  fr:{personal:'Ajouter un objectif',workshop:'Choisir un niveau d’atelier',quests:'Voir les quêtes'},
+  es:{personal:'Añadir objetivo de colección',workshop:'Elegir nivel de taller',quests:'Ver misiones'},
+  it:{personal:'Aggiungi obiettivo di raccolta',workshop:'Scegli livello del banco',quests:'Vedi missioni'}
 };
 const browser=await chromium.launch({headless:true});
 try{
