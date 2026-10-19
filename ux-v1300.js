@@ -73,34 +73,88 @@
     return manager;
   })();
 
+  function uxLanguage(){
+    const supported=['de','en','fr','es','it'];
+    try{
+      const saved=localStorage.getItem('arcUiLanguage');
+      if(supported.includes(saved))return saved;
+    }catch{}
+    const selected=document.documentElement.dataset.uiLanguage;
+    if(supported.includes(selected))return selected;
+    return lang==='en'?'en':'de';
+  }
+
   function raidGoalText(){
-    return lang==='en'?{
-      title:'RAID GOALS',subtitle:'Workshop & quests',active:'ACTIVE',workshop:'WORKSHOP',quests:'QUESTS',
-      goalsLoading:'Workshop goals are loading …',questsLoading:'Quests are loading …',noQuest:'No active quest.',
-      chooseQuest:'Choose quest …',activate:'ACTIVATE',remove:'REMOVE',selected:'selected'
-    }:{
-      title:'RAID-ZIELE',subtitle:'Werkbank & Quests',active:'AKTIV',workshop:'WERKBANK',quests:'QUESTS',
-      goalsLoading:'Werkbankziele werden geladen …',questsLoading:'Quests werden geladen …',noQuest:'Keine aktive Quest.',
-      chooseQuest:'Quest auswählen …',activate:'AKTIVIEREN',remove:'ENTFERNEN',selected:'gewählt'
+    const copy={
+      de:{
+        title:'RAID-ZIELE',subtitle:'Werkbank & Quests',active:'AKTIV',workshop:'WERKBANK',quests:'QUESTS',
+        goalsLoading:'Werkbankziele werden geladen …',questsLoading:'Quests werden geladen …',noQuest:'Keine aktive Quest.',
+        chooseQuest:'Quest auswählen …',activate:'AKTIVIEREN',remove:'ENTFERNEN',selected:'gewählt'
+      },
+      en:{
+        title:'RAID GOALS',subtitle:'Workshop & quests',active:'ACTIVE',workshop:'WORKSHOP',quests:'QUESTS',
+        goalsLoading:'Workshop goals are loading …',questsLoading:'Quests are loading …',noQuest:'No active quest.',
+        chooseQuest:'Choose quest …',activate:'ACTIVATE',remove:'REMOVE',selected:'selected'
+      },
+      fr:{
+        title:'OBJECTIFS DE RAID',subtitle:'Atelier et quêtes',active:'ACTIFS',workshop:'ATELIER',quests:'QUÊTES',
+        goalsLoading:'Chargement des objectifs de l’atelier …',questsLoading:'Chargement des quêtes …',noQuest:'Aucune quête active.',
+        chooseQuest:'Choisir une quête …',activate:'ACTIVER',remove:'RETIRER',selected:'sélectionnés'
+      },
+      es:{
+        title:'OBJETIVOS DE INCURSIÓN',subtitle:'Taller y misiones',active:'ACTIVOS',workshop:'TALLER',quests:'MISIONES',
+        goalsLoading:'Cargando objetivos del taller …',questsLoading:'Cargando misiones …',noQuest:'No hay misiones activas.',
+        chooseQuest:'Elegir misión …',activate:'ACTIVAR',remove:'ELIMINAR',selected:'seleccionados'
+      },
+      it:{
+        title:'OBIETTIVI RAID',subtitle:'Officina e missioni',active:'ATTIVI',workshop:'OFFICINA',quests:'MISSIONI',
+        goalsLoading:'Caricamento obiettivi officina …',questsLoading:'Caricamento missioni …',noQuest:'Nessuna missione attiva.',
+        chooseQuest:'Scegli missione …',activate:'ATTIVA',remove:'RIMUOVI',selected:'selezionati'
+      }
     };
+    return copy[uxLanguage()]||copy.de;
   }
 
   function freeItemText(){
-    return lang==='en'?{
-      title:'FREE ITEMS',subtitle:'For crafting & personal plans',badge:'NO GOAL',
-      label:'ITEM SEARCH',placeholder:'Search item …',
-      prompt:'Search for any item and add it directly to your raid list.',
-      loading:'Items are loading …',noResults:'No item found.',
-      amount:'AMOUNT',add:'Add to next raid',saved:'✓ In your raid goals'
-    }:{
-      title:'FREIE ITEMS',subtitle:'Für Crafting & persönliche Pläne',badge:'OHNE ZIEL',
-      label:'ITEM SUCHEN',placeholder:'Item suchen …',
-      prompt:'Suche ein beliebiges Item und füge es direkt deiner Raid-Liste hinzu.',
-      loading:'Items werden geladen …',noResults:'Kein Item gefunden.',
-      amount:'MENGE',add:'Zum nächsten Raid hinzufügen',saved:'✓ In deinen Raid-Zielen'
+    const copy={
+      de:{
+        title:'FREIE ITEMS',subtitle:'Für Crafting & persönliche Pläne',badge:'OHNE ZIEL',
+        label:'ITEM SUCHEN',placeholder:'Item suchen …',
+        prompt:'Suche ein beliebiges Item und füge es direkt deiner Raid-Liste hinzu.',
+        loading:'Items werden geladen …',noResults:'Kein Item gefunden.',
+        amount:'MENGE',add:'Zum nächsten Raid hinzufügen',saved:'✓ In deinen Raid-Zielen'
+      },
+      en:{
+        title:'FREE ITEMS',subtitle:'For crafting & personal plans',badge:'NO GOAL',
+        label:'ITEM SEARCH',placeholder:'Search item …',
+        prompt:'Search for any item and add it directly to your raid list.',
+        loading:'Items are loading …',noResults:'No item found.',
+        amount:'AMOUNT',add:'Add to next raid',saved:'✓ In your raid goals'
+      },
+      fr:{
+        title:'OBJETS LIBRES',subtitle:'Pour l’artisanat et vos projets personnels',badge:'SANS OBJECTIF',
+        label:'RECHERCHER UN OBJET',placeholder:'Rechercher un objet …',
+        prompt:'Recherchez un objet et ajoutez-le directement à votre liste de raid.',
+        loading:'Chargement des objets …',noResults:'Aucun objet trouvé.',
+        amount:'QUANTITÉ',add:'Ajouter au prochain raid',saved:'✓ Dans vos objectifs de raid'
+      },
+      es:{
+        title:'OBJETOS LIBRES',subtitle:'Para fabricar y para tus planes personales',badge:'SIN OBJETIVO',
+        label:'BUSCAR OBJETO',placeholder:'Buscar objeto …',
+        prompt:'Busca cualquier objeto y añádelo directamente a tu lista de incursión.',
+        loading:'Cargando objetos …',noResults:'No se encontró ningún objeto.',
+        amount:'CANTIDAD',add:'Añadir a la próxima incursión',saved:'✓ En tus objetivos de incursión'
+      },
+      it:{
+        title:'OGGETTI LIBERI',subtitle:'Per creare e per i tuoi piani personali',badge:'SENZA OBIETTIVO',
+        label:'CERCA OGGETTO',placeholder:'Cerca oggetto …',
+        prompt:'Cerca un oggetto e aggiungilo direttamente alla lista del raid.',
+        loading:'Caricamento oggetti …',noResults:'Nessun oggetto trovato.',
+        amount:'QUANTITÀ',add:'Aggiungi al prossimo raid',saved:'✓ Nei tuoi obiettivi raid'
+      }
     };
+    return copy[uxLanguage()]||copy.de;
   }
-
   function activeQuestCount(){
     if(!Array.isArray(quests)||typeof getQuestState!=='function')return 0;
     return quests.filter(quest=>getQuestState(quest.id)==='active').length;
@@ -315,9 +369,7 @@
     goalsEl.innerHTML=goals.map(goal=>{
       const selected=stationActiveCount(goal);
       const total=(goal.levels||[]).length;
-      const meta=lang==='en'
-        ?`${selected}/${total} selected`
-        :`${selected}/${total} gewählt`;
+      const meta=`${selected}/${total} ${raidGoalText().selected}`;
       return `<details class="goalbox goal-station" data-goal-id="${goal.id}" ${openIds.has(goal.id)?'open':''}>
         <summary>
           <span class="goal-station-name">${goalName(goal)}</span>
@@ -349,16 +401,18 @@
 
   // Keep the compact palette summary and info labels in the selected language.
   function syncUxText(){
-    const english=document.getElementById('enBtn')?.classList.contains('active');
+    const locale=uxLanguage();
+    const changeLabel={de:'ÄNDERN',en:'CHANGE',fr:'MODIFIER',es:'CAMBIAR',it:'MODIFICA'}[locale]||'ÄNDERN';
     document.querySelectorAll('.inline-info>summary span').forEach(element=>element.textContent='INFO');
     const action=document.querySelector('.palette-lab-action');
-    if(action)action.textContent=english?'CHANGE':'ÄNDERN';
+    if(action)action.textContent=changeLabel;
     renderRaidGoalManager();
     renderFreeItemManager();
   }
 
   document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(()=>{drawGoals();syncUxText()},0));
   document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(()=>{drawGoals();syncUxText()},0));
+  window.addEventListener('arc-language-change',()=>{drawGoals();syncUxText()});
 
   // Quest data arrives independently from workshop data. Keep the inline manager in sync.
   if(questsList){
