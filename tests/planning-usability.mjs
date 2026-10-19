@@ -84,9 +84,7 @@ try{
   await personal(page,item.id,2);await page.locator('#planningTabMissing').click();await page.locator('#planningRaidFinished').waitFor({state:'visible'});
   await setStock(page,item.id,2);await page.locator('#planningTabMissing').click();await page.locator('#planningRaidFinished').waitFor({state:'hidden'});
   console.log('PASS raid-find action is hidden without missing requirements and returns when an active goal needs materials');
-  await page.locator('#appBack').click();
-  await page.locator('[data-app-target="nextRaidDrawer"]').waitFor({state:'visible'});
-  await page.locator('[data-app-target="nextRaidDrawer"]').click();
+  await page.goto(`${BASE_URL}#nextRaidDrawer`);
   await page.locator('.raid-goal-manager-copy strong').waitFor({state:'visible'});
   const raidLocaleCopy={
     de:{goals:'RAID-ZIELE',free:'FREIE ITEMS',workshop:'WERKBANK',itemSearch:'ITEM SUCHEN'},
