@@ -25,7 +25,7 @@ Damit werden ein direkt gesuchtes Item und mögliche Recycling-Quellen nicht mit
 ### 4. Quests
 Quests können den Status **Offen**, **Aktiv** oder **Erledigt** erhalten. Der Status wird lokal auf dem Gerät gespeichert.
 
-Wichtig: **Nur aktive Quests fließen in den Gesamtbedarf ein.** Offene und erledigte Quests bleiben im Tracker sichtbar, verändern den Materialbedarf aber nicht. Eine aktive Quest beeinflusst den Bedarf nur, wenn für sie strukturierte benötigte Items vorliegen. Questziele, Auftraggeber, benötigte Items, bereitgestellte Items und Belohnungen werden angezeigt, soweit die Quelldaten diese Informationen enthalten.
+Wichtig: **Nur aktive Quests fließen in den Gesamtbedarf ein.** Offene und erledigte Quests bleiben im Tracker sichtbar, verändern den Materialbedarf aber nicht. Eine aktive Quest beeinflusst den Bedarf nur, wenn für sie strukturierte benötigte Items vorliegen. Questziele, Auftraggeber, benötigte Items, bereitgestellte Items und Belohnungen werden angezeigt, soweit die Quelldaten diese Informationen enthalten. Einzelne Questziele können zusätzlich als persönliche Checkliste markiert werden. Diese Häkchen werden lokal gespeichert und ändern weder den Queststatus noch den Materialbedarf; sie sind in Backups enthalten.
 
 Questdaten werden unabhängig vom Item-Katalog geladen. Ein Fehler beim Laden der Questdaten soll daher nicht die Item-Suche blockieren.
 
@@ -70,7 +70,7 @@ ARC Companion ist ein inoffizielles Community-Projekt. Daten können sich durch 
 - Anzeige möglicher Item-Fundorte, soweit Community-Daten verfügbar sind.
 - Aktive Werkbank-Stufen und persönliche Sammelziele mit lokal gespeichertem Status.
 - Gesamtbedarf mit vorhanden/fehlend, Verwendungsdetails und zusätzlichen Kosten.
-- Quest-Tracker mit Offen / Aktiv / Erledigt; nur aktive Quests zählen zum Bedarf.
+- Quest-Tracker mit Offen / Aktiv / Erledigt und lokaler Checkliste für einzelne Ziele; nur aktive Quests zählen zum Bedarf.
 - Mehrere Community-basierte Raider-Karten mit Zoom, Markern und Quellenhinweisen.
 - DARK-, LIGHT- und BLACK-Modus mit lokaler Speicherung.
 - Sichtbarer LIVE-/BASISDATENSATZ-Status und mehrere Item-Katalog-Fallbacks.

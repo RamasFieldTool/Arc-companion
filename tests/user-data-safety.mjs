@@ -16,15 +16,15 @@ const firstBlueprint=blueprints[0];
 const firstGoalKey=`${firstGoal.id}:${firstGoal.levels?.[0]?.level}`;
 const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/quests/quality_gate_user_data.json';
 const quest={id:'quality_gate_user_data',name:{de:'Nutzerdatentest',en:'User data test'},trader:'Test',objectives:[{de:'Test',en:'Test'}],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]};
-const jsonKeys=new Set(['arcPlanningPersonal','arcPlanningHistory','arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventReminders']);
-const trackedKeys=['arcUiLanguage','arcPlanningMigrationV1','arcPlanningPersonal','arcPlanningHistory','arcLang','arcTheme','arcPaletteSurface','arcPaletteAccent','arcOwned','arcActiveGoals','arcQuestStatus','arc_blueprints_learned_v1','arcNextRaid','arcEventRegion','arcEventLead','arcEventReminders'];
+const jsonKeys=new Set(['arcPlanningPersonal','arcPlanningHistory','arcOwned','arcActiveGoals','arcQuestStatus','arcQuestObjectiveProgress','arc_blueprints_learned_v1','arcNextRaid','arcEventReminders']);
+const trackedKeys=['arcUiLanguage','arcPlanningMigrationV1','arcPlanningPersonal','arcPlanningHistory','arcLang','arcTheme','arcPaletteSurface','arcPaletteAccent','arcOwned','arcActiveGoals','arcQuestStatus','arcQuestObjectiveProgress','arc_blueprints_learned_v1','arcNextRaid','arcEventRegion','arcEventLead','arcEventReminders'];
 const reminderStart=new Date(Date.now()+24*60*60*1000).toISOString();
 const reminderEnd=new Date(Date.now()+25*60*60*1000).toISOString();
 const seed={
   arcUiLanguage:'en',arcPlanningMigrationV1:'1',arcPlanningPersonal:JSON.stringify({[firstItem.id]:{itemId:firstItem.id,target:100,status:'active'},[fixtureItems[1].id]:{itemId:fixtureItems[1].id,target:7,status:'paused'},[fixtureItems[2].id]:{itemId:fixtureItems[2].id,target:2,status:'done'}}),arcPlanningHistory:'[]',
   arcLang:'en',arcTheme:'dark',arcPaletteSurface:'black',arcPaletteAccent:'cyan',
   arcOwned:JSON.stringify({[firstItem.id]:42}),arcActiveGoals:JSON.stringify({[firstGoalKey]:true}),
-  arcQuestStatus:JSON.stringify({quality_gate_user_data:'done'}),arc_blueprints_learned_v1:JSON.stringify([firstBlueprint.id]),
+  arcQuestStatus:JSON.stringify({quality_gate_user_data:'done'}),arcQuestObjectiveProgress:JSON.stringify({quality_gate_user_data:['0123456789abcdef-0']}),arc_blueprints_learned_v1:JSON.stringify([firstBlueprint.id]),
   arcNextRaid:JSON.stringify({[firstItem.id]:{target:10,done:false,personal:true,found:5}}),arcEventRegion:'europe',arcEventLead:'15',
   arcEventReminders:JSON.stringify([{key:'quality-gate-reminder',start:reminderStart,end:reminderEnd,name:'Quality Gate',map:'Blue Gate',lead:15,notified:false}])
 };
@@ -33,6 +33,11 @@ const norm=(raw,key)=>raw===null?null:(jsonKeys.has(key)?JSON.parse(raw):raw);
 const equal=(a,b,label)=>{if(JSON.stringify(a)!==JSON.stringify(b))throw new Error(`${label}: expected ${JSON.stringify(b)}, got ${JSON.stringify(a)}`)};
 
 async function installRoutes(page){
+  await page.route('https://fonts.googleapis.com/**',route=>route.fulfill({status:200,contentType:'text/css',body:''}));
+  await page.route('https://fonts.gstatic.com/**',route=>route.fulfill({status:200,contentType:'font/woff2',body:Buffer.alloc(0)}));
+  await page.route('https://static.cloudflareinsights.com/**',route=>route.fulfill({status:200,contentType:'text/javascript',body:''}));
+  await page.route('https://raw.githubusercontent.com/RamasFieldTool/Arc-companion/live-events-data/live-events.json',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({conditions:[{type:'major',conditionName:'Safety fixture',mapDisplayName:'Fixture map',regions:{europe:{start:'2099-01-01T00:00:00Z',end:'2099-01-02T00:00:00Z'}}}]})}));
+  await page.route('https://raw.githubusercontent.com/RaidTheory/arcraiders-data/2a4abebb2486a633070f4e260058bcd5ad4511d6/bots.json',route=>route.fulfill({status:200,contentType:'application/json',body:'[]'}));
   await page.route('https://arcdata.mahcks.com/v1/items**',async route=>{
     const url=new URL(route.request().url());
     const offset=Math.max(0,Number(url.searchParams.get('offset'))||0),limit=Math.max(1,Number(url.searchParams.get('limit'))||45);
@@ -125,6 +130,9 @@ try{
   const polluted=structuredClone(backup);polluted.data.arcOwned=JSON.parse('{"__proto__":1,"safe":2}');
   await page.locator('#backupFile').setInputFiles({name:'polluted.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(polluted))});
   await page.waitForFunction(()=>document.querySelector('#backupStatus')?.classList.contains('is-error'));equal(await snapshot(page),beforeReject,'Unsafe backup changed data');
+  const invalidObjectives=structuredClone(backup);invalidObjectives.data.arcQuestObjectiveProgress={quality_gate_user_data:['not-a-valid-objective-key']};
+  await page.locator('#backupFile').setInputFiles({name:'invalid-objective-progress.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(invalidObjectives))});
+  await page.waitForFunction(()=>document.querySelector('#backupStatus')?.classList.contains('is-error'));equal(await snapshot(page),beforeReject,'Invalid quest objective progress changed data');
   console.log('PASS invalid and unsafe backups are rejected without data loss');
 
   if(pageErrors.length)throw new Error(`Uncaught browser errors: ${pageErrors.join(' | ')}`);

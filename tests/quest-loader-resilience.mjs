@@ -97,6 +97,34 @@ try{
   if(!row||row.required<3||!row.goals.some(goal=>goal.kind==='quest'&&goal.id==='quest_resilience_test'))throw new Error('Active quest requirements are not connected to shared material planning');
   requireNoErrors('shared planning',errors);console.log('PASS active quest requirements remain in shared planning');await context.close();
  }
+ // Personal objective checks persist locally and never change the app's quest status.
+ {
+  const prior={quest_resilience_test:'active'};
+  const {context,page,errors}=await setupPage({storedState:JSON.stringify(prior),width:412,height:915,beforeNavigate:page=>routeOneQuest(page)});await waitQuestState(page,'live');
+  await page.locator('#questDrawer').evaluate(el=>{el.classList.add('launcher-active');el.open=true});await page.evaluate(()=>drawQuests());
+  const localeNotes={de:'Persönliche Checkliste',en:'Personal checklist',fr:'Liste personnelle',es:'Lista personal',it:'Elenco personale'};
+  for(const [locale,fragment] of Object.entries(localeNotes)){
+   await page.evaluate(value=>{localStorage.setItem('arcUiLanguage',value);drawQuests()},locale);
+   await page.locator('#questsList .quest-card .quest-details summary').first().click();
+   const note=await page.locator('#questsList .quest-objective-note').first().innerText();if(!note.includes(fragment))throw new Error(`${locale}: objective checklist note was not localized: ${note}`);
+  }
+  await page.evaluate(()=>{localStorage.setItem('arcUiLanguage','en');drawQuests()});
+  await page.locator('#questsList .quest-card .quest-details summary').first().click();
+  const objective=page.locator('#questsList .quest-card input[data-quest-objective]').first();await objective.waitFor({state:'visible'});
+  const key=await objective.getAttribute('data-objective-key');await objective.check();
+  await page.waitForFunction(expected=>JSON.parse(localStorage.getItem('arcQuestObjectiveProgress')||'{}').quest_resilience_test?.includes(expected),key);
+  if(JSON.stringify(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcQuestStatus')||'{}')))!==JSON.stringify(prior))throw new Error('Marking a quest objective changed the quest status');
+  await page.reload({waitUntil:'domcontentloaded'});await waitQuestState(page,'live');
+  await page.locator('#questDrawer').evaluate(el=>{el.classList.add('launcher-active');el.open=true});await page.evaluate(()=>drawQuests());
+  await page.locator('#questsList .quest-card .quest-details summary').first().click();
+  const restored=page.locator('#questsList .quest-card input[data-quest-objective]').first();await restored.waitFor({state:'visible'});
+  if(!(await restored.isChecked()))throw new Error('Quest objective progress did not persist after reload');
+  if(JSON.stringify(await page.evaluate(()=>JSON.parse(localStorage.getItem('arcQuestStatus')||'{}')))!==JSON.stringify(prior))throw new Error('Reloading objective progress changed the quest status');
+  await restored.uncheck();
+  await page.waitForFunction(()=>!JSON.parse(localStorage.getItem('arcQuestObjectiveProgress')||'{}').quest_resilience_test);
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);if(overflow>2)throw new Error(`Objective checklist causes mobile horizontal overflow (${overflow}px)`);
+  requireNoErrors('objective progress',errors);console.log('PASS quest objective checks persist locally without changing quest status');await context.close();
+ }
  // Snapshot notice is translated and does not overflow at both requested mobile widths.
  const expected={de:'Lokaler Quest-Snapshot',en:'Local quest snapshot',fr:'Snapshot local',es:'Snapshot local',it:'Snapshot locale'};
  const expectedGlobal={de:'Daten nur teilweise verfügbar',en:'Data is only partially available',fr:'Données disponibles partiellement',es:'Los datos solo están disponibles parcialmente',it:'Dati disponibili solo in parte'};
