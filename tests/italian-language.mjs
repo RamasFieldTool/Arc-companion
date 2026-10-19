@@ -32,7 +32,7 @@ try{
   await page.waitForFunction(()=>document.querySelector('#detailTitle')?.textContent?.trim()==='La mia pianificazione');
   if(await text('#planningTabMissing')!=='Cosa mi manca?')throw new Error('Italian missing-items tab untranslated');
   if(await text('#planningTabGoals')!=='I miei obiettivi')throw new Error('Italian goals tab untranslated');
-  if(await text('#planningRaidFinished')!=='Raid terminato')throw new Error('Italian Raid finished action missing');
+  if(await text('#planningRaidFinished')!=='Registra i ritrovamenti dopo il raid')throw new Error('Italian Raid finished action missing');
   await page.locator('#planningTabGoals').tap();
   const labels=await page.locator('.planning-personal-add label').allInnerTexts();
   if(!labels.some(v=>v.trim().startsWith('Oggetto')))throw new Error(`Italian item label untranslated: ${JSON.stringify(labels)}`);
@@ -48,7 +48,7 @@ try{
   if(overflow>4)throw new Error(`Italian mobile UI causes horizontal overflow (${overflow}px)`);
 
   await page.locator('#planningTabMissing').tap();
-  if(await text('#planningRaidFinished')!=='Raid terminato')throw new Error('Italian Raid finished action changed after reload');
+  if(await text('#planningRaidFinished')!=='Registra i ritrovamenti dopo il raid')throw new Error('Italian Raid finished action changed after reload');
 
   // Catch competing overlays after asynchronous status/catalog renders, then leave IT.
   await page.waitForTimeout(600);
