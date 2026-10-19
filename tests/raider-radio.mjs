@@ -50,23 +50,46 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(await tile.locator('b').innerText(),'Fan Creations');
   await tile.click();
   await page.locator('#raiderRadio').waitFor({state:'visible'});
-  const winner=page.locator('#raiderRadio .fan-winner-feature');
-  const winnerCopy={
-    de:['Gewinnerbild des Wettbewerbs','Neues Gruppenbild gesucht!','Zwei ARC Raiders reichen sich bei Sonnenuntergang die Hand. Auf den Rucksäcken steht PvE und PvP.'],
-    en:['Latest contest winner','New group image wanted!','Two ARC Raiders shake hands at sunset. Their backpacks read PvE and PvP.'],
-    fr:['Dernière image gagnante','Concours : nouvelle image de groupe !','Deux Raiders ARC se serrent la main au coucher du soleil. Leurs sacs affichent PvE et PvP.'],
-    es:['Imagen ganadora más reciente','Concurso: ¡se busca una nueva imagen de grupo!','Dos Raiders de ARC se dan la mano al atardecer. Sus mochilas muestran PvE y PvP.'],
-    it:['Ultima immagine vincitrice','Concorso: cercasi una nuova immagine di gruppo!','Due Raider di ARC si stringono la mano al tramonto. Gli zaini riportano PvE e PvP.']
+  const contestTile=page.locator('[data-fan-view="contests"]');
+  const contestTileCopy={
+    de:['Wettbewerbsbilder','Gewinnerbilder aus Community-Wettbewerben'],
+    en:['Contest gallery','Winning images from community contests'],
+    fr:['Galerie des concours','Images gagnantes des concours communautaires'],
+    es:['Galería de concursos','Imágenes ganadoras de concursos comunitarios'],
+    it:['Galleria dei concorsi','Immagini vincitrici dei concorsi della community']
   }[language];
-  assert.deepEqual(await winner.locator('h3,p').allTextContents(),winnerCopy.slice(0,2));
-  assert.equal(await winner.locator('img').getAttribute('alt'),winnerCopy[2]);
-  assert.equal(await winner.locator('img').getAttribute('src'),'assets/fan-creations/contest-winner-group-image.jpg');
-  await winner.locator('img').evaluate(img=>img.decode());
-  assert.deepEqual(await winner.locator('img').evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1536,864]);
-  assert.equal((await winner.innerText()).includes('Martin Haluška'),false);
-  const winnerLayout=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,card:document.querySelector('.fan-winner-feature').scrollWidth,cardClient:document.querySelector('.fan-winner-feature').clientWidth,image:document.querySelector('.fan-winner-feature img').getBoundingClientRect().width}));
-  assert.ok(winnerLayout.document-winnerLayout.viewport<=4,JSON.stringify(winnerLayout));
-  assert.ok(winnerLayout.image<=winnerLayout.cardClient,JSON.stringify(winnerLayout));
+  assert.deepEqual(await contestTile.locator('strong,small').allTextContents(),contestTileCopy);
+  await contestTile.click();
+  const contestView=page.locator('#raiderRadio .fan-contests-view');
+  await contestView.waitFor({state:'visible'});
+  const contest=page.locator('#raiderRadio .fan-contest-card');
+  assert.equal(await contest.count(),1);
+  const contestCopy={
+    de:['Gewinnerbild','Neues Gruppenbild gesucht!','Wettbewerbszeitraum','Facebook-Gruppe','18.–26. September'],
+    en:['Winning image','New group image wanted!','Contest dates','Facebook group','18–26 September'],
+    fr:['Image gagnante','Concours : nouvelle image de groupe !','Période du concours','Groupe Facebook','18–26 septembre'],
+    es:['Imagen ganadora','¡Se busca una nueva imagen de grupo!','Fechas del concurso','Grupo de Facebook','18–26 de septiembre'],
+    it:['Immagine vincitrice','Concorso: cercasi una nuova immagine di gruppo!','Periodo del concorso','Gruppo Facebook','18–26 settembre']
+  }[language];
+  assert.deepEqual(await contest.locator('h3,.fan-contest-prompt').allTextContents(),contestCopy.slice(0,2));
+  assert.deepEqual(await contest.locator('.fan-contest-meta dt').allTextContents(),contestCopy.slice(2,4));
+  assert.deepEqual(await contest.locator('.fan-contest-meta dd').allTextContents(),[contestCopy[4],'ARC Raiders - Die Ü30-Rentner']);
+  const contestAlt={
+    de:'Das Gewinnerbild des ARC-Raiders-Wettbewerbs mit zwei Raidern bei Sonnenuntergang; auf ihren Rucksäcken steht PvE und PvP.',
+    en:'Winning image from an ARC Raiders contest: two raiders at sunset, with PvE and PvP on their backpacks.',
+    fr:'Image gagnante d’un concours ARC Raiders : deux Raiders au coucher du soleil, avec PvE et PvP sur leurs sacs.',
+    es:'Imagen ganadora de un concurso de ARC Raiders: dos Raiders al atardecer, con PvE y PvP en sus mochilas.',
+    it:'Immagine vincitrice di un concorso ARC Raiders: due Raider al tramonto, con PvE e PvP sugli zaini.'
+  }[language];
+  assert.equal(await contest.locator('img').getAttribute('alt'),contestAlt);
+  assert.equal(await contest.locator('img').getAttribute('src'),'assets/fan-creations/contest-winner-group-image.jpg');
+  await contest.locator('img').evaluate(img=>img.decode());
+  assert.deepEqual(await contest.locator('img').evaluate(img=>[img.naturalWidth,img.naturalHeight]),[1536,864]);
+  const contestLayout=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,card:document.querySelector('.fan-contest-card').scrollWidth,cardClient:document.querySelector('.fan-contest-card').clientWidth,image:document.querySelector('.fan-contest-card img').getBoundingClientRect().width}));
+  assert.ok(contestLayout.document-contestLayout.viewport<=4,JSON.stringify(contestLayout));
+  assert.ok(contestLayout.image<=contestLayout.cardClient,JSON.stringify(contestLayout));
+  await contestView.locator('.fan-contests-back').click();
+  assert.equal(new URL(page.url()).hash,'#raiderRadio');
   await page.locator('[data-fan-view="radio"]').click();
   const about=page.locator('.radio-about');
   assert.equal(await about.getAttribute('open'),null);
