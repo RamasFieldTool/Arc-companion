@@ -136,6 +136,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/raider-stories.mjs
+      - name: Run community contribution permission, privacy and mobile checks
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/fan-contributions.mjs
       - name: Run Raider Radio collection, album navigation and five-language layout checks
         env:
           BASE_URL: http://127.0.0.1:4173/

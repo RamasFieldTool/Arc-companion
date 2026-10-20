@@ -1,4 +1,16 @@
 /* Creative accents stay scoped to the Fan Creations launcher and section. */
+.fan-contribute{margin:24px 0 0;padding:0;border:1px solid var(--fan-line,#decac1);border-radius:16px;background:var(--fan-paper,#fffaf1);color:var(--fan-ink,#352b32);overflow:hidden}
+.fan-contribute>summary{min-height:48px;padding:14px 16px;display:flex;align-items:center;cursor:pointer;font-weight:700;line-height:1.4}
+.fan-contribute-body{display:grid;gap:12px;padding:0 16px 16px;color:var(--fan-ink,#352b32)}
+.fan-contribute-body>p{margin:0;color:var(--fan-muted,#68575e);font-size:14px;line-height:1.6}
+.fan-contribute-body>label{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;align-items:start;min-height:44px;font-size:14px;line-height:1.5;cursor:pointer}
+.fan-contribute-body input[type=checkbox]{width:20px;height:20px;margin:1px 0;accent-color:#995000}
+.fan-submit-email{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 16px;border:1px solid #995000;border-radius:11px;background:var(--fan-radio,#f9ead1);color:var(--fan-ink,#352b32);font-weight:700;line-height:1.4;text-align:center;text-decoration:none}
+.fan-submit-email:hover{text-decoration:underline}
+.fan-submit-email:focus-visible,.fan-contribute>summary:focus-visible{outline:3px solid #995000;outline-offset:3px}
+.fan-submit-email[hidden]{display:none!important}
+html:is([data-surface="dark"],[data-surface="black"]) .fan-submit-email:focus-visible,html:is([data-surface="dark"],[data-surface="black"]) .fan-contribute>summary:focus-visible{outline-color:#ffc46b}
+@media(max-width:380px){.fan-contribute{margin-top:18px}.fan-contribute-body{padding:0 13px 13px}}
 body.palette-enabled #appLauncher .app-tile[data-app-target="raiderRadio"]{
   --tile-fill:#e7bd59;--tile-ink:#995000;
   --tile-art:radial-gradient(circle at 82% 20%,#d5b7d766 0 12%,transparent 13%),radial-gradient(circle at 18% 85%,#eeb5a966 0 17%,transparent 18%),linear-gradient(135deg,#fff3d9,#f5e6ef);

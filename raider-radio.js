@@ -31,6 +31,14 @@
     ]
   };
 
+  const contributionCopy={
+    de:{title:'Dein Werk in Fan Creations',intro:'Beiträge sind freiwillig. Wir prüfen jede Einsendung manuell; die Veröffentlichung ist nicht garantiert.',types:'Willkommen sind eigene Geschichten, Fan-Art, Screenshots, Musiklinks und hilfreiche Kartenhinweise.',ownership:'Ich habe dieses Werk erstellt oder die Erlaubnis, es einzureichen.',display:'Ich erlaube Ramas Field Tool, dieses Werk mit dem von mir angegebenen Namen oder Alias in Fan Creations zu zeigen. Übersetzungen oder Bearbeitungen brauchen eine separate Zustimmung.',privacy:'Ich habe private Angaben entfernt, die nicht öffentlich erscheinen sollen.',privacyNote:'Der E-Mail-Entwurf enthält keine persönlichen Angaben. Erst wenn du ihn in deinem E-Mail-Programm selbst sendest, werden deine Absenderadresse und die von dir ergänzten Informationen an Ramas Field Tool übermittelt.',email:'E-Mail-Entwurf öffnen',subject:'Fan-Creations-Beitrag',body:'Art des Beitrags:\nTitel:\nLink oder Anhang:\nName/Alias für die Nennung (optional):\nKurzbeschreibung:\n\nIch habe dieses Werk erstellt oder darf es einreichen. Ich erlaube Ramas Field Tool, es mit der oben angegebenen Nennung in Fan Creations zu zeigen. Übersetzungen oder Bearbeitungen benötigen eine separate Zustimmung. Ich kann um Entfernung bitten. Mir ist bekannt, dass Einsendungen geprüft werden und eine Veröffentlichung nicht garantiert ist.'},
+    en:{title:'Share your work in Fan Creations',intro:'Taking part is optional. Every submission is reviewed by a person; publication is not guaranteed.',types:'We welcome original stories, fan art, screenshots, music links and useful map tips.',ownership:'I created this work or have permission to submit it.',display:'I allow Ramas Field Tool to display this work in Fan Creations with the name or alias I provide. Translations or edits require separate permission.',privacy:'I have removed private details I do not want made public.',privacyNote:'The email draft contains no personal details. Your email address and any information you add are sent to Ramas Field Tool only if you choose to send it from your email app.',email:'Open an email draft',subject:'Fan Creations submission',body:'Type of contribution:\nTitle:\nLink or attachment:\nCredit name/alias (optional):\nShort description:\n\nI created this work or have permission to submit it. I allow Ramas Field Tool to display it in Fan Creations with the credit above. Translations or edits require separate permission. I may request removal. I understand submissions are reviewed and publication is not guaranteed.'},
+    fr:{title:'Partagez votre création dans Fan Creations',intro:'La participation est facultative. Chaque proposition est examinée par une personne ; sa publication n’est pas garantie.',types:'Les récits originaux, fan arts, captures d’écran, liens musicaux et conseils utiles sur les cartes sont les bienvenus.',ownership:'J’ai créé cette œuvre ou j’ai l’autorisation de la proposer.',display:'J’autorise Ramas Field Tool à afficher cette œuvre dans Fan Creations avec le nom ou pseudonyme fourni. Toute traduction ou modification nécessitera une autorisation distincte.',privacy:'J’ai supprimé les informations privées que je ne souhaite pas rendre publiques.',privacyNote:'Le brouillon ne contient aucune donnée personnelle. Votre adresse e-mail et les informations ajoutées ne sont transmises à Ramas Field Tool que si vous choisissez d’envoyer le message depuis votre messagerie.',email:'Ouvrir un brouillon d’e-mail',subject:'Proposition Fan Creations',body:'Type de création :\nTitre :\nLien ou pièce jointe :\nNom/pseudonyme pour le crédit (facultatif) :\nBrève description :\n\nJ’ai créé cette œuvre ou j’ai le droit de la proposer. J’autorise Ramas Field Tool à l’afficher dans Fan Creations avec le crédit indiqué ci-dessus. Toute traduction ou modification nécessite une autorisation distincte. Je peux demander son retrait. Je comprends que les propositions sont examinées et que leur publication n’est pas garantie.'},
+    es:{title:'Comparte tu creación en Fan Creations',intro:'Participar es opcional. Cada envío se revisa manualmente y no se garantiza su publicación.',types:'Aceptamos historias originales, arte de fans, capturas, enlaces musicales y consejos útiles sobre mapas.',ownership:'He creado esta obra o tengo permiso para enviarla.',display:'Permito que Ramas Field Tool muestre esta obra en Fan Creations con el nombre o alias que indique. Las traducciones o modificaciones requieren permiso aparte.',privacy:'He eliminado los datos privados que no quiero hacer públicos.',privacyNote:'El borrador no incluye datos personales. Tu dirección de correo y la información que añadas solo se envían a Ramas Field Tool si decides enviar el mensaje desde tu aplicación de correo.',email:'Abrir borrador de correo',subject:'Envío para Fan Creations',body:'Tipo de creación:\nTítulo:\nEnlace o archivo adjunto:\nNombre/alias para el crédito (opcional):\nBreve descripción:\n\nHe creado esta obra o tengo permiso para enviarla. Permito que Ramas Field Tool la muestre en Fan Creations con el crédito indicado. Las traducciones o modificaciones requieren permiso aparte. Puedo solicitar que se retire. Entiendo que los envíos se revisan y que la publicación no está garantizada.'},
+    it:{title:'Condividi la tua creazione in Fan Creations',intro:'La partecipazione è facoltativa. Ogni proposta viene verificata manualmente; la pubblicazione non è garantita.',types:'Sono benvenuti racconti originali, fan art, screenshot, link musicali e consigli utili sulle mappe.',ownership:'Ho creato quest’opera o ho il permesso di inviarla.',display:'Autorizzo Ramas Field Tool a mostrare quest’opera in Fan Creations con il nome o alias che fornirò. Traduzioni o modifiche richiedono un’autorizzazione separata.',privacy:'Ho rimosso i dati privati che non desidero rendere pubblici.',privacyNote:'La bozza non contiene dati personali. L’indirizzo e-mail e le informazioni aggiunte vengono inviati a Ramas Field Tool solo se scegli di spedire il messaggio dalla tua app di posta.',email:'Apri una bozza e-mail',subject:'Proposta Fan Creations',body:'Tipo di creazione:\nTitolo:\nLink o allegato:\nNome/alias per il credito (facoltativo):\nBreve descrizione:\n\nHo creato quest’opera o ho il permesso di inviarla. Autorizzo Ramas Field Tool a mostrarla in Fan Creations con il credito indicato sopra. Traduzioni o modifiche richiedono un’autorizzazione separata. Posso richiederne la rimozione. Capisco che le proposte vengono verificate e che la pubblicazione non è garantita.'}
+  };
+
   const collectionCopy={
     de:{back:'← Zurück zu Raider Radio',open:'Alben öffnen',listen:'▶ Auf YouTube anhören',pending:'Original-Link wird ergänzt'},
     en:{back:'← Back to Raider Radio',open:'Open albums',listen:'▶ Listen on YouTube',pending:'Original link to be added'},
@@ -146,6 +154,41 @@
   const storiesCategory=makeCategory('stories','stories');
   const contestsCategory=makeCategory('contests','art');
   hub.append(header,categoryGrid);
+
+  const contribute=document.createElement('details');
+  contribute.className='fan-contribute';
+  const contributeSummary=document.createElement('summary');
+  const contributeBody=document.createElement('div');
+  contributeBody.className='fan-contribute-body';
+  const contributeIntro=document.createElement('p');
+  contributeIntro.className='fan-contribute-intro';
+  const contributeTypes=document.createElement('p');
+  const consentOwnership=document.createElement('label');
+  const ownershipInput=document.createElement('input');ownershipInput.type='checkbox';ownershipInput.dataset.contributionConsent='ownership';
+  const ownershipText=document.createElement('span');consentOwnership.append(ownershipInput,ownershipText);
+  const consentDisplay=document.createElement('label');
+  const displayInput=document.createElement('input');displayInput.type='checkbox';displayInput.dataset.contributionConsent='display';
+  const displayText=document.createElement('span');consentDisplay.append(displayInput,displayText);
+  const consentPrivacy=document.createElement('label');
+  const privacyInput=document.createElement('input');privacyInput.type='checkbox';privacyInput.dataset.contributionConsent='privacy';
+  const privacyText=document.createElement('span');consentPrivacy.append(privacyInput,privacyText);
+  const contributionPrivacyNote=document.createElement('p');contributionPrivacyNote.className='fan-contribute-privacy';
+  const emailDraft=document.createElement('a');emailDraft.className='fan-submit-email';emailDraft.hidden=true;
+  emailDraft.href='mailto:ramasfieldtool@proton.me';emailDraft.rel='nofollow';
+  contributeBody.append(contributeIntro,contributeTypes,consentOwnership,consentDisplay,consentPrivacy,contributionPrivacyNote,emailDraft);
+  contribute.append(contributeSummary,contributeBody);
+  hub.append(contribute);
+  const updateContribution=()=>{
+    const lang=contributionCopy[document.documentElement.lang]||contributionCopy.en;
+    const allowed=ownershipInput.checked&&displayInput.checked&&privacyInput.checked;
+    contributeSummary.textContent=lang.title;contributeIntro.textContent=lang.intro;contributeTypes.textContent=lang.types;
+    ownershipText.textContent=lang.ownership;displayText.textContent=lang.display;privacyText.textContent=lang.privacy;
+    contributionPrivacyNote.textContent=lang.privacyNote;emailDraft.textContent=lang.email;
+    emailDraft.hidden=!allowed;
+    emailDraft.href=allowed?`mailto:ramasfieldtool@proton.me?subject=${encodeURIComponent(lang.subject)}&body=${encodeURIComponent(lang.body)}`:'mailto:ramasfieldtool@proton.me';
+  };
+  contribute.addEventListener('change',updateContribution);
+  updateContribution();
 
   const contests=[{
     id:'new-group-image',
@@ -559,6 +602,7 @@
     aboutTitle.textContent=lang.aboutTitle;
     aboutText.textContent=lang.about;
     howText.textContent=lang.how;
+    updateContribution();
     links.forEach(({link,title})=>{
       if(link.textContent!==lang.listen)link.textContent=lang.listen;
       link.setAttribute('aria-label',`${title} — ${lang.listen}`);
