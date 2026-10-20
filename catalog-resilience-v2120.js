@@ -199,6 +199,9 @@
     return responseForCatalog(input,catalog,window.__arcCatalogMeta?.partial?'RaidTheory-GitHub-Partial':'RaidTheory-GitHub');
   }
 
+  // Permit a controlled recheck on a later catalog refresh; existing snapshot remains available on failure.
+  window.RFTCatalogRetryLive=()=>{preferredBackup=null;};
+
   window.fetch=async function(input,init){
     if(!isMahcksItems(input)) return nativeFetch(input,init);
     if(preferredBackup==='snapshot') return snapshotResponseFor(input);
