@@ -550,23 +550,43 @@ document.querySelectorAll('.quest-filter').forEach(btn=>{
 });
 
 async function loadFullCatalog(){
-  let all=[],offset=0,total=null;
   const limit=45;
-  while(true){
-    const url=`https://arcdata.mahcks.com/v1/items?full=true&offset=${offset}&limit=${limit}`;
-    const r=await fetch(url,{cache:'no-store'});
-    if(!r.ok) throw new Error(`API ${r.status}`);
-    const data=await r.json();
-    if(total===null) total=Number(data.total ?? data.count ?? 0) || null;
-    if(!Array.isArray(data.items)) throw new Error('Invalid item response');
-    all.push(...data.items);
-    if(!data.next) break;
-    offset+=limit;
-    if(offset>2000) throw new Error('Pagination guard');
+  for(let pass=0;pass<2;pass++){
+    let all=[],offset=0,total=null,selectedSource=null;
+    try{
+      while(true){
+        const url=`https://arcdata.mahcks.com/v1/items?full=true&offset=${offset}&limit=${limit}`;
+        const r=await fetch(url,{cache:'no-store'});
+        if(!r.ok) throw new Error(`API ${r.status}`);
+        // The resilience layer marks its synthetic backup responses. If a backup is
+        // selected mid-pagination, discard the mixed pages and restart at offset 0.
+        const pageSource=r.headers?.get('X-ARC-Catalog-Source')||'mahcks';
+        if(selectedSource===null)selectedSource=pageSource;
+        else if(pageSource!==selectedSource){
+          const error=new Error(`Catalog source changed during pagination (${selectedSource} -> ${pageSource})`);
+          error.catalogSourceChanged=true;
+          throw error;
+        }
+        const data=await r.json();
+        if(total===null) total=Number(data.total ?? data.count ?? 0) || null;
+        if(!Array.isArray(data.items)) throw new Error('Invalid item response');
+        all.push(...data.items);
+        if(!data.next) break;
+        offset+=limit;
+        if(offset>2000) throw new Error('Pagination guard');
+      }
+      const unique=[...new Map(all.map(i=>[i.id,i])).values()];
+      if(total && unique.length!==total) throw new Error(`Catalog incomplete ${unique.length}/${total}`);
+      return unique;
+    }catch(error){
+      if(error?.catalogSourceChanged&&pass===0){
+        console.warn('Catalog source changed during pagination; restarting from the selected backup.',error);
+        continue;
+      }
+      throw error;
+    }
   }
-  const unique=[...new Map(all.map(i=>[i.id,i])).values()];
-  if(total && unique.length!==total) throw new Error(`Catalog incomplete ${unique.length}/${total}`);
-  return unique;
+  throw new Error('Catalog source changed repeatedly during pagination');
 }
 
 async function boot(){

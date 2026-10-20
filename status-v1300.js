@@ -2,38 +2,48 @@
 const APP_VERSION='14.00.12';
 const STATUS_COPY={
   de:{
-    loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
+    loading:'DATEN // LADEN…',live:'DATEN // LIVE',snapshot:'DATEN // SNAPSHOT',github:'DATEN // GITHUB',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
     loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Aktuelle Daten geladen',fallbackTitle:'Lokaler Basisdatensatz aktiv',
     partialTitle:'Daten nur teilweise verfügbar',errorTitle:'Daten konnten nicht geladen werden',
     fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.',
+    snapshotTitle:'Ramas-Katalog-Snapshot aktiv',snapshotBody:'Der geprüfte Ramas-Katalog-Snapshot ist aktiv. Er stammt aus der RaidTheory-Datenquelle und ist kein bestätigter Mahcks-Live-Abruf.',
+    githubTitle:'RaidTheory-GitHub-Katalog aktiv',githubBody:'Der Katalog wurde direkt aus dem öffentlichen RaidTheory-GitHub-Katalog geladen. Das ist kein bestätigter Mahcks-Live-Abruf.',
     partialBody:'Katalog oder Questdaten sind nur teilweise verfügbar. Fehlende Daten können fehlen oder aus einem lokalen Snapshot stammen, der nicht im Spiel bestätigt ist.'
   },
   en:{
-    loading:'DATA // LOADING…',live:'DATA // LIVE',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
+    loading:'DATA // LOADING…',live:'DATA // LIVE',snapshot:'DATA // SNAPSHOT',github:'DATA // GITHUB',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
     loadingTitle:'Current data is loading',liveTitle:'Current data loaded',fallbackTitle:'Local base dataset active',
     partialTitle:'Data is only partially available',errorTitle:'Data could not be loaded',
     fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.',
+    snapshotTitle:'Ramas catalog snapshot active',snapshotBody:'The validated Ramas catalog snapshot is active. It comes from the RaidTheory data source and is not a confirmed Mahcks live response.',
+    githubTitle:'RaidTheory GitHub catalog active',githubBody:'The catalog was loaded directly from the public RaidTheory GitHub catalog. This is not a confirmed Mahcks live response.',
     partialBody:'The catalog or quest data is only partially available. Missing data may be unavailable or may come from a local snapshot that is not confirmed in-game.'
   },
   fr:{
-    loading:'DONNÉES // CHARGEMENT…',live:'DONNÉES // À JOUR',fallback:'DONNÉES // BASE LOCALE',partial:'DONNÉES // PARTIELLES',error:'DONNÉES // ERREUR',
+    loading:'DONNÉES // CHARGEMENT…',live:'DONNÉES // À JOUR',snapshot:'DONNÉES // SNAPSHOT',github:'DONNÉES // GITHUB',fallback:'DONNÉES // BASE LOCALE',partial:'DONNÉES // PARTIELLES',error:'DONNÉES // ERREUR',
     loadingTitle:'Chargement des données actuelles',liveTitle:'Données actuelles chargées',fallbackTitle:'Données locales de base actives',
     partialTitle:'Données disponibles partiellement',errorTitle:'Impossible de charger les données',
     fallbackBody:'Le catalogue complet en direct est indisponible. La recherche et les objectifs continuent avec les données locales de base, qui peuvent être moins complètes ou moins récentes.',
+    snapshotTitle:'Snapshot du catalogue Ramas actif',snapshotBody:'Le snapshot validé du catalogue Ramas est actif. Il provient de RaidTheory et ne constitue pas une réponse Mahcks en direct confirmée.',
+    githubTitle:'Catalogue GitHub RaidTheory actif',githubBody:'Le catalogue a été chargé depuis le dépôt public GitHub de RaidTheory. Il ne s’agit pas d’une réponse Mahcks en direct confirmée.',
     partialBody:'Le catalogue ou les quêtes ne sont disponibles que partiellement. Les données manquantes peuvent provenir d’un snapshot local non confirmé en jeu.'
   },
   es:{
-    loading:'DATOS // CARGANDO…',live:'DATOS // ACTUALIZADOS',fallback:'DATOS // BASE LOCAL',partial:'DATOS // PARCIALES',error:'DATOS // ERROR',
+    loading:'DATOS // CARGANDO…',live:'DATOS // ACTUALIZADOS',snapshot:'DATOS // SNAPSHOT',github:'DATOS // GITHUB',fallback:'DATOS // BASE LOCAL',partial:'DATOS // PARCIALES',error:'DATOS // ERROR',
     loadingTitle:'Cargando datos actuales',liveTitle:'Datos actuales cargados',fallbackTitle:'Datos locales básicos activos',
     partialTitle:'Los datos solo están disponibles parcialmente',errorTitle:'No se pudieron cargar los datos',
     fallbackBody:'El catálogo completo no está disponible. La búsqueda y los objetivos continúan con los datos locales básicos, que pueden ser menos completos o actuales.',
+    snapshotTitle:'Snapshot del catálogo Ramas activo',snapshotBody:'Está activo el snapshot validado del catálogo Ramas. Procede de RaidTheory y no es una respuesta Mahcks en directo confirmada.',
+    githubTitle:'Catálogo GitHub de RaidTheory activo',githubBody:'El catálogo se cargó directamente desde el GitHub público de RaidTheory. No es una respuesta Mahcks en directo confirmada.',
     partialBody:'El catálogo o las misiones solo están disponibles parcialmente. Los datos que faltan pueden proceder de un snapshot local no confirmado en el juego.'
   },
   it:{
-    loading:'DATI // CARICAMENTO…',live:'DATI // AGGIORNATI',fallback:'DATI // DATI DI BASE',partial:'DATI // PARZIALI',error:'DATI // ERRORE',
+    loading:'DATI // CARICAMENTO…',live:'DATI // AGGIORNATI',snapshot:'DATI // SNAPSHOT',github:'DATI // GITHUB',fallback:'DATI // DATI DI BASE',partial:'DATI // PARZIALI',error:'DATI // ERRORE',
     loadingTitle:'Caricamento dati aggiornati',liveTitle:'Dati aggiornati caricati',fallbackTitle:'Dati locali di base attivi',
     partialTitle:'Dati disponibili solo in parte',errorTitle:'Impossibile caricare i dati',
     fallbackBody:'Il catalogo completo non è disponibile. Ricerca e obiettivi continuano con i dati locali di base, che potrebbero essere meno completi o aggiornati.',
+    snapshotTitle:'Snapshot del catalogo Ramas attivo',snapshotBody:'È attivo lo snapshot convalidato del catalogo Ramas. Proviene da RaidTheory e non è una risposta Mahcks live confermata.',
+    githubTitle:'Catalogo GitHub RaidTheory attivo',githubBody:'Il catalogo è stato caricato direttamente dal GitHub pubblico di RaidTheory. Non è una risposta Mahcks live confermata.',
     partialBody:'Il catalogo o i dati delle missioni sono disponibili solo in parte. I dati mancanti potrebbero non essere disponibili oppure potrebbero provenire da uno snapshot locale non confermato nel gioco.'
   }
 };
@@ -111,12 +121,13 @@ function currentDataState(){
   const questsReady=Array.isArray(quests)&&quests.length>0;
   const questsSettled=questsReady||questLoadError===true;
   if(!questsSettled)return 'loading';
-  if(usingFallback)return 'fallback';
+  if(usingFallback||window.__arcCatalogMeta?.source==='local-fallback')return 'fallback';
   if(questLoadState==='snapshot'||questLoadState==='partial')return 'partial';
   if(window.__arcCatalogMeta?.partial===true)return 'partial';
-  if(window.__arcCatalogMeta?.source==='snapshot')return 'fallback';
+  if(window.__arcCatalogMeta?.source==='snapshot')return 'snapshot';
+  if(window.__arcCatalogMeta?.source==='github')return 'github';
   if(questLoadError)return 'partial';
-  return 'live';
+  return window.__arcCatalogMeta?.source==='mahcks'?'live':'partial';
 }
 function ensurePersistentDataStatus(){
   let dock=document.getElementById('dataStatusDock');
@@ -136,11 +147,13 @@ function ensurePersistentDataStatus(){
 }
 function updateStatusElement(el,state,c){
   if(!el)return;
-  const labels={loading:c.loading,live:c.live,fallback:c.fallback,partial:c.partial,error:c.error};
-  const titles={loading:c.loadingTitle,live:c.liveTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
+  const labels={loading:c.loading,live:c.live,snapshot:c.snapshot,github:c.github,fallback:c.fallback,partial:c.partial,error:c.error};
+  const titles={loading:c.loadingTitle,live:c.liveTitle,snapshot:c.snapshotTitle,github:c.githubTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
   if(el.textContent!==labels[state])el.textContent=labels[state];
   if(el.dataset.state!==state)el.dataset.state=state;
   el.classList.toggle('fallback',state==='fallback');
+  el.classList.toggle('snapshot',state==='snapshot');
+  el.classList.toggle('github',state==='github');
   el.classList.toggle('loading',state==='loading');
   el.classList.toggle('partial',state==='partial');
   el.classList.toggle('error',state==='error');
@@ -159,8 +172,8 @@ function renderDataStatus(){
   updateHomeLogoAccessibility();
 
   if(notice){
-    notice.hidden=state!=='fallback'&&state!=='partial';
-    const nextHtml=state==='fallback'?`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`:state==='partial'?`<b>${c.partialTitle}</b><span>${c.partialBody}</span>`:'';
+    notice.hidden=!['fallback','snapshot','github','partial'].includes(state);
+    const nextHtml=state==='fallback'?`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`:state==='snapshot'?`<b>${c.snapshotTitle}</b><span>${c.snapshotBody}</span>`:state==='github'?`<b>${c.githubTitle}</b><span>${c.githubBody}</span>`:state==='partial'?`<b>${c.partialTitle}</b><span>${c.partialBody}</span>`:'';
     if(nextHtml&&notice.innerHTML!==nextHtml)notice.innerHTML=nextHtml;
   }
   document.querySelectorAll('[data-app-version]').forEach(node=>{const next=`V${APP_VERSION}`;if(node.textContent!==next)node.textContent=next});
