@@ -194,6 +194,30 @@
     addStatus.textContent=saved?copy().addedNotice:copy().storageError;
   }
 
+  function addMissingItems(rows){
+    if(!Array.isArray(rows))return {saved:false,added:0,alreadySaved:0};
+    const previous=Object.fromEntries(entries().map(([id,entry])=>[id,{...entry}]));
+    let added=0,alreadySaved=0;
+    rows.forEach(row=>{
+      const id=String(row?.itemId||'');
+      const quantity=toCount(row?.missing,0);
+      if(!id||!quantity)return;
+      if(hasOwn(raid,id)){alreadySaved++;return}
+      raid[id]={target:Math.max(1,quantity),done:false};added++;
+    });
+    if(!added)return {saved:true,added,alreadySaved};
+    if(!save()){
+      raid=Object.assign(Object.create(null),previous);
+      render();
+      return {saved:false,added:0,alreadySaved};
+    }
+    render();
+    drawer.open=true;
+    return {saved:true,added,alreadySaved};
+  }
+
+  window.RFTNextRaidGoals={addMissingItems};
+
   function refreshAddButtons(){
     const c=copy();
     document.querySelectorAll('[data-next-raid-add]').forEach(button=>{
