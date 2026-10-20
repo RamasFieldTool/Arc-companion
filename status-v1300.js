@@ -2,38 +2,38 @@
 const APP_VERSION='14.00.12';
 const STATUS_COPY={
   de:{
-    loading:'DATEN // LADEN…',live:'DATEN // LIVE',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
-    loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Aktuelle Daten geladen',fallbackTitle:'Lokaler Basisdatensatz aktiv',
+    loading:'DATEN // LADEN…',live:'DATEN // LIVE',snapshot:'DATEN // SNAPSHOT',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
+    loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Aktuelle Daten geladen',snapshotTitle:'Gespeicherter vollständiger Katalog aktiv',fallbackTitle:'Lokaler Basisdatensatz aktiv',
     partialTitle:'Daten nur teilweise verfügbar',errorTitle:'Daten konnten nicht geladen werden',
-    fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.',
+    snapshotBody:'Der gespeicherte vollständige Item-Katalog ist geladen. Direkte Live-Daten sind derzeit nicht bestätigt.',fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.',
     partialBody:'Katalog oder Questdaten sind nur teilweise verfügbar. Fehlende Daten können fehlen oder aus einem lokalen Snapshot stammen, der nicht im Spiel bestätigt ist.'
   },
   en:{
-    loading:'DATA // LOADING…',live:'DATA // LIVE',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
-    loadingTitle:'Current data is loading',liveTitle:'Current data loaded',fallbackTitle:'Local base dataset active',
+    loading:'DATA // LOADING…',live:'DATA // LIVE',snapshot:'DATA // SNAPSHOT',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
+    loadingTitle:'Current data is loading',liveTitle:'Current data loaded',snapshotTitle:'Saved complete catalog active',fallbackTitle:'Local base dataset active',
     partialTitle:'Data is only partially available',errorTitle:'Data could not be loaded',
-    fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.',
+    snapshotBody:'The saved complete item catalog is loaded. Direct live data is not currently confirmed.',fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.',
     partialBody:'The catalog or quest data is only partially available. Missing data may be unavailable or may come from a local snapshot that is not confirmed in-game.'
   },
   fr:{
-    loading:'DONNÉES // CHARGEMENT…',live:'DONNÉES // À JOUR',fallback:'DONNÉES // BASE LOCALE',partial:'DONNÉES // PARTIELLES',error:'DONNÉES // ERREUR',
-    loadingTitle:'Chargement des données actuelles',liveTitle:'Données actuelles chargées',fallbackTitle:'Données locales de base actives',
+    loading:'DONNÉES // CHARGEMENT…',live:'DONNÉES // À JOUR',snapshot:'DONNÉES // SNAPSHOT',fallback:'DONNÉES // BASE LOCALE',partial:'DONNÉES // PARTIELLES',error:'DONNÉES // ERREUR',
+    loadingTitle:'Chargement des données actuelles',liveTitle:'Données actuelles chargées',snapshotTitle:'Catalogue complet sauvegardé actif',fallbackTitle:'Données locales de base actives',
     partialTitle:'Données disponibles partiellement',errorTitle:'Impossible de charger les données',
-    fallbackBody:'Le catalogue complet en direct est indisponible. La recherche et les objectifs continuent avec les données locales de base, qui peuvent être moins complètes ou moins récentes.',
+    snapshotBody:'Le catalogue complet sauvegardé est chargé. Les données en direct ne sont pas confirmées.',fallbackBody:'Le catalogue complet en direct est indisponible. La recherche et les objectifs continuent avec les données locales de base, qui peuvent être moins complètes ou moins récentes.',
     partialBody:'Le catalogue ou les quêtes ne sont disponibles que partiellement. Les données manquantes peuvent provenir d’un snapshot local non confirmé en jeu.'
   },
   es:{
-    loading:'DATOS // CARGANDO…',live:'DATOS // ACTUALIZADOS',fallback:'DATOS // BASE LOCAL',partial:'DATOS // PARCIALES',error:'DATOS // ERROR',
-    loadingTitle:'Cargando datos actuales',liveTitle:'Datos actuales cargados',fallbackTitle:'Datos locales básicos activos',
+    loading:'DATOS // CARGANDO…',live:'DATOS // ACTUALIZADOS',snapshot:'DATOS // SNAPSHOT',fallback:'DATOS // BASE LOCAL',partial:'DATOS // PARCIALES',error:'DATOS // ERROR',
+    loadingTitle:'Cargando datos actuales',liveTitle:'Datos actuales cargados',snapshotTitle:'Catálogo completo guardado activo',fallbackTitle:'Datos locales básicos activos',
     partialTitle:'Los datos solo están disponibles parcialmente',errorTitle:'No se pudieron cargar los datos',
-    fallbackBody:'El catálogo completo no está disponible. La búsqueda y los objetivos continúan con los datos locales básicos, que pueden ser menos completos o actuales.',
+    snapshotBody:'Se ha cargado el catálogo completo guardado. No se han confirmado datos en directo.',fallbackBody:'El catálogo completo no está disponible. La búsqueda y los objetivos continúan con los datos locales básicos, que pueden ser menos completos o actuales.',
     partialBody:'El catálogo o las misiones solo están disponibles parcialmente. Los datos que faltan pueden proceder de un snapshot local no confirmado en el juego.'
   },
   it:{
-    loading:'DATI // CARICAMENTO…',live:'DATI // AGGIORNATI',fallback:'DATI // DATI DI BASE',partial:'DATI // PARZIALI',error:'DATI // ERRORE',
-    loadingTitle:'Caricamento dati aggiornati',liveTitle:'Dati aggiornati caricati',fallbackTitle:'Dati locali di base attivi',
+    loading:'DATI // CARICAMENTO…',live:'DATI // AGGIORNATI',snapshot:'DATI // SNAPSHOT',fallback:'DATI // DATI DI BASE',partial:'DATI // PARZIALI',error:'DATI // ERRORE',
+    loadingTitle:'Caricamento dati aggiornati',liveTitle:'Dati aggiornati caricati',snapshotTitle:'Catalogo completo salvato attivo',fallbackTitle:'Dati locali di base attivi',
     partialTitle:'Dati disponibili solo in parte',errorTitle:'Impossibile caricare i dati',
-    fallbackBody:'Il catalogo completo non è disponibile. Ricerca e obiettivi continuano con i dati locali di base, che potrebbero essere meno completi o aggiornati.',
+    snapshotBody:'Il catalogo completo salvato è caricato. I dati live non sono confermati.',fallbackBody:'Il catalogo completo non è disponibile. Ricerca e obiettivi continuano con i dati locali di base, che potrebbero essere meno completi o aggiornati.',
     partialBody:'Il catalogo o i dati delle missioni sono disponibili solo in parte. I dati mancanti potrebbero non essere disponibili oppure potrebbero provenire da uno snapshot locale non confermato nel gioco.'
   }
 };
@@ -111,11 +111,12 @@ function currentDataState(){
   const questsReady=Array.isArray(quests)&&quests.length>0;
   const questsSettled=questsReady||questLoadError===true;
   if(!questsSettled)return 'loading';
-  if(usingFallback)return 'fallback';
-  if(questLoadState==='snapshot'||questLoadState==='partial')return 'partial';
-  if(window.__arcCatalogMeta?.partial===true)return 'partial';
-  if(window.__arcCatalogMeta?.source==='snapshot')return 'fallback';
-  if(questLoadError)return 'partial';
+  const source=window.__arcCatalogMeta?.source;
+  if(usingFallback||source==='local-fallback')return 'fallback';
+  if(source==='snapshot'||source==='github')return 'snapshot';
+  if(source==='github-partial'||window.__arcCatalogMeta?.partial===true)return 'partial';
+  if(source!=='mahcks')return 'partial';
+  if(questLoadState==='snapshot'||questLoadState==='partial'||questLoadError)return 'partial';
   return 'live';
 }
 function ensurePersistentDataStatus(){
@@ -136,11 +137,11 @@ function ensurePersistentDataStatus(){
 }
 function updateStatusElement(el,state,c){
   if(!el)return;
-  const labels={loading:c.loading,live:c.live,fallback:c.fallback,partial:c.partial,error:c.error};
-  const titles={loading:c.loadingTitle,live:c.liveTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
+  const labels={loading:c.loading,live:c.live,snapshot:c.snapshot,fallback:c.fallback,partial:c.partial,error:c.error};
+  const titles={loading:c.loadingTitle,live:c.liveTitle,snapshot:c.snapshotTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
   if(el.textContent!==labels[state])el.textContent=labels[state];
   if(el.dataset.state!==state)el.dataset.state=state;
-  el.classList.toggle('fallback',state==='fallback');
+  el.classList.toggle('fallback',state==='fallback'||state==='snapshot');
   el.classList.toggle('loading',state==='loading');
   el.classList.toggle('partial',state==='partial');
   el.classList.toggle('error',state==='error');
@@ -159,8 +160,8 @@ function renderDataStatus(){
   updateHomeLogoAccessibility();
 
   if(notice){
-    notice.hidden=state!=='fallback'&&state!=='partial';
-    const nextHtml=state==='fallback'?`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`:state==='partial'?`<b>${c.partialTitle}</b><span>${c.partialBody}</span>`:'';
+    notice.hidden=state!=='fallback'&&state!=='snapshot'&&state!=='partial';
+    const nextHtml=state==='snapshot'?`<b>${c.snapshotTitle}</b><span>${c.snapshotBody}</span>`:state==='fallback'?`<b>${c.fallbackTitle}</b><span>${c.fallbackBody}</span>`:state==='partial'?`<b>${c.partialTitle}</b><span>${c.partialBody}</span>`:'';
     if(nextHtml&&notice.innerHTML!==nextHtml)notice.innerHTML=nextHtml;
   }
   document.querySelectorAll('[data-app-version]').forEach(node=>{const next=`V${APP_VERSION}`;if(node.textContent!==next)node.textContent=next});
