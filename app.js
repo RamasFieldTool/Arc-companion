@@ -589,27 +589,85 @@ async function loadFullCatalog(){
   throw new Error('Catalog source changed repeatedly during pagination');
 }
 
+const CATALOG_CACHE_KEY='rftItemCatalogCacheV1';
+const CATALOG_CHECK_KEY='rftItemCatalogLastCheckV1';
+const CATALOG_REFRESH_INTERVAL=30*24*60*60*1000;
+
+function readCatalogCache(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(CATALOG_CACHE_KEY)||'null');
+    const minimumCount=saved?.source==='local-fallback'?1:100;
+    if(saved?.version!==1||!Array.isArray(saved.items)||saved.items.length<minimumCount||!['mahcks','snapshot','github','local-fallback'].includes(saved.source)||!Number.isFinite(Date.parse(saved.checkedAt)))return null;
+    const ids=new Set();
+    for(const item of saved.items){if(!item?.id||typeof item.id!=='string'||ids.has(item.id))return null;ids.add(item.id)}
+    return saved;
+  }catch{return null}
+}
+function saveCatalogCache(catalog,source,checkedAt=new Date().toISOString()){
+  try{
+    localStorage.setItem(CATALOG_CACHE_KEY,JSON.stringify({version:1,source,checkedAt,items:catalog}));
+    return true;
+  }catch(error){console.warn('Catalog cache could not be saved.',error);return false}
+}
+function catalogCheckIsDue(cache){
+  try{
+    const checked=Date.parse(localStorage.getItem(CATALOG_CHECK_KEY)||cache?.checkedAt||'');
+    return !Number.isFinite(checked)||Date.now()-checked>=CATALOG_REFRESH_INTERVAL;
+  }catch{return true}
+}
+
 async function boot(){
   // Quest retrieval must never gate the search catalog or existing planning UI.
   void refreshQuests();
+  const cached=readCatalogCache();
+  if(cached){
+    items=cached.items;
+    usingFallback=cached.source==='local-fallback';
+    window.RFTCatalogUseCachedMeta?.(cached.source,cached.checkedAt);
+  }
   try{
     goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
-    status.textContent=lang==='de'?'Katalog wird geladen …':'Loading catalog …';
+    if(cached){
+      items=items.map(window.RFTCatalogUpdate.correct);
+      ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
+      applyLanguage();
+      if(catalogCheckIsDue(cached))void refreshCatalogFromNetwork(cached);
+      return;
+    }
+  }catch(err){
+    console.error(err);
+    if(cached){
+      items=items.map(window.RFTCatalogUpdate.correct);
+      ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
+      applyLanguage();
+      return;
+    }
+    status.textContent=tr('loadError');status.classList.add('load-error');return;
+  }
+
+  const checkedAt=new Date().toISOString();
+  try{localStorage.setItem(CATALOG_CHECK_KEY,checkedAt)}catch{}
+  try{
     items=await loadFullCatalog();
-    usingFallback=false;
+    const source=window.__arcCatalogMeta?.source||'mahcks';
+    usingFallback=source==='local-fallback';
+    saveCatalogCache(items,source,checkedAt);
+    if(source!=='mahcks')window.RFTCatalogUseCachedMeta?.(source,checkedAt,{partial:window.__arcCatalogMeta?.partial===true});
+    else if(window.__arcCatalogMeta)window.__arcCatalogMeta.checkedAt=checkedAt;
   }catch(err){
     console.error(err);
     try{
       items=await fetch('items.json?v=293',{cache:'no-store'}).then(r=>r.json());
-      if(!goals.length) goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
+      if(!goals.length)goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
       usingFallback=true;
+      window.RFTCatalogUseCachedMeta?.('local-fallback',checkedAt);
+      saveCatalogCache(items,'local-fallback',checkedAt);
     }catch{
       status.textContent=tr('loadError');
       status.classList.add('load-error');
       return;
     }
   }
-
   items=items.map(window.RFTCatalogUpdate.correct);
   ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
 
@@ -619,36 +677,31 @@ async function boot(){
     status.classList.add('load-error');
   }
 }
-boot();
 
-// Retry the upstream catalog without replacing a working snapshot until a full catalog validates.
-// User-owned stock, goals and quest progress are not modified by this refresh.
-let liveCatalogRetryBusy=false;
-let lastLiveCatalogRetry=Date.now();
-async function retryLiveCatalogWhenVisible(){
-  if(document.visibilityState==='hidden'||liveCatalogRetryBusy||Date.now()-lastLiveCatalogRetry<300000)return;
-  if(window.__arcCatalogMeta?.source==='mahcks'&&!usingFallback)return;
-  liveCatalogRetryBusy=true;
-  lastLiveCatalogRetry=Date.now();
+async function refreshCatalogFromNetwork(cached){
+  const checkedAt=new Date().toISOString();
+  try{localStorage.setItem(CATALOG_CHECK_KEY,checkedAt)}catch{}
   try{
-    window.RFTCatalogRetryLive?.();
     const fresh=await loadFullCatalog();
-    if(window.__arcCatalogMeta?.source!=='mahcks')return;
+    const source=window.__arcCatalogMeta?.source||'mahcks';
     const corrected=fresh.map(window.RFTCatalogUpdate.correct);
     const expanded=window.RFTFrozenTrailData.extend(corrected,goals);
     items=expanded.items;
-    usingFallback=false;
+    usingFallback=source==='local-fallback';
+    saveCatalogCache(fresh,source,checkedAt);
+    if(source!=='mahcks')window.RFTCatalogUseCachedMeta?.(source,checkedAt,{partial:window.__arcCatalogMeta?.partial===true});
+    else if(window.__arcCatalogMeta)window.__arcCatalogMeta.checkedAt=checkedAt;
     status.classList.remove('load-error');
     applyLanguage();
     window.renderDataStatus?.();
   }catch(error){
-    console.warn('Background live catalog retry failed; retaining existing catalog.',error);
-  }finally{
-    liveCatalogRetryBusy=false;
+    console.warn('Monthly catalog check failed; retaining the validated local catalog cache.',error);
+    usingFallback=cached.source==='local-fallback';
+    window.RFTCatalogUseCachedMeta?.(cached.source,cached.checkedAt);
+    window.renderDataStatus?.();
   }
 }
-setInterval(()=>void retryLiveCatalogWhenVisible(),60000);
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')void retryLiveCatalogWhenVisible();});
+boot();
 
 document.getElementById('questRetry')?.addEventListener('click',()=>void refreshQuests());
 

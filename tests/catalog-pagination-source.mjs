@@ -64,6 +64,8 @@ const stateContext = {
 vm.createContext(stateContext);
 vm.runInContext(`${stateSource}; globalThis.currentDataState=currentDataState;`, stateContext);
 assert.equal(stateContext.currentDataState(), 'live', 'Mahcks source is the only confirmed LIVE source');
+stateContext.window.__arcCatalogMeta = { source: 'mahcks', cached: true, checkedAt: new Date().toISOString() };
+assert.equal(stateContext.currentDataState(), 'cached', 'cached Mahcks data is distinguished from a fresh check');
 stateContext.window.__arcCatalogMeta = { source: 'snapshot' };
 assert.equal(stateContext.currentDataState(), 'snapshot', 'snapshot is reported separately');
 stateContext.window.__arcCatalogMeta = { source: 'github' };

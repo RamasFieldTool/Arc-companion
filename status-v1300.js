@@ -1,9 +1,9 @@
-// V14.00.12 – persistent user-facing loading/live/partial/fallback status.
-const APP_VERSION='14.00.12';
+// V15.00.00 – persistent catalog-source and cache-age status.
+const APP_VERSION='15.00.00';
 const STATUS_COPY={
   de:{
-    loading:'DATEN // LADEN…',live:'DATEN // LIVE',snapshot:'DATEN // SNAPSHOT',github:'DATEN // GITHUB',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
-    loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Aktuelle Daten geladen',fallbackTitle:'Lokaler Basisdatensatz aktiv',
+    loading:'DATEN // LADEN…',live:'DATEN // LIVE',cached:'DATEN // MAHCKS-CACHE',snapshot:'DATEN // SNAPSHOT',github:'DATEN // GITHUB',fallback:'DATEN // BASISDATEN',partial:'DATEN // TEILWEISE',error:'DATEN // FEHLER',
+    loadingTitle:'Aktuelle Daten werden geladen',liveTitle:'Mahcks-Katalog erfolgreich geprüft',cachedTitle:'Gespeicherter Mahcks-Katalog; zuletzt geprüft am',fallbackTitle:'Lokaler Basisdatensatz aktiv',
     partialTitle:'Daten nur teilweise verfügbar',errorTitle:'Daten konnten nicht geladen werden',
     fallbackBody:'Der vollständige Live-Katalog ist gerade nicht erreichbar. Suche und Ziele funktionieren mit dem lokalen Basisdatensatz weiter. Dieser kann weniger vollständig oder aktuell sein.',
     snapshotTitle:'Ramas-Katalog-Snapshot aktiv',snapshotBody:'Der geprüfte Ramas-Katalog-Snapshot ist aktiv. Er stammt aus der RaidTheory-Datenquelle und ist kein bestätigter Mahcks-Live-Abruf.',
@@ -11,8 +11,8 @@ const STATUS_COPY={
     partialBody:'Katalog oder Questdaten sind nur teilweise verfügbar. Fehlende Daten können fehlen oder aus einem lokalen Snapshot stammen, der nicht im Spiel bestätigt ist.'
   },
   en:{
-    loading:'DATA // LOADING…',live:'DATA // LIVE',snapshot:'DATA // SNAPSHOT',github:'DATA // GITHUB',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
-    loadingTitle:'Current data is loading',liveTitle:'Current data loaded',fallbackTitle:'Local base dataset active',
+    loading:'DATA // LOADING…',live:'DATA // LIVE',cached:'DATA // MAHCKS CACHE',snapshot:'DATA // SNAPSHOT',github:'DATA // GITHUB',fallback:'DATA // BASE DATA',partial:'DATA // PARTIAL',error:'DATA // ERROR',
+    loadingTitle:'Current data is loading',liveTitle:'Mahcks catalog checked successfully',cachedTitle:'Cached Mahcks catalog; last checked',fallbackTitle:'Local base dataset active',
     partialTitle:'Data is only partially available',errorTitle:'Data could not be loaded',
     fallbackBody:'The full live catalog is currently unavailable. Search and goals continue with the local base dataset, which may be less complete or current.',
     snapshotTitle:'Ramas catalog snapshot active',snapshotBody:'The validated Ramas catalog snapshot is active. It comes from the RaidTheory data source and is not a confirmed Mahcks live response.',
@@ -20,8 +20,8 @@ const STATUS_COPY={
     partialBody:'The catalog or quest data is only partially available. Missing data may be unavailable or may come from a local snapshot that is not confirmed in-game.'
   },
   fr:{
-    loading:'DONNÉES // CHARGEMENT…',live:'DONNÉES // À JOUR',snapshot:'DONNÉES // SNAPSHOT',github:'DONNÉES // GITHUB',fallback:'DONNÉES // BASE LOCALE',partial:'DONNÉES // PARTIELLES',error:'DONNÉES // ERREUR',
-    loadingTitle:'Chargement des données actuelles',liveTitle:'Données actuelles chargées',fallbackTitle:'Données locales de base actives',
+    loading:'DONNÉES // CHARGEMENT…',live:'DONNÉES // À JOUR',cached:'DONNÉES // CACHE MAHCKS',snapshot:'DONNÉES // SNAPSHOT',github:'DONNÉES // GITHUB',fallback:'DONNÉES // BASE LOCALE',partial:'DONNÉES // PARTIELLES',error:'DONNÉES // ERREUR',
+    loadingTitle:'Chargement des données actuelles',liveTitle:'Catalogue Mahcks vérifié',cachedTitle:'Catalogue Mahcks en cache ; dernière vérification le',fallbackTitle:'Données locales de base actives',
     partialTitle:'Données disponibles partiellement',errorTitle:'Impossible de charger les données',
     fallbackBody:'Le catalogue complet en direct est indisponible. La recherche et les objectifs continuent avec les données locales de base, qui peuvent être moins complètes ou moins récentes.',
     snapshotTitle:'Snapshot du catalogue Ramas actif',snapshotBody:'Le snapshot validé du catalogue Ramas est actif. Il provient de RaidTheory et ne constitue pas une réponse Mahcks en direct confirmée.',
@@ -29,8 +29,8 @@ const STATUS_COPY={
     partialBody:'Le catalogue ou les quêtes ne sont disponibles que partiellement. Les données manquantes peuvent provenir d’un snapshot local non confirmé en jeu.'
   },
   es:{
-    loading:'DATOS // CARGANDO…',live:'DATOS // ACTUALIZADOS',snapshot:'DATOS // SNAPSHOT',github:'DATOS // GITHUB',fallback:'DATOS // BASE LOCAL',partial:'DATOS // PARCIALES',error:'DATOS // ERROR',
-    loadingTitle:'Cargando datos actuales',liveTitle:'Datos actuales cargados',fallbackTitle:'Datos locales básicos activos',
+    loading:'DATOS // CARGANDO…',live:'DATOS // ACTUALIZADOS',cached:'DATOS // CACHÉ MAHCKS',snapshot:'DATOS // SNAPSHOT',github:'DATOS // GITHUB',fallback:'DATOS // BASE LOCAL',partial:'DATOS // PARCIALES',error:'DATOS // ERROR',
+    loadingTitle:'Cargando datos actuales',liveTitle:'Catálogo Mahcks comprobado',cachedTitle:'Catálogo Mahcks en caché; última comprobación',fallbackTitle:'Datos locales básicos activos',
     partialTitle:'Los datos solo están disponibles parcialmente',errorTitle:'No se pudieron cargar los datos',
     fallbackBody:'El catálogo completo no está disponible. La búsqueda y los objetivos continúan con los datos locales básicos, que pueden ser menos completos o actuales.',
     snapshotTitle:'Snapshot del catálogo Ramas activo',snapshotBody:'Está activo el snapshot validado del catálogo Ramas. Procede de RaidTheory y no es una respuesta Mahcks en directo confirmada.',
@@ -38,8 +38,8 @@ const STATUS_COPY={
     partialBody:'El catálogo o las misiones solo están disponibles parcialmente. Los datos que faltan pueden proceder de un snapshot local no confirmado en el juego.'
   },
   it:{
-    loading:'DATI // CARICAMENTO…',live:'DATI // AGGIORNATI',snapshot:'DATI // SNAPSHOT',github:'DATI // GITHUB',fallback:'DATI // DATI DI BASE',partial:'DATI // PARZIALI',error:'DATI // ERRORE',
-    loadingTitle:'Caricamento dati aggiornati',liveTitle:'Dati aggiornati caricati',fallbackTitle:'Dati locali di base attivi',
+    loading:'DATI // CARICAMENTO…',live:'DATI // AGGIORNATI',cached:'DATI // CACHE MAHCKS',snapshot:'DATI // SNAPSHOT',github:'DATI // GITHUB',fallback:'DATI // DATI DI BASE',partial:'DATI // PARZIALI',error:'DATI // ERRORE',
+    loadingTitle:'Caricamento dati aggiornati',liveTitle:'Catalogo Mahcks verificato',cachedTitle:'Catalogo Mahcks in cache; ultimo controllo il',fallbackTitle:'Dati locali di base attivi',
     partialTitle:'Dati disponibili solo in parte',errorTitle:'Impossibile caricare i dati',
     fallbackBody:'Il catalogo completo non è disponibile. Ricerca e obiettivi continuano con i dati locali di base, che potrebbero essere meno completi o aggiornati.',
     snapshotTitle:'Snapshot del catalogo Ramas attivo',snapshotBody:'È attivo lo snapshot convalidato del catalogo Ramas. Proviene da RaidTheory e non è una risposta Mahcks live confermata.',
@@ -127,6 +127,7 @@ function currentDataState(){
   if(window.__arcCatalogMeta?.source==='snapshot')return 'snapshot';
   if(window.__arcCatalogMeta?.source==='github')return 'github';
   if(questLoadError)return 'partial';
+  if(window.__arcCatalogMeta?.source==='mahcks'&&window.__arcCatalogMeta?.cached===true)return 'cached';
   return window.__arcCatalogMeta?.source==='mahcks'?'live':'partial';
 }
 function ensurePersistentDataStatus(){
@@ -147,11 +148,14 @@ function ensurePersistentDataStatus(){
 }
 function updateStatusElement(el,state,c){
   if(!el)return;
-  const labels={loading:c.loading,live:c.live,snapshot:c.snapshot,github:c.github,fallback:c.fallback,partial:c.partial,error:c.error};
-  const titles={loading:c.loadingTitle,live:c.liveTitle,snapshot:c.snapshotTitle,github:c.githubTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
+  const labels={loading:c.loading,live:c.live,cached:c.cached,snapshot:c.snapshot,github:c.github,fallback:c.fallback,partial:c.partial,error:c.error};
+  const checkedAt=window.__arcCatalogMeta?.checkedAt;
+  const checkedDate=checkedAt&&Number.isFinite(Date.parse(checkedAt))?new Date(checkedAt).toLocaleDateString():'';
+  const titles={loading:c.loadingTitle,live:c.liveTitle,cached:checkedDate?`${c.cachedTitle} ${checkedDate}`:c.cachedTitle,snapshot:c.snapshotTitle,github:c.githubTitle,fallback:c.fallbackTitle,partial:c.partialTitle,error:c.errorTitle};
   if(el.textContent!==labels[state])el.textContent=labels[state];
   if(el.dataset.state!==state)el.dataset.state=state;
   el.classList.toggle('fallback',state==='fallback');
+  el.classList.toggle('cached',state==='cached');
   el.classList.toggle('snapshot',state==='snapshot');
   el.classList.toggle('github',state==='github');
   el.classList.toggle('loading',state==='loading');

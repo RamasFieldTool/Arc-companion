@@ -27,7 +27,7 @@ const HELP_COPY={
     backupTitle:'11 // DATEN & BACKUP',
     backupBody:'Unter „Farben einstellen“ kannst du deine lokal gespeicherten Einstellungen und Fortschritte als JSON-Datei sichern. „Backup importieren“ prüft die Datei vollständig und ersetzt die vorhandenen App-Daten erst nach deiner Bestätigung. Es wird nichts in eine Cloud oder an uns übertragen.',
     dataTitle:'12 // DATENSTATUS & QUELLEN',
-    dataBody:'„DATEN // LIVE“ bedeutet, dass der vollständige Item-Katalog geladen wurde. Die App versucht zuerst Mahcks’ Daten-API und kann bei Problemen auf die RaidTheory-Daten auf GitHub ausweichen. „DATEN // BASISDATENSATZ“ bedeutet, dass nur der lokale items.json-Fallback aktiv ist; dieser kann weniger vollständig oder aktuell sein. Der Status ist kein Live-Zugriff auf dein laufendes Spiel. Quests und Basisdaten stammen aus RaidTheory; Karten und Bauplan-Fundorte kennzeichnen Community- oder unbestätigte Angaben ausdrücklich.'
+    dataBody:'„DATEN // LIVE“ bedeutet, dass der vollständige Item-Katalog gerade bei Mahcks geprüft wurde. Der geprüfte Katalog bleibt lokal gespeichert; die App prüft höchstens alle 30 Tage erneut. „DATEN // MAHCKS-CACHE“ kennzeichnet den gespeicherten Katalog und zeigt das letzte Prüfdatum. Bei Problemen nutzt die App einen Snapshot, RaidTheory-Daten oder den lokalen Basisdatensatz. Der Status ist kein Live-Zugriff auf dein laufendes Spiel.'
   },
   en:{
     flowTitle:'HOW TO // HELP',
@@ -55,7 +55,7 @@ const HELP_COPY={
     backupTitle:'11 // DATA & BACKUP',
     backupBody:'Below “Customize Colors” you can save your locally stored settings and progress as a JSON file. “Import Backup” validates the complete file and replaces existing app data only after your confirmation. Nothing is uploaded to a cloud or sent to us.',
     dataTitle:'12 // DATA STATUS & SOURCES',
-    dataBody:'“DATA // LIVE” means the complete item catalog has been loaded. The app first tries Mahcks’ data API and can fall back to RaidTheory data on GitHub if that source has problems. “DATA // BASE DATASET” means only the local items.json fallback is active; it may be less complete or current. This status is not live access to your running game. Quests and base data use RaidTheory; maps and blueprint acquisition fields explicitly label community or unconfirmed information.'
+    dataBody:'“DATA // LIVE” means the complete item catalog was just checked with Mahcks. The validated catalog is stored locally; the app checks again at most every 30 days. “DATA // MAHCKS CACHE” identifies the stored catalog and shows its last check date. If sources fail, the app keeps the saved catalog or uses a snapshot, RaidTheory data, or the local base dataset. This status is not live access to your running game.'
   }
 };
 

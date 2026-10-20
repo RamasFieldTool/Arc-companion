@@ -32,6 +32,9 @@
   const setMeta=(source,partial=false,extra={})=>{
     window.__arcCatalogMeta={source,partial,...extra};
   };
+  window.RFTCatalogUseCachedMeta=(source,checkedAt,extra={})=>{
+    setMeta(source,extra.partial===true,{...extra,cached:true,checkedAt});
+  };
   setMeta('loading',false);
 
   const toUrl=input=>{
