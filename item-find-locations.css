@@ -9,7 +9,10 @@
 .find-locations-body b{color:var(--cream)}
 .find-locations-body small{display:block;margin-top:2px;padding-top:7px;border-top:1px dashed #55523e;color:#aaa38b;font-size:11px}
 .find-locations-body a{color:var(--amber)}
+.find-locations-body .find-location-report{display:flex;align-items:center;min-height:44px;width:fit-content;max-width:100%;box-sizing:border-box;padding:7px 10px;border:1px solid #74653b;background:#20231c;text-decoration:none;font-weight:700;overflow-wrap:anywhere}
+.find-locations-body .find-location-report:hover,.find-locations-body .find-location-report:focus-visible{border-color:var(--amber);background:#292c21}
 @media(max-width:420px){.find-locations-body{padding:9px}.find-locations summary{padding:9px}}
 html[data-theme="light"] .find-locations{background:#f7fafc;border-color:#c4cfd6}
 html[data-theme="light"] .find-locations[open] summary{background:#e9eff3;border-color:#c4cfd6}
 html[data-theme="light"] .find-locations-body small{color:#52616b;border-color:#c4cfd6}
+html[data-theme="light"] .find-locations-body .find-location-report{background:#f1f5e9;border-color:#9ca77c}
