@@ -18,6 +18,17 @@
     document.head.append(stylesheet);
   }
 
+  const shareButton=document.createElement('button');
+  shareButton.id='nextRaidShare';shareButton.type='button';shareButton.className='next-raid-share';shareButton.hidden=true;
+  const shareStatus=document.createElement('p');
+  shareStatus.id='nextRaidShareStatus';shareStatus.className='next-raid-share-status';shareStatus.setAttribute('role','status');shareStatus.setAttribute('aria-live','polite');
+  const shareFallback=document.createElement('label');
+  shareFallback.className='next-raid-share-fallback';shareFallback.hidden=true;
+  const shareFallbackLabel=document.createElement('span');
+  const shareFallbackText=document.createElement('textarea');shareFallbackText.readOnly=true;shareFallbackText.rows=5;
+  shareFallback.append(shareFallbackLabel,shareFallbackText);
+  document.getElementById('nextRaidIntro').after(shareButton,shareStatus,shareFallback);
+
   const STORAGE_KEY='arcNextRaid';
   const MAX_COUNT=999999;
   const COPY={
@@ -54,9 +65,17 @@
       storageError:'Saving on this device failed.',raidStorageError:'Findings were saved, but the raid checklist could not be updated.',surplus:'Any surplus is kept as owned stock.'
     }
   };
+  const SHARE_COPY={
+    de:{button:'Raid-Liste kopieren',heading:'Meine nächste Raid-Liste',done:'ERLEDIGT',open:'OFFEN',success:'Raid-Liste kopiert. Du kannst sie jetzt in deinen Chat einfügen.',fallback:'Kopieren ist hier nicht verfügbar. Markiere und kopiere den Text unten.',label:'Text zum manuellen Kopieren'},
+    en:{button:'Copy raid list',heading:'My next raid checklist',done:'DONE',open:'OPEN',success:'Raid list copied. You can paste it into your chat.',fallback:'Clipboard access is unavailable. Select and copy the text below.',label:'Text to copy manually'},
+    fr:{button:'Copier la liste de raid',heading:'Ma prochaine liste de raid',done:'TERMINÉ',open:'À FAIRE',success:'Liste copiée. Vous pouvez la coller dans votre discussion.',fallback:'Le presse-papiers est indisponible. Sélectionnez et copiez le texte ci-dessous.',label:'Texte à copier manuellement'},
+    es:{button:'Copiar lista de incursión',heading:'Mi próxima lista de incursión',done:'HECHO',open:'PENDIENTE',success:'Lista copiada. Ya puedes pegarla en tu chat.',fallback:'No se puede usar el portapapeles. Selecciona y copia el texto de abajo.',label:'Texto para copiar manualmente'},
+    it:{button:'Copia la lista del raid',heading:'La mia prossima lista raid',done:'FATTO',open:'DA FARE',success:'Lista copiata. Ora puoi incollarla nella chat.',fallback:'Gli appunti non sono disponibili. Seleziona e copia il testo qui sotto.',label:'Testo da copiare manualmente'}
+  };
 
   const language=()=>typeof lang!=='undefined'&&lang==='en'?'en':'de';
   const copy=()=>COPY[language()];
+  const shareCopy=()=>SHARE_COPY[document.documentElement.lang]||SHARE_COPY[language()];
   const escapeHtml=value=>String(value).replace(/[&<>"']/g,char=>({
     '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   })[char]);
@@ -145,11 +164,14 @@
 
   function render(){
     const c=copy();
+    const shareLabels=shareCopy();
     const all=entries().sort(([idA,a],[idB,b])=>{
       if(!!a.done!==!!b.done)return a.done?1:-1;
       return displayName(idA).localeCompare(displayName(idB),language()==='de'?'de':'en');
     });
     updateHeader();
+    shareButton.textContent=shareLabels.button;shareButton.hidden=!all.length;
+    shareStatus.textContent='';shareFallback.hidden=true;
     removeDoneButton.textContent=c.removeDone;
     clearButton.textContent=c.clear;
     closeButton.textContent=c.closeList;
@@ -182,6 +204,31 @@
     }).join('');
     refreshAddButtons();
   }
+
+  function shareText(){
+    const labels=shareCopy();
+    const all=entries().sort(([idA,a],[idB,b])=>{
+      if(!!a.done!==!!b.done)return a.done?1:-1;
+      return displayName(idA).localeCompare(displayName(idB),document.documentElement.lang||'en');
+    });
+    return [labels.heading,...all.map(([id,entry])=>{
+      const personal=personalProgress(entry);
+      const quantity=personal?personal.target:(entry.done?toCount(entry.target,0):Math.max(1,toCount(entry.target,1)));
+      return `${entry.done?'✓':'•'} ${displayName(id)} × ${quantity} (${entry.done?labels.done:labels.open})`;
+    })].join('\n');
+  }
+
+  shareButton.addEventListener('click',async()=>{
+    const text=shareText();
+    try{
+      if(!navigator.clipboard?.writeText)throw new Error('clipboard unavailable');
+      await navigator.clipboard.writeText(text);
+      shareFallback.hidden=true;shareStatus.textContent=shareCopy().success;
+    }catch{
+      shareFallbackLabel.textContent=shareCopy().label;shareFallbackText.value=text;shareFallback.hidden=false;
+      shareStatus.textContent=shareCopy().fallback;shareFallbackText.focus();shareFallbackText.select();
+    }
+  });
 
   function addItem(id,quantity,personal=false){
     if(!id)return;
@@ -534,6 +581,7 @@
   });
   document.getElementById('deBtn')?.addEventListener('click',()=>setTimeout(()=>{render();decorate();renderPostRaid()},0));
   document.getElementById('enBtn')?.addEventListener('click',()=>setTimeout(()=>{render();decorate();renderPostRaid()},0));
+  window.addEventListener('arc-language-change',()=>{render();renderPostRaid()});
 
   const observer=new MutationObserver(()=>{decorate();render();if(!postRaidPanel.hidden)renderPostRaid()});
   const summaryRoot=document.getElementById('summary');
