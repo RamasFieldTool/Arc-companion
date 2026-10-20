@@ -97,6 +97,13 @@
     es:{read:'Leer historia',back:'← Volver a Raider Stories'},
     it:{read:'Leggi il racconto',back:'← Torna a Raider Stories'}
   };
+  const archiveCopy={
+    de:{open:'Frühere Gewinner ansehen',back:'Zurück zum aktuellen Wettbewerb',title:'Archiv früherer Gewinner',intro:'Hier erscheinen frühere Gewinnerbilder erst, wenn Nutzungsrecht, Urheberangabe und Wettbewerbsdetails dokumentiert geprüft wurden.',empty:'Aktuell sind keine früheren Gewinner für das Archiv freigegeben.',contribute:'Zum Fan-Creations-Beitragsleitfaden',contest:'Wettbewerb',period:'Zeitraum',group:'Community-Gruppe',creator:'Urheber'},
+    en:{open:'Browse past winners',back:'Back to current contest',title:'Past winners archive',intro:'Past winning images appear here after image permission, creator credit and contest details are reviewed and documented.',empty:'No past winners are approved for the archive yet.',contribute:'Open the Fan Creations contribution guide',contest:'Contest',period:'Dates',group:'Community group',creator:'Creator'},
+    fr:{open:'Voir les anciens gagnants',back:'Retour au concours actuel',title:'Archives des anciens gagnants',intro:'Les images des anciens gagnants seront affichées après vérification documentée des droits, du crédit du créateur et des détails du concours.',empty:'Aucun ancien gagnant n’est encore autorisé pour les archives.',contribute:'Ouvrir le guide de contribution Fan Creations',contest:'Concours',period:'Dates',group:'Groupe communautaire',creator:'Créateur'},
+    es:{open:'Ver ganadores anteriores',back:'Volver al concurso actual',title:'Archivo de ganadores anteriores',intro:'Las imágenes de ganadores anteriores aparecerán tras revisar y documentar los permisos, el crédito del creador y los datos del concurso.',empty:'Todavía no hay ganadores anteriores aprobados para el archivo.',contribute:'Abrir la guía de contribución de Fan Creations',contest:'Concurso',period:'Fechas',group:'Grupo comunitario',creator:'Creador'},
+    it:{open:'Sfoglia i vincitori passati',back:'Torna al concorso attuale',title:'Archivio dei vincitori passati',intro:'Le immagini dei vincitori passati appariranno dopo la verifica documentata dei permessi, dei crediti e dei dettagli del concorso.',empty:'Non ci sono ancora vincitori passati approvati per l’archivio.',contribute:'Apri la guida per contribuire a Fan Creations',contest:'Concorso',period:'Date',group:'Gruppo della community',creator:'Autore'}
+  };
   const stories=window.RFTCommunityStories||[];
 
   const section=document.getElementById('raiderRadio');
@@ -294,9 +301,19 @@
   contestsBack.className='fan-view-back fan-contests-back';
   const contestsHeading=document.createElement('h2');
   contestsHeading.className='stories-wordmark';
+  const archiveToggle=document.createElement('button');
+  archiveToggle.type='button';archiveToggle.className='fan-contest-archive-toggle';archiveToggle.setAttribute('aria-expanded','false');
   const contestsGrid=document.createElement('div');
   contestsGrid.className='fan-contests-grid';
-  contestsView.append(contestsBack,contestsHeading,contestsGrid);
+  const archiveView=document.createElement('section');
+  archiveView.className='fan-contest-archive';archiveView.hidden=true;
+  const archiveHeading=document.createElement('h3');archiveHeading.className='fan-contest-archive-title';
+  const archiveIntro=document.createElement('p');archiveIntro.className='fan-contest-archive-intro';
+  const archiveEmpty=document.createElement('p');archiveEmpty.className='fan-contest-archive-empty';
+  const archiveGrid=document.createElement('div');archiveGrid.className='fan-contests-grid fan-contest-archive-grid';archiveGrid.hidden=true;
+  const archiveContribution=document.createElement('button');archiveContribution.type='button';archiveContribution.className='fan-contest-archive-contribute';
+  archiveView.append(archiveHeading,archiveIntro,archiveEmpty,archiveGrid,archiveContribution);
+  contestsView.append(contestsBack,contestsHeading,archiveToggle,contestsGrid,archiveView);
   const contestCards=[];
   contests.forEach(entry=>{
     const card=document.createElement('article');
@@ -328,6 +345,43 @@
     card.append(image,body);
     contestsGrid.append(card);
     contestCards.push({entry,image,heading,prompt,dateLabel,dateValue,groupLabel,groupValue});
+  });
+
+  let archiveEntries=[],archiveLoadPromise=null;
+  const safeArchiveEntry=entry=>!!entry&&typeof entry==='object'&&/^[a-z0-9-]+$/.test(entry.id||'')&&typeof entry.title==='string'&&entry.title.trim()&&typeof entry.contest==='string'&&entry.contest.trim()&&typeof entry.period==='string'&&entry.period.trim()&&typeof entry.group==='string'&&entry.group.trim()&&typeof entry.creator==='string'&&entry.creator.trim()&&typeof entry.alt==='string'&&entry.alt.trim()&&typeof entry.image==='string'&&/^assets\/fan-creations\/[a-z0-9_-]+\.(?:avif|gif|jpe?g|png|webp)$/i.test(entry.image)&&entry.permissionStatus==='documented'&&typeof entry.permissionReference==='string'&&entry.permissionReference.trim();
+  function renderContestArchive(){
+    const labels=archiveCopy[document.documentElement.lang]||archiveCopy.en;
+    archiveHeading.textContent=labels.title;archiveIntro.textContent=labels.intro;archiveContribution.textContent=labels.contribute;
+    archiveGrid.replaceChildren();
+    const approved=archiveEntries.filter(safeArchiveEntry);
+    archiveEmpty.textContent=labels.empty;archiveEmpty.hidden=approved.length>0;archiveGrid.hidden=!approved.length;
+    approved.forEach(entry=>{
+      const card=document.createElement('article');card.className='fan-contest-card fan-contest-archive-card';card.dataset.archiveId=entry.id;
+      const image=document.createElement('img');image.src=entry.image;image.alt=entry.alt;image.loading='lazy';image.decoding='async';
+      const body=document.createElement('div');body.className='fan-contest-card-copy';
+      const title=makeText('h4','fan-contest-card-title',entry.title);
+      const metadata=document.createElement('dl');metadata.className='fan-contest-meta';
+      for(const [label,value] of [[labels.contest,entry.contest],[labels.period,entry.period],[labels.group,entry.group],[labels.creator,entry.creator]]){
+        const row=document.createElement('div');row.append(makeText('dt','',label),makeText('dd','',value));metadata.append(row);
+      }
+      body.append(title,metadata);card.append(image,body);archiveGrid.append(card);
+    });
+  }
+  function setArchiveOpen(open){
+    const labels=archiveCopy[document.documentElement.lang]||archiveCopy.en;
+    archiveView.hidden=!open;contestsGrid.hidden=open;archiveToggle.setAttribute('aria-expanded',String(open));archiveToggle.textContent=open?labels.back:labels.open;
+    if(open){renderContestArchive();loadContestArchive()}
+  }
+  function loadContestArchive(){
+    if(archiveLoadPromise)return;
+    archiveLoadPromise=fetch('fan-contest-archive.json?v=1',{cache:'no-store'}).then(response=>{if(!response.ok)throw new Error(String(response.status));return response.json()}).then(data=>{
+      if(data?.schemaVersion===1&&Array.isArray(data.entries))archiveEntries=data.entries.filter(safeArchiveEntry);
+      renderContestArchive();
+    }).catch(error=>{archiveLoadPromise=null;console.warn('Contest archive unavailable; empty archive retained',error)});
+  }
+  archiveToggle.addEventListener('click',()=>setArchiveOpen(archiveView.hidden));
+  archiveContribution.addEventListener('click',()=>{
+    location.hash='raiderRadio';showHub();contribute.open=true;contribute.scrollIntoView({behavior:'smooth',block:'center'});contributeSummary.focus({preventScroll:true});
   });
 
   const storyView=document.createElement('div');
@@ -502,6 +556,7 @@
     contestsView.hidden=view!=='contests';
     storyView.hidden=true;
     albumView.hidden=true;
+    if(view==='contests')setArchiveOpen(false);
     const target=view==='radio'?radioHeading:view==='contests'?contestsHeading:storiesHeading;
     target.focus?.({preventScroll:true});
   }
@@ -576,6 +631,9 @@
     contestsCategory.desc.textContent=lang.contestsDesc;
     contestsBack.textContent=lang.back;
     contestsHeading.textContent=lang.contestsHeading;
+    const archiveLang=archiveCopy[document.documentElement.lang]||archiveCopy.en;
+    archiveToggle.textContent=archiveView.hidden?archiveLang.open:archiveLang.back;
+    if(!archiveView.hidden)renderContestArchive();
     contestCards.forEach(({entry,image,heading,prompt,dateLabel,dateValue,groupLabel,groupValue})=>{
       heading.textContent=lang.contestCardTitle;
       prompt.textContent=lang.contestPrompt;

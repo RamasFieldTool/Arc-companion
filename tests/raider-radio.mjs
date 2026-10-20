@@ -36,10 +36,10 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
     localStorage.setItem('arcLanguageOnboardingPending','0');
     localStorage.setItem('arcPaletteSurface',surface);
   },{language,surface});
-  const page=await context.newPage();const errors=[],audioRequests=[];
+  const page=await context.newPage();const errors=[],audioRequests=[],archiveRequests=[];
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
-  page.on('request',r=>{if(r.resourceType()==='media'||/\.(mp3|wav|ogg|m4a)(?:\?|$)/i.test(r.url()))audioRequests.push(r.url())});
+  page.on('request',r=>{if(r.resourceType()==='media'||/\.(mp3|wav|ogg|m4a)(?:\?|$)/i.test(r.url()))audioRequests.push(r.url());if(new URL(r.url()).pathname.endsWith('/fan-contest-archive.json'))archiveRequests.push(r.url())});
   await installRoutes(page);
   await context.route('https://suno.com/s/**',r=>r.fulfill({status:200,contentType:'text/html',body:'<title>Suno link test fixture</title>'}));
   await page.goto(BASE_URL,{waitUntil:'domcontentloaded'});
@@ -88,7 +88,30 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   const contestLayout=await page.evaluate(()=>({viewport:document.documentElement.clientWidth,document:document.documentElement.scrollWidth,card:document.querySelector('.fan-contest-card').scrollWidth,cardClient:document.querySelector('.fan-contest-card').clientWidth,image:document.querySelector('.fan-contest-card img').getBoundingClientRect().width}));
   assert.ok(contestLayout.document-contestLayout.viewport<=4,JSON.stringify(contestLayout));
   assert.ok(contestLayout.image<=contestLayout.cardClient,JSON.stringify(contestLayout));
-  await contestView.locator('.fan-contests-back').click();
+  const archiveLabels={
+    de:['Frühere Gewinner ansehen','Archiv früherer Gewinner','Aktuell sind keine früheren Gewinner für das Archiv freigegeben.'],
+    en:['Browse past winners','Past winners archive','No past winners are approved for the archive yet.'],
+    fr:['Voir les anciens gagnants','Archives des anciens gagnants','Aucun ancien gagnant n’est encore autorisé pour les archives.'],
+    es:['Ver ganadores anteriores','Archivo de ganadores anteriores','Todavía no hay ganadores anteriores aprobados para el archivo.'],
+    it:['Sfoglia i vincitori passati','Archivio dei vincitori passati','Non ci sono ancora vincitori passati approvati per l’archivio.']
+  }[language];
+  const archiveToggle=contestView.locator('.fan-contest-archive-toggle');
+  assert.equal(await archiveToggle.innerText(),archiveLabels[0]);
+  assert.equal(archiveRequests.length,0,'Archive manifest should not be fetched until a visitor opens the archive');
+  const archiveResponse=page.waitForResponse(response=>new URL(response.url()).pathname.endsWith('/fan-contest-archive.json'));
+  await archiveToggle.click();
+  assert.equal((await archiveResponse).status(),200);
+  const archive=contestView.locator('.fan-contest-archive');await archive.waitFor({state:'visible'});
+  assert.equal(await archive.locator('h3').innerText(),archiveLabels[1]);
+  assert.equal(await archive.locator('.fan-contest-archive-empty').innerText(),archiveLabels[2]);
+  assert.equal(await archive.locator('.fan-contest-archive-card').count(),0);
+  if(width===320&&surface==='light'){
+    await archive.locator('.fan-contest-archive-contribute').click();
+    const contribution=page.locator('.fan-contribute');await contribution.waitFor({state:'visible'});
+    assert.equal(await contribution.evaluate(el=>el.open),true);
+    assert.equal(await contribution.locator('[data-contribution-consent]:checked').count(),0);
+    assert.equal(await contribution.locator('.fan-submit-email').isVisible(),false);
+  }else{await archiveToggle.click();await contestView.locator('.fan-contests-back').click()}
   assert.equal(new URL(page.url()).hash,'#raiderRadio');
   await page.locator('[data-fan-view="radio"]').click();
   const about=page.locator('.radio-about');
