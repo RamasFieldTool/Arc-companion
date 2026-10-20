@@ -601,6 +601,35 @@ async function boot(){
 }
 boot();
 
+// Retry the upstream catalog without replacing a working snapshot until a full catalog validates.
+// User-owned stock, goals and quest progress are not modified by this refresh.
+let liveCatalogRetryBusy=false;
+let lastLiveCatalogRetry=Date.now();
+async function retryLiveCatalogWhenVisible(){
+  if(document.visibilityState==='hidden'||liveCatalogRetryBusy||Date.now()-lastLiveCatalogRetry<300000)return;
+  if(window.__arcCatalogMeta?.source==='mahcks'&&!usingFallback)return;
+  liveCatalogRetryBusy=true;
+  lastLiveCatalogRetry=Date.now();
+  try{
+    window.RFTCatalogRetryLive?.();
+    const fresh=await loadFullCatalog();
+    if(window.__arcCatalogMeta?.source!=='mahcks')return;
+    const corrected=fresh.map(window.RFTCatalogUpdate.correct);
+    const expanded=window.RFTFrozenTrailData.extend(corrected,goals);
+    items=expanded.items;
+    usingFallback=false;
+    status.classList.remove('load-error');
+    applyLanguage();
+    window.renderDataStatus?.();
+  }catch(error){
+    console.warn('Background live catalog retry failed; retaining existing catalog.',error);
+  }finally{
+    liveCatalogRetryBusy=false;
+  }
+}
+setInterval(()=>void retryLiveCatalogWhenVisible(),60000);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')void retryLiveCatalogWhenVisible();});
+
 document.getElementById('questRetry')?.addEventListener('click',()=>void refreshQuests());
 
 window.addEventListener('arc-language-change',()=>{drawGoals();drawQuestHeader();renderQuestSourceStatus();drawQuests();drawSummary();drawItems()});
