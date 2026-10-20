@@ -104,6 +104,10 @@ jobs:
         env:
           BASE_URL: http://127.0.0.1:4173/
         run: node tests/planning-usability.mjs
+      - name: Run My Next Raid share and player-data safety regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/next-raid-share.mjs
       - name: Run planning empty-state action regression
         env:
           BASE_URL: http://127.0.0.1:4173/

@@ -19,6 +19,12 @@
 .next-raid-summary:hover,.next-raid-summary:focus-visible{background:var(--ui-soft)}
 .next-raid-body{padding:14px 16px 17px}
 .next-raid-body>.section-help{margin:0 0 13px}
+.next-raid-share{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;margin:0 0 8px;padding:9px 12px;border:1px solid var(--ui-line);background:var(--ui-soft);color:var(--ui-text);font:700 13px "Rajdhani",sans-serif;letter-spacing:.04em;cursor:pointer}
+.next-raid-share:hover,.next-raid-share:focus-visible{border-color:var(--orange);outline:2px solid transparent}
+.next-raid-share-status{margin:0 0 8px;color:var(--ui-muted);font-size:12px;line-height:1.4}
+.next-raid-share-fallback{display:grid;gap:6px;margin:0 0 12px;color:var(--ui-muted);font-size:12px}
+.next-raid-share-fallback[hidden],.next-raid-share[hidden]{display:none!important}
+.next-raid-share-fallback textarea{width:100%;min-height:100px;box-sizing:border-box;padding:10px;border:1px solid var(--ui-line);background:var(--ui-panel);color:var(--ui-text);font:12px/1.5 ui-monospace,monospace;resize:vertical}
 .next-raid-list{display:grid;border:1px solid var(--ui-line);background:var(--ui-panel-2)}
 .next-raid-item{
   min-height:64px;display:grid;grid-template-columns:44px minmax(0,1fr) 68px 42px;align-items:center;gap:9px;
