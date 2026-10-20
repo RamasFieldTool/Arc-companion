@@ -13,6 +13,9 @@ const must=[
   "arc_the_queen",
   "foundIn",
   "Community-Daten zu möglichen Fundquellen. Kein garantierter Fund.",
+  "mailto:ramasfieldtool@proton.me",
+  "Fundortdaten korrigieren",
+  "Nothing is sent or stored automatically.",
   "https://github.com/RaidTheory/arcraiders-data"
 ];
 for(const value of must){if(!source.includes(value))throw new Error(`Missing item-find-locations contract: ${value}`)}

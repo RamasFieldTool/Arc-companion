@@ -30,33 +30,53 @@ try {
   await q.fill('Magnetic Accelerator');await expect(card).toBeVisible();await expect(details).toHaveCount(1);
   await expect(details).not.toHaveAttribute('open','');
   await details.locator('summary').click();await expect(details.locator('.find-locations-body')).toBeVisible();
+  const report=details.locator('.find-location-report');await expect(report).toHaveAttribute('href',/^mailto:ramasfieldtool@proton\.me\?/);
+  const reportText=await report.evaluate(a=>decodeURIComponent(a.href));
+  if(!reportText.includes('magnetic_accelerator')||!reportText.includes('Suggested correction')||!reportText.includes('Source or evidence'))throw Error('Item correction draft is missing the item identifier or editable correction/source prompts');
+  await expect(details.locator('.find-locations-body small').last()).toContainText('Nothing is sent or stored automatically');
   for(const expected of ['Exodus','MATRIARCH','THE QUEEN','Dam Battlegrounds','Spaceport','The Blue Gate'])await expect(details).toContainText(expected);
   await details.locator('summary').click();await expect(details.locator('.find-locations-body')).toBeHidden();
   await details.locator('summary').click();
-  for(const [language,label,title,map] of [
-   ['de','Magnetischer Beschleuniger','Mögliche Fundorte','Damm-Schlachtfelder'],
-   ['en','Magnetic Accelerator','Possible find locations','Dam Battlegrounds'],
-   ['fr','Accélérateur Magnétique','Lieux possibles','Champ de bataille du barrage'],
-   ['es','Acelerador Magnético','Posibles lugares','Campos de batalla de la presa']
+  for(const [language,query,title,map,label] of [
+   ['de','Magnetischer Beschleuniger','Mögliche Fundorte','Damm-Schlachtfelder','Magnetischer Beschleuniger'],
+   ['en','Magnetic Accelerator','Possible find locations','Dam Battlegrounds','Magnetic Accelerator'],
+   ['fr','Accélérateur Magnétique','Lieux possibles','Champ de bataille du barrage','Accélérateur Magnétique'],
+   ['es','Acelerador Magnético','Posibles lugares','Campos de batalla de la presa','Acelerador Magnético'],
+   // The fixture has no Italian item-name translation; keep that game data unchanged.
+   ['it','Magnetic Accelerator','Possibili luoghi','Campi di battaglia della diga','Magnetic Accelerator']
   ]) {
    await page.locator('#appBack').click();
    await page.locator('#arcLanguageButton').click();await page.locator(`#arcLanguageMenu [data-arc-language="${language}"]`).click();
    await page.waitForFunction(expected=>document.documentElement.dataset.uiLanguage===expected,language);
    await page.locator('[data-app-target="itemsSection"]').click();
    await expect(details.locator('summary')).toHaveText(title);
-   await q.fill(label);await expect(card).toBeVisible();await expect(details.locator('summary')).toHaveText(title);
+   await q.fill(query);await expect(card).toBeVisible();await expect(details.locator('summary')).toHaveText(title);
    await expect(details.locator('.find-locations-body')).toBeVisible();await expect(details).toContainText(map);
    await expect(card.locator('h3')).toHaveText(label);
   }
   await q.fill('');await expect(page.locator('#out .card')).toHaveCount(0);
   await q.fill('Wires');const plain=page.locator('#out .card[data-item-id="wires"]');await expect(plain).toBeVisible();
   // Existing UX deliberately shows a localized no-data message rather than hiding the section.
-  await plain.locator('summary').click();await expect(plain.locator('.find-locations-body')).toContainText('No hay información');
+  await plain.locator('summary').click();await expect(plain.locator('.find-locations-body')).toContainText('Non sono disponibili informazioni');
   await expect(plain).not.toContainText(/undefined|null|\[object Object\]/);
   await q.fill('Magnetic Accelerator');await expect(card).toBeVisible();
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-document.documentElement.clientWidth);
   if(overflow>4)throw new Error(`Horizontal overflow: ${overflow}px`);
   const box=await details.locator('summary').boundingBox();if(!box||box.height<44)throw new Error('Location toggle touch area below 44px');
+  if(theme==='dark'&&viewport.width===360){
+   await page.locator('#appBack').click();
+   await page.locator('[data-app-target="spawnPanel"]').click();
+   await page.locator('#spawnMapSelect').waitFor({state:'visible'});
+   await page.locator('#spawnMapSelect').selectOption('stella-montis-upper');
+   await page.waitForFunction(()=>document.querySelector('#spawnViewport').dataset.map==='stella-montis-upper'&&document.querySelectorAll('#spawnMarkers .spawn-marker').length>0);
+   await page.locator('#spawnExpand').click();
+   await page.locator('#layerRaiders').click();await page.locator('#spawnMarkers .spawn-marker').first().click();
+   const mapReport=page.locator('#spawnSelected .spawn-selected-report');await expect(mapReport).toBeVisible();
+   const mapDraft=await mapReport.evaluate(a=>decodeURIComponent(a.href));
+   if(!mapDraft.startsWith('mailto:ramasfieldtool@proton.me?')||!mapDraft.includes('stella-montis-upper')||!mapDraft.includes('Suggested correction')||!mapDraft.includes('Source or evidence'))throw Error('Map correction draft is missing map/marker context or correction/source prompts');
+   await expect(page.locator('#spawnSelected small')).toContainText(/Nothing is sent or stored automatically|Nichts wird automatisch gesendet oder gespeichert/);
+   if(await page.evaluate(()=>Object.keys(localStorage).some(key=>/report|submission/i.test(key))))throw Error('Map correction draft persisted report data');
+  }
   await page.screenshot({path:`test-artifacts/ui/find-locations-${theme}-${viewport.width}.png`,fullPage:true});
   const contrast=await details.evaluate(el=>{
    const rgb=s=>s.match(/[\d.]+/g).slice(0,3).map(Number);
@@ -66,7 +86,7 @@ try {
   });
   if(contrast.some(ratio=>ratio<4.5))throw new Error(`${theme}: insufficient location text contrast ${contrast}`);
   if(errors.length)throw new Error(errors.join('\n'));
-  console.log(`PASS find locations ${theme} ${viewport.width}px: fixture, content, toggle, DE/EN/FR/ES, no-data, runtime`);
+  console.log(`PASS find locations ${theme} ${viewport.width}px: fixture, report draft, toggle, DE/EN/FR/ES/IT, no-data, runtime`);
   await context.close();
  }
 } finally {await browser.close()}
