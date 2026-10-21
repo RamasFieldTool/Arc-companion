@@ -25,7 +25,9 @@ jobs:
         run: |
           node tests/data-integrity.mjs
           node tests/catalog-update-2.mjs
+          node tests/catalog-monthly-cache.mjs
           node tests/frozen-trail-data.mjs
+          node tests/catalog-cosmetics.mjs
           node tests/amplified-weapons-audit.mjs
           node tests/amplified-variants.mjs
           node tests/outpost-full-audit.mjs
