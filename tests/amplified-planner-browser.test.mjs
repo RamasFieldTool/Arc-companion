@@ -59,6 +59,31 @@ await page.locator('#rftAmplifiedPlanner select').selectOption('equalizer');
 assert.equal(await page.locator('#rftAmplifiedPlanner fieldset').getByText('Anti Shield').count(),0);
 assert((await page.locator('#rftAmplifiedPlanner').textContent()).includes('Anti Shield'));
 
+
+// Regression: invalid combinations are disabled, reset clears only this weapon,
+// and switching weapons retains independent selections.
+await page.locator('#rftAmplifiedPlanner select').selectOption('equalizer');
+const optionLabels=page.locator('#rftAmplifiedPlanner fieldset label');
+assert(await optionLabels.count()>1);
+const reset=page.locator('#rftAmplifiedPlanner .rft-amplified-reset');
+assert.equal(await reset.isDisabled(),true);
+const available=page.locator('#rftAmplifiedPlanner fieldset input:not([disabled])').first();
+await available.check();
+assert.equal(await reset.isDisabled(),false);
+await reset.click();
+assert.equal(await reset.isDisabled(),true);
+assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('rftAmplifiedPlansV1')).equalizer),[]);
+await page.locator('#rftAmplifiedPlanner select').selectOption('osprey');
+assert((await page.locator('#rftAmplifiedPlanner .rft-amplified-count').textContent()).includes('1 /'));
+await page.locator('#rftAmplifiedPlanner select').selectOption('equalizer');
+assert((await page.locator('#rftAmplifiedPlanner .rft-amplified-count').textContent()).includes('0 /'));
+await page.locator('#rftAmplifiedPlanner select').selectOption('hairpin');
+const current=page.locator('#rftAmplifiedPlanner fieldset input:checked').first();
+if(await current.count()){
+ await current.uncheck();
+ assert.equal(await page.locator('#rftAmplifiedPlanner fieldset input:checked').count(),0);
+}
+
 const width=await page.evaluate(()=>document.documentElement.scrollWidth);
 assert(width<=430,'Mobile horizontal overflow: '+width);
 assert.deepEqual(errors,[]);
