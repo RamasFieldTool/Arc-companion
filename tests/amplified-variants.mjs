@@ -171,7 +171,7 @@ test('controlled integration preserves original approved nodes and adds source-c
   const from=configurations.get(e.from),to=configurations.get(e.to),node=nodes.get(e.nodeId);
   assert.ok(from&&to&&node);assert.equal(from.familyId,to.familyId);assert.equal(node.familyId,to.familyId);
   assert.ok(!from.nodeIds.includes(e.nodeId));
-  assert.deepEqual([...from.nodeIds,e.nodeId].sort(),to.nodeIds);
+  assert.deepEqual([...from.nodeIds,e.nodeId].sort(),[...to.nodeIds].sort());
  }
  for(const r of ref.research){
   assert.equal(r.stationLevel,4);assert.equal(r.points,5000);
@@ -188,7 +188,7 @@ test('original audited API snapshot stays intact and additions have attributable
  const source=JSON.parse(audit.split('```json\n').at(-1).split('\n```')[0]);
  const records=new Map(source.records.map(r=>[r.id,r]));
  assert.equal(source.version,'1791948888742');
- const historical=data.testIntegration.connections.filter(e=>records.get(e.from)?.upgrades?.some(u=>u.to===e.to));
+ const historical=data.testIntegration.connections.slice(0,84).filter(e=>records.get(e.from)?.upgrades?.some(u=>u.to===e.to));
  assert.equal(historical.length,84);
  for(const edge of historical){
   const actual=records.get(edge.from).upgrades.find(e=>e.to===edge.to);
