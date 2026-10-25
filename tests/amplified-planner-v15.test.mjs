@@ -44,3 +44,10 @@ for(const [family,perk] of [['osprey','ergonomicbolt'],['jupiter','ergonomicbolt
 assert(data.unresolved[0].familyId==='equalizer');
 for(const researchId of ['action_economy','compact_combustion_charges'])assert(data.research.some(r=>r.id===researchId));
 console.log('PASS: four corroborated upgrade nodes, two research projects and one disputed upgrade');
+
+const materialIds=new Set(Object.keys(data.materials));
+for(const n of data.nodes)for(const m of n.materials)assert(materialIds.has(m.itemId),'Missing material label '+m.itemId);
+for(const project of data.research)for(const m of project.materials)assert(materialIds.has(m.itemId),'Missing research material '+m.itemId);
+for(const edge of data.connections){const from=data.configurations.find(c=>c.id===edge.from),to=data.configurations.find(c=>c.id===edge.to);assert.equal(from.familyId,to.familyId);assert.equal(to.nodeIds.length,from.nodeIds.length+1);assert(to.nodeIds.includes(edge.nodeId));assert(from.nodeIds.every(id=>to.nodeIds.includes(id)));}
+for(const fid of ['osprey','rascal','hullcracker','jupiter']){const variants=data.configurations.filter(c=>c.familyId===fid);assert(variants.some(c=>c.nodeIds.length===0));assert(variants.some(c=>c.nodeIds.some(id=>id.includes('ergonomicbolt')||id.includes('incendiarygrenades'))));}
+console.log('PASS: all material labels, configuration graph transitions and confirmed upgrade paths');
