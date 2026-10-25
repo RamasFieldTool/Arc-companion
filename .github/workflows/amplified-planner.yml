@@ -21,3 +21,6 @@ jobs:
         with:
           node-version: '22'
       - run: node tests/amplified-planner-v15.test.mjs
+      - run: npm install --no-save playwright@1.56.1
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/amplified-planner-browser.test.mjs
