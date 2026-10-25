@@ -28,7 +28,10 @@
   };
   const validQuestObjectiveProgress=value=>safeKeys(value)&&Object.entries(value).every(([questId,keys])=>!blockedKeys.has(questId)&&Array.isArray(keys)&&keys.length<=5000&&keys.every(key=>typeof key==='string'&&/^[a-f0-9]{16}-\d{1,5}$/.test(key)));
 
+  const validAmplifiedPlans=value=>safeKeys(value)&&Object.entries(value).length<=30&&Object.entries(value).every(([id,nodes])=>/^[a-z_]{2,40}$/.test(id)&&Array.isArray(nodes)&&nodes.length<=12&&nodes.every(n=>typeof n==='string'&&/^[a-z_]+:[a-z0-9_]+$/.test(n)));
   const RULES={
+    rftAmplifiedPlansV1:{type:'json',valid:validAmplifiedPlans},
+    rftAmplifiedResearchV1:{type:'json',valid:value=>safeKeys(value)&&Object.keys(value).length<=100&&Object.entries(value).every(([id,done])=>/^[a-z0-9_]{2,100}$/.test(id)&&typeof done==='boolean')},
     arcFrozenTrailIdentities:{type:'json',valid:value=>safeKeys(value)&&Object.entries(value).every(([key,id])=>["pressure_regulator","propellant_valve_assembly","fluted_rotor_core","pneumatic_actuator","steel_cable","epoxy_bucket","hand_drill","laser_level","insulation_roll","skulker_driver","tether_launcher","yank_grenade","mountaineers_detector","banjo","harmonica","basic_camera","advanced_camera","stencil_parts","amplified_fragments","grappling_hook","rope","cable_stripper","mechanical_components","radial_press","magnetic_accelerator","emperor_modulator","planks","sheet_metal","calculator","raider_logbook","skulker_targeter","differential_microphone","exodus_technical_handbook","bully_fragmenter","thermal_shaker","arc_data_module","frigate_inductor","mini_pump","battered_paperback","bantam_iii","bantam_i","stiletto_ii","stiletto_iv"].includes(key)&&typeof id==='string'&&/^[a-z0-9_-]{1,180}$/i.test(id)&&!['__proto__','constructor','prototype'].includes(id))&&new Set(Object.values(value)).size===Object.keys(value).length},
     arcUiLanguage:{type:'string',valid:value=>['de','en','fr','es','it'].includes(value)},
     arcPlanningMigrationV1:{type:'string',valid:value=>value==='1'},
