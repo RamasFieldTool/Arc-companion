@@ -289,19 +289,11 @@
           "upgradeCost": null
         },
         {
-          "name": "Ergonomic Bolt",
-          "source": "https://arctracker.io/items/osprey_amplified",
-          "verification": "cross-checked-arc-tracker-and-community-wiki",
-          "upgradeMaterials": [
-            {
-              "itemId": "fluted_rotor_core",
-              "quantity": 3
-            }
-          ],
-          "upgradeCost": null,
-          "aliases": [
-            "Straight Bolt"
-          ]
+          "name": "Straight Bolt",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
         }
       ]
     },
@@ -318,21 +310,12 @@
       "upgradeMaterials": null,
       "researchedUpgradeOptions": [
         {
-          "name": "Incendiary Grenades",
-          "source": "https://arctracker.io/items/rascal_amplified",
-          "verification": "cross-checked-arc-tracker-and-community-wiki",
-          "upgradeMaterials": [
-            {
-              "itemId": "fossilized_lightning",
-              "quantity": 3
-            }
-          ],
+          "name": "Incendiary Grenade",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
           "upgradeCost": null,
-          "reviewNote": "Compare against Incendiary Rounds; do not silently rename",
-          "aliases": [
-            "Incendiary Rounds",
-            "Incendiary Grenade"
-          ]
+          "reviewNote": "Compare against Incendiary Rounds; do not silently rename"
         },
         {
           "name": "High Velocity",
@@ -426,21 +409,12 @@
       "upgradeMaterials": null,
       "researchedUpgradeOptions": [
         {
-          "name": "Incendiary Grenades",
-          "source": "https://arctracker.io/items/hullcracker_amplified",
-          "verification": "cross-checked-arc-tracker-and-community-wiki",
-          "upgradeMaterials": [
-            {
-              "itemId": "fossilized_lightning",
-              "quantity": 3
-            }
-          ],
+          "name": "Incendiary Grenade",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
           "upgradeCost": null,
-          "reviewNote": "Compare against Incendiary Rounds; do not silently rename",
-          "aliases": [
-            "Incendiary Rounds",
-            "Incendiary Grenade"
-          ]
+          "reviewNote": "Compare against Incendiary Rounds; do not silently rename"
         },
         {
           "name": "Mag Reload",
@@ -554,19 +528,11 @@
           "upgradeCost": null
         },
         {
-          "name": "Ergonomic Bolt",
-          "source": "https://arctracker.io/items/jupiter_amplified",
-          "verification": "cross-checked-arc-tracker-and-community-wiki",
-          "upgradeMaterials": [
-            {
-              "itemId": "fluted_rotor_core",
-              "quantity": 3
-            }
-          ],
-          "upgradeCost": null,
-          "aliases": [
-            "Straight Bolt"
-          ]
+          "name": "Straight Bolt",
+          "source": "https://arcraiders.wiki/wiki/Amplification",
+          "verification": "community-reference-unverified-in-game",
+          "upgradeMaterials": null,
+          "upgradeCost": null
         }
       ]
     }
