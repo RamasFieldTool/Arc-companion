@@ -289,11 +289,19 @@
           "upgradeCost": null
         },
         {
-          "name": "Straight Bolt",
-          "source": "https://arcraiders.wiki/wiki/Amplification",
-          "verification": "community-reference-unverified-in-game",
-          "upgradeMaterials": null,
-          "upgradeCost": null
+          "name": "Ergonomic Bolt",
+          "source": "https://arctracker.io/items/osprey_amplified",
+          "verification": "cross-checked-arc-tracker-and-community-wiki",
+          "upgradeMaterials": [
+            {
+              "itemId": "fluted_rotor_core",
+              "quantity": 3
+            }
+          ],
+          "upgradeCost": null,
+          "aliases": [
+            "Straight Bolt"
+          ]
         }
       ]
     },
@@ -310,12 +318,21 @@
       "upgradeMaterials": null,
       "researchedUpgradeOptions": [
         {
-          "name": "Incendiary Grenade",
-          "source": "https://arcraiders.wiki/wiki/Amplification",
-          "verification": "disputed-label-needs-in-game-check",
-          "upgradeMaterials": null,
+          "name": "Incendiary Grenades",
+          "source": "https://arctracker.io/items/rascal_amplified",
+          "verification": "cross-checked-arc-tracker-and-community-wiki",
+          "upgradeMaterials": [
+            {
+              "itemId": "fossilized_lightning",
+              "quantity": 3
+            }
+          ],
           "upgradeCost": null,
-          "reviewNote": "Compare against Incendiary Rounds; do not silently rename"
+          "reviewNote": "Compare against Incendiary Rounds; do not silently rename",
+          "aliases": [
+            "Incendiary Rounds",
+            "Incendiary Grenade"
+          ]
         },
         {
           "name": "High Velocity",
@@ -409,12 +426,21 @@
       "upgradeMaterials": null,
       "researchedUpgradeOptions": [
         {
-          "name": "Incendiary Grenade",
-          "source": "https://arcraiders.wiki/wiki/Amplification",
-          "verification": "disputed-label-needs-in-game-check",
-          "upgradeMaterials": null,
+          "name": "Incendiary Grenades",
+          "source": "https://arctracker.io/items/hullcracker_amplified",
+          "verification": "cross-checked-arc-tracker-and-community-wiki",
+          "upgradeMaterials": [
+            {
+              "itemId": "fossilized_lightning",
+              "quantity": 3
+            }
+          ],
           "upgradeCost": null,
-          "reviewNote": "Compare against Incendiary Rounds; do not silently rename"
+          "reviewNote": "Compare against Incendiary Rounds; do not silently rename",
+          "aliases": [
+            "Incendiary Rounds",
+            "Incendiary Grenade"
+          ]
         },
         {
           "name": "Mag Reload",
@@ -528,11 +554,19 @@
           "upgradeCost": null
         },
         {
-          "name": "Straight Bolt",
-          "source": "https://arcraiders.wiki/wiki/Amplification",
-          "verification": "community-reference-unverified-in-game",
-          "upgradeMaterials": null,
-          "upgradeCost": null
+          "name": "Ergonomic Bolt",
+          "source": "https://arctracker.io/items/jupiter_amplified",
+          "verification": "cross-checked-arc-tracker-and-community-wiki",
+          "upgradeMaterials": [
+            {
+              "itemId": "fluted_rotor_core",
+              "quantity": 3
+            }
+          ],
+          "upgradeCost": null,
+          "aliases": [
+            "Straight Bolt"
+          ]
         }
       ]
     }
@@ -2241,18 +2275,18 @@
   },
   "testIntegration": {
     "source": "https://arctracker.io/api/items",
-    "version": "1791948888742",
+    "version": "2026-10-25-crosschecked",
     "generatedAt": "2026-10-14T03:34:48.742Z",
     "sourceSha256": "68f10c62b3f53686a98a9617ea82a3c22b3514f019ec233e899b8bdc1bca6a6c",
-    "status": "api-documented-not-game-confirmed",
+    "status": "cross-checked-with-one-source-conflict",
     "counts": {
       "sourceConfigurations": 89,
       "sourceConnections": 108,
       "sourceRecipes": 44,
-      "integratedNodes": 40,
-      "referenceConfigurations": 76,
-      "referenceConnections": 84,
-      "researchProjects": 13
+      "integratedNodes": 44,
+      "referenceConfigurations": 89,
+      "referenceConnections": 108,
+      "researchProjects": 15
     },
     "nodes": [
       {
@@ -2984,6 +3018,100 @@
         ],
         "researchReferenceStatus": "documented",
         "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "id": "osprey:ergonomicbolt",
+        "familyId": "osprey",
+        "name": "Ergonomic Bolt",
+        "apiName": "Ergonomic Bolt",
+        "aliases": [
+          "Straight Bolt"
+        ],
+        "status": "cross-checked-arc-tracker-and-community-wiki",
+        "evidenceClass": "B",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "action_economy"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/osprey_amplified",
+        "secondarySource": "https://arcraiders.wiki/wiki/Amplified_Weapons"
+      },
+      {
+        "id": "jupiter:ergonomicbolt",
+        "familyId": "jupiter",
+        "name": "Ergonomic Bolt",
+        "apiName": "Ergonomic Bolt",
+        "aliases": [
+          "Straight Bolt"
+        ],
+        "status": "cross-checked-arc-tracker-and-community-wiki",
+        "evidenceClass": "B",
+        "materials": [
+          {
+            "itemId": "fluted_rotor_core",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "action_economy"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/jupiter_amplified",
+        "secondarySource": "https://arcraiders.wiki/wiki/Amplified_Weapons"
+      },
+      {
+        "id": "rascal:incendiarygrenades",
+        "familyId": "rascal",
+        "name": "Incendiary Grenades",
+        "apiName": "Incendiary Rounds",
+        "aliases": [
+          "Incendiary Grenade",
+          "Incendiary Rounds"
+        ],
+        "status": "cross-checked-arc-tracker-and-community-wiki",
+        "evidenceClass": "B",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "compact_combustion_charges"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/rascal_amplified",
+        "secondarySource": "https://arcraiders.wiki/wiki/Amplified_Weapons"
+      },
+      {
+        "id": "hullcracker:incendiarygrenades",
+        "familyId": "hullcracker",
+        "name": "Incendiary Grenades",
+        "apiName": "Incendiary Rounds",
+        "aliases": [
+          "Incendiary Grenade",
+          "Incendiary Rounds"
+        ],
+        "status": "cross-checked-arc-tracker-and-community-wiki",
+        "evidenceClass": "B",
+        "materials": [
+          {
+            "itemId": "fossilized_lightning",
+            "quantity": 3
+          }
+        ],
+        "researchIds": [
+          "compact_combustion_charges"
+        ],
+        "researchReferenceStatus": "documented",
+        "source": "https://arctracker.io/items/hullcracker_amplified",
+        "secondarySource": "https://arcraiders.wiki/wiki/Amplified_Weapons"
       }
     ],
     "configurations": [
@@ -3597,6 +3725,134 @@
           "renegade:scoped"
         ],
         "source": "https://arctracker.io/items/renegade_amplified_scoped"
+      },
+      {
+        "id": "osprey_amplified_straight_bolt",
+        "familyId": "osprey",
+        "nodeIds": [
+          "osprey:ergonomicbolt"
+        ],
+        "source": "https://arctracker.io/items/osprey_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "osprey_amplified_tracker_rounds_straight_bolt",
+        "familyId": "osprey",
+        "nodeIds": [
+          "osprey:trackerrounds",
+          "osprey:ergonomicbolt"
+        ],
+        "source": "https://arctracker.io/items/osprey_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "osprey_amplified_straight_bolt_anti_weak_point",
+        "familyId": "osprey",
+        "nodeIds": [
+          "osprey:ergonomicbolt",
+          "osprey:antiweakpoint"
+        ],
+        "source": "https://arctracker.io/items/osprey_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "rascal_amplified_incendiary_rounds",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:incendiarygrenades"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "rascal_amplified_high_velocity_incendiary_rounds",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:highvelocity",
+          "rascal:incendiarygrenades"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "rascal_amplified_sprint_shooting_incendiary_rounds",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:sprintshooting",
+          "rascal:incendiarygrenades"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+        "familyId": "rascal",
+        "nodeIds": [
+          "rascal:highvelocity",
+          "rascal:sprintshooting",
+          "rascal:incendiarygrenades"
+        ],
+        "source": "https://arctracker.io/items/rascal_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "hullcracker_amplified_incendiary_rounds",
+        "familyId": "hullcracker",
+        "nodeIds": [
+          "hullcracker:incendiarygrenades"
+        ],
+        "source": "https://arctracker.io/items/hullcracker_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "hullcracker_amplified_incendiary_rounds_mag_reload",
+        "familyId": "hullcracker",
+        "nodeIds": [
+          "hullcracker:incendiarygrenades",
+          "hullcracker:magreload"
+        ],
+        "source": "https://arctracker.io/items/hullcracker_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "jupiter_amplified_straight_bolt",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:ergonomicbolt"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "jupiter_amplified_bigger_mag_straight_bolt",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:biggermag",
+          "jupiter:ergonomicbolt"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "jupiter_amplified_scoped_straight_bolt",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:scoped",
+          "jupiter:ergonomicbolt"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
+      },
+      {
+        "id": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+        "familyId": "jupiter",
+        "nodeIds": [
+          "jupiter:biggermag",
+          "jupiter:scoped",
+          "jupiter:ergonomicbolt"
+        ],
+        "source": "https://arctracker.io/items/jupiter_amplified",
+        "status": "cross-checked-arc-tracker-configuration-list"
       }
     ],
     "connections": [
@@ -4019,6 +4275,150 @@
         "from": "renegade_amplified_scoped",
         "to": "renegade_amplified_more_reload_scoped",
         "nodeId": "renegade:morereload"
+      },
+      {
+        "from": "osprey_amplified",
+        "to": "osprey_amplified_straight_bolt",
+        "nodeId": "osprey:ergonomicbolt",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "from": "osprey_amplified_straight_bolt",
+        "to": "osprey_amplified_tracker_rounds_straight_bolt",
+        "nodeId": "osprey:trackerrounds",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "from": "osprey_amplified_tracker_rounds",
+        "to": "osprey_amplified_tracker_rounds_straight_bolt",
+        "nodeId": "osprey:ergonomicbolt",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "from": "osprey_amplified_anti_weak_point",
+        "to": "osprey_amplified_straight_bolt_anti_weak_point",
+        "nodeId": "osprey:ergonomicbolt",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "from": "osprey_amplified_straight_bolt",
+        "to": "osprey_amplified_straight_bolt_anti_weak_point",
+        "nodeId": "osprey:antiweakpoint",
+        "source": "https://arctracker.io/items/osprey_amplified"
+      },
+      {
+        "from": "rascal_amplified",
+        "to": "rascal_amplified_incendiary_rounds",
+        "nodeId": "rascal:incendiarygrenades",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_incendiary_rounds",
+        "to": "rascal_amplified_high_velocity_incendiary_rounds",
+        "nodeId": "rascal:highvelocity",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_high_velocity",
+        "to": "rascal_amplified_high_velocity_incendiary_rounds",
+        "nodeId": "rascal:incendiarygrenades",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_incendiary_rounds",
+        "to": "rascal_amplified_sprint_shooting_incendiary_rounds",
+        "nodeId": "rascal:sprintshooting",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_sprint_shooting",
+        "to": "rascal_amplified_sprint_shooting_incendiary_rounds",
+        "nodeId": "rascal:incendiarygrenades",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_sprint_shooting_incendiary_rounds",
+        "to": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+        "nodeId": "rascal:highvelocity",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_high_velocity_incendiary_rounds",
+        "to": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+        "nodeId": "rascal:sprintshooting",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "rascal_amplified_high_velocity_sprint_shooting",
+        "to": "rascal_amplified_high_velocity_sprint_shooting_incendiary_rounds",
+        "nodeId": "rascal:incendiarygrenades",
+        "source": "https://arctracker.io/items/rascal_amplified"
+      },
+      {
+        "from": "hullcracker_amplified",
+        "to": "hullcracker_amplified_incendiary_rounds",
+        "nodeId": "hullcracker:incendiarygrenades",
+        "source": "https://arctracker.io/items/hullcracker_amplified"
+      },
+      {
+        "from": "hullcracker_amplified_mag_reload",
+        "to": "hullcracker_amplified_incendiary_rounds_mag_reload",
+        "nodeId": "hullcracker:incendiarygrenades",
+        "source": "https://arctracker.io/items/hullcracker_amplified"
+      },
+      {
+        "from": "hullcracker_amplified_incendiary_rounds",
+        "to": "hullcracker_amplified_incendiary_rounds_mag_reload",
+        "nodeId": "hullcracker:magreload",
+        "source": "https://arctracker.io/items/hullcracker_amplified"
+      },
+      {
+        "from": "jupiter_amplified",
+        "to": "jupiter_amplified_straight_bolt",
+        "nodeId": "jupiter:ergonomicbolt",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_straight_bolt",
+        "to": "jupiter_amplified_bigger_mag_straight_bolt",
+        "nodeId": "jupiter:biggermag",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_bigger_mag",
+        "to": "jupiter_amplified_bigger_mag_straight_bolt",
+        "nodeId": "jupiter:ergonomicbolt",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_straight_bolt",
+        "to": "jupiter_amplified_scoped_straight_bolt",
+        "nodeId": "jupiter:scoped",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_scoped",
+        "to": "jupiter_amplified_scoped_straight_bolt",
+        "nodeId": "jupiter:ergonomicbolt",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_scoped_straight_bolt",
+        "to": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+        "nodeId": "jupiter:biggermag",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_bigger_mag_straight_bolt",
+        "to": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+        "nodeId": "jupiter:scoped",
+        "source": "https://arctracker.io/items/jupiter_amplified"
+      },
+      {
+        "from": "jupiter_amplified_bigger_mag_scoped",
+        "to": "jupiter_amplified_bigger_mag_scoped_straight_bolt",
+        "nodeId": "jupiter:ergonomicbolt",
+        "source": "https://arctracker.io/items/jupiter_amplified"
       }
     ],
     "research": [
@@ -4330,6 +4730,50 @@
         },
         "taskSource": "https://arctracker.io/research/trigger-reset-systems",
         "taskLimitations": "Loadout icons were not extracted; only explicit task text is represented."
+      },
+      {
+        "id": "action_economy",
+        "name": "Action Economy",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "sentinel_firing_core",
+            "quantity": 8
+          }
+        ],
+        "source": "https://arctracker.io/research/action-economy",
+        "status": "cross-checked-arc-tracker-and-community-wiki",
+        "tasks": {
+          "de": "Deal 1,000 damage with a Hairpin in one raid",
+          "en": "Deal 1,000 damage with a Hairpin in one raid",
+          "fr": "Deal 1,000 damage with a Hairpin in one raid",
+          "es": "Deal 1,000 damage with a Hairpin in one raid",
+          "it": "Deal 1,000 damage with a Hairpin in one raid"
+        },
+        "taskLimitations": "English task shown in all languages pending verified translations; additional loadout icons not resolved."
+      },
+      {
+        "id": "compact_combustion_charges",
+        "name": "Compact Combustion Charges",
+        "stationLevel": 4,
+        "points": 5000,
+        "materials": [
+          {
+            "itemId": "bombardier_cell",
+            "quantity": 5
+          }
+        ],
+        "source": "https://arctracker.io/research/compact-combustion-charges",
+        "status": "cross-checked-arc-tracker-and-community-wiki",
+        "tasks": {
+          "de": "Deal 3,000 damage with Blaze Grenades; loadout requirement not fully resolved",
+          "en": "Deal 3,000 damage with Blaze Grenades; loadout requirement not fully resolved",
+          "fr": "Deal 3,000 damage with Blaze Grenades; loadout requirement not fully resolved",
+          "es": "Deal 3,000 damage with Blaze Grenades; loadout requirement not fully resolved",
+          "it": "Deal 3,000 damage with Blaze Grenades; loadout requirement not fully resolved"
+        },
+        "taskLimitations": "English task shown in all languages pending verified translations; additional loadout icons not resolved."
       }
     ],
     "materials": {
@@ -4476,25 +4920,20 @@
     },
     "unresolved": [
       {
-        "familyId": "osprey",
-        "name": "Straight Bolt"
-      },
-      {
-        "familyId": "rascal",
-        "name": "Incendiary Grenade"
-      },
-      {
-        "familyId": "hullcracker",
-        "name": "Incendiary Grenade"
-      },
-      {
         "familyId": "equalizer",
-        "name": "Anti Shield"
-      },
-      {
-        "familyId": "jupiter",
-        "name": "Straight Bolt"
+        "name": "Anti Shield",
+        "reason": "Community wiki lists Anti Shield for Equalizer, but ARC Tracker game-version-2.01 upgrade tree does not. No validated materials or compatible configuration; excluded from planner pending confirmation.",
+        "sources": [
+          "https://arcraiders.wiki/wiki/Amplification",
+          "https://arctracker.io/items/equalizer_amplified"
+        ]
       }
-    ]
+    ],
+    "verification": {
+      "date": "2026-10-25",
+      "primary": "https://arctracker.io/items",
+      "secondary": "https://arcraiders.wiki/wiki/Amplified_Weapons",
+      "notes": "Four formerly missing upgrades now confirmed by two community data sources. Names vary between UI, API slugs and wiki; preserved as aliases. Equalizer Anti Shield remains disputed, not fabricated."
+    }
   }
 }
