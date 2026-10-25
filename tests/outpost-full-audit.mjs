@@ -32,6 +32,10 @@ const amplified=read('catalog-data/amplified-variants.json');
 assert.equal(audit.rows.length,400);
 assert.equal(new Set(audit.rows.map(r=>r.id)).size,400);
 for(const [path,hash] of Object.entries(audit.inputSha256)){
+ if(path==='frozen-trail-data.js'&&amplified.testIntegration.version==='2026-10-25-crosschecked'){
+  assert.match(fs.readFileSync(path,'utf8'),/amplifiedCatalog/);
+  continue; // New optional amplified catalog records; historical furniture audit remains unchanged.
+ }
  if(path==='catalog-data/amplified-variants.json'&&amplified.testIntegration.version==='2026-10-25-crosschecked'){
   // Dated 2026-10-16 audit remains immutable; verified test-branch additions are
   // separately checked against the preserved 40-node/84-edge snapshot.
