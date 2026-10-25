@@ -80,7 +80,7 @@ assert((await page.locator('#rftAmplifiedPlanner .rft-amplified-count').textCont
 await page.locator('#rftAmplifiedPlanner select').selectOption('hairpin');
 const current=page.locator('#rftAmplifiedPlanner fieldset input:checked').first();
 if(await current.count()){
- await current.uncheck();
+ await current.click();
  assert.equal(await page.locator('#rftAmplifiedPlanner fieldset input:checked').count(),0);
 }
 
