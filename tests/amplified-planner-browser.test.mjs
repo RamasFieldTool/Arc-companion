@@ -36,6 +36,29 @@ const raid=page.locator('#rftAmplifiedPlanner button').last();
 await raid.click();
 assert((await raid.textContent()).includes('Ajouté')||(await raid.textContent()).includes('Déjà ajouté'));
 
+
+// Exercise every newly corroborated upgrade, research cost, persistence and raid handoff.
+for(const [family,perk,material] of [
+  ['osprey','ergonomicbolt','fluted_rotor_core'],
+  ['jupiter','ergonomicbolt','fluted_rotor_core'],
+  ['rascal','incendiarygrenades','fossilized_lightning'],
+  ['hullcracker','incendiarygrenades','fossilized_lightning']
+]){
+  await page.locator('#rftAmplifiedPlanner select').selectOption(family);
+  const selector='#rftAmplifiedPlanner fieldset label';
+  const choice=page.locator(selector).filter({hasText:family==='osprey'||family==='jupiter'?'Ergonomic Bolt':'Incendiary Grenades'});
+  assert.equal(await choice.count(),1, family+' perk missing');
+  const checkbox=choice.locator('input');
+  assert.equal(await checkbox.isDisabled(),false, family+' perk unexpectedly locked');
+  await checkbox.check();
+  const selected=await page.evaluate(key=>JSON.parse(localStorage.getItem('rftAmplifiedPlansV1')||'{}')[key],family);
+  assert(selected.includes(family+':'+perk));
+  assert((await page.locator('#rftAmplifiedPlanner ul').first().textContent()).includes(material));
+}
+await page.locator('#rftAmplifiedPlanner select').selectOption('equalizer');
+assert.equal(await page.locator('#rftAmplifiedPlanner fieldset').getByText('Anti Shield').count(),0);
+assert((await page.locator('#rftAmplifiedPlanner').textContent()).includes('Anti Shield'));
+
 const width=await page.evaluate(()=>document.documentElement.scrollWidth);
 assert(width<=430,'Mobile horizontal overflow: '+width);
 assert.deepEqual(errors,[]);
