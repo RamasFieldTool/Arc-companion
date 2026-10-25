@@ -1,0 +1,23 @@
+name: Amplified planner validation
+on:
+  pull_request:
+    paths:
+      - 'amplified-planner-v15.js'
+      - 'app.js'
+      - 'frozen-trail-data.js'
+      - 'backup-v1304.js'
+      - 'catalog-data/amplified-variants.json'
+      - 'tests/amplified-planner-v15.test.mjs'
+      - '.github/workflows/amplified-planner.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/amplified-planner-v15.test.mjs
