@@ -78,8 +78,8 @@ try{
    await tab(page,'research');await page.locator('#outpostAmplifiedWeapons input').fill('Splitter');await page.locator('.amplified-family>summary').click();await page.locator('[data-node-id="anvil:anvilsplitter"]>summary').click();
    assert.match(await page.locator('[data-node-id="anvil:anvilsplitter"]').innerText(),/3×/);
    await page.locator('#outpostAmplifiedWeapons input').fill('');
-   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-node').count(),40);
-   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-unresolved').count(),5);
+   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-node').count(),44);
+   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-unresolved').count(),1);
    await tab(page,'build');await page.locator('#outpostExpansionReference summary').click();assert.equal(await page.locator('#outpostExpansionReference li').count(),3);
    await tab(page,'furniture');await page.locator('#outpostCatalogSearch').fill('barstool');await page.locator('#outpostCatalogList summary').click();
    await tab(page,'build');await tab(page,'furniture');assert.equal(await page.locator('#outpostCatalogList details').evaluate(n=>n.open),true);
