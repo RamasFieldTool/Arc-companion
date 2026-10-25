@@ -23,3 +23,19 @@ assert(fs.readFileSync('index.html','utf8').includes('amplified-planner-v15.js')
 const backup=fs.readFileSync('backup-v1304.js','utf8');
 assert(backup.includes('rftAmplifiedPlansV1')&&backup.includes('rftAmplifiedResearchV1'));
 console.log('PASS: amplified catalog integrity, syntax, catalog wiring, backup wiring');
+
+// Runtime catalog regression: exactly 15 amplified records and no duplicates on repeated extension.
+const memory=new Map();
+const localStorage={getItem:key=>memory.get(key)||null,setItem:(key,value)=>memory.set(key,String(value))};
+const runtime={window:{localStorage},structuredClone:globalThis.structuredClone,localStorage};
+vm.runInNewContext(fs.readFileSync('frozen-trail-data.js','utf8'),runtime,{filename:'frozen-trail-data.js'});
+const first=runtime.window.RFTFrozenTrailData.extend([],[]);
+const second=runtime.window.RFTFrozenTrailData.extend(first.items,first.goals);
+assert.equal(first.items.filter(item=>item.id.endsWith('_amplified')).length,15);
+assert.equal(second.items.length,first.items.length);
+assert.equal(new Set(second.items.map(item=>item.id)).size,second.items.length);
+assert.equal(second.goals.length,first.goals.length);
+const unresolved=data.unresolved||[];
+assert.equal(unresolved.length,5);
+for(const item of unresolved)assert(source.families.some(f=>f.id===item.familyId));
+console.log('PASS: catalog extension idempotence, no duplicate IDs, unresolved mappings preserved');
