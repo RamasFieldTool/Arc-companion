@@ -46,7 +46,7 @@ for(const [family,perk,material] of [
 ]){
   await page.locator('#rftAmplifiedPlanner select').selectOption(family);
   const selector='#rftAmplifiedPlanner fieldset label';
-  const choice=page.locator(selector).filter({hasText:family==='osprey'||family==='jupiter'?'Ergonomic Bolt':'Incendiary Grenades'});
+  const choice=page.locator(selector).filter({hasText:family==='osprey'||family==='jupiter'?'Ergonomic Bolt':'Incendiary Rounds'});
   assert.equal(await choice.count(),1, family+' perk missing');
   const checkbox=choice.locator('input');
   assert.equal(await checkbox.isDisabled(),false, family+' perk unexpectedly locked');
