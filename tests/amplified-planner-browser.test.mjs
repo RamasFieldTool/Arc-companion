@@ -19,6 +19,23 @@ await page.waitForSelector('#rftAmplifiedPlanner select');
 assert.equal(await page.locator('#rftAmplifiedPlanner select option').count(),15);
 await page.locator('#rftAmplifiedPlanner select').selectOption('hairpin');
 assert(await page.locator('#rftAmplifiedPlanner input[type=checkbox]').count()>0);
+
+// Choose a valid first-step upgrade and verify persistence and research UI.
+const first=page.locator('#rftAmplifiedPlanner input[type=checkbox]:not([disabled])').first();
+if(await first.count()){
+  await first.check();
+  const saved=await page.evaluate(()=>JSON.parse(localStorage.getItem('rftAmplifiedPlansV1')||'{}'));
+  assert(Array.isArray(saved.hairpin));
+  assert(saved.hairpin.length>0);
+}
+await page.evaluate(()=>{localStorage.setItem('arcUiLanguage','fr');window.dispatchEvent(new Event('arc-language-change'))});
+assert.equal(await page.locator('#rftAmplifiedPlanner h3').textContent(),'Améliorer les armes');
+assert.equal(await page.locator('#rftAmplifiedPlanner select').inputValue(),'hairpin');
+await page.evaluate(()=>{window.RFTNextRaidGoals={addMissingItems:rows=>({saved:true,added:rows.length,alreadySaved:0})}});
+const raid=page.locator('#rftAmplifiedPlanner button').last();
+await raid.click();
+assert((await raid.textContent()).includes('Ajouté')||(await raid.textContent()).includes('Déjà ajouté'));
+
 const width=await page.evaluate(()=>document.documentElement.scrollWidth);
 assert(width<=430,'Mobile horizontal overflow: '+width);
 assert.deepEqual(errors,[]);
