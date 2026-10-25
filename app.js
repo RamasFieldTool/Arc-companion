@@ -236,7 +236,7 @@ function itemRecipeHtml(i){
 
 function card(i){
   const amplified=window.RFTAmplified?.byId?.[i.id]||window.RFTAmplified?.data?.families?.find(f=>i.id===f.id+'_amplified');
-  const amplifiedLabel=lang==='de'?'Amplified: 5. Qualitätsstufe':'Amplified: 5th quality tier';
+  const amplifiedLabel=['aphelion','equalizer','jupiter'].includes(amplified?.family||amplified?.id)?(lang==='de'?'Legendäre Amplified-Variante':'Legendary amplified variant'):(lang==='de'?'Amplified: 5. Qualitätsstufe':'Amplified: 5th quality tier');
   const amplifiedNote=lang==='de'?'Modulklasse nach Seltenheit; Kosten und Werte noch nicht bestätigt.':'Module class by rarity; costs and stats not yet confirmed.';
   const amplifiedOptions=amplified?.researchedUpgradeOptions||[];
   const optionHeading=lang==='de'?'Upgrade-Optionen (Community, unbestätigt)':'Upgrade options (community, unverified)';
