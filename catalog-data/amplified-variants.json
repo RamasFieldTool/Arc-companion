@@ -3034,11 +3034,11 @@
       {
         "id": "rascal:incendiarygrenades",
         "familyId": "rascal",
-        "name": "Incendiary Grenades",
+        "name": "Incendiary Rounds",
         "apiName": "Incendiary Rounds",
         "aliases": [
-          "Incendiary Grenade",
-          "Incendiary Rounds"
+          "Incendiary Grenades",
+          "Incendiary Grenade"
         ],
         "status": "cross-checked-arc-tracker-and-community-wiki",
         "evidenceClass": "B",
@@ -3058,11 +3058,11 @@
       {
         "id": "hullcracker:incendiarygrenades",
         "familyId": "hullcracker",
-        "name": "Incendiary Grenades",
+        "name": "Incendiary Rounds",
         "apiName": "Incendiary Rounds",
         "aliases": [
-          "Incendiary Grenade",
-          "Incendiary Rounds"
+          "Incendiary Grenades",
+          "Incendiary Grenade"
         ],
         "status": "cross-checked-arc-tracker-and-community-wiki",
         "evidenceClass": "B",
