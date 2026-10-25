@@ -151,21 +151,21 @@ test('Outpost renders researched options and five language labels',()=>{
   assert.match(script,/shared.labels/);
   assert.match(script,/integration.nodes/);
 });
-test('controlled integration preserves the 40 approved nodes and excludes five unresolved labels',()=>{
+test('controlled integration preserves original approved nodes and adds source-corroborated nodes',()=>{
  const ref=data.testIntegration;
- assert.equal(ref.nodes.length,40);assert.equal(ref.research.length,13);
- assert.equal(ref.configurations.length,76);assert.equal(ref.connections.length,84);
- assert.equal(new Set(ref.nodes.map(n=>n.id)).size,40);
- assert.equal(ref.unresolved.length,5);
+ assert.equal(ref.nodes.length,44);assert.equal(ref.research.length,15);
+ assert.equal(ref.configurations.length,89);assert.equal(ref.connections.length,108);
+ assert.equal(new Set(ref.nodes.map(n=>n.id)).size,44);
+ assert.equal(ref.unresolved.length,1);
+ assert.equal(ref.unresolved[0].familyId,'equalizer');
  const nodes=new Map(ref.nodes.map(n=>[n.id,n]));
  const configurations=new Map(ref.configurations.map(c=>[c.id,c]));
- const historical=new Set(data.families.flatMap(f=>f.researchedUpgradeOptions.map(n=>f.id+'|'+n.name)));
- for(const n of ref.nodes){
-  assert.ok(historical.has(n.familyId+'|'+n.name));
-  assert.ok(!['Straight Bolt','Incendiary Grenade','Anti Shield'].includes(n.name));
-  assert.equal(n.status,'api-documented-not-game-confirmed');assert.equal(n.evidenceClass,'C');
-  assert.ok(n.materials.every(m=>Number.isInteger(m.quantity)&&m.quantity>0&&ref.materials[m.itemId]));
-  assert.ok(n.researchIds.every(id=>ref.research.some(r=>r.id===id)));
+ const oldNodes=ref.nodes.filter(n=>n.status==='api-documented-not-game-confirmed');
+ assert.equal(oldNodes.length,40);
+ for(const n of oldNodes){assert.equal(n.evidenceClass,'C');assert.ok(n.materials.every(m=>m.quantity>0&&ref.materials[m.itemId]));}
+ for(const fid of ['osprey','rascal','hullcracker','jupiter']){
+  const n=ref.nodes.find(n=>n.familyId===fid&&n.status==='cross-checked-arc-tracker-and-community-wiki');
+  assert.ok(n);assert.equal(n.evidenceClass,'B');assert.ok(n.aliases.length);
  }
  for(const e of ref.connections){
   const from=configurations.get(e.from),to=configurations.get(e.to),node=nodes.get(e.nodeId);
@@ -183,18 +183,22 @@ test('controlled integration preserves the 40 approved nodes and excludes five u
  assert.deepEqual(nodes.get('hairpin:sprintshooting').materials,[{itemId:'fluted_rotor_core',quantity:3}]);
  assert.deepEqual(nodes.get('rascal:sprintshooting').materials,[{itemId:'fluted_rotor_core',quantity:2}]);
 });
-test('integration costs and every retained connection match the audited API snapshot',()=>{
+test('original audited API snapshot stays intact and additions have attributable source evidence',()=>{
  const audit=fs.readFileSync('catalog-data/amplified-completeness-audit.md','utf8');
  const source=JSON.parse(audit.split('```json\n').at(-1).split('\n```')[0]);
  const records=new Map(source.records.map(r=>[r.id,r]));
- assert.equal(data.testIntegration.version,source.version);
- for(const edge of data.testIntegration.connections){
-  const actual=records.get(edge.from)?.upgrades?.find(e=>e.to===edge.to);
-  assert.ok(actual,edge.from+' → '+edge.to);
+ assert.equal(source.version,'1791948888742');
+ const historical=data.testIntegration.connections.filter(e=>records.get(e.from)?.upgrades?.some(u=>u.to===e.to));
+ assert.equal(historical.length,84);
+ for(const edge of historical){
+  const actual=records.get(edge.from).upgrades.find(e=>e.to===edge.to);
   const node=data.testIntegration.nodes.find(n=>n.id===edge.nodeId);
   assert.deepEqual(Object.fromEntries(node.materials.map(m=>[m.itemId,m.quantity])),actual.cost);
   assert.deepEqual(node.researchIds,(actual.requires||[]).map(r=>r.itemId));
  }
+ const newEdges=data.testIntegration.connections.filter(e=>!historical.includes(e));
+ assert.equal(newEdges.length,24);
+ for(const edge of newEdges)assert.match(edge.source,/^https:\/\/arctracker\.io\/items\//);
  const shared=fs.readFileSync('amplified-search.js','utf8'),outpost=fs.readFileSync('outpost-amplified.js','utf8');
  assert.equal((shared.match(/fetch\(/g)||[]).length,1);
  assert.doesNotMatch(outpost,/fetch\(/);
