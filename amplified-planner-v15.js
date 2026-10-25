@@ -22,11 +22,11 @@ content.append(node('h4',label(4)));const list=node('ul');let owned={};try{owned
 for(const [id,qty] of required){const have=Math.max(0,Number(owned[id])||0);list.append(node('li',qty+'× '+api.materialName(id)+' · '+label(6)+' '+have+' · '+label(7)+' '+Math.max(0,qty-have)))}if(!required.size)list.append(node('li',label(15)));content.append(list);
 content.append(node('h4',label(5)));const research=node('ul');for(const r of res){const li=node('li'),cb=node('input');cb.type='checkbox';cb.checked=!!researchDone[r.id];cb.setAttribute('aria-label',r.name);cb.addEventListener('change',()=>{const x=readResearch();x[r.id]=cb.checked;localStorage.setItem('rftAmplifiedResearchV1',JSON.stringify(x));render()});li.append(cb,document.createTextNode(' '+r.name+' · '+r.points+' RP'));research.append(li)}if(!res.length)research.append(node('li','—'));content.append(research);content.append(node('p',label(11)));
 const missingResearch=chosen.filter(n=>n.researchReferenceStatus==='not-listed-not-proven-unnecessary');if(missingResearch.length)content.append(node('p','⚠ '+missingResearch.map(n=>n.name).join(', ')+': '+label(11)));const unresolved=data.unresolved.filter(n=>n.familyId===fid);if(unresolved.length)content.append(node('p','⚠ '+unresolved.map(n=>n.name).join(', ')+': '+label(11)));const btn=node('button',label(8));btn.type='button';btn.addEventListener('click',()=>{save(picked);btn.textContent=label(12)});content.append(btn);
-const raidButton=node('button',(localStorage.getItem('arcUiLanguage')==='de'?'Fehlende Materialien für Raid vormerken':'Add missing materials to next raid'));raidButton.type='button';raidButton.addEventListener('click',()=>{
-let raid={};try{raid=JSON.parse(localStorage.getItem('arcNextRaid')||'{}')}catch{}
-if(!raid||typeof raid!=='object'||Array.isArray(raid))raid={};
-for(const [id,quantity] of required){const have=Math.max(0,Number(owned[id])||0),missing=Math.max(0,quantity-have);if(!missing)continue;const previous=raid[id];if(previous&&previous.personal===true)continue;const target=Math.max(missing,Number(previous?.target)||0);raid[id]={target,done:false};}
-localStorage.setItem('arcNextRaid',JSON.stringify(raid));raidButton.textContent=(localStorage.getItem('arcUiLanguage')==='de'?'Vorgemerkt – Raid-Ansicht neu öffnen':'Saved – reopen raid view');
+const raidButton=node('button',({'de':'Fehlende Materialien für Raid vormerken','en':'Add missing materials to next raid','fr':'Ajouter les matériaux manquants au raid','es':'Añadir materiales faltantes a la incursión','it':'Aggiungi materiali mancanti al raid'})[localStorage.getItem('arcUiLanguage')]||'Add missing materials to next raid');
+raidButton.type='button';raidButton.addEventListener('click',()=>{
+const rows=[...required].map(([itemId,quantity])=>({itemId,missing:Math.max(0,quantity-Math.max(0,Number(owned[itemId])||0))})).filter(x=>x.missing>0);
+const result=window.RFTNextRaidGoals?.addMissingItems(rows);
+raidButton.textContent=result?.saved?(result.added?'✓ '+result.added+' items':'✓ Already on raid list'):'Raid planner unavailable';
 });content.append(raidButton);
 }
 function readResearch(){try{const x=JSON.parse(localStorage.getItem('rftAmplifiedResearchV1')||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}catch{return {}}}
