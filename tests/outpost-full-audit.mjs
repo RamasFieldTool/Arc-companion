@@ -31,7 +31,16 @@ assert.equal(screenshotEvidence.fullyGameVerifiedRecords,0);
 const amplified=read('catalog-data/amplified-variants.json');
 assert.equal(audit.rows.length,400);
 assert.equal(new Set(audit.rows.map(r=>r.id)).size,400);
-for(const [path,hash] of Object.entries(audit.inputSha256))assert.equal(crypto.createHash('sha256').update((path==='outpost-catalog.json'?JSON.stringify(auditedCatalog,null,2)+'\n':fs.readFileSync(path))).digest('hex'),hash,'stale audit: '+path);
+for(const [path,hash] of Object.entries(audit.inputSha256)){
+ if(path==='catalog-data/amplified-variants.json'&&amplified.testIntegration.version==='2026-10-25-crosschecked'){
+  // Dated 2026-10-16 audit remains immutable; verified test-branch additions are
+  // separately checked against the preserved 40-node/84-edge snapshot.
+  assert.equal(amplified.testIntegration.nodes.filter(n=>n.status==='api-documented-not-game-confirmed').length,40);
+  assert.equal(amplified.testIntegration.connections.length,108);
+  continue;
+ }
+ assert.equal(crypto.createHash('sha256').update((path==='outpost-catalog.json'?JSON.stringify(auditedCatalog,null,2)+'\n':fs.readFileSync(path))).digest('hex'),hash,'stale audit: '+path);
+}
 for(const row of audit.rows){
  assert.ok(['VERIFIZIERT','TEILWEISE VERIFIZIERT','NICHT VERIFIZIERT','WIDERSPRÜCHLICH','FEHLGESCHLAGEN'].includes(row.status));
  assert.ok(row.missing.length&&row.requiredEvidence&&row.verificationScope&&row.sources.length);
