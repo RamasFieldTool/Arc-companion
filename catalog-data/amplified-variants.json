@@ -4916,6 +4916,20 @@
         "fr": "Régulateur de Vaporisateur",
         "es": "Regulador de atomizador",
         "it": "Regolatore Valutatore"
+      },
+      "sentinel_firing_core": {
+        "de": "Sentinel Firing Core",
+        "en": "Sentinel Firing Core",
+        "fr": "Sentinel Firing Core",
+        "es": "Sentinel Firing Core",
+        "it": "Sentinel Firing Core"
+      },
+      "bombardier_cell": {
+        "de": "Bombardier Cell",
+        "en": "Bombardier Cell",
+        "fr": "Bombardier Cell",
+        "es": "Bombardier Cell",
+        "it": "Bombardier Cell"
       }
     },
     "unresolved": [
