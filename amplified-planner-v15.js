@@ -30,7 +30,7 @@ localStorage.setItem('arcNextRaid',JSON.stringify(raid));raidButton.textContent=
 }
 function readResearch(){try{const x=JSON.parse(localStorage.getItem('rftAmplifiedResearchV1')||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}catch{return {}}}
 function save(picked){const all=store();all[familySelect.value]=[...picked];localStorage.setItem(KEY,JSON.stringify(all))}
-familySelect.addEventListener('change',render);render()}
+familySelect.addEventListener('change',render);window.RFTAmplifiedPlanner={open(id){if(api.data?.families.some(f=>f.id===id)){familySelect.value=id;render()}root.scrollIntoView({behavior:'smooth',block:'start'});return true}};render()}
 const css=node('style');css.textContent='.rft-amplified-planner{margin:12px 0;padding:14px;border:1px solid var(--ui-line,#666);border-radius:12px;color:var(--ui-text,inherit)}.rft-amplified-planner select,.rft-amplified-planner button{display:block;min-height:44px;width:100%;margin:8px 0;padding:9px;background:var(--ui-panel,#222);color:var(--ui-text,#fff);border:1px solid var(--ui-line,#666);border-radius:8px}.rft-amplified-planner fieldset{border:0;padding:0}.rft-amplified-planner fieldset label{display:block;padding:10px 2px;min-height:44px}.rft-amplified-planner input{min-width:20px;min-height:20px}.rft-amplified-planner li{overflow-wrap:anywhere;margin:6px 0}';document.head.append(css);
 window.addEventListener('rft-amplified-data-ready',mount);window.addEventListener('arc-language-change',mount);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
 })();
