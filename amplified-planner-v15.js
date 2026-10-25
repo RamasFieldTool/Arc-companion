@@ -5,7 +5,7 @@ const tr={de:['Waffen verbessern','Waffe wählen','Verbesserungen auswählen','M
 const label=(i)=>{const l=localStorage.getItem('arcUiLanguage')||localStorage.getItem('arcLang')||'en';return (tr[l]||tr.en)[i]};
 const node=(tag,txt)=>{const e=document.createElement(tag);if(txt!==undefined)e.textContent=txt;return e};
 const store=()=>{try{const x=JSON.parse(localStorage.getItem(KEY)||'{}');return x&&typeof x==='object'&&!Array.isArray(x)?x:{}}catch{return {}}};
-function mount(){if(document.getElementById('rftAmplifiedPlanner'))return;const root=node('section');root.id='rftAmplifiedPlanner';root.className='rft-amplified-planner';root.append(node('h3',label(0)));const host=document.getElementById('outpostAmplifiedHost')||document.getElementById('outpostFurnitureDesigns')?.parentElement||document.getElementById('itemsSection');if(!host)return;host.prepend(root);
+function mount(){const previous=document.getElementById('rftAmplifiedPlanner');if(previous){if(!api.data)return;previous.remove()}const root=node('section');root.id='rftAmplifiedPlanner';root.className='rft-amplified-planner';root.append(node('h3',label(0)));const host=document.getElementById('outpostAmplifiedHost')||document.getElementById('outpostFurnitureDesigns')?.parentElement||document.getElementById('itemsSection');if(!host)return;host.prepend(root);
 const data=api.data?.testIntegration;if(!data){root.append(node('p',label(10)));return}
 const familySelect=node('select');familySelect.setAttribute('aria-label',label(1));for(const f of api.data.families){const o=node('option',api.familyName(f.id));o.value=f.id;familySelect.append(o)}root.append(node('label',label(1)),familySelect);
 const content=node('div');root.append(content);
@@ -32,5 +32,5 @@ function readResearch(){try{const x=JSON.parse(localStorage.getItem('rftAmplifie
 function save(picked){const all=store();all[familySelect.value]=[...picked];localStorage.setItem(KEY,JSON.stringify(all))}
 familySelect.addEventListener('change',render);render()}
 const css=node('style');css.textContent='.rft-amplified-planner{margin:12px 0;padding:14px;border:1px solid var(--ui-line,#666);border-radius:12px;color:var(--ui-text,inherit)}.rft-amplified-planner select,.rft-amplified-planner button{display:block;min-height:44px;width:100%;margin:8px 0;padding:9px;background:var(--ui-panel,#222);color:var(--ui-text,#fff);border:1px solid var(--ui-line,#666);border-radius:8px}.rft-amplified-planner fieldset{border:0;padding:0}.rft-amplified-planner fieldset label{display:block;padding:10px 2px;min-height:44px}.rft-amplified-planner input{min-width:20px;min-height:20px}.rft-amplified-planner li{overflow-wrap:anywhere;margin:6px 0}';document.head.append(css);
-window.addEventListener('rft-amplified-data-ready',mount);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
+window.addEventListener('rft-amplified-data-ready',mount);window.addEventListener('arc-language-change',mount);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
 })();
