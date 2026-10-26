@@ -41,9 +41,10 @@
   function emptyMessage(){
     const hasPersonal=Object.values(window.RFTPlanning.personalGoals()).some(goal=>goal.status==='active');
     const activeQuests=typeof quests!=='undefined'?quests.filter(quest=>getQuestState(quest.id)==='active'):[];
+    const hasWeapons=(window.RFTWeaponPlanner?.requirements?.()||[]).length>0;
     const hasWorkshop=typeof active!=='undefined'&&Object.values(active).some(Boolean);
-    if(!hasPersonal&&!activeQuests.length&&!hasWorkshop)return x().none;
-    if(!hasPersonal&&!hasWorkshop&&activeQuests.every(quest=>!(quest.requiredItemIds||[]).length))return x().tasks;
+    if(!hasWeapons&&!hasPersonal&&!activeQuests.length&&!hasWorkshop)return x().none;
+    if(!hasWeapons&&!hasPersonal&&!hasWorkshop&&activeQuests.every(quest=>!(quest.requiredItemIds||[]).length))return x().tasks;
     return x().ready;
   }
   function render(){renderMissing();renderPersonal();syncLabels();let costs=document.getElementById('planningExtraCosts');if(!costs){costs=document.createElement('div');costs.id='planningExtraCosts';missing.after(costs)}costs.hidden=missing.hidden;const entries=typeof goals!=='undefined'?goals.flatMap(goal=>(goal.levels||[]).filter(level=>active[key(goal.id,level.level)]&&Array.isArray(level.other)&&level.other.length).map(level=>`${goalName(goal)} ${tr('level')} ${level.level}: ${level.other.join(' · ')}`)):[];costs.innerHTML=entries.length?`<div class="planning-empty">${entries.map(esc).join('<br>')}</div>`:''}

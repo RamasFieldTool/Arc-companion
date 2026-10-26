@@ -5,6 +5,8 @@ import { fileURLToPath } from 'node:url';
 const BASE_URL=process.env.BASE_URL||'http://127.0.0.1:4173/';
 const OUTPUT=new URL('../test-artifacts/ui/',import.meta.url);
 const shot=name=>fileURLToPath(new URL(name,OUTPUT));
+const liveEventsFixture=await readFile(new URL('../live-events.json',import.meta.url),'utf8');
+const locationFixture=JSON.parse(await readFile(new URL('fixtures/item-find-locations.json',import.meta.url),'utf8'));
 const items=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8'));
 if(!items.length)throw new Error('items.json fixture missing');
 const fixtureItems=items.slice(0,Math.min(items.length,60));
@@ -12,6 +14,9 @@ const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/mai
 const quest={id:'quality_gate_ui',name:{de:'UI-Test',en:'UI test'},trader:'Test',objectives:[{de:'Layout prüfen',en:'Check layout'}],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]};
 
 async function installRoutes(page){
+  await page.route('https://raw.githubusercontent.com/RamasFieldTool/Arc-companion/live-events-data/live-events.json',route=>route.fulfill({contentType:'application/json',body:liveEventsFixture}));
+  await page.route('https://raw.githubusercontent.com/RaidTheory/arcraiders-data/*/bots.json',route=>route.fulfill({json:locationFixture.bots||[]}));
+  await page.route('https://fonts.googleapis.com/**',route=>route.fulfill({contentType:'text/css',body:''}));
   await page.route('https://arcdata.mahcks.com/v1/items**',async route=>{
     const url=new URL(route.request().url());
     const offset=Math.max(0,Number(url.searchParams.get('offset'))||0),limit=Math.max(1,Number(url.searchParams.get('limit'))||45);
@@ -35,7 +40,7 @@ function assertHome(m,label){
   const overflow=m.document.scrollWidth-m.document.clientWidth;if(overflow>4)throw new Error(`${label}: horizontal overflow ${overflow}px`);
   if(!m.masthead||m.masthead.width<100||m.masthead.height<40)throw new Error(`${label}: masthead collapsed`);
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
-  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','outpostSection','raiderRadio'];
+  const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','weaponPlannerSection','outpostSection','raiderRadio'];
   const actual=m.tiles.map(tile=>tile.target);
   if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);
   for(const tile of m.tiles){if(tile.width<44||tile.height<44)throw new Error(`${label}: touch target ${tile.target} is ${tile.width}x${tile.height}`);if(tile.x<-4||tile.x+tile.width>m.viewport.width+4)throw new Error(`${label}: tile ${tile.target} exceeds viewport`);}

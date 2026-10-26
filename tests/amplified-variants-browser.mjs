@@ -37,8 +37,8 @@ try{
    assert.ok(panel.includes('Anvil Splitter'));
    await search.fill('');
    assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-family').count(),15);
-   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-node').count(),40);
-   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-unresolved').count(),5);
+   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-node').count(),44);
+   assert.equal(await page.locator('#outpostAmplifiedWeapons .amplified-unresolved').count(),1);
    assert.ok(await page.locator('#outpostDevelopmentNotice').isVisible());
    await page.locator('[data-family-id="equalizer"] > summary').click();
    await page.locator('[data-node-id="equalizer:rampingdamage"] > summary').click();

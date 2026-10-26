@@ -44,6 +44,7 @@
       const label={de:'Sammelziel',en:'Collection goal',fr:'Objectif de collecte',es:'Objetivo de colección',it:'Obiettivo di raccolta'}[localStorage.getItem('arcUiLanguage')]||'Collection goal';
       add(goal.itemId,goal.target,`${label}: ${count(goal.target)}`,{kind:'personal',id:goal.itemId});
     });
+    (window.RFTWeaponPlanner?.requirements?.()||[]).forEach(req=>add(req.itemId,req.quantity,req.reason,{kind:'weapon',id:req.itemId}));
     return map;
   }
 

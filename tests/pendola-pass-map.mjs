@@ -25,6 +25,10 @@ const context=await browser.newContext(mobile?{viewport:{width:412,height:915},i
 await context.addInitScript(()=>{localStorage.setItem('arcLang','de');localStorage.setItem('arcUiLanguage','de');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('pendolaSafetyProbe','unchanged')});
 const p=await context.newPage();const errors=[],mapAssetRequests=[];p.on('pageerror',e=>errors.push(String(e)));p.on('request',r=>{if(/\/(?:maps\.json|raider-spawns\.json|spaceport-approved-base\.jpg)$/.test(new URL(r.url()).pathname))mapAssetRequests.push(r.url())});
 await installItemCatalogRoute(p,fixture,'live');
+// Keep map regression independent of external quest availability.
+const questUrl='https://raw.githubusercontent.com/RaidTheory/arcraiders-data/main/quests/pendola_fixture.json';
+await p.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',r=>r.fulfill({json:[{type:'file',name:'pendola_fixture.json',download_url:questUrl}]}));
+await p.route(questUrl,r=>r.fulfill({json:{id:'pendola_fixture',name:{de:'Kartentest',en:'Map test'},objectives:[],requiredItemIds:[],rewardItemIds:[],grantedItemIds:[]}}));
 await p.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
 await p.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dataset.state==='live');
 if(mapAssetRequests.length)throw Error('Map catalog or spawn data loaded before opening the map view');
