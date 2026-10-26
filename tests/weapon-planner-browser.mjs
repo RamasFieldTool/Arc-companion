@@ -37,6 +37,8 @@ try{
  await page.locator('#weaponPlannerBody .weapon-filters select').first().selectOption('Hand Cannon');assert.equal(await page.locator('#weaponChoice option').count(),2);
  await page.click('#appBack');assert(await tile.isVisible());await page.goBack();await page.waitForTimeout(50);assert(await page.locator('#weaponPlannerSection').isVisible());
  await page.click('#appBack');await page.locator('[data-app-target=planningSection]').click();assert(await page.locator('#planningSection').isVisible());
+ await page.evaluate(()=>{window.RFTPlanning.removePersonal('metal_parts');const stock={};for(const row of window.RFTPlanning.rows({all:true}))stock[row.itemId]=row.required;window.RFTPlanning.commitStock(stock);window.dispatchEvent(new Event('planning-changed'))});assert.equal(await page.locator('#planningSection .planning-empty-actions').count(),0);
+ await page.evaluate(()=>{localStorage.setItem('rftWeaponPlansV1','{}');window.dispatchEvent(new Event('planning-changed'))});assert.equal(await page.locator('#planningSection .planning-empty-actions').count(),1);
  assert.deepEqual(errors,[]);await page.close();console.log('PASS weapon planner Android emulation '+width+'px: sum, owned, planning, idempotence, persistence, amplified, missing cost, search/filter, five languages, two themes, back');
  }
 }finally{await browser.close()}
