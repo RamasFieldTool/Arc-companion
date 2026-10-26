@@ -86,12 +86,13 @@ if(await current.count()){
 
 // Regression: direct catalog link reveals the actual research tab and drawer.
 await page.evaluate(()=>{
- const outpost=document.createElement('details');outpost.id='outpostSection';document.body.append(outpost);
+ const outpost=document.createElement('details');outpost.id='outpostSection';document.body.append(outpost);const tile=document.createElement('button');tile.setAttribute('data-app-target','outpostSection');tile.addEventListener('click',()=>outpost.classList.add('launcher-active'));document.body.append(tile);
  const panel=document.createElement('section');panel.id='outpostPanel-research';panel.hidden=true;outpost.append(panel);
  const tab=document.createElement('button');tab.id='outpostTab-research';tab.addEventListener('click',()=>panel.hidden=false);outpost.append(tab);
  window.RFTAmplifiedPlanner.open('jupiter');
 });
 assert.equal(await page.locator('#outpostSection').evaluate(e=>e.open),true);
+assert.equal(await page.locator('#outpostSection').evaluate(e=>e.classList.contains('launcher-active')),true);
 assert.equal(await page.locator('#outpostPanel-research').evaluate(e=>e.hidden),false);
 assert.equal(await page.locator('#rftAmplifiedPlanner select').inputValue(),'jupiter');
 
