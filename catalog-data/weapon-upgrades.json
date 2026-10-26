@@ -1,0 +1,6073 @@
+{
+  "schema": "rft-weapon-upgrades",
+  "formatVersion": 1,
+  "checkedAt": "2026-10-26",
+  "source": "https://arctracker.io/api/items",
+  "sourceVersion": "1792963799790",
+  "sourceGeneratedAt": "2026-10-25T21:29:59.790Z",
+  "sourceSha256": "b5a41011afc3ae8c30081c08d36afa491834dc2fb8750c72e8479c6ecc84483c",
+  "evidence": "Source data inspected; not verified in game. Historical RaidTheory costs are superseded by explicit current ARC Tracker edges. Unlisted station requirements remain unknown.",
+  "families": [
+    {
+      "id": "anvil",
+      "name": {
+        "da": "Ambolt",
+        "de": "Anvil",
+        "en": "Anvil",
+        "es": "Yunque",
+        "fr": "Enclume",
+        "he": "אנביל",
+        "hr": "Nakovanj",
+        "it": "Incudine",
+        "ja": "アンヴィル",
+        "ko-KR": "앤빌",
+        "no": "Ambolt",
+        "pl": "Kowadło",
+        "pt": "Bigorna",
+        "pt-BR": "Bigorna",
+        "ru": "Наковальня",
+        "sr": "Nakovanj",
+        "tr": "Örs",
+        "uk": "Ковадло",
+        "zh-CN": "铁砧",
+        "zh-TW": "鐵砧I"
+      },
+      "category": "Hand Cannon",
+      "tiers": [
+        {
+          "id": "anvil_i",
+          "label": "I",
+          "name": {
+            "da": "Ambolt I",
+            "de": "Anvil I",
+            "en": "Anvil I",
+            "es": "Yunque I",
+            "fr": "Enclume I",
+            "he": "אנביל I",
+            "hr": "Nakovanj I",
+            "it": "Incudine I",
+            "ja": "アンヴィル I",
+            "ko-KR": "앤빌 I",
+            "no": "Ambolt I",
+            "pl": "Kowadło I",
+            "pt": "Bigorna I",
+            "pt-BR": "Bigorna I",
+            "ru": "Наковальня I",
+            "sr": "Nakovanj I",
+            "tr": "Örs I",
+            "uk": "Ковадло I",
+            "zh-CN": "铁砧 I",
+            "zh-TW": "鐵砧I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_i.png"
+        },
+        {
+          "id": "anvil_ii",
+          "label": "II",
+          "name": {
+            "da": "Ambolt II",
+            "de": "Anvil II",
+            "en": "Anvil II",
+            "es": "Yunque II",
+            "fr": "Enclume II",
+            "he": "אנביל II",
+            "hr": "Nakovanj II",
+            "it": "Incudine II",
+            "ja": "アンヴィル II",
+            "ko-KR": "앤빌 II",
+            "no": "Ambolt II",
+            "pl": "Kowadło II",
+            "pt": "Bigorna II",
+            "pt-BR": "Bigorna II",
+            "ru": "Наковальня II",
+            "sr": "Nakovanj II",
+            "tr": "Örs II",
+            "uk": "Ковадло II",
+            "zh-CN": "铁砧 II",
+            "zh-TW": "鐵砧II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_ii.png"
+        },
+        {
+          "id": "anvil_iii",
+          "label": "III",
+          "name": {
+            "da": "Ambolt III",
+            "de": "Anvil III",
+            "en": "Anvil III",
+            "es": "Yunque III",
+            "fr": "Enclume III",
+            "he": "אנביל III",
+            "hr": "Nakovanj III",
+            "it": "Incudine III",
+            "ja": "アンヴィル III",
+            "ko-KR": "앤빌 III",
+            "no": "Ambolt III",
+            "pl": "Kowadło III",
+            "pt": "Bigorna III",
+            "pt-BR": "Bigorna III",
+            "ru": "Наковальня III",
+            "sr": "Nakovanj III",
+            "tr": "Örs III",
+            "uk": "Ковадло III",
+            "zh-CN": "铁砧 III",
+            "zh-TW": "鐵砧III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_iii.png"
+        },
+        {
+          "id": "anvil_iv",
+          "label": "IV",
+          "name": {
+            "da": "Ambolt IV",
+            "de": "Anvil IV",
+            "en": "Anvil IV",
+            "es": "Yunque IV",
+            "fr": "Enclume IV",
+            "he": "אנביל IV",
+            "hr": "Nakovanj IV",
+            "it": "Incudine IV",
+            "ja": "アンヴィル IV",
+            "ko-KR": "앤빌 IV",
+            "no": "Ambolt IV",
+            "pl": "Kowadło IV",
+            "pt": "Bigorna IV",
+            "pt-BR": "Bigorna IV",
+            "ru": "Наковальня IV",
+            "sr": "Nakovanj IV",
+            "tr": "Örs IV",
+            "uk": "Ковадло IV",
+            "zh-CN": "铁砧 IV",
+            "zh-TW": "鐵砧IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_iv.png"
+        },
+        {
+          "id": "anvil_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Anvil",
+            "de": "Verstärkte Anvil",
+            "es": "Yunque amplificado",
+            "fr": "Enclume amplifiée",
+            "it": "Incudine amplificata",
+            "ja": "強化版アンヴィル",
+            "ko-KR": "증폭된 앤빌",
+            "pl": "Wzmocnione Kowadło",
+            "pt-BR": "Bigorna Amplificada",
+            "ru": "Усовершенствованная Наковальня",
+            "tr": "Güçlendirilmiş Örs",
+            "zh-CN": "增强型“铁砧”",
+            "zh-TW": "增幅鐵砧",
+            "no": "Forsterket ambolt",
+            "da": "Forstærket Ambolt",
+            "he": "סדן מוגבר",
+            "hr": "Pojačani nakovanj",
+            "pt": "Anvil Amplificada",
+            "uk": "Ампліфіковане Ковадло",
+            "sr": "Pojačani nakovanj"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "anvil_i",
+          "to": "anvil_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/anvil_i"
+        },
+        {
+          "from": "anvil_ii",
+          "to": "anvil_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/anvil_ii"
+        },
+        {
+          "from": "anvil_iii",
+          "to": "anvil_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/anvil_iii"
+        },
+        {
+          "from": "anvil_iv",
+          "to": "anvil_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/anvil_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_i.png"
+    },
+    {
+      "id": "aphelion",
+      "name": {
+        "da": "Aphelion",
+        "de": "Aphelion",
+        "en": "Aphelion",
+        "es": "Afelio",
+        "fr": "Aphelion",
+        "he": "אפליון",
+        "hr": "Aphelion",
+        "it": "Aphelion",
+        "ja": "アフェリオン",
+        "ko-KR": "아펠리온",
+        "no": "Aphelion",
+        "pl": "Aphelion",
+        "pt": "Afelio",
+        "pt-BR": "Afélio",
+        "ru": "Афелий",
+        "sr": "Aphelion",
+        "tr": "Aphelion",
+        "uk": "Афелій",
+        "zh-CN": "远日点",
+        "zh-TW": "阿菲利昂"
+      },
+      "category": "Battle Rifle",
+      "tiers": [
+        {
+          "id": "aphelion",
+          "label": "—",
+          "name": {
+            "da": "Aphelion",
+            "de": "Aphelion",
+            "en": "Aphelion",
+            "es": "Afelio",
+            "fr": "Aphelion",
+            "he": "אפליון",
+            "hr": "Aphelion",
+            "it": "Aphelion",
+            "ja": "アフェリオン",
+            "ko-KR": "아펠리온",
+            "no": "Aphelion",
+            "pl": "Aphelion",
+            "pt": "Afelio",
+            "pt-BR": "Afélio",
+            "ru": "Афелий",
+            "sr": "Aphelion",
+            "tr": "Aphelion",
+            "uk": "Афелій",
+            "zh-CN": "远日点",
+            "zh-TW": "阿菲利昂"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/aphelion.png"
+        },
+        {
+          "id": "aphelion_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Aphelion",
+            "de": "Verstärkter Aphelion",
+            "es": "Afelio amplificado",
+            "fr": "Aphelion amplifié",
+            "it": "Aphelion amplificata",
+            "ja": "強化版アフェリオン",
+            "ko-KR": "증폭된 아펠리온",
+            "pl": "Wzmocniony Aphelion",
+            "pt-BR": "Afélio Amplificado",
+            "ru": "Усовершенствованный Афелий",
+            "tr": "Güçlendirilmiş Aphelion",
+            "zh-CN": "增强型“远日点”",
+            "zh-TW": "增幅阿菲利昂",
+            "hr": "Pojačani Aphelion",
+            "da": "Forstærket Aphelion",
+            "no": "Forsterket Aphelion",
+            "sr": "Pojačan Aphelion",
+            "pt": "Aphelion Amplificado",
+            "he": "אפליון מוגבר",
+            "uk": "Посилений Афеліон"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/aphelion_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "aphelion",
+          "to": "aphelion_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_v",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/aphelion"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/aphelion.png"
+    },
+    {
+      "id": "arpeggio",
+      "name": {
+        "da": "Arpeggio",
+        "de": "Arpeggio",
+        "en": "Arpeggio",
+        "es": "Arpeggio",
+        "fr": "Arpège",
+        "he": "ארפג'יו",
+        "hr": "Arpeđo",
+        "it": "Arpeggio",
+        "ja": "アルペジオ",
+        "ko-KR": "아르페지오",
+        "no": "Arpeggio",
+        "pl": "Arpeggio",
+        "pt": "Arpejo",
+        "pt-BR": "Arpeggio",
+        "ru": "Арпеджио",
+        "sr": "Arpeđo",
+        "tr": "Arpeggio",
+        "uk": "Арпеджіо",
+        "zh-CN": "三连奏",
+        "zh-TW": "琶音I"
+      },
+      "category": "Assault Rifle",
+      "tiers": [
+        {
+          "id": "arpeggio_i",
+          "label": "I",
+          "name": {
+            "da": "Arpeggio I",
+            "de": "Arpeggio I",
+            "en": "Arpeggio I",
+            "es": "Arpeggio I",
+            "fr": "Arpège I",
+            "he": "ארפג'יו I",
+            "hr": "Arpeđo I",
+            "it": "Arpeggio I",
+            "ja": "アルペジオ I",
+            "ko-KR": "아르페지오 I",
+            "no": "Arpeggio I",
+            "pl": "Arpeggio I",
+            "pt": "Arpejo I",
+            "pt-BR": "Arpeggio I",
+            "ru": "Арпеджио I",
+            "sr": "Arpeđo I",
+            "tr": "Arpeggio I",
+            "uk": "Арпеджіо I",
+            "zh-CN": "三连奏 I",
+            "zh-TW": "琶音I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/arpeggio_i.png"
+        },
+        {
+          "id": "arpeggio_ii",
+          "label": "II",
+          "name": {
+            "da": "Arpeggio II",
+            "de": "Arpeggio II",
+            "en": "Arpeggio II",
+            "es": "Arpeggio II",
+            "fr": "Arpège II",
+            "he": "ארפג'יו II",
+            "hr": "Arpeđo II",
+            "it": "Arpeggio II",
+            "ja": "アルペジオ II",
+            "ko-KR": "아르페지오 II",
+            "no": "Arpeggio II",
+            "pl": "Arpeggio II",
+            "pt": "Arpejo II",
+            "pt-BR": "Arpeggio II",
+            "ru": "Арпеджио II",
+            "sr": "Arpeđo II",
+            "tr": "Arpeggio II",
+            "uk": "Арпеджіо II",
+            "zh-CN": "三连奏 II",
+            "zh-TW": "琶音II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/arpeggio_ii.png"
+        },
+        {
+          "id": "arpeggio_iii",
+          "label": "III",
+          "name": {
+            "da": "Arpeggio III",
+            "de": "Arpeggio III",
+            "en": "Arpeggio III",
+            "es": "Arpeggio III",
+            "fr": "Arpège III",
+            "he": "ארפג'יו III",
+            "hr": "Arpeđo III",
+            "it": "Arpeggio III",
+            "ja": "アルペジオ III",
+            "ko-KR": "아르페지오 III",
+            "no": "Arpeggio III",
+            "pl": "Arpeggio III",
+            "pt": "Arpejo III",
+            "pt-BR": "Arpeggio III",
+            "ru": "Арпеджио III",
+            "sr": "Arpeđo III",
+            "tr": "Arpeggio III",
+            "uk": "Арпеджіо III",
+            "zh-CN": "三连奏 III",
+            "zh-TW": "琶音III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/arpeggio_iii.png"
+        },
+        {
+          "id": "arpeggio_iv",
+          "label": "IV",
+          "name": {
+            "da": "Arpeggio IV",
+            "de": "Arpeggio IV",
+            "en": "Arpeggio IV",
+            "es": "Arpeggio IV",
+            "fr": "Arpège IV",
+            "he": "ארפג'יו IV",
+            "hr": "Arpeđo IV",
+            "it": "Arpeggio IV",
+            "ja": "アルペジオ IV",
+            "ko-KR": "아르페지오 IV",
+            "no": "Arpeggio IV",
+            "pl": "Arpeggio IV",
+            "pt": "Arpejo IV",
+            "pt-BR": "Arpeggio IV",
+            "ru": "Арпеджио IV",
+            "sr": "Arpeđo IV",
+            "tr": "Arpeggio IV",
+            "uk": "Арпеджіо IV",
+            "zh-CN": "三连奏 IV",
+            "zh-TW": "琶音IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/arpeggio_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "arpeggio_i",
+          "to": "arpeggio_ii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 4
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/arpeggio_i"
+        },
+        {
+          "from": "arpeggio_ii",
+          "to": "arpeggio_iii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 5
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/arpeggio_ii"
+        },
+        {
+          "from": "arpeggio_iii",
+          "to": "arpeggio_iv",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 5
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/arpeggio_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/arpeggio_i.png"
+    },
+    {
+      "id": "bantam",
+      "name": {
+        "en": "Bantam",
+        "de": "Bantam",
+        "es": "Bantam",
+        "fr": "Bantam",
+        "it": "Bantam",
+        "ja": "バンタム",
+        "ko-KR": "밴텀",
+        "pl": "Bantam",
+        "pt-BR": "Garnisé",
+        "ru": "Задира",
+        "tr": "Bantam",
+        "zh-CN": "“小钢炮”",
+        "zh-TW": "矮腳雞",
+        "no": "Bantam",
+        "hr": "Bantam",
+        "uk": "Бантам",
+        "da": "Bantam",
+        "sr": "Bantam",
+        "pt": "Bantam",
+        "he": "בנטם"
+      },
+      "category": "Hand Cannon",
+      "tiers": [
+        {
+          "id": "bantam_i",
+          "label": "I",
+          "name": {
+            "en": "Bantam I",
+            "de": "Bantam I",
+            "es": "Bantam I",
+            "fr": "Bantam I",
+            "it": "Bantam I",
+            "ja": "バンタム I",
+            "ko-KR": "밴텀 I",
+            "pl": "Bantam I",
+            "pt-BR": "Garnisé I",
+            "ru": "Задира I",
+            "tr": "Bantam I",
+            "zh-CN": "“小钢炮” I",
+            "zh-TW": "矮腳雞 I",
+            "no": "Bantam I",
+            "hr": "Bantam I",
+            "uk": "Бантам I",
+            "da": "Bantam I",
+            "sr": "Bantam I",
+            "pt": "Bantam I",
+            "he": "בנטם I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bantam_i.png"
+        },
+        {
+          "id": "bantam_ii",
+          "label": "II",
+          "name": {
+            "en": "Bantam II",
+            "de": "Bantam II",
+            "es": "Bantam II",
+            "fr": "Bantam II",
+            "it": "Bantam II",
+            "ja": "バンタム II",
+            "ko-KR": "밴텀 II",
+            "pl": "Bantam II",
+            "pt-BR": "Garnisé II",
+            "ru": "Задира II",
+            "tr": "Bantam II",
+            "zh-CN": "“小钢炮” II",
+            "zh-TW": "矮腳雞 II",
+            "no": "Bantam II",
+            "hr": "Bantam II",
+            "uk": "Бантам II",
+            "da": "Bantam II",
+            "sr": "Bantam II",
+            "pt": "Bantam II",
+            "he": "בנטם II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bantam_ii.png"
+        },
+        {
+          "id": "bantam_iii",
+          "label": "III",
+          "name": {
+            "en": "Bantam III",
+            "de": "Bantam III",
+            "es": "Bantam III",
+            "fr": "Bantam III",
+            "it": "Bantam III",
+            "ja": "バンタム III",
+            "ko-KR": "밴텀 III",
+            "pl": "Bantam III",
+            "pt-BR": "Garnisé III",
+            "ru": "Задира III",
+            "tr": "Bantam III",
+            "zh-CN": "“小钢炮” III",
+            "zh-TW": "矮腳雞 III",
+            "no": "Bantam III",
+            "hr": "Bantam III",
+            "uk": "Бантам III",
+            "da": "Bantam III",
+            "sr": "Bantam III",
+            "pt": "Bantam III",
+            "he": "בנטם III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bantam_iii.png"
+        },
+        {
+          "id": "bantam_iv",
+          "label": "IV",
+          "name": {
+            "en": "Bantam IV",
+            "de": "Bantam IV",
+            "es": "Bantam IV",
+            "fr": "Bantam IV",
+            "it": "Bantam IV",
+            "ja": "バンタム IV",
+            "ko-KR": "밴텀 IV",
+            "pl": "Bantam IV",
+            "pt-BR": "Garnisé IV",
+            "ru": "Задира IV",
+            "tr": "Bantam IV",
+            "zh-CN": "“小钢炮” IV",
+            "zh-TW": "矮腳雞 IV",
+            "no": "Bantam IV",
+            "hr": "Bantam IV",
+            "uk": "Бантам IV",
+            "da": "Bantam IV",
+            "sr": "Bantam IV",
+            "pt": "Bantam IV",
+            "he": "בנטם IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bantam_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "bantam_i",
+          "to": "bantam_ii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bantam_i"
+        },
+        {
+          "from": "bantam_ii",
+          "to": "bantam_iii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bantam_ii"
+        },
+        {
+          "from": "bantam_iii",
+          "to": "bantam_iv",
+          "materials": [
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            },
+            {
+              "itemId": "mechanical_components",
+              "quantity": 4
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bantam_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/bantam_i.png"
+    },
+    {
+      "id": "bettina",
+      "name": {
+        "da": "Bettina",
+        "de": "Bettina",
+        "en": "Bettina",
+        "es": "Bettina",
+        "fr": "Bettina",
+        "he": "בטינה",
+        "hr": "Bettina",
+        "it": "Bettina",
+        "ja": "ベティーナ",
+        "ko-KR": "베티나",
+        "no": "Bettina",
+        "pl": "Bettina",
+        "pt": "Bettina",
+        "pt-BR": "Bettina",
+        "ru": "Беттина",
+        "sr": "Bettina",
+        "tr": "Bettina",
+        "uk": "Беттіна",
+        "zh-CN": "贝蒂娜",
+        "zh-TW": "貝蒂娜I"
+      },
+      "category": "Assault Rifle",
+      "tiers": [
+        {
+          "id": "bettina_i",
+          "label": "I",
+          "name": {
+            "da": "Bettina I",
+            "de": "Bettina I",
+            "en": "Bettina I",
+            "es": "Bettina I",
+            "fr": "Bettina I",
+            "he": "בטינה I",
+            "hr": "Bettina I",
+            "it": "Bettina I",
+            "ja": "ベティーナ I",
+            "ko-KR": "베티나 I",
+            "no": "Bettina I",
+            "pl": "Bettina I",
+            "pt": "Bettina I",
+            "pt-BR": "Bettina I",
+            "ru": "Беттина I",
+            "sr": "Bettina I",
+            "tr": "Bettina I",
+            "uk": "Беттіна I",
+            "zh-CN": "贝蒂娜 I",
+            "zh-TW": "貝蒂娜I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bettina_i.png"
+        },
+        {
+          "id": "bettina_ii",
+          "label": "II",
+          "name": {
+            "da": "Bettina II",
+            "de": "Bettina II",
+            "en": "Bettina II",
+            "es": "Bettina II",
+            "fr": "Bettina II",
+            "he": "בטינה II",
+            "hr": "Bettina II",
+            "it": "Bettina II",
+            "ja": "ベティーナ II",
+            "ko-KR": "베티나 II",
+            "no": "Bettina II",
+            "pl": "Bettina II",
+            "pt": "Bettina II",
+            "pt-BR": "Bettina II",
+            "ru": "Беттина II",
+            "sr": "Bettina II",
+            "tr": "Bettina II",
+            "uk": "Беттіна II",
+            "zh-CN": "贝蒂娜 II",
+            "zh-TW": "貝蒂娜II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bettina_ii.png"
+        },
+        {
+          "id": "bettina_iii",
+          "label": "III",
+          "name": {
+            "da": "Bettina III",
+            "de": "Bettina III",
+            "en": "Bettina III",
+            "es": "Bettina III",
+            "fr": "Bettina III",
+            "he": "בטינה III",
+            "hr": "Bettina III",
+            "it": "Bettina III",
+            "ja": "ベティーナ III",
+            "ko-KR": "베티나 III",
+            "no": "Bettina III",
+            "pl": "Bettina III",
+            "pt": "Bettina III",
+            "pt-BR": "Bettina III",
+            "ru": "Беттина III",
+            "sr": "Bettina III",
+            "tr": "Bettina III",
+            "uk": "Беттіна III",
+            "zh-CN": "贝蒂娜 III",
+            "zh-TW": "貝蒂娜III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bettina_iii.png"
+        },
+        {
+          "id": "bettina_iv",
+          "label": "IV",
+          "name": {
+            "da": "Bettina IV",
+            "de": "Bettina IV",
+            "en": "Bettina IV",
+            "es": "Bettina IV",
+            "fr": "Bettina IV",
+            "he": "בטינה IV",
+            "hr": "Bettina IV",
+            "it": "Bettina IV",
+            "ja": "ベティーナ IV",
+            "ko-KR": "베티나 IV",
+            "no": "Bettina IV",
+            "pl": "Bettina IV",
+            "pt": "Bettina IV",
+            "pt-BR": "Bettina IV",
+            "ru": "Беттина IV",
+            "sr": "Bettina IV",
+            "tr": "Bettina IV",
+            "uk": "Беттіна IV",
+            "zh-CN": "贝蒂娜 IV",
+            "zh-TW": "貝蒂娜IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bettina_iv.png"
+        },
+        {
+          "id": "bettina_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Bettina",
+            "de": "Verstärkte Bettina",
+            "es": "Bettina amplificado",
+            "fr": "Bettina amplifiée",
+            "it": "Bettina amplificata",
+            "ja": "強化版ベティーナ",
+            "ko-KR": "증폭된 베티나",
+            "pl": "Wzmocniona Bettina",
+            "pt-BR": "Bettina Amplificada",
+            "ru": "Усовершенствованная Беттина",
+            "tr": "Güçlendirilmiş Bettina",
+            "zh-CN": "增强型“贝蒂娜”",
+            "zh-TW": "增幅貝蒂娜",
+            "no": "Forsterket Bettina",
+            "hr": "Pojačana Bettina",
+            "uk": "Посилена Беттіна",
+            "da": "Forstærket Bettina",
+            "sr": "Pojačana Bettina",
+            "pt": "Bettina Amplificada",
+            "he": "בטינה מוגברת"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bettina_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "bettina_i",
+          "to": "bettina_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bettina_i"
+        },
+        {
+          "from": "bettina_ii",
+          "to": "bettina_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bettina_ii"
+        },
+        {
+          "from": "bettina_iii",
+          "to": "bettina_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bettina_iii"
+        },
+        {
+          "from": "bettina_iv",
+          "to": "bettina_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iv",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bettina_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/bettina_i.png"
+    },
+    {
+      "id": "bobcat",
+      "name": {
+        "da": "Rødlos",
+        "de": "Bobcat",
+        "en": "Bobcat",
+        "es": "Lince",
+        "fr": "Lynx",
+        "he": "בובקאט",
+        "hr": "Ris",
+        "it": "Lince",
+        "ja": "ボブキャット",
+        "ko-KR": "밥캣",
+        "no": "Gaupe",
+        "pl": "Ryś",
+        "pt": "Lince",
+        "pt-BR": "Lince",
+        "ru": "Рысь",
+        "sr": "Ris",
+        "tr": "Vaşak",
+        "uk": "Бобкет",
+        "zh-CN": "山猫",
+        "zh-TW": "山貓I"
+      },
+      "category": "SMG",
+      "tiers": [
+        {
+          "id": "bobcat_i",
+          "label": "I",
+          "name": {
+            "da": "Rødlos I",
+            "de": "Bobcat I",
+            "en": "Bobcat I",
+            "es": "Lince I",
+            "fr": "Lynx I",
+            "he": "בובקאט I",
+            "hr": "Ris I",
+            "it": "Lince I",
+            "ja": "ボブキャット I",
+            "ko-KR": "밥캣 I",
+            "no": "Gaupe I",
+            "pl": "Ryś I",
+            "pt": "Lince I",
+            "pt-BR": "Lince I",
+            "ru": "Рысь I",
+            "sr": "Ris I",
+            "tr": "Vaşak I",
+            "uk": "Бобкет I",
+            "zh-CN": "山猫 I",
+            "zh-TW": "山貓I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bobcat_i.png"
+        },
+        {
+          "id": "bobcat_ii",
+          "label": "II",
+          "name": {
+            "da": "Rødlos II",
+            "de": "Bobcat II",
+            "en": "Bobcat II",
+            "es": "Lince II",
+            "fr": "Lynx II",
+            "he": "בובקאט II",
+            "hr": "Ris II",
+            "it": "Lince II",
+            "ja": "ボブキャット II",
+            "ko-KR": "밥캣 II",
+            "no": "Gaupe II",
+            "pl": "Ryś II",
+            "pt": "Lince II",
+            "pt-BR": "Lince II",
+            "ru": "Рысь II",
+            "sr": "Ris II",
+            "tr": "Vaşak II",
+            "uk": "Бобкет II",
+            "zh-CN": "山猫 II",
+            "zh-TW": "山貓II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bobcat_ii.png"
+        },
+        {
+          "id": "bobcat_iii",
+          "label": "III",
+          "name": {
+            "da": "Rødlos III",
+            "de": "Bobcat III",
+            "en": "Bobcat III",
+            "es": "Lince III",
+            "fr": "Lynx III",
+            "he": "בובקאט III",
+            "hr": "Ris III",
+            "it": "Lince III",
+            "ja": "ボブキャット III",
+            "ko-KR": "밥캣 III",
+            "no": "Gaupe III",
+            "pl": "Ryś III",
+            "pt": "Lince III",
+            "pt-BR": "Lince III",
+            "ru": "Рысь III",
+            "sr": "Ris III",
+            "tr": "Vaşak III",
+            "uk": "Бобкет III",
+            "zh-CN": "山猫 III",
+            "zh-TW": "山貓III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bobcat_iii.png"
+        },
+        {
+          "id": "bobcat_iv",
+          "label": "IV",
+          "name": {
+            "da": "Rødlos IV",
+            "de": "Bobcat IV",
+            "en": "Bobcat IV",
+            "es": "Lince IV",
+            "fr": "Lynx IV",
+            "he": "בובקאט IV",
+            "hr": "Ris IV",
+            "it": "Lince IV",
+            "ja": "ボブキャット IV",
+            "ko-KR": "밥캣 IV",
+            "no": "Gaupe IV",
+            "pl": "Ryś IV",
+            "pt": "Lince IV",
+            "pt-BR": "Lince IV",
+            "ru": "Рысь IV",
+            "sr": "Ris IV",
+            "tr": "Vaşak IV",
+            "uk": "Бобкет IV",
+            "zh-CN": "山猫 IV",
+            "zh-TW": "山貓IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/bobcat_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "bobcat_i",
+          "to": "bobcat_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "light_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bobcat_i"
+        },
+        {
+          "from": "bobcat_ii",
+          "to": "bobcat_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "light_gun_parts",
+              "quantity": 3
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bobcat_ii"
+        },
+        {
+          "from": "bobcat_iii",
+          "to": "bobcat_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "light_gun_parts",
+              "quantity": 3
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/bobcat_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/bobcat_i.png"
+    },
+    {
+      "id": "burletta",
+      "name": {
+        "da": "Burletta",
+        "de": "Burletta",
+        "en": "Burletta",
+        "es": "Burletta",
+        "fr": "Burletta",
+        "he": "בורלטה",
+        "hr": "Burletta",
+        "it": "Burletta",
+        "ja": "バーレッタ",
+        "ko-KR": "부를레타",
+        "no": "Burletta",
+        "pl": "Burletta",
+        "pt": "Burletta",
+        "pt-BR": "Burletta",
+        "ru": "Бурлетта",
+        "sr": "Burletta",
+        "tr": "Burletta",
+        "uk": "Бурлетта",
+        "zh-CN": "布尔莱塔",
+        "zh-TW": "伯萊塔I"
+      },
+      "category": "Pistol",
+      "tiers": [
+        {
+          "id": "burletta_i",
+          "label": "I",
+          "name": {
+            "da": "Burletta I",
+            "de": "Burletta I",
+            "en": "Burletta I",
+            "es": "Burletta I",
+            "fr": "Burletta I",
+            "he": "בורלטה I",
+            "hr": "Burletta I",
+            "it": "Burletta I",
+            "ja": "バーレッタ I",
+            "ko-KR": "부를레타 I",
+            "no": "Burletta I",
+            "pl": "Burletta I",
+            "pt": "Burletta I",
+            "pt-BR": "Burletta I",
+            "ru": "Бурлетта I",
+            "sr": "Burletta I",
+            "tr": "Burletta I",
+            "uk": "Бурлетта I",
+            "zh-CN": "布尔莱塔 I",
+            "zh-TW": "伯萊塔I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/burletta_i.png"
+        },
+        {
+          "id": "burletta_ii",
+          "label": "II",
+          "name": {
+            "da": "Burletta II",
+            "de": "Burletta II",
+            "en": "Burletta II",
+            "es": "Burletta II",
+            "fr": "Burletta II",
+            "he": "בורלטה II",
+            "hr": "Burletta II",
+            "it": "Burletta II",
+            "ja": "バーレッタ II",
+            "ko-KR": "부를레타 II",
+            "no": "Burletta II",
+            "pl": "Burletta II",
+            "pt": "Burletta II",
+            "pt-BR": "Burletta II",
+            "ru": "Бурлетта II",
+            "sr": "Burletta II",
+            "tr": "Burletta II",
+            "uk": "Бурлетта II",
+            "zh-CN": "布尔莱塔 II",
+            "zh-TW": "伯萊塔II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/burletta_ii.png"
+        },
+        {
+          "id": "burletta_iii",
+          "label": "III",
+          "name": {
+            "da": "Burletta III",
+            "de": "Burletta III",
+            "en": "Burletta III",
+            "es": "Burletta III",
+            "fr": "Burletta III",
+            "he": "בורלטה III",
+            "hr": "Burletta III",
+            "it": "Burletta III",
+            "ja": "バーレッタ III",
+            "ko-KR": "부를레타 III",
+            "no": "Burletta III",
+            "pl": "Burletta III",
+            "pt": "Burletta III",
+            "pt-BR": "Burletta III",
+            "ru": "Бурлетта III",
+            "sr": "Burletta III",
+            "tr": "Burletta III",
+            "uk": "Бурлетта III",
+            "zh-CN": "布尔莱塔 III",
+            "zh-TW": "伯萊塔III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/burletta_iii.png"
+        },
+        {
+          "id": "burletta_iv",
+          "label": "IV",
+          "name": {
+            "da": "Burletta IV",
+            "de": "Burletta IV",
+            "en": "Burletta IV",
+            "es": "Burletta IV",
+            "fr": "Burletta IV",
+            "he": "בורלטה IV",
+            "hr": "Burletta IV",
+            "it": "Burletta IV",
+            "ja": "バーレッタ IV",
+            "ko-KR": "부를레타 IV",
+            "no": "Burletta IV",
+            "pl": "Burletta IV",
+            "pt": "Burletta IV",
+            "pt-BR": "Burletta IV",
+            "ru": "Бурлетта IV",
+            "sr": "Burletta IV",
+            "tr": "Burletta IV",
+            "uk": "Бурлетта IV",
+            "zh-CN": "布尔莱塔 IV",
+            "zh-TW": "伯萊塔IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/burletta_iv.png"
+        },
+        {
+          "id": "burletta_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Burletta",
+            "de": "Verstärkte Burletta",
+            "es": "Burletta amplificada",
+            "fr": "Burletta amplifiée",
+            "it": "Burletta amplificata",
+            "ja": "強化版バーレッタ",
+            "ko-KR": "증폭된 부를레타",
+            "pl": "Wzmocniona Burletta",
+            "pt-BR": "Burletta Amplificada",
+            "ru": "Усовершенствованная Бурлетта",
+            "tr": "Güçlendirilmiş Burletta",
+            "zh-CN": "增强型“喜歌剧”",
+            "zh-TW": "增幅伯萊塔",
+            "da": "Forstærket Burletta",
+            "no": "Forsterket Burletta",
+            "pt": "Burletta Amplificada",
+            "uk": "Підсилена Burletta",
+            "sr": "Pojačana Burletta",
+            "hr": "Pojačana Burletta",
+            "he": "בורלטה מוגברת"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/burletta_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "burletta_i",
+          "to": "burletta_ii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/burletta_i"
+        },
+        {
+          "from": "burletta_ii",
+          "to": "burletta_iii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/burletta_ii"
+        },
+        {
+          "from": "burletta_iii",
+          "to": "burletta_iv",
+          "materials": [
+            {
+              "itemId": "light_gun_parts",
+              "quantity": 1
+            },
+            {
+              "itemId": "mechanical_components",
+              "quantity": 4
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/burletta_iii"
+        },
+        {
+          "from": "burletta_iv",
+          "to": "burletta_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_ii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/burletta_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/burletta_i.png"
+    },
+    {
+      "id": "canto",
+      "name": {
+        "da": "Canto",
+        "de": "Canto",
+        "en": "Canto",
+        "es": "Canto",
+        "fr": "Canto",
+        "he": "קאנטו",
+        "hr": "Canto",
+        "it": "Canto",
+        "ja": "カント",
+        "ko-KR": "칸토",
+        "no": "Canto",
+        "pl": "Canto",
+        "pt": "Canto",
+        "pt-BR": "Canto",
+        "ru": "Канто",
+        "sr": "Canto",
+        "tr": "Canto",
+        "uk": "Канто",
+        "zh-CN": "颂歌",
+        "zh-TW": "頌歌I"
+      },
+      "category": "SMG",
+      "tiers": [
+        {
+          "id": "canto_i",
+          "label": "I",
+          "name": {
+            "da": "Canto I",
+            "de": "Canto I",
+            "en": "Canto I",
+            "es": "Canto I",
+            "fr": "Canto I",
+            "he": "קאנטו I",
+            "hr": "Canto I",
+            "it": "Canto I",
+            "ja": "カント I",
+            "ko-KR": "칸토 I",
+            "no": "Canto I",
+            "pl": "Canto I",
+            "pt": "Canto I",
+            "pt-BR": "Canto I",
+            "ru": "Канто I",
+            "sr": "Canto I",
+            "tr": "Canto I",
+            "uk": "Канто I",
+            "zh-CN": "颂歌 I",
+            "zh-TW": "頌歌I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/canto_i.png"
+        },
+        {
+          "id": "canto_ii",
+          "label": "II",
+          "name": {
+            "da": "Canto II",
+            "de": "Canto II",
+            "en": "Canto II",
+            "es": "Canto II",
+            "fr": "Canto II",
+            "he": "קאנטו II",
+            "hr": "Canto II",
+            "it": "Canto II",
+            "ja": "カント II",
+            "ko-KR": "칸토 II",
+            "no": "Canto II",
+            "pl": "Canto II",
+            "pt": "Canto II",
+            "pt-BR": "Canto II",
+            "ru": "Канто II",
+            "sr": "Canto II",
+            "tr": "Canto II",
+            "uk": "Канто II",
+            "zh-CN": "颂歌 II",
+            "zh-TW": "頌歌II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/canto_ii.png"
+        },
+        {
+          "id": "canto_iii",
+          "label": "III",
+          "name": {
+            "da": "Canto III",
+            "de": "Canto III",
+            "en": "Canto III",
+            "es": "Canto III",
+            "fr": "Canto III",
+            "he": "קאנטו III",
+            "hr": "Canto III",
+            "it": "Canto III",
+            "ja": "カント III",
+            "ko-KR": "칸토 III",
+            "no": "Canto III",
+            "pl": "Canto III",
+            "pt": "Canto III",
+            "pt-BR": "Canto III",
+            "ru": "Канто III",
+            "sr": "Canto III",
+            "tr": "Canto III",
+            "uk": "Канто III",
+            "zh-CN": "颂歌 III",
+            "zh-TW": "頌歌III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/canto_iii.png"
+        },
+        {
+          "id": "canto_iv",
+          "label": "IV",
+          "name": {
+            "da": "Canto IV",
+            "de": "Canto IV",
+            "en": "Canto IV",
+            "es": "Canto IV",
+            "fr": "Canto IV",
+            "he": "קאנטו IV",
+            "hr": "Canto IV",
+            "it": "Canto IV",
+            "ja": "カント IV",
+            "ko-KR": "칸토 IV",
+            "no": "Canto IV",
+            "pl": "Canto IV",
+            "pt": "Canto IV",
+            "pt-BR": "Canto IV",
+            "ru": "Канто IV",
+            "sr": "Canto IV",
+            "tr": "Canto IV",
+            "uk": "Канто IV",
+            "zh-CN": "颂歌 IV",
+            "zh-TW": "頌歌IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/canto_iv.png"
+        },
+        {
+          "id": "canto_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Canto",
+            "de": "Verstärkter Canto",
+            "es": "Canto amplificado",
+            "fr": "Canto amplifié",
+            "it": "Canto amplificato",
+            "ja": "強化版カント",
+            "ko-KR": "증폭된 칸토",
+            "pl": "Wzmocniony Canto",
+            "pt-BR": "Canto Amplificado",
+            "ru": "Усовершенствованный Канто",
+            "tr": "Güçlendirilmiş Canto",
+            "zh-CN": "增强型“颂歌”",
+            "zh-TW": "增幅頌歌",
+            "da": "Forstærket Canto",
+            "no": "Forsterket Canto",
+            "pt": "Canto Amplificado",
+            "uk": "Підсилена Canto",
+            "sr": "Pojačani Canto",
+            "hr": "Pojačana Canto",
+            "he": "קאנטו מוגברת"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/canto_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "canto_i",
+          "to": "canto_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/canto_i"
+        },
+        {
+          "from": "canto_ii",
+          "to": "canto_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/canto_ii"
+        },
+        {
+          "from": "canto_iii",
+          "to": "canto_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/canto_iii"
+        },
+        {
+          "from": "canto_iv",
+          "to": "canto_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/canto_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/canto_i.png"
+    },
+    {
+      "id": "dolabra",
+      "name": {
+        "da": "Dolabra",
+        "de": "Dolabra",
+        "en": "Dolabra",
+        "es": "Dolabra",
+        "fr": "Dolabra",
+        "he": "דולברה",
+        "hr": "Dolabra",
+        "it": "Dolabra",
+        "ja": "ドラブラ",
+        "ko-KR": "돌라브라",
+        "no": "Dolabra",
+        "pl": "Dolabra",
+        "pt": "Dolabra",
+        "pt-BR": "Dolabra",
+        "ru": "Долабра",
+        "sr": "Dolabra",
+        "tr": "Dolabra",
+        "uk": "Долабра",
+        "zh-CN": "錾斧",
+        "zh-TW": "十字斧鎬"
+      },
+      "category": "Shotgun",
+      "tiers": [
+        {
+          "id": "dolabra",
+          "label": "—",
+          "name": {
+            "da": "Dolabra",
+            "de": "Dolabra",
+            "en": "Dolabra",
+            "es": "Dolabra",
+            "fr": "Dolabra",
+            "he": "דולברה",
+            "hr": "Dolabra",
+            "it": "Dolabra",
+            "ja": "ドラブラ",
+            "ko-KR": "돌라브라",
+            "no": "Dolabra",
+            "pl": "Dolabra",
+            "pt": "Dolabra",
+            "pt-BR": "Dolabra",
+            "ru": "Долабра",
+            "sr": "Dolabra",
+            "tr": "Dolabra",
+            "uk": "Долабра",
+            "zh-CN": "錾斧",
+            "zh-TW": "十字斧鎬"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/dolabra.png"
+        }
+      ],
+      "transitions": [],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/dolabra.png"
+    },
+    {
+      "id": "equalizer",
+      "name": {
+        "da": "Udligner",
+        "de": "Equalizer",
+        "en": "Equalizer",
+        "es": "Ecualizador",
+        "fr": "Égaliseur",
+        "he": "אקוולייזר",
+        "hr": "Izjednačivač",
+        "it": "Equalizzatore",
+        "ja": "イコライザー",
+        "ko-KR": "이퀄라이저",
+        "no": "Utjevner",
+        "pl": "Gładziciel",
+        "pt": "Equalizador",
+        "pt-BR": "Equalizador",
+        "ru": "Уравнитель",
+        "sr": "Izjednačivač",
+        "tr": "Dengeleyici",
+        "uk": "Еквалайзер",
+        "zh-CN": "制裁者",
+        "zh-TW": "平衡者"
+      },
+      "category": "Special",
+      "tiers": [
+        {
+          "id": "equalizer",
+          "label": "—",
+          "name": {
+            "da": "Udligner",
+            "de": "Equalizer",
+            "en": "Equalizer",
+            "es": "Ecualizador",
+            "fr": "Égaliseur",
+            "he": "אקוולייזר",
+            "hr": "Izjednačivač",
+            "it": "Equalizzatore",
+            "ja": "イコライザー",
+            "ko-KR": "이퀄라이저",
+            "no": "Utjevner",
+            "pl": "Gładziciel",
+            "pt": "Equalizador",
+            "pt-BR": "Equalizador",
+            "ru": "Уравнитель",
+            "sr": "Izjednačivač",
+            "tr": "Dengeleyici",
+            "uk": "Еквалайзер",
+            "zh-CN": "制裁者",
+            "zh-TW": "平衡者"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/equalizer.png"
+        },
+        {
+          "id": "equalizer_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Equalizer",
+            "de": "Verstärkter Equalizer",
+            "es": "Ecualizador amplificado",
+            "fr": "Égaliseur amplifié",
+            "it": "Equalizzatore amplificato",
+            "ja": "強化版イコライザー",
+            "ko-KR": "증폭된 이퀄라이저",
+            "pl": "Wzmocniony Gładziciel",
+            "pt-BR": "Equalizador Amplificado",
+            "ru": "Усовершенствованный Уравнитель",
+            "tr": "Güçlendirilmiş Dengeleyici",
+            "zh-CN": "增强型“制裁者”",
+            "zh-TW": "增幅平衡者",
+            "uk": "Підсилений Equalizer",
+            "sr": "Pojačani Equalizer",
+            "no": "Forsterket Equalizer",
+            "da": "Forstærket Equalizer",
+            "pt": "Equalizer Amplificado",
+            "he": "אקולייזר מוגבר",
+            "hr": "Pojačani Equalizer"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/equalizer_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "equalizer",
+          "to": "equalizer_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_v",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/equalizer"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/equalizer.png"
+    },
+    {
+      "id": "ferro",
+      "name": {
+        "da": "Ferro",
+        "de": "Ferro",
+        "en": "Ferro",
+        "es": "Ferro",
+        "fr": "Ferro",
+        "he": "פרו",
+        "hr": "Ferro",
+        "it": "Ferro",
+        "ja": "フェロ",
+        "ko-KR": "페로",
+        "no": "Ferro",
+        "pl": "Ferro",
+        "pt": "Ferro",
+        "pt-BR": "Ferro",
+        "ru": "Ферро",
+        "sr": "Ferro",
+        "tr": "Ferro",
+        "uk": "Ферро",
+        "zh-CN": "生铁",
+        "zh-TW": "鐵桿I"
+      },
+      "category": "Battle Rifle",
+      "tiers": [
+        {
+          "id": "ferro_i",
+          "label": "I",
+          "name": {
+            "da": "Ferro I",
+            "de": "Ferro I",
+            "en": "Ferro I",
+            "es": "Ferro I",
+            "fr": "Ferro I",
+            "he": "פרו I",
+            "hr": "Ferro I",
+            "it": "Ferro I",
+            "ja": "フェロ I",
+            "ko-KR": "페로 I",
+            "no": "Ferro I",
+            "pl": "Ferro I",
+            "pt": "Ferro I",
+            "pt-BR": "Ferro I",
+            "ru": "Ферро I",
+            "sr": "Ferro I",
+            "tr": "Ferro I",
+            "uk": "Ферро I",
+            "zh-CN": "生铁 I",
+            "zh-TW": "鐵桿I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/ferro_i.png"
+        },
+        {
+          "id": "ferro_ii",
+          "label": "II",
+          "name": {
+            "da": "Ferro II",
+            "de": "Ferro II",
+            "en": "Ferro II",
+            "es": "Ferro II",
+            "fr": "Ferro II",
+            "he": "פרו II",
+            "hr": "Ferro II",
+            "it": "Ferro II",
+            "ja": "フェロ II",
+            "ko-KR": "페로 II",
+            "no": "Ferro II",
+            "pl": "Ferro II",
+            "pt": "Ferro II",
+            "pt-BR": "Ferro II",
+            "ru": "Ферро II",
+            "sr": "Ferro II",
+            "tr": "Ferro II",
+            "uk": "Ферро II",
+            "zh-CN": "生铁 II",
+            "zh-TW": "鐵桿II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/ferro_ii.png"
+        },
+        {
+          "id": "ferro_iii",
+          "label": "III",
+          "name": {
+            "da": "Ferro III",
+            "de": "Ferro III",
+            "en": "Ferro III",
+            "es": "Ferro III",
+            "fr": "Ferro III",
+            "he": "פרו III",
+            "hr": "Ferro III",
+            "it": "Ferro III",
+            "ja": "フェロ III",
+            "ko-KR": "페로 III",
+            "no": "Ferro III",
+            "pl": "Ferro III",
+            "pt": "Ferro III",
+            "pt-BR": "Ferro III",
+            "ru": "Ферро III",
+            "sr": "Ferro III",
+            "tr": "Ferro III",
+            "uk": "Ферро III",
+            "zh-CN": "生铁 III",
+            "zh-TW": "鐵桿III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/ferro_iii.png"
+        },
+        {
+          "id": "ferro_iv",
+          "label": "IV",
+          "name": {
+            "da": "Ferro IV",
+            "de": "Ferro IV",
+            "en": "Ferro IV",
+            "es": "Ferro IV",
+            "fr": "Ferro IV",
+            "he": "פרו IV",
+            "hr": "Ferro IV",
+            "it": "Ferro IV",
+            "ja": "フェロ IV",
+            "ko-KR": "페로 IV",
+            "no": "Ferro IV",
+            "pl": "Ferro IV",
+            "pt": "Ferro IV",
+            "pt-BR": "Ferro IV",
+            "ru": "Ферро IV",
+            "sr": "Ferro IV",
+            "tr": "Ferro IV",
+            "uk": "Ферро IV",
+            "zh-CN": "生铁 IV",
+            "zh-TW": "鐵桿IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/ferro_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "ferro_i",
+          "to": "ferro_ii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 7
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/ferro_i"
+        },
+        {
+          "from": "ferro_ii",
+          "to": "ferro_iii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 9
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/ferro_ii"
+        },
+        {
+          "from": "ferro_iii",
+          "to": "ferro_iv",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/ferro_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/ferro_i.png"
+    },
+    {
+      "id": "hairpin",
+      "name": {
+        "da": "Hårnål",
+        "de": "Hairpin",
+        "en": "Hairpin",
+        "es": "Horquilla",
+        "fr": "Épingle",
+        "he": "היירפין",
+        "hr": "Ukosnica",
+        "it": "Tornante",
+        "ja": "ヘアピン",
+        "ko-KR": "헤어핀",
+        "no": "Hårnål",
+        "pl": "Wsuwka",
+        "pt": "Grampo de cabelo",
+        "pt-BR": "Grampo de Cabelo",
+        "ru": "Заколка",
+        "sr": "Ukosnica",
+        "tr": "Toka",
+        "uk": "Шпилька",
+        "zh-CN": "发夹",
+        "zh-TW": "髮夾I"
+      },
+      "category": "Pistol",
+      "tiers": [
+        {
+          "id": "hairpin_i",
+          "label": "I",
+          "name": {
+            "da": "Hårnål I",
+            "de": "Hairpin I",
+            "en": "Hairpin I",
+            "es": "Horquilla I",
+            "fr": "Épingle I",
+            "he": "היירפין I",
+            "hr": "Ukosnica I",
+            "it": "Tornante I",
+            "ja": "ヘアピン I",
+            "ko-KR": "헤어핀 I",
+            "no": "Hårnål I",
+            "pl": "Wsuwka I",
+            "pt": "Grampo de cabelo I",
+            "pt-BR": "Grampo de Cabelo I",
+            "ru": "Заколка I",
+            "sr": "Ukosnica I",
+            "tr": "Toka I",
+            "uk": "Шпилька I",
+            "zh-CN": "发夹 I",
+            "zh-TW": "髮夾I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hairpin_i.png"
+        },
+        {
+          "id": "hairpin_ii",
+          "label": "II",
+          "name": {
+            "da": "Hårnål II",
+            "de": "Hairpin II",
+            "en": "Hairpin II",
+            "es": "Horquilla II",
+            "fr": "Épingle II",
+            "he": "היירפין II",
+            "hr": "Ukosnica II",
+            "it": "Tornante II",
+            "ja": "ヘアピン II",
+            "ko-KR": "헤어핀 II",
+            "no": "Hårnål II",
+            "pl": "Wsuwka II",
+            "pt": "Grampo de cabelo II",
+            "pt-BR": "Grampo de Cabelo II",
+            "ru": "Заколка II",
+            "sr": "Ukosnica II",
+            "tr": "Toka II",
+            "uk": "Шпилька II",
+            "zh-CN": "发夹 II",
+            "zh-TW": "髮夾II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hairpin_ii.png"
+        },
+        {
+          "id": "hairpin_iii",
+          "label": "III",
+          "name": {
+            "da": "Hårnål III",
+            "de": "Hairpin III",
+            "en": "Hairpin III",
+            "es": "Horquilla III",
+            "fr": "Épingle III",
+            "he": "היירפין III",
+            "hr": "Ukosnica III",
+            "it": "Tornante III",
+            "ja": "ヘアピン III",
+            "ko-KR": "헤어핀 III",
+            "no": "Hårnål III",
+            "pl": "Wsuwka III",
+            "pt": "Grampo de cabelo III",
+            "pt-BR": "Grampo de Cabelo III",
+            "ru": "Заколка III",
+            "sr": "Ukosnica III",
+            "tr": "Toka III",
+            "uk": "Шпилька III",
+            "zh-CN": "发夹 III",
+            "zh-TW": "髮夾III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hairpin_iii.png"
+        },
+        {
+          "id": "hairpin_iv",
+          "label": "IV",
+          "name": {
+            "da": "Hårnål IV",
+            "de": "Hairpin IV",
+            "en": "Hairpin IV",
+            "es": "Horquilla IV",
+            "fr": "Épingle IV",
+            "he": "היירפין IV",
+            "hr": "Ukosnica IV",
+            "it": "Tornante IV",
+            "ja": "ヘアピン IV",
+            "ko-KR": "헤어핀 IV",
+            "no": "Hårnål IV",
+            "pl": "Wsuwka IV",
+            "pt": "Grampo de cabelo IV",
+            "pt-BR": "Grampo de Cabelo IV",
+            "ru": "Заколка IV",
+            "sr": "Ukosnica IV",
+            "tr": "Toka IV",
+            "uk": "Шпилька IV",
+            "zh-CN": "发夹 IV",
+            "zh-TW": "髮夾IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hairpin_iv.png"
+        },
+        {
+          "id": "hairpin_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Hairpin",
+            "de": "Verstärkte Hairpin",
+            "es": "Horquilla amplificada",
+            "fr": "Épingle amplifiée",
+            "it": "Tornante amplificato",
+            "ja": "強化版ヘアピン",
+            "ko-KR": "증폭된 헤어핀",
+            "pl": "Wzmocniona Wsuwka",
+            "pt-BR": "Grampo de Cabelo Amplificado",
+            "ru": "Усовершенствованная Заколка",
+            "tr": "Güçlendirilmiş Toka",
+            "zh-CN": "增强型“发夹”",
+            "zh-TW": "增幅髮夾",
+            "no": "Forsterket Hairpin",
+            "da": "Forstærket Hairpin",
+            "uk": "Підсилена Шпилька",
+            "hr": "Pojačani Hairpin",
+            "pt": "Grampo Amplificado",
+            "sr": "Pojačani Hairpin",
+            "he": "היירפין מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hairpin_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "hairpin_i",
+          "to": "hairpin_ii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 8
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hairpin_i"
+        },
+        {
+          "from": "hairpin_ii",
+          "to": "hairpin_iii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 9
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hairpin_ii"
+        },
+        {
+          "from": "hairpin_iii",
+          "to": "hairpin_iv",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hairpin_iii"
+        },
+        {
+          "from": "hairpin_iv",
+          "to": "hairpin_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_i",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hairpin_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/hairpin_i.png"
+    },
+    {
+      "id": "hullcracker",
+      "name": {
+        "da": "Skrogknuser",
+        "de": "Hüllenbrecher",
+        "en": "Hullcracker",
+        "es": "Partecascos",
+        "fr": "Brise-fuselage",
+        "he": "הולקראקר",
+        "hr": "Lomač Trupa",
+        "it": "Spaccascudi",
+        "ja": "ハルクラッカー",
+        "ko-KR": "헐크래커",
+        "no": "Skrogknuser",
+        "pl": "Rozłupywacz",
+        "pt": "Quebra-cascos",
+        "pt-BR": "Quebra-Casco",
+        "ru": "Бронелом",
+        "sr": "Lomač Trupa",
+        "tr": "Kabukkıran",
+        "uk": "Корпусолом",
+        "zh-CN": "裂甲者",
+        "zh-TW": "碎甲者I"
+      },
+      "category": "Special",
+      "tiers": [
+        {
+          "id": "hullcracker_i",
+          "label": "I",
+          "name": {
+            "da": "Skrogknuser I",
+            "de": "Hüllenbrecher I",
+            "en": "Hullcracker I",
+            "es": "Partecascos I",
+            "fr": "Brise-fuselage I",
+            "he": "הולקראקר I",
+            "hr": "Lomač Trupa I",
+            "it": "Spaccascudi I",
+            "ja": "ハルクラッカー I",
+            "ko-KR": "헐크래커 I",
+            "no": "Skrogknuser I",
+            "pl": "Rozłupywacz I",
+            "pt": "Quebra-cascos I",
+            "pt-BR": "Quebra-Casco I",
+            "ru": "Бронелом I",
+            "sr": "Lomač Trupa I",
+            "tr": "Kabukkıran I",
+            "uk": "Корпусолом I",
+            "zh-CN": "裂甲者 I",
+            "zh-TW": "碎甲者I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hullcracker_i.png"
+        },
+        {
+          "id": "hullcracker_ii",
+          "label": "II",
+          "name": {
+            "da": "Skrogknuser II",
+            "de": "Hüllenbrecher II",
+            "en": "Hullcracker II",
+            "es": "Partecascos II",
+            "fr": "Brise-fuselage II",
+            "he": "הולקראקר II",
+            "hr": "Lomač Trupa II",
+            "it": "Spaccascudi II",
+            "ja": "ハルクラッカー II",
+            "ko-KR": "헐크래커 II",
+            "no": "Skrogknuser II",
+            "pl": "Rozłupywacz II",
+            "pt": "Quebra-cascos II",
+            "pt-BR": "Quebra-Casco II",
+            "ru": "Бронелом II",
+            "sr": "Lomač Trupa II",
+            "tr": "Kabukkıran II",
+            "uk": "Корпусолом II",
+            "zh-CN": "裂甲者 II",
+            "zh-TW": "碎甲者II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hullcracker_ii.png"
+        },
+        {
+          "id": "hullcracker_iii",
+          "label": "III",
+          "name": {
+            "da": "Skrogknuser III",
+            "de": "Hüllenbrecher III",
+            "en": "Hullcracker III",
+            "es": "Partecascos III",
+            "fr": "Brise-fuselage III",
+            "he": "הולקראקר III",
+            "hr": "Lomač Trupa III",
+            "it": "Spaccascudi III",
+            "ja": "ハルクラッカー III",
+            "ko-KR": "헐크래커 III",
+            "no": "Skrogknuser III",
+            "pl": "Rozłupywacz III",
+            "pt": "Quebra-cascos III",
+            "pt-BR": "Quebra-Casco III",
+            "ru": "Бронелом III",
+            "sr": "Lomač Trupa III",
+            "tr": "Kabukkıran III",
+            "uk": "Корпусолом III",
+            "zh-CN": "裂甲者 III",
+            "zh-TW": "碎甲者III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hullcracker_iii.png"
+        },
+        {
+          "id": "hullcracker_iv",
+          "label": "IV",
+          "name": {
+            "da": "Skrogknuser IV",
+            "de": "Hüllenbrecher IV",
+            "en": "Hullcracker IV",
+            "es": "Partecascos IV",
+            "fr": "Brise-fuselage IV",
+            "he": "הולקראקר IV",
+            "hr": "Lomač Trupa IV",
+            "it": "Spaccascudi IV",
+            "ja": "ハルクラッカー IV",
+            "ko-KR": "헐크래커 IV",
+            "no": "Skrogknuser IV",
+            "pl": "Rozłupywacz IV",
+            "pt": "Quebra-cascos IV",
+            "pt-BR": "Quebra-Casco IV",
+            "ru": "Бронелом IV",
+            "sr": "Lomač Trupa IV",
+            "tr": "Kabukkıran IV",
+            "uk": "Корпусолом IV",
+            "zh-CN": "裂甲者 IV",
+            "zh-TW": "碎甲者IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hullcracker_iv.png"
+        },
+        {
+          "id": "hullcracker_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Hullcracker",
+            "de": "Verstärkter Hüllenbrecher",
+            "es": "Partecascos amplificado",
+            "fr": "Brise-fuselage amplifié",
+            "it": "Spaccascudi amplificato",
+            "ja": "強化版ハルクラッカー",
+            "ko-KR": "증폭된 헐크래커",
+            "pl": "Wzmocniony Rozłupywacz",
+            "pt-BR": "Quebra-Casco Amplificado",
+            "ru": "Усовершенствованный Взломщик корпусов",
+            "tr": "Güçlendirilmiş Kabukkıran",
+            "zh-CN": "增强型“裂甲者”",
+            "zh-TW": "增幅碎甲者",
+            "no": "Forsterket Hullcracker",
+            "da": "Forstærket Hullcracker",
+            "uk": "Підсилений Розколювач корпусів",
+            "hr": "Pojačani Hullcracker",
+            "pt": "Quebra-Cascos Amplificado",
+            "sr": "Pojačani Razbijač trupa",
+            "he": "מפצח שריון מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/hullcracker_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "hullcracker_i",
+          "to": "hullcracker_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hullcracker_i"
+        },
+        {
+          "from": "hullcracker_ii",
+          "to": "hullcracker_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hullcracker_ii"
+        },
+        {
+          "from": "hullcracker_iii",
+          "to": "hullcracker_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 3
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hullcracker_iii"
+        },
+        {
+          "from": "hullcracker_iv",
+          "to": "hullcracker_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iv",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/hullcracker_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/hullcracker_i.png"
+    },
+    {
+      "id": "il_toro",
+      "name": {
+        "da": "Il Toro",
+        "de": "Il Toro",
+        "en": "Il Toro",
+        "es": "Il Toro",
+        "fr": "Il Toro",
+        "he": "איל טורו",
+        "hr": "Il Toro",
+        "it": "Il Toro",
+        "ja": "イル・トーロ",
+        "ko-KR": "일 토로",
+        "no": "Il Toro",
+        "pl": "Il Toro",
+        "pt": "Il Toro",
+        "pt-BR": "Il Toro",
+        "ru": "Эль-Торо",
+        "sr": "Il Toro",
+        "tr": "Il Toro",
+        "uk": "Ель-Торо",
+        "zh-CN": "公牛",
+        "zh-TW": "公牛I"
+      },
+      "category": "Shotgun",
+      "tiers": [
+        {
+          "id": "il_toro_i",
+          "label": "I",
+          "name": {
+            "da": "Il Toro I",
+            "de": "Il Toro I",
+            "en": "Il Toro I",
+            "es": "Il Toro I",
+            "fr": "Il Toro I",
+            "he": "איל טורו I",
+            "hr": "Il Toro I",
+            "it": "Il Toro I",
+            "ja": "イル・トーロ I",
+            "ko-KR": "일 토로 I",
+            "no": "Il Toro I",
+            "pl": "Il Toro I",
+            "pt": "Il Toro I",
+            "pt-BR": "Il Toro I",
+            "ru": "Эль-Торо I",
+            "sr": "Il Toro I",
+            "tr": "Il Toro I",
+            "uk": "Ель-Торо I",
+            "zh-CN": "公牛 I",
+            "zh-TW": "公牛I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/il_toro_i.png"
+        },
+        {
+          "id": "il_toro_ii",
+          "label": "II",
+          "name": {
+            "da": "Il Toro II",
+            "de": "Il Toro II",
+            "en": "Il Toro II",
+            "es": "Il Toro II",
+            "fr": "Il Toro II",
+            "he": "איל טורו II",
+            "hr": "Il Toro II",
+            "it": "Il Toro II",
+            "ja": "イル・トーロ II",
+            "ko-KR": "일 토로 II",
+            "no": "Il Toro II",
+            "pl": "Il Toro II",
+            "pt": "Il Toro II",
+            "pt-BR": "Il Toro II",
+            "ru": "Эль-Торо II",
+            "sr": "Il Toro II",
+            "tr": "Il Toro II",
+            "uk": "Ель-Торо II",
+            "zh-CN": "公牛 II",
+            "zh-TW": "公牛II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/il_toro_ii.png"
+        },
+        {
+          "id": "il_toro_iii",
+          "label": "III",
+          "name": {
+            "da": "Il Toro III",
+            "de": "Il Toro III",
+            "en": "Il Toro III",
+            "es": "Il Toro III",
+            "fr": "Il Toro III",
+            "he": "איל טורו III",
+            "hr": "Il Toro III",
+            "it": "Il Toro III",
+            "ja": "イル・トーロ III",
+            "ko-KR": "일 토로 III",
+            "no": "Il Toro III",
+            "pl": "Il Toro III",
+            "pt": "Il Toro III",
+            "pt-BR": "Il Toro III",
+            "ru": "Эль-Торо III",
+            "sr": "Il Toro III",
+            "tr": "Il Toro III",
+            "uk": "Ель-Торо III",
+            "zh-CN": "公牛 III",
+            "zh-TW": "公牛III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/il_toro_iii.png"
+        },
+        {
+          "id": "il_toro_iv",
+          "label": "IV",
+          "name": {
+            "da": "Il Toro IV",
+            "de": "Il Toro IV",
+            "en": "Il Toro IV",
+            "es": "Il Toro IV",
+            "fr": "Il Toro IV",
+            "he": "איל טורו IV",
+            "hr": "Il Toro IV",
+            "it": "Il Toro IV",
+            "ja": "イル・トーロ IV",
+            "ko-KR": "일 토로 IV",
+            "no": "Il Toro IV",
+            "pl": "Il Toro IV",
+            "pt": "Il Toro IV",
+            "pt-BR": "Il Toro IV",
+            "ru": "Эль-Торо IV",
+            "sr": "Il Toro IV",
+            "tr": "Il Toro IV",
+            "uk": "Ель-Торо IV",
+            "zh-CN": "公牛 IV",
+            "zh-TW": "公牛IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/il_toro_iv.png"
+        },
+        {
+          "id": "il_toro_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Il Toro",
+            "de": "Verstärkter Il Toro",
+            "es": "Il Toro amplificada",
+            "fr": "Il Toro amplifié",
+            "it": "Il Toro amplificato",
+            "ja": "強化版イル・トーロ",
+            "ko-KR": "증폭된 일 토로",
+            "pl": "Wzmocniony Il Toro",
+            "pt-BR": "Il Toro Amplificado",
+            "ru": "Усовершенствованный Эль-Торо",
+            "tr": "Güçlendirilmiş Il Toro",
+            "zh-CN": "增强型“公牛”",
+            "zh-TW": "增幅公牛",
+            "no": "Forsterket Il Toro",
+            "sr": "Pojačani Il Toro",
+            "hr": "Pojačani Il Toro",
+            "da": "Forstærket Il Toro",
+            "uk": "Посилений Іль Торо",
+            "pt": "Il Toro Amplificado",
+            "he": "איל טורו מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/il_toro_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "il_toro_i",
+          "to": "il_toro_ii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/il_toro_i"
+        },
+        {
+          "from": "il_toro_ii",
+          "to": "il_toro_iii",
+          "materials": [
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            },
+            {
+              "itemId": "mechanical_components",
+              "quantity": 4
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/il_toro_ii"
+        },
+        {
+          "from": "il_toro_iii",
+          "to": "il_toro_iv",
+          "materials": [
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            },
+            {
+              "itemId": "mechanical_components",
+              "quantity": 4
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/il_toro_iii"
+        },
+        {
+          "from": "il_toro_iv",
+          "to": "il_toro_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_ii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/il_toro_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/il_toro_i.png"
+    },
+    {
+      "id": "jupiter",
+      "name": {
+        "da": "Jupiter",
+        "de": "Jupiter",
+        "en": "Jupiter",
+        "es": "Júpiter",
+        "fr": "Jupiter",
+        "he": "יופיטר",
+        "hr": "Jupiter",
+        "it": "Giove",
+        "ja": "ジュピター",
+        "ko-KR": "주피터",
+        "no": "Jupiter",
+        "pl": "Jowisz",
+        "pt": "Júpiter",
+        "pt-BR": "Júpiter",
+        "ru": "Юпитер",
+        "sr": "Jupiter",
+        "tr": "Erendiz",
+        "uk": "Юпітер",
+        "zh-CN": "木星",
+        "zh-TW": "木星"
+      },
+      "category": "Sniper Rifle",
+      "tiers": [
+        {
+          "id": "jupiter",
+          "label": "—",
+          "name": {
+            "da": "Jupiter",
+            "de": "Jupiter",
+            "en": "Jupiter",
+            "es": "Júpiter",
+            "fr": "Jupiter",
+            "he": "יופיטר",
+            "hr": "Jupiter",
+            "it": "Giove",
+            "ja": "ジュピター",
+            "ko-KR": "주피터",
+            "no": "Jupiter",
+            "pl": "Jowisz",
+            "pt": "Júpiter",
+            "pt-BR": "Júpiter",
+            "ru": "Юпитер",
+            "sr": "Jupiter",
+            "tr": "Erendiz",
+            "uk": "Юпітер",
+            "zh-CN": "木星",
+            "zh-TW": "木星"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/jupiter.png"
+        },
+        {
+          "id": "jupiter_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Jupiter",
+            "de": "Verstärkte Jupiter",
+            "es": "Júpiter amplificado",
+            "fr": "Jupiter amplifié",
+            "it": "Giove amplificato",
+            "ja": "強化版ジュピター",
+            "ko-KR": "증폭된 주피터",
+            "pl": "Wzmocniony Jowisz",
+            "pt-BR": "Júpiter Amplificado",
+            "ru": "Усовершенствованный Юпитер",
+            "tr": "Güçlendirilmiş Erendiz",
+            "zh-CN": "增强型“木星”",
+            "zh-TW": "增幅木星",
+            "no": "Forsterket Jupiter",
+            "sr": "Pojačani Jupiter",
+            "hr": "Pojačani Jupiter",
+            "da": "Forstærket Jupiter",
+            "uk": "Посилений Юпітер",
+            "pt": "Jupiter Amplificado",
+            "he": "יופיטר מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/jupiter_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "jupiter",
+          "to": "jupiter_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_v",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/jupiter"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/jupiter.png"
+    },
+    {
+      "id": "kettle",
+      "name": {
+        "da": "Kedel",
+        "de": "Kettle",
+        "en": "Kettle",
+        "es": "Caldero",
+        "fr": "Fondoir",
+        "he": "קטל",
+        "hr": "Kotlić",
+        "it": "Stormo",
+        "ja": "ケトル",
+        "ko-KR": "케틀",
+        "no": "Kjele",
+        "pl": "Kociołek",
+        "pt": "Chaleira",
+        "pt-BR": "Chaleira",
+        "ru": "Чайник",
+        "sr": "Čajnik",
+        "tr": "Isıtıcı",
+        "uk": "Чайник",
+        "zh-CN": "水壶",
+        "zh-TW": "水壺I"
+      },
+      "category": "Assault Rifle",
+      "tiers": [
+        {
+          "id": "kettle_i",
+          "label": "I",
+          "name": {
+            "da": "Kedel I",
+            "de": "Kettle I",
+            "en": "Kettle I",
+            "es": "Caldero I",
+            "fr": "Fondoir I",
+            "he": "קטל I",
+            "hr": "Kotlić I",
+            "it": "Stormo I",
+            "ja": "ケトル I",
+            "ko-KR": "케틀 I",
+            "no": "Kjele I",
+            "pl": "Kociołek I",
+            "pt": "Chaleira I",
+            "pt-BR": "Chaleira I",
+            "ru": "Чайник I",
+            "sr": "Čajnik I",
+            "tr": "Isıtıcı I",
+            "uk": "Чайник I",
+            "zh-CN": "水壶 I",
+            "zh-TW": "水壺I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/kettle_i.png"
+        },
+        {
+          "id": "kettle_ii",
+          "label": "II",
+          "name": {
+            "da": "Kedel II",
+            "de": "Kettle II",
+            "en": "Kettle II",
+            "es": "Caldero II",
+            "fr": "Fondoir II",
+            "he": "קטל II",
+            "hr": "Kotlić II",
+            "it": "Stormo II",
+            "ja": "ケトル II",
+            "ko-KR": "케틀 II",
+            "no": "Kjele II",
+            "pl": "Kociołek II",
+            "pt": "Chaleira II",
+            "pt-BR": "Chaleira II",
+            "ru": "Чайник II",
+            "sr": "Čajnik II",
+            "tr": "Isıtıcı II",
+            "uk": "Чайник II",
+            "zh-CN": "水壶 II",
+            "zh-TW": "水壺II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/kettle_ii.png"
+        },
+        {
+          "id": "kettle_iii",
+          "label": "III",
+          "name": {
+            "da": "Kedel III",
+            "de": "Kettle III",
+            "en": "Kettle III",
+            "es": "Caldero III",
+            "fr": "Fondoir III",
+            "he": "קטל III",
+            "hr": "Kotlić III",
+            "it": "Stormo III",
+            "ja": "ケトル III",
+            "ko-KR": "케틀 III",
+            "no": "Kjele III",
+            "pl": "Kociołek III",
+            "pt": "Chaleira III",
+            "pt-BR": "Chaleira III",
+            "ru": "Чайник III",
+            "sr": "Čajnik III",
+            "tr": "Isıtıcı III",
+            "uk": "Чайник III",
+            "zh-CN": "水壶 III",
+            "zh-TW": "水壺III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/kettle_iii.png"
+        },
+        {
+          "id": "kettle_iv",
+          "label": "IV",
+          "name": {
+            "da": "Kedel IV",
+            "de": "Kettle IV",
+            "en": "Kettle IV",
+            "es": "Caldero IV",
+            "fr": "Fondoir IV",
+            "he": "קטל IV",
+            "hr": "Kotlić IV",
+            "it": "Stormo IV",
+            "ja": "ケトル IV",
+            "ko-KR": "케틀 IV",
+            "no": "Kjele IV",
+            "pl": "Kociołek IV",
+            "pt": "Chaleira IV",
+            "pt-BR": "Chaleira IV",
+            "ru": "Чайник IV",
+            "sr": "Čajnik IV",
+            "tr": "Isıtıcı IV",
+            "uk": "Чайник IV",
+            "zh-CN": "水壶 IV",
+            "zh-TW": "水壺IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/kettle_iv.png"
+        },
+        {
+          "id": "kettle_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Kettle",
+            "de": "Verstärkter Kettle",
+            "es": "Caldero amplificado",
+            "fr": "Fondoir amplifié",
+            "it": "Stormo amplificato",
+            "ja": "強化版ケトル",
+            "ko-KR": "증폭된 케틀",
+            "pl": "Wzmocniony Kociołek",
+            "pt-BR": "Chaleira Amplificada",
+            "ru": "Усовершенствованный Чайник",
+            "tr": "Güçlendirilmiş Isıtıcı",
+            "zh-CN": "增强型“水壶”",
+            "zh-TW": "增幅水壺",
+            "no": "Forsterket Kettle",
+            "sr": "Pojačani Kettle",
+            "hr": "Pojačani Kettle",
+            "da": "Forstærket Kettle",
+            "uk": "Посилений Кеттл",
+            "pt": "Kettle Amplificado",
+            "he": "קטל מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/kettle_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "kettle_i",
+          "to": "kettle_ii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 8
+            },
+            {
+              "itemId": "plastic_parts",
+              "quantity": 10
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/kettle_i"
+        },
+        {
+          "from": "kettle_ii",
+          "to": "kettle_iii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 10
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/kettle_ii"
+        },
+        {
+          "from": "kettle_iii",
+          "to": "kettle_iv",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/kettle_iii"
+        },
+        {
+          "from": "kettle_iv",
+          "to": "kettle_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_i",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/kettle_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/kettle_i.png"
+    },
+    {
+      "id": "osprey",
+      "name": {
+        "da": "Fiskeørn",
+        "de": "Osprey",
+        "en": "Osprey",
+        "es": "Halieto",
+        "fr": "Balbuzard",
+        "he": "אוספריי",
+        "hr": "Bukoč",
+        "it": "Falco pescatore",
+        "ja": "オスプレー",
+        "ko-KR": "오스프레이",
+        "no": "Fiskeørn",
+        "pl": "Rybołów",
+        "pt": "Águia-Pescadora",
+        "pt-BR": "Águia-Pescadora",
+        "ru": "Ястреб",
+        "sr": "Orao ribar",
+        "tr": "Kartal",
+        "uk": "Оспрей",
+        "zh-CN": "鱼鹰",
+        "zh-TW": "魚鷹I"
+      },
+      "category": "Sniper Rifle",
+      "tiers": [
+        {
+          "id": "osprey_i",
+          "label": "I",
+          "name": {
+            "da": "Fiskeørn I",
+            "de": "Osprey I",
+            "en": "Osprey I",
+            "es": "Halieto I",
+            "fr": "Balbuzard I",
+            "he": "אוספריי I",
+            "hr": "Bukoč I",
+            "it": "Falco pescatore I",
+            "ja": "オスプレー I",
+            "ko-KR": "오스프레이 I",
+            "no": "Fiskeørn I",
+            "pl": "Rybołów I",
+            "pt": "Águia-Pescadora I",
+            "pt-BR": "Águia-Pescadora I",
+            "ru": "Ястреб I",
+            "sr": "Orao ribar I",
+            "tr": "Kartal I",
+            "uk": "Оспрей I",
+            "zh-CN": "鱼鹰 I",
+            "zh-TW": "魚鷹I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/osprey_i.png"
+        },
+        {
+          "id": "osprey_ii",
+          "label": "II",
+          "name": {
+            "da": "Fiskeørn II",
+            "de": "Osprey II",
+            "en": "Osprey II",
+            "es": "Halieto II",
+            "fr": "Balbuzard II",
+            "he": "אוספריי II",
+            "hr": "Bukoč II",
+            "it": "Falco pescatore II",
+            "ja": "オスプレー II",
+            "ko-KR": "오스프레이 II",
+            "no": "Fiskeørn II",
+            "pl": "Rybołów II",
+            "pt": "Águia-Pescadora II",
+            "pt-BR": "Águia-Pescadora II",
+            "ru": "Ястреб II",
+            "sr": "Orao ribar II",
+            "tr": "Kartal II",
+            "uk": "Оспрей II",
+            "zh-CN": "鱼鹰 II",
+            "zh-TW": "魚鷹II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/osprey_ii.png"
+        },
+        {
+          "id": "osprey_iii",
+          "label": "III",
+          "name": {
+            "da": "Fiskeørn III",
+            "de": "Osprey III",
+            "en": "Osprey III",
+            "es": "Halieto III",
+            "fr": "Balbuzard III",
+            "he": "אוספריי III",
+            "hr": "Bukoč III",
+            "it": "Falco pescatore III",
+            "ja": "オスプレー III",
+            "ko-KR": "오스프레이 III",
+            "no": "Fiskeørn III",
+            "pl": "Rybołów III",
+            "pt": "Águia-Pescadora III",
+            "pt-BR": "Águia-Pescadora III",
+            "ru": "Ястреб III",
+            "sr": "Orao ribar III",
+            "tr": "Kartal III",
+            "uk": "Оспрей III",
+            "zh-CN": "鱼鹰 III",
+            "zh-TW": "魚鷹III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/osprey_iii.png"
+        },
+        {
+          "id": "osprey_iv",
+          "label": "IV",
+          "name": {
+            "da": "Fiskeørn IV",
+            "de": "Osprey IV",
+            "en": "Osprey IV",
+            "es": "Halieto IV",
+            "fr": "Balbuzard IV",
+            "he": "אוספריי IV",
+            "hr": "Bukoč IV",
+            "it": "Falco pescatore IV",
+            "ja": "オスプレー IV",
+            "ko-KR": "오스프레이 IV",
+            "no": "Fiskeørn IV",
+            "pl": "Rybołów IV",
+            "pt": "Águia-Pescadora IV",
+            "pt-BR": "Águia-Pescadora IV",
+            "ru": "Ястреб IV",
+            "sr": "Orao ribar IV",
+            "tr": "Kartal IV",
+            "uk": "Оспрей IV",
+            "zh-CN": "鱼鹰 IV",
+            "zh-TW": "魚鷹IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/osprey_iv.png"
+        },
+        {
+          "id": "osprey_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Osprey",
+            "de": "Verstärkter Osprey",
+            "es": "Halieto amplificado",
+            "fr": "Balbuzard amplifié",
+            "it": "Falco pescatore amplificato",
+            "ja": "強化版オスプレー",
+            "ko-KR": "증폭된 오스프레이",
+            "pl": "Wzmocniony Rybołów",
+            "pt-BR": "Osprey Amplificada",
+            "ru": "Усовершенствованный Ястреб",
+            "tr": "Güçlendirilmiş Kartal",
+            "zh-CN": "增强型“鱼鹰”",
+            "zh-TW": "增幅魚鷹",
+            "no": "Forsterket Osprey",
+            "da": "Forstærket Osprey",
+            "he": "Osprey מוגבר",
+            "hr": "Pojačani Osprey",
+            "pt": "Osprey Amplificada",
+            "uk": "Посилений Osprey",
+            "sr": "Pojačani Osprey"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/osprey_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "osprey_i",
+          "to": "osprey_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/osprey_i"
+        },
+        {
+          "from": "osprey_ii",
+          "to": "osprey_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/osprey_ii"
+        },
+        {
+          "from": "osprey_iii",
+          "to": "osprey_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/osprey_iii"
+        },
+        {
+          "from": "osprey_iv",
+          "to": "osprey_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/osprey_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/osprey_i.png"
+    },
+    {
+      "id": "rascal",
+      "name": {
+        "da": "Slyngel",
+        "de": "Rascal",
+        "en": "Rascal",
+        "es": "Pícaro",
+        "fr": "Vaurien",
+        "he": "רסקל",
+        "hr": "Mangup",
+        "it": "Rascal",
+        "ja": "ラスカル",
+        "ko-KR": "라스칼",
+        "no": "Rakker",
+        "pl": "Nicpoń",
+        "pt": "Pestinha",
+        "pt-BR": "Pestinha",
+        "ru": "Негодяй",
+        "sr": "Mangup",
+        "tr": "Serseri",
+        "uk": "Негідник",
+        "zh-CN": "无赖",
+        "zh-TW": "無賴I"
+      },
+      "category": "Special",
+      "tiers": [
+        {
+          "id": "rascal_i",
+          "label": "I",
+          "name": {
+            "da": "Slyngel I",
+            "de": "Rascal I",
+            "en": "Rascal I",
+            "es": "Pícaro I",
+            "fr": "Vaurien I",
+            "he": "רסקל I",
+            "hr": "Mangup I",
+            "it": "Rascal I",
+            "ja": "ラスカル I",
+            "ko-KR": "라스칼 I",
+            "no": "Rakker I",
+            "pl": "Nicpoń I",
+            "pt": "Pestinha I",
+            "pt-BR": "Pestinha I",
+            "ru": "Негодяй I",
+            "sr": "Mangup I",
+            "tr": "Serseri I",
+            "uk": "Негідник I",
+            "zh-CN": "无赖 I",
+            "zh-TW": "無賴I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rascal_i.png"
+        },
+        {
+          "id": "rascal_ii",
+          "label": "II",
+          "name": {
+            "da": "Slyngel II",
+            "de": "Rascal II",
+            "en": "Rascal II",
+            "es": "Pícaro II",
+            "fr": "Vaurien II",
+            "he": "רסקל II",
+            "hr": "Mangup II",
+            "it": "Rascal II",
+            "ja": "ラスカル II",
+            "ko-KR": "라스칼 II",
+            "no": "Rakker II",
+            "pl": "Nicpoń II",
+            "pt": "Pestinha II",
+            "pt-BR": "Pestinha II",
+            "ru": "Негодяй II",
+            "sr": "Mangup II",
+            "tr": "Serseri II",
+            "uk": "Негідник II",
+            "zh-CN": "无赖 II",
+            "zh-TW": "無賴II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rascal_ii.png"
+        },
+        {
+          "id": "rascal_iii",
+          "label": "III",
+          "name": {
+            "da": "Slyngel III",
+            "de": "Rascal III",
+            "en": "Rascal III",
+            "es": "Pícaro III",
+            "fr": "Vaurien III",
+            "he": "רסקל III",
+            "hr": "Mangup III",
+            "it": "Rascal III",
+            "ja": "ラスカル III",
+            "ko-KR": "라스칼 III",
+            "no": "Rakker III",
+            "pl": "Nicpoń III",
+            "pt": "Pestinha III",
+            "pt-BR": "Pestinha III",
+            "ru": "Негодяй III",
+            "sr": "Mangup III",
+            "tr": "Serseri III",
+            "uk": "Негідник III",
+            "zh-CN": "无赖 III",
+            "zh-TW": "無賴III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rascal_iii.png"
+        },
+        {
+          "id": "rascal_iv",
+          "label": "IV",
+          "name": {
+            "da": "Slyngel IV",
+            "de": "Rascal IV",
+            "en": "Rascal IV",
+            "es": "Pícaro IV",
+            "fr": "Vaurien IV",
+            "he": "רסקל IV",
+            "hr": "Mangup IV",
+            "it": "Rascal IV",
+            "ja": "ラスカル IV",
+            "ko-KR": "라스칼 IV",
+            "no": "Rakker IV",
+            "pl": "Nicpoń IV",
+            "pt": "Pestinha IV",
+            "pt-BR": "Pestinha IV",
+            "ru": "Негодяй IV",
+            "sr": "Mangup IV",
+            "tr": "Serseri IV",
+            "uk": "Негідник IV",
+            "zh-CN": "无赖 IV",
+            "zh-TW": "無賴IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rascal_iv.png"
+        },
+        {
+          "id": "rascal_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Rascal",
+            "de": "Verstärkter Rascal",
+            "es": "Pícaro amplificado",
+            "fr": "Vaurien amplifié",
+            "it": "Rascal amplificato",
+            "ja": "強化版ラスカル",
+            "ko-KR": "증폭된 라스칼",
+            "pl": "Wzmocniony Nicpoń",
+            "pt-BR": "Pestinha Amplificado",
+            "ru": "Усовершенствованный Негодяй",
+            "tr": "Güçlendirilmiş Serseri",
+            "zh-CN": "增强型“无赖”",
+            "zh-TW": "增幅無賴",
+            "da": "Forstærket Rascal",
+            "pt": "Rascal Amplificado",
+            "no": "Forsterket Rascal",
+            "sr": "Pojačani Rascal",
+            "uk": "Посилений Раскал",
+            "hr": "Pojačani Rascal",
+            "he": "רסקאל מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rascal_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "rascal_i",
+          "to": "rascal_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rascal_i"
+        },
+        {
+          "from": "rascal_ii",
+          "to": "rascal_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rascal_ii"
+        },
+        {
+          "from": "rascal_iii",
+          "to": "rascal_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rascal_iii"
+        },
+        {
+          "from": "rascal_iv",
+          "to": "rascal_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rascal_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/rascal_i.png"
+    },
+    {
+      "id": "rattler",
+      "name": {
+        "da": "Klapperslange",
+        "de": "Rattler",
+        "en": "Rattler",
+        "es": "Crótalo",
+        "fr": "Crotale",
+        "he": "רטלר",
+        "hr": "Čegrtuša",
+        "it": "Rattler",
+        "ja": "ラトラー",
+        "ko-KR": "래틀러",
+        "no": "Klapperslange",
+        "pl": "Grzechotnik",
+        "pt": "Matraca",
+        "pt-BR": "Matraca",
+        "ru": "Трещотка",
+        "sr": "Zvečarka",
+        "tr": "Çıngırak",
+        "uk": "Тріскачка",
+        "zh-CN": "响尾蛇",
+        "zh-TW": "響尾蛇I"
+      },
+      "category": "Assault Rifle",
+      "tiers": [
+        {
+          "id": "rattler_i",
+          "label": "I",
+          "name": {
+            "da": "Klapperslange I",
+            "de": "Rattler I",
+            "en": "Rattler I",
+            "es": "Crótalo I",
+            "fr": "Crotale I",
+            "he": "רטלר I",
+            "hr": "Čegrtuša I",
+            "it": "Rattler I",
+            "ja": "ラトラー I",
+            "ko-KR": "래틀러 I",
+            "no": "Klapperslange I",
+            "pl": "Grzechotnik I",
+            "pt": "Matraca I",
+            "pt-BR": "Matraca I",
+            "ru": "Трещотка I",
+            "sr": "Zvečarka I",
+            "tr": "Çıngırak I",
+            "uk": "Тріскачка I",
+            "zh-CN": "响尾蛇 I",
+            "zh-TW": "響尾蛇I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rattler_i.png"
+        },
+        {
+          "id": "rattler_ii",
+          "label": "II",
+          "name": {
+            "da": "Klapperslange II",
+            "de": "Rattler II",
+            "en": "Rattler II",
+            "es": "Crótalo II",
+            "fr": "Crotale II",
+            "he": "רטלר II",
+            "hr": "Čegrtuša II",
+            "it": "Rattler II",
+            "ja": "ラトラー II",
+            "ko-KR": "래틀러 II",
+            "no": "Klapperslange II",
+            "pl": "Grzechotnik II",
+            "pt": "Matraca II",
+            "pt-BR": "Matraca II",
+            "ru": "Трещотка II",
+            "sr": "Zvečarka II",
+            "tr": "Çıngırak II",
+            "uk": "Тріскачка II",
+            "zh-CN": "响尾蛇 II",
+            "zh-TW": "響尾蛇II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rattler_ii.png"
+        },
+        {
+          "id": "rattler_iii",
+          "label": "III",
+          "name": {
+            "da": "Klapperslange III",
+            "de": "Rattler III",
+            "en": "Rattler III",
+            "es": "Crótalo III",
+            "fr": "Crotale III",
+            "he": "רטלר III",
+            "hr": "Čegrtuša III",
+            "it": "Rattler III",
+            "ja": "ラトラー III",
+            "ko-KR": "래틀러 III",
+            "no": "Klapperslange III",
+            "pl": "Grzechotnik III",
+            "pt": "Matraca III",
+            "pt-BR": "Matraca III",
+            "ru": "Трещотка III",
+            "sr": "Zvečarka III",
+            "tr": "Çıngırak III",
+            "uk": "Тріскачка III",
+            "zh-CN": "响尾蛇 III",
+            "zh-TW": "響尾蛇III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rattler_iii.png"
+        },
+        {
+          "id": "rattler_iv",
+          "label": "IV",
+          "name": {
+            "da": "Klapperslange IV",
+            "de": "Rattler IV",
+            "en": "Rattler IV",
+            "es": "Crótalo IV",
+            "fr": "Crotale IV",
+            "he": "רטלר IV",
+            "hr": "Čegrtuša IV",
+            "it": "Rattler IV",
+            "ja": "ラトラー IV",
+            "ko-KR": "래틀러 IV",
+            "no": "Klapperslange IV",
+            "pl": "Grzechotnik IV",
+            "pt": "Matraca IV",
+            "pt-BR": "Matraca IV",
+            "ru": "Трещотка IV",
+            "sr": "Zvečarka IV",
+            "tr": "Çıngırak IV",
+            "uk": "Тріскачка IV",
+            "zh-CN": "响尾蛇 IV",
+            "zh-TW": "響尾蛇IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rattler_iv.png"
+        },
+        {
+          "id": "rattler_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Rattler",
+            "de": "Verstärkter Rattler",
+            "es": "Crótalo amplificado",
+            "fr": "Crotale amplifié",
+            "it": "Rattler amplificato",
+            "ja": "強化版ラトラー",
+            "ko-KR": "증폭된 래틀러",
+            "pl": "Wzmocniony Grzechotnik",
+            "pt-BR": "Matraca Amplificada",
+            "ru": "Усовершенствованная Трещотка",
+            "tr": "Güçlendirilmiş Çıngırak",
+            "zh-CN": "增强型“响尾蛇”",
+            "zh-TW": "增幅響尾蛇",
+            "da": "Forstærket Rattler",
+            "no": "Forsterket Rattler",
+            "sr": "Pojačani Rattler",
+            "uk": "Посилений Ґримучник",
+            "hr": "Pojačani Rattler",
+            "pt": "Rattler Amplificado",
+            "he": "ראטלר מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/rattler_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "rattler_i",
+          "to": "rattler_ii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 10
+            },
+            {
+              "itemId": "rubber_parts",
+              "quantity": 10
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rattler_i"
+        },
+        {
+          "from": "rattler_ii",
+          "to": "rattler_iii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rattler_ii"
+        },
+        {
+          "from": "rattler_iii",
+          "to": "rattler_iv",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rattler_iii"
+        },
+        {
+          "from": "rattler_iv",
+          "to": "rattler_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_i",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/rattler_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/rattler_i.png"
+    },
+    {
+      "id": "renegade",
+      "name": {
+        "da": "Renegat",
+        "de": "Renegade",
+        "en": "Renegade",
+        "es": "Renegado",
+        "fr": "Renégat",
+        "he": "רנגייד",
+        "hr": "Odmetnik",
+        "it": "Renegade",
+        "ja": "レネゲイド",
+        "ko-KR": "레니게이드",
+        "no": "Renegat",
+        "pl": "Renegat",
+        "pt": "Renegado",
+        "pt-BR": "Renegado",
+        "ru": "Бунтарь",
+        "sr": "Renegat",
+        "tr": "Kaçak",
+        "uk": "Бунтар",
+        "zh-CN": "叛逆",
+        "zh-TW": "叛將I"
+      },
+      "category": "Battle Rifle",
+      "tiers": [
+        {
+          "id": "renegade_i",
+          "label": "I",
+          "name": {
+            "da": "Renegat I",
+            "de": "Renegade I",
+            "en": "Renegade I",
+            "es": "Renegado I",
+            "fr": "Renégat I",
+            "he": "רנגייד I",
+            "hr": "Odmetnik I",
+            "it": "Renegade I",
+            "ja": "レネゲイド I",
+            "ko-KR": "레니게이드 I",
+            "no": "Renegat I",
+            "pl": "Renegat I",
+            "pt": "Renegado I",
+            "pt-BR": "Renegado I",
+            "ru": "Бунтарь I",
+            "sr": "Renegat I",
+            "tr": "Kaçak I",
+            "uk": "Бунтар I",
+            "zh-CN": "叛逆 I",
+            "zh-TW": "叛將I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/renegade_i.png"
+        },
+        {
+          "id": "renegade_ii",
+          "label": "II",
+          "name": {
+            "da": "Renegat II",
+            "de": "Renegade II",
+            "en": "Renegade II",
+            "es": "Renegado II",
+            "fr": "Renégat II",
+            "he": "רנגייד II",
+            "hr": "Odmetnik II",
+            "it": "Renegade II",
+            "ja": "レネゲイド II",
+            "ko-KR": "레니게이드 II",
+            "no": "Renegat II",
+            "pl": "Renegat II",
+            "pt": "Renegado II",
+            "pt-BR": "Renegado II",
+            "ru": "Бунтарь II",
+            "sr": "Renegat II",
+            "tr": "Kaçak II",
+            "uk": "Бунтар II",
+            "zh-CN": "叛逆 II",
+            "zh-TW": "叛將II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/renegade_ii.png"
+        },
+        {
+          "id": "renegade_iii",
+          "label": "III",
+          "name": {
+            "da": "Renegat III",
+            "de": "Renegade III",
+            "en": "Renegade III",
+            "es": "Renegado III",
+            "fr": "Renégat III",
+            "he": "רנגייד III",
+            "hr": "Odmetnik III",
+            "it": "Renegade III",
+            "ja": "レネゲイド III",
+            "ko-KR": "레니게이드 III",
+            "no": "Renegat III",
+            "pl": "Renegat III",
+            "pt": "Renegado III",
+            "pt-BR": "Renegado III",
+            "ru": "Бунтарь III",
+            "sr": "Renegat III",
+            "tr": "Kaçak III",
+            "uk": "Бунтар III",
+            "zh-CN": "叛逆 III",
+            "zh-TW": "叛將III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/renegade_iii.png"
+        },
+        {
+          "id": "renegade_iv",
+          "label": "IV",
+          "name": {
+            "da": "Renegat IV",
+            "de": "Renegade IV",
+            "en": "Renegade IV",
+            "es": "Renegado IV",
+            "fr": "Renégat IV",
+            "he": "רנגייד IV",
+            "hr": "Odmetnik IV",
+            "it": "Renegade IV",
+            "ja": "レネゲイド IV",
+            "ko-KR": "레니게이드 IV",
+            "no": "Renegat IV",
+            "pl": "Renegat IV",
+            "pt": "Renegado IV",
+            "pt-BR": "Renegado IV",
+            "ru": "Бунтарь IV",
+            "sr": "Renegat IV",
+            "tr": "Kaçak IV",
+            "uk": "Бунтар IV",
+            "zh-CN": "叛逆 IV",
+            "zh-TW": "叛將IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/renegade_iv.png"
+        },
+        {
+          "id": "renegade_amplified",
+          "label": "Amplified",
+          "name": {
+            "en": "Amplified Renegade",
+            "de": "Verstärkte Renegade",
+            "es": "Renegado amplificado",
+            "fr": "Renégat amplifié",
+            "it": "Renegade amplificato",
+            "ja": "強化版レネゲイド",
+            "ko-KR": "증폭된 레니게이드",
+            "pl": "Wzmocniony Renegat",
+            "pt-BR": "Renegado Amplificado",
+            "ru": "Усовершенствованный Бунтарь",
+            "tr": "Güçlendirilmiş Kaçak",
+            "zh-CN": "增强型“叛逆”",
+            "zh-TW": "增幅叛將",
+            "da": "Forstærket Renegade",
+            "no": "Forsterket Renegade",
+            "sr": "Pojačani Renegade",
+            "uk": "Посилений Ренегат",
+            "hr": "Pojačani Renegade",
+            "pt": "Renegade Amplificado",
+            "he": "רנגייד מוגבר"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/renegade_amplified.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "renegade_i",
+          "to": "renegade_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/renegade_i"
+        },
+        {
+          "from": "renegade_ii",
+          "to": "renegade_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/renegade_ii"
+        },
+        {
+          "from": "renegade_iii",
+          "to": "renegade_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/renegade_iii"
+        },
+        {
+          "from": "renegade_iv",
+          "to": "renegade_amplified",
+          "materials": [
+            {
+              "itemId": "amplification_module_mk_iii",
+              "quantity": 1
+            }
+          ],
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 4
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/renegade_iv"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/renegade_i.png"
+    },
+    {
+      "id": "stiletto",
+      "name": {
+        "en": "Stiletto",
+        "de": "Stiletto",
+        "es": "Stiletto",
+        "fr": "Stiletto",
+        "it": "Stiletto",
+        "ja": "スティレット",
+        "ko-KR": "스틸레토",
+        "pl": "Stiletto",
+        "pt-BR": "Estilete",
+        "ru": "Шпилька",
+        "tr": "Stiletto",
+        "zh-CN": "“细剑”",
+        "zh-TW": "短劍",
+        "da": "Stiletto",
+        "hr": "Stiletto",
+        "no": "Stiletto",
+        "pt": "Stiletto",
+        "sr": "Stiletto",
+        "uk": "Stiletto",
+        "he": "סטילטו"
+      },
+      "category": "Battle Rifle",
+      "tiers": [
+        {
+          "id": "stiletto_i",
+          "label": "I",
+          "name": {
+            "en": "Stiletto I",
+            "de": "Stiletto I",
+            "es": "Stiletto I",
+            "fr": "Stiletto I",
+            "it": "Stiletto I",
+            "ja": "スティレット I",
+            "ko-KR": "스틸레토 I",
+            "pl": "Stiletto I",
+            "pt-BR": "Estilete I",
+            "ru": "Шпилька I",
+            "tr": "Stiletto I",
+            "zh-CN": "“细剑” I",
+            "zh-TW": "短劍 I",
+            "da": "Stiletto I",
+            "hr": "Stiletto I",
+            "no": "Stiletto I",
+            "pt": "Stiletto I",
+            "sr": "Stiletto I",
+            "uk": "Stiletto I",
+            "he": "סטילטו I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stiletto_i.png"
+        },
+        {
+          "id": "stiletto_ii",
+          "label": "II",
+          "name": {
+            "en": "Stiletto II",
+            "de": "Stiletto II",
+            "es": "Stiletto II",
+            "fr": "Stiletto II",
+            "it": "Stiletto II",
+            "ja": "スティレット II",
+            "ko-KR": "스틸레토 II",
+            "pl": "Stiletto II",
+            "pt-BR": "Estilete II",
+            "ru": "Шпилька II",
+            "tr": "Stiletto II",
+            "zh-CN": "“细剑” II",
+            "zh-TW": "短劍 II",
+            "da": "Stiletto II",
+            "hr": "Stiletto II",
+            "no": "Stiletto II",
+            "pt": "Stiletto II",
+            "sr": "Stiletto II",
+            "uk": "Stiletto II",
+            "he": "סטילטו II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stiletto_ii.png"
+        },
+        {
+          "id": "stiletto_iii",
+          "label": "III",
+          "name": {
+            "en": "Stiletto III",
+            "de": "Stiletto III",
+            "es": "Stiletto III",
+            "fr": "Stiletto III",
+            "it": "Stiletto III",
+            "ja": "スティレット III",
+            "ko-KR": "스틸레토 III",
+            "pl": "Stiletto III",
+            "pt-BR": "Estilete III",
+            "ru": "Шпилька III",
+            "tr": "Stiletto III",
+            "zh-CN": "“细剑” III",
+            "zh-TW": "短劍 III",
+            "da": "Stiletto III",
+            "hr": "Stiletto III",
+            "no": "Stiletto III",
+            "pt": "Stiletto III",
+            "sr": "Stiletto III",
+            "uk": "Stiletto III",
+            "he": "סטילטו III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stiletto_iii.png"
+        },
+        {
+          "id": "stiletto_iv",
+          "label": "IV",
+          "name": {
+            "en": "Stiletto IV",
+            "de": "Stiletto IV",
+            "es": "Stiletto IV",
+            "fr": "Stiletto IV",
+            "it": "Stiletto IV",
+            "ja": "スティレット IV",
+            "ko-KR": "스틸레토 IV",
+            "pl": "Stiletto IV",
+            "pt-BR": "Estilete IV",
+            "ru": "Шпилька IV",
+            "tr": "Stiletto IV",
+            "zh-CN": "“细剑” IV",
+            "zh-TW": "短劍 IV",
+            "da": "Stiletto IV",
+            "hr": "Stiletto IV",
+            "no": "Stiletto IV",
+            "pt": "Stiletto IV",
+            "sr": "Stiletto IV",
+            "uk": "Stiletto IV",
+            "he": "סטילטו IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stiletto_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "stiletto_i",
+          "to": "stiletto_ii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/stiletto_i"
+        },
+        {
+          "from": "stiletto_ii",
+          "to": "stiletto_iii",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/stiletto_ii"
+        },
+        {
+          "from": "stiletto_iii",
+          "to": "stiletto_iv",
+          "materials": [
+            {
+              "itemId": "light_gun_parts",
+              "quantity": 1
+            },
+            {
+              "itemId": "mechanical_components",
+              "quantity": 4
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/stiletto_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/stiletto_i.png"
+    },
+    {
+      "id": "stitcher",
+      "name": {
+        "da": "Hæfter",
+        "de": "Stitcher",
+        "en": "Stitcher",
+        "es": "Costurero",
+        "fr": "Sutureur",
+        "he": "סטיצ'ר",
+        "hr": "Klamerica",
+        "it": "Suturante",
+        "ja": "スティッチャー",
+        "ko-KR": "스티처",
+        "no": "Stifter",
+        "pl": "Zszywacz",
+        "pt": "Costurador",
+        "pt-BR": "Costurador",
+        "ru": "Сшиватель",
+        "sr": "Šivač",
+        "tr": "Zımba",
+        "uk": "Зшивач",
+        "zh-CN": "钉机",
+        "zh-TW": "縫補者I"
+      },
+      "category": "SMG",
+      "tiers": [
+        {
+          "id": "stitcher_i",
+          "label": "I",
+          "name": {
+            "da": "Hæfter I",
+            "de": "Stitcher I",
+            "en": "Stitcher I",
+            "es": "Costurero I",
+            "fr": "Sutureur I",
+            "he": "סטיצ'ר I",
+            "hr": "Klamerica I",
+            "it": "Suturante I",
+            "ja": "スティッチャー I",
+            "ko-KR": "스티처 I",
+            "no": "Stifter I",
+            "pl": "Zszywacz I",
+            "pt": "Costurador I",
+            "pt-BR": "Costurador I",
+            "ru": "Сшиватель I",
+            "sr": "Šivač I",
+            "tr": "Zımba I",
+            "uk": "Зшивач I",
+            "zh-CN": "钉机 I",
+            "zh-TW": "縫補者I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stitcher_i.png"
+        },
+        {
+          "id": "stitcher_ii",
+          "label": "II",
+          "name": {
+            "da": "Hæfter II",
+            "de": "Stitcher II",
+            "en": "Stitcher II",
+            "es": "Costurero II",
+            "fr": "Sutureur II",
+            "he": "סטיצ'ר II",
+            "hr": "Klamerica II",
+            "it": "Suturante II",
+            "ja": "スティッチャー II",
+            "ko-KR": "스티처 II",
+            "no": "Stifter II",
+            "pl": "Zszywacz II",
+            "pt": "Costurador II",
+            "pt-BR": "Costurador II",
+            "ru": "Сшиватель II",
+            "sr": "Šivač II",
+            "tr": "Zımba II",
+            "uk": "Зшивач II",
+            "zh-CN": "钉机 II",
+            "zh-TW": "縫補者II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stitcher_ii.png"
+        },
+        {
+          "id": "stitcher_iii",
+          "label": "III",
+          "name": {
+            "da": "Hæfter III",
+            "de": "Stitcher III",
+            "en": "Stitcher III",
+            "es": "Costurero III",
+            "fr": "Sutureur III",
+            "he": "סטיצ'ר III",
+            "hr": "Klamerica III",
+            "it": "Suturante III",
+            "ja": "スティッチャー III",
+            "ko-KR": "스티처 III",
+            "no": "Stifter III",
+            "pl": "Zszywacz III",
+            "pt": "Costurador III",
+            "pt-BR": "Costurador III",
+            "ru": "Сшиватель III",
+            "sr": "Šivač III",
+            "tr": "Zımba III",
+            "uk": "Зшивач III",
+            "zh-CN": "钉机 III",
+            "zh-TW": "縫補者III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stitcher_iii.png"
+        },
+        {
+          "id": "stitcher_iv",
+          "label": "IV",
+          "name": {
+            "da": "Hæfter IV",
+            "de": "Stitcher IV",
+            "en": "Stitcher IV",
+            "es": "Costurero IV",
+            "fr": "Sutureur IV",
+            "he": "סטיצ'ר IV",
+            "hr": "Klamerica IV",
+            "it": "Suturante IV",
+            "ja": "スティッチャー IV",
+            "ko-KR": "스티처 IV",
+            "no": "Stifter IV",
+            "pl": "Zszywacz IV",
+            "pt": "Costurador IV",
+            "pt-BR": "Costurador IV",
+            "ru": "Сшиватель IV",
+            "sr": "Šivač IV",
+            "tr": "Zımba IV",
+            "uk": "Зшивач IV",
+            "zh-CN": "钉机 IV",
+            "zh-TW": "縫補者IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/stitcher_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "stitcher_i",
+          "to": "stitcher_ii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 8
+            },
+            {
+              "itemId": "rubber_parts",
+              "quantity": 12
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/stitcher_i"
+        },
+        {
+          "from": "stitcher_ii",
+          "to": "stitcher_iii",
+          "materials": [
+            {
+              "itemId": "metal_parts",
+              "quantity": 10
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/stitcher_ii"
+        },
+        {
+          "from": "stitcher_iii",
+          "to": "stitcher_iv",
+          "materials": [
+            {
+              "itemId": "mechanical_components",
+              "quantity": 3
+            },
+            {
+              "itemId": "simple_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/stitcher_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/stitcher_i.png"
+    },
+    {
+      "id": "tempest",
+      "name": {
+        "da": "Storm",
+        "de": "Tempest",
+        "en": "Tempest",
+        "es": "Tempestad",
+        "fr": "Tempête",
+        "he": "טמפסט",
+        "hr": "Oluja",
+        "it": "Tempesta",
+        "ja": "テンペスト",
+        "ko-KR": "템페스트",
+        "no": "Storm",
+        "pl": "Burza",
+        "pt": "Tempestade",
+        "pt-BR": "Temporal",
+        "ru": "Буря",
+        "sr": "Oluja",
+        "tr": "Bora",
+        "uk": "Буря",
+        "zh-CN": "风暴",
+        "zh-TW": "暴風雨I"
+      },
+      "category": "Assault Rifle",
+      "tiers": [
+        {
+          "id": "tempest_i",
+          "label": "I",
+          "name": {
+            "da": "Storm I",
+            "de": "Tempest I",
+            "en": "Tempest I",
+            "es": "Tempestad I",
+            "fr": "Tempête I",
+            "he": "טמפסט I",
+            "hr": "Oluja I",
+            "it": "Tempesta I",
+            "ja": "テンペスト I",
+            "ko-KR": "템페스트 I",
+            "no": "Storm I",
+            "pl": "Burza I",
+            "pt": "Tempestade I",
+            "pt-BR": "Temporal I",
+            "ru": "Буря I",
+            "sr": "Oluja I",
+            "tr": "Bora I",
+            "uk": "Буря I",
+            "zh-CN": "风暴 I",
+            "zh-TW": "暴風雨I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/tempest_i.png"
+        },
+        {
+          "id": "tempest_ii",
+          "label": "II",
+          "name": {
+            "da": "Storm II",
+            "de": "Tempest II",
+            "en": "Tempest II",
+            "es": "Tempestad II",
+            "fr": "Tempête II",
+            "he": "טמפסט II",
+            "hr": "Oluja II",
+            "it": "Tempesta II",
+            "ja": "テンペスト II",
+            "ko-KR": "템페스트 II",
+            "no": "Storm II",
+            "pl": "Burza II",
+            "pt": "Tempestade II",
+            "pt-BR": "Temporal II",
+            "ru": "Буря II",
+            "sr": "Oluja II",
+            "tr": "Bora II",
+            "uk": "Буря II",
+            "zh-CN": "风暴 II",
+            "zh-TW": "暴風雨II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/tempest_ii.png"
+        },
+        {
+          "id": "tempest_iii",
+          "label": "III",
+          "name": {
+            "da": "Storm III",
+            "de": "Tempest III",
+            "en": "Tempest III",
+            "es": "Tempestad III",
+            "fr": "Tempête III",
+            "he": "טמפסט III",
+            "hr": "Oluja III",
+            "it": "Tempesta III",
+            "ja": "テンペスト III",
+            "ko-KR": "템페스트 III",
+            "no": "Storm III",
+            "pl": "Burza III",
+            "pt": "Tempestade III",
+            "pt-BR": "Temporal III",
+            "ru": "Буря III",
+            "sr": "Oluja III",
+            "tr": "Bora III",
+            "uk": "Буря III",
+            "zh-CN": "风暴 III",
+            "zh-TW": "暴風雨III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/tempest_iii.png"
+        },
+        {
+          "id": "tempest_iv",
+          "label": "IV",
+          "name": {
+            "da": "Storm IV",
+            "de": "Tempest IV",
+            "en": "Tempest IV",
+            "es": "Tempestad IV",
+            "fr": "Tempête IV",
+            "he": "טמפסט IV",
+            "hr": "Oluja IV",
+            "it": "Tempesta IV",
+            "ja": "テンペスト IV",
+            "ko-KR": "템페스트 IV",
+            "no": "Storm IV",
+            "pl": "Burza IV",
+            "pt": "Tempestade IV",
+            "pt-BR": "Temporal IV",
+            "ru": "Буря IV",
+            "sr": "Oluja IV",
+            "tr": "Bora IV",
+            "uk": "Буря IV",
+            "zh-CN": "风暴 IV",
+            "zh-TW": "暴風雨IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/tempest_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "tempest_i",
+          "to": "tempest_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/tempest_i"
+        },
+        {
+          "from": "tempest_ii",
+          "to": "tempest_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 3
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/tempest_ii"
+        },
+        {
+          "from": "tempest_iii",
+          "to": "tempest_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 3
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/tempest_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/tempest_i.png"
+    },
+    {
+      "id": "torrente",
+      "name": {
+        "da": "Torrente",
+        "de": "Torrente",
+        "en": "Torrente",
+        "es": "Torrente",
+        "fr": "Torrente",
+        "he": "טורנטה",
+        "hr": "Torrente",
+        "it": "Torrente",
+        "ja": "トレンテ",
+        "ko-KR": "토렌테",
+        "no": "Torrente",
+        "pl": "Torrente",
+        "pt": "Torrente",
+        "pt-BR": "Torrente",
+        "ru": "Торренте",
+        "sr": "Torrente",
+        "tr": "Torrente",
+        "uk": "Torrente",
+        "zh-CN": "奔流",
+        "zh-TW": "奔流I"
+      },
+      "category": "LMG",
+      "tiers": [
+        {
+          "id": "torrente_i",
+          "label": "I",
+          "name": {
+            "da": "Torrente I",
+            "de": "Torrente I",
+            "en": "Torrente I",
+            "es": "Torrente I",
+            "fr": "Torrente I",
+            "he": "טורנטה I",
+            "hr": "Torrente I",
+            "it": "Torrente I",
+            "ja": "トレンテ I",
+            "ko-KR": "토렌테 I",
+            "no": "Torrente I",
+            "pl": "Torrente I",
+            "pt": "Torrente I",
+            "pt-BR": "Torrente I",
+            "ru": "Торренте I",
+            "sr": "Torrente I",
+            "tr": "Torrente I",
+            "uk": "Torrente I",
+            "zh-CN": "奔流 I",
+            "zh-TW": "奔流I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/torrente_i.png"
+        },
+        {
+          "id": "torrente_ii",
+          "label": "II",
+          "name": {
+            "da": "Torrente II",
+            "de": "Torrente II",
+            "en": "Torrente II",
+            "es": "Torrente II",
+            "fr": "Torrente II",
+            "he": "טורנטה II",
+            "hr": "Torrente II",
+            "it": "Torrente II",
+            "ja": "トレンテ II",
+            "ko-KR": "토렌테 II",
+            "no": "Torrente II",
+            "pl": "Torrente II",
+            "pt": "Torrente II",
+            "pt-BR": "Torrente II",
+            "ru": "Торренте II",
+            "sr": "Torrente II",
+            "tr": "Torrente II",
+            "uk": "Torrente II",
+            "zh-CN": "奔流 II",
+            "zh-TW": "奔流II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/torrente_ii.png"
+        },
+        {
+          "id": "torrente_iii",
+          "label": "III",
+          "name": {
+            "da": "Torrente III",
+            "de": "Torrente III",
+            "en": "Torrente III",
+            "es": "Torrente III",
+            "fr": "Torrente III",
+            "he": "טורנטה III",
+            "hr": "Torrente III",
+            "it": "Torrente III",
+            "ja": "トレンテ III",
+            "ko-KR": "토렌테 III",
+            "no": "Torrente III",
+            "pl": "Torrente III",
+            "pt": "Torrente III",
+            "pt-BR": "Torrente III",
+            "ru": "Торренте III",
+            "sr": "Torrente III",
+            "tr": "Torrente III",
+            "uk": "Torrente III",
+            "zh-CN": "奔流 III",
+            "zh-TW": "奔流III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/torrente_iii.png"
+        },
+        {
+          "id": "torrente_iv",
+          "label": "IV",
+          "name": {
+            "da": "Torrente IV",
+            "de": "Torrente IV",
+            "en": "Torrente IV",
+            "es": "Torrente IV",
+            "fr": "Torrente IV",
+            "he": "טורנטה IV",
+            "hr": "Torrente IV",
+            "it": "Torrente IV",
+            "ja": "トレンテ IV",
+            "ko-KR": "토렌테 IV",
+            "no": "Torrente IV",
+            "pl": "Torrente IV",
+            "pt": "Torrente IV",
+            "pt-BR": "Torrente IV",
+            "ru": "Торренте IV",
+            "sr": "Torrente IV",
+            "tr": "Torrente IV",
+            "uk": "Torrente IV",
+            "zh-CN": "奔流 IV",
+            "zh-TW": "奔流IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/torrente_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "torrente_i",
+          "to": "torrente_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/torrente_i"
+        },
+        {
+          "from": "torrente_ii",
+          "to": "torrente_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/torrente_ii"
+        },
+        {
+          "from": "torrente_iii",
+          "to": "torrente_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/torrente_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/torrente_i.png"
+    },
+    {
+      "id": "venator",
+      "name": {
+        "da": "Venator",
+        "de": "Venator",
+        "en": "Venator",
+        "es": "Venator",
+        "fr": "Venator",
+        "he": "ונטור",
+        "hr": "Venator",
+        "it": "Venator",
+        "ja": "ヴェネイター",
+        "ko-KR": "베나토르",
+        "no": "Venator",
+        "pl": "Venator",
+        "pt": "Venator",
+        "pt-BR": "Venator",
+        "ru": "Охотник",
+        "sr": "Venator",
+        "tr": "Avcı",
+        "uk": "Venator",
+        "zh-CN": "复仇者",
+        "zh-TW": "獵人I"
+      },
+      "category": "Pistol",
+      "tiers": [
+        {
+          "id": "venator_i",
+          "label": "I",
+          "name": {
+            "da": "Venator I",
+            "de": "Venator I",
+            "en": "Venator I",
+            "es": "Venator I",
+            "fr": "Venator I",
+            "he": "ונטור I",
+            "hr": "Venator I",
+            "it": "Venator I",
+            "ja": "ヴェネイター I",
+            "ko-KR": "베나토르 I",
+            "no": "Venator I",
+            "pl": "Venator I",
+            "pt": "Venator I",
+            "pt-BR": "Venator I",
+            "ru": "Охотник I",
+            "sr": "Venator I",
+            "tr": "Avcı I",
+            "uk": "Venator I",
+            "zh-CN": "复仇者 I",
+            "zh-TW": "獵人I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/venator_i.png"
+        },
+        {
+          "id": "venator_ii",
+          "label": "II",
+          "name": {
+            "da": "Venator II",
+            "de": "Venator II",
+            "en": "Venator II",
+            "es": "Venator II",
+            "fr": "Venator II",
+            "he": "ונטור II",
+            "hr": "Venator II",
+            "it": "Venator II",
+            "ja": "ヴェネイター II",
+            "ko-KR": "베나토르 II",
+            "no": "Venator II",
+            "pl": "Venator II",
+            "pt": "Venator II",
+            "pt-BR": "Venator II",
+            "ru": "Охотник II",
+            "sr": "Venator II",
+            "tr": "Avcı II",
+            "uk": "Venator II",
+            "zh-CN": "复仇者 II",
+            "zh-TW": "獵人II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/venator_ii.png"
+        },
+        {
+          "id": "venator_iii",
+          "label": "III",
+          "name": {
+            "da": "Venator III",
+            "de": "Venator III",
+            "en": "Venator III",
+            "es": "Venator III",
+            "fr": "Venator III",
+            "he": "ונטור III",
+            "hr": "Venator III",
+            "it": "Venator III",
+            "ja": "ヴェネイター III",
+            "ko-KR": "베나토르 III",
+            "no": "Venator III",
+            "pl": "Venator III",
+            "pt": "Venator III",
+            "pt-BR": "Venator III",
+            "ru": "Охотник III",
+            "sr": "Venator III",
+            "tr": "Avcı III",
+            "uk": "Venator III",
+            "zh-CN": "复仇者 III",
+            "zh-TW": "獵人III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/venator_iii.png"
+        },
+        {
+          "id": "venator_iv",
+          "label": "IV",
+          "name": {
+            "da": "Venator IV",
+            "de": "Venator IV",
+            "en": "Venator IV",
+            "es": "Venator IV",
+            "fr": "Venator IV",
+            "he": "ונטור IV",
+            "hr": "Venator IV",
+            "it": "Venator IV",
+            "ja": "ヴェネイター IV",
+            "ko-KR": "베나토르 IV",
+            "no": "Venator IV",
+            "pl": "Venator IV",
+            "pt": "Venator IV",
+            "pt-BR": "Venator IV",
+            "ru": "Охотник IV",
+            "sr": "Venator IV",
+            "tr": "Avcı IV",
+            "uk": "Venator IV",
+            "zh-CN": "复仇者 IV",
+            "zh-TW": "獵人IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/venator_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "venator_i",
+          "to": "venator_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/venator_i"
+        },
+        {
+          "from": "venator_ii",
+          "to": "venator_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/venator_ii"
+        },
+        {
+          "from": "venator_iii",
+          "to": "venator_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "medium_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/venator_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/venator_i.png"
+    },
+    {
+      "id": "vulcano",
+      "name": {
+        "da": "Vulcano",
+        "de": "Vulcano",
+        "en": "Vulcano",
+        "es": "Vulcano",
+        "fr": "Vulcano",
+        "he": "וולקנו",
+        "hr": "Vulcano",
+        "it": "Vulcano",
+        "ja": "ヴルカノ",
+        "ko-KR": "불카노",
+        "no": "Vulcano",
+        "pl": "Wulkan",
+        "pt": "Vulcão",
+        "pt-BR": "Vulcão",
+        "ru": "Вулкан",
+        "sr": "Vulcano",
+        "tr": "Yanardağ",
+        "uk": "Вулкан",
+        "zh-CN": "火山",
+        "zh-TW": "火山I"
+      },
+      "category": "Shotgun",
+      "tiers": [
+        {
+          "id": "vulcano_i",
+          "label": "I",
+          "name": {
+            "da": "Vulcano I",
+            "de": "Vulcano I",
+            "en": "Vulcano I",
+            "es": "Vulcano I",
+            "fr": "Vulcano I",
+            "he": "וולקנו I",
+            "hr": "Vulcano I",
+            "it": "Vulcano I",
+            "ja": "ヴルカノ I",
+            "ko-KR": "불카노 I",
+            "no": "Vulcano I",
+            "pl": "Wulkan I",
+            "pt": "Vulcão I",
+            "pt-BR": "Vulcão I",
+            "ru": "Вулкан I",
+            "sr": "Vulcano I",
+            "tr": "Yanardağ I",
+            "uk": "Вулкан I",
+            "zh-CN": "火山 I",
+            "zh-TW": "火山I"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/vulcano_i.png"
+        },
+        {
+          "id": "vulcano_ii",
+          "label": "II",
+          "name": {
+            "da": "Vulcano II",
+            "de": "Vulcano II",
+            "en": "Vulcano II",
+            "es": "Vulcano II",
+            "fr": "Vulcano II",
+            "he": "וולקנו II",
+            "hr": "Vulcano II",
+            "it": "Vulcano II",
+            "ja": "ヴルカノ II",
+            "ko-KR": "불카노 II",
+            "no": "Vulcano II",
+            "pl": "Wulkan II",
+            "pt": "Vulcão II",
+            "pt-BR": "Vulcão II",
+            "ru": "Вулкан II",
+            "sr": "Vulcano II",
+            "tr": "Yanardağ II",
+            "uk": "Вулкан II",
+            "zh-CN": "火山 II",
+            "zh-TW": "火山II"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/vulcano_ii.png"
+        },
+        {
+          "id": "vulcano_iii",
+          "label": "III",
+          "name": {
+            "da": "Vulcano III",
+            "de": "Vulcano III",
+            "en": "Vulcano III",
+            "es": "Vulcano III",
+            "fr": "Vulcano III",
+            "he": "וולקנו III",
+            "hr": "Vulcano III",
+            "it": "Vulcano III",
+            "ja": "ヴルカノ III",
+            "ko-KR": "불카노 III",
+            "no": "Vulcano III",
+            "pl": "Wulkan III",
+            "pt": "Vulcão III",
+            "pt-BR": "Vulcão III",
+            "ru": "Вулкан III",
+            "sr": "Vulcano III",
+            "tr": "Yanardağ III",
+            "uk": "Вулкан III",
+            "zh-CN": "火山 III",
+            "zh-TW": "火山III"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/vulcano_iii.png"
+        },
+        {
+          "id": "vulcano_iv",
+          "label": "IV",
+          "name": {
+            "da": "Vulcano IV",
+            "de": "Vulcano IV",
+            "en": "Vulcano IV",
+            "es": "Vulcano IV",
+            "fr": "Vulcano IV",
+            "he": "וולקנו IV",
+            "hr": "Vulcano IV",
+            "it": "Vulcano IV",
+            "ja": "ヴルカノ IV",
+            "ko-KR": "불카노 IV",
+            "no": "Vulcano IV",
+            "pl": "Wulkan IV",
+            "pt": "Vulcão IV",
+            "pt-BR": "Vulcão IV",
+            "ru": "Вулкан IV",
+            "sr": "Vulcano IV",
+            "tr": "Yanardağ IV",
+            "uk": "Вулкан IV",
+            "zh-CN": "火山 IV",
+            "zh-TW": "火山IV"
+          },
+          "imageFilename": "https://cdn.arctracker.io/items/v2/vulcano_iv.png"
+        }
+      ],
+      "transitions": [
+        {
+          "from": "vulcano_i",
+          "to": "vulcano_ii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 1
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 2
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/vulcano_i"
+        },
+        {
+          "from": "vulcano_ii",
+          "to": "vulcano_iii",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 1
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/vulcano_ii"
+        },
+        {
+          "from": "vulcano_iii",
+          "to": "vulcano_iv",
+          "materials": [
+            {
+              "itemId": "advanced_mechanical_components",
+              "quantity": 2
+            },
+            {
+              "itemId": "heavy_gun_parts",
+              "quantity": 3
+            }
+          ],
+          "requires": [],
+          "stationRequirementKnown": false,
+          "status": "source-documented-not-game-confirmed",
+          "source": "https://arctracker.io/items/vulcano_iii"
+        }
+      ],
+      "imageFilename": "https://cdn.arctracker.io/items/v2/vulcano_i.png"
+    }
+  ],
+  "materials": {
+    "advanced_mechanical_components": {
+      "name": {
+        "da": "Avancerede mekaniske komponenter",
+        "de": "Fortschrittliche mechanische Komponenten",
+        "en": "Advanced Mechanical Components",
+        "es": "Componentes mecánicos avanzados",
+        "fr": "Composants mécaniques avancés",
+        "he": "רכיבים מכניים מתקדמים",
+        "hr": "Napredne Mehaničke Komponente",
+        "it": "Componenti meccanici avanzati",
+        "ja": "高度な機械部品",
+        "ko-KR": "고급 기계 부품",
+        "no": "Avanserte mekaniske komponenter",
+        "pl": "Zaawansowane części mechaniczne",
+        "pt": "Componentes mecânicos avançados",
+        "pt-BR": "Componentes Mecânicos Avançados",
+        "ru": "Продвинутые механические компоненты",
+        "sr": "Napredne Mehaničke Komponente",
+        "tr": "Gelişmiş Mekanik Bileşenler",
+        "uk": "Просунуті механічні компоненти",
+        "zh-CN": "高级机械元件",
+        "zh-TW": "進階機械元件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/advanced_mechanical_components.png"
+    },
+    "amplification_module_mk_i": {
+      "name": {
+        "en": "Amplification Module MK. I",
+        "de": "Verstärkermodul MK. I",
+        "es": "Módulo de amplificación ver. I",
+        "fr": "Module d'amplification I",
+        "it": "Modulo di amplificazione MK. I",
+        "ja": "強化モジュールMK. I",
+        "ko-KR": "증폭 모듈 MK. I",
+        "pl": "Moduł wzmacniający MK. I",
+        "pt-BR": "Módulo de Amplificação Mk. I",
+        "ru": "Совершенствующий модуль I",
+        "tr": "Güçlendirme Modülü MK. I",
+        "zh-CN": "增强模块Mk. I",
+        "zh-TW": "增幅模組MK. I",
+        "no": "Forsterkningsmodul MK. I",
+        "da": "Forstærkermodul MK. I",
+        "he": "מודול הגברה MK. I",
+        "hr": "Modul za pojačanje MK. I",
+        "pt": "Módulo de Amplificação MK. I",
+        "uk": "Модуль Ампліфікації МК. І",
+        "sr": "Modul za pojačanje MK. I"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/amplification_module_mk_i.png"
+    },
+    "amplification_module_mk_ii": {
+      "name": {
+        "en": "Amplification Module MK. II",
+        "de": "Verstärkermodul MK. II",
+        "es": "Módulo de amplificación ver. II",
+        "fr": "Module d'amplification II",
+        "it": "Modulo di amplificazione MK. II",
+        "ja": "強化モジュールMK. II",
+        "ko-KR": "증폭 모듈 MK. II",
+        "pl": "Moduł wzmacniający MK. II",
+        "pt-BR": "Módulo de Amplificação Mk. II",
+        "ru": "Совершенствующий модуль II",
+        "tr": "Güçlendirme Modülü MK. II",
+        "zh-CN": "增强模块Mk. II",
+        "zh-TW": "增幅模組MK. II",
+        "no": "Forsterkningsmodul MK. II",
+        "da": "Forstærkermodul MK. II",
+        "he": "מודול הגברה MK. II",
+        "hr": "Modul za pojačanje MK. II",
+        "pt": "Módulo de Amplificação MK. II",
+        "uk": "Модуль Ампліфікації МК. ІІ",
+        "sr": "Modul za pojačanje MK. II"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/amplification_module_mk_ii.png"
+    },
+    "amplification_module_mk_iii": {
+      "name": {
+        "en": "Amplification Module MK. III",
+        "de": "Verstärkermodul MK. III",
+        "es": "Módulo de amplificación ver. III",
+        "fr": "Module d'amplification III",
+        "it": "Modulo di amplificazione MK. III",
+        "ja": "強化モジュールMK. III",
+        "ko-KR": "증폭 모듈 MK. III",
+        "pl": "Moduł wzmacniający MK. III",
+        "pt-BR": "Módulo de Amplificação Mk. III",
+        "ru": "Совершенствующий модуль III",
+        "tr": "Güçlendirme Modülü MK. III",
+        "zh-CN": "增强模块Mk. III",
+        "zh-TW": "增幅模組MK. III",
+        "no": "Forsterkningsmodul MK. III",
+        "da": "Forstærkermodul MK. III",
+        "he": "מודול הגברה MK. III",
+        "hr": "Modul za pojačanje MK. III",
+        "pt": "Módulo de Amplificação MK. III",
+        "uk": "Модуль Ампліфікації МК. ІІІ",
+        "sr": "Modul za pojačanje MK. III"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/amplification_module_mk_iii.png"
+    },
+    "amplification_module_mk_iv": {
+      "name": {
+        "en": "Amplification Module MK. IV",
+        "de": "Verstärkermodul MK. IV",
+        "es": "Módulo de amplificación ver. IV",
+        "fr": "Module d'amplification IV",
+        "it": "Modulo di amplificazione MK. IV",
+        "ja": "強化モジュールMK. IV",
+        "ko-KR": "증폭 모듈 MK. IV",
+        "pl": "Moduł wzmacniający MK. IV",
+        "pt-BR": "Módulo de Amplificação Mk. IV",
+        "ru": "Совершенствующий модуль IV",
+        "tr": "Güçlendirme Modülü MK. IV",
+        "zh-CN": "增强模块Mk. IV",
+        "zh-TW": "增幅模組MK. IV",
+        "no": "Forsterkningsmodul MK. IV",
+        "da": "Forstærkermodul MK. IV",
+        "he": "מודול הגברה MK. IV",
+        "hr": "Modul za pojačanje MK. IV",
+        "pt": "Módulo de Amplificação MK. IV",
+        "uk": "Модуль Ампліфікації МК. IV",
+        "sr": "Modul za pojačanje MK. IV"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/amplification_module_mk_iv.png"
+    },
+    "amplification_module_mk_v": {
+      "name": {
+        "en": "Amplification Module MK. V",
+        "de": "Verstärkermodul MK. V",
+        "es": "Módulo de amplificación ver. V",
+        "fr": "Module d'amplification V",
+        "it": "Modulo di amplificazione MK. V",
+        "ja": "強化モジュールMK. V",
+        "ko-KR": "증폭 모듈 MK. V",
+        "pl": "Moduł wzmacniający MK. V",
+        "pt-BR": "Módulo de Amplificação Mk. V",
+        "ru": "Совершенствующий модуль V",
+        "tr": "Güçlendirme Modülü MK. V",
+        "zh-CN": "增强模块Mk. V",
+        "zh-TW": "增幅模組MK. V",
+        "no": "Forsterkningsmodul MK. V",
+        "da": "Forstærkermodul MK. V",
+        "he": "מודול הגברה MK. V",
+        "hr": "Modul za pojačanje MK. V",
+        "pt": "Módulo de Amplificação MK. V",
+        "uk": "Модуль Ампліфікації МК. V",
+        "sr": "Modul za pojačanje MK. V"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/amplification_module_mk_v.png"
+    },
+    "assessor_matrix": {
+      "name": {
+        "da": "Bedømmermatrix",
+        "de": "Prüfer-Matrix",
+        "en": "Assessor Matrix",
+        "es": "Matriz de asesor",
+        "fr": "Matrice d'Évaluateur",
+        "he": "מטריצת מעריך",
+        "hr": "Matrica procjenitelja",
+        "it": "Matrice Valutatore",
+        "ja": "アッセッサーマトリクス",
+        "ko-KR": "어세서 매트릭스",
+        "no": "Assessormatrise",
+        "pl": "Macierz asesora",
+        "pt": "Matriz do Avaliador",
+        "pt-BR": "Matriz do Avaliador",
+        "ru": "Матрица «Оценщика»",
+        "sr": "Matrica procenjivača",
+        "tr": "Değerlendirici Matrisi",
+        "uk": "Матриця «Оцінювача»",
+        "zh-CN": "“评估者”矩阵",
+        "zh-TW": "評估員矩陣"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/assessor_matrix.png"
+    },
+    "bastion_cell": {
+      "name": {
+        "da": "Bastioncelle",
+        "de": "Bastionzelle",
+        "en": "Bastion Cell",
+        "es": "Célula de bastión",
+        "fr": "Cellule de Bastion",
+        "he": "תא באסטיון",
+        "hr": "Bastion ćelija",
+        "it": "Cella del Bastione",
+        "ja": "バスティオン・セル",
+        "ko-KR": "바스티온 전지",
+        "no": "Bastioncelle",
+        "pl": "Ogniwo bastionu",
+        "pt": "Célula de bastião",
+        "pt-BR": "Células de Baluarte",
+        "ru": "Ячейка «Бастиона»",
+        "sr": "Bastion ćelija",
+        "tr": "Burç Hücresi",
+        "uk": "Комірка бастіону",
+        "zh-CN": "“堡垒”电池",
+        "zh-TW": "堡壘電池"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/bastion_cell.png"
+    },
+    "bombardier_cell": {
+      "name": {
+        "da": "Bombardør-celle",
+        "de": "Kanonierzelle",
+        "en": "Bombardier Cell",
+        "es": "Célula de bombardero",
+        "fr": "Cellule de Bombardier",
+        "he": "תא בומברדייה",
+        "hr": "Bombarderska ćelija",
+        "it": "Cella del Bombardiere",
+        "ja": "ボンバルディア・セル",
+        "ko-KR": "봄바디어 전지",
+        "no": "Bombardør-celle",
+        "pl": "Ogniwo bombardiera",
+        "pt": "Célula de bombardeiro",
+        "pt-BR": "Célula de Bombardeiro",
+        "ru": "Ячейка «Бомбардира»",
+        "sr": "Bombarderska ćelija",
+        "tr": "Bombardımancı Hücresi",
+        "uk": "Осередок бомбардира",
+        "zh-CN": "“投弹手”电池",
+        "zh-TW": "投彈手電池"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/bombardier_cell.png"
+    },
+    "comet_igniter": {
+      "name": {
+        "da": "Komettænder",
+        "de": "Kometenzünder",
+        "en": "Comet Igniter",
+        "es": "Encendedor de cometa",
+        "fr": "Allumeur de Comète",
+        "he": "מצת שביט",
+        "hr": "Kometni upaljač",
+        "it": "Accendicomete",
+        "ja": "コメット・イグナイター",
+        "ko-KR": "코멧 점화기",
+        "no": "Komettenner",
+        "pl": "Zapalnik komety",
+        "pt": "Ignitor Cometa",
+        "pt-BR": "Acendedor de Cometa",
+        "ru": "Запальное устройство «Кометы»",
+        "sr": "Upaljač Komete",
+        "tr": "Kuyruklu Yıldız Ateşleyici",
+        "uk": "Запальник «Комета»",
+        "zh-CN": "“彗星”点火器",
+        "zh-TW": "彗星點火器"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/comet_igniter.png"
+    },
+    "fireball_burner": {
+      "name": {
+        "da": "Ildkuglebrænder",
+        "de": "Feuerballbrenner",
+        "en": "Fireball Burner",
+        "es": "Quemador de esferígneo",
+        "fr": "Brûleur de Bolide",
+        "he": "מבער כדור אש",
+        "hr": "Vatrena Kugla",
+        "it": "Inceneritore Sfera infuocata",
+        "ja": "ファイアボールバーナー",
+        "ko-KR": "파이어볼 버너",
+        "no": "Ildkulebrenne",
+        "pl": "Palnik ogniomiota",
+        "pt": "Queimador de bola de fogo",
+        "pt-BR": "Maçarico do Bola de Fogo",
+        "ru": "Горелка «Огнешара»",
+        "sr": "Vatrena Kugla",
+        "tr": "Ateş Topu Yakıcı",
+        "uk": "Вогняна куля",
+        "zh-CN": "“火球”燃烧炉",
+        "zh-TW": "火球燃燒器"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/fireball_burner.png"
+    },
+    "firefly_burner": {
+      "name": {
+        "da": "Ildfluebrænder",
+        "de": "Glühwürmchenbrenner",
+        "en": "Firefly Burner",
+        "es": "Quemador de luciérnaga",
+        "fr": "Brûleur de Luciole",
+        "he": "מבער גחלילית",
+        "hr": "Plamenik krijesnice",
+        "it": "Inceneritore lucciola",
+        "ja": "ファイアフライ・バーナー",
+        "ko-KR": "파이어플라이 버너",
+        "no": "Ildfluebrenner",
+        "pl": "Palnik świetlika",
+        "pt": "Queimador Vaga-lume",
+        "pt-BR": "Maçarico de Vagalume",
+        "ru": "Горелка «Светлячка»",
+        "sr": "Gorionik Svica",
+        "tr": "Ateşböceği Yakıcı",
+        "uk": "Пальник «Світляк»",
+        "zh-CN": "“萤火虫”燃烧炉",
+        "zh-TW": "螢火蟲燃燒器"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/firefly_burner.png"
+    },
+    "fluted_rotor_core": {
+      "name": {
+        "en": "Fluted Rotor Core",
+        "de": "Fluted Rotor Core",
+        "es": "Fluted Rotor Core",
+        "fr": "Fluted Rotor Core",
+        "it": "Fluted Rotor Core",
+        "ja": "Fluted Rotor Core",
+        "ko-KR": "Fluted Rotor Core",
+        "pl": "Fluted Rotor Core",
+        "pt-BR": "Fluted Rotor Core",
+        "ru": "Fluted Rotor Core",
+        "tr": "Fluted Rotor Core",
+        "zh-CN": "Fluted Rotor Core",
+        "zh-TW": "Fluted Rotor Core",
+        "no": "Rillet Rotorkjerne",
+        "da": "Rillet Rotorkerne",
+        "uk": "Рифлений сердечник ротора",
+        "hr": "Žljebasta jezgra rotora",
+        "pt": "Núcleo de Rotor Estriado",
+        "sr": "Žljebljeno jezgro rotora",
+        "he": "ליבת רוטור מצולעת"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/fluted_rotor_core.png"
+    },
+    "fossilized_lightning": {
+      "name": {
+        "da": "Fossiliseret lyn",
+        "de": "Fossilisierter Blitz",
+        "en": "Fossilized Lightning",
+        "es": "Fulgurita",
+        "fr": "Foudre fossilisée",
+        "he": "ברק מאובן",
+        "hr": "Fosilizirana munja",
+        "it": "Fulmine fossilizzato",
+        "ja": "化石照明",
+        "ko-KR": "섬전암",
+        "no": "Fossilisert lyn",
+        "pl": "Skamieniała błyskawica",
+        "pt": "Relâmpago fossilizado",
+        "pt-BR": "Relâmpago Fossilizado",
+        "ru": "Фульгурит",
+        "sr": "Fosilizovana munja",
+        "tr": "Fosilleşmiş Şimşek",
+        "uk": "Скам'яніла блискавка",
+        "zh-CN": "闪电管石",
+        "zh-TW": "閃電熔岩"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/fossilized_lightning.png"
+    },
+    "heavy_gun_parts": {
+      "name": {
+        "da": "Tunge våbendele",
+        "de": "Teile für Waffe mit schwerer Munition",
+        "en": "Heavy Gun Parts",
+        "es": "Piezas de arma pesada",
+        "fr": "Pièces d'arme lourdes",
+        "he": "חלקי נשק כבדים",
+        "hr": "Dijelovi teškog oružja",
+        "it": "Parti di armi pesanti",
+        "ja": "大型銃のパーツ",
+        "ko-KR": "중량 총기 부품",
+        "no": "Tunge våpendeler",
+        "pl": "Ciężkie elementy broni palnej",
+        "pt": "Peças de arma pesada",
+        "pt-BR": "Peças de Arma Pesada",
+        "ru": "Детали для тяжелого оружия",
+        "sr": "Delovi teškog oružja",
+        "tr": "Ağır Silah Parçaları",
+        "uk": "Деталі важкої зброї",
+        "zh-CN": "重型枪械零件",
+        "zh-TW": "重型槍枝零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/heavy_gun_parts.png"
+    },
+    "leaper_pulse_unit": {
+      "name": {
+        "da": "Springer-pulsenhed",
+        "de": "Springer-Impulseinheit",
+        "en": "Leaper Pulse Unit",
+        "es": "Unidad de impulso de saltador",
+        "fr": "Unité à impulsion de Bondisseur",
+        "he": "יחידת פולס של Leaper",
+        "hr": "Skakačeva pulsna jedinica",
+        "it": "Unità a impulso Leaper",
+        "ja": "リーパー・パルスユニット",
+        "ko-KR": "리퍼 펄스 유닛",
+        "no": "Hopper-pulsenhet",
+        "pl": "Moduł impulsowy skoczka",
+        "pt": "Unidade de pulso de saltador",
+        "pt-BR": "Unidade de Pulso de Saltador",
+        "ru": "Импульсный блок «Прыгуна»",
+        "sr": "Skakačeva pulsna jedinica",
+        "tr": "Sıçrayıcı Vurucu Birimi",
+        "uk": "Імпульсний блок стрибуна",
+        "zh-CN": "“跳跃者”脉冲单元",
+        "zh-TW": "跳躍者脈衝單元"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/leaper_pulse_unit.png"
+    },
+    "light_gun_parts": {
+      "name": {
+        "da": "Lette Våbendele",
+        "de": "Teile für Waffe mit leichter Munition",
+        "en": "Light Gun Parts",
+        "es": "Piezas de arma ligera",
+        "fr": "Pièces d'arme légères",
+        "he": "חלקי נשק קל",
+        "hr": "Dijelovi lakog oružja",
+        "it": "Parti di pistole leggere",
+        "ja": "小型銃のパーツ",
+        "ko-KR": "경량 총기 부품",
+        "no": "Lette Våpendeler",
+        "pl": "Lekkie elementy broni palnej",
+        "pt": "Peças de Armas Leves",
+        "pt-BR": "Peças de Arma Leve",
+        "ru": "Детали для легкого оружия",
+        "sr": "Delovi lakog oružja",
+        "tr": "Hafif Silah Parçaları",
+        "uk": "Деталі легкої зброї",
+        "zh-CN": "轻型枪械零件",
+        "zh-TW": "輕型槍枝零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/light_gun_parts.png"
+    },
+    "matriarch_reactor": {
+      "name": {
+        "da": "Matriarkreactor",
+        "de": "Matriarchin-Reaktor",
+        "en": "Matriarch Reactor",
+        "es": "Reactor de matriarca",
+        "fr": "Réacteur de Matriarche",
+        "he": "כור Matriarch",
+        "hr": "Matrijarhalni Reaktor",
+        "it": "Reattore Matriarca",
+        "ja": "マトリアークリアクター",
+        "ko-KR": "마트리아크 원자로",
+        "no": "Matriarkreactor",
+        "pl": "Reaktor matriarchini",
+        "pt": "Reator da Matriarca",
+        "pt-BR": "Reator da Matriarca",
+        "ru": "Реактор «Матриарха»",
+        "sr": "Matrijarhalni Reaktor",
+        "tr": "Maderşah Reaktörü",
+        "uk": "Реактор Матріарха",
+        "zh-CN": "“族母”反应堆",
+        "zh-TW": "女族長反應爐"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/matriarch_reactor.png"
+    },
+    "mechanical_components": {
+      "name": {
+        "da": "Mekaniske komponenter",
+        "de": "Mechanische Komponenten",
+        "en": "Mechanical Components",
+        "es": "Componentes mecánicos",
+        "fr": "Composants mécaniques",
+        "he": "רכיבים מכניים",
+        "hr": "Mehaničke Komponente",
+        "it": "Componenti meccanici",
+        "ja": "機械部品",
+        "ko-KR": "기계 부품",
+        "no": "Mekaniske komponenter",
+        "pl": "Części mechaniczne",
+        "pt": "Componentes mecânicos",
+        "pt-BR": "Componentes Mecânicos",
+        "ru": "Механические компоненты",
+        "sr": "Mehaničke Komponente",
+        "tr": "Mekanik Bileşenler",
+        "uk": "Механічні компоненти",
+        "zh-CN": "机械元件",
+        "zh-TW": "機械元件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/mechanical_components.png"
+    },
+    "medium_gun_parts": {
+      "name": {
+        "da": "Medium våbendele",
+        "de": "Teile für Waffe mit mittlerer Munition",
+        "en": "Medium Gun Parts",
+        "es": "Piezas de arma mediana",
+        "fr": "Pièces de pistolet moyennes",
+        "he": "חלקי נשק בינוניים",
+        "hr": "Srednji Dijelovi Oružja",
+        "it": "Parti di pistole medie",
+        "ja": "中型銃のパーツ",
+        "ko-KR": "준중량 총기 부품",
+        "no": "Medium våpendeler",
+        "pl": "Średnie elementy broni palnej",
+        "pt": "Peças de armas médias",
+        "pt-BR": "Peças de Arma Média",
+        "ru": "Детали для оружия среднего калибра",
+        "sr": "Srednji Delovi Oružja",
+        "tr": "Orta Silah Parçaları",
+        "uk": "Середні зброярські деталі",
+        "zh-CN": "中型枪械零件",
+        "zh-TW": "中型槍枝零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/medium_gun_parts.png"
+    },
+    "metal_parts": {
+      "name": {
+        "da": "Metaldele",
+        "de": "Metallteile",
+        "en": "Metal Parts",
+        "es": "Piezas metálicas",
+        "fr": "Pièces métalliques",
+        "he": "חלקי מתכת",
+        "hr": "Metalni Dijelovi",
+        "it": "Componenti metallici",
+        "ja": "金属パーツ",
+        "ko-KR": "금속 부품",
+        "no": "Metalldeler",
+        "pl": "Części metalowe",
+        "pt": "Peças de metal",
+        "pt-BR": "Peças de Metal",
+        "ru": "Металлические детали",
+        "sr": "Metalni Delovi",
+        "tr": "Metal Parçalar",
+        "uk": "Металеві деталі",
+        "zh-CN": "金属零件",
+        "zh-TW": "金屬零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/metal_parts.png"
+    },
+    "plastic_parts": {
+      "name": {
+        "da": "Plastdele",
+        "de": "Plastikteile",
+        "en": "Plastic Parts",
+        "es": "Piezas de plástico",
+        "fr": "Composants plastiques",
+        "he": "חלקי פלסטיק",
+        "hr": "Plastični Dijelovi",
+        "it": "Componenti plastici",
+        "ja": "プラスチックパーツ",
+        "ko-KR": "플라스틱 부품",
+        "no": "Plastdeler",
+        "pl": "Części plastikowe",
+        "pt": "Peças plásticas",
+        "pt-BR": "Peças Plásticas",
+        "ru": "Пластиковые детали",
+        "sr": "Plastični Delovi",
+        "tr": "Plastik Parçalar",
+        "uk": "Пластикові деталі",
+        "zh-CN": "塑料零件",
+        "zh-TW": "塑膠零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/plastic_parts.png"
+    },
+    "pneumatic_actuator": {
+      "name": {
+        "en": "Pneumatic Actuator",
+        "de": "Pneumatic Actuator",
+        "es": "Pneumatic Actuator",
+        "fr": "Pneumatic Actuator",
+        "it": "Pneumatic Actuator",
+        "ja": "Pneumatic Actuator",
+        "ko-KR": "Pneumatic Actuator",
+        "pl": "Pneumatic Actuator",
+        "pt-BR": "Pneumatic Actuator",
+        "ru": "Pneumatic Actuator",
+        "tr": "Pneumatic Actuator",
+        "zh-CN": "Pneumatic Actuator",
+        "zh-TW": "Pneumatic Actuator",
+        "da": "Pneumatisk aktuator",
+        "pt": "Atuador Pneumático",
+        "no": "Pneumatisk aktuator",
+        "sr": "Pneumatski aktuator",
+        "uk": "Пневматичний Привід",
+        "hr": "Pneumatski Aktuator",
+        "he": "מפעיל פניאומטי"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/pneumatic_actuator.png"
+    },
+    "pop_trigger": {
+      "name": {
+        "da": "Pop-udløser",
+        "de": "Pop-Auslöser",
+        "en": "Pop Trigger",
+        "es": "Gatillo de tronador",
+        "fr": "Détonateur de Pop",
+        "he": "הדק קפיצי",
+        "hr": "Pop Okidač",
+        "it": "Detonatore di Pop",
+        "ja": "ポップトリガー",
+        "ko-KR": "팝 트리거",
+        "no": "Pop-utløser",
+        "pl": "Aktywator trzaskacza",
+        "pt": "Gatilho de Estalinho",
+        "pt-BR": "Gatilho de Estalinho",
+        "ru": "Устройство «Взрывобот»",
+        "sr": "Pop Okidač",
+        "tr": "Ani Tetik",
+        "uk": "Поп-тригер",
+        "zh-CN": "“爆爆”触发器",
+        "zh-TW": "氣泡觸發器"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/pop_trigger.png"
+    },
+    "pressure_regulator": {
+      "name": {
+        "en": "Pressure Regulator",
+        "de": "Pressure Regulator",
+        "es": "Pressure Regulator",
+        "fr": "Pressure Regulator",
+        "it": "Pressure Regulator",
+        "ja": "Pressure Regulator",
+        "ko-KR": "Pressure Regulator",
+        "pl": "Pressure Regulator",
+        "pt-BR": "Pressure Regulator",
+        "ru": "Pressure Regulator",
+        "tr": "Pressure Regulator",
+        "zh-CN": "Pressure Regulator",
+        "zh-TW": "Pressure Regulator",
+        "da": "Trykregulator",
+        "pt": "Regulador de Pressão",
+        "no": "Trykkregulator",
+        "sr": "Regulator pritiska",
+        "uk": "Регулятор Тиску",
+        "hr": "Regulator Tlaka",
+        "he": "וסת לחץ"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/pressure_regulator.png"
+    },
+    "propellant_valve_assembly": {
+      "name": {
+        "en": "Propellant Valve Assembly",
+        "de": "Propellant Valve Assembly",
+        "es": "Propellant Valve Assembly",
+        "fr": "Propellant Valve Assembly",
+        "it": "Propellant Valve Assembly",
+        "ja": "Propellant Valve Assembly",
+        "ko-KR": "Propellant Valve Assembly",
+        "pl": "Propellant Valve Assembly",
+        "pt-BR": "Propellant Valve Assembly",
+        "ru": "Propellant Valve Assembly",
+        "tr": "Propellant Valve Assembly",
+        "zh-CN": "Propellant Valve Assembly",
+        "zh-TW": "Propellant Valve Assembly",
+        "da": "Drivmiddelventilenhed",
+        "pt": "Conjunto de Válvulas de Propelente",
+        "no": "Ventilassambly for drivmiddel",
+        "sr": "Ventilski sklop pogonskog sredstva",
+        "uk": "Вузол Клапана Палива",
+        "hr": "Sklop Ventila Pogonskog Goriva",
+        "he": "מכלול שסתומי הנעה"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/propellant_valve_assembly.png"
+    },
+    "queen_reactor": {
+      "name": {
+        "da": "Dronningereaktor",
+        "de": "Königin-Reaktor",
+        "en": "Queen Reactor",
+        "es": "Reactor de reina",
+        "fr": "Réacteur de Reine",
+        "he": "כור מלכה",
+        "hr": "Kraljičin Reaktor",
+        "it": "Reattore Regina",
+        "ja": "クイーンリアクター",
+        "ko-KR": "퀸 원자로",
+        "no": "Dronningrektor",
+        "pl": "Reaktor królowej",
+        "pt": "Reator da rainha",
+        "pt-BR": "Reator de Rainha",
+        "ru": "Реактор «Королевы»",
+        "sr": "Kraljičin Reaktor",
+        "tr": "Kraliçe Reaktör",
+        "uk": "Реактор королеви",
+        "zh-CN": "“女王”反应堆",
+        "zh-TW": "女王反應爐"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/queen_reactor.png"
+    },
+    "rocketeer_driver": {
+      "name": {
+        "da": "Raketdriver",
+        "de": "Raketenkanoniertreiber",
+        "en": "Rocketeer Driver",
+        "es": "Controlador de cohetero",
+        "fr": "Pilote d'Artificier",
+        "he": "דרייבר Rocketeer",
+        "hr": "Raketni pogon",
+        "it": "Driver di Lanciarazzi",
+        "ja": "ロケッティアドライバー",
+        "ko-KR": "로켓티어 드라이버",
+        "no": "Rakettdriver",
+        "pl": "Sterownik rakietowca",
+        "pt": "Driver de fogueteiro",
+        "pt-BR": "Driver de Fogueteiro",
+        "ru": "Драйвер «Ракетчика»",
+        "sr": "Raketni pogon",
+        "tr": "Roketçi Sürücüsü",
+        "uk": "Драйвер ракетника",
+        "zh-CN": "“火箭手”引擎",
+        "zh-TW": "火箭兵驅動器"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/rocketeer_driver.png"
+    },
+    "rubber_parts": {
+      "name": {
+        "da": "Gummidele",
+        "de": "Gummiteile",
+        "en": "Rubber Parts",
+        "es": "Piezas de goma",
+        "fr": "Pièces en caoutchouc",
+        "he": "חלקי גומי",
+        "hr": "Gumeni Dijelovi",
+        "it": "Componenti di gomma",
+        "ja": "ゴムパーツ",
+        "ko-KR": "고무 부품",
+        "no": "Gummideler",
+        "pl": "Części gumowe",
+        "pt": "Peças de borracha",
+        "pt-BR": "Peças de Borracha",
+        "ru": "Резиновые детали",
+        "sr": "Gumeni Delovi",
+        "tr": "Kauçuk Parçalar",
+        "uk": "Гумові деталі",
+        "zh-CN": "橡胶零件",
+        "zh-TW": "橡膠零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/rubber_parts.png"
+    },
+    "sentinel_firing_core": {
+      "name": {
+        "da": "Vægter-affyringskerne",
+        "de": "Wächter-Feuerkern",
+        "en": "Sentinel Firing Core",
+        "es": "Núcleo de disparo de centinela",
+        "fr": "Noyau de tir de Sentinelle",
+        "he": "ליבת ירי של Sentinel",
+        "hr": "Stražarsko jezgro za paljbu",
+        "it": "Nucleo di fuoco Sentinella",
+        "ja": "センチネル発火コア",
+        "ko-KR": "센티넬 발사 코어",
+        "no": "Vokter-skytekjerne",
+        "pl": "Rdzeń strzelniczy strażnika",
+        "pt": "Núcleo de disparo de sentinela",
+        "pt-BR": "Núcleo de Disparo de Sentinela",
+        "ru": "Огневое ядро «Часового»",
+        "sr": "Stražarsko jezgro za paljbu",
+        "tr": "Nöbetçi Ateşleme Çekirdeği",
+        "uk": "Вогневе ядро вартового",
+        "zh-CN": "“哨卫”发射核心",
+        "zh-TW": "哨兵射擊核心"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/sentinel_firing_core.png"
+    },
+    "simple_gun_parts": {
+      "name": {
+        "da": "Simple våbendele",
+        "de": "Einfache Waffenteile",
+        "en": "Simple Gun Parts",
+        "es": "Piezas de arma básica",
+        "fr": "Pièces de pistolet simples",
+        "he": "חלקי נשק פשוטים",
+        "hr": "Jednostavni Dijelovi Oružja",
+        "it": "Parti di pistole semplici",
+        "ja": "シンプルな銃のパーツ",
+        "ko-KR": "간단한 총기 부품",
+        "no": "Enkle våpendeler",
+        "pl": "Proste elementy broni palnej",
+        "pt": "Peças de armas simples",
+        "pt-BR": "Peças de Arma Simples",
+        "ru": "Простые детали для оружия",
+        "sr": "Jednostavni Delovi Oružja",
+        "tr": "Basit Silah Parçaları",
+        "uk": "Прості деталі зброї",
+        "zh-CN": "简易枪械零件",
+        "zh-TW": "簡易槍枝零件"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/simple_gun_parts.png"
+    },
+    "skulker_targeter": {
+      "name": {
+        "en": "Skulker Targeter",
+        "de": "Skulker-Zielgerät",
+        "es": "Designador de merodeador",
+        "fr": "Désignateur de Rôdeur",
+        "it": "Mirino Skulker",
+        "ja": "スカルカーのターゲッター",
+        "ko-KR": "스컬커 조준기",
+        "pl": "Moduł namierzający zerkacza",
+        "pt-BR": "Sistema de Mira de Espreitador",
+        "ru": "Прицельная система «Проныры»",
+        "tr": "Pusucu Hedefleyicisi",
+        "zh-CN": "“潜伏者”瞄准组件",
+        "zh-TW": "潛行者標定器",
+        "da": "Skulkermålsøger",
+        "hr": "Skulker nišan",
+        "no": "Skulker-målenhet",
+        "pt": "Alvejador Skulker",
+        "sr": "Skulker Ciljač",
+        "uk": "Приціл Skulker",
+        "he": "רכיב כיוון של סקאלקר"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/skulker_targeter.png"
+    },
+    "snitch_scanner": {
+      "name": {
+        "da": "Snitch-scanner",
+        "de": "Spitzel-Scanner",
+        "en": "Snitch Scanner",
+        "es": "Escáner de delator",
+        "fr": "Scanner de Mouchard",
+        "he": "סורק Snitch",
+        "hr": "Dojavljivač",
+        "it": "Scanner di spie",
+        "ja": "スニッチスキャナ",
+        "ko-KR": "스니치 스캐너",
+        "no": "Snitch-skanner",
+        "pl": "Skaner kapusia",
+        "pt": "Scanner Snitch",
+        "pt-BR": "Detector Dedo-duro",
+        "ru": "Сканер «Стукача»",
+        "sr": "Dojavljivač",
+        "tr": "Muhbir Tarayıcı",
+        "uk": "Сканер-стукач",
+        "zh-CN": "“告密者”扫描仪",
+        "zh-TW": "告密者掃描儀"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/snitch_scanner.png"
+    },
+    "tick_pod": {
+      "name": {
+        "da": "Flåtkapsel",
+        "de": "Zeckenkapsel",
+        "en": "Tick Pod",
+        "es": "Cápsula de garrapata",
+        "fr": "Nacelle de Tique",
+        "he": "תרמיל טיק",
+        "hr": "Krpeljeva Mahuna",
+        "it": "Capsula di Pulce",
+        "ja": "チックポッド",
+        "ko-KR": "틱 포드",
+        "no": "Flåttkapsel",
+        "pl": "Kapsuła kleszcza",
+        "pt": "Cápsula de carrapato",
+        "pt-BR": "Casulo de Carrapato",
+        "ru": "Оболочка «Клеща»",
+        "sr": "Krpeljeva Mahuna",
+        "tr": "Kene Kozası",
+        "uk": "Капсула кліща",
+        "zh-CN": "“跳蚤”收纳舱",
+        "zh-TW": "蜱蟲囊艙"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/tick_pod.png"
+    },
+    "turbine_compressor": {
+      "name": {
+        "da": "Turbinekompressor",
+        "de": "Turbinenkompressor",
+        "en": "Turbine Compressor",
+        "es": "Compresor de turbina",
+        "fr": "Compresseur de Turbine",
+        "he": "מדחס טורבינה",
+        "hr": "Turbinski kompresor",
+        "it": "Compressore Turbina",
+        "ja": "タービン圧縮器",
+        "ko-KR": "터빈 압축기",
+        "no": "Turbinkompressor",
+        "pl": "Kompresor turbiny",
+        "pt": "Compressor de turbina",
+        "pt-BR": "Compressor de Turbina",
+        "ru": "Компрессор «Турбины»",
+        "sr": "Turbinski kompresor",
+        "tr": "Türbin Kompresörü",
+        "uk": "Турбінний компресор",
+        "zh-CN": "“涡轮”压缩机",
+        "zh-TW": "渦輪機壓縮機"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/turbine_compressor.png"
+    },
+    "vaporizer_regulator": {
+      "name": {
+        "da": "Fordamperregulator",
+        "de": "Verdampfer-Regulator",
+        "en": "Vaporizer Regulator",
+        "es": "Regulador de atomizador",
+        "fr": "Régulateur de Vaporisateur",
+        "he": "וסת מאדה",
+        "hr": "Regulator isparivača",
+        "it": "Regolatore Valutatore",
+        "ja": "ヴェイパライザーレギュレーター",
+        "ko-KR": "베이퍼라이저 조절기",
+        "no": "Fordamperregulator",
+        "pl": "Regulator spopielacza",
+        "pt": "Regulador do Vaporizador",
+        "pt-BR": "Regulador do Vaporizador",
+        "ru": "Регулятор «Испепелителя»",
+        "sr": "Regulator isparivača",
+        "tr": "Buharlaştırıcı Regülatör",
+        "uk": "Регулятор «Спопелювача»",
+        "zh-CN": "“汽化者”调节器",
+        "zh-TW": "雷射汽化兵調節器"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/vaporizer_regulator.png"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+#weaponPlannerSection{color:var(--ui-text);overflow-wrap:anywhere;min-width:0}
+#weaponPlannerSection .drawer-body{padding:16px}
+#weaponPlannerSection input,#weaponPlannerSection select,#weaponPlannerSection button{box-sizing:border-box;min-height:48px;max-width:100%;font:inherit;color:var(--ui-text);background:var(--ui-panel);border:1px solid var(--ui-line);border-radius:10px;padding:10px}
+#weaponPlannerSection select,#weaponPlannerSection input[type=search]{display:block;width:100%;margin:8px 0 14px}
+#weaponPlannerSection label{display:block;min-width:0}
+.weapon-filters{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:end}
+.weapon-heading{display:flex;align-items:center;gap:14px}.weapon-heading img{object-fit:contain}
+.weapon-steps{padding-left:22px}.weapon-steps li{padding:8px 0;border-bottom:1px solid var(--ui-line)}
+#weaponPlannerSection a{color:var(--orange,#b95d00)}
+#weaponTotals{list-style:none;padding:0}#weaponTotals li{padding:12px 0;border-bottom:1px solid var(--ui-line)}
+#weaponSaved button{margin:8px 12px}#weaponPlannerSection [hidden]{display:none!important}
+@media(max-width:380px){.weapon-filters{grid-template-columns:minmax(0,1fr)}}
+
+#weaponAmplifiedHost #rftAmplifiedPlanner>h3{display:none}
+#weaponAmplifiedHost .rft-amplified-planner{margin:16px 0}
+
+#weaponAmplifiedHost .rft-amplified-planner>label,#weaponAmplifiedHost .rft-amplified-planner>select,#weaponAmplifiedHost .rft-amplified-save-choice,#weaponAmplifiedHost .rft-amplified-raid-choice{display:none!important}
+
+#weaponPlannerSection .drawer-body>h2{display:none}
+#weaponPlannerSection .drawer-body{padding-top:24px}
+#weaponAmplifiedHost .rft-amplified-choice span{flex:1;min-width:0}
+#weaponAmplifiedHost .rft-amplified-choice-status{margin-left:auto;white-space:normal}

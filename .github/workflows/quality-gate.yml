@@ -31,6 +31,7 @@ jobs:
           node tests/amplified-weapons-audit.mjs
           node tests/amplified-variants.mjs
           node tests/outpost-full-audit.mjs
+          node tests/weapon-planner.mjs
           node tests/planning-core.mjs
           node tests/item-find-locations.mjs
           node tests/contest-archive.mjs
@@ -57,6 +58,8 @@ jobs:
           done
           cat /tmp/arc-http.log
           exit 1
+      - name: Run complete weapon planner mobile regression
+        run: node tests/weapon-planner-browser.mjs
       - name: Run browser and mobile-emulation quality gate
         env:
           BASE_URL: http://127.0.0.1:4173/

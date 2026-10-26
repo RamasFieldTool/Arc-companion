@@ -18,4 +18,16 @@
 5. Match existing homepage tile markup, locale support, Android touch navigation, back behavior, dark/light themes.
 6. Run browser regression and both quality gates. Publish a commit-pinned branch preview; never merge main without approval.
 
-Current state: audit performed; full cost coverage and new tile NOT implemented. Do not label the current preview as the finished all-weapon planner.
+Initial state above is historical. See the implementation evidence below for the new planner.
+
+
+## Implemented source reconciliation, 26 October 2026
+
+- Read the existing catalog, then retrieved `https://arctracker.io/api/items`, version `1792963799790`, generated `2026-10-25T21:29:59.790Z`: 985 items, 181 weapon records including Amplified configurations.
+- The 92 ordinary weapon records form 26 families: 22 families with I–IV and four single-tier legendary weapons. 66 ordinary transitions plus 15 explicit ascensions are normalized into `catalog-data/weapon-upgrades.json`. Dolabra has no outgoing upgrade in this source; the UI does not invent tiers.
+- Every one of the 81 explicit source edges was compared with the serialized materials: all matched. All 108 retained Amplified configuration edges and their material costs were also compared against this response: zero mismatches. Research tasks remain at their previously documented evidence level.
+- Crucial distinction: the old RaidTheory `upgradeCost` belongs to the destination item, while the current provider's `upgrades[].cost` belongs to an explicit source→destination edge. Only explicit current edges are used by the new calculator.
+- Anvil current source: I→II 1 Advanced Mechanical Components + 1 Heavy Gun Parts; II→III the same; III→IV 2 Advanced Mechanical Components + 1 Heavy Gun Parts. Historical `Mechanical Components` costs in the initial notes are superseded, not silently combined. The community wiki still disagrees for I→II; no in-game confirmation is claimed.
+- Source-level coverage is complete against that response, not a claim of independently verified game completeness. Ordinary station-level requirements are not supplied on these edges and remain explicitly unknown. Explicit ascension requirement: Gunsmith IV. No crafting-station requirement is substituted for an upgrade requirement.
+- Source names, image URLs, per-edge links, source version, capture date and raw response SHA-256 are retained. No new image URLs were inferred.
+- New local weapon plans are separate from inventory and legacy plans. The shared requirement map includes their full material demand and subtracts stock once. Saving the same weapon replaces its weapon plan; existing collection goals are preserved. Removing the weapon plan removes only its own demand. Backups include validated weapon plans.
