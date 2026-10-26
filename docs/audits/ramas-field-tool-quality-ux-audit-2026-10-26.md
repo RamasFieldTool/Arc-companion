@@ -155,6 +155,37 @@ Bewertung: **B** = im Live-Browser ausprobiert, aber kein vollständiger Belastu
 
 ## Zentrale Abhängigkeiten
 
+## Vorläufige Einzelbewertungen je Funktion
+
+Skala: 1 = sehr schwach, 10 = sehr gut. Werte bewerten nur den geprüften Ausschnitt und keine vollständige Abnahme. **n.b.** = keine ausreichende Testgrundlage. „Verbesserungsbedarf“ ist eine qualitative Einstufung, wobei hoch bedeutet, dass sich eine konkrete Verbesserung lohnt.
+
+| Funktion | Technik | Bedienung | Verständlichkeit | Optische Integration | Datenqualität | Praktischer Nutzen | Verbesserungsbedarf |
+|---|---:|---:|---:|---:|---:|---:|---|
+| Item-Suche/Katalog | 8 | 7 | 7 | 7 | 6 | 9 | Hoch: Statusstand und Namenslokalisierung vereinheitlichen |
+| Total Requirements / Gesamtbedarf | 6* | 6* | 5* | 6* | 6* | 9* | Hoch: Bedarf, Bestand und fehlende Erfassung trennen |
+| Werkbank / aktive Ziele | 7* | 7* | 7* | 7* | 6* | 9* | Mittel-hoch: Bestand und nächste Stufe transparenter machen |
+| Quest-Tracker | 6* | 6* | 6* | 6* | 5* | 8* | Hoch: Ende-zu-Ende-Daten-/Speicherprüfung und Planungskopplung |
+| Blueprint-Tracker | 7 | 7 | 7 | 7 | 5 | 8 | Mittel-hoch: Quellen-/Prüfstatus und kürzere Wege |
+| My Next Raid | 4* | 4* | 4* | 4* | 5* | 7* | Hoch: aktueller Umfang/Entry Point erst funktional validieren |
+| Waffen- und Upgrade-Planer | 8 | 7 | 6 | 8 | 6 | 9 | Hoch: Konflikt- und Quellenhinweise weiter vereinfachen |
+| Raider Maps | 7 | 6 | 6 | 7 | 4 | 8 | Hoch: Datenvertrauen und Erstzustand verbessern |
+| Weapon Cases | 6* | 5* | 6* | 6* | 4 | 7 | Hoch: Marker-Stand und Kartenübergang klarer machen |
+| Live Events | 8 | 8 | 8 | 8 | 8* | 8 | Mittel: Reminder-Verhalten und Gerätegrenzen prüfen |
+| Outpost / Möbelkatalog | 7 | 6 | 5 | 6 | 5 | 6 | Hoch: Teilstatus statt pauschalem „im Ausbau“ |
+| Outpost Build/Research | 6* | 5* | 5* | 6* | 5* | 6* | Mittel-hoch: Bedarf und Wirkung auf Planung klären |
+| Tipps und Tricks | n.b. | n.b. | n.b. | n.b. | n.b. | n.b. | Potenziell mittel: Inhalt und Auffindbarkeit separat prüfen |
+| Raider Radio | n.b. | n.b. | n.b. | n.b. | n.b. | n.b. | n.b.: Wiedergabe und Mobile-Hintergrundverhalten testen |
+| Raider Stories | n.b. | n.b. | n.b. | n.b. | n.b. | n.b. | n.b.: Inhalte, Quellen und Lesbarkeit prüfen |
+| Community / Fan Creations | 6* | 6* | 6* | 6* | 5* | 6* | Mittel: Community- und Spieldaten deutlicher trennen |
+| Backup / Import / Export | 7* | 7 | 8 | 7 | 6* | 9 | Hoch: Wiederherstellungs-Roundtrip ist offen |
+| Sprachumschaltung | 6* | 6 | 5 | 6 | 5 | 8 | Hoch: Übersetzungsabdeckung und Suchbarkeit verbessern |
+| Dark/Light/Black-Modus | 6* | 6* | 6* | 6* | 6* | 7* | Mittel: Kontrast, Fokus und Persistenz je Theme prüfen |
+| Hilfe / Navigation | 6* | 6 | 6 | 6 | 5* | 6 | Mittel: Anleitung an aktuellen Funktionsumfang anpassen |
+
+`*` kennzeichnet eine besonders vorläufige Einschätzung aus statischer Prüfung oder einem nur teilweise durchlaufenen UI-Ablauf. Optische Integrationswerte sind qualitative Eindrücke aus den geprüften Oberflächen und keine Designsystem-Vollinventur. Bei Funktionen, die nicht im Browser geöffnet wurden, wird absichtlich keine Zahl vergeben.
+
+## Zentrale Abhängigkeiten
+
 - Suche, Planung, Werkbank, Quest- und Waffenanforderungen hängen voneinander ab, wenn Gesamtbedarf sinnvoll berechnet werden soll.
 - Datenquellen reichen von offizieller Quelle über sekundäre Tracker bis Community-Snapshot und lokaler Basis. Diese Klassen dürfen UI-seitig nicht gleich wirken.
 - Persönlicher Fortschritt wird lokal geführt. Backup ist damit Teil der Kernfunktion und muss als Wiederherstellungspfad getestet werden.
