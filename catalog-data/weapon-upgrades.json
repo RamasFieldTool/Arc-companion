@@ -176,18 +176,23 @@
           "to": "anvil_ii",
           "materials": [
             {
-              "itemId": "advanced_mechanical_components",
-              "quantity": 1
+              "itemId": "mechanical_components",
+              "quantity": 3
             },
             {
-              "itemId": "heavy_gun_parts",
+              "itemId": "simple_gun_parts",
               "quantity": 1
             }
           ],
-          "requires": [],
-          "stationRequirementKnown": false,
-          "status": "source-documented-not-game-confirmed",
-          "source": "https://arctracker.io/items/anvil_i"
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 1
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "current-community-reference-not-game-verified",
+          "source": "https://arcraiders.wiki/wiki/Anvil"
         },
         {
           "from": "anvil_ii",
@@ -202,10 +207,15 @@
               "quantity": 1
             }
           ],
-          "requires": [],
-          "stationRequirementKnown": false,
-          "status": "source-documented-not-game-confirmed",
-          "source": "https://arctracker.io/items/anvil_ii"
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 1
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "current-community-reference-not-game-verified",
+          "source": "https://arcraiders.wiki/wiki/Anvil"
         },
         {
           "from": "anvil_iii",
@@ -220,10 +230,15 @@
               "quantity": 1
             }
           ],
-          "requires": [],
-          "stationRequirementKnown": false,
-          "status": "source-documented-not-game-confirmed",
-          "source": "https://arctracker.io/items/anvil_iii"
+          "requires": [
+            {
+              "station": "weapon_bench",
+              "level": 1
+            }
+          ],
+          "stationRequirementKnown": true,
+          "status": "current-community-reference-not-game-verified",
+          "source": "https://arcraiders.wiki/wiki/Anvil"
         },
         {
           "from": "anvil_iv",
@@ -245,7 +260,30 @@
           "source": "https://arctracker.io/items/anvil_iv"
         }
       ],
-      "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_i.png"
+      "imageFilename": "https://cdn.arctracker.io/items/v2/anvil_i.png",
+      "craftingRecipe": {
+        "output": "anvil_i",
+        "materials": [
+          {
+            "itemId": "advanced_mechanical_components",
+            "quantity": 2
+          },
+          {
+            "itemId": "heavy_gun_parts",
+            "quantity": 3
+          },
+          {
+            "itemId": "hand_drill",
+            "quantity": 3
+          }
+        ],
+        "station": "weapon_bench",
+        "stationLevel": 2,
+        "blueprintRequired": true,
+        "status": "current-community-reference-not-game-verified",
+        "reviewedAt": "2026-10-26",
+        "source": "https://arcraiders.wiki/wiki/Anvil"
+      }
     },
     {
       "id": "aphelion",
@@ -6068,6 +6106,16 @@
         "zh-TW": "雷射汽化兵調節器"
       },
       "imageFilename": "https://cdn.arctracker.io/items/v2/vaporizer_regulator.png"
+    },
+    "hand_drill": {
+      "name": {
+        "de": "Handbohrmaschine",
+        "en": "Hand Drill",
+        "fr": "Perceuse à main",
+        "es": "Taladro manual",
+        "it": "Trapano manuale"
+      },
+      "imageFilename": "https://cdn.arctracker.io/items/v2/hand_drill.png"
     }
   }
 }

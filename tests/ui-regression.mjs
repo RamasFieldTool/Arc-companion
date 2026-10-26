@@ -34,12 +34,13 @@ async function waitReady(page){await page.waitForFunction(()=>document.querySele
 async function metrics(page){return page.evaluate(()=>{
   const rect=el=>{const r=el?.getBoundingClientRect();return r?{x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height)}:null};
   const visible=el=>{const s=getComputedStyle(el),r=el.getBoundingClientRect();return s.display!=='none'&&s.visibility!=='hidden'&&r.width>0&&r.height>0};
-  return {viewport:{width:innerWidth,height:innerHeight},document:{clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth},masthead:rect(document.querySelector('.masthead')),launcher:rect(document.querySelector('#appLauncher')),tiles:[...document.querySelectorAll('#appLauncher .app-tile')].filter(visible).map(el=>({target:el.dataset.appTarget,...rect(el)})),version:document.querySelector('#dataStatusDock [data-app-version]')?.textContent?.trim()||''};
+  return {viewport:{width:innerWidth,height:innerHeight},document:{clientWidth:document.documentElement.clientWidth,scrollWidth:document.documentElement.scrollWidth},masthead:rect(document.querySelector('.masthead')),launcher:rect(document.querySelector('#appLauncher')),tiles:[...document.querySelectorAll('#appLauncher .app-tile')].filter(visible).map(el=>({target:el.dataset.appTarget,...rect(el)})),launcherIntro:document.querySelector('#launcherSubtitle')?.textContent?.trim()||'',version:document.querySelector('#dataStatusDock [data-app-version]')?.textContent?.trim()||''};
 });}
 function assertHome(m,label){
   const overflow=m.document.scrollWidth-m.document.clientWidth;if(overflow>4)throw new Error(`${label}: horizontal overflow ${overflow}px`);
   if(!m.masthead||m.masthead.width<100||m.masthead.height<40)throw new Error(`${label}: masthead collapsed`);
   if(!m.launcher||m.launcher.width<100)throw new Error(`${label}: launcher collapsed`);
+  if(m.launcherIntro!=='Choose a goal, find an item, or plan your next raid.')throw new Error(`${label}: task-first launcher guidance missing`);
   const expected=['planningSection','liveEventsDrawer','itemsSection','blueprintDrawer','spawnPanel','weaponPlannerSection','outpostSection','raiderRadio'];
   const actual=m.tiles.map(tile=>tile.target);
   if(actual.length!==expected.length||expected.some(target=>!actual.includes(target)))throw new Error(`${label}: unexpected visible launcher targets: ${actual.join(', ')}`);

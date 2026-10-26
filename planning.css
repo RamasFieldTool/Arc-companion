@@ -20,3 +20,5 @@ body.planning-open #appBack{position:static!important}
 
 .planning-find-location{min-height:44px;margin:8px 0 0;padding:8px 12px;color:var(--ui-text)!important;background:var(--ui-soft)!important;border-color:var(--ui-line)!important;-webkit-text-fill-color:currentColor}
 .planning-bulk-raid{display:flex;justify-content:flex-end}.planning-bulk-raid button{min-height:46px;padding:9px 14px;color:var(--ui-text)!important;background:var(--ui-soft)!important;border-color:var(--ui-line)!important;-webkit-text-fill-color:currentColor}@media(max-width:520px){.planning-bulk-raid button{width:100%}}
+
+.planning-stock-note{display:block;margin:3px 0 5px;color:var(--ui-muted);font-size:.78em;line-height:1.3}

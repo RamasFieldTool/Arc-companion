@@ -23,6 +23,11 @@ try{
   await page.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
   await page.waitForFunction(()=>window.RFTPlanningUI&&document.querySelectorAll('#outpostCatalogList details').length===100);
   await outpost(page);
+  const noticeText=await page.locator('#outpostDevelopmentNotice').innerText();
+  const tileSubtitle=await page.locator('[data-app-target="outpostSection"] small').innerText();
+  if(/under development|im Ausbau|en cours de développement|en desarrollo|in sviluppo/i.test(`${noticeText} ${tileSubtitle}`))throw new Error(`${language}/${width}: outdated generic development status`);
+  const communityTerms={de:'Community-Katalog',en:'community catalog',fr:'communauté',es:'comunidad',it:'community'};
+  if(!noticeText.toLowerCase().includes(communityTerms[language].toLowerCase()))throw new Error(`${language}/${width}: missing source qualification`);
   const tabs=page.locator('#outpostTabs [role=tab]');
   if(await tabs.count()){
    assert.deepEqual(await tabs.allTextContents(),titles);

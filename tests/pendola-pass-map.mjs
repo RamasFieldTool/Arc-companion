@@ -34,6 +34,8 @@ await p.waitForFunction(()=>document.querySelector('#dataStatusPersistent')?.dat
 if(mapAssetRequests.length)throw Error('Map catalog or spawn data loaded before opening the map view');
 await p.locator('[data-app-target="spawnPanel"]').click();
 await p.waitForFunction(()=>typeof mapCatalog!=='undefined'&&mapCatalog?.maps?.length);
+await p.waitForFunction(()=>document.querySelector('#spawnPendingBody')?.textContent.includes('Wähle oben „Raider-Spawns“'));
+if(!await p.locator('#spawnPendingBody').isVisible())throw Error('Map empty state does not guide first layer selection');
 if(!mapAssetRequests.some(url=>url.includes('maps.json')))throw Error('Map catalog was not loaded when opening the map view');
 await p.waitForFunction(()=>Array.from(document.querySelector('#spawnMapSelect')?.options||[]).some(option=>option.value==='pendola-pass'));
 await p.locator('#spawnMapSelect').selectOption('pendola-pass');
