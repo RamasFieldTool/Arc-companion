@@ -59,14 +59,15 @@ async function openBackup(page){
   await page.waitForFunction(()=>document.querySelector('#backupPanel')?.classList.contains('launcher-active'));
 }
 async function importBackup(page,path){
-  let confirmed=false;
-  page.once('dialog',async dialog=>{confirmed=true;await dialog.accept();});
+  let confirmed=false,warning='';
+  page.once('dialog',async dialog=>{confirmed=true;warning=dialog.message();await dialog.accept();});
   const reloaded=page.waitForNavigation({waitUntil:'domcontentloaded'});
   await page.locator('#backupFile').setInputFiles(path);
   await reloaded;
   await waitReady(page);
   await page.waitForFunction(()=>!!window.RFTPlanningUI);
   if(!confirmed)throw new Error('Backup confirmation was not shown');
+  if(!/create a backup before continuing/i.test(warning))throw new Error('Import confirmation does not advise saving current data first');
 }
 
 const browser=await chromium.launch({headless:true});
