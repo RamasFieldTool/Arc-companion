@@ -8,6 +8,8 @@ on:
       - 'backup-v1304.js'
       - 'catalog-data/amplified-variants.json'
       - 'tests/amplified-planner-v15.test.mjs'
+      - 'tests/amplified-planner-browser.test.mjs'
+      - 'tests/amplified-variants-browser.mjs'
       - '.github/workflows/amplified-planner.yml'
   workflow_dispatch:
 jobs:
