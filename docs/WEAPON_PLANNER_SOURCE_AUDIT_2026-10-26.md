@@ -31,3 +31,12 @@ Initial state above is historical. See the implementation evidence below for the
 - Source-level coverage is complete against that response, not a claim of independently verified game completeness. Ordinary station-level requirements are not supplied on these edges and remain explicitly unknown. Explicit ascension requirement: Gunsmith IV. No crafting-station requirement is substituted for an upgrade requirement.
 - Source names, image URLs, per-edge links, source version, capture date and raw response SHA-256 are retained. No new image URLs were inferred.
 - New local weapon plans are separate from inventory and legacy plans. The shared requirement map includes their full material demand and subtracts stock once. Saving the same weapon replaces its weapon plan; existing collection goals are preserved. Removing the weapon plan removes only its own demand. Backups include validated weapon plans.
+
+
+## Regression evidence
+
+- Local new planner regression: Chromium Android emulation at 360, 412, 430 and landscape 932 px; exact Anvil sums, current/target selection, stock, idempotent saves, saved plan reentry, backup export/import, shared research deduplication, unknown-cost guard, single-tier Dolabra, Bantam, search/category, five languages, Light/Black, browser back and shared planning: passed.
+- Local general browser quality gate: all ten source/cache/fallback/slow-source scenarios passed. Planning usability, empty state, workshop stock, i18n, Italian, Next Raid sharing, Amplified browser matrix (25 combinations), Outpost UI matrix (25 combinations), targeted navigation, backup/migration/data safety, reference tables and Pendola passed.
+- Responsive UI regression initially failed because the expected tile list had not been updated and live event/bot/font resources were unmocked in the restricted local runtime. The expected list now includes the requested weapon tile, and those external dependencies use explicit fixtures. All responsive UI scenarios then passed; no application assertions were removed.
+- Screenshots inspected at 412 px; duplicate heading and overlapping reentry scroll resolved. Amplified family control is locked to the main selection, preventing a weapon/module/perk mismatch.
+- No physical Android device test and no in-game recipe verification have been performed.
