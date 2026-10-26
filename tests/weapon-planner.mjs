@@ -20,3 +20,11 @@ const research=[{id:'shared_research',materials:[{itemId:'queen_reactor',quantit
 let req=JSON.parse(JSON.stringify(window.requirements()));assert.equal(req.filter(r=>r.itemId==='queen_reactor').reduce((s,r)=>s+r.quantity,0),2);assert.equal(req.filter(r=>r.itemId==='metal_parts').reduce((s,r)=>s+r.quantity,0),7);
 memory.rftAmplifiedResearchV1=JSON.stringify({shared_research:true});assert(!window.requirements().some(r=>r.itemId==='queen_reactor'));
 console.log('PASS: shared research deduplicated across saved weapons; completed research excluded; ordinary requirements preserved');
+
+// Existing installations must fetch the complete new loader chain and backup schema.
+assert(fs.readFileSync('index.html','utf8').includes('collapsible-core-v1306.js?v=weapon-goals-1'));
+assert(fs.readFileSync('index.html','utf8').includes('backup-v1304.js?v=weapon-goals-1'));
+assert(fs.readFileSync('collapsible-core-v1306.js','utf8').includes('planning-bootstrap.js?v=weapon-goals-1'));
+assert(fs.readFileSync('planning-bootstrap.js','utf8').includes('planning-core.js?v=weapon-goals-1'));
+assert(fs.readFileSync('planning-bootstrap.js','utf8').includes('planning-ui.js?v=weapon-goals-1'));
+console.log('PASS: versioned loader chain and backup prevent stale planning code on existing installations');
