@@ -331,7 +331,7 @@ try{
         if(language==='it'){
           assert.equal(await page.locator('.fan-story-view>.fan-view-back').textContent(),'← Torna a Raider Stories');
           assert.equal(await page.locator('.fan-story-credit p').first().textContent(),`Racconto della community di ${story.author}`);
-          await checkLayout(page,story.id==='leaper'?'rgb(242, 241, 230)':story.id==='captain-defib'?'rgb(255, 240, 217)':'rgb(238, 231, 220)');
+          await checkLayout(page,story.id==='leaper'||story.id==='der-letzte-schlag'?'rgb(242, 241, 230)':story.id==='captain-defib'?'rgb(255, 240, 217)':'rgb(238, 231, 220)');
           if(story.id==='captain-defib'){
             assert.equal(await page.locator('.fan-legend-question').textContent(),expected.nameQuestion);
             assert.equal(await page.locator('.fan-legend-reveal').textContent(),'"CaptainDefib"');
