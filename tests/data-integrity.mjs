@@ -17,6 +17,18 @@ const itemIds=items.map(item=>item?.id);
 if(itemIds.some(id=>typeof id!=='string'||!id.trim())) fail('items.json contains an item without a valid id');
 if(new Set(itemIds).size!==itemIds.length) fail('items.json contains duplicate item ids');
 
+const itemSupplement=await parse('catalog-data/souls-offering-items-2-3-0.json');
+const expectedSupplementIds=['rock_salt','dead_flowers','railway_lantern','fancy_plate','mask_fragment','offering_display_table','offering_display_table_design'];
+const supplementIds=itemSupplement.items.map(item=>item.id);
+if(JSON.stringify([...supplementIds].sort())!==JSON.stringify([...expectedSupplementIds].sort())) fail('2.3.0 item supplement IDs do not match the reviewed seven records');
+for(const item of itemSupplement.items){
+  const fallbackItem=items.find(candidate=>candidate.id===item.id);
+  if(!fallbackItem) fail(`items.json is missing 2.3.0 fallback item ${item.id}`);
+  if(item.imageFilename) fail(`Unverified 2.3.0 image URL must not be shipped: ${item.id}`);
+  if(item.recipe||item.recyclesInto) fail(`Unverified 2.3.0 recipe or recycle data must not be shipped: ${item.id}`);
+  if(fallbackItem.imageFilename) fail(`Unverified 2.3.0 fallback image URL must not be shipped: ${item.id}`);
+}
+
 const goals=await parse('goals.json');
 if(!Array.isArray(goals)||!goals.length) fail('goals.json must be a non-empty array');
 const goalIds=new Set();

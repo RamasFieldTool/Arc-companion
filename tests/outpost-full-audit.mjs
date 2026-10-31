@@ -4,10 +4,18 @@ import crypto from 'node:crypto';
 const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const audit=read('catalog-data/outpost-full-audit-20261016.json');
 const catalog=read('outpost-catalog.json');
-// Preserve the dated audit as a historical baseline. Only explicitly evidenced
-// German label corrections may differ; quantities, IDs and research stay frozen.
+// Preserve the dated audit as a historical baseline. Explicit corrections may
+// affect audited labels; new post-baseline event records are checked separately.
 const screenshotEvidence=read('catalog-data/outpost-screenshot-verification-20261016.json');
+const offeringTable=catalog.furniture.find(x=>x.id==='offering_display_table');
+assert.ok(offeringTable,'current event catalog addition is present');
+assert.deepEqual(offeringTable.craft,[],'event source does not list a recipe');
+assert.equal(offeringTable.research,null,'event source does not list research requirements');
 const auditedCatalog=structuredClone(catalog);
+// Keep the Oct 16 baseline immutable; this event item is tracked in the current
+// catalog but was added after that historical audit snapshot.
+auditedCatalog.furniture=auditedCatalog.furniture.filter(x=>x.id!=='offering_display_table');
+delete auditedCatalog.supplementalSources;
 assert.equal(screenshotEvidence.baselineCatalogSha256,audit.inputSha256['outpost-catalog.json']);
 assert.equal(screenshotEvidence.records.length,27);
 assert.equal(new Set(screenshotEvidence.records.map(r=>r.id)).size,27);

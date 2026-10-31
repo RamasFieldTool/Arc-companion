@@ -21,7 +21,7 @@ try{
   await installItemCatalogRoute(page,fixture);
   await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',route=>route.fulfill({json:[]}));
   await page.goto(process.env.BASE_URL||'http://127.0.0.1:4173/',{waitUntil:'domcontentloaded'});
-  await page.waitForFunction(()=>window.RFTPlanningUI&&document.querySelectorAll('#outpostCatalogList details').length===100);
+  await page.waitForFunction(count=>window.RFTPlanningUI&&document.querySelectorAll('#outpostCatalogList details').length===count,catalog.furniture.length);
   await outpost(page);
   const noticeText=await page.locator('#outpostDevelopmentNotice').innerText();
   const tileSubtitle=await page.locator('[data-app-target="outpostSection"] small').innerText();
@@ -58,7 +58,7 @@ try{
    await search.fill('quantity');assert.equal(await page.locator('#outpostCatalogList details').count(),0);
    await search.fill('');await page.locator('#outpostCatalogCategory').selectOption('Wardrobe');assert.equal(await page.locator('#outpostCatalogList details').count(),5);
    await search.fill('Alpine');assert.equal(await page.locator('#outpostCatalogList details').count(),1);
-   await page.locator('#outpostCatalogCategory').selectOption('');await search.fill('');assert.equal(await page.locator('#outpostCatalogList details').count(),100);
+   await page.locator('#outpostCatalogCategory').selectOption('');await search.fill('');assert.equal(await page.locator('#outpostCatalogList details').count(),catalog.furniture.length);
    if(Number(phase)>=3){
     for(const item of catalog.furniture){
      const costs=await page.locator(`[data-furniture="${item.id}"] .outpost-craft li`).evaluateAll(nodes=>nodes.map(n=>({name:n.querySelector('span').textContent,quantity:n.querySelector('b').textContent})));

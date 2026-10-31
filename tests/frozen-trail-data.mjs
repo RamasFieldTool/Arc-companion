@@ -78,10 +78,11 @@ for(const name of names){const rows=result.items.filter(x=>x.name?.en===name);as
 const modern={id:'future-pressure',name:{en:'Pressure Regulator'},value:9876};
 const preserved=extend([modern],[]).items.find(x=>x.name?.en==='Pressure Regulator');assert.equal(preserved.id,modern.id);assert.equal(preserved.value,9876);
 const catalog=JSON.parse(await readFile(new URL('../outpost-catalog.json',import.meta.url),'utf8'));
-assert.equal(catalog.furniture.length,100);assert.equal(new Set(catalog.furniture.map(x=>x.id)).size,100);assert.equal(catalog.furniture.filter(x=>x.research).length,52);
+assert.equal(catalog.furniture.length,101);assert.equal(new Set(catalog.furniture.map(x=>x.id)).size,catalog.furniture.length);assert.equal(catalog.furniture.filter(x=>x.research).length,52);
+const offeringTable=catalog.furniture.find(x=>x.id==='offering_display_table');assert.ok(offeringTable);assert.deepEqual(offeringTable.craft,[]);assert.equal(offeringTable.research,null);
 for(const row of catalog.furniture){for(const lang of ['de','en','fr','es','it'])assert.ok(row.name[lang]);for(const material of row.craft)assert.ok(material.quantity>0)}
 const bar=catalog.furniture.find(x=>x.id==='barstool');assert.equal(bar.research.points,500);assert.equal(bar.craft.find(x=>x.name.en==='Fabric').quantity,4);assert.equal(bar.craft.find(x=>x.name.en==='Sheet Metal').quantity,8);
-console.log('PASS 100 furniture, 52 linked research records, distinct craft costs, material deduplication and upstream preservation');
+console.log('PASS 101 furniture, including the offering table without an invented recipe; 52 linked research records and upstream preservation');
 
 
 // Frozen Trail 2.0 weapon-tier placeholders: all tiers, no invented numeric data.

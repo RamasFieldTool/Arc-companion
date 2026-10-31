@@ -18,7 +18,7 @@ The item catalog supplement contains seven records:
 | `offering_display_table` | Offering Display Table | — | Outpost Furniture | Not listed / 1 |
 | `offering_display_table_design` | Offering Display Table Design | — | Design | Not listed / 1 |
 
-The five trinkets are listed as new items for the Souls Offering project. The two table entries are separate reward/catalog entries, not project loot materials. The tool uses English names for the table entries because a German localized name was not verified.
+The five trinkets are listed as new items for the Souls Offering project. The two table entries are separate reward/catalog entries, not project loot materials. The furniture view displays translated labels for the table in all five UI languages; these are interface translations, not verified in-game localized item strings.
 
 The project quantities are represented in the item descriptions: 2 Rock Salt, 4 Dead Flowers, 2 Railway Lanterns, 2 Fancy Plates, and 1 Mask Fragment. Existing project materials were not changed.
 
@@ -33,14 +33,14 @@ The project quantities are represented in the item descriptions: 2 Rock Salt, 4 
 
 ## Images
 
-All seven records have explicit `imageFilename` links discovered from the item pages and restricted to the existing `cdn.arctracker.io` allowlist. The two table entries use the same table icon because that is the image link provided on both pages. The image URLs were not successfully fetched from this environment (HTTP 403), so actual availability and visual correctness remain unverified. No image files were downloaded or stored in the repository.
+Image links were discovered on the item pages, but direct requests to the CDN returned HTTP 403. Because availability and rendering could not be verified, the supplement does not set `imageFilename` for these seven records. No image files were downloaded or stored in the repository. If an upstream provider later supplies verified images, the app can display that metadata.
 
 ## Integration
 
 - `catalog-data/souls-offering-items-2-3-0.json` is the single hand-maintained supplement source.
-- The app merges these records into live, cached, and fallback catalogs when a provider does not include them. Existing provider records remain authoritative; the supplement only fills missing image, name, description, or evidence fields.
+- The app merges these records into live, cached, and fallback catalogs when a provider does not include them. Existing provider records remain authoritative; the supplement only fills missing name, description, or evidence fields.
 - `items.json` receives the same records for the local fallback.
 - `scripts/build-catalog-snapshot.mjs` merges the same source into the full snapshot, and the snapshot workflow watches the supplement file.
 - The Outpost furniture catalog now includes the Offering Display Table and its linked design name. No craft recipe was added because the item pages list none; the catalog shows that missing recipe data explicitly. Its result count now derives from the data instead of a hardcoded 100.
 
-No project test suite was run in this work.
+Static and browser regression tests were run during the merge review; the pre-existing Raider Stories layout assertion remains under investigation.

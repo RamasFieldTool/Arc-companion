@@ -7,7 +7,10 @@
   "items": [
     {
       "id": "rock_salt",
-      "name": { "de": "Steinsalz", "en": "Rock Salt" },
+      "name": {
+        "de": "Steinsalz",
+        "en": "Rock Salt"
+      },
       "description": {
         "de": "Für das Projekt „Opfer der Seelen“ werden 2 benötigt.",
         "en": "Soul's Offering project requirement: 2."
@@ -18,22 +21,20 @@
       "value": 640,
       "weightKg": 0.3,
       "stackSize": 5,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/rock_salt.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
         "source": "https://arctracker.io/items/rock_salt"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
-        "source": "https://arctracker.io/items/rock_salt"
       }
     },
     {
       "id": "dead_flowers",
-      "name": { "de": "Vertrocknete Blumen", "en": "Dead Flowers" },
+      "name": {
+        "de": "Vertrocknete Blumen",
+        "en": "Dead Flowers"
+      },
       "description": {
         "de": "Für das Projekt „Opfer der Seelen“ werden insgesamt 4 benötigt.",
         "en": "Soul's Offering project requirement: 4 in total."
@@ -44,22 +45,20 @@
       "value": 640,
       "weightKg": 0.5,
       "stackSize": 5,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/dead_flowers.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
         "source": "https://arctracker.io/items/dead_flowers"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
-        "source": "https://arctracker.io/items/dead_flowers"
       }
     },
     {
       "id": "railway_lantern",
-      "name": { "de": "Eisenbahnlaterne", "en": "Railway Lantern" },
+      "name": {
+        "de": "Eisenbahnlaterne",
+        "en": "Railway Lantern"
+      },
       "description": {
         "de": "Für das Projekt „Opfer der Seelen“ werden 2 benötigt.",
         "en": "Soul's Offering project requirement: 2."
@@ -70,22 +69,20 @@
       "value": 3000,
       "weightKg": 0.5,
       "stackSize": 3,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/railway_lantern.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
         "source": "https://arctracker.io/items/railway_lantern"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
-        "source": "https://arctracker.io/items/railway_lantern"
       }
     },
     {
       "id": "fancy_plate",
-      "name": { "de": "Dekorativer Teller", "en": "Fancy Plate" },
+      "name": {
+        "de": "Dekorativer Teller",
+        "en": "Fancy Plate"
+      },
       "description": {
         "de": "Für das Projekt „Opfer der Seelen“ werden 2 benötigt.",
         "en": "Soul's Offering project requirement: 2."
@@ -96,22 +93,20 @@
       "value": 7000,
       "weightKg": 0.5,
       "stackSize": 3,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/fancy_plate.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
         "source": "https://arctracker.io/items/fancy_plate"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
-        "source": "https://arctracker.io/items/fancy_plate"
       }
     },
     {
       "id": "mask_fragment",
-      "name": { "de": "Maskenfragment", "en": "Mask Fragment" },
+      "name": {
+        "de": "Maskenfragment",
+        "en": "Mask Fragment"
+      },
       "description": {
         "de": "Für das Projekt „Opfer der Seelen“ wird 1 benötigt.",
         "en": "Soul's Offering project requirement: 1."
@@ -122,54 +117,43 @@
       "value": 7000,
       "weightKg": 0.5,
       "stackSize": 3,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/mask_fragment.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://arctracker.io/items/mask_fragment"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://arctracker.io/items/mask_fragment"
       }
     },
     {
       "id": "offering_display_table",
-      "name": { "en": "Offering Display Table" },
+      "name": {
+        "en": "Offering Display Table"
+      },
       "type": "Outpost Furniture",
       "rarity": "Legendary",
       "stackSize": 1,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/offering_display_table.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://www.arcscrappy.com/en/items/offering_display_table"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://www.arcscrappy.com/en/items/offering_display_table"
       }
     },
     {
       "id": "offering_display_table_design",
-      "name": { "en": "Offering Display Table Design" },
+      "name": {
+        "en": "Offering Display Table Design"
+      },
       "type": "Design",
       "rarity": "Legendary",
       "stackSize": 1,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/offering_display_table.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://www.arcscrappy.com/en/items/offering_display_table_design"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-shared-with-display-table; fetch-not-verified",
         "source": "https://www.arcscrappy.com/en/items/offering_display_table_design"
       }
     }

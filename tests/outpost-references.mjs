@@ -2,6 +2,7 @@ import {chromium} from 'playwright';
 import {mkdir,readFile} from 'node:fs/promises';
 import {installItemCatalogRoute} from './helpers/item-catalog.mjs';
 const fixture=JSON.parse(await readFile(new URL('../items.json',import.meta.url),'utf8')).slice(0,60);
+const furniture=JSON.parse(await readFile(new URL('../outpost-catalog.json',import.meta.url),'utf8')).furniture;
 await mkdir('test-artifacts/outpost-reference',{recursive:true});
 const browser=await chromium.launch({headless:true});
 try{
@@ -23,7 +24,7 @@ for(const width of [360,1280]){
   if(!(await page.locator('#outpostDesignResearchReference').textContent()).includes('Barstool Design · Research Station 1 · 500'))throw Error('Research data absent');
   if(await page.locator('#outpostWeaponRecipeReference').count())throw Error('Weapon recipes still rendered in Outpost');
   await page.waitForSelector('#outpostCatalogList details',{state:'attached'});
-  if(await page.locator('#outpostCatalogList details').count()!==100)throw Error('Full catalog incomplete');
+  if(await page.locator('#outpostCatalogList details').count()!==furniture.length)throw Error('Full catalog incomplete');
   await page.locator('#outpostCatalogSearch').fill('barstool');
   if(await page.locator('#outpostCatalogList details').count()!==1)throw Error('Catalog search failed');
   await page.locator('#outpostCatalogList details').evaluate(n=>{n.open=true});

@@ -4800,11 +4800,19 @@
     {
       "id": "offering_display_table",
       "name": {
-        "en": "Offering Display Table"
+        "de": "Ausstellungstisch der Opfergaben",
+        "en": "Offering Display Table",
+        "fr": "Table d’offrande",
+        "es": "Mesa de ofrendas",
+        "it": "Tavolo delle offerte"
       },
       "category": "Table",
       "design": {
-        "en": "Offering Display Table Design"
+        "de": "Entwurf: Ausstellungstisch der Opfergaben",
+        "en": "Offering Display Table Design",
+        "fr": "Plan : table d’offrande",
+        "es": "Diseño: mesa de ofrendas",
+        "it": "Progetto: tavolo delle offerte"
       },
       "craft": [],
       "research": null,
