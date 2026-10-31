@@ -62,6 +62,7 @@ ARC Companion ist ein inoffizielles Community-Projekt. Daten können sich durch 
 
 - **Items / Live-Katalog:** Mahcks `arcraiders-data-api` (`https://arcdata.mahcks.com/v1/items?full=true`). Der Katalog wird paginiert geladen und auf Vollständigkeit der eindeutigen Item-IDs geprüft. Der validierte Katalog wird lokal zwischengespeichert; eine erneute Prüfung erfolgt höchstens alle 30 Tage. Bei einem Fehler bleibt der letzte gespeicherte Katalog verfügbar.
 - **Item-Fallbacks:** Bei einem Fehler oder ungültigen Ergebnis der Mahcks-Quelle versucht die App zunächst den validierten Ramas-Katalog-Snapshot und anschließend den RaidTheory-Katalog auf GitHub. Unvollständige RaidTheory-Daten werden mit lokalen Basisdaten ergänzt. Wenn der Katalog-Ladevorgang insgesamt fehlschlägt, lädt die App `items.json` aus dem Repository.
+- **Manuell ergänzte Update-Einträge:** `catalog-data/souls-offering-items-2-3-0.json` ergänzt die fünf neuen Souls-Offering-Materialien sowie den Offering Display Table und sein Design. Diese Community-Datensätze werden auch über Live-, Cache- und Fallback-Kataloge gelegt, wenn der jeweilige Datenanbieter sie noch nicht enthält. Der Snapshot-Build übernimmt dieselbe Ergänzungsdatei.
 - **Basisdaten & Quests:** RaidTheory `arcraiders-data` (MIT). Questdateien werden robust in kleinen Batches geladen; einzelne fehlerhafte Dateien sollen den übrigen Tracker nicht unbrauchbar machen.
 - **Raider-Karten:** Community-basierte Karten- und Spawninformationen. Die konkreten Quellen pro Karte sind in `maps.json` hinterlegt und werden in der App unter **Daten & Quellen** angezeigt. Community-Positionen sind als ungefähr zu verstehen und nicht offiziell von Embark bestätigt.
 - **Externe Dienste:** Einzelne Funktionen laden Daten oder Schriftarten von externen Diensten. Diese Funktionen können eingeschränkt sein, wenn die jeweilige Quelle nicht erreichbar ist.
@@ -76,6 +77,7 @@ ARC Companion ist ein inoffizielles Community-Projekt. Daten können sich durch 
 - Mehrere Community-basierte Raider-Karten mit Zoom, Markern und Quellenhinweisen.
 - DARK-, LIGHT- und BLACK-Modus mit lokaler Speicherung.
 - Sichtbarer Item-Datenstatus mit Mahcks-Cache, Snapshot, GitHub und lokalem Basisdatensatz; der Katalog wird höchstens monatlich neu geprüft.
+- Ergänzende Update-Datensätze für die Items aus Live Update 2.3.0; Werte und Fundbereiche sind Community-Daten.
 - Item-Suche enthält die 14 Weapon Stencils anhand eines Community-Index sowie den offiziell angekündigten Wreck Set-Eintrag; fehlende Set-Teile und Stencil-Kompatibilitäten werden nicht ergänzt.
 - Raider Radio, Community-Stories sowie Hilfe direkt in der App.
 - Backup- und Wiederherstellungsfunktion für lokale Spielerdaten.

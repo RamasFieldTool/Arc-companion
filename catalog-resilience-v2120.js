@@ -13,7 +13,7 @@
   const nativeFetch=window.fetch.bind(window);
   const SNAPSHOT_URL='https://raw.githubusercontent.com/RamasFieldTool/Arc-companion/catalog-data/items-full-snapshot.json';
   const GITHUB_ITEMS_INDEX='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/items?ref=main';
-  const LOCAL_ITEMS='items.json?v=293';
+  const LOCAL_ITEMS='items.json?v=294';
   const MAHCKS_TIMEOUT_MS=10000;
   const SNAPSHOT_TIMEOUT_MS=8000;
   const GITHUB_TIMEOUT_MS=12000;

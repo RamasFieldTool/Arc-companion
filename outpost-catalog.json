@@ -4796,6 +4796,23 @@
           }
         ]
       }
+    },
+    {
+      "id": "offering_display_table",
+      "name": {
+        "en": "Offering Display Table"
+      },
+      "category": "Table",
+      "design": {
+        "en": "Offering Display Table Design"
+      },
+      "craft": [],
+      "research": null,
+      "rftEvidence": {
+        "checkedAt": "2026-10-31",
+        "status": "community-item-data; recipe-not-listed",
+        "source": "https://www.arcscrappy.com/en/items/offering_display_table"
+      }
     }
   ],
   "coverageEvidence": {
@@ -4811,5 +4828,13 @@
       "frozenTrailPass": 4,
       "dlc": 1
     }
-  }
+  },
+  "supplementalSources": [
+    {
+      "checkedAt": "2026-10-31",
+      "itemId": "offering_display_table",
+      "source": "https://www.arcscrappy.com/en/items/offering_display_table",
+      "designSource": "https://www.arcscrappy.com/en/items/offering_display_table_design"
+    }
+  ]
 }

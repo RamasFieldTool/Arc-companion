@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/catalog-snapshot.yml'
       - 'scripts/build-catalog-snapshot.mjs'
+      - 'catalog-data/souls-offering-items-2-3-0.json'
       - 'catalog-resilience-v2120.js'
   workflow_dispatch:
 
