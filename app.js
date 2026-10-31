@@ -579,7 +579,7 @@ async function loadFullCatalog(){
       }
       const unique=[...new Map(all.map(i=>[i.id,i])).values()];
       if(total && unique.length!==total) throw new Error(`Catalog incomplete ${unique.length}/${total}`);
-      return unique;
+      return mergeManualCatalogItems(unique);
     }catch(error){
       if(error?.catalogSourceChanged&&pass===0){
         console.warn('Catalog source changed during pagination; restarting from the selected backup.',error);
@@ -589,6 +589,53 @@ async function loadFullCatalog(){
     }
   }
   throw new Error('Catalog source changed repeatedly during pagination');
+}
+
+const MANUAL_CATALOG_SUPPLEMENT_URL='catalog-data/souls-offering-items-2-3-0.json?v=1';
+let manualCatalogSupplementPromise=null;
+async function loadManualCatalogSupplement(){
+  if(!manualCatalogSupplementPromise){
+    manualCatalogSupplementPromise=(async()=>{
+      const response=await fetch(MANUAL_CATALOG_SUPPLEMENT_URL,{cache:'no-store'});
+      if(!response.ok)throw new Error(`Manual item supplement ${response.status}`);
+      const data=await response.json();
+      if(data?.schema!=='rft-manual-item-supplement'||data?.formatVersion!==1||!Array.isArray(data.items))throw new Error('Invalid manual item supplement');
+      const ids=new Set();
+      for(const item of data.items){
+        if(!item?.id||typeof item.id!=='string'||ids.has(item.id))throw new Error('Manual item supplement has an invalid or duplicate id');
+        ids.add(item.id);
+      }
+      return data.items;
+    })().catch(error=>{
+      manualCatalogSupplementPromise=null;
+      console.warn('Manual item supplement unavailable; continuing with the selected catalog.',error);
+      return [];
+    });
+  }
+  return manualCatalogSupplementPromise;
+}
+async function mergeManualCatalogItems(catalog){
+  const additions=await loadManualCatalogSupplement();
+  if(!additions.length)return catalog;
+  const merged=new Map(catalog.map(item=>[item.id,item]));
+  let changed=0;
+  for(const addition of additions){
+    const current=merged.get(addition.id);
+    if(!current){merged.set(addition.id,structuredClone(addition));changed++;continue}
+    const item={...addition,...current};
+    if(addition.name&&current.name)item.name={...addition.name,...current.name};
+    if(!current.imageFilename&&addition.imageFilename)item.imageFilename=addition.imageFilename;
+    if(!current.description&&addition.description)item.description=addition.description;
+    if(!current.rftEvidence&&addition.rftEvidence)item.rftEvidence=addition.rftEvidence;
+    if(!current.rftImageEvidence&&addition.rftImageEvidence)item.rftImageEvidence=addition.rftImageEvidence;
+    merged.set(addition.id,item);
+  }
+  if(window.__arcCatalogMeta){
+    window.__arcCatalogMeta.total=merged.size;
+    window.__arcCatalogMeta.manualSupplemental=changed;
+  }
+  if(changed)console.info(`Added ${changed} pinned manual item records to the selected catalog.`);
+  return [...merged.values()];
 }
 
 const CATALOG_CACHE_KEY='rftItemCatalogCacheV1';
@@ -631,6 +678,8 @@ async function boot(){
     goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
     if(cached){
       items=items.map(window.RFTCatalogUpdate.correct);
+      items=await mergeManualCatalogItems(items);
+      if(items.length!==cached.items.length)saveCatalogCache(items,cached.source,cached.checkedAt);
       ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
       applyLanguage();
       if(catalogCheckIsDue(cached))void refreshCatalogFromNetwork(cached);
@@ -640,6 +689,8 @@ async function boot(){
     console.error(err);
     if(cached){
       items=items.map(window.RFTCatalogUpdate.correct);
+      items=await mergeManualCatalogItems(items);
+      if(items.length!==cached.items.length)saveCatalogCache(items,cached.source,cached.checkedAt);
       ({items,goals}=window.RFTFrozenTrailData.extend(items,goals));
       applyLanguage();
       return;
@@ -659,7 +710,8 @@ async function boot(){
   }catch(err){
     console.error(err);
     try{
-      items=await fetch('items.json?v=293',{cache:'no-store'}).then(r=>r.json());
+      items=await fetch('items.json?v=294',{cache:'no-store'}).then(r=>r.json());
+      items=await mergeManualCatalogItems(items);
       if(!goals.length)goals=await fetch('goals.json?v=293',{cache:'no-store'}).then(r=>r.json());
       usingFallback=true;
       window.RFTCatalogUseCachedMeta?.('local-fallback',checkedAt);

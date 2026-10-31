@@ -2,6 +2,7 @@ import { readFile,writeFile } from 'node:fs/promises';
 
 const outPath=process.argv[2]||'items-full-snapshot.json';
 const INDEX='https://api.github.com/repos/RaidTheory/arcraiders-data/contents/items?ref=main';
+const MANUAL_ITEMS_PATH=new URL('../catalog-data/souls-offering-items-2-3-0.json',import.meta.url);
 const BATCH=12;
 const TIMEOUT=15000;
 
@@ -46,12 +47,29 @@ for(const item of loaded){
   byId.set(item.id,item);
 }
 if(byId.size!==files.length) throw new Error(`Catalog incomplete: ${byId.size}/${files.length}`);
+const manualData=JSON.parse(await readFile(MANUAL_ITEMS_PATH,'utf8'));
+if(manualData?.schema!=='rft-manual-item-supplement'||manualData?.formatVersion!==1||!Array.isArray(manualData.items))throw new Error('Invalid manual item supplement');
+const manualIds=new Set();
+for(const item of manualData.items){
+  if(!item?.id||typeof item.id!=='string'||manualIds.has(item.id))throw new Error('Manual item supplement has an invalid or duplicate id');
+  manualIds.add(item.id);
+  const current=byId.get(item.id);
+  if(!current){byId.set(item.id,item);continue}
+  const merged={...item,...current};
+  if(item.name&&current.name)merged.name={...item.name,...current.name};
+  if(!current.imageFilename&&item.imageFilename)merged.imageFilename=item.imageFilename;
+  if(!current.description&&item.description)merged.description=item.description;
+  if(!current.rftEvidence&&item.rftEvidence)merged.rftEvidence=item.rftEvidence;
+  if(!current.rftImageEvidence&&item.rftImageEvidence)merged.rftImageEvidence=item.rftImageEvidence;
+  byId.set(item.id,merged);
+}
 const items=[...byId.values()].sort((a,b)=>a.id.localeCompare(b.id));
 
 let previous=null;
 try{previous=JSON.parse(await readFile(outPath,'utf8'))}catch{}
 const previousItems=Array.isArray(previous?.items)?previous.items:null;
-if(previousItems&&JSON.stringify(previousItems)===JSON.stringify(items)){
+const supplementalSources=[{file:'catalog-data/souls-offering-items-2-3-0.json',checkedAt:manualData.checkedAt,gameVersion:manualData.gameVersion,source:manualData.source,itemIds:manualData.items.map(item=>item.id)}];
+if(previousItems&&JSON.stringify(previousItems)===JSON.stringify(items)&&JSON.stringify(previous?.supplementalSources||[])===JSON.stringify(supplementalSources)){
   console.log(`Snapshot unchanged: ${items.length} items.`);
   process.exit(0);
 }
@@ -62,6 +80,7 @@ const snapshot={
   generatedAt:new Date().toISOString(),
   source:'RaidTheory/arcraiders-data',
   sourceRef:'main',
+  supplementalSources,
   count:items.length,
   items
 };

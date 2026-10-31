@@ -4796,6 +4796,31 @@
           }
         ]
       }
+    },
+    {
+      "id": "offering_display_table",
+      "name": {
+        "de": "Ausstellungstisch der Opfergaben",
+        "en": "Offering Display Table",
+        "fr": "Table d’offrande",
+        "es": "Mesa de ofrendas",
+        "it": "Tavolo delle offerte"
+      },
+      "category": "Table",
+      "design": {
+        "de": "Entwurf: Ausstellungstisch der Opfergaben",
+        "en": "Offering Display Table Design",
+        "fr": "Plan : table d’offrande",
+        "es": "Diseño: mesa de ofrendas",
+        "it": "Progetto: tavolo delle offerte"
+      },
+      "craft": [],
+      "research": null,
+      "rftEvidence": {
+        "checkedAt": "2026-10-31",
+        "status": "community-item-data; recipe-not-listed",
+        "source": "https://www.arcscrappy.com/en/items/offering_display_table"
+      }
     }
   ],
   "coverageEvidence": {
@@ -4811,5 +4836,13 @@
       "frozenTrailPass": 4,
       "dlc": 1
     }
-  }
+  },
+  "supplementalSources": [
+    {
+      "checkedAt": "2026-10-31",
+      "itemId": "offering_display_table",
+      "source": "https://www.arcscrappy.com/en/items/offering_display_table",
+      "designSource": "https://www.arcscrappy.com/en/items/offering_display_table_design"
+    }
+  ]
 }
