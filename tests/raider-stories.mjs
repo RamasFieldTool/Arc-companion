@@ -11,8 +11,9 @@ assert.equal(lastBlowSource.author,'Zoe Bristow');
 assert.equal(lastBlowSource.title,'Der letzte Schlag');
 assert.equal(lastBlowSource.editorialNote,'Redaktioneller Titel – Originaltitel nicht bestätigt');
 assert.equal(lastBlowSource.content,"Mitten im Sumpf stand dieser eine Baum. Und dort hing sie...\nEine Wespe. Allein.\nDer Panzer aufgerissen, die metallenen Flügel zerfetzt. Das sonst so aggressive Leuchten ihrer Sensoren flackerte nur noch schwach, als würde ihr Kern jeden Moment endgültig verlöschen.\nSie griff nicht an. Sie konnte vermutlich gar nicht mehr. Nur dieses leise, kaputte Sirren lag in der Luft... ein Geräusch, das eher nach Schmerz klang als nach Gefahr.\nIch blieb vor ihr stehen und hielt meine Spitzhacke fest umklammert. Kein Gewehr. Kein heldenhafter letzter Schuss. Nur kalter Stahl in einer Welt, die längst vergessen hat, was Gnade eigentlich bedeutet.\nFür einen Moment sah sie mich an und plötzlich wirkte sie nicht mehr wie eine Maschine aus dem endlosen Krieg Mensch gegen Maschine. Nur wie etwas, das zu lange gelitten hatte.\nVielleicht war sie zu diesem Baum geflogen, weil sie wusste, dass es vorbei war. Vielleicht wartete sie einfach nur darauf, dass endlich jemand den Mut hat, es zu beenden.\nDann hob ich die Spitzhacke.\nEin einziger Schlag. Schnell. Endgültig.\nDanach war da nur noch Stille zwischen den Bäumen des Sumpfes.\nUnd für einen winzigen Augenblick hatte ich das Gefühl, als wäre sie mir dankbar gewesen.");
-assert.equal(lastBlowSource.imageWidth,1086);
-assert.equal(lastBlowSource.imageHeight,1448);
+assert.equal(lastBlowSource.imageWidth,1672);
+assert.equal(lastBlowSource.imageHeight,941);
+assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/der-letzte-schlag-zoe-bristow.png',import.meta.url))).digest('hex'),'095be664be4548b9dd21a4f1ccf66a220e70801399cabcd6e640ed58f0cd32e0');
 const lastBlowTitles={de:'Der letzte Schlag',en:'The Final Blow',fr:'Le dernier coup',es:'El golpe final',it:'Il colpo finale'};
 for(const lang of ['de','en','fr','es','it']){
   assert.equal(lastBlowSource.translations[lang].title,lastBlowTitles[lang]);
