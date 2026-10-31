@@ -14725,16 +14725,11 @@
       "value": 640,
       "weightKg": 0.5,
       "stackSize": 5,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/dead_flowers.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://arctracker.io/items/dead_flowers"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://arctracker.io/items/dead_flowers"
       }
     },
@@ -19307,16 +19302,11 @@
       "value": 7000,
       "weightKg": 0.5,
       "stackSize": 3,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/fancy_plate.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://arctracker.io/items/fancy_plate"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://arctracker.io/items/fancy_plate"
       }
     },
@@ -32139,16 +32129,11 @@
       "value": 7000,
       "weightKg": 0.5,
       "stackSize": 3,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/mask_fragment.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://arctracker.io/items/mask_fragment"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://arctracker.io/items/mask_fragment"
       }
     },
@@ -34320,16 +34305,11 @@
       "type": "Outpost Furniture",
       "rarity": "Legendary",
       "stackSize": 1,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/offering_display_table.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://www.arcscrappy.com/en/items/offering_display_table"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://www.arcscrappy.com/en/items/offering_display_table"
       }
     },
@@ -34341,16 +34321,11 @@
       "type": "Design",
       "rarity": "Legendary",
       "stackSize": 1,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/offering_display_table.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://www.arcscrappy.com/en/items/offering_display_table_design"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-shared-with-display-table; fetch-not-verified",
         "source": "https://www.arcscrappy.com/en/items/offering_display_table_design"
       }
     },
@@ -38068,16 +38043,11 @@
       "value": 3000,
       "weightKg": 0.5,
       "stackSize": 3,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/railway_lantern.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://arctracker.io/items/railway_lantern"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://arctracker.io/items/railway_lantern"
       }
     },
@@ -41856,16 +41826,11 @@
       "value": 640,
       "weightKg": 0.3,
       "stackSize": 5,
-      "imageFilename": "https://cdn.arctracker.io/items/v2/rock_salt.png",
       "updatedAt": "10/27/2026",
       "addedIn": "2.3.0",
       "rftEvidence": {
         "checkedAt": "2026-10-31",
         "status": "community-item-data",
-        "source": "https://arctracker.io/items/rock_salt"
-      },
-      "rftImageEvidence": {
-        "status": "explicit-image-link-from-item-page; fetch-not-verified",
         "source": "https://arctracker.io/items/rock_salt"
       }
     },
