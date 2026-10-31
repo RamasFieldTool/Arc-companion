@@ -255,7 +255,7 @@ window.RFTCommunityStories=Object.freeze([
     title:RFT_LAST_BLOW_TRANSLATIONS.de.title,
     author:'Zoe Bristow',
     summary:RFT_LAST_BLOW_TRANSLATIONS.de.summary,
-    image:'assets/stories/der-letzte-schlag-zoe-bristow.jpg',
+    image:'assets/stories/der-letzte-schlag-zoe-bristow.jpg?v=20261031-1',
     imageWidth:1536,
     imageHeight:864,
     theme:'forest-tragicomedy',
