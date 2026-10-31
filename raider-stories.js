@@ -157,6 +157,39 @@ const RFT_VERAEPPELT_TRANSLATIONS=Object.freeze({
   }
 });
 
+const RFT_LAST_BLOW_TRANSLATIONS=Object.freeze({
+  "de": {
+    "title": "Der letzte Schlag",
+    "summary": "Eine schwer beschädigte Wespe hängt im Sumpf. Ein Raider entscheidet, ihr Leiden zu beenden.",
+    "editorialNote": "Redaktioneller Titel – Originaltitel nicht bestätigt",
+    "content": "Mitten im Sumpf stand dieser eine Baum. Und dort hing sie...\nEine Wespe. Allein.\nDer Panzer aufgerissen, die metallenen Flügel zerfetzt. Das sonst so aggressive Leuchten ihrer Sensoren flackerte nur noch schwach, als würde ihr Kern jeden Moment endgültig verlöschen.\nSie griff nicht an. Sie konnte vermutlich gar nicht mehr. Nur dieses leise, kaputte Sirren lag in der Luft... ein Geräusch, das eher nach Schmerz klang als nach Gefahr.\nIch blieb vor ihr stehen und hielt meine Spitzhacke fest umklammert. Kein Gewehr. Kein heldenhafter letzter Schuss. Nur kalter Stahl in einer Welt, die längst vergessen hat, was Gnade eigentlich bedeutet.\nFür einen Moment sah sie mich an und plötzlich wirkte sie nicht mehr wie eine Maschine aus dem endlosen Krieg Mensch gegen Maschine. Nur wie etwas, das zu lange gelitten hatte.\nVielleicht war sie zu diesem Baum geflogen, weil sie wusste, dass es vorbei war. Vielleicht wartete sie einfach nur darauf, dass endlich jemand den Mut hat, es zu beenden.\nDann hob ich die Spitzhacke.\nEin einziger Schlag. Schnell. Endgültig.\nDanach war da nur noch Stille zwischen den Bäumen des Sumpfes.\nUnd für einen winzigen Augenblick hatte ich das Gefühl, als wäre sie mir dankbar gewesen."
+  },
+  "en": {
+    "title": "The Final Blow",
+    "summary": "A badly damaged Wasp hangs in the swamp. A Raider decides to end its suffering.",
+    "editorialNote": "Editorial title – original title unconfirmed",
+    "content": "That one tree stood in the middle of the swamp. And there she was, hanging from it...\nA Wasp. Alone.\nHer armour split open, her metal wings torn to shreds. The usually aggressive glow of her sensors flickered faintly, as if her core might finally go dark at any moment.\nShe wasn't attacking. She probably couldn't anymore. Only a faint, broken whirring hung in the air... a sound that seemed more like pain than danger.\nI stopped in front of her, gripping my pickaxe tightly. No rifle. No heroic final shot. Just cold steel in a world that had long since forgotten what mercy really meant.\nFor a moment, she looked at me, and suddenly she no longer seemed like a machine from the endless war between humans and machines. Just something that had suffered for too long.\nMaybe she had flown to that tree because she knew it was over. Maybe she was simply waiting for someone to finally find the courage to end it.\nThen I raised the pickaxe.\nOne single blow. Quick. Final.\nAfter that, there was only silence among the trees of the swamp.\nAnd for the briefest moment, I felt as though she had been grateful to me."
+  },
+  "fr": {
+    "title": "Le dernier coup",
+    "summary": "Une Guêpe gravement endommagée est suspendue dans le marais. Un Raider décide de mettre fin à ses souffrances.",
+    "editorialNote": "Titre rédactionnel – titre original non confirmé",
+    "content": "Au milieu du marais se dressait cet arbre. Et là, suspendue à ses branches, il y avait une Guêpe...\nUne Guêpe. Seule.\nSa carapace était déchirée, ses ailes métalliques en lambeaux. La lueur habituellement agressive de ses capteurs vacillait faiblement, comme si son cœur allait s’éteindre pour de bon d’un instant à l’autre.\nElle n’attaquait pas. Elle n’en était probablement même plus capable. Seul un faible bourdonnement brisé flottait dans l’air... un son qui évoquait davantage la douleur que le danger.\nJe me suis arrêté devant elle, serrant fermement ma pioche. Pas de fusil. Pas de dernier tir héroïque. Juste de l’acier froid dans un monde qui avait depuis longtemps oublié ce que signifie vraiment la compassion.\nPendant un instant, elle m’a regardé et, soudain, elle ne m’a plus semblé être une machine issue de la guerre sans fin entre les humains et les machines. Juste un être qui avait trop longtemps souffert.\nPeut-être s’était-elle envolée jusqu’à cet arbre parce qu’elle savait que tout était fini. Peut-être attendait-elle simplement que quelqu’un ait enfin le courage d’y mettre un terme.\nAlors j’ai levé la pioche.\nUn seul coup. Rapide. Définitif.\nEnsuite, il n’y eut plus que le silence entre les arbres du marais.\nEt pendant un bref instant, j’ai eu l’impression qu’elle m’en était reconnaissante."
+  },
+  "es": {
+    "title": "El golpe final",
+    "summary": "Una Avispa gravemente dañada cuelga en el pantano. Un Raider decide poner fin a su sufrimiento.",
+    "editorialNote": "Título editorial – título original sin confirmar",
+    "content": "En medio del pantano se alzaba aquel árbol. Y allí estaba ella, colgada...\nUna Avispa. Sola.\nTenía el blindaje abierto y las alas metálicas destrozadas. El resplandor habitualmente agresivo de sus sensores apenas parpadeaba, como si su núcleo fuera a apagarse definitivamente en cualquier momento.\nNo atacaba. Probablemente ya ni siquiera podía hacerlo. Solo quedaba en el aire un zumbido débil y roto... un sonido que parecía más de dolor que de peligro.\nMe detuve frente a ella y apreté con fuerza mi pico. Sin rifle. Sin un último disparo heroico. Solo acero frío en un mundo que hacía mucho había olvidado lo que significa la compasión.\nPor un instante me miró y, de pronto, ya no parecía una máquina de la interminable guerra entre humanos y máquinas. Solo algo que había sufrido demasiado tiempo.\nQuizá había volado hasta aquel árbol porque sabía que todo había terminado. Quizá simplemente esperaba a que alguien tuviera por fin el valor de acabar con aquello.\nEntonces alcé el pico.\nUn solo golpe. Rápido. Definitivo.\nDespués, solo quedó el silencio entre los árboles del pantano.\nY durante un instante fugaz, sentí que me estaba agradecida."
+  },
+  "it": {
+    "title": "Il colpo finale",
+    "summary": "Una Vespa gravemente danneggiata è appesa nella palude. Un Raider decide di porre fine alle sue sofferenze.",
+    "editorialNote": "Titolo redazionale – titolo originale non confermato",
+    "content": "In mezzo alla palude si ergeva quell’unico albero. E lì era appesa lei...\nUna Vespa. Sola.\nLa corazza era squarciata, le ali metalliche ridotte a brandelli. Il bagliore solitamente aggressivo dei suoi sensori tremolava appena, come se il suo nucleo potesse spegnersi definitivamente da un momento all’altro.\nNon attaccava. Probabilmente non ne era più nemmeno capace. Nell’aria restava solo un debole ronzio spezzato... un suono che sembrava più dolore che pericolo.\nMi fermai davanti a lei, stringendo forte il mio piccone. Niente fucile. Nessun eroico colpo finale. Solo acciaio freddo in un mondo che da tempo aveva dimenticato cosa significhi davvero la compassione.\nPer un momento mi guardò e, all’improvviso, non sembrò più una macchina della guerra infinita tra esseri umani e macchine. Solo qualcosa che aveva sofferto troppo a lungo.\nForse era volata su quell’albero perché sapeva che era finita. Forse stava semplicemente aspettando che qualcuno trovasse finalmente il coraggio di porre fine a tutto.\nPoi sollevai il piccone.\nUn solo colpo. Rapido. Definitivo.\nDopo, tra gli alberi della palude, rimase soltanto il silenzio.\nE per un brevissimo istante ebbi la sensazione che mi fosse grata."
+  }
+});
+
 window.RFTCommunityStories=Object.freeze([
   Object.freeze({
     id:'versteckspiel',
@@ -216,6 +249,21 @@ window.RFTCommunityStories=Object.freeze([
     originalLanguage:'de',
     content:RFT_VERAEPPELT_TRANSLATIONS.de.content,
     translations:RFT_VERAEPPELT_TRANSLATIONS
+  }),
+  Object.freeze({
+    id:'der-letzte-schlag',
+    title:RFT_LAST_BLOW_TRANSLATIONS.de.title,
+    author:'Zoe Bristow',
+    summary:RFT_LAST_BLOW_TRANSLATIONS.de.summary,
+    image:'assets/stories/der-letzte-schlag-zoe-bristow.jpg',
+    imageWidth:1086,
+    imageHeight:1448,
+    theme:'forest-tragicomedy',
+    language:'de',
+    originalLanguage:'de',
+    editorialNote:RFT_LAST_BLOW_TRANSLATIONS.de.editorialNote,
+    translations:RFT_LAST_BLOW_TRANSLATIONS,
+    content:RFT_LAST_BLOW_TRANSLATIONS.de.content
   })
 ]);
 

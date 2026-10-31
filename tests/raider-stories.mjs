@@ -6,6 +6,21 @@ import vm from 'node:vm';
 const storyContext={window:{},document:{documentElement:{lang:'de'},readyState:'loading',addEventListener(){}},MutationObserver:class{observe(){}}};
 storyContext.window.addEventListener=()=>{};
 vm.runInNewContext(await readFile(new URL('../raider-stories.js',import.meta.url),'utf8'),storyContext);
+const lastBlowSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='der-letzte-schlag');
+assert.equal(lastBlowSource.author,'Zoe Bristow');
+assert.equal(lastBlowSource.title,'Der letzte Schlag');
+assert.equal(lastBlowSource.editorialNote,'Redaktioneller Titel – Originaltitel nicht bestätigt');
+assert.equal(lastBlowSource.content,"Mitten im Sumpf stand dieser eine Baum. Und dort hing sie...\nEine Wespe. Allein.\nDer Panzer aufgerissen, die metallenen Flügel zerfetzt. Das sonst so aggressive Leuchten ihrer Sensoren flackerte nur noch schwach, als würde ihr Kern jeden Moment endgültig verlöschen.\nSie griff nicht an. Sie konnte vermutlich gar nicht mehr. Nur dieses leise, kaputte Sirren lag in der Luft... ein Geräusch, das eher nach Schmerz klang als nach Gefahr.\nIch blieb vor ihr stehen und hielt meine Spitzhacke fest umklammert. Kein Gewehr. Kein heldenhafter letzter Schuss. Nur kalter Stahl in einer Welt, die längst vergessen hat, was Gnade eigentlich bedeutet.\nFür einen Moment sah sie mich an und plötzlich wirkte sie nicht mehr wie eine Maschine aus dem endlosen Krieg Mensch gegen Maschine. Nur wie etwas, das zu lange gelitten hatte.\nVielleicht war sie zu diesem Baum geflogen, weil sie wusste, dass es vorbei war. Vielleicht wartete sie einfach nur darauf, dass endlich jemand den Mut hat, es zu beenden.\nDann hob ich die Spitzhacke.\nEin einziger Schlag. Schnell. Endgültig.\nDanach war da nur noch Stille zwischen den Bäumen des Sumpfes.\nUnd für einen winzigen Augenblick hatte ich das Gefühl, als wäre sie mir dankbar gewesen.");
+assert.equal(lastBlowSource.imageWidth,1086);
+assert.equal(lastBlowSource.imageHeight,1448);
+const lastBlowTitles={de:'Der letzte Schlag',en:'The Final Blow',fr:'Le dernier coup',es:'El golpe final',it:'Il colpo finale'};
+for(const lang of ['de','en','fr','es','it']){
+  assert.equal(lastBlowSource.translations[lang].title,lastBlowTitles[lang]);
+  assert.ok(lastBlowSource.translations[lang].summary);
+  assert.ok(lastBlowSource.translations[lang].content.length>800);
+  assert.ok(lastBlowSource.translations[lang].editorialNote);
+}
+
 const zoeSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='captain-defib');
 assert.equal(createHash('sha256').update(zoeSource.content).digest('hex'),'d1120f76cb09b6df1e25e35e819da53e9b34f4fb6eeb1232caf0c25e794e07b4');
 const zoeTitles={de:'Die Legende von CaptainDefib',en:'The Legend of CaptainDefib',fr:'La légende de CaptainDefib',es:'La leyenda de CaptainDefib'};
@@ -169,8 +184,8 @@ try{
     await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),4);
-    assert.equal(await page.locator('.fan-story-card').first().getAttribute('data-story-id'),'veraeppelt');
+    assert.equal(await page.locator('.fan-story-card').count(),5);
+    assert.equal(await page.locator('.fan-story-card').first().getAttribute('data-story-id'),'der-letzte-schlag');
     assert.equal(await page.locator('.fan-story-new').textContent(),({de:'Neu',en:'New',fr:'Nouveau',es:'Nuevo'})[language]);
     const listMetrics=await page.locator('.fan-stories-grid').evaluate(grid=>{
       const cards=[...grid.querySelectorAll('.fan-story-card')];
@@ -247,7 +262,7 @@ try{
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
     await page.waitForFunction(()=>typeof window.arcSetLanguage==='function');
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),4);
+    assert.equal(await page.locator('.fan-story-card').count(),5);
     const cardExpected=zoeSource.translations[await page.evaluate(()=>document.documentElement.lang)];
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-card-title').textContent(),cardExpected.title);
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-summary').textContent(),cardExpected.summary);
@@ -301,10 +316,10 @@ try{
       await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
       await page.locator('[data-app-target="raiderRadio"]').tap();
       await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
-      assert.equal(await page.locator('.fan-story-card').count(),4);
+      assert.equal(await page.locator('.fan-story-card').count(),5);
       for(const story of storyContext.window.RFTCommunityStories){
         const expected=story.translations[language];
-        assert.ok(expected?.content.length>1500,`${story.id} ${language}: full translation missing`);
+        assert.ok(expected?.content.length>(story.id==='der-letzte-schlag'?800:1500),`${story.id} ${language}: full translation missing`);
         await page.waitForFunction(({id,title})=>document.querySelector(`[data-story-id="${id}"] .fan-story-card-title`)?.textContent===title,{id:story.id,title:expected.title});
         assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-summary`).textContent(),expected.summary);
         if(language==='it')assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-read`).textContent(),'Leggi il racconto');
@@ -316,7 +331,7 @@ try{
         if(language==='it'){
           assert.equal(await page.locator('.fan-story-view>.fan-view-back').textContent(),'← Torna a Raider Stories');
           assert.equal(await page.locator('.fan-story-credit p').first().textContent(),`Racconto della community di ${story.author}`);
-          await checkLayout(page,story.id==='leaper'?'rgb(242, 241, 230)':story.id==='captain-defib'?'rgb(255, 240, 217)':'rgb(238, 231, 220)');
+          await checkLayout(page,story.id==='leaper'||story.id==='der-letzte-schlag'?'rgb(242, 241, 230)':story.id==='captain-defib'?'rgb(255, 240, 217)':'rgb(238, 231, 220)');
           if(story.id==='captain-defib'){
             assert.equal(await page.locator('.fan-legend-question').textContent(),expected.nameQuestion);
             assert.equal(await page.locator('.fan-legend-reveal').textContent(),'"CaptainDefib"');
@@ -344,7 +359,7 @@ try{
       }
     }
     assert.deepEqual(errors,[]);
-    console.log(`PASS Italian all four stories ${width}px ${surface}: real selector IT–DE–IT–EN–IT, complete prose, cards, credits, reload, mobile layout and runtime`);
+    console.log(`PASS Italian all five stories ${width}px ${surface}: real selector IT–DE–IT–EN–IT, complete prose, cards, credits, reload, mobile layout and runtime`);
     await context.close();
   }
 }finally{await browser.close();}
