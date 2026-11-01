@@ -35,6 +35,11 @@
 .live-event-copy strong{color:var(--ui-text);font:700 17px/1.05 "Rajdhani",sans-serif;letter-spacing:.025em}
 .live-event-copy span{color:var(--ui-muted);font-size:12px;line-height:1.25}
 .live-event-copy small{color:var(--ui-muted);font:700 10px monospace;letter-spacing:.055em}
+.live-event-times{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.live-event-time{display:flex;align-items:center;gap:7px;min-height:32px;padding:5px 8px;border:1px solid var(--ui-line);border-radius:6px;background:var(--ui-soft)}
+.live-event-time-label{color:var(--ui-muted)!important;font:700 10px monospace;letter-spacing:.06em;text-transform:uppercase}
+.live-event-time time{color:var(--ui-text);font:700 14px/1 monospace;white-space:nowrap}
+.live-event-card.is-active .live-event-time time{color:var(--green)}
 .live-event-side{display:grid;justify-items:end;gap:5px}
 .live-event-countdown{color:var(--amber);font:700 13px monospace;white-space:nowrap}
 .live-event-remind{min-height:36px;padding:6px 9px;border:1px solid var(--green);background:transparent;color:var(--ui-text);font:700 11px "Rajdhani",sans-serif;letter-spacing:.055em;cursor:pointer}
