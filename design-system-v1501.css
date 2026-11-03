@@ -256,6 +256,14 @@ html[data-surface="black"] body.palette-enabled #appLauncher .app-tile{
 }
 html[data-surface="black"] body.palette-enabled #appLauncher .app-tile b{color:var(--ui-text)!important}
 html[data-surface="black"] body.palette-enabled #appLauncher .app-tile small{color:var(--ui-muted)!important}
+html[data-surface="light"] body.palette-enabled #appLauncher .app-icon{
+  color:color-mix(in srgb,var(--tile-color) 42%,#17212b)!important;
+  background:color-mix(in srgb,var(--tile-color) 18%,#fff)!important;
+}
+html[data-surface="black"] body.palette-enabled #appLauncher .app-icon{
+  color:color-mix(in srgb,var(--tile-color) 48%,#f5f7fa)!important;
+  background:color-mix(in srgb,var(--tile-color) 24%,var(--ui-panel))!important;
+}
 html[data-surface="black"] body.palette-enabled.view-open #detailHero{
   background:linear-gradient(110deg,color-mix(in srgb,var(--detail-accent,var(--orange)) 12%,var(--ui-panel)),var(--ui-panel))!important;
   border-color:var(--ui-line)!important;border-left-color:var(--detail-accent,var(--orange))!important;
