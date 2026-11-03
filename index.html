@@ -419,7 +419,166 @@ html[data-surface="dark"] body.palette-enabled.view-open .launcher-active,
 html[data-surface="black"] body.palette-enabled.view-open .launcher-active{background:var(--ui-panel)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
 html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.backup-body,.tips-body),
 html[data-surface="black"] body.palette-enabled.view-open .launcher-active :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.backup-body,.tips-body){background:var(--ui-panel)!important;color:var(--ui-text)!important}
-html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(.go…3097 tokens truncated….view-open .launcher-active>summary,
+html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions),
+html[data-surface="black"] body.palette-enabled.view-open .launcher-active :is(.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions){background:var(--ui-soft)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
+html[data-surface="dark"] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell),
+html[data-surface="black"] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell){background:var(--ui-panel-2)!important;color:var(--ui-text)!important;border-color:var(--ui-line)!important}
+
+/* Light remains the exact bright modern production look. Accent selection now has visible system-wide impact. */
+html[data-surface="light"] body.palette-enabled{background:#f7f5ef!important}
+html[data-surface="light"] body.palette-enabled #appLauncher .app-tile{--active-accent:var(--orange)}
+html[data-accent] body.palette-enabled .app-tile::after{color:var(--orange)!important}
+html[data-accent] body.palette-enabled .launcher-utilities button:hover,
+html[data-accent] body.palette-enabled .launcher-utilities button:focus-visible{color:var(--orange)!important}
+html[data-accent] body.palette-enabled #appBack{border-color:color-mix(in srgb,var(--orange) 42%,var(--ui-line))!important}
+html[data-accent] body.palette-enabled.view-open .detail-hero{border-color:color-mix(in srgb,var(--orange) 45%,transparent)!important}
+html[data-accent] body.palette-enabled.view-open .detail-icon{color:var(--orange)!important;border-color:color-mix(in srgb,var(--orange) 38%,transparent)!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active>summary strong{background:var(--orange)!important;color:#fff!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(button,.quest-filter,.blueprint-filter)[aria-pressed="true"],
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(.quest-filter.active,.blueprint-filter.active){background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell):focus-within{border-color:var(--orange)!important;box-shadow:0 0 0 2px color-mix(in srgb,var(--orange) 18%,transparent)!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active a{color:var(--orange)!important}
+html[data-accent] body.palette-enabled .palette-lab{border-color:var(--orange)!important}
+html[data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{background:var(--orange)!important;border-color:var(--orange)!important}
+html[data-surface="light"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#fff!important}
+html[data-surface="black"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#101417!important}
+</style>
+
+<style id="accent-system-final">
+/* One global accent language for controls; feature tiles keep their own identity colours. */
+html[data-accent] body.palette-enabled{
+ --app-accent:var(--orange);
+ --app-accent-soft:color-mix(in srgb,var(--orange) 14%,transparent);
+ --app-accent-line:color-mix(in srgb,var(--orange) 46%,var(--ui-line));
+}
+html[data-accent] body.palette-enabled :focus-visible{outline-color:var(--orange)!important}
+html[data-accent] body.palette-enabled button:not(.app-tile):not(.spawn-marker):not(.weapon-case-marker),
+html[data-accent] body.palette-enabled .quick-nav a,
+html[data-accent] body.palette-enabled .nav-more>summary,
+html[data-accent] body.palette-enabled .inline-info>summary{
+ border-color:var(--app-accent-line)!important;
+}
+html[data-accent] body.palette-enabled button:not(.app-tile):not(.spawn-marker):not(.weapon-case-marker):hover,
+html[data-accent] body.palette-enabled .quick-nav a:hover,
+html[data-accent] body.palette-enabled .nav-more>summary:hover{
+ background:var(--app-accent-soft)!important;color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled button.active,
+html[data-accent] body.palette-enabled button[aria-pressed="true"],
+html[data-accent] body.palette-enabled .blueprint-filter.active{
+ background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important;
+}
+html[data-accent] body.palette-enabled input:focus,
+html[data-accent] body.palette-enabled select:focus,
+html[data-accent] body.palette-enabled .search-shell:focus-within{
+ border-color:var(--orange)!important;box-shadow:0 0 0 2px var(--app-accent-soft)!important;
+}
+html[data-accent] body.palette-enabled a{color:var(--orange)!important}
+html[data-accent] body.palette-enabled .palette-lab,
+html[data-accent] body.palette-enabled .launcher-active{
+ border-color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled .palette-lab-status,
+html[data-accent] body.palette-enabled .palette-group-label,
+html[data-accent] body.palette-enabled .section-kicker,
+html[data-accent] body.palette-enabled .next-raid-kicker,
+html[data-accent] body.palette-enabled .live-events-kicker{
+ color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{
+ background:var(--orange)!important;border-color:var(--orange)!important;box-shadow:inset 0 -3px 0 var(--amber)!important;
+}
+html[data-surface="light"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#fff!important}
+html[data-surface="black"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#101417!important}
+</style>
+
+<style id="black-white-theme-final">
+/* Two surface themes only: true white and true black. */
+html[data-surface="light"],html[data-surface="light"] body.palette-enabled,
+html[data-surface="light"] body.palette-enabled main{background:#fff!important;color:#151515!important}
+html[data-surface="light"] body.palette-enabled{--ui-text:#151515;--ui-muted:#60656d;--ui-panel:#fff;--ui-panel-2:#fff;--ui-soft:#f7f7f7;--ui-line:#d9dde2}
+html[data-surface="light"] body.palette-enabled #appLauncher .app-tile{background:#fff!important;border:1px solid #e1e4e8!important;box-shadow:0 7px 20px #00000012!important}
+html[data-surface="light"] body.palette-enabled #appLauncher .app-tile b{color:#17191c!important}
+html[data-surface="light"] body.palette-enabled #appLauncher .app-tile small,
+html[data-surface="light"] body.palette-enabled .launcher-intro p{color:#626870!important}
+html[data-surface="light"] body.palette-enabled .launcher-intro h2,
+html[data-surface="light"] body.palette-enabled .brand-title h1{color:#111!important}
+html[data-surface="light"] body.palette-enabled #appBack{background:#fff!important;color:#151515!important;border-color:#d9dde2!important}
+html[data-surface="light"] body.palette-enabled.view-open,
+html[data-surface="light"] body.palette-enabled.view-open main,
+html[data-surface="light"] body.palette-enabled.view-open .launcher-active,
+html[data-surface="light"] body.palette-enabled.view-open .launcher-active :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.backup-body,.tips-body){background:#fff!important;color:#151515!important}
+html[data-surface="light"] body.palette-enabled.view-open .launcher-active :is(.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions){background:#f7f7f7!important;color:#151515!important;border-color:#d9dde2!important}
+html[data-surface="light"] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell){background:#fff!important;color:#151515!important;border-color:#cfd4da!important}
+</style>
+<style id="theme-surface-accent-authority">
+/* Final authority layer: user-facing surfaces are only true WHITE or BLACK. */
+html[data-surface="light"],
+html[data-surface="light"] body,
+html[data-surface="light"] body.palette-enabled,
+html[data-surface="light"] body.palette-enabled main,
+html[data-surface="light"] body.palette-enabled.view-open,
+html[data-surface="light"] body.palette-enabled.view-open main{background:#fff!important;color:#151515!important}
+html[data-surface="light"] body.palette-enabled .masthead,
+html[data-surface="light"] body.palette-enabled .launcher-intro,
+html[data-surface="light"] body.palette-enabled .launcher-active,
+html[data-surface="light"] body.palette-enabled .detail-hero,
+html[data-surface="light"] body.palette-enabled :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-toolbar,.spawn-data-details){
+ background:#fff!important;color:#151515!important
+}
+html[data-surface="light"] body.palette-enabled :is(p,small,.muted,.summeta,.search-hint,.item-type,.desc,.recycle){color:#60656d!important}
+html[data-surface="light"] body.palette-enabled :is(input,select,.search-shell){background:#fff!important;color:#151515!important}
+
+html[data-surface="black"],
+html[data-surface="black"] body,
+html[data-surface="black"] body.palette-enabled,
+html[data-surface="black"] body.palette-enabled main,
+html[data-surface="black"] body.palette-enabled.view-open,
+html[data-surface="black"] body.palette-enabled.view-open main{background:#000!important;color:#f3f5f7!important}
+html[data-surface="black"] body.palette-enabled .masthead,
+html[data-surface="black"] body.palette-enabled .launcher-intro,
+html[data-surface="black"] body.palette-enabled .launcher-active,
+html[data-surface="black"] body.palette-enabled .detail-hero,
+html[data-surface="black"] body.palette-enabled :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-toolbar,.spawn-data-details){
+ background:#090909!important;color:#f3f5f7!important
+}
+html[data-surface="black"] body.palette-enabled :is(p,small,.muted,.summeta,.search-hint,.item-type,.desc,.recycle){color:#aeb5bf!important}
+html[data-surface="black"] body.palette-enabled :is(input,select,.search-shell){background:#050505!important;color:#f3f5f7!important}
+
+/* Palette controls must use the chosen accent, never legacy blue. */
+html[data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{
+ background:var(--accent)!important;border-color:var(--accent)!important;
+ box-shadow:inset 0 -3px 0 var(--amber)!important
+}
+html[data-surface="light"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#fff!important}
+html[data-surface="black"][data-accent] body.palette-enabled .palette-choice[aria-pressed="true"]{color:#101010!important}
+html[data-accent] body.palette-enabled :is(button.active,button[aria-pressed="true"]):not(.app-tile){
+ border-color:var(--accent)!important
+}
+</style>
+<style id="open-tile-accent-authority">
+/* Selected palette accent owns the visual language inside every opened feature. */
+html[data-accent] body.palette-enabled.view-open .detail-hero{
+ background:color-mix(in srgb,var(--orange) 14%,var(--ui-panel))!important;
+ border-color:var(--orange)!important;
+}
+html[data-accent] body.palette-enabled.view-open .detail-hero :is(.detail-icon,.section-kicker,.detail-kicker){color:var(--orange)!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active{
+ border-color:color-mix(in srgb,var(--orange) 55%,var(--ui-line))!important;
+}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(.goalbox,.card,.quest-card,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions,.inline-info){
+ border-color:color-mix(in srgb,var(--orange) 38%,var(--ui-line))!important;
+}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(h2,h3,.section-kicker,.next-raid-kicker,.live-events-kicker){color:var(--orange)!important}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(button,.quest-filter,.blueprint-filter)[aria-pressed="true"],
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(.quest-filter.active,.blueprint-filter.active){
+ background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important;
+}
+html[data-accent] body.palette-enabled.view-open .launcher-active :is(input,select,.search-shell):focus-within{
+ border-color:var(--orange)!important;
+ box-shadow:0 0 0 2px color-mix(in srgb,var(--orange) 20%,transparent)!important;
+}
+html[data-accent] body.palette-enabled.view-open .launcher-active>summary,
 html[data-accent] body.palette-enabled.view-open .launcher-active>summary:hover{
  background:linear-gradient(90deg,color-mix(in srgb,var(--orange) 22%,var(--ui-panel)),var(--ui-panel))!important;
  border-bottom-color:var(--orange)!important;
