@@ -207,6 +207,7 @@ body.palette-enabled.view-open .launcher-active .planning-categories button{
   border:1px solid var(--ui-line)!important;border-radius:12px!important;background:var(--ui-panel)!important;
   color:var(--ui-text)!important;font-weight:600;
 }
+body.palette-enabled.view-open .launcher-active #outpostTabs [role="tab"]{min-height:44px!important}
 body.palette-enabled.view-open .launcher-active .planning-tabs button[aria-selected="true"],
 body.palette-enabled.view-open .launcher-active .planning-categories button[aria-pressed="true"]{color:#fff!important}
 body.palette-enabled.view-open .launcher-active .planning-empty{
