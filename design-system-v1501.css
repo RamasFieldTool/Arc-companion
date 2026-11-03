@@ -160,7 +160,10 @@ body.palette-enabled #appLauncher .app-icon{
   background:color-mix(in srgb,var(--tile-color) 14%,var(--ui-panel))!important;
   box-shadow:none!important;color:var(--tile-color)!important;transform:none!important;
 }
-body.palette-enabled #appLauncher .app-icon svg{width:27px!important;height:27px!important;stroke-width:1.8!important;transform:none!important;filter:none!important}
+body.palette-enabled #appLauncher .app-icon svg{
+  width:27px!important;height:27px!important;stroke-width:1.8!important;transform:none!important;filter:none!important;
+  color:inherit!important;stroke:currentColor!important;
+}
 body.palette-enabled #appLauncher .app-tile b{
   grid-column:2;grid-row:1;min-width:0;padding:0!important;color:var(--ui-text)!important;
   font:650 15px/1.3 "Space Grotesk",system-ui,sans-serif!important;
