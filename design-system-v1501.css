@@ -1,0 +1,300 @@
+/* V15.01 — shared visual system for launcher and feature views. */
+
+html[data-surface="light"]{
+  --rft-page-background:linear-gradient(180deg,#f8fafc 0%,#f2f5f8 100%);
+}
+html[data-surface="black"]{
+  --rft-page-background:linear-gradient(180deg,#0c1015 0%,#080b0f 100%);
+}
+
+body.palette-enabled{
+  --ui-page:#f2f5f8;
+  --ui-page-glow:#f8fafc;
+  --ui-panel:#fff;
+  --ui-panel-2:#f8fafc;
+  --ui-raised:#fff;
+  --ui-input:#fff;
+  --ui-text:#1d2938;
+  --ui-muted:#5e6d7d;
+  --ui-line:#dce3ea;
+  --ui-soft:#f0f4f7;
+  --ui-shadow:rgba(20,35,52,.08);
+  --rft-radius-sm:10px;
+  --rft-radius-md:16px;
+  --rft-radius-lg:22px;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif!important;
+}
+
+body.palette-enabled *{letter-spacing:normal!important}
+body.palette-enabled main{
+  width:min(100%,1120px)!important;
+  max-width:1120px!important;
+  padding:clamp(16px,3vw,32px) clamp(14px,3vw,28px) 48px!important;
+}
+
+/* A calm, readable surface in both user-selectable themes. */
+html[data-surface="light"] body.palette-enabled{
+  --ui-text:#1d2938!important;
+  --ui-muted:#5e6d7d!important;
+  --ui-panel:#fff!important;
+  --ui-panel-2:#f8fafc!important;
+  --ui-raised:#fff!important;
+  --ui-input:#fff!important;
+  --ui-soft:#f0f4f7!important;
+  --ui-line:#dce3ea!important;
+  --ui-shadow:rgba(20,35,52,.08)!important;
+  background:var(--rft-page-background)!important;
+  color:#1d2938!important;
+}
+html[data-surface="black"] body.palette-enabled{
+  --ui-text:#edf2f7!important;
+  --ui-muted:#aab6c3!important;
+  --ui-panel:#121820!important;
+  --ui-panel-2:#0e141b!important;
+  --ui-raised:#18212b!important;
+  --ui-input:#0b1117!important;
+  --ui-soft:#1b2530!important;
+  --ui-line:#303d49!important;
+  --ui-shadow:rgba(0,0,0,.3)!important;
+  background:var(--rft-page-background)!important;
+  color:#edf2f7!important;
+}
+html[data-surface="light"] body.palette-enabled::before,
+html[data-surface="black"] body.palette-enabled::before{display:none!important}
+html[data-surface="light"] body.palette-enabled main,
+html[data-surface="black"] body.palette-enabled main{background:transparent!important}
+
+/* Keep the same brand lockup available after entering a feature. */
+body.palette-enabled.view-open .masthead{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:14px!important;
+  min-height:60px;
+  margin:0 0 14px!important;
+  padding:6px 0!important;
+  border:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  clip-path:none!important;
+}
+body.palette-enabled.view-open .masthead::after{display:none!important}
+body.palette-enabled.view-open .masthead-brand{display:flex!important;align-items:center!important;gap:10px!important}
+body.palette-enabled.view-open .official-app-logo{
+  width:46px!important;height:46px!important;max-width:46px!important;flex:0 0 46px!important;
+  border-radius:14px!important;filter:none!important;
+}
+body.palette-enabled.view-open .brand-title h1{
+  display:block!important;margin:0!important;font:700 15px/1.15 "Space Grotesk",system-ui,sans-serif!important;
+}
+body.palette-enabled.view-open .brand-title h1 span{display:inline!important}
+body.palette-enabled.view-open .brand-title .eyebrow{display:none!important}
+body.palette-enabled.view-open .headtools{display:flex!important;flex-direction:row!important;align-items:center!important;gap:8px!important}
+body.palette-enabled.view-open .head-status{display:none!important}
+body.palette-enabled.view-open .lang-switch{padding:3px!important;border:1px solid var(--ui-line)!important;border-radius:12px!important;background:var(--ui-panel)!important}
+body.palette-enabled.view-open .lang{min-height:34px!important;border-radius:9px!important;color:var(--ui-muted)!important}
+body.palette-enabled.view-open .lang.active{background:var(--ui-soft)!important;color:var(--ui-text)!important}
+body.palette-enabled.view-open #appBack{
+  position:static!important;display:inline-flex;align-items:center;justify-content:center;
+  min-height:40px!important;margin:0 0 14px!important;padding:8px 14px!important;
+  border:1px solid var(--ui-line)!important;border-radius:999px!important;
+  background:var(--ui-panel)!important;color:var(--ui-text)!important;
+  box-shadow:0 2px 8px var(--ui-shadow)!important;
+}
+
+body.palette-enabled.view-open #detailHero{
+  display:flex!important;align-items:center;gap:16px!important;
+  min-height:96px;margin:0 0 18px!important;padding:20px!important;
+  border:1px solid var(--ui-line)!important;border-left:4px solid var(--detail-accent,var(--orange))!important;
+  border-radius:var(--rft-radius-lg)!important;
+  background:linear-gradient(110deg,color-mix(in srgb,var(--detail-tint,#eef2f7) 66%,var(--ui-panel)),var(--ui-panel))!important;
+  box-shadow:0 8px 24px var(--ui-shadow)!important;
+}
+body.palette-enabled.view-open #detailHero h2{
+  margin:0 0 4px!important;color:var(--ui-text)!important;
+  font:700 clamp(21px,3vw,28px)/1.2 "Space Grotesk",system-ui,sans-serif!important;
+  text-transform:none!important;letter-spacing:-.025em!important;
+}
+body.palette-enabled.view-open #detailHero p{margin:0!important;color:var(--ui-muted)!important;font-size:14px!important;line-height:1.45!important}
+body.palette-enabled.view-open #detailHero .detail-icon{
+  width:52px!important;height:52px!important;flex:0 0 52px!important;border:1px solid var(--ui-line)!important;
+  border-radius:16px!important;background:var(--ui-panel)!important;color:var(--detail-accent,var(--orange))!important;
+  box-shadow:0 2px 7px var(--ui-shadow)!important;
+}
+
+/* Launcher: retain the category colours, remove the glossy/rotated tile treatment. */
+body.palette-enabled #appLauncher{padding:4px 0 0!important}
+body.palette-enabled .launcher-intro{margin:0 0 22px!important}
+body.palette-enabled .launcher-intro h2{
+  margin:0 0 6px!important;color:var(--ui-text)!important;
+  font:700 clamp(25px,3.4vw,34px)/1.15 "Space Grotesk",system-ui,sans-serif!important;
+  letter-spacing:-.035em!important;text-transform:none!important;
+}
+body.palette-enabled .launcher-intro p{max-width:62ch;color:var(--ui-muted)!important;font-size:15px!important;line-height:1.55!important}
+body.palette-enabled #appLauncher .app-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+body.palette-enabled #appLauncher .app-tile{
+  position:relative;display:grid!important;grid-template-columns:50px minmax(0,1fr) 20px!important;
+  grid-template-rows:auto auto;align-content:center;align-items:center;column-gap:13px!important;row-gap:4px!important;
+  min-width:0;min-height:112px!important;padding:18px!important;overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--tile-color) 24%,var(--ui-line))!important;
+  border-radius:var(--rft-radius-md)!important;
+  background:linear-gradient(115deg,color-mix(in srgb,var(--tile-color) 8%,var(--ui-panel)),var(--ui-panel) 72%)!important;
+  color:var(--ui-text)!important;text-align:left;box-shadow:0 3px 12px var(--ui-shadow)!important;
+  transform:none!important;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important;
+}
+body.palette-enabled #appLauncher .app-tile.planning-compat-tile{display:none!important}
+body.palette-enabled #appLauncher .app-tile::before{
+  inset:0 auto 0 0!important;width:4px!important;height:auto!important;border:0!important;border-radius:0!important;
+  background:var(--tile-color)!important;opacity:.9!important;transform:none!important;z-index:0!important;
+}
+body.palette-enabled #appLauncher .app-tile::after{
+  position:static!important;grid-column:3;grid-row:1 / span 2;align-self:center;justify-self:center;
+  display:grid!important;place-items:center;width:24px!important;height:24px!important;
+  content:"↗"!important;border:1px solid var(--ui-line)!important;border-radius:50%!important;
+  background:var(--ui-panel-2)!important;color:var(--tile-color)!important;font-size:13px!important;
+  transform:none!important;z-index:1!important;
+}
+body.palette-enabled #appLauncher .app-icon{
+  grid-column:1;grid-row:1 / span 2;position:static!important;align-self:center;justify-self:center;
+  width:48px!important;height:48px!important;border:0!important;border-radius:14px!important;
+  background:color-mix(in srgb,var(--tile-color) 14%,var(--ui-panel))!important;
+  box-shadow:none!important;color:var(--tile-color)!important;transform:none!important;
+}
+body.palette-enabled #appLauncher .app-icon svg{
+  width:27px!important;height:27px!important;stroke-width:1.8!important;transform:none!important;filter:none!important;
+  color:inherit!important;stroke:currentColor!important;
+}
+body.palette-enabled #appLauncher .app-tile b{
+  grid-column:2;grid-row:1;min-width:0;padding:0!important;color:var(--ui-text)!important;
+  font:650 15px/1.3 "Space Grotesk",system-ui,sans-serif!important;
+}
+body.palette-enabled #appLauncher .app-tile small{
+  grid-column:2;grid-row:2;min-width:0;margin:0!important;padding:0!important;
+  color:var(--ui-muted)!important;font-size:12px!important;line-height:1.4!important;
+}
+body.palette-enabled .launcher-utilities{gap:5px!important;margin-top:18px!important}
+body.palette-enabled .launcher-utilities button{
+  min-height:40px!important;padding:8px 12px!important;border:1px solid transparent!important;border-radius:999px!important;
+  color:var(--ui-muted)!important;font-size:13px!important;
+}
+@media(hover:hover){body.palette-enabled #appLauncher .app-tile:hover{transform:translateY(-2px)!important;border-color:var(--tile-color)!important;box-shadow:0 8px 20px var(--ui-shadow)!important}}
+body.palette-enabled #appLauncher .app-tile:focus-visible{outline:3px solid var(--tile-color)!important;outline-offset:2px!important}
+
+/* Shared feature surfaces, form controls and feedback. */
+body.palette-enabled.view-open .launcher-active{
+  border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;
+}
+body.palette-enabled.view-open .launcher-active :is(.drawer-body,.core-drawer-body,.next-raid-body,.live-events-body,.backup-body,.tips-body){
+  color:var(--ui-text)!important;
+}
+body.palette-enabled.view-open .launcher-active :is(input:not([type=checkbox]):not([type=file]),select,textarea){
+  min-height:46px!important;border:1px solid var(--ui-line)!important;border-radius:12px!important;
+  background:var(--ui-panel)!important;color:var(--ui-text)!important;padding:10px 12px!important;
+}
+body.palette-enabled.view-open .launcher-active :is(input,select,textarea):focus-visible{
+  border-color:var(--orange)!important;outline:3px solid color-mix(in srgb,var(--orange) 18%,transparent)!important;outline-offset:1px!important;
+}
+body.palette-enabled.view-open .launcher-active button:not(.spawn-marker):not(.weapon-case-marker):not(.spawn-map-marker){
+  min-height:42px;border-radius:12px!important;box-shadow:none!important;
+}
+body.palette-enabled.view-open .launcher-active :is(.card,.quest-card,.blueprint-entry,.planning-item,.goalbox,.sumrow,.spawn-map-picker,.map-layer-controls,.spawn-map-instructions,.outpost-tab-panel,#outpostFullCatalog){
+  border:1px solid var(--ui-line)!important;border-radius:var(--rft-radius-md)!important;
+  background:var(--ui-panel)!important;box-shadow:0 3px 12px var(--ui-shadow)!important;
+}
+body.palette-enabled.view-open .launcher-active :is(.card,.quest-card,.planning-item,.sumrow){padding:16px!important}
+body.palette-enabled.view-open .launcher-active :is(.quest-filter.active,.blueprint-filter.active,.planning-tabs button[aria-selected="true"],.planning-categories button[aria-pressed="true"]){
+  background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important;
+}
+body.palette-enabled.view-open .launcher-active :is(.planning-tabs,.planning-categories){gap:8px!important}
+body.palette-enabled.view-open .launcher-active .planning-tabs button,
+body.palette-enabled.view-open .launcher-active .planning-categories button{
+  border:1px solid var(--ui-line)!important;border-radius:12px!important;background:var(--ui-panel)!important;
+  color:var(--ui-text)!important;font-weight:600;
+}
+body.palette-enabled.view-open .launcher-active #outpostTabs [role="tab"]{min-height:44px!important}
+body.palette-enabled.view-open .launcher-active .planning-tabs button[aria-selected="true"],
+body.palette-enabled.view-open .launcher-active .planning-categories button[aria-pressed="true"]{color:#fff!important}
+body.palette-enabled.view-open .launcher-active .planning-empty{
+  padding:20px!important;border:1px dashed var(--ui-line)!important;border-radius:var(--rft-radius-md)!important;
+  background:var(--ui-panel)!important;color:var(--ui-muted)!important;line-height:1.55;
+}
+body.palette-enabled.view-open .launcher-active .planning-empty-actions{gap:8px!important;margin-top:14px!important}
+body.palette-enabled.view-open .launcher-active .planning-empty-actions button{
+  border:1px solid var(--ui-line)!important;border-radius:12px!important;background:var(--ui-panel-2)!important;color:var(--ui-text)!important;
+}
+body.palette-enabled.view-open .launcher-active .planning-empty-actions [data-empty-goal="personal"]{
+  background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important;font-weight:700;
+}
+body.palette-enabled.view-open .launcher-active #backupExport,
+body.palette-enabled.view-open .launcher-active .spawn-expand-map,
+body.palette-enabled.view-open .launcher-active .next-raid-add{
+  background:var(--orange)!important;border-color:var(--orange)!important;color:#fff!important;
+}
+body.palette-enabled.view-open .launcher-active :is(.section-help,.fallback-notice,.spawn-map-info,.notice,.info-box){
+  border-color:var(--ui-line)!important;border-radius:12px!important;background:var(--ui-soft)!important;color:var(--ui-muted)!important;
+}
+body.palette-enabled.view-open footer{color:var(--ui-muted)!important;border-color:var(--ui-line)!important;line-height:1.5}
+
+/* Dense catalogs become easier to scan on wide displays; mobile stays single-column. */
+@media(min-width:900px){
+  body.palette-enabled #appLauncher .app-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important}
+  body.palette-enabled.view-open .launcher-active #blueprintList,
+  body.palette-enabled.view-open .launcher-active #outpostCatalogList{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:10px;
+  }
+  body.palette-enabled.view-open .launcher-active #outpostFullCatalog{padding:18px!important}
+  body.palette-enabled.view-open .launcher-active #outpostCatalogList>details{
+    padding:7px 10px!important;border:1px solid var(--ui-line)!important;border-radius:12px!important;
+    background:var(--ui-panel-2)!important;
+  }
+  body.palette-enabled.view-open .launcher-active #outpostCatalogList>details[open]{background:var(--ui-panel)!important}
+  body.palette-enabled.view-open .launcher-active #blueprintList>.muted,
+  body.palette-enabled.view-open .launcher-active #outpostCatalogList>.outpost-empty{grid-column:1/-1}
+}
+
+html[data-surface="black"] body.palette-enabled #appLauncher .app-tile{
+  border-color:color-mix(in srgb,var(--tile-color) 22%,var(--ui-line))!important;
+  background:linear-gradient(115deg,color-mix(in srgb,var(--tile-color) 10%,var(--ui-panel)),var(--ui-panel) 72%)!important;
+  box-shadow:0 4px 16px rgba(0,0,0,.25)!important;
+}
+html[data-surface="black"] body.palette-enabled #appLauncher .app-tile b{color:var(--ui-text)!important}
+html[data-surface="black"] body.palette-enabled #appLauncher .app-tile small{color:var(--ui-muted)!important}
+html[data-surface="light"] body.palette-enabled #appLauncher .app-icon{
+  color:color-mix(in srgb,var(--tile-color) 42%,#17212b)!important;
+  background:color-mix(in srgb,var(--tile-color) 18%,#fff)!important;
+}
+html[data-surface="black"] body.palette-enabled #appLauncher .app-icon{
+  color:color-mix(in srgb,var(--tile-color) 48%,#f5f7fa)!important;
+  background:color-mix(in srgb,var(--tile-color) 24%,var(--ui-panel))!important;
+}
+html[data-surface="black"] body.palette-enabled.view-open #detailHero{
+  background:linear-gradient(110deg,color-mix(in srgb,var(--detail-accent,var(--orange)) 12%,var(--ui-panel)),var(--ui-panel))!important;
+  border-color:var(--ui-line)!important;border-left-color:var(--detail-accent,var(--orange))!important;
+}
+
+@media(max-width:600px){
+  body.palette-enabled main{padding:14px 12px 36px!important}
+  body.palette-enabled .launcher-intro{margin-bottom:16px!important}
+  body.palette-enabled #appLauncher .app-grid{gap:10px!important}
+  body.palette-enabled #appLauncher .app-tile{grid-template-columns:42px minmax(0,1fr) 16px!important;column-gap:9px!important;min-height:96px!important;padding:12px!important}
+  body.palette-enabled #appLauncher .app-icon{width:40px!important;height:40px!important;border-radius:12px!important}
+  body.palette-enabled #appLauncher .app-icon svg{width:23px!important;height:23px!important}
+  body.palette-enabled #appLauncher .app-tile b{font-size:13px!important}
+  body.palette-enabled #appLauncher .app-tile small{font-size:11px!important}
+  body.palette-enabled #appLauncher .app-tile::after{width:20px!important;height:20px!important;font-size:11px!important}
+  body.palette-enabled.view-open .masthead{min-height:50px;margin-bottom:10px!important}
+  body.palette-enabled.view-open .official-app-logo{width:44px!important;height:44px!important;max-width:44px!important;flex-basis:44px!important}
+  body.palette-enabled.view-open .brand-title h1{font-size:13px!important}
+  body.palette-enabled.view-open #detailHero{min-height:80px;padding:16px!important;gap:12px!important;margin-bottom:14px!important}
+  body.palette-enabled.view-open #detailHero .detail-icon{width:44px!important;height:44px!important;flex-basis:44px!important}
+  body.palette-enabled.view-open #detailHero h2{font-size:21px!important}
+  body.palette-enabled.view-open .launcher-active .planning-empty-actions{grid-template-columns:1fr!important}
+  body.palette-enabled.view-open .launcher-active .planning-empty-actions button{width:100%}
+  body.palette-enabled.view-open .launcher-active #blueprintList,
+  body.palette-enabled.view-open .launcher-active #outpostCatalogList{grid-template-columns:minmax(0,1fr)!important}
+  body.palette-enabled.view-open footer{flex-wrap:wrap;justify-content:center!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  body.palette-enabled #appLauncher .app-tile{transition:none!important}
+}
