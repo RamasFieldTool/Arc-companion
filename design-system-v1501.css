@@ -142,6 +142,7 @@ body.palette-enabled #appLauncher .app-tile{
   color:var(--ui-text)!important;text-align:left;box-shadow:0 3px 12px var(--ui-shadow)!important;
   transform:none!important;transition:transform .16s ease,border-color .16s ease,box-shadow .16s ease!important;
 }
+body.palette-enabled #appLauncher .app-tile.planning-compat-tile{display:none!important}
 body.palette-enabled #appLauncher .app-tile::before{
   inset:0 auto 0 0!important;width:4px!important;height:auto!important;border:0!important;border-radius:0!important;
   background:var(--tile-color)!important;opacity:.9!important;transform:none!important;z-index:0!important;
