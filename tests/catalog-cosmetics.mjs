@@ -19,10 +19,7 @@ for(const name of stencilNames){
   assert.equal(rows[0].value,undefined);
   assert.equal(rows[0].rftEvidence.status,'community-index-name-only');
 }
-const wreck=result.items.filter(item=>item.name?.en==='Wreck Set');
-assert.equal(wreck.length,1);
-assert.equal(wreck[0].type,'Cosmetic Set');
-assert.equal(wreck[0].rftEvidence.status,'official-store-update');
+assert.equal(result.items.some(item=>item.name?.en==='Wreck Set'),false,'skin sets must stay out of the general item catalog');
 assert.equal(new Set(result.items.map(item=>item.id)).size,result.items.length);
 const repeated=context.window.RFTFrozenTrailData.extend(result.items,result.goals);
 assert.equal(repeated.items.length,result.items.length,'supplemental extension is idempotent');
@@ -39,5 +36,5 @@ const status=await read('../status-v1300.js');
 const index=await read('../index.html');
 assert.match(status,/const APP_VERSION='15\.00\.00'/);
 assert.match(index,/<title>ARC Companion V15\.00\.00<\/title>/);
-assert.match(index,/catalog-cosmetics-v1500\.js\?v=v15-cosmetics-20261020-1/);
-console.log('PASS V15 cosmetic catalog: 14 searchable stencils, official Wreck Set entry, no invented values, deduplication, immutability and version');
+assert.match(index,/catalog-cosmetics-v1500\.js\?v=v15-stencils-only-20261105-1/);
+console.log('PASS V15 stencil supplement: 14 searchable weapon stencils, no skin set in the general item catalog, no invented values, deduplication, immutability and version');
