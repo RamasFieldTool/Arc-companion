@@ -7,7 +7,7 @@ const items=JSON.parse(fs.readFileSync('items.json'));
 const browser=await chromium.launch({headless:true});
 try{
  for(const width of [360,412,430,932]){
- const page=await browser.newPage({viewport:{width,height:width===932?430:915},isMobile:true,hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));
+ const page=await browser.newPage({viewport:{width,height:width===932?430:915},isMobile:true,hasTouch:true});const errors=[];page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));page.on('console',m=>{if(m.type()==='error')errors.push({console:m.text(),location:m.location()})});
  await page.addInitScript(()=>{if(sessionStorage.getItem('weaponSeed'))return;sessionStorage.setItem('weaponSeed','1');localStorage.setItem('arcLang','de');localStorage.setItem('arcUiLanguage','de');localStorage.setItem('arcLanguageOnboardingPending','0');localStorage.setItem('arcOwned',JSON.stringify({advanced_mechanical_components:1}));localStorage.setItem('arcPlanningPersonal',JSON.stringify({metal_parts:{itemId:'metal_parts',target:7,status:'active'}}));localStorage.setItem('rftAmplifiedPlansV1','{}')});
  await installItemCatalogRoute(page,items);
  await page.route('https://api.github.com/repos/RaidTheory/arcraiders-data/contents/quests?ref=main',route=>route.fulfill({status:503,body:'{}'}));
