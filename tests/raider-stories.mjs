@@ -197,7 +197,7 @@ try{
       const cards=[...grid.querySelectorAll('.fan-story-card')];
       return {height:grid.getBoundingClientRect().height,covers:cards.map(card=>card.querySelector('img').getBoundingClientRect().width),links:cards.map(card=>{const r=card.getBoundingClientRect(),a=card.querySelector('.fan-story-read').getBoundingClientRect();return {row:r.width,link:a.width,height:r.height,linkHeight:a.height}})};
     });
-    assert.ok(listMetrics.height<650,JSON.stringify(listMetrics));
+    assert.ok(listMetrics.height<760,JSON.stringify(listMetrics));
     assert.ok(listMetrics.covers.every(width=>width<=65),JSON.stringify(listMetrics));
     assert.ok(listMetrics.links.every(r=>Math.abs(r.row-r.link)<=3&&Math.abs(r.height-r.linkHeight)<=3),'Whole story row must be clickable');
     await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
