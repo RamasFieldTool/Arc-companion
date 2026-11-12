@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 26400)
+Total output lines: 415
+
 // Author-approved originals and app-language translations.
 // The German source text remains verbatim; translated variants are presentation copies.
 const RFT_VERSTECKSPIEL_TRANSLATIONS=Object.freeze({
@@ -132,8 +135,7 @@ const RFT_LEAPER_TRANSLATIONS=Object.freeze({
 const RFT_VERAEPPELT_TRANSLATIONS=Object.freeze({
   "de": {
     "title": "Veräppelt!",
-    "summary": "Allein im Turm, belagert und überladen – Zoe vertreibt einen Raider mit erfundener Verstärkung.",
-    "content": "...und es hat tatsächlich funktioniert! Und zwar besser als jeder geplante Stealth-Run in meinem Raider-Leben...\nIch war auf dem Damm, ganz allein im hohen Turm, mit diesem einen Ziel: pinker Schlüsselraum. Kaum angekommen, kein Raider weit und breit, aber natürlich erstmal Routine: Tür blockiert. Sicher ist sicher.\nIch bin gerade tief im Loot-Fieber, als ich plötzlich dieses unverkennbare Geräusch einer kilometerlangen Seilrutsche höre, an der sich jemand mit sehr viel Selbstvertrauen nach oben zieht. Dann schlägt die Kamera vor der Türe Alarm, die ich extra am Leben gelassen hatte, um andere Raider zu hören.\nIch bleibe ruhig, gehe ins Mikro und sage freundlich: \"Hey, ich bin hier drin, hatte den Schlüssel, gib mir kurz zwei Minuten, dann kannst du gerne rein.\"\nAntwort: Stille.\nNur das leise Gefühl von \"der Typ hat keine Lust auf Diplomatie\".\nDann höre ich es: Türblockade wird aufgebrochen. Einfach so. Respektlos. Ohne Gesprächsangebot. Ohne Smalltalk.\nIch werde nochmal klarer über das Mikro. Gleichzeitig baue ich aus reiner Improvisation eine Barrikade vor die Tür, die ich zufällig in diesem Raum gefunden hatte.\nWieder keine Antwort.\nEr öffnet die Türe trotzdem und fängt ernsthaft an, auch die Barrikade abzubauen. In dem Moment war klar: Das hier ist kein Missverständnis mehr, das ist eine Baustelle mit Konfrontation und Waffen.\nIch stelle mich links neben die Tür auf ein Steuerpult - taktisch natürlich total professionell, innerlich eher: \"Bitte geh einfach wieder.\"\nIch warne ihn nochmal laut. Vielleicht zu laut. Vielleicht schon leicht wütend.\nEr kommt nicht rein. Noch nicht. Er lauert. Schweigt. Komplette Funkstille. Kein Voice, kein Emote, nichts. Nur diese \"ich bin hier um alles mitzunehmen\"-Energie (auch mich).\nEr schaut ums Eck, Waffe draußen. Ich drücke ab. Zwei Treffer mit der Renegade.\n\"Geh einfach!\", rufe ich.\nEr antwortet mit Gegenfeuer und zwei Granaten, weil Kommunikation überbewertet ist. Er verletzte mich zwar nicht, aber ich spiele inzwischen schon komplett im Modus: \"Ich weiß, ich sterbe gleich, aber ich tu so, als hätte ich die Kontrolle.\"\n\"Keine Chance!\", rufe ich also, überzeugend wie eine Schauspielerin in einer Szene, die sie selbst nicht glaubt.\nDann zieht er sich zurück. Seilrutsche runter. Weg... aber nicht um aufzugeben, sondern um unten zu lauern und mich dann zu überfallen.\nIch bin doch nicht blöd.\nIch loote noch schnell fertig, bin komplett überladen, schleppe mich aufs Dach wie ein überforderter Packesel mit Panikoptionen. Dann noch schnell die herumliegende Barrikade wieder strategisch platziert, auf dem Weg nach oben zu mir (Architektur-Level: improvisierter Kriegsbau). Und ich warte. Ohne eigene Seilrutsche blieb mir nur die Zipline für den Weg nach unten.\nUnd natürlich kommt er wieder hoch. Er geht kurz in den Schlüsselraum und checkt zwei, drei Schubladen. Wahrscheinlich innerlich enttäuscht, weil alles Gute weg war. Was für eine Unverschämtheit meinerseits.\nEr kommt also wieder raus und läuft nach oben, entfernt meine Blockade, schaut ums Eck.\nIch schieße wieder und treffe.\nEr schießt zurück und trifft.\nTreffer auf beiden Seiten. Jetzt ist es kein PvP mehr, das ist schon eher ein sehr persönlicher Streit um Eigentum. Er nutzt Schildauflader, Bandagen, Granaten, ich nutze Panik und Restmunitions-Optimismus.\nUnd dann, mitten im Chaos, kommt mir die einzig schlechte, aber irgendwie brillante Idee: Täuschung.\nIch gehe ins Mikro. Stimme im seriösen \"hier ist alles unter Kontrolle, absolut keine Panik vorhanden\"-Modus und ich rufe über das Mikrofon: \"Ist da noch jemand? Ich werde hier oben belagert, belästigt und angriffen!\"\nNatürlich ist die Wahrscheinlichkeit, dass mich hier oben vom Turm aus überhaupt jemand hört, sehr gering, außerdem sind es nur noch zehn Minuten bis Rundenende. Aber ich ziehe es durch. Und dann kommt der Moment der Momente, ich tue so, als würde mir jemand antworten: \"Ja! Ich bin hier oben auf dem Turm! Der andere steht an der Tür!\"\nPause.\nDann, mit gespielter Erleichterung: \"Perfekt! Danke, dass du mir hilfst! Sei aber vorsichtig!\"\nStille...\nDann Schritte.\nSeilrutsche runter.\nUnd weg.\nEinfach weg.\nEr ist wirklich abgehauen.\nWahrscheinlich nicht vor mir, sondern vor der Vorstellung, dass er es gleich noch mit einem weiteren Raider zu tun hat. Und ich sitze da oben wie eine sehr stolze, leicht überladene Chaos-Strategieexpertin und denke mir nur:\nDas... hat wirklich funktioniert.\nUnd ja, ich weiß, es gibt unter euch Raider, die im Schlüsselraum teilen, die andere looten lassen, Freundschaft und Frieden und so weiter. Habe ich selbst schon gemacht. Aber in diesem Moment? Pinker Schlüsselraum, keine Kommunikation, zwei Barrikaden ignoriert und aufgebrochen. Da war \"friendly friendly\" leider schon aus dem Lootpool gepatcht. Also Vorsicht statt Nachsicht. Aus Prinzip statt schöner Kuschelkurs.\nDanach bin ich noch sechs Mal nach Stella Montis, da man hier sofort die Atmosphäre PvP oder PvE erkennt, und nur mit Spitzhacke in zwei bis drei Minuten je Runde zum Ausgang gerannt, habe nebenbei auf dem Weg noch pinke Items eingesammelt, bis es dann wieder freundlich wurde... Das war allerdings noch vor der gestrigen größeren Änderung des Matchmakings durch Embark, denn das wird wohl jetzt nicht mehr so leicht und schnell gehen, und da ich in diesem Fall zuerst schoss, habe ich mich natürlich PvP-belastet - aber ich würde es wieder tun, weil es hier ums Prinzip geht.\nUnd dieser eine Moment bleibt hängen: Der Tag, an dem ich jemanden erfolgreich mit einem erfundenen Retter veräppelt habe. Das macht die ganze Geschichte im Nachhinein sogar noch lustiger... Der Mann fährt erst eine komplette \"Ich breche beide Barrikaden weg und belagere diesen Turm bis zum Rundenende\"-Mission, fällt dann auf die billigste improvisierte Funk-Täuschung aller Zeiten rein... und schickt mir nach Rundenende sogar noch eine PSN-Partyeinladung. Das hat schon starke \"Komm sofort in die Party, damit ich dir erklären kann, warum eigentlich DU schuld und blöd bist\"- Energie. Und genau deswegen war es vermutlich eine der besten Entscheidungen überhaupt, auf der PS5 vor einem Jahr Nachrichten von Nicht-Freunden auszuschalten. Gerade bei PvP-Spielen/Situationen merkt man leider schnell, wie manche Leute reagieren, sobald sie von einer Frau besiegt oder ausgetrickst werden. Besonders dann, wenn sie vorher komplett überzeugt waren, dass sie die Situation kontrollieren. Ich hatte damals in reinen PvP-Spielen die übelsten sexuellen und frauenfeindlichen Nachrichten bekommen.\nDas Lustigste daran ist eigentlich: Ich habe ihn nicht einmal \"outgeaimt\" oder mit einem High-End-Movement zerstört. Ich habe ihn einfach \"psychologisch\" auseinandergebaut. Der ganze Kampf endete nicht wegen besserer Waffen, Aim oder Reaktion, sondern weil der andere Spieler ernsthaft glaubte, dass plötzlich Verstärkung auf dem Turm kommen würde.\nCooles Gefühl! 😎"
+    "summary": "Allein im Turm, belagert und überladen – Zoe vertreibt einen Raider mit erfundener Verstä…1400 tokens truncated…ngen: Der Tag, an dem ich jemanden erfolgreich mit einem erfundenen Retter veräppelt habe. Das macht die ganze Geschichte im Nachhinein sogar noch lustiger... Der Mann fährt erst eine komplette \"Ich breche beide Barrikaden weg und belagere diesen Turm bis zum Rundenende\"-Mission, fällt dann auf die billigste improvisierte Funk-Täuschung aller Zeiten rein... und schickt mir nach Rundenende sogar noch eine PSN-Partyeinladung. Das hat schon starke \"Komm sofort in die Party, damit ich dir erklären kann, warum eigentlich DU schuld und blöd bist\"- Energie. Und genau deswegen war es vermutlich eine der besten Entscheidungen überhaupt, auf der PS5 vor einem Jahr Nachrichten von Nicht-Freunden auszuschalten. Gerade bei PvP-Spielen/Situationen merkt man leider schnell, wie manche Leute reagieren, sobald sie von einer Frau besiegt oder ausgetrickst werden. Besonders dann, wenn sie vorher komplett überzeugt waren, dass sie die Situation kontrollieren. Ich hatte damals in reinen PvP-Spielen die übelsten sexuellen und frauenfeindlichen Nachrichten bekommen.\nDas Lustigste daran ist eigentlich: Ich habe ihn nicht einmal \"outgeaimt\" oder mit einem High-End-Movement zerstört. Ich habe ihn einfach \"psychologisch\" auseinandergebaut. Der ganze Kampf endete nicht wegen besserer Waffen, Aim oder Reaktion, sondern weil der andere Spieler ernsthaft glaubte, dass plötzlich Verstärkung auf dem Turm kommen würde.\nCooles Gefühl! 😎"
   },
   "en": {
     "title": "Fooled!",
@@ -188,6 +190,34 @@ const RFT_LAST_BLOW_TRANSLATIONS=Object.freeze({
     "editorialNote": "Titolo redazionale – titolo originale non confermato",
     "content": "In mezzo alla palude si ergeva quell’unico albero. E lì era appesa lei...\nUna Vespa. Sola.\nLa corazza era squarciata, le ali metalliche ridotte a brandelli. Il bagliore solitamente aggressivo dei suoi sensori tremolava appena, come se il suo nucleo potesse spegnersi definitivamente da un momento all’altro.\nNon attaccava. Probabilmente non ne era più nemmeno capace. Nell’aria restava solo un debole ronzio spezzato... un suono che sembrava più dolore che pericolo.\nMi fermai davanti a lei, stringendo forte il mio piccone. Niente fucile. Nessun eroico colpo finale. Solo acciaio freddo in un mondo che da tempo aveva dimenticato cosa significhi davvero la compassione.\nPer un momento mi guardò e, all’improvviso, non sembrò più una macchina della guerra infinita tra esseri umani e macchine. Solo qualcosa che aveva sofferto troppo a lungo.\nForse era volata su quell’albero perché sapeva che era finita. Forse stava semplicemente aspettando che qualcuno trovasse finalmente il coraggio di porre fine a tutto.\nPoi sollevai il piccone.\nUn solo colpo. Rapido. Definitivo.\nDopo, tra gli alberi della palude, rimase soltanto il silenzio.\nE per un brevissimo istante ebbi la sensazione che mi fosse grata."
   }
+});
+
+const RFT_PICKAXE_THERAPY_TRANSLATIONS=Object.freeze({
+  de:Object.freeze({
+    title:'Die Spitzhacken-Therapie',
+    summary:'Nackt und nur mit Spitzhacken nach Stella Montis: eine Therapierunde gegen Frust und für den ersten Kill.',
+    editorialNote:'Redaktioneller Titel – Originaltitel nicht angegeben',
+    content:`Ende März war es Zeit für die erste Therapiesitzung. Oder präziser gesagt: die legendäre „Jetzt-könnt-ihr-uns-alle-mal-mit-der-Spitzhacke-Therapierunde.“ Eigentlich sind wir ja ein total friedliches Duo bzw. Trio, so friedlich, dass man uns fast mit einem Wanderverein verwechseln könnte. Egal ob im Solo, Duo oder Trio, unsere Runden sind meistens freundlich. Aber wie das eben so ist, manchmal stolpern diese ganz besonderen Exemplare von Spielern in die Lobby - jene Spezies, die sich in die ruhigen Lobbys „reinsterben“, nur um anderen den Abend zu ruinieren. Wir kennen sie alle. Und natürlich erwischt es auch uns ab und an... An diesem Abend unerwartet und gnadenlos. Unser ganzes schönes Equipment war weg. Einfach weg. In die digitale Ewigkeit verabschiedet. Die Stimmung? Katastrophal... Ich bin da immer ganz locker, Teamkollege Nummer eins aber war bereit, dem gesamten Internet den Krieg zu erklären, während Teamkollege Nummer zwei still um seinen Rucksack trauerte, nachdem er erst drei Tage zuvor euphorisch mit dem Spiel begonnen hatte. Aber bevor der Abend endgültig in einer Mischung aus Frust, Drama und leiser Hintergrundmusik à la Titanic endet, kam mir die Idee: „Leute... wir gehen jetzt nackt rein. Nur mit Spitzhacke.“ Ziel: Stella Montis. Selbst auf dieser Map haben wir es meistens friedlich, aber da einer von uns wegen der vorangegangenen Runde PvP-belastet war, schien mir die direkte Konfrontation in einer PvP-Lobby in Stella Montis aus therapeutischer Perspektive am geeignetsten. Wir wussten, dass wir so oder so sterben würden, aber das war genau das, was wir brauchten - wie eine kalte Dusche für die Seele. Also rein da. Ohne Ausrüstung, ohne Hoffnung, aber mit einer Spitzhacke und einer überraschend stabilen Portion Galgenhumor. Unser Plan? Sterben. Aber stilvoll. Vielleicht unterwegs noch eine Quest für den Neuen unter uns erledigen. Vielleicht auch nicht... eher nicht.
+
+Und dann ging's los.
+
+Erste Auseinandersetzung: Eine Gruppe testosterongeladener Männer meinte, mich sexistisch beleidigen zu müssen. Ja, sowas erfahren wir Frauen leider regelmäßig im Gaming. Nach Stöhngeräuschen und „Can I f*ck your girlfriend“ hat es Joshua gereicht - er killte alle drei. Auch wenn er und ich kein Paar, sondern einfach nur gut befreundet sind, gehört er aber zu den Männern, die sich solidarisch gegenüber Frauen bei solchen Verhaltensweisen zeigen. Es vergeht kein Spielabend, an dem ich nicht sexistisch beleidigt werde, meistens wenn ich solo unterwegs bin. Und ich habe schon weit schlimmeres erlebt als in dieser kurzen Situation... Da lagen sie also, alle drei tot. Danach Rückzug in den Nebenraum. Kurze Verschnaufpause. Und natürlich: Report wegen sexistischer Beleidigung. Embark nimmt sowas zum Glück ernst... und das ist auch gut so. Sexismus im Gaming existiert und darf nicht tot geschwiegen werden.
+
+Erste Auseinandersetzung also überlebt - weiter geht's! Es dauerte keine drei Minuten, dann wurden wir schon wieder attackiert. Die Teammates dieses Raiders waren vermutlich schon tot und er vermutlich schon emotional angeschlagen, weil sein Team nicht mehr existierte. Ganz schlechte Idee, uns anzugreifen. Noch schlechtere Idee: uns mit Spitzhacken zu unterschätzen!
+
+MY FIRST KILL!!!
+
+Ja, richtig gelesen. Ich machte meinen allerersten Kill im Spiel und das mit meinem Eishockeyschläger.
+
+ICH.
+HACKE.
+LEGENDÄR.
+
+Ich war kurz davor, mir selbst einen Orden zu verleihen.
+*hust*
+
+Dann folgte unmittelbar die dritte Auseinandersetzung: Tja... sagen wir mal so: Hier endete unsere heldenhafte Spitzhackenkarriere. Alle ins Jenseits befördert. Aber ganz ehrlich? Es war ein würdiger Abgang. Mit Stil. Mit Chaos. Und vor allem: mit sehr viel Gelächter. Und genau darum ging's ja. Auch wenn uns das Spiel nach dieser Runde den Tipp „Nicht genug Waffen? Benutze bei deinem nächsten Run ein Gratis-Loadout“ gab, war ein „nackter“ Run durch eine aggressive Lobby das beste, was wir tun konnten. Die Therapierunde war also ein voller Erfolg. Die Stimmung? Wieder top. Der Frust? Weggelacht. Der Rucksack? Immer noch tot, aber emotional verarbeitet. Nach fünf oder sechs schnellen „Wir rennen einfach zum Ausgang“- Runden waren wir dann auch offiziell wieder PvP-clean. Und bereit für das nächste Abenteuer. Oder die nächste Therapiestunde.`
+  })
 });
 
 window.RFTCommunityStories=Object.freeze([
@@ -264,6 +294,21 @@ window.RFTCommunityStories=Object.freeze([
     editorialNote:RFT_LAST_BLOW_TRANSLATIONS.de.editorialNote,
     translations:RFT_LAST_BLOW_TRANSLATIONS,
     content:RFT_LAST_BLOW_TRANSLATIONS.de.content
+  }),
+  Object.freeze({
+    id:'spitzhacken-therapie',
+    title:RFT_PICKAXE_THERAPY_TRANSLATIONS.de.title,
+    author:'Zoe Bristow',
+    summary:RFT_PICKAXE_THERAPY_TRANSLATIONS.de.summary,
+    image:'assets/stories/spitzhacken-therapie-zoe-bristow.jpg',
+    imageWidth:1536,
+    imageHeight:898,
+    theme:'forest-tragicomedy',
+    language:'de',
+    originalLanguage:'de',
+    editorialNote:RFT_PICKAXE_THERAPY_TRANSLATIONS.de.editorialNote,
+    translations:RFT_PICKAXE_THERAPY_TRANSLATIONS,
+    content:RFT_PICKAXE_THERAPY_TRANSLATIONS.de.content
   })
 ]);
 
@@ -286,7 +331,8 @@ window.RFTCommunityStories=Object.freeze([
   function localized(story,lang=activeLanguage()){
     const requested=story.translations?.[lang];
     const fallback=story.translations?.[story.originalLanguage||story.language]||story.translations?.de;
-    return {lang,text:requested||fallback||{title:story.title,summary:story.summary,content:story.content}};
+    const text=requested||fallback||{title:story.title,summary:story.summary,content:story.content};
+    return {lang:requested?lang:(story.originalLanguage||story.language||'de'),text};
   }
   function storyFromHash(){
     const parts=location.hash.slice(1).split('/');
@@ -314,8 +360,8 @@ window.RFTCommunityStories=Object.freeze([
       const title=card.querySelector('.fan-story-card-title');
       const summary=card.querySelector('.fan-story-summary');
       const read=card.querySelector('.fan-story-read');
-      if(title){title.textContent=local.title;title.lang=lang;}
-      if(summary){summary.textContent=local.summary;summary.lang=lang;}
+      if(title){title.textContent=local.title;title.lang=localized(story,lang).lang;}
+      if(summary){summary.textContent=local.summary;summary.lang=localized(story,lang).lang;}
       if(read)read.setAttribute('aria-label',`${read.textContent}: ${local.title}`);
     });
 
@@ -328,12 +374,12 @@ window.RFTCommunityStories=Object.freeze([
     const kicker=detail.querySelector('.fan-story-kicker');
     const body=detail.querySelector('.fan-story-body');
     const credit=detail.querySelector('.fan-story-credit');
-    if(title){title.textContent=local.title;title.lang=lang;}
+    if(title){title.textContent=local.title;title.lang=localized(story,lang).lang;}
     if(kicker)kicker.textContent=labels.kicker;
     const note=detail.querySelector('.fan-story-editorial-note');
-    if(note){note.textContent=local.editorialNote||story.editorialNote;note.lang=lang;}
+    if(note){note.textContent=local.editorialNote||story.editorialNote;note.lang=localized(story,lang).lang;}
     if(body){
-      replaceBody(body,local.content,story.translations?lang:story.originalLanguage||story.language);
+      replaceBody(body,local.content,localized(story,lang).lang);
       if(story.theme==='rust-legend'){
         body.querySelectorAll('p').forEach(node=>{
           const marker=local.nameQuestion||'Sein Name?';
