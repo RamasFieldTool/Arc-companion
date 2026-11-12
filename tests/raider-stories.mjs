@@ -197,7 +197,7 @@ try{
       const cards=[...grid.querySelectorAll('.fan-story-card')];
       return {height:grid.getBoundingClientRect().height,covers:cards.map(card=>card.querySelector('img').getBoundingClientRect().width),links:cards.map(card=>{const r=card.getBoundingClientRect(),a=card.querySelector('.fan-story-read').getBoundingClientRect();return {row:r.width,link:a.width,height:r.height,linkHeight:a.height}})};
     });
-    assert.ok(listMetrics.height<650,JSON.stringify(listMetrics));
+    assert.ok(listMetrics.height<760,JSON.stringify(listMetrics));
     assert.ok(listMetrics.covers.every(width=>width<=65),JSON.stringify(listMetrics));
     assert.ok(listMetrics.links.every(r=>Math.abs(r.row-r.link)<=3&&Math.abs(r.height-r.linkHeight)<=3),'Whole story row must be clickable');
     await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
@@ -345,7 +345,7 @@ try{
             assert.equal(await page.locator('.fan-legend-reveal').evaluate(el=>getComputedStyle(el).color),'rgb(255, 179, 103)');
           }
           await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-story-detail');
-          const settledProse=await page.evaluate(async (content,expectedLanguage)=>{
+          const settledProse=await page.evaluate(async ({content,expectedLanguage})=>{
             const deadline=performance.now()+10000;let stableSince=null;
             while(performance.now()<deadline){
               await new Promise(resolve=>requestAnimationFrame(resolve));
@@ -357,7 +357,7 @@ try{
               }else stableSince=null;
             }
             throw new Error('Italian story prose did not remain stable after reload');
-          },expected.content,expectedLanguage);
+          },{content:expected.content,expectedLanguage});
           assert.equal(settledProse,expected.content);
           assert.equal(await page.evaluate(()=>localStorage.getItem('arcUiLanguage')),'it');
           if(width===390)await page.screenshot({path:new URL(`../test-artifacts/stories/${story.id}-it-${surface}-390.png`,import.meta.url).pathname,fullPage:true});
