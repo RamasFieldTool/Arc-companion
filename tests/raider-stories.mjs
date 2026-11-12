@@ -21,6 +21,12 @@ for(const lang of ['de','en','fr','es','it']){
   assert.ok(lastBlowSource.translations[lang].editorialNote);
 }
 
+const pickaxeTherapySource=storyContext.window.RFTCommunityStories.find(story=>story.id==='spitzhacken-therapie');
+assert.equal(pickaxeTherapySource.author,'Zoe Bristow');
+assert.equal(pickaxeTherapySource.imageWidth,1536);
+assert.equal(pickaxeTherapySource.imageHeight,898);
+assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/spitzhacken-therapie-zoe-bristow.jpg',import.meta.url))).digest('hex'),'eed31c12652af89511bb924755927bdf5281fab93875f5af2ed4ce2563c65a1b');
+
 const zoeSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='captain-defib');
 assert.equal(createHash('sha256').update(zoeSource.content).digest('hex'),'d1120f76cb09b6df1e25e35e819da53e9b34f4fb6eeb1232caf0c25e794e07b4');
 const zoeTitles={de:'Die Legende von CaptainDefib',en:'The Legend of CaptainDefib',fr:'La légende de CaptainDefib',es:'La leyenda de CaptainDefib'};

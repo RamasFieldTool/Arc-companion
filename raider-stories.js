@@ -1,4 +1,4 @@
-Warning: truncated output (original token count: 26396)
+Warning: truncated output (original token count: 26400)
 Total output lines: 415
 
 // Author-approved originals and app-language translations.
@@ -135,7 +135,7 @@ const RFT_LEAPER_TRANSLATIONS=Object.freeze({
 const RFT_VERAEPPELT_TRANSLATIONS=Object.freeze({
   "de": {
     "title": "Veräppelt!",
-    "summary": "Allein im Turm, belagert und überladen – Zoe vertreibt einen Raider mit erfundener Verstä…1396 tokens truncated…ne Moment bleibt hängen: Der Tag, an dem ich jemanden erfolgreich mit einem erfundenen Retter veräppelt habe. Das macht die ganze Geschichte im Nachhinein sogar noch lustiger... Der Mann fährt erst eine komplette \"Ich breche beide Barrikaden weg und belagere diesen Turm bis zum Rundenende\"-Mission, fällt dann auf die billigste improvisierte Funk-Täuschung aller Zeiten rein... und schickt mir nach Rundenende sogar noch eine PSN-Partyeinladung. Das hat schon starke \"Komm sofort in die Party, damit ich dir erklären kann, warum eigentlich DU schuld und blöd bist\"- Energie. Und genau deswegen war es vermutlich eine der besten Entscheidungen überhaupt, auf der PS5 vor einem Jahr Nachrichten von Nicht-Freunden auszuschalten. Gerade bei PvP-Spielen/Situationen merkt man leider schnell, wie manche Leute reagieren, sobald sie von einer Frau besiegt oder ausgetrickst werden. Besonders dann, wenn sie vorher komplett überzeugt waren, dass sie die Situation kontrollieren. Ich hatte damals in reinen PvP-Spielen die übelsten sexuellen und frauenfeindlichen Nachrichten bekommen.\nDas Lustigste daran ist eigentlich: Ich habe ihn nicht einmal \"outgeaimt\" oder mit einem High-End-Movement zerstört. Ich habe ihn einfach \"psychologisch\" auseinandergebaut. Der ganze Kampf endete nicht wegen besserer Waffen, Aim oder Reaktion, sondern weil der andere Spieler ernsthaft glaubte, dass plötzlich Verstärkung auf dem Turm kommen würde.\nCooles Gefühl! 😎"
+    "summary": "Allein im Turm, belagert und überladen – Zoe vertreibt einen Raider mit erfundener Verstä…1400 tokens truncated…ngen: Der Tag, an dem ich jemanden erfolgreich mit einem erfundenen Retter veräppelt habe. Das macht die ganze Geschichte im Nachhinein sogar noch lustiger... Der Mann fährt erst eine komplette \"Ich breche beide Barrikaden weg und belagere diesen Turm bis zum Rundenende\"-Mission, fällt dann auf die billigste improvisierte Funk-Täuschung aller Zeiten rein... und schickt mir nach Rundenende sogar noch eine PSN-Partyeinladung. Das hat schon starke \"Komm sofort in die Party, damit ich dir erklären kann, warum eigentlich DU schuld und blöd bist\"- Energie. Und genau deswegen war es vermutlich eine der besten Entscheidungen überhaupt, auf der PS5 vor einem Jahr Nachrichten von Nicht-Freunden auszuschalten. Gerade bei PvP-Spielen/Situationen merkt man leider schnell, wie manche Leute reagieren, sobald sie von einer Frau besiegt oder ausgetrickst werden. Besonders dann, wenn sie vorher komplett überzeugt waren, dass sie die Situation kontrollieren. Ich hatte damals in reinen PvP-Spielen die übelsten sexuellen und frauenfeindlichen Nachrichten bekommen.\nDas Lustigste daran ist eigentlich: Ich habe ihn nicht einmal \"outgeaimt\" oder mit einem High-End-Movement zerstört. Ich habe ihn einfach \"psychologisch\" auseinandergebaut. Der ganze Kampf endete nicht wegen besserer Waffen, Aim oder Reaktion, sondern weil der andere Spieler ernsthaft glaubte, dass plötzlich Verstärkung auf dem Turm kommen würde.\nCooles Gefühl! 😎"
   },
   "en": {
     "title": "Fooled!",
@@ -300,9 +300,9 @@ window.RFTCommunityStories=Object.freeze([
     title:RFT_PICKAXE_THERAPY_TRANSLATIONS.de.title,
     author:'Zoe Bristow',
     summary:RFT_PICKAXE_THERAPY_TRANSLATIONS.de.summary,
-    image:'assets/stories/cover-pending.svg',
+    image:'assets/stories/spitzhacken-therapie-zoe-bristow.jpg',
     imageWidth:1536,
-    imageHeight:864,
+    imageHeight:898,
     theme:'forest-tragicomedy',
     language:'de',
     originalLanguage:'de',
