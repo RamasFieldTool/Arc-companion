@@ -27,7 +27,8 @@
     // Original YouTube album pages checked against title and artist on 2026-10-04.
     albums:[
       {title:'Radio Speranza Relay Vol. 1',cover:'assets/music/lion-montana/radio-speranza-relay-vol-1.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g'},
-      {title:'Radio Speranza Relay Vol. 2',cover:'assets/music/lion-montana/radio-speranza-relay-vol-2.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo'}
+      {title:'Radio Speranza Relay Vol. 2',cover:'assets/music/lion-montana/radio-speranza-relay-vol-2.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo'},
+      {title:'Radio Speranza Relay Vol. 3',cover:'assets/music/lion-montana/radio-speranza-relay-logo.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_l6Savrcv1-tTRvJN8ymXUuPU3WL7DTLhQ',upcoming:true}
     ]
   };
 
@@ -40,11 +41,11 @@
   };
 
   const collectionCopy={
-    de:{back:'← Zurück zu Raider Radio',open:'Alben öffnen',listen:'▶ Auf YouTube anhören',pending:'Original-Link wird ergänzt'},
-    en:{back:'← Back to Raider Radio',open:'Open albums',listen:'▶ Listen on YouTube',pending:'Original link to be added'},
-    fr:{back:'← Retour à Raider Radio',open:'Voir les albums',listen:'▶ Écouter sur YouTube',pending:'Lien d’origine à venir'},
-    es:{back:'← Volver a Raider Radio',open:'Ver álbumes',listen:'▶ Escuchar en YouTube',pending:'Enlace original pendiente'},
-    it:{back:'← Torna a Raider Radio',open:'Apri gli album',listen:'▶ Ascolta su YouTube',pending:'Link originale in arrivo'}
+    de:{back:'← Zurück zu Raider Radio',open:'Alben öffnen',listen:'▶ Auf YouTube anhören',upcoming:'▶ YouTube-Playlist öffnen',pending:'Original-Link wird ergänzt'},
+    en:{back:'← Back to Raider Radio',open:'Open albums',listen:'▶ Listen on YouTube',upcoming:'▶ Open YouTube playlist',pending:'Original link to be added'},
+    fr:{back:'← Retour à Raider Radio',open:'Voir les albums',listen:'▶ Écouter sur YouTube',upcoming:'▶ Ouvrir la playlist YouTube',pending:'Lien d’origine à venir'},
+    es:{back:'← Volver a Raider Radio',open:'Ver álbumes',listen:'▶ Escuchar en YouTube',upcoming:'▶ Abrir lista de reproducción de YouTube',pending:'Enlace original pendiente'},
+    it:{back:'← Torna a Raider Radio',open:'Apri gli album',listen:'▶ Ascolta su YouTube',upcoming:'▶ Apri playlist YouTube',pending:'Link originale in arrivo'}
   };
 
   const copy={
@@ -256,7 +257,7 @@
       action.target='_blank';
       action.rel='noopener noreferrer';
     }
-    albumActions.push({action,title:album.title,hasUrl:!!album.url});
+    albumActions.push({action,title:album.title,hasUrl:!!album.url,upcoming:!!album.upcoming});
     card.append(cover,title,action);
     albumGrid.append(card);
   });
@@ -620,9 +621,10 @@
     albumBack.textContent=musicLang.back;
     collectionOpen.textContent=musicLang.open;
     collectionCard.setAttribute('aria-label',collection.artist+' – '+collection.title+' — '+musicLang.open);
-    albumActions.forEach(({action,title,hasUrl})=>{
-      action.textContent=hasUrl?musicLang.listen:musicLang.pending;
-      if(hasUrl)action.setAttribute('aria-label',title+' — '+musicLang.listen);
+    albumActions.forEach(({action,title,hasUrl,upcoming})=>{
+      const label=hasUrl?(upcoming?musicLang.upcoming:musicLang.listen):musicLang.pending;
+      action.textContent=label;
+      if(hasUrl)action.setAttribute('aria-label',title+' — '+label);
     });
     syncLauncherLanguage(lang);
     hubTitle.textContent=lang.hubTitle;
