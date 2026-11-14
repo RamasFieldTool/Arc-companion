@@ -27,7 +27,8 @@
     // Original YouTube album pages checked against title and artist on 2026-10-04.
     albums:[
       {title:'Radio Speranza Relay Vol. 1',cover:'assets/music/lion-montana/radio-speranza-relay-vol-1.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g'},
-      {title:'Radio Speranza Relay Vol. 2',cover:'assets/music/lion-montana/radio-speranza-relay-vol-2.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo'}
+      {title:'Radio Speranza Relay Vol. 2',cover:'assets/music/lion-montana/radio-speranza-relay-vol-2.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo'},
+      {title:'Radio Speranza Relay Vol. 3',cover:'assets/music/lion-montana/radio-speranza-relay-logo.png',url:'https://www.youtube.com/playlist?list=OLAK5uy_l6Savrcv1-tTRvJN8ymXUuPU3WL7DTLhQ'}
     ]
   };
 

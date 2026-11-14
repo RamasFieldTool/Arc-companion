@@ -168,14 +168,14 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   // hashchange is asynchronous: assert only after the album route is visible.
   await page.locator('.radio-album-view').waitFor({state:'visible'});
   assert.equal(await player.evaluate(a=>a.paused),true);
-  assert.equal(await page.locator('.radio-album-view .radio-album').count(),2);
-  assert.deepEqual(await page.locator('.radio-album h3').allTextContents(),['Radio Speranza Relay Vol. 1','Radio Speranza Relay Vol. 2']);
-  assert.deepEqual(await page.locator('.radio-album img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/lion-montana/radio-speranza-relay-vol-1.png','assets/music/lion-montana/radio-speranza-relay-vol-2.png']);
+  assert.equal(await page.locator('.radio-album-view .radio-album').count(),3);
+  assert.deepEqual(await page.locator('.radio-album h3').allTextContents(),['Radio Speranza Relay Vol. 1','Radio Speranza Relay Vol. 2','Radio Speranza Relay Vol. 3']);
+  assert.deepEqual(await page.locator('.radio-album img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/lion-montana/radio-speranza-relay-vol-1.png','assets/music/lion-montana/radio-speranza-relay-vol-2.png','assets/music/lion-montana/radio-speranza-relay-logo.png']);
   await page.waitForFunction(()=>[...document.querySelectorAll('.radio-album img')].every(i=>i.complete&&i.naturalWidth===1536));
-  assert.deepEqual(await page.locator('.radio-album a').evaluateAll(a=>a.map(x=>x.href)),['https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g','https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo']);
+  assert.deepEqual(await page.locator('.radio-album a').evaluateAll(a=>a.map(x=>x.href)),['https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g','https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo','https://www.youtube.com/playlist?list=OLAK5uy_l6Savrcv1-tTRvJN8ymXUuPU3WL7DTLhQ']);
   assert.equal(await page.locator('.radio-link-pending').count(),0);
   const youtubeLabels={de:'▶ Auf YouTube anhören',en:'▶ Listen on YouTube',fr:'▶ Écouter sur YouTube',es:'▶ Escuchar en YouTube',it:'▶ Ascolta su YouTube'};
-  assert.deepEqual(await page.locator('.radio-album a').allTextContents(),[youtubeLabels[language],youtubeLabels[language]]);
+  assert.deepEqual(await page.locator('.radio-album a').allTextContents(),[youtubeLabels[language],youtubeLabels[language],youtubeLabels[language]]);
   const albumMetrics=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,cards:[...document.querySelectorAll('.radio-album')].some(c=>c.scrollWidth>c.clientWidth)}));
   assert.ok(albumMetrics.overflow<=4,JSON.stringify(albumMetrics));assert.equal(albumMetrics.cards,false);
   assert.equal(await page.locator('.radio-album a').evaluateAll(a=>a.every(x=>x.getBoundingClientRect().height>=44)),true);
