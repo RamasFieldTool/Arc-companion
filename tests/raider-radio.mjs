@@ -170,7 +170,7 @@ for(const width of [320,412,1280])for(const surface of ['light','black'])for(con
   assert.equal(await player.evaluate(a=>a.paused),true);
   assert.equal(await page.locator('.radio-album-view .radio-album').count(),3);
   assert.deepEqual(await page.locator('.radio-album h3').allTextContents(),['Radio Speranza Relay Vol. 1','Radio Speranza Relay Vol. 2','Radio Speranza Relay Vol. 3']);
-  assert.deepEqual(await page.locator('.radio-album img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/lion-montana/radio-speranza-relay-vol-1.png','assets/music/lion-montana/radio-speranza-relay-vol-2.png','assets/music/lion-montana/radio-speranza-relay-logo.png']);
+  assert.deepEqual(await page.locator('.radio-album img').evaluateAll(a=>a.map(x=>x.getAttribute('src'))),['assets/music/lion-montana/radio-speranza-relay-vol-1.png','assets/music/lion-montana/radio-speranza-relay-vol-2.png','assets/music/lion-montana/radio-speranza-relay-vol-3.jpg']);
   await page.waitForFunction(()=>[...document.querySelectorAll('.radio-album img')].every(i=>i.complete&&i.naturalWidth===1536));
   assert.deepEqual(await page.locator('.radio-album a').evaluateAll(a=>a.map(x=>x.href)),['https://www.youtube.com/playlist?list=OLAK5uy_nbUa8Ik3gs-aP4FB2bW-0qUQ94Uuv_B5g','https://www.youtube.com/playlist?list=OLAK5uy_ns6XAeCHm47zacDC8vmBXzzg51RqJoSCo','https://www.youtube.com/playlist?list=OLAK5uy_l6Savrcv1-tTRvJN8ymXUuPU3WL7DTLhQ']);
   assert.equal(await page.locator('.radio-link-pending').count(),0);
