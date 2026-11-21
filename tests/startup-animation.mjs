@@ -17,7 +17,7 @@ assert.equal((intro.match(/aria-hidden="true"/g) || []).length >= 4, true,
 
 assert.match(css, /\.rft-intro__ring\s*\{[^}]*position:\s*absolute;[^}]*z-index:\s*0;/s,
   'Rings must render above the intro background');
-assert.match(css, /\\.rft-intro__mark\\s*\\{[^}]*position:\\s*relative;[^}]*z-index:\\s*1;/s,
+assert.match(css, /\.rft-intro__mark\s*\{[^}]*position:\s*relative;[^}]*z-index:\s*1;/s,
   'The logo must remain in front of the expanding rings');
 assert.match(css, /animation:\s*rft-ring-expand\s+1\.9s[^;]*infinite;/,
   'Rings must repeatedly animate while the intro is visible');
