@@ -15,25 +15,6 @@
   isolation: isolate;
 }
 
-.rft-intro::before,
-.rft-intro::after {
-  position: absolute;
-  z-index: -1;
-  width: min(88vw, 620px);
-  aspect-ratio: 1;
-  border: 1px solid #ff9b6540;
-  border-radius: 50%;
-  content: "";
-  opacity: 0;
-  transform: scale(.68);
-  animation: rft-wave 1.8s cubic-bezier(.12,.68,.18,1) .12s both;
-}
-
-.rft-intro::after {
-  border-color: #79c8e62b;
-  animation-delay: .38s;
-}
-
 .rft-intro.is-finished {
   opacity: 0;
   visibility: hidden;
@@ -80,14 +61,28 @@
   place-items: center;
 }
 
-.rft-intro__mark-wrap::before {
+.rft-intro__ring {
   position: absolute;
-  inset: 4%;
-  border: 1px solid #ff9b654d;
+  z-index: 0;
+  inset: 10%;
+  border: 2px solid #ffad7880;
   border-radius: 50%;
-  box-shadow: 0 0 36px #ff814f18, inset 0 0 28px #ff814f12;
-  content: "";
-  animation: rft-orbit 2.6s ease-in-out both;
+  box-shadow: 0 0 16px #ff814f40, inset 0 0 12px #ff814f18;
+  opacity: 0;
+  transform: scale(.3);
+  animation: rft-ring-expand 1.9s cubic-bezier(.12,.58,.24,1) infinite;
+}
+
+.rft-intro__ring--two {
+  border-color: #7bd7e68c;
+  box-shadow: 0 0 16px #55c9df38, inset 0 0 12px #55c9df18;
+  animation-delay: .48s;
+}
+
+.rft-intro__ring--three {
+  border-color: #ffd27a8c;
+  box-shadow: 0 0 16px #ffc45a38, inset 0 0 12px #ffc45a18;
+  animation-delay: .96s;
 }
 
 .rft-intro__mark {
@@ -124,10 +119,10 @@
   outline-offset: 3px;
 }
 
-@keyframes rft-wave {
-  0% { opacity: 0; transform: scale(.68); }
-  25% { opacity: .48; }
-  100% { opacity: 0; transform: scale(1.28); }
+@keyframes rft-ring-expand {
+  0% { opacity: 0; transform: scale(.3); }
+  8% { opacity: .95; }
+  100% { opacity: 0; transform: scale(2.45); }
 }
 
 @keyframes rft-content-in {
@@ -146,23 +141,12 @@
   100% { opacity: 0; transform: translateX(80vw) rotate(45deg); }
 }
 
-@keyframes rft-orbit {
-  0% { opacity: 0; transform: scale(.82) rotate(-30deg); }
-  25% { opacity: 1; }
-  100% { opacity: .72; transform: scale(1) rotate(0); }
-}
-
 @keyframes rft-skip-in {
   to { opacity: 1; transform: translate(-50%, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .rft-intro *,
-  .rft-intro::before,
-  .rft-intro::after {
-    animation-duration: 1ms !important;
-    animation-delay: 0ms !important;
-  }
   .rft-intro { transition-duration: 1ms; }
 }
 
