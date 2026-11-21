@@ -86,6 +86,8 @@
 }
 
 .rft-intro__mark {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 82%;
   height: 82%;
