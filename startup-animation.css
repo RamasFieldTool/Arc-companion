@@ -1,0 +1,171 @@
+/* Portable Ramas Field Tool intro: works in a normal browser and Android WebView. */
+.rft-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #f6f8fb;
+  background:
+    radial-gradient(ellipse at 50% 43%, #26313d 0, #151c25 38%, #0b1017 78%);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 420ms ease, visibility 420ms ease;
+  isolation: isolate;
+}
+
+.rft-intro::before,
+.rft-intro::after {
+  position: absolute;
+  z-index: -1;
+  width: min(88vw, 620px);
+  aspect-ratio: 1;
+  border: 1px solid #ff9b6540;
+  border-radius: 50%;
+  content: "";
+  opacity: 0;
+  transform: scale(.68);
+  animation: rft-wave 1.8s cubic-bezier(.12,.68,.18,1) .12s both;
+}
+
+.rft-intro::after {
+  border-color: #79c8e62b;
+  animation-delay: .38s;
+}
+
+.rft-intro.is-finished {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.rft-intro__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  padding: 24px;
+  text-align: center;
+  transform: translateY(8px);
+  animation: rft-content-in 560ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+.rft-intro__sweep {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: -50vw;
+  width: 200vw;
+  height: 12px;
+  background: linear-gradient(90deg,
+    transparent 0 18%,
+    #25d2e8 18% 20%,
+    #68d171 20% 22%,
+    #ffc24b 22% 24%,
+    #ef433d 24% 26%,
+    transparent 26% 100%);
+  filter: drop-shadow(0 0 9px #ff814f80);
+  opacity: 0;
+  transform: translateX(-80vw) rotate(45deg);
+  transform-origin: center;
+  animation: rft-sweep 720ms cubic-bezier(.18,.62,.22,1) 40ms both;
+}
+
+.rft-intro__mark-wrap {
+  position: relative;
+  display: grid;
+  width: clamp(190px, 52vw, 240px);
+  aspect-ratio: 1;
+  place-items: center;
+}
+
+.rft-intro__mark-wrap::before {
+  position: absolute;
+  inset: 4%;
+  border: 1px solid #ff9b654d;
+  border-radius: 50%;
+  box-shadow: 0 0 36px #ff814f18, inset 0 0 28px #ff814f12;
+  content: "";
+  animation: rft-orbit 2.6s ease-in-out both;
+}
+
+.rft-intro__mark {
+  display: block;
+  width: 82%;
+  height: 82%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 28px #0008);
+  clip-path: circle(49% at 50% 50%);
+  opacity: 0;
+  transform: scale(.74) rotate(-8deg);
+  animation: rft-mark-in 760ms cubic-bezier(.16,.78,.2,1) 140ms both;
+}
+
+.rft-intro__skip {
+  position: absolute;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  left: 50%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #ffffff2b;
+  border-radius: 999px;
+  color: #e7edf5;
+  background: #ffffff0b;
+  font: 600 13px/1 system-ui, sans-serif;
+  opacity: 0;
+  transform: translate(-50%, 5px);
+  animation: rft-skip-in 400ms ease 1.1s both;
+  cursor: pointer;
+}
+
+.rft-intro__skip:focus-visible {
+  outline: 2px solid #ffad80;
+  outline-offset: 3px;
+}
+
+@keyframes rft-wave {
+  0% { opacity: 0; transform: scale(.68); }
+  25% { opacity: .48; }
+  100% { opacity: 0; transform: scale(1.28); }
+}
+
+@keyframes rft-content-in {
+  to { transform: translateY(0); }
+}
+
+@keyframes rft-mark-in {
+  0% { opacity: 0; transform: scale(.74) rotate(-8deg); }
+  75% { opacity: 1; transform: scale(1.035) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+@keyframes rft-sweep {
+  0% { opacity: 0; transform: translateX(-80vw) rotate(45deg); }
+  16% { opacity: .9; }
+  100% { opacity: 0; transform: translateX(80vw) rotate(45deg); }
+}
+
+@keyframes rft-orbit {
+  0% { opacity: 0; transform: scale(.82) rotate(-30deg); }
+  25% { opacity: 1; }
+  100% { opacity: .72; transform: scale(1) rotate(0); }
+}
+
+@keyframes rft-skip-in {
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rft-intro *,
+  .rft-intro::before,
+  .rft-intro::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+  }
+  .rft-intro { transition-duration: 1ms; }
+}
+
+@media (max-width: 360px) {
+  .rft-intro__mark-wrap { width: min(58vw, 210px); }
+}
