@@ -1,1014 +1,6 @@
 {
   "conditions": [
     {
-      "type": "minor",
-      "conditionName": "Lush Blooms",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T21:00:00.000Z",
-          "end": "2026-11-24T22:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T21:00:00.000Z",
-          "end": "2026-11-24T22:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T21:00:00.000Z",
-          "end": "2026-11-24T22:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "ARC Frigate",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T21:00:00.000Z",
-          "end": "2026-11-24T22:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Bird City",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T22:00:00.000Z",
-          "end": "2026-11-24T23:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T22:00:00.000Z",
-          "end": "2026-11-24T23:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T22:00:00.000Z",
-          "end": "2026-11-24T23:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Cold Snap",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T22:00:00.000Z",
-          "end": "2026-11-24T23:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "ARC Frigate",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T23:00:00.000Z",
-          "end": "2026-11-25T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T23:00:00.000Z",
-          "end": "2026-11-25T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Lush Blooms",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T23:00:00.000Z",
-          "end": "2026-11-25T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-24T23:00:00.000Z",
-          "end": "2026-11-25T00:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T00:00:00.000Z",
-          "end": "2026-11-25T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Uncovered Caches",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T00:00:00.000Z",
-          "end": "2026-11-25T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T00:00:00.000Z",
-          "end": "2026-11-25T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Cold Snap",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T15:00:00.000Z",
-          "end": "2026-11-25T16:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T00:00:00.000Z",
-          "end": "2026-11-25T01:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Bird City",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T10:00:00.000Z",
-          "end": "2026-11-25T11:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "ARC Frigate",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T10:00:00.000Z",
-          "end": "2026-11-25T11:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T10:00:00.000Z",
-          "end": "2026-11-25T11:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Cold Snap",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T10:00:00.000Z",
-          "end": "2026-11-25T11:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T01:00:00.000Z",
-          "end": "2026-11-25T02:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Close Scrutiny",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T11:00:00.000Z",
-          "end": "2026-11-25T12:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/close-scrutiny.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T11:00:00.000Z",
-          "end": "2026-11-25T12:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Matriarch",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T11:00:00.000Z",
-          "end": "2026-11-25T12:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T17:00:00.000Z",
-          "end": "2026-11-25T18:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T06:00:00.000Z",
-          "end": "2026-11-25T07:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T02:00:00.000Z",
-          "end": "2026-11-25T03:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Cold Snap",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Riven Tides",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Harvester",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "ARC Frigate",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T12:00:00.000Z",
-          "end": "2026-11-25T13:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T18:00:00.000Z",
-          "end": "2026-11-25T19:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T07:00:00.000Z",
-          "end": "2026-11-25T08:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T03:00:00.000Z",
-          "end": "2026-11-25T04:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Bird City",
-      "mapDisplayName": "Buried City",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Uncovered Caches",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Hurricane",
-      "mapDisplayName": "Spaceport",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Lush Blooms",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Electromagnetic Storm",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T13:00:00.000Z",
-          "end": "2026-11-25T14:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T19:00:00.000Z",
-          "end": "2026-11-25T20:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T08:00:00.000Z",
-          "end": "2026-11-25T09:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T04:00:00.000Z",
-          "end": "2026-11-25T05:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/electromagnetic-storm.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Redirection",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/redirection.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Night Raid",
-      "mapDisplayName": "Stella Montis",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "Cold Snap",
-      "mapDisplayName": "The Blue Gate",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
-    },
-    {
-      "type": "major",
-      "conditionName": "ARC Frigate",
-      "mapDisplayName": "Dam Battlegrounds",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T14:00:00.000Z",
-          "end": "2026-11-25T15:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T09:00:00.000Z",
-          "end": "2026-11-25T10:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T05:00:00.000Z",
-          "end": "2026-11-25T06:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
-    },
-    {
       "type": "major",
       "conditionName": "Hurricane",
       "mapDisplayName": "Buried City",
@@ -1175,34 +167,6 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Uncovered Caches",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T16:00:00.000Z",
-          "end": "2026-11-25T17:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
     },
     {
       "type": "minor",
@@ -1569,34 +533,6 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
     },
     {
-      "type": "minor",
-      "conditionName": "Uncovered Caches",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T20:00:00.000Z",
-          "end": "2026-11-25T21:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
-    },
-    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Stella Montis",
@@ -1763,34 +699,6 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
-    },
-    {
-      "type": "minor",
-      "conditionName": "Redirection",
-      "mapDisplayName": "Pendola Pass",
-      "regions": {
-        "europe": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "north-america": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "brazil": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "east-asia": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        },
-        "oceania": {
-          "start": "2026-11-25T21:00:00.000Z",
-          "end": "2026-11-25T22:00:00.000Z"
-        }
-      },
-      "iconUrl": "https://arcraiders.com/icons/map-conditions/redirection.svg"
     },
     {
       "type": "major",
@@ -3725,6 +2633,34 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
     },
     {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
+    },
+    {
       "type": "major",
       "conditionName": "Hidden Bunker",
       "mapDisplayName": "Spaceport",
@@ -3807,6 +2743,34 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/hurricane.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/redirection.svg"
     },
     {
       "type": "major",
@@ -4059,6 +3023,34 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
     },
     {
       "type": "minor",
@@ -4425,6 +3417,34 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
     },
     {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
+    },
+    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Stella Montis",
@@ -4593,6 +3613,34 @@
       "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
     },
     {
+      "type": "minor",
+      "conditionName": "Redirection",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/redirection.svg"
+    },
+    {
       "type": "major",
       "conditionName": "Night Raid",
       "mapDisplayName": "Stella Montis",
@@ -4731,7 +3779,1071 @@
         }
       },
       "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T14:00:00.000Z",
+          "end": "2026-11-26T15:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Cold Snap",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T15:00:00.000Z",
+          "end": "2026-11-26T16:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T16:00:00.000Z",
+          "end": "2026-11-26T17:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T16:00:00.000Z",
+          "end": "2026-11-26T17:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T16:00:00.000Z",
+          "end": "2026-11-26T17:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Cold Snap",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T17:00:00.000Z",
+          "end": "2026-11-26T18:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Cold Snap",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T09:00:00.000Z",
+          "end": "2026-11-27T10:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T18:00:00.000Z",
+          "end": "2026-11-26T19:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T04:00:00.000Z",
+          "end": "2026-11-27T05:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T04:00:00.000Z",
+          "end": "2026-11-27T05:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T04:00:00.000Z",
+          "end": "2026-11-27T05:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T04:00:00.000Z",
+          "end": "2026-11-27T05:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T10:00:00.000Z",
+          "end": "2026-11-27T11:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T19:00:00.000Z",
+          "end": "2026-11-26T20:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Pendola Pass",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Cold Snap",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T05:00:00.000Z",
+          "end": "2026-11-27T06:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T11:00:00.000Z",
+          "end": "2026-11-27T12:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T00:00:00.000Z",
+          "end": "2026-11-27T01:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T20:00:00.000Z",
+          "end": "2026-11-26T21:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Bird City",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/bird-city.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Cold Snap",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Launch Tower Loot",
+      "mapDisplayName": "Spaceport",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/launch-tower-loot.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T06:00:00.000Z",
+          "end": "2026-11-27T07:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T12:00:00.000Z",
+          "end": "2026-11-27T13:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T01:00:00.000Z",
+          "end": "2026-11-27T02:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T21:00:00.000Z",
+          "end": "2026-11-26T22:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Cold Snap",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/cold-snap.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Stella Montis",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Uncovered Caches",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/uncovered-caches.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Matriarch",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T07:00:00.000Z",
+          "end": "2026-11-27T08:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T13:00:00.000Z",
+          "end": "2026-11-27T14:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T02:00:00.000Z",
+          "end": "2026-11-27T03:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T22:00:00.000Z",
+          "end": "2026-11-26T23:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/matriarch.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Lush Blooms",
+      "mapDisplayName": "Buried City",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T15:00:00.000Z",
+          "end": "2026-11-27T16:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/lush-blooms.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "Night Raid",
+      "mapDisplayName": "Riven Tides",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T15:00:00.000Z",
+          "end": "2026-11-27T16:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/night-raid.svg"
+    },
+    {
+      "type": "minor",
+      "conditionName": "Harvester",
+      "mapDisplayName": "The Blue Gate",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T15:00:00.000Z",
+          "end": "2026-11-27T16:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/harvester.svg"
+    },
+    {
+      "type": "major",
+      "conditionName": "ARC Frigate",
+      "mapDisplayName": "Dam Battlegrounds",
+      "regions": {
+        "europe": {
+          "start": "2026-11-27T08:00:00.000Z",
+          "end": "2026-11-27T09:00:00.000Z"
+        },
+        "north-america": {
+          "start": "2026-11-27T15:00:00.000Z",
+          "end": "2026-11-27T16:00:00.000Z"
+        },
+        "brazil": {
+          "start": "2026-11-27T14:00:00.000Z",
+          "end": "2026-11-27T15:00:00.000Z"
+        },
+        "east-asia": {
+          "start": "2026-11-27T03:00:00.000Z",
+          "end": "2026-11-27T04:00:00.000Z"
+        },
+        "oceania": {
+          "start": "2026-11-26T23:00:00.000Z",
+          "end": "2026-11-27T00:00:00.000Z"
+        }
+      },
+      "iconUrl": "https://arcraiders.com/icons/map-conditions/arc-frigate.svg"
     }
   ],
-  "syncedAt": "2026-11-25T13:30:12Z"
+  "syncedAt": "2026-11-25T22:45:53Z"
 }
