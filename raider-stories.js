@@ -427,7 +427,7 @@ window.RFTCommunityStories=Object.freeze([
   else schedule();
 })();
 
-(()=>{const style=document.createElement('style');style.textContent=`
+(()=>{if(typeof document.createElement!=='function'||!document.head?.appendChild)return;const style=document.createElement('style');style.textContent=`
 .fan-story-card[data-story-theme="buried-memory"],.fan-story-detail[data-story-theme="buried-memory"]{background:linear-gradient(145deg,#40372c,#211f1b 65%,#302a22);color:#f6ead6;border-color:#a88a5d}
 .fan-story-detail[data-story-theme="buried-memory"] p{color:#f6ead6;line-height:1.7}
 .fan-story-detail[data-story-theme="buried-memory"] .fan-story-hero>img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
