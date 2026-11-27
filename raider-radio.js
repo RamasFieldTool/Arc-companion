@@ -402,7 +402,7 @@
     node.textContent=text;
     return node;
   }
-  function themeFor(story){return ['dark-ambush','rust-legend','forest-tragicomedy','tower-bluff'].includes(story.theme)?story.theme:'default';}
+  function themeFor(story){return ['dark-ambush','rust-legend','forest-tragicomedy','tower-bluff','buried-memory'].includes(story.theme)?story.theme:'default';}
   function makeImage(story,lazy=false){
     const image=document.createElement('img');
     image.src=story.image;
