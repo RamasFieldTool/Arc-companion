@@ -6,6 +6,14 @@ import vm from 'node:vm';
 const storyContext={window:{},document:{documentElement:{lang:'de'},readyState:'loading',addEventListener(){}},MutationObserver:class{observe(){}}};
 storyContext.window.addEventListener=()=>{};
 vm.runInNewContext(await readFile(new URL('../raider-stories.js',import.meta.url),'utf8'),storyContext);
+const buriedMemorySource=storyContext.window.RFTCommunityStories.find(story=>story.id==='ergeht-es-euch-auch-manchmal-so');
+assert.equal(buriedMemorySource.title,'Ergeht es euch auch manchmal so ?');
+assert.equal(buriedMemorySource.author,'Zoe Bristow');
+assert.equal(buriedMemorySource.theme,'buried-memory');
+assert.equal(buriedMemorySource.image,'assets/stories/ergeht-es-euch-auch-manchmal-so-zoe-bristow.webp');
+assert.equal(buriedMemorySource.imageWidth,1229);
+assert.equal(buriedMemorySource.imageHeight,1536);
+assert.equal(createHash('sha256').update(await readFile(new URL('../assets/stories/ergeht-es-euch-auch-manchmal-so-zoe-bristow.webp',import.meta.url))).digest('hex'),'bf2db454440e83afdaa83869a573487b5ed26f49fbbfdb02f83ce7076a751915');
 const lastBlowSource=storyContext.window.RFTCommunityStories.find(story=>story.id==='der-letzte-schlag');
 assert.equal(lastBlowSource.author,'Zoe Bristow');
 assert.equal(lastBlowSource.title,'Der letzte Schlag');
@@ -190,14 +198,33 @@ try{
     await visible(page,'.fan-creations-hub');
     await page.locator('[data-fan-view="stories"]').tap();
     await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),6);
-    assert.equal(await page.locator('.fan-story-card').first().getAttribute('data-story-id'),'spitzhacken-therapie');
+    assert.equal(await page.locator('.fan-story-card').count(),7);
+    assert.equal(await page.locator('.fan-story-card').first().getAttribute('data-story-id'),'ergeht-es-euch-auch-manchmal-so');
     assert.equal(await page.locator('.fan-story-new').textContent(),({de:'Neu',en:'New',fr:'Nouveau',es:'Nuevo'})[language]);
+    if(width===360&&surface==='light'&&language==='de'){
+      const targetCard=page.locator('[data-story-id="ergeht-es-euch-auch-manchmal-so"]');
+      await page.waitForFunction(()=>{const image=document.querySelector('[data-story-id="ergeht-es-euch-auch-manchmal-so"] img');return image?.complete&&image.naturalWidth===1229&&image.naturalHeight===1536});
+      assert.equal(await targetCard.locator('.fan-story-card-title').textContent(),buriedMemorySource.title);
+      assert.equal(await targetCard.locator('.fan-story-author').textContent(),'Zoe Bristow');
+      assert.equal(await targetCard.locator('img').getAttribute('src'),buriedMemorySource.image);
+      await targetCard.locator('.fan-story-read').tap();
+      await hash(page,'#raiderRadio/stories/ergeht-es-euch-auch-manchmal-so');
+      await visible(page,'.fan-story-detail');
+      const hero=page.locator('.fan-story-hero>img');
+      await page.waitForFunction(()=>{const image=document.querySelector('.fan-story-hero>img');return image?.complete&&image.naturalWidth===1229&&image.naturalHeight===1536});
+      assert.equal(await page.locator('.fan-story-title').textContent(),buriedMemorySource.title);
+      assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
+      assert.equal(await page.locator('.fan-story-detail').getAttribute('data-story-theme'),'buried-memory');
+      assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),buriedMemorySource.content);
+      assert.ok(await hero.evaluate(image=>Math.abs(image.getBoundingClientRect().width/image.getBoundingClientRect().height-image.naturalWidth/image.naturalHeight)<0.01),'The complete portrait cover must retain its natural aspect ratio on mobile');
+      await page.locator('.fan-story-view>.fan-view-back').tap();
+      await visible(page,'.fan-stories-grid');
+    }
     const listMetrics=await page.locator('.fan-stories-grid').evaluate(grid=>{
       const cards=[...grid.querySelectorAll('.fan-story-card')];
       return {height:grid.getBoundingClientRect().height,covers:cards.map(card=>card.querySelector('img').getBoundingClientRect().width),links:cards.map(card=>{const r=card.getBoundingClientRect(),a=card.querySelector('.fan-story-read').getBoundingClientRect();return {row:r.width,link:a.width,height:r.height,linkHeight:a.height}})};
     });
-    assert.ok(listMetrics.height<760,JSON.stringify(listMetrics));
+    assert.ok(listMetrics.height<900,JSON.stringify(listMetrics));
     assert.ok(listMetrics.covers.every(width=>width<=65),JSON.stringify(listMetrics));
     assert.ok(listMetrics.links.every(r=>Math.abs(r.row-r.link)<=3&&Math.abs(r.height-r.linkHeight)<=3),'Whole story row must be clickable');
     await page.waitForFunction(({language,title})=>document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.lang===language&&document.querySelector('[data-story-id="versteckspiel"] .fan-story-card-title')?.textContent===title,{language,title:storyExpected[language].title});
@@ -268,7 +295,7 @@ try{
     await page.reload({waitUntil:'domcontentloaded'});await visible(page,'.fan-legend-reveal');
     await page.waitForFunction(()=>typeof window.arcSetLanguage==='function');
     await page.locator('.fan-story-view>.fan-view-back').tap();await visible(page,'.fan-stories-grid');
-    assert.equal(await page.locator('.fan-story-card').count(),6);
+    assert.equal(await page.locator('.fan-story-card').count(),7);
     const cardExpected=zoeSource.translations[await page.evaluate(()=>document.documentElement.lang)];
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-card-title').textContent(),cardExpected.title);
     assert.equal(await page.locator('[data-story-id="captain-defib"] .fan-story-summary').textContent(),cardExpected.summary);
@@ -322,10 +349,10 @@ try{
       await page.waitForFunction(lang=>document.documentElement.lang===lang,language);
       await page.locator('[data-app-target="raiderRadio"]').tap();
       await page.locator('[data-fan-view="stories"]').tap();await visible(page,'.fan-stories-grid');
-      assert.equal(await page.locator('.fan-story-card').count(),6);
+      assert.equal(await page.locator('.fan-story-card').count(),7);
       for(const story of storyContext.window.RFTCommunityStories){
-        const expected=story.translations[language]||story.translations[story.originalLanguage||story.language]||story.translations.de;
-        const expectedLanguage=story.translations[language]?language:(story.originalLanguage||story.language||'de');
+        const expected=story.translations?.[language]||story.translations?.[story.originalLanguage||story.language]||story.translations?.de||{title:story.title,summary:story.summary,content:story.content};
+        const expectedLanguage=story.translations?.[language]?language:(story.originalLanguage||story.language||'de');
         assert.ok(expected?.content.length>(story.id==='der-letzte-schlag'?800:1500),`${story.id} ${language}: original story content missing`);
         await page.waitForFunction(({id,title})=>document.querySelector(`[data-story-id="${id}"] .fan-story-card-title`)?.textContent===title,{id:story.id,title:expected.title});
         assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-summary`).textContent(),expected.summary);
