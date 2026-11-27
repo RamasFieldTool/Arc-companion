@@ -215,7 +215,7 @@ try{
       assert.equal(await page.locator('.fan-story-title').textContent(),buriedMemorySource.title);
       assert.equal(await page.locator('.fan-story-detail .fan-story-author').textContent(),'Zoe Bristow');
       assert.equal(await page.locator('.fan-story-detail').getAttribute('data-story-theme'),'buried-memory');
-      assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\\n\\n')),buriedMemorySource.content);
+      assert.equal(await page.locator('.fan-story-body').evaluate(el=>[...el.children].map(node=>node.textContent).join('\n\n')),buriedMemorySource.content);
       assert.ok(await hero.evaluate(image=>Math.abs(image.getBoundingClientRect().width/image.getBoundingClientRect().height-image.naturalWidth/image.naturalHeight)<0.01),'The complete portrait cover must retain its natural aspect ratio on mobile');
       await page.locator('.fan-story-view>.fan-view-back').tap();
       await visible(page,'.fan-stories-grid');
