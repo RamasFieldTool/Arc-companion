@@ -310,6 +310,7 @@ window.RFTCommunityStories=Object.freeze([
   }),
   Object.freeze({
   "id": "ergeht-es-euch-auch-manchmal-so",
+  "theme": "buried-memory",
   "title": "Ergeht es euch auch manchmal so ?",
   "author": "Zoe Bristow",
   "summary": "Ein ganz gewöhnlicher Tag. Ein Leben, das für die Menschen damals selbstverständlich war.",
@@ -425,3 +426,8 @@ window.RFTCommunityStories=Object.freeze([
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});
   else schedule();
 })();
+
+(()=>{const style=document.createElement('style');style.textContent=`
+.fan-story-card[data-story-theme="buried-memory"],.fan-story-detail[data-story-theme="buried-memory"]{background:linear-gradient(145deg,#40372c,#211f1b 65%,#302a22);color:#f6ead6;border-color:#a88a5d}
+.fan-story-detail[data-story-theme="buried-memory"] p{color:#f6ead6;line-height:1.7}
+`;document.head.appendChild(style)})();
