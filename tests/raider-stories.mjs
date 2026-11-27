@@ -352,7 +352,7 @@ try{
       assert.equal(await page.locator('.fan-story-card').count(),7);
       for(const story of storyContext.window.RFTCommunityStories){
         const expected=story.translations?.[language]||story.translations?.[story.originalLanguage||story.language]||story.translations?.de||{title:story.title,summary:story.summary,content:story.content};
-        const expectedLanguage=story.translations[language]?language:(story.originalLanguage||story.language||'de');
+        const expectedLanguage=story.translations?.[language]?language:(story.originalLanguage||story.language||'de');
         assert.ok(expected?.content.length>(story.id==='der-letzte-schlag'?800:1500),`${story.id} ${language}: original story content missing`);
         await page.waitForFunction(({id,title})=>document.querySelector(`[data-story-id="${id}"] .fan-story-card-title`)?.textContent===title,{id:story.id,title:expected.title});
         assert.equal(await page.locator(`[data-story-id="${story.id}"] .fan-story-summary`).textContent(),expected.summary);
