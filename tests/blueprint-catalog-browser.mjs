@@ -11,6 +11,11 @@ try {
       isMobile: viewport.mobile,
       hasTouch: viewport.mobile
     });
+    await context.addInitScript(() => {
+      localStorage.setItem('arcLang', 'en');
+      localStorage.setItem('arcUiLanguage', 'en');
+      localStorage.setItem('arcLanguageOnboardingPending', '0');
+    });
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' });
