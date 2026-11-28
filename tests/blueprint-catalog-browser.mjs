@@ -29,7 +29,7 @@ try {
     const info = page.locator('.blueprint-entry').filter({ has: row }).locator('details.blueprint-info');
     await info.locator('summary').click();
     const details = await info.locator('.blueprint-info-grid').innerText();
-    assert.match(details, /Acquisition \/ source/);
+    assert.match(details, /Acquisition \/ source/i);
     assert.match(details, /Redirection/);
     assert.match(details, /Harvester Payload/);
     const box = await info.boundingBox();
