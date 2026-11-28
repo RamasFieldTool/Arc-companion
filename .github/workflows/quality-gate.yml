@@ -24,6 +24,7 @@ jobs:
       - name: Validate JSON, assets, cache-busters, backup guards and version
         run: |
           node tests/data-integrity.mjs
+          node tests/blueprint-catalog.mjs
           node tests/startup-animation.mjs
           node tests/catalog-update-2.mjs
           node tests/catalog-monthly-cache.mjs
