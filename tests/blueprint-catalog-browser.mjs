@@ -14,7 +14,7 @@ try {
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' });
-    await page.locator('#blueprintDrawer summary').click();
+    await page.locator('#blueprintDrawer > summary').click();
     await page.waitForFunction(() => /91/.test(document.querySelector('#blueprintSummary')?.textContent || ''));
     assert.match(await page.locator('#blueprintSummary').innerText(), /91/);
     await page.locator('#blueprintQ').fill('Emperor Gateway Conduit');
