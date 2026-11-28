@@ -24,6 +24,7 @@ jobs:
       - name: Validate JSON, assets, cache-busters, backup guards and version
         run: |
           node tests/data-integrity.mjs
+          node tests/blueprint-catalog.mjs
           node tests/startup-animation.mjs
           node tests/catalog-update-2.mjs
           node tests/catalog-monthly-cache.mjs
@@ -60,6 +61,10 @@ jobs:
           done
           cat /tmp/arc-http.log
           exit 1
+      - name: Run blueprint catalog and mobile regression
+        env:
+          BASE_URL: http://127.0.0.1:4173/
+        run: node tests/blueprint-catalog-browser.mjs
       - name: Run complete weapon planner mobile regression
         run: node tests/weapon-planner-browser.mjs
       - name: Run browser and mobile-emulation quality gate

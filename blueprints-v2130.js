@@ -75,12 +75,12 @@
   function field(x,k){
     const a=x.acquisition||{};
     const s=status(x,k);
-    return `<div><b>${tr(k)}</b><span>${esc(value(a[k],k))}</span><em class="bp-evidence bp-${s}">${s==='confirmed'?tr('confirmed'):s==='community'?tr('community'):tr('unknown')}</em></div>`;
+    const labels={de:'Erwerb / Quelle',en:'Acquisition / source',fr:'Obtention / source',es:'Obtención / fuente',it:'Ottenimento / fonte'};const label=k==='source'?(labels[lang()]||labels.en):tr(k);return `<div><b>${label}</b><span>${esc(value(a[k],k))}</span><em class="bp-evidence bp-${s}">${s==='confirmed'?tr('confirmed'):s==='community'?tr('community'):tr('unknown')}</em></div>`;
   }
 
   function info(x){
     const a=x.acquisition||{};
-    return `<details class="blueprint-info" data-id="${x.id}"><summary>${tr('info')}</summary><div class="blueprint-info-grid">${field(x,'map')}${field(x,'condition')}${field(x,'container')}${field(x,'scavengable')}${field(x,'quest')}${field(x,'trials')}</div>${a.trials===true||typeof a.trials==='string'?`<p class="blueprint-caution">${tr('trialRandom')}</p>`:''}<p class="blueprint-caution">${tr('lootWarning')} ${tr('sourceNote')}</p></details>`;
+    return `<details class="blueprint-info" data-id="${x.id}"><summary>${tr('info')}</summary><div class="blueprint-info-grid">${field(x,'map')}${field(x,'condition')}${field(x,'container')}${field(x,'scavengable')}${field(x,'quest')}${field(x,'trials')}${a.source?field(x,'source'):''}</div>${a.trials===true||typeof a.trials==='string'?`<p class="blueprint-caution">${tr('trialRandom')}</p>`:''}<p class="blueprint-caution">${tr('lootWarning')} ${tr('sourceNote')}</p></details>`;
   }
 
   function render(){
@@ -88,7 +88,7 @@
     const q=($('blueprintQ')?.value||'').trim().toLowerCase();
     const rows=data.filter(x=>{
       const a=x.acquisition||{};
-      const hay=[primary(x),x.name_de,x.name_en,x.name,x.station,x.type,a.map,a.condition,a.container,a.quest,a.trials].filter(Boolean).join(' ').toLowerCase();
+      const hay=[primary(x),x.name_de,x.name_en,x.name,x.station,x.type,a.map,a.condition,a.container,a.quest,a.trials,a.source].filter(Boolean).join(' ').toLowerCase();
       return(!q||hay.includes(q))&&(filter==='all'||(filter==='learned')===learned.has(x.id));
     });
 
@@ -109,8 +109,8 @@
     drawer?.addEventListener('toggle',()=>{if(drawer.open&&data.length)render();else syncStatic()});
     try{
       const [bp,acq]=await Promise.all([
-        fetch('blueprints.json?v=2130d').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}),
-        fetch('blueprint-acquisition-v2130.json?v=2130d').then(r=>r.ok?r.json():({}))
+        fetch('blueprints.json?v=blueprint-91-20261128-1').then(r=>{if(!r.ok)throw Error(r.status);return r.json()}),
+        fetch('blueprint-acquisition-v2130.json?v=blueprint-91-20261128-1').then(r=>r.ok?r.json():({}))
       ]);
       data=bp.map(x=>({...x,acquisition:acq[x.id]||null}));
       $('blueprintQ').oninput=render;

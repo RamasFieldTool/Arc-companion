@@ -161,6 +161,13 @@
     "station": "—"
   },
   {
+    "id": "emperor-gateway-conduit",
+    "name_en": "Emperor Gateway Conduit",
+    "name_de": "Emperor Gateway Conduit",
+    "type": "blueprint",
+    "station": "—"
+  },
+  {
     "id": "equalizer",
     "name_en": "Equalizer",
     "name_de": "Equalizer",
