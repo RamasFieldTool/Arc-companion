@@ -19,9 +19,9 @@ try {
     const page = await context.newPage();
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base, { waitUntil: 'domcontentloaded' });
-    await page.locator('[data-app-target="itemsSection"]').click();
-    await page.locator('#itemsSection.launcher-active').waitFor({ state: 'visible' });
-    await page.locator('#blueprintDrawer > summary').click();
+    await page.locator('.nav-more > summary').click();
+    await page.locator('.nav-more-menu a[href="#blueprintDrawer"]').click();
+    await page.locator('#blueprintDrawer[open]').waitFor({ state: 'visible' });
     await page.waitForFunction(() => /91/.test(document.querySelector('#blueprintSummary')?.textContent || ''));
     assert.match(await page.locator('#blueprintSummary').innerText(), /91/);
     await page.locator('#blueprintQ').fill('Emperor Gateway Conduit');
